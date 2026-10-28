@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\cross-dex-audit\\20261028T164208638443Z\\cross_dex_identity_probe.exe",
+    "dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\shared-code-035.dex"
+  ],
+  "started_utc": "2026-10-28T16:42:17.102911+00:00",
+  "finished_utc": "2026-10-28T16:42:17.954055+00:00",
+  "elapsed_seconds": 0.8600000000001273,
+  "exit_code": 0,
+  "stdout_sha256": "c1e4a0c05384781ad3ddc32264bf92c2f178809a742b1455033612e809aebeb3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

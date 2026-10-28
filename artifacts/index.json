@@ -6293,6 +6293,351 @@
       "sha256": "d6cfd5f8455df23388ebefbcce3fbe902b527ad17dd2d6d920953166fc77148d"
     },
     {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-duplicate-raw-input/record.json",
+      "bytes": 1238,
+      "sha256": "74a892d87207d27fe03f2eb8e483213d3ceacabdf1caea4a0f60bb6b443e1e61"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-duplicate-raw-input/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-duplicate-raw-input/stdout.txt",
+      "bytes": 1218,
+      "sha256": "d4c48f0447f74ffc189be765bec83a30d1d952fc3122dc7d4ef44700f742daaf"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-same-content-multidex-apk/record.json",
+      "bytes": 1169,
+      "sha256": "dfd2fc89a321469f7e32f018796a1ab7c865b99c383bc6a48111fde523b6459e"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-same-content-multidex-apk/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-same-content-multidex-apk/stdout.txt",
+      "bytes": 1566,
+      "sha256": "1e31d1b163f2082b3d3b1113a5debe337e99534e0b89e422ae5195af68d2ee5b"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-two-distinct-raw/record.json",
+      "bytes": 1242,
+      "sha256": "2455357aacb2a17bb9c3587cd2f1252e3a5c1dc64dfd48fe395d88cc99402e83"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-two-distinct-raw/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-dex-files-two-distinct-raw/stdout.txt",
+      "bytes": 1314,
+      "sha256": "93fe5f1722724454857683e6dd83077c8014b4e907adfe981c9c411b9259e2e8"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-duplicate-raw-input/record.json",
+      "bytes": 1285,
+      "sha256": "1e2ee4a557dd44bcf59b994d39d1b5b5422949e6b46298cfb3ac489d28f88df3"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-duplicate-raw-input/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-duplicate-raw-input/stdout.txt",
+      "bytes": 2430,
+      "sha256": "65b0bdb688a0c84cf44ecd64d1c9e643362e8c421b5e0c43e092a1866e77befb"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-same-content-multidex-apk/record.json",
+      "bytes": 1217,
+      "sha256": "61adb6760e46fa7bb035a21c2deef22fe632dc05f11ec51bf34d52912312b888"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-same-content-multidex-apk/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-same-content-multidex-apk/stdout.txt",
+      "bytes": 2430,
+      "sha256": "65b0bdb688a0c84cf44ecd64d1c9e643362e8c421b5e0c43e092a1866e77befb"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-two-distinct-raw/record.json",
+      "bytes": 1289,
+      "sha256": "87e335159b72095877858d072633b8506dd246e912acbda312adf1dd4c480204"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-two-distinct-raw/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/a0-join-two-distinct-raw/stdout.txt",
+      "bytes": 2511,
+      "sha256": "b2e79abcf245a2f93183d69f55c75d118a9ffcf4c62a89cf138b2975170410dd"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/build/record.json",
+      "bytes": 590,
+      "sha256": "0b833055040c33ca3cd1119d1f6f9534dbbc8c5ef6aa14f157f2e2ad20112719"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/build/stderr.txt",
+      "bytes": 72,
+      "sha256": "9e04632aaa1d5494f83f1ca9ed5fe9ecc34217ba84acfc1694d48b10f02df59c"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/build/stdout.txt",
+      "bytes": 37522,
+      "sha256": "c3e9bc2d92dca26e87d0130b8cc373751d467dc000874c82b06bb70bf6188a1c"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/compile/record.json",
+      "bytes": 1277,
+      "sha256": "18fa2a88c922df492c9df80be0a8edf27e89d41a924b352e3c660b5d29dd4e2a"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/compile/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/compile/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-duplicate-raw-input/record.json",
+      "bytes": 740,
+      "sha256": "26dff8af9d43e93b1a95bff3d4b95ddcf06bc4202e174c66829ac72659fe94cf"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-duplicate-raw-input/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-duplicate-raw-input/stdout.txt",
+      "bytes": 22857,
+      "sha256": "1ef6210ddabe219e4c272e24b733f7567cd2637a9c40b08685568dab4ca987ce"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-same-content-multidex-apk/record.json",
+      "bytes": 676,
+      "sha256": "9694dab10ec06f233c898d900c5715fbd54dfc8f531f4c3d508e33bdb5384699"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-same-content-multidex-apk/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-same-content-multidex-apk/stdout.txt",
+      "bytes": 22787,
+      "sha256": "774408f5aa239676c751b63370dc5edc6d8d14349b50cce0635727232ecfd234"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-two-distinct-raw/record.json",
+      "bytes": 744,
+      "sha256": "df25f43d2a49e41f741ab3c92b7f021d972407c095a29c6c0f450aa7c6a79238"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-two-distinct-raw/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/native-two-distinct-raw/stdout.txt",
+      "bytes": 23554,
+      "sha256": "c1e4a0c05384781ad3ddc32264bf92c2f178809a742b1455033612e809aebeb3"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164208638443Z/result.json",
+      "bytes": 9379,
+      "sha256": "1b7a972bec8be3fff0f7ad834dd5403c397b4b22024d91bf0fedec073deb37ba"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-duplicate-raw-input/record.json",
+      "bytes": 1238,
+      "sha256": "2ae5fa3e4ef54e6abb70b78513ec6bfc714d6a2e0eb7a4dc18dcbf6cbf75d8ef"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-duplicate-raw-input/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-duplicate-raw-input/stdout.txt",
+      "bytes": 1218,
+      "sha256": "d4c48f0447f74ffc189be765bec83a30d1d952fc3122dc7d4ef44700f742daaf"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-same-content-multidex-apk/record.json",
+      "bytes": 1170,
+      "sha256": "a4d7519adb7b38d95761238f862897023c2c287cf5845d004f149c3b71d77e8f"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-same-content-multidex-apk/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-same-content-multidex-apk/stdout.txt",
+      "bytes": 1566,
+      "sha256": "448ef2761bf4871c72ddbf78406a61d72193e108d9e821cc728d78f4dd478ce5"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-two-distinct-raw/record.json",
+      "bytes": 1243,
+      "sha256": "051f8e3112d824de96b2652918b28d00dfa7a561ce8c90c833592435d5efc140"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-two-distinct-raw/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-dex-files-two-distinct-raw/stdout.txt",
+      "bytes": 1314,
+      "sha256": "93fe5f1722724454857683e6dd83077c8014b4e907adfe981c9c411b9259e2e8"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-duplicate-raw-input/record.json",
+      "bytes": 1286,
+      "sha256": "f4a8ca05704e027030f46e86c572a0a2cc108949789e2b9e94ee3cb81ad5f31f"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-duplicate-raw-input/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-duplicate-raw-input/stdout.txt",
+      "bytes": 2430,
+      "sha256": "65b0bdb688a0c84cf44ecd64d1c9e643362e8c421b5e0c43e092a1866e77befb"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-same-content-multidex-apk/record.json",
+      "bytes": 1218,
+      "sha256": "d348d62785b1bb2e0b63ea6121b93265fab27c83acd7f4a762dcda035754b817"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-same-content-multidex-apk/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-same-content-multidex-apk/stdout.txt",
+      "bytes": 2430,
+      "sha256": "65b0bdb688a0c84cf44ecd64d1c9e643362e8c421b5e0c43e092a1866e77befb"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-two-distinct-raw/record.json",
+      "bytes": 1290,
+      "sha256": "9dba92057426619627dfefeb3cb14192fc610ff1a38183ce0c7d1b97ab27e12e"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-two-distinct-raw/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/a0-join-two-distinct-raw/stdout.txt",
+      "bytes": 2511,
+      "sha256": "b2e79abcf245a2f93183d69f55c75d118a9ffcf4c62a89cf138b2975170410dd"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/build/record.json",
+      "bytes": 591,
+      "sha256": "dfda7de5294e6f2e57cdc14886e890563dd6f0b5fa4e3708dc97bcc60d517d06"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/build/stderr.txt",
+      "bytes": 72,
+      "sha256": "4cf86278c1e6d659943a46a3d7e3da429ac15be90f0f17742e24ef85228e7d3e"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/build/stdout.txt",
+      "bytes": 37522,
+      "sha256": "2a87d41681b101c375a634aecc893ced36488c525e5864d0c31f20ede173f611"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/compile/record.json",
+      "bytes": 1277,
+      "sha256": "4de5d17dfe36a9228c500b5e333bfa48ca6afd08fbc495ae53e0bdae1dd02722"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/compile/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/compile/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-duplicate-raw-input/record.json",
+      "bytes": 740,
+      "sha256": "86d1235a6d53fc45c93f53716a6fbd37b8a27bbe1e244e05e7450ee233901ccb"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-duplicate-raw-input/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-duplicate-raw-input/stdout.txt",
+      "bytes": 22857,
+      "sha256": "fcfd21fa53bc954796a25538700dc8c9b09c5a011afef406b1e7a525d9711af6"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-same-content-multidex-apk/record.json",
+      "bytes": 677,
+      "sha256": "7224d71865218c0299bda2de2c275a89d6ba33a539b8ec5d572577574639e086"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-same-content-multidex-apk/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-same-content-multidex-apk/stdout.txt",
+      "bytes": 22787,
+      "sha256": "10e3cfdfac6329f1e364e3015e918932e856c0e6a659bc189a8a47620ebf90c2"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-two-distinct-raw/record.json",
+      "bytes": 743,
+      "sha256": "da62a9968f6cdfa3e4e94d2f5006d970b2667e2a84e5c6da560d9e95b109a0cc"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-two-distinct-raw/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/native-two-distinct-raw/stdout.txt",
+      "bytes": 23554,
+      "sha256": "ff3aee257c0e7b95f13a54bc8a0f65b1a49d1a20fc78e31d843890fdd24491b6"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/readback.json",
+      "bytes": 405,
+      "sha256": "281b8b23846a37bb129876c396f3a4dfe8f890092045e418b58fdca2eb088f0b"
+    },
+    {
+      "path": "artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/result.json",
+      "bytes": 9478,
+      "sha256": "0f3f4f46764973908fad5e6c540ee0b804ed023ec43278464d26318c38ea92e3"
+    },
+    {
       "path": "artifacts/mdd-026/facts-differential.json",
       "bytes": 8127,
       "sha256": "5a2ae3e489b314210fdb04ded5680ad7145e9d6e705486b7c49cdda65dbe138b"
