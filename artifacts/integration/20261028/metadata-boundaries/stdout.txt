@@ -1,0 +1,1 @@
+Workspace boundary check passed: 8 real packages, no external project/provider dependency

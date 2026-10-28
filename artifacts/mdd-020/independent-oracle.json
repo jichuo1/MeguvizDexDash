@@ -1,0 +1,82 @@
+{
+  "schema_version": "mdd.metadata-independent-oracle.v1",
+  "success": true,
+  "strings": 7,
+  "types": [
+    {
+      "type_idx": 0,
+      "descriptor_string_idx": 0,
+      "descriptor": "I",
+      "shorty": "I",
+      "array_dimensions": 0
+    },
+    {
+      "type_idx": 1,
+      "descriptor_string_idx": 1,
+      "descriptor": "J",
+      "shorty": "J",
+      "array_dimensions": 0
+    },
+    {
+      "type_idx": 2,
+      "descriptor_string_idx": 2,
+      "descriptor": "Ljava/lang/String;",
+      "shorty": "L",
+      "array_dimensions": 0
+    },
+    {
+      "type_idx": 3,
+      "descriptor_string_idx": 3,
+      "descriptor": "V",
+      "shorty": "V",
+      "array_dimensions": 0
+    },
+    {
+      "type_idx": 4,
+      "descriptor_string_idx": 6,
+      "descriptor": "[I",
+      "shorty": "L",
+      "array_dimensions": 1
+    }
+  ],
+  "prototypes": [
+    {
+      "proto_idx": 0,
+      "shorty_string_idx": 3,
+      "shorty": "V",
+      "return_type_idx": 3,
+      "parameter_type_indices": [],
+      "parameters_byte_offset": null,
+      "descriptor": "()V"
+    },
+    {
+      "proto_idx": 1,
+      "shorty_string_idx": 4,
+      "shorty": "VIJLL",
+      "return_type_idx": 3,
+      "parameter_type_indices": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "parameters_byte_offset": "244",
+      "descriptor": "(IJLjava/lang/String;[I)V"
+    },
+    {
+      "proto_idx": 2,
+      "shorty_string_idx": 5,
+      "shorty": "VJI",
+      "return_type_idx": 3,
+      "parameter_type_indices": [
+        1,
+        0
+      ],
+      "parameters_byte_offset": "256",
+      "descriptor": "(JI)V"
+    }
+  ],
+  "provenance": "MDD-004 bounded Python header/string reader plus independently written scalar struct-based metadata reference. No production Rust parser or metadata generator imports.",
+  "expectations": "artifacts/mdd-020/expected.json",
+  "not_claimed": "complete DEX/ART verifier or DexSQL compatibility qualification"
+}

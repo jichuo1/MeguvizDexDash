@@ -3,5 +3,7 @@
 
 pub mod checked_reader;
 pub mod header;
+pub mod strings;
+pub mod types;
 
 pub use header::{DexHeader, DexRange, MapItem, TableInfo, validate_header};

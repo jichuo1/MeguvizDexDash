@@ -1,0 +1,77 @@
+{
+  "schema_version": "mdd.metadata-fixtures.v1",
+  "generator": "artifacts/mdd-020/generate_metadata_fixture.py",
+  "claim": "controlled metadata-only DEX and invalid mutants, not installable application or complete ART verifier qualification",
+  "files": [
+    {
+      "path": "artifacts/mdd-020/inputs/metadata-035.dex",
+      "bytes": 352,
+      "sha256": "f576ec32e74cd38fe6667f70869d1dd84a9ece12bd2cf0c698a1701c26e37677",
+      "expected": "valid",
+      "reason": null
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-shorty.dex",
+      "bytes": 352,
+      "sha256": "af7cf54a485623afe1618565a25a1795397188679a1372488ec5a194439518aa",
+      "expected": "invalid",
+      "reason": "SHORTY_DESCRIPTOR_MISMATCH"
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-return-index.dex",
+      "bytes": 352,
+      "sha256": "8296f4d1731c7b23eed8f7c52947152c78b259ad43db3c4e950394b4b072181f",
+      "expected": "invalid",
+      "reason": "INDEX_OUT_OF_RANGE"
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-parameter-index.dex",
+      "bytes": 352,
+      "sha256": "81911838c085c70c032f211e55fd449f0faeef754b294d2ee3c48148f8cb5463",
+      "expected": "invalid",
+      "reason": "INDEX_OUT_OF_RANGE"
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-void-parameter.dex",
+      "bytes": 352,
+      "sha256": "7cb0f7034c643c83cbc3dca64c325ac8b11f7fdd209f16d99e114328b8edffb3",
+      "expected": "invalid",
+      "reason": "VOID_PARAMETER"
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-utf16-length.dex",
+      "bytes": 352,
+      "sha256": "3102596c72a3bf55c54e407d67542c677836e456d295931088869e46e0651282",
+      "expected": "invalid",
+      "reason": "STRING_LENGTH_MISMATCH"
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-mutf8-leading.dex",
+      "bytes": 352,
+      "sha256": "00f8d5e5a217d2d859a0962ac873cb826a4b29ee163f4d43aec39b605cbe4838",
+      "expected": "invalid",
+      "reason": "INVALID_MUTF8"
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-type-descriptor.dex",
+      "bytes": 352,
+      "sha256": "806b67f6d03754b5061f4d75b3da18621fab9b32332ee707782567430a3d277d",
+      "expected": "invalid",
+      "reason": "INVALID_TYPE_DESCRIPTOR"
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-type-order.dex",
+      "bytes": 352,
+      "sha256": "1ce7006b8777d1225122a8e0cde7c81c8e1cb75fffa932f4c278db8c6367a904",
+      "expected": "invalid",
+      "reason": "TYPE_IDS_NOT_STRICT_ORDER"
+    },
+    {
+      "path": "artifacts/mdd-020/inputs/bad-prototype-order.dex",
+      "bytes": 352,
+      "sha256": "0b7f624967daba7a9a115049f93eb3714715caf2f83aae23cd6194ec6e5817b3",
+      "expected": "invalid",
+      "reason": "PROTO_IDS_NOT_STRICT_ORDER"
+    }
+  ]
+}

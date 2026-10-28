@@ -2,7 +2,7 @@
   "schema_version": "mdd.dependencies.v1",
   "rust": "1.99.0",
   "msrv": "1.99",
-  "lock_sha256": "7551adda1d3723e7c67add01b8fe12c2ee84e39c9c0329936b1193d856bcad00",
+  "lock_sha256": "48624496e6ffecf1696bec8aad1a36525a1e11f8c2dddd1837b9fc03a07c5944",
   "approved_direct_dependencies": [
     "serde",
     "serde_json",

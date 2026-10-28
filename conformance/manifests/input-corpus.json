@@ -7,8 +7,11 @@
       "expected_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
       "expected_bytes": 10885562,
       "origin_url": "https://github.com/TeamNewPipe/NewPipe/releases/download/v0.28.6/NewPipe_v0.28.6.apk",
-      "status": "not_acquired",
-      "actual_sha256": null
+      "status": "acquired_verified",
+      "actual_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+      "local_path": "artifacts/local/inputs/NewPipe_v0.28.6.apk",
+      "acquisition_evidence": "artifacts/integration/20261028/public-input-acquisition.json",
+      "git_distribution": "excluded; fetch official URL and verify identity"
     },
     {
       "visibility": "restricted",
@@ -50,7 +53,7 @@
   "scope": "Input identity registry only; historical hashes do not prove present bytes",
   "blocked_gates": [
     "MDD-005 same-environment A0/A1/A2 baseline",
-    "MDD-003 fully consumed required query goldens",
+    "Full HostLab required-query goldens (runtime qualification, separate from completed MDD-003 static corpus)",
     "MDD-054 full HostLab shadow equivalence",
     "MDD-082 performance qualification"
   ]

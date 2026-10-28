@@ -431,7 +431,7 @@
       "id": "MDD-020",
       "phase": "M2",
       "title": "实现字符串、类型、原型和局部 ID 事实",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-013"
       ],
@@ -458,7 +458,12 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-020/metadata-conformance.json",
+        "artifacts/mdd-020/public-newpipe-metadata.json"
+      ],
+      "completion_scope": "strings/types/prototypes only; remaining fact layers explicitly unbuilt"
     },
     {
       "id": "MDD-021",

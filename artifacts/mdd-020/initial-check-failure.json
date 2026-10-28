@@ -1,0 +1,13 @@
+{
+  "schema_version": "mdd.command-failure.v1",
+  "date": "2026-10-28",
+  "tests": "17 mdd-dex and 2 mdd-facts tests passed before Clippy step",
+  "failed_command": "cargo clippy --locked --offline -p mdd-dex -p mdd-facts --all-targets -- -D warnings",
+  "exit_code": 1,
+  "diagnostics": [
+    {"file":"crates/mdd-dex/src/strings.rs","code":"chunks_exact_to_as_chunks","fix":"Use as_chunks::<2>().0.iter() in test hex decoder."},
+    {"file":"crates/mdd-facts/src/metadata.rs","code":"cloned_ref_to_slice_refs","fix":"Use std::slice::from_ref for one-source test snapshot."}
+  ],
+  "scope": "Test helper style only. No fixture expectations, parsing semantics or rejection policy changed.",
+  "subsequent_results": "metadata-conformance.json"
+}

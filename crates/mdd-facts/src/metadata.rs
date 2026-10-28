@@ -1,0 +1,416 @@
+use mdd_dex::{
+    DexHeader,
+    strings::{DexString, StringLimits, read_string_pool},
+    types::{DexPrototype, DexType, read_types_and_prototypes},
+    validate_header,
+};
+use mdd_input::{
+    archive::{ArchiveInventory, MemberBlob},
+    snapshot::Snapshot,
+};
+use mdd_types::{Completeness, ErrorCode, MddError, MddResult, content_id};
+use serde::{Deserialize, Serialize};
+use std::sync::Arc;
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum EntityKind {
+    String,
+    Type,
+    Prototype,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct EntityRef {
+    pub snapshot_id: String,
+    pub dex_occurrence_id: String,
+    pub kind: EntityKind,
+    pub local_index: u32,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct MetadataSource {
+    pub snapshot_id: String,
+    pub dex_occurrence_id: String,
+    pub physical_dex_id: String,
+    pub member_id: String,
+    pub source_occurrence_id: String,
+    pub content_id: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct StringPoolIdentity {
+    pub string_pool_id: String,
+    pub physical_dex_id: String,
+    pub content_id: String,
+    pub string_ids_byte_offset: mdd_types::DecimalU64,
+    pub string_count: u32,
+    pub dex_occurrence_id: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct StringFact {
+    pub entity: EntityRef,
+    pub string_pool_id: String,
+    pub data: DexString,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct TypeFact {
+    pub entity: EntityRef,
+    pub descriptor_string: EntityRef,
+    pub data: DexType,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct PrototypeFact {
+    pub entity: EntityRef,
+    pub shorty_string: EntityRef,
+    pub return_type: EntityRef,
+    pub parameter_types: Vec<EntityRef>,
+    pub data: DexPrototype,
+}
+
+#[derive(Clone, Serialize)]
+pub struct MetadataFacts {
+    pub source: MetadataSource,
+    pub header: DexHeader,
+    pub string_pool: StringPoolIdentity,
+    pub strings: Vec<StringFact>,
+    pub types: Vec<TypeFact>,
+    pub prototypes: Vec<PrototypeFact>,
+    pub metadata_coverage: Completeness,
+    pub completed_layers: Vec<String>,
+    pub unbuilt_layers: Vec<String>,
+    #[serde(skip)]
+    blob: MemberBlob,
+}
+
+impl MetadataFacts {
+    pub fn build(
+        snapshot: &Snapshot,
+        inventory: &ArchiveInventory,
+        dex_index: usize,
+        limits: StringLimits,
+    ) -> MddResult<Self> {
+        let source_manifest = snapshot
+            .manifest()
+            .sources
+            .iter()
+            .find(|source| {
+                source.occurrence_id == inventory.manifest().source_occurrence_id
+                    && source.content_id == inventory.manifest().source_content_id
+            })
+            .ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::InvalidArgument,
+                    "facts.metadata",
+                    "inventory does not belong to snapshot",
+                )
+            })?;
+        let candidate = inventory.selected_dexes().get(dex_index).ok_or_else(|| {
+            MddError::new(
+                ErrorCode::InvalidArgument,
+                "facts.metadata",
+                "DEX occurrence index is outside inventory",
+            )
+        })?;
+        let source = MetadataSource {
+            snapshot_id: snapshot.manifest().snapshot_id.clone(),
+            dex_occurrence_id: candidate.dex_occurrence_id.clone(),
+            physical_dex_id: candidate.physical_dex_id.clone(),
+            member_id: candidate.blob.identity.member_id.clone(),
+            source_occurrence_id: source_manifest.occurrence_id.clone(),
+            content_id: candidate.blob.content_id.clone(),
+        };
+        let bind = |error: MddError| {
+            error
+                .detail("snapshot_id", source.snapshot_id.clone())
+                .detail("dex_occurrence_id", source.dex_occurrence_id.clone())
+                .detail("member_id", source.member_id.clone())
+                .detail("content_id", source.content_id.clone())
+        };
+        if candidate.logical_header_byte_offset.0 != 0
+            || candidate.blob.identity.source_occurrence_id != source_manifest.occurrence_id
+        {
+            return Err(bind(MddError::new(
+                ErrorCode::InvalidArgument,
+                "facts.metadata",
+                "unsupported logical offset or mismatched occurrence",
+            )));
+        }
+        if content_id(candidate.blob.bytes()) != source.content_id {
+            return Err(bind(MddError::new(
+                ErrorCode::InternalFault,
+                "facts.metadata",
+                "held blob differs from captured content identity",
+            )));
+        }
+        let header = validate_header(candidate.blob.bytes()).map_err(bind)?;
+        let pool = read_string_pool(candidate.blob.bytes(), &header, limits).map_err(bind)?;
+        let (types, prototypes) =
+            read_types_and_prototypes(candidate.blob.bytes(), &header, &pool).map_err(bind)?;
+        let string_table = header
+            .tables
+            .iter()
+            .find(|table| table.name == "string_ids")
+            .ok_or_else(|| {
+                bind(MddError::new(
+                    ErrorCode::InternalFault,
+                    "facts.metadata",
+                    "validated header lacks string table",
+                ))
+            })?;
+        let string_pool = StringPoolIdentity {
+            string_pool_id: format!(
+                "{}:string-pool:{}:{}",
+                source.physical_dex_id, string_table.range.byte_offset.0, string_table.count
+            ),
+            physical_dex_id: source.physical_dex_id.clone(),
+            content_id: source.content_id.clone(),
+            string_ids_byte_offset: string_table.range.byte_offset,
+            string_count: string_table.count,
+            dex_occurrence_id: source.dex_occurrence_id.clone(),
+        };
+        let entity = |kind, local_index| EntityRef {
+            snapshot_id: source.snapshot_id.clone(),
+            dex_occurrence_id: source.dex_occurrence_id.clone(),
+            kind,
+            local_index,
+        };
+        let strings = pool
+            .into_iter()
+            .map(|data| StringFact {
+                entity: entity(EntityKind::String, data.string_idx),
+                string_pool_id: string_pool.string_pool_id.clone(),
+                data,
+            })
+            .collect();
+        let types = types
+            .into_iter()
+            .map(|data| TypeFact {
+                entity: entity(EntityKind::Type, data.type_idx),
+                descriptor_string: entity(EntityKind::String, data.descriptor_string_idx),
+                data,
+            })
+            .collect();
+        let prototypes = prototypes
+            .into_iter()
+            .map(|data| PrototypeFact {
+                entity: entity(EntityKind::Prototype, data.proto_idx),
+                shorty_string: entity(EntityKind::String, data.shorty_string_idx),
+                return_type: entity(EntityKind::Type, data.return_type_idx),
+                parameter_types: data
+                    .parameter_type_indices
+                    .iter()
+                    .map(|index| entity(EntityKind::Type, *index))
+                    .collect(),
+                data,
+            })
+            .collect();
+        Ok(Self {
+            source,
+            header,
+            string_pool,
+            strings,
+            types,
+            prototypes,
+            metadata_coverage: Completeness::Complete,
+            completed_layers: ["strings", "types", "prototypes"]
+                .into_iter()
+                .map(str::to_owned)
+                .collect(),
+            unbuilt_layers: [
+                "definitions",
+                "annotations",
+                "code_layout",
+                "references",
+                "resources",
+                "derived_analysis",
+            ]
+            .into_iter()
+            .map(str::to_owned)
+            .collect(),
+            blob: candidate.blob.clone(),
+        })
+    }
+
+    pub fn bytes(&self) -> &[u8] {
+        self.blob.bytes()
+    }
+    pub fn lease(&self) -> Arc<[u8]> {
+        self.blob.lease()
+    }
+
+    pub fn entity(&self, kind: EntityKind, local_index: u32) -> MddResult<EntityRef> {
+        let count = match kind {
+            EntityKind::String => self.strings.len(),
+            EntityKind::Type => self.types.len(),
+            EntityKind::Prototype => self.prototypes.len(),
+        };
+        if local_index as usize >= count {
+            return Err(MddError::new(
+                ErrorCode::InvalidArgument,
+                "facts.metadata",
+                "local entity index is outside completed scope",
+            )
+            .detail("snapshot_id", self.source.snapshot_id.clone())
+            .detail("dex_occurrence_id", self.source.dex_occurrence_id.clone()));
+        }
+        Ok(EntityRef {
+            snapshot_id: self.source.snapshot_id.clone(),
+            dex_occurrence_id: self.source.dex_occurrence_id.clone(),
+            kind,
+            local_index,
+        })
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use mdd_input::{
+        archive::{ArchiveLimits, InventoryPolicy},
+        snapshot::{CaptureLimits, InputKind, InputSpec},
+    };
+    use std::path::PathBuf;
+
+    #[test]
+    fn duplicate_content_occurrences_keep_distinct_refs_and_owned_leases() {
+        let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("../../tests/fixtures/generated/structured-035.dex");
+        let input = InputSpec {
+            path,
+            kind: InputKind::RawDex,
+            expected_sha256: None,
+        };
+        let snapshot =
+            Snapshot::capture(&[input.clone(), input], CaptureLimits::default()).unwrap();
+        let first = ArchiveInventory::build(
+            &snapshot.sources()[0],
+            InventoryPolicy::default(),
+            ArchiveLimits::default(),
+        )
+        .unwrap();
+        let second = ArchiveInventory::build(
+            &snapshot.sources()[1],
+            InventoryPolicy::default(),
+            ArchiveLimits::default(),
+        )
+        .unwrap();
+        let left = MetadataFacts::build(&snapshot, &first, 0, StringLimits::default()).unwrap();
+        let right = MetadataFacts::build(&snapshot, &second, 0, StringLimits::default()).unwrap();
+        assert_eq!(left.source.content_id, right.source.content_id);
+        assert_eq!(
+            left.string_pool.string_pool_id,
+            right.string_pool.string_pool_id
+        );
+        assert_ne!(left.strings[0].entity, right.strings[0].entity);
+        assert_ne!(left.types[0].entity, right.types[0].entity);
+        assert_eq!(left.types[0].descriptor_string, left.strings[0].entity);
+        assert_eq!(left.prototypes[0].return_type, left.types[2].entity);
+        assert_eq!(
+            left.string_pool.string_pool_id,
+            format!("{}:string-pool:112:7", left.source.physical_dex_id)
+        );
+        let lease = left.lease();
+        drop(first);
+        drop(second);
+        drop(snapshot);
+        assert_eq!(left.bytes(), right.bytes());
+        assert_eq!(lease.as_ref(), left.bytes());
+        assert_eq!(
+            left.unbuilt_layers,
+            [
+                "definitions",
+                "annotations",
+                "code_layout",
+                "references",
+                "resources",
+                "derived_analysis"
+            ]
+        );
+        assert!(left.entity(EntityKind::String, 7).is_err());
+    }
+
+    #[test]
+    fn unrelated_snapshot_inventory_and_zero_quota_fail_closed() {
+        let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("../../tests/fixtures/generated/structured-035.dex");
+        let input = InputSpec {
+            path,
+            kind: InputKind::RawDex,
+            expected_sha256: None,
+        };
+        let a = Snapshot::capture(std::slice::from_ref(&input), CaptureLimits::default()).unwrap();
+        let b = Snapshot::capture(&[input], CaptureLimits::default()).unwrap();
+        let inventory = ArchiveInventory::build(
+            &a.sources()[0],
+            InventoryPolicy::default(),
+            ArchiveLimits::default(),
+        )
+        .unwrap();
+        assert_eq!(
+            MetadataFacts::build(&b, &inventory, 0, StringLimits::default())
+                .err()
+                .unwrap()
+                .code,
+            ErrorCode::InvalidArgument
+        );
+        let error = MetadataFacts::build(
+            &a,
+            &inventory,
+            0,
+            StringLimits {
+                max_strings: 0,
+                ..StringLimits::default()
+            },
+        )
+        .err()
+        .unwrap();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded);
+        assert_eq!(error.details["snapshot_id"], a.manifest().snapshot_id);
+        assert!(error.details.contains_key("content_id"));
+    }
+
+    #[test]
+    fn same_archive_duplicate_dexes_retain_independent_local_indices() {
+        let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("../../tests/fixtures/generated/duplicate-content.apk");
+        let snapshot = Snapshot::capture(
+            &[InputSpec {
+                path,
+                kind: InputKind::Apk,
+                expected_sha256: None,
+            }],
+            CaptureLimits::default(),
+        )
+        .unwrap();
+        let inventory = ArchiveInventory::build(
+            &snapshot.sources()[0],
+            InventoryPolicy::default(),
+            ArchiveLimits::default(),
+        )
+        .unwrap();
+        assert_eq!(inventory.selected_dexes().len(), 2);
+        let a = MetadataFacts::build(&snapshot, &inventory, 0, StringLimits::default()).unwrap();
+        let b = MetadataFacts::build(&snapshot, &inventory, 1, StringLimits::default()).unwrap();
+        assert_eq!(a.source.source_occurrence_id, b.source.source_occurrence_id);
+        assert_ne!(a.source.member_id, b.source.member_id);
+        assert_eq!(a.string_pool.string_pool_id, b.string_pool.string_pool_id);
+        assert_ne!(a.strings[0].entity, b.strings[0].entity);
+        assert_eq!(
+            a.strings[0].entity.local_index,
+            b.strings[0].entity.local_index
+        );
+        assert_eq!(
+            a.types[0].descriptor_string.dex_occurrence_id,
+            a.source.dex_occurrence_id
+        );
+        assert_eq!(
+            b.types[0].descriptor_string.dex_occurrence_id,
+            b.source.dex_occurrence_id
+        );
+    }
+}

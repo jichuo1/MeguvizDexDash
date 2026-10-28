@@ -1,0 +1,5341 @@
+{
+  "schema_version": "mdd.instruction-matrix.v1",
+  "state": "preimplementation_reference_matrix",
+  "source_revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+  "source_path": "artifacts/mdd-023/aosp-reference/dex_instruction_list.h",
+  "source_sha256": "6dec605fb0d44317eb8534fe7c186d6d0fdeb651375f618de5a929f76d60ef45",
+  "oracle_independence": "This matrix derives from the same AOSP table used as implementation reference; not an independent decoder oracle. Hand-reviewed format vectors and malformed/metamorphic cases remain required.",
+  "format_count": 26,
+  "format_opcode_counts": {
+    "10t": 1,
+    "10x": 2,
+    "11n": 1,
+    "11x": 10,
+    "12x": 57,
+    "20t": 1,
+    "21c": 20,
+    "21h": 2,
+    "21s": 2,
+    "21t": 6,
+    "22b": 11,
+    "22c": 16,
+    "22s": 8,
+    "22t": 6,
+    "22x": 3,
+    "23x": 51,
+    "30t": 1,
+    "31c": 1,
+    "31i": 2,
+    "31t": 3,
+    "32x": 3,
+    "35c": 7,
+    "3rc": 7,
+    "45cc": 1,
+    "4rcc": 1,
+    "51l": 1
+  },
+  "active_opcode_count": 224,
+  "reserved_opcode_count": 32,
+  "qualified": false,
+  "entries": [
+    {
+      "opcode": 0,
+      "mnemonic": "nop",
+      "format": "10x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyNothing"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 1,
+      "mnemonic": "move",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 2,
+      "mnemonic": "move/from16",
+      "format": "22x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 3,
+      "mnemonic": "move/16",
+      "format": "32x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 4,
+      "mnemonic": "move-wide",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 5,
+      "mnemonic": "move-wide/from16",
+      "format": "22x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 6,
+      "mnemonic": "move-wide/16",
+      "format": "32x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 7,
+      "mnemonic": "move-object",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 8,
+      "mnemonic": "move-object/from16",
+      "format": "22x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 9,
+      "mnemonic": "move-object/16",
+      "format": "32x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 10,
+      "mnemonic": "move-result",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 11,
+      "mnemonic": "move-result-wide",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 12,
+      "mnemonic": "move-result-object",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 13,
+      "mnemonic": "move-exception",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 14,
+      "mnemonic": "return-void",
+      "format": "10x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kReturn"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyNothing"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 15,
+      "mnemonic": "return",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kReturn"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 16,
+      "mnemonic": "return-wide",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kReturn"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 17,
+      "mnemonic": "return-object",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kReturn"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 18,
+      "mnemonic": "const/4",
+      "format": "11n",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 19,
+      "mnemonic": "const/16",
+      "format": "21s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 20,
+      "mnemonic": "const",
+      "format": "31i",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 21,
+      "mnemonic": "const/high16",
+      "format": "21h",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 22,
+      "mnemonic": "const-wide/16",
+      "format": "21s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 23,
+      "mnemonic": "const-wide/32",
+      "format": "31i",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 24,
+      "mnemonic": "const-wide",
+      "format": "51l",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 25,
+      "mnemonic": "const-wide/high16",
+      "format": "21h",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 26,
+      "mnemonic": "const-string",
+      "format": "21c",
+      "index_kind": "kIndexStringRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBString"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 27,
+      "mnemonic": "const-string/jumbo",
+      "format": "31c",
+      "index_kind": "kIndexStringRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBString"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 28,
+      "mnemonic": "const-class",
+      "format": "21c",
+      "index_kind": "kIndexTypeRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBType"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 29,
+      "mnemonic": "monitor-enter",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kClobber"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 30,
+      "mnemonic": "monitor-exit",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kClobber"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 31,
+      "mnemonic": "check-cast",
+      "format": "21c",
+      "index_kind": "kIndexTypeRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBType"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 32,
+      "mnemonic": "instance-of",
+      "format": "22c",
+      "index_kind": "kIndexTypeRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCType"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 33,
+      "mnemonic": "array-length",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 34,
+      "mnemonic": "new-instance",
+      "format": "21c",
+      "index_kind": "kIndexTypeRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kClobber"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBNewInstance"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 35,
+      "mnemonic": "new-array",
+      "format": "22c",
+      "index_kind": "kIndexTypeRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kClobber"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCNewArray"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 36,
+      "mnemonic": "filled-new-array",
+      "format": "35c",
+      "index_kind": "kIndexTypeRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kClobber"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBFilledNewArray",
+        "kVerifyVarArg"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 37,
+      "mnemonic": "filled-new-array/range",
+      "format": "3rc",
+      "index_kind": "kIndexTypeRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kClobber"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBFilledNewArray",
+        "kVerifyVarArgRange"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 38,
+      "mnemonic": "fill-array-data",
+      "format": "31t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kClobber"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyArrayData"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 39,
+      "mnemonic": "throw",
+      "format": "11x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 40,
+      "mnemonic": "goto",
+      "format": "10t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kBranch",
+        "kUnconditional"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 41,
+      "mnemonic": "goto/16",
+      "format": "20t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kBranch",
+        "kUnconditional"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 42,
+      "mnemonic": "goto/32",
+      "format": "30t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kBranch",
+        "kUnconditional"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 43,
+      "mnemonic": "packed-switch",
+      "format": "31t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kSwitch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifySwitchTargets"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 44,
+      "mnemonic": "sparse-switch",
+      "format": "31t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kSwitch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifySwitchTargets"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 45,
+      "mnemonic": "cmpl-float",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 46,
+      "mnemonic": "cmpg-float",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 47,
+      "mnemonic": "cmpl-double",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 48,
+      "mnemonic": "cmpg-double",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 49,
+      "mnemonic": "cmp-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 50,
+      "mnemonic": "if-eq",
+      "format": "22t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 51,
+      "mnemonic": "if-ne",
+      "format": "22t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 52,
+      "mnemonic": "if-lt",
+      "format": "22t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 53,
+      "mnemonic": "if-ge",
+      "format": "22t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 54,
+      "mnemonic": "if-gt",
+      "format": "22t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 55,
+      "mnemonic": "if-le",
+      "format": "22t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 56,
+      "mnemonic": "if-eqz",
+      "format": "21t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 57,
+      "mnemonic": "if-nez",
+      "format": "21t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 58,
+      "mnemonic": "if-ltz",
+      "format": "21t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 59,
+      "mnemonic": "if-gez",
+      "format": "21t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 60,
+      "mnemonic": "if-gtz",
+      "format": "21t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 61,
+      "mnemonic": "if-lez",
+      "format": "21t",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kBranch"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyBranchTarget"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 62,
+      "mnemonic": "unused-3e",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 63,
+      "mnemonic": "unused-3f",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 64,
+      "mnemonic": "unused-40",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 65,
+      "mnemonic": "unused-41",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 66,
+      "mnemonic": "unused-42",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 67,
+      "mnemonic": "unused-43",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 68,
+      "mnemonic": "aget",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 69,
+      "mnemonic": "aget-wide",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 70,
+      "mnemonic": "aget-object",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 71,
+      "mnemonic": "aget-boolean",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 72,
+      "mnemonic": "aget-byte",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 73,
+      "mnemonic": "aget-char",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 74,
+      "mnemonic": "aget-short",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 75,
+      "mnemonic": "aput",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 76,
+      "mnemonic": "aput-wide",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 77,
+      "mnemonic": "aput-object",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 78,
+      "mnemonic": "aput-boolean",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 79,
+      "mnemonic": "aput-byte",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 80,
+      "mnemonic": "aput-char",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 81,
+      "mnemonic": "aput-short",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 82,
+      "mnemonic": "iget",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 83,
+      "mnemonic": "iget-wide",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 84,
+      "mnemonic": "iget-object",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 85,
+      "mnemonic": "iget-boolean",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 86,
+      "mnemonic": "iget-byte",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 87,
+      "mnemonic": "iget-char",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 88,
+      "mnemonic": "iget-short",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 89,
+      "mnemonic": "iput",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 90,
+      "mnemonic": "iput-wide",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 91,
+      "mnemonic": "iput-object",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 92,
+      "mnemonic": "iput-boolean",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 93,
+      "mnemonic": "iput-byte",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 94,
+      "mnemonic": "iput-char",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 95,
+      "mnemonic": "iput-short",
+      "format": "22c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegCField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 96,
+      "mnemonic": "sget",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 97,
+      "mnemonic": "sget-wide",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 98,
+      "mnemonic": "sget-object",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 99,
+      "mnemonic": "sget-boolean",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 100,
+      "mnemonic": "sget-byte",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 101,
+      "mnemonic": "sget-char",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 102,
+      "mnemonic": "sget-short",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kLoad",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 103,
+      "mnemonic": "sput",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 104,
+      "mnemonic": "sput-wide",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 105,
+      "mnemonic": "sput-object",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 106,
+      "mnemonic": "sput-boolean",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 107,
+      "mnemonic": "sput-byte",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 108,
+      "mnemonic": "sput-char",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 109,
+      "mnemonic": "sput-short",
+      "format": "21c",
+      "index_kind": "kIndexFieldRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kStore",
+        "kRegBFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBField"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 110,
+      "mnemonic": "invoke-virtual",
+      "format": "35c",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgNonZero"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 111,
+      "mnemonic": "invoke-super",
+      "format": "35c",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgNonZero"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 112,
+      "mnemonic": "invoke-direct",
+      "format": "35c",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgNonZero"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 113,
+      "mnemonic": "invoke-static",
+      "format": "35c",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArg"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 114,
+      "mnemonic": "invoke-interface",
+      "format": "35c",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgNonZero"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 115,
+      "mnemonic": "unused-73",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 116,
+      "mnemonic": "invoke-virtual/range",
+      "format": "3rc",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgRangeNonZero"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 117,
+      "mnemonic": "invoke-super/range",
+      "format": "3rc",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgRangeNonZero"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 118,
+      "mnemonic": "invoke-direct/range",
+      "format": "3rc",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgRangeNonZero"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 119,
+      "mnemonic": "invoke-static/range",
+      "format": "3rc",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgRange"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 120,
+      "mnemonic": "invoke-interface/range",
+      "format": "3rc",
+      "index_kind": "kIndexMethodRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgRangeNonZero"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 121,
+      "mnemonic": "unused-79",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 122,
+      "mnemonic": "unused-7a",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 123,
+      "mnemonic": "neg-int",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 124,
+      "mnemonic": "not-int",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 125,
+      "mnemonic": "neg-long",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 126,
+      "mnemonic": "not-long",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 127,
+      "mnemonic": "neg-float",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 128,
+      "mnemonic": "neg-double",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 129,
+      "mnemonic": "int-to-long",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 130,
+      "mnemonic": "int-to-float",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 131,
+      "mnemonic": "int-to-double",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 132,
+      "mnemonic": "long-to-int",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 133,
+      "mnemonic": "long-to-float",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 134,
+      "mnemonic": "long-to-double",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 135,
+      "mnemonic": "float-to-int",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 136,
+      "mnemonic": "float-to-long",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 137,
+      "mnemonic": "float-to-double",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 138,
+      "mnemonic": "double-to-int",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 139,
+      "mnemonic": "double-to-long",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 140,
+      "mnemonic": "double-to-float",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 141,
+      "mnemonic": "int-to-byte",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 142,
+      "mnemonic": "int-to-char",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 143,
+      "mnemonic": "int-to-short",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kCast"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 144,
+      "mnemonic": "add-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 145,
+      "mnemonic": "sub-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 146,
+      "mnemonic": "mul-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 147,
+      "mnemonic": "div-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kDivide"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 148,
+      "mnemonic": "rem-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kRemainder"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 149,
+      "mnemonic": "and-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAnd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 150,
+      "mnemonic": "or-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kOr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 151,
+      "mnemonic": "xor-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kXor"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 152,
+      "mnemonic": "shl-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShl"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 153,
+      "mnemonic": "shr-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 154,
+      "mnemonic": "ushr-int",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kUshr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 155,
+      "mnemonic": "add-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 156,
+      "mnemonic": "sub-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 157,
+      "mnemonic": "mul-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 158,
+      "mnemonic": "div-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kDivide"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 159,
+      "mnemonic": "rem-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kRemainder"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 160,
+      "mnemonic": "and-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAnd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 161,
+      "mnemonic": "or-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kOr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 162,
+      "mnemonic": "xor-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kXor"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 163,
+      "mnemonic": "shl-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShl"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 164,
+      "mnemonic": "shr-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 165,
+      "mnemonic": "ushr-long",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kUshr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 166,
+      "mnemonic": "add-float",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 167,
+      "mnemonic": "sub-float",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 168,
+      "mnemonic": "mul-float",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 169,
+      "mnemonic": "div-float",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kDivide"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 170,
+      "mnemonic": "rem-float",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRemainder"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB",
+        "kVerifyRegC"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 171,
+      "mnemonic": "add-double",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 172,
+      "mnemonic": "sub-double",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 173,
+      "mnemonic": "mul-double",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 174,
+      "mnemonic": "div-double",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kDivide"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 175,
+      "mnemonic": "rem-double",
+      "format": "23x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRemainder"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide",
+        "kVerifyRegCWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 176,
+      "mnemonic": "add-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 177,
+      "mnemonic": "sub-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 178,
+      "mnemonic": "mul-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 179,
+      "mnemonic": "div-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kDivide"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 180,
+      "mnemonic": "rem-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kRemainder"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 181,
+      "mnemonic": "and-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAnd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 182,
+      "mnemonic": "or-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kOr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 183,
+      "mnemonic": "xor-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kXor"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 184,
+      "mnemonic": "shl-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShl"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 185,
+      "mnemonic": "shr-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 186,
+      "mnemonic": "ushr-int/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kUshr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 187,
+      "mnemonic": "add-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 188,
+      "mnemonic": "sub-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 189,
+      "mnemonic": "mul-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 190,
+      "mnemonic": "div-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kDivide"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 191,
+      "mnemonic": "rem-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kRemainder"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 192,
+      "mnemonic": "and-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAnd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 193,
+      "mnemonic": "or-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kOr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 194,
+      "mnemonic": "xor-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kXor"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 195,
+      "mnemonic": "shl-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShl"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 196,
+      "mnemonic": "shr-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 197,
+      "mnemonic": "ushr-long/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kUshr"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 198,
+      "mnemonic": "add-float/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 199,
+      "mnemonic": "sub-float/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 200,
+      "mnemonic": "mul-float/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 201,
+      "mnemonic": "div-float/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kDivide"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 202,
+      "mnemonic": "rem-float/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRemainder"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 203,
+      "mnemonic": "add-double/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 204,
+      "mnemonic": "sub-double/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 205,
+      "mnemonic": "mul-double/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 206,
+      "mnemonic": "div-double/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kDivide"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 207,
+      "mnemonic": "rem-double/2addr",
+      "format": "12x",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kRemainder"
+      ],
+      "verifier_flags": [
+        "kVerifyRegAWide",
+        "kVerifyRegBWide"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 208,
+      "mnemonic": "add-int/lit16",
+      "format": "22s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 209,
+      "mnemonic": "rsub-int",
+      "format": "22s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 210,
+      "mnemonic": "mul-int/lit16",
+      "format": "22s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 211,
+      "mnemonic": "div-int/lit16",
+      "format": "22s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kDivide",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 212,
+      "mnemonic": "rem-int/lit16",
+      "format": "22s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kRemainder",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 213,
+      "mnemonic": "and-int/lit16",
+      "format": "22s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAnd",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 214,
+      "mnemonic": "or-int/lit16",
+      "format": "22s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kOr",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 215,
+      "mnemonic": "xor-int/lit16",
+      "format": "22s",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kXor",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 216,
+      "mnemonic": "add-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAdd",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 217,
+      "mnemonic": "rsub-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kSubtract",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 218,
+      "mnemonic": "mul-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kMultiply",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 219,
+      "mnemonic": "div-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kDivide",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 220,
+      "mnemonic": "rem-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "kRemainder",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 221,
+      "mnemonic": "and-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kAnd",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 222,
+      "mnemonic": "or-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kOr",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 223,
+      "mnemonic": "xor-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kXor",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 224,
+      "mnemonic": "shl-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShl",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 225,
+      "mnemonic": "shr-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kShr",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 226,
+      "mnemonic": "ushr-int/lit8",
+      "format": "22b",
+      "index_kind": "kIndexNone",
+      "flags": [
+        "kContinue"
+      ],
+      "extended_flags": [
+        "kUshr",
+        "kRegCFieldOrConstant"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegB"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 227,
+      "mnemonic": "unused-e3",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 228,
+      "mnemonic": "unused-e4",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 229,
+      "mnemonic": "unused-e5",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 230,
+      "mnemonic": "unused-e6",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 231,
+      "mnemonic": "unused-e7",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 232,
+      "mnemonic": "unused-e8",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 233,
+      "mnemonic": "unused-e9",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 234,
+      "mnemonic": "unused-ea",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 235,
+      "mnemonic": "unused-eb",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 236,
+      "mnemonic": "unused-ec",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 237,
+      "mnemonic": "unused-ed",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 238,
+      "mnemonic": "unused-ee",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 239,
+      "mnemonic": "unused-ef",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 240,
+      "mnemonic": "unused-f0",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 241,
+      "mnemonic": "unused-f1",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 242,
+      "mnemonic": "unused-f2",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 243,
+      "mnemonic": "unused-f3",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 244,
+      "mnemonic": "unused-f4",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 245,
+      "mnemonic": "unused-f5",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 246,
+      "mnemonic": "unused-f6",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 247,
+      "mnemonic": "unused-f7",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 248,
+      "mnemonic": "unused-f8",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 249,
+      "mnemonic": "unused-f9",
+      "format": "10x",
+      "index_kind": "kIndexUnknown",
+      "flags": [
+        "0"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyError"
+      ],
+      "reserved": true,
+      "minimum_dex_version": "035",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 250,
+      "mnemonic": "invoke-polymorphic",
+      "format": "45cc",
+      "index_kind": "kIndexMethodAndProtoRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgNonZero",
+        "kVerifyRegHPrototype"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "038",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 251,
+      "mnemonic": "invoke-polymorphic/range",
+      "format": "4rcc",
+      "index_kind": "kIndexMethodAndProtoRef",
+      "flags": [
+        "kContinue",
+        "kThrow",
+        "kInvoke"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBMethod",
+        "kVerifyVarArgRangeNonZero",
+        "kVerifyRegHPrototype"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "038",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 252,
+      "mnemonic": "invoke-custom",
+      "format": "35c",
+      "index_kind": "kIndexCallSiteRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBCallSite",
+        "kVerifyVarArg"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "038",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 253,
+      "mnemonic": "invoke-custom/range",
+      "format": "3rc",
+      "index_kind": "kIndexCallSiteRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegBCallSite",
+        "kVerifyVarArgRange"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "038",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 254,
+      "mnemonic": "const-method-handle",
+      "format": "21c",
+      "index_kind": "kIndexMethodHandleRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBMethodHandle"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "039",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    },
+    {
+      "opcode": 255,
+      "mnemonic": "const-method-type",
+      "format": "21c",
+      "index_kind": "kIndexProtoRef",
+      "flags": [
+        "kContinue",
+        "kThrow"
+      ],
+      "extended_flags": [
+        "0"
+      ],
+      "verifier_flags": [
+        "kVerifyRegA",
+        "kVerifyRegBPrototype"
+      ],
+      "reserved": false,
+      "minimum_dex_version": "039",
+      "production_decoder_status": "not_implemented",
+      "independent_test_status": "not_run"
+    }
+  ]
+}

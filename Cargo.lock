@@ -202,6 +202,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "mdd-facts"
+version = "0.1.0-dev"
+dependencies = [
+ "mdd-dex",
+ "mdd-input",
+ "mdd-types",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "mdd-input"
 version = "0.1.0-dev"
 dependencies = [

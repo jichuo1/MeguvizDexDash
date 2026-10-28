@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "target/debug/meguvizdexdash.exe",
+    "inspect-apk",
+    "artifacts/local/inputs/NewPipe_v0.28.6.apk"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T07:46:36.328953+00:00",
+  "finished_utc": "2026-10-28T07:46:38.898466+00:00",
+  "elapsed_seconds": 2.561999999998079,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 739016,
+    "sha256": "b95c552fb2fae0ea195cbffae06d3f635c3f23b235438a23acf095b3e8561616"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

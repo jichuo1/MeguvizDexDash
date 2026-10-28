@@ -1,0 +1,10 @@
+{
+  "record_kind": "actual_download_identity",
+  "input": "NewPipe_v0.28.6.apk",
+  "source_url": "https://github.com/TeamNewPipe/NewPipe/releases/download/v0.28.6/NewPipe_v0.28.6.apk",
+  "bytes": 10885562,
+  "sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+  "history_identity_matches": true,
+  "private_input": false,
+  "tracked_in_git": false
+}

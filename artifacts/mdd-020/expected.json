@@ -1,0 +1,18 @@
+{
+  "schema_version": "mdd.metadata-manual-expectations.v1",
+  "origin": "Hand-authored expectations; the writer does not modify this file.",
+  "strings_utf16": [[73],[74],[76,106,97,118,97,47,108,97,110,103,47,83,116,114,105,110,103,59],[86],[86,73,74,76,76],[86,74,73],[91,73]],
+  "types": [
+    {"type_idx":0,"descriptor_string_idx":0,"descriptor":"I","shorty":"I","array_dimensions":0},
+    {"type_idx":1,"descriptor_string_idx":1,"descriptor":"J","shorty":"J","array_dimensions":0},
+    {"type_idx":2,"descriptor_string_idx":2,"descriptor":"Ljava/lang/String;","shorty":"L","array_dimensions":0},
+    {"type_idx":3,"descriptor_string_idx":3,"descriptor":"V","shorty":"V","array_dimensions":0},
+    {"type_idx":4,"descriptor_string_idx":6,"descriptor":"[I","shorty":"L","array_dimensions":1}
+  ],
+  "prototypes": [
+    {"proto_idx":0,"shorty_string_idx":3,"shorty":"V","return_type_idx":3,"parameter_type_indices":[],"descriptor":"()V","parameters_byte_offset":null},
+    {"proto_idx":1,"shorty_string_idx":4,"shorty":"VIJLL","return_type_idx":3,"parameter_type_indices":[0,1,2,4],"descriptor":"(IJLjava/lang/String;[I)V","parameters_byte_offset":"244"},
+    {"proto_idx":2,"shorty_string_idx":5,"shorty":"VJI","return_type_idx":3,"parameter_type_indices":[1,0],"descriptor":"(JI)V","parameters_byte_offset":"256"}
+  ],
+  "derivation": "Canonical strings occupy 196..240 inclusive, followed by three pad bytes. First type_list starts244 and has four parameters I,J,String,[I. Second starts256 with J,I; order is semantic and remains distinct from I,J. Empty parameter proto uses offset0. Proto order is return type then lexicographic parameter IDs: [],[0,1,2,4],[1,0]."
+}

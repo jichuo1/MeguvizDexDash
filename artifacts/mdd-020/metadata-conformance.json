@@ -1,0 +1,297 @@
+{
+  "schema_version": "mdd.metadata-conformance.v1",
+  "task_id": "MDD-020",
+  "started_utc": "2026-10-28T07:58:26.597412+00:00",
+  "completed_utc": "2026-10-28T07:58:39.989019+00:00",
+  "environment": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "toolchain": {
+    "argv": [
+      "rustc",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "stdout": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1\n",
+    "stderr": ""
+  },
+  "checkout": {
+    "argv": [
+      "git",
+      "-c",
+      "safe.directory=D:/MeguvisDexDash",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "stdout": "d9ce060e8900f66201989a3d3d3b2e53be5feb7f\n",
+    "stderr": ""
+  },
+  "commands": [
+    {
+      "argv": [
+        "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+        "artifacts/mdd-020/generate_metadata_fixture.py"
+      ],
+      "exit_code": 0,
+      "stdout": "generated 10 metadata fixtures\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+        "artifacts/mdd-020/generate_metadata_fixture.py"
+      ],
+      "exit_code": 0,
+      "stdout": "generated 10 metadata fixtures\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+        "artifacts/mdd-020/verify_metadata_fixture.py"
+      ],
+      "exit_code": 0,
+      "stdout": "independent metadata oracle passed: 7 strings, 5 types, 3 prototypes\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "mdd-dex",
+        "-p",
+        "mdd-facts"
+      ],
+      "exit_code": 0,
+      "stdout": "\nrunning 17 tests\ntest checked_reader::tests::arithmetic_and_ranges_reject_before_reading ... ok\ntest header::tests::exact_unsupported_formats_do_not_admit_numeric_ranges ... ok\ntest header::tests::checksum_and_sha1_validation_scopes_remain_distinct ... ok\ntest header::tests::malformed_fixtures_have_distinct_errors_and_ranges ... ok\ntest header::tests::header_empty_ranges_and_large_counts_fail_explicitly ... ok\ntest header::tests::map_overlap_duplicate_and_header_disagreement_are_errors ... ok\ntest header::tests::structured_sources_and_reordered_data_keep_valid_reference_ranges ... ok\ntest types::tests::descriptor_grammar_has_exact_void_array_name_and_version_rules ... ok\ntest types::tests::existing_independent_fixture_types_and_empty_proto_match ... ok\ntest strings::tests::actual_pool_preserves_utf16_nul_and_surrogates ... ok\ntest header::tests::forward_backwards_and_out_of_range_references_are_rejected ... ok\ntest types::tests::independent_nonempty_parameter_fixture_matches_every_declared_field ... ok\ntest header::tests::each_standard_version_has_real_fixture ... ok\ntest types::tests::independent_metadata_mutants_reject_instead_of_empty_success ... ok\ntest strings::tests::independent_component_vectors_match_without_lossy_substitution ... ok\ntest header::tests::all_prefix_truncations_fail_without_panic ... ok\ntest strings::tests::all_512_independent_fifth_byte_oracle_cases_match ... ok\n\ntest result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 3 tests\ntest metadata::tests::unrelated_snapshot_inventory_and_zero_quota_fail_closed ... ok\ntest metadata::tests::same_archive_duplicate_dexes_retain_independent_local_indices ... ok\ntest metadata::tests::duplicate_content_occurrences_keep_distinct_refs_and_owned_leases ... ok\n\ntest result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "   Compiling mdd-dex v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-dex)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.20s\n     Running unittests src\\lib.rs (target\\debug\\deps\\mdd_dex-ad732fba3696c5b3.exe)\n     Running unittests src\\lib.rs (target\\debug\\deps\\mdd_facts-8e3646ef4d7cafc9.exe)\n   Doc-tests mdd_dex\n   Doc-tests mdd_facts\n"
+    },
+    {
+      "argv": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--offline",
+        "-p",
+        "mdd-dex",
+        "-p",
+        "mdd-facts",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Checking mdd-dex v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-dex)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.92s\n"
+    },
+    {
+      "argv": [
+        "rustfmt",
+        "--check",
+        "--edition",
+        "2024",
+        "crates/mdd-dex/src/strings.rs",
+        "crates/mdd-dex/src/types.rs",
+        "crates/mdd-facts/src/lib.rs",
+        "crates/mdd-facts/src/metadata.rs",
+        "crates/mdd-facts/examples/metadata_summary.rs"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "cargo",
+        "run",
+        "--locked",
+        "--offline",
+        "-p",
+        "mdd-facts",
+        "--example",
+        "metadata_summary",
+        "--",
+        "artifacts/local/inputs/NewPipe_v0.28.6.apk",
+        "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"captured_input_bytes\":\"10885562\",\"full_audit_complete\":false,\"input_content_id\":\"sha256:e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58\",\"metadata_calculation_complete\":true,\"operation_status\":\"ok\",\"qualification\":\"actual complete metadata construction; no HostLab, full facts or performance qualification\",\"required_dex_occurrences\":2,\"scope\":\"strings-types-prototypes-only-v1\",\"selected_dexes\":[{\"completed_layers\":[\"strings\",\"types\",\"prototypes\"],\"content_id\":\"sha256:b661eaad3277de9147c4461f27c15b949d2a360ab61ef05b7a9e82b3e6c27521\",\"dex_occurrence_id\":\"snapshot-16e9cc6d6f4bbb667513cd144d7456dfb2ffcd2d0399a1515e6ab56ca5b8b821:source:0:member:4:dex:header:0\",\"full_dex_validation_complete\":false,\"parameter_references\":29796,\"prototypes\":13644,\"signature_verified\":false,\"strings\":64754,\"strings_without_scalar_utf8\":0,\"types\":9630,\"unbuilt_layers\":[\"definitions\",\"annotations\",\"code_layout\",\"references\",\"resources\",\"derived_analysis\"],\"utf16_code_units\":1661296,\"version\":\"035\"},{\"completed_layers\":[\"strings\",\"types\",\"prototypes\"],\"content_id\":\"sha256:e95ea094cdfb755304f5027ba6e64fa98f9b10e874c4093f3b19c43d62bfee3f\",\"dex_occurrence_id\":\"snapshot-16e9cc6d6f4bbb667513cd144d7456dfb2ffcd2d0399a1515e6ab56ca5b8b821:source:0:member:5:dex:header:0\",\"full_dex_validation_complete\":false,\"parameter_references\":2386,\"prototypes\":1455,\"signature_verified\":false,\"strings\":3722,\"strings_without_scalar_utf8\":0,\"types\":1034,\"unbuilt_layers\":[\"definitions\",\"annotations\",\"code_layout\",\"references\",\"resources\",\"derived_analysis\"],\"utf16_code_units\":58996,\"version\":\"035\"}],\"snapshot_id\":\"snapshot-16e9cc6d6f4bbb667513cd144d7456dfb2ffcd2d0399a1515e6ab56ca5b8b821\"}\n",
+      "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.46s\n     Running `target\\debug\\examples\\metadata_summary.exe artifacts/local/inputs/NewPipe_v0.28.6.apk e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58`\n"
+    },
+    {
+      "argv": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "stdout": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "safe.directory=D:/MeguvisDexDash",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "d9ce060e8900f66201989a3d3d3b2e53be5feb7f\n",
+      "stderr": ""
+    }
+  ],
+  "success": true,
+  "test_summary": "17 mdd-dex and 3 mdd-facts passed",
+  "independent_leb_oracle_cases": 512,
+  "new_fixture_count": 10,
+  "fixture_generation_reproducible": true,
+  "fixture_sha256": {
+    "bad-mutf8-leading.dex": "00f8d5e5a217d2d859a0962ac873cb826a4b29ee163f4d43aec39b605cbe4838",
+    "bad-parameter-index.dex": "81911838c085c70c032f211e55fd449f0faeef754b294d2ee3c48148f8cb5463",
+    "bad-prototype-order.dex": "0b7f624967daba7a9a115049f93eb3714715caf2f83aae23cd6194ec6e5817b3",
+    "bad-return-index.dex": "8296f4d1731c7b23eed8f7c52947152c78b259ad43db3c4e950394b4b072181f",
+    "bad-shorty.dex": "af7cf54a485623afe1618565a25a1795397188679a1372488ec5a194439518aa",
+    "bad-type-descriptor.dex": "806b67f6d03754b5061f4d75b3da18621fab9b32332ee707782567430a3d277d",
+    "bad-type-order.dex": "1ce7006b8777d1225122a8e0cde7c81c8e1cb75fffa932f4c278db8c6367a904",
+    "bad-utf16-length.dex": "3102596c72a3bf55c54e407d67542c677836e456d295931088869e46e0651282",
+    "bad-void-parameter.dex": "7cb0f7034c643c83cbc3dca64c325ac8b11f7fdd209f16d99e114328b8edffb3",
+    "metadata-035.dex": "f576ec32e74cd38fe6667f70869d1dd84a9ece12bd2cf0c698a1701c26e37677"
+  },
+  "manual_expectations_preserved": true,
+  "source_sha256": {
+    "Cargo.lock": "48624496e6ffecf1696bec8aad1a36525a1e11f8c2dddd1837b9fc03a07c5944",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "crates/mdd-dex/src/strings.rs": "65f84322cc9688abdbd9a2fb8fbe54f429044a87b01bb104366a8d0d2f5072cf",
+    "crates/mdd-dex/src/types.rs": "1e8692d0a71d50a3e0815f756a4623508c4e5653cdb9c07505fd4e74b583d968",
+    "crates/mdd-facts/examples/metadata_summary.rs": "5495ca4e7dbedbf400fe76a55b2ae9b70f77a4be9ff44350c2834c5845a4bd22",
+    "crates/mdd-facts/src/lib.rs": "0cbc9eb33e59e35de9c8bb90c37248bdaf2b7aec134bde188faa709677fd69cb",
+    "crates/mdd-facts/src/metadata.rs": "36a1229ec076df16e82ff9b61fd9f4e5d6b684d51d91403a8033e37ac4da8c9b",
+    "crates/mdd-facts/Cargo.toml": "7f6ac58f7e6aa6cc47999babb575a968c2f4335a9aee75197de3c0eeed60debe",
+    "artifacts/mdd-020/generate_metadata_fixture.py": "d1481c6b9b86c356b33e7424d7d009a6afa57b559e035238da00d76b10b1043f",
+    "artifacts/mdd-020/verify_metadata_fixture.py": "f71728af1483a324475f9519c7721bc74cc64f473939d3e035ac234f6c6d9e92",
+    "artifacts/mdd-020/expected.json": "d43b5ac0e2b920e10e1074d3152c7d8fd0c72ce3612bbbe4afd61146aa8e1e18"
+  },
+  "consumer_binary": {
+    "path": "target/debug/examples/metadata_summary.exe",
+    "sha256": "f711d4a3aa23a24266e62766ef0add0e112eb05d1fa938840aa89c41641aa6e2",
+    "bytes": 1709568
+  },
+  "public_input_run": {
+    "status": "passed",
+    "input_bytes": 10885562,
+    "input_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+    "origin_url": "https://github.com/TeamNewPipe/NewPipe/releases/download/v0.28.6/NewPipe_v0.28.6.apk",
+    "result": {
+      "captured_input_bytes": "10885562",
+      "full_audit_complete": false,
+      "input_content_id": "sha256:e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+      "metadata_calculation_complete": true,
+      "operation_status": "ok",
+      "qualification": "actual complete metadata construction; no HostLab, full facts or performance qualification",
+      "required_dex_occurrences": 2,
+      "scope": "strings-types-prototypes-only-v1",
+      "selected_dexes": [
+        {
+          "completed_layers": [
+            "strings",
+            "types",
+            "prototypes"
+          ],
+          "content_id": "sha256:b661eaad3277de9147c4461f27c15b949d2a360ab61ef05b7a9e82b3e6c27521",
+          "dex_occurrence_id": "snapshot-16e9cc6d6f4bbb667513cd144d7456dfb2ffcd2d0399a1515e6ab56ca5b8b821:source:0:member:4:dex:header:0",
+          "full_dex_validation_complete": false,
+          "parameter_references": 29796,
+          "prototypes": 13644,
+          "signature_verified": false,
+          "strings": 64754,
+          "strings_without_scalar_utf8": 0,
+          "types": 9630,
+          "unbuilt_layers": [
+            "definitions",
+            "annotations",
+            "code_layout",
+            "references",
+            "resources",
+            "derived_analysis"
+          ],
+          "utf16_code_units": 1661296,
+          "version": "035"
+        },
+        {
+          "completed_layers": [
+            "strings",
+            "types",
+            "prototypes"
+          ],
+          "content_id": "sha256:e95ea094cdfb755304f5027ba6e64fa98f9b10e874c4093f3b19c43d62bfee3f",
+          "dex_occurrence_id": "snapshot-16e9cc6d6f4bbb667513cd144d7456dfb2ffcd2d0399a1515e6ab56ca5b8b821:source:0:member:5:dex:header:0",
+          "full_dex_validation_complete": false,
+          "parameter_references": 2386,
+          "prototypes": 1455,
+          "signature_verified": false,
+          "strings": 3722,
+          "strings_without_scalar_utf8": 0,
+          "types": 1034,
+          "unbuilt_layers": [
+            "definitions",
+            "annotations",
+            "code_layout",
+            "references",
+            "resources",
+            "derived_analysis"
+          ],
+          "utf16_code_units": 58996,
+          "version": "035"
+        }
+      ],
+      "snapshot_id": "snapshot-16e9cc6d6f4bbb667513cd144d7456dfb2ffcd2d0399a1515e6ab56ca5b8b821"
+    },
+    "scope": "complete strings/types/prototypes construction for both selected DEX occurrences; output is summary only, not truncated fact calculation"
+  },
+  "acceptance": [
+    {
+      "ordinal": 1,
+      "status": "done",
+      "evidence": "Raw MUTF-8 and UTF16 units retained; all MDD004 NUL/supplementary/isolated-surrogate vectors compared to manual expectations. strict_utf8 rejects nonscalar units; display_lossy is explicit and never used for facts or equality."
+    },
+    {
+      "ordinal": 2,
+      "status": "done",
+      "evidence": "Bounded at-most-five-octet ULEB/SLEB implementation passes existing component cases and 512 independent fifth-byte oracle cases. Actual declared-length/MUTF/type/shorty/return/parameter/order mutants reject with explicit reason."
+    },
+    {
+      "ordinal": 3,
+      "status": "done",
+      "evidence": "Snapshot+DEX occurrence+kind+local index EntityRef. Two equal-content sources and two DEX members of one APK retain different refs while sharing physical string_pool_id; descriptor/return references remain occurrence-scoped and reconstructible. MemberBlob owned lease survives dropping snapshot/inventory."
+    },
+    {
+      "ordinal": 4,
+      "status": "done",
+      "evidence": "Independent seven-string/five-type/three-prototype DEX verifies empty list, I/J order, String/array parameters, return/shorty/descriptor and offsets field by field; separately written Python reference agrees with handwritten expected.json."
+    }
+  ],
+  "scope": "strings-types-prototypes-only-v1",
+  "not_claimed": [
+    "full DEX validity",
+    "SHA1 verification",
+    "class/method definitions",
+    "annotations/code/references/resources",
+    "HostLab equivalence",
+    "performance benefit",
+    "Linux native acceptance"
+  ],
+  "budgets": {
+    "string_limits": "caller StringLimits",
+    "expanded_parameter_references": 16777216,
+    "expanded_prototype_descriptor_bytes": 67108864
+  },
+  "prior_failure_record": "artifacts/mdd-020/initial-check-failure.json",
+  "rollback": "Remove new MDD020 modules/facts member and exports as one scoped change; earlier M1 header/snapshot/lifecycle API remains independent. Do not reset unrelated work or modify historical evidence."
+}

@@ -1,0 +1,78 @@
+{
+  "record_kind": "observed_native_ci",
+  "source_revision": "d9ce060e8900f66201989a3d3d3b2e53be5feb7f",
+  "run_id": 40652396305,
+  "url": "https://github.com/jichuo1/MeguvizDexDash/actions/runs/40652396305",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "native (windows-latest)",
+      "conclusion": "success",
+      "started_at": "2026-10-28T07:47:57Z",
+      "completed_at": "2026-10-28T07:49:46Z"
+    },
+    {
+      "name": "native (ubuntu-latest)",
+      "conclusion": "success",
+      "started_at": "2026-10-28T07:47:57Z",
+      "completed_at": "2026-10-28T07:49:29Z"
+    }
+  ],
+  "downloaded_artifact_records": {
+    "linux": [
+      {
+        "relative_path": "ci/build/record.json",
+        "exit_code": 0,
+        "record_sha256": "079be499a258d362fadfb93e4a79ea5bde77bd6e9e08fb92cd6de9db97e737c6"
+      },
+      {
+        "relative_path": "ci/check/record.json",
+        "exit_code": 0,
+        "record_sha256": "afb76e61eb68678a441d28c9b30092e2970ef5a692c3176f86e596587d8d0c96"
+      },
+      {
+        "relative_path": "ci/clippy/record.json",
+        "exit_code": 0,
+        "record_sha256": "981640d6fb0b07f72e85717e04b8504943c2d568257369bdd9a1d86d9e572926"
+      },
+      {
+        "relative_path": "ci/probe/record.json",
+        "exit_code": 0,
+        "record_sha256": "c04db9433896c4ba3213fbb30f3d6d5d3e3587082fd73d289251a2eb6e568975"
+      },
+      {
+        "relative_path": "ci/test/record.json",
+        "exit_code": 0,
+        "record_sha256": "2d8e850134e96b5b256aa5135a3934621d1d61d24fd35f6290374c9f0968985b"
+      }
+    ],
+    "windows": [
+      {
+        "relative_path": "ci/build/record.json",
+        "exit_code": 0,
+        "record_sha256": "97678f87bc093a2b372077723948cd1e252e4dbc2397c70166d35d944e2591e9"
+      },
+      {
+        "relative_path": "ci/check/record.json",
+        "exit_code": 0,
+        "record_sha256": "f697714fc349f568bb43fcbf654723c3ae36ccfb73befcb762b6cd51e877a32c"
+      },
+      {
+        "relative_path": "ci/clippy/record.json",
+        "exit_code": 0,
+        "record_sha256": "1021dce397442f4b5671fbf7ea95d89d692b79916b8c5390676f82f5a55a5050"
+      },
+      {
+        "relative_path": "ci/probe/record.json",
+        "exit_code": 0,
+        "record_sha256": "61d0eb82c2477ab2aa7609543813d8c52d1b7510abc155acb67697ceaa2547c1"
+      },
+      {
+        "relative_path": "ci/test/record.json",
+        "exit_code": 0,
+        "record_sha256": "145e17fba9e10f0a8cc74400896d89966f41b1ad5753b09fcfaf616fa58d1a15"
+      }
+    ]
+  },
+  "scope": "M0/M1 development build, fixtures, lifecycle and header inspection only; no HostLab/performance/release qualification"
+}

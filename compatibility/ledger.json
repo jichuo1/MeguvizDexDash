@@ -164,7 +164,8 @@
     ],
     "all_profiles_admitted": false,
     "sql_probe": "artifacts/mdd-006/sql-bridge-probes.json",
-    "linux_native": "CI pending",
-    "format_qualification": "not granted"
+    "linux_native": "M0/M1 native CI passed at d9ce060; full platform/release qualification not granted",
+    "format_qualification": "not granted",
+    "metadata": "MDD-020 Windows actual small fixtures and public NewPipe complete strings/types/prototypes; all higher fact layers unbuilt"
   }
 }
