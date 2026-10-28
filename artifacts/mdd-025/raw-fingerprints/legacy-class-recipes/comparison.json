@@ -1,0 +1,23 @@
+{
+  "record_kind": "observed_legacy_class_body_recipe_comparison",
+  "checks": [
+    {
+      "member": "classes.dex",
+      "class_count": 7815,
+      "canonical_sha256": "a49622d014580f865ba7a513d00eaa1937ecd7b2356a4cc547897df0bd4e6ff9",
+      "equal": true
+    },
+    {
+      "member": "classes2.dex",
+      "class_count": 725,
+      "canonical_sha256": "46d4b10d78ec7ff3f18ef6f5a31f3577fa32272e9a894a2d841a148c1e06bec1",
+      "equal": true
+    }
+  ],
+  "source_rule_commit": "8782f43d537c442905123e35af325c412caa5188",
+  "source_rule_sha256": "503521fdbb694ca825a65e259981155dc5ccbbf69c4797d23e3e598d1bdaf174",
+  "input_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+  "reference_binary_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "native_summary_sha256": "2d55f7e81c396fb13a274812ef3222c8ca26e453f73d373b701ac8763c063539",
+  "scope": "all public class method-name/proto/legacy spaced-argument sort/raw-body concatenation only; no full HostLab or performance qualification"
+}

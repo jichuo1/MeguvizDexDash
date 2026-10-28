@@ -1,0 +1,37 @@
+N: android=http://schemas.android.com/apk/res/android (line=1)
+  N: attrRef=http://schemas.android.com/apk/res/android (line=1)
+    E: manifest (line=1)
+      A: package="example.test" (Raw: "example.test")
+      A: http://schemas.android.com/apk/res/android:versionCode(0x0101021b)=7
+      A: http://schemas.android.com/apk/res/android:versionName(0x0101021c)="7.2" (Raw: "7.2")
+        E: uses-sdk (line=1)
+          A: http://schemas.android.com/apk/res/android:minSdkVersion=21
+          A: http://schemas.android.com/apk/res/android:targetSdkVersion=35
+        E: uses-permission (line=1)
+          A: http://schemas.android.com/apk/res/android:name(0x01010003)="p.permission" (Raw: "p.permission")
+        E: uses-permission (line=1)
+          A: http://schemas.android.com/apk/res/android:name(0x01010003)="p.permission" (Raw: "p.permission")
+        E: permission (line=1)
+          A: http://schemas.android.com/apk/res/android:name(0x01010003)="p.permission" (Raw: "p.permission")
+        E: application (line=1)
+          A: http://schemas.android.com/apk/res/android:label=@0x7f010001
+          A: http://schemas.android.com/apk/res/android:enabled=false
+          A: ratio=nan
+          A: dimension=4096.000000dp
+          A: fraction=64.000000%
+          A: color=#ff336699
+          A: nil=@null
+          A: empty=@empty
+          A: hex=0xffffffff
+            E: activity (line=1)
+              A: http://schemas.android.com/apk/res/android:name(0x01010003)=".Main" (Raw: ".Main")
+            E: service (line=1)
+              A: http://schemas.android.com/apk/res/android:name(0x01010003)=".Svc" (Raw: ".Svc")
+              A: http://schemas.android.com/apk/res/android:exported(0x01010010)=true
+            E: receiver (line=1)
+              A: http://schemas.android.com/apk/res/android:name(0x01010003)=".Receiver" (Raw: ".Receiver")
+            E: provider (line=1)
+              A: http://schemas.android.com/apk/res/android:name(0x01010003)=".Provider" (Raw: ".Provider")
+            E: activity-alias (line=1)
+              A: http://schemas.android.com/apk/res/android:name(0x01010003)=".Alias" (Raw: ".Alias")
+            T: 'text'

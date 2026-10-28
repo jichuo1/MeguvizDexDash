@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "conformance/sanitizers/test_runner.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T12:44:14.318110+00:00",
+  "finished_utc": "2026-10-28T12:44:14.437653+00:00",
+  "elapsed_seconds": 0.125,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "bytes": 105,
+    "sha256": "39277f83e852a9738561c5ea574f46b0b8ee940fa17ecc58f6e8fded14e2e167"
+  }
+}

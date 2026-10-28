@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-facts",
+    "references::"
+  ],
+  "exit_code": 0,
+  "stdout": "\nrunning 9 tests\ntest references::tests::physical_invalid_body_is_not_downgraded_to_unbuilt_partial_scope ... ok\ntest references::tests::partial_or_missing_code_never_becomes_complete_empty_rows ... ok\ntest references::tests::source_and_snapshot_guards_reject_local_id_cross_joins ... ok\ntest references::tests::index_and_scalar_definition_search_keep_world_scope_external_and_ambiguity ... ok\ntest references::tests::custom_narrow_metadata_scope_and_definition_candidate_budget_are_explicit ... ok\ntest references::tests::shared_code_expands_callers_without_counting_projection_duplicates_or_fake_callers ... ok\ntest references::tests::ordinary_scope_does_not_consume_unrelated_annotations_and_custom_does_not_fake_callee ... ok\ntest references::tests::caller_site_expansion_query_and_search_budgets_fail_before_partial_success ... ok\ntest references::tests::all_hand_fixtures_match_independent_sites_ranges_and_complete_rows ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 15 filtered out; finished in 0.02s\n\n",
+  "stderr": "   Compiling mdd-input v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-input)\n   Compiling mdd-facts v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-facts)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.59s\n     Running unittests src\\lib.rs (target\\debug\\deps\\mdd_facts-f5fcaccb54dddfd1.exe)\n"
+}

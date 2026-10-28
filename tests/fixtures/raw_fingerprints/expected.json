@@ -1,0 +1,36 @@
+{
+  "provenance": "Handwritten MDD004 instruction hex and method identities; hashlib independent digest",
+  "methods": [
+    {
+      "method_idx": 0,
+      "body_kind": "present",
+      "raw_hex": "7100020000007100020000000e00",
+      "sha256": "90ba10f8fd4a067c19aa2626ffe1a5ce5e5699a5925e2b2130fab6bd6340addf",
+      "prefix": "caller()V"
+    },
+    {
+      "method_idx": 1,
+      "body_kind": "native_no_body",
+      "raw_hex": null,
+      "sha256": null,
+      "prefix": "nativeNoBody()V"
+    },
+    {
+      "method_idx": 2,
+      "body_kind": "present",
+      "raw_hex": "0e00",
+      "sha256": "7a2a7c0a81d1bd595dff09b918f8ecb5b5e8493654a4f83496956ed8eb017674",
+      "prefix": "target()V"
+    },
+    {
+      "method_idx": 3,
+      "body_kind": "present",
+      "raw_hex": "120027000d000e00",
+      "sha256": "f51b74ed4fff0cbb244bd812370cafc5282cf8f2bbe60892a780c83a5d5af784",
+      "prefix": "withTry()V"
+    }
+  ],
+  "ordered_recipe_sha256": "58b3a560272e99173f18d481ab8d40e92d72faee125293238e2bc90501d96206",
+  "resource_raw_hex": "00ff7265736f75726365",
+  "resource_sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d"
+}

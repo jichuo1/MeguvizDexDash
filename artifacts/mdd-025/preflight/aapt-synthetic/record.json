@@ -1,0 +1,25 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\aapt2.exe",
+    "dump",
+    "xmltree",
+    "--file",
+    "AndroidManifest.xml",
+    "tests/fixtures/generated/multidex-stored.apk"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T08:33:15.371972+00:00",
+  "finished_utc": "2026-10-28T08:33:15.427057+00:00",
+  "elapsed_seconds": 0.0470000000022992,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 22,
+    "sha256": "838a91312f2aa38ecf8d94ed78cb335bc918e1cfbf0a18281b716f202c516f1e"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

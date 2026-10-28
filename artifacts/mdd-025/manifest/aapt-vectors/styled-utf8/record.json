@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\aapt2.exe",
+    "dump",
+    "xmltree",
+    "--file",
+    "AndroidManifest.xml",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\manifest\\generated\\styled-utf8.axml.apk"
+  ],
+  "started_utc": "2026-10-28T12:26:50.381473+00:00",
+  "finished_utc": "2026-10-28T12:26:50.572416+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.1870000000053551,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 2061,
+    "sha256": "168ec640811ddb4b6a3cea13864ab0c8b0bfea711a2ca27b551190cf63bd0f9b"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

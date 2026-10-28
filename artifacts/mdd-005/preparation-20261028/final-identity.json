@@ -1,0 +1,45 @@
+{
+  "record_kind": "baseline_preparation_final_identity",
+  "captured_utc": "2026-10-28T12:15:18.111945+00:00",
+  "source_identities": {
+    "benchmarks/run-existing-baselines.py": {
+      "sha256": "fe1750a9a09d57db8493637321f028620e1a800479bd24b88f0aa4e5ebf68a1e",
+      "bytes": 15703
+    },
+    "benchmarks/baseline-manifest.json": {
+      "sha256": "a631222c8ce414d06f38c42369590984b7fd1b666b19f90e6ec2c8a8d70c247a",
+      "bytes": 6451
+    },
+    "artifacts/mdd-005/preparation-20261028/baseline_driver.py": {
+      "sha256": "4a92aa71e40f46a00ecc89d47190ebab20cfb36d427e337535d4681c7530bb23",
+      "bytes": 22611
+    },
+    "artifacts/mdd-005/preparation-20261028/windows_job.py": {
+      "sha256": "7d09b5f48217c2444e5a86e796f69743126aba5d7683bddaf7c48df3aa3bea95",
+      "bytes": 9276
+    },
+    "artifacts/mdd-005/preparation-20261028/test_baseline_contract.py": {
+      "sha256": "d407b3f38347a2903f32744a382a50e320e559441dbf7fbe8340e7e803fd3a47",
+      "bytes": 3053
+    },
+    "artifacts/mdd-005/preparation-20261028/mcp_capability_probe.py": {
+      "sha256": "22d746ba54cea4a3a2fab4bd08748634ecca21d9621d43a616cf7fa4ec8fe922",
+      "bytes": 1876
+    },
+    "artifacts/mdd-005/preparation-20261028/a2_compact_fixture_probe.py": {
+      "sha256": "b83fb035c6375dba40961597c98d9efffc3cb526ff3fd37cdb0317c99283d02d",
+      "bytes": 4195
+    }
+  },
+  "actual_contract_test_record": "artifacts/mdd-005/preparation-20261028/contract-tests-final/record.json",
+  "actual_generic_test_record": "artifacts/mdd-005/preparation-20261028/harness-contract-tests-final/record.json",
+  "technical_preparation_ready": true,
+  "resource_window_granted": false,
+  "memory_denial": "artifacts/mdd-005/preparation-20261028/root-memory-denial.json",
+  "preflight": "artifacts/mdd-005/preparation-20261028/preflight-resource-blocked.json",
+  "windows_job": "artifacts/mdd-005/preparation-20261028/windows-job-smoke-4/summary.json",
+  "A2_fixture": "artifacts/mdd-005/preparation-20261028/a2-compact-fixture-result.json",
+  "private_audit_runs": 0,
+  "formal_benchmark_runs": 0,
+  "trials_overwritten": false
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "rustc",
+    "-vV"
+  ],
+  "started_utc": "2026-10-28T12:28:44.343433+00:00",
+  "finished_utc": "2026-10-28T12:28:44.439723+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.10900000000401633,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 194,
+    "sha256": "5477f9bad65b15c4c5b31fc050fc72feba651ea1b330bc75cf356a4d6b0fbc80"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

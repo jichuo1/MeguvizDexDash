@@ -1,0 +1,4 @@
+   Compiling mdd-parser-fuzz v0.0.0 (D:\MeguvisDexDash\fuzz)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.67s
+     Running unittests src\lib.rs (fuzz\target\debug\deps\mdd_parser_fuzz-46c5fc8be9db2de9.exe)
+error: test failed, to rerun pass `--lib`

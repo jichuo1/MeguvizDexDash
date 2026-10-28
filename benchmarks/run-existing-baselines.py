@@ -233,11 +233,25 @@ def main():
     parser.add_argument("--preflight", action="store_true")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--qualify",action="store_true",help="one root-leased private static qualification, never an implicit formal benchmark")
+    parser.add_argument("--variant",choices=["A0","A1"])
+    parser.add_argument("--sample")
+    parser.add_argument("--lease",type=Path)
     args = parser.parse_args()
     if args.self_test:
         suite = unittest.defaultTestLoader.loadTestsFromTestCase(ContractTests)
         return 0 if unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful() else 1
     plan = loads(args.manifest.read_bytes())
+    if plan.get('schema_version')=='mdd.baseline-plan.v2':
+        driver=ROOT/plan['driver']['path'];argv=[plan['python']['path'],str(driver),'--manifest',str(args.manifest.resolve())]
+        if args.qualify:
+            if not args.variant or not args.sample or args.output is None or args.lease is None:
+                parser.error('qualification requires explicit variant/sample/output/root lease')
+            argv+=['--launch','--variant',args.variant,'--sample',args.sample,'--output',str(args.output),'--lease',str(args.lease)]
+        else:
+            argv+=['--preflight']
+            if args.output:argv+=['--output',str(args.output)]
+        return subprocess.run(argv,cwd=ROOT,shell=False).returncode
     report = preflight(plan)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

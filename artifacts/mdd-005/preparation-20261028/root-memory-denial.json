@@ -1,0 +1,15 @@
+{
+  "record_kind": "root_reported_resource_admission_denial",
+  "reported_by": "root",
+  "recorded_utc": "2026-10-28T11:59:13.551987+00:00",
+  "measurement_utc": "not supplied in root message; do not substitute recording time",
+  "available_physical_bytes": "7672709120",
+  "required_physical_bytes": "10737418240",
+  "job_memory_commit_bytes": "8589934592",
+  "decision": "lease_not_granted",
+  "private_input_parsed": false,
+  "formal_measurement_started": false,
+  "threshold_lowered": false,
+  "other_processes_killed": false,
+  "followup": "No polling; request one fresh check later and admit only one short qualification run if root grants exclusive lease."
+}

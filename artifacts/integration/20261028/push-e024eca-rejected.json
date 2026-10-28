@@ -1,0 +1,11 @@
+{
+  "record_kind": "transcribed_tool_observation",
+  "command": ["git", "push", "origin", "codex/m2-facts-20261028"],
+  "attempted_commit": "e024eca",
+  "exit_code": 1,
+  "remote_ref_changed": false,
+  "remote_error": "GH001: artifacts/mdd-025/raw-fingerprints/legacy-class-recipes/reference-stdout.txt is 143.55 MB; GitHub single-file limit is 100.00 MB",
+  "remote_trace": "d9ca81f5c9dbea22df480f334484719d0678ff4271128a30fcd5d0c52b060a30",
+  "recovery_ref": "archive/m2-unpublished-e024eca",
+  "recovery": "Preserve original local bytes, deterministically gzip with full decompressed byte-count/SHA verification, amend only the unpublished commit; normal push to review branch. No reset, force push or published-history rewrite."
+}

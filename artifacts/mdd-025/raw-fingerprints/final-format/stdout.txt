@@ -1,0 +1,16 @@
+Diff in \\?\D:\MeguvisDexDash\crates\mdd-facts\src\lib.rs:3:
+ pub mod code;
+ pub mod definitions;
+ pub mod metadata;
+-pub mod references;
+ pub mod raw_fingerprints;
++pub mod references;
+ 
+ pub use metadata::{
+     EntityKind, EntityRef, MetadataFacts, MetadataSource, PrototypeFact, StringFact,
+Diff in \\?\D:\MeguvisDexDash\crates\mdd-input\src\lib.rs:1:
+ pub mod archive;
+-pub mod snapshot;
+ pub mod manifest;
++pub mod snapshot;
+ 

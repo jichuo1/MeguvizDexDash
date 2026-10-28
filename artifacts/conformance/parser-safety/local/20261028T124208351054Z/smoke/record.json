@@ -1,0 +1,29 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "cargo",
+    "run",
+    "--manifest-path",
+    "fuzz/Cargo.toml",
+    "--locked",
+    "--bin",
+    "mutation-smoke",
+    "--",
+    "fuzz/corpus",
+    "64"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T12:42:10.248880+00:00",
+  "finished_utc": "2026-10-28T12:42:18.666497+00:00",
+  "elapsed_seconds": 8.405999999995402,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 2553,
+    "sha256": "5e67d4b82ef63a55d9d18cdc9ac76cd0695cd434697bbf9bea6e2e6e2956fb18"
+  },
+  "stderr": {
+    "bytes": 139,
+    "sha256": "55fe44ec306bedee76071e5ed5e8d898a22a3eab028799b4b524e55410f0eb21"
+  }
+}

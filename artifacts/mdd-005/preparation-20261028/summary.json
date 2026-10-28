@@ -1,0 +1,105 @@
+{
+  "schema_version": "mdd.baseline-preparation-summary.v1",
+  "task": "MDD-005",
+  "updated_utc": "2026-10-28T12:10:36.266100+00:00",
+  "status": "blocked_by_resource_window",
+  "technical_preparation_ready": true,
+  "private_audit_runs": 0,
+  "formal_benchmark_runs": 0,
+  "performance_qualified": false,
+  "reference": {
+    "commit": "8782f43d537c442905123e35af325c412caa5188",
+    "path": "D:\\MeguvisDexDash\\artifacts\\local\\hostlab-reference",
+    "source_identity": "artifacts/mdd-005/preparation-20261028/reference-source-manifest-gitblobs.json",
+    "scope": "97 runtime source files byte-equal fixed Git blobs; Windows EOL/stat observations retained; no old external worktree/source/config/installer edits"
+  },
+  "binary_identities": {
+    "A0": {
+      "version": "0.1.0",
+      "path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+      "sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448"
+    },
+    "A1": {
+      "version": "0.1.1",
+      "path": "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+      "sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6"
+    }
+  },
+  "A1_official_identity": "artifacts/mdd-005/preparation-20261028/a1-acquisition.json",
+  "A1_actual_mcp_build": "0.1.1+6ac7870875a519ec471e41c93fc86d80e8e2bce7",
+  "input_identity": "artifacts/bootstrap/20261028/private-input-acquisition.json",
+  "input_dex_counts": {
+    "hostlab-9161100": 33,
+    "hostlab-9170100": 35
+  },
+  "consumer_contract": {
+    "entry": "unaltered analyze.main audit --apk --mode full --backend dexsql, surface_output carrier",
+    "features": 27,
+    "evidence_groups": 20,
+    "evidence_function": "unaltered verify_audits.evidence",
+    "gates": "retained independent intake and home-frame checks; FEATURE META audit_complete; actual source/input/engine identities; zero fallback; no missing full output",
+    "A1_adapter": "explicit external version/hash provider only; never replaces fixed A0 installer/source identity"
+  },
+  "python_development_environment": {
+    "path": "D:\\MeguvisDexDash\\artifacts\\local\\baseline-venv\\Scripts\\python.exe",
+    "mcp": "2.2.0",
+    "locked_packages": 29,
+    "lock": "artifacts/mdd-005/preparation-20261028/requirements-baseline-windows.lock",
+    "wheel_identities": "artifacts/mdd-005/preparation-20261028/python-dependency-identities.json",
+    "production_dependencies_added": false
+  },
+  "actual_lightweight_validation": {
+    "generic_result_contract_tests": 10,
+    "hostlab_certificate_pin_tests": 4,
+    "job_smoke": "artifacts/mdd-005/preparation-20261028/windows-job-smoke-4/summary.json",
+    "job_cases": 3,
+    "job_proof": "suspend->assign->resume; actual child membership; timeout/leaked descendant terminate; ActiveProcesses=0",
+    "A1_mcp_tools": 12,
+    "A2_fixture_queries": 2,
+    "A2_complete_row_counts": [
+      1,
+      7
+    ],
+    "A2_partial_transport_proof": "artifacts/mdd-005/preparation-20261028/a2-compact-fixture-result.json",
+    "A2_full_audit_admitted": false
+  },
+  "resource_denial": "artifacts/mdd-005/preparation-20261028/root-memory-denial.json",
+  "resource_requirement": {
+    "cpu_affinity_mask": 15,
+    "logical_cpus": 4,
+    "engine_threads": 2,
+    "job_memory_commit_bytes": "8589934592",
+    "minimum_free_memory_bytes": "10737418240",
+    "max_processes": 16,
+    "native_timeout_seconds": 900,
+    "worker_timeout_seconds": 1500,
+    "supervisor_smoke": "artifacts/mdd-005/preparation-20261028/windows-job-smoke-4/summary.json",
+    "qualification_window_request_minutes": 30,
+    "expected_phase": "four serial static runs A0/A1 x target/baseline, complete results before comparison; no formal speed claim",
+    "initial_four_serial_window_minutes": 110,
+    "qualification_admission": "one explicitly root-leased worker at a time; no automatic renewal",
+    "current_root_denial": "artifacts/mdd-005/preparation-20261028/root-memory-denial.json",
+    "threshold_unchanged": true
+  },
+  "execution_safety": {
+    "root_exclusive_lease_required": true,
+    "private_parse_without_lease": false,
+    "old_sources_installers_configs_unchanged": true,
+    "remote_network_ai_telegram_publish": false,
+    "outputs_under": "artifacts/local/baseline-runs",
+    "source_tree_reverified": true,
+    "input_full_sha_before_after_actual_run": true
+  },
+  "remaining": [
+    "root one-at-a-time exclusive qualification lease, with measured free RAM >=10GiB and unchanged8GiB job cap",
+    "first actual full A0 certificate then A1, compare all20 groups and cross-version outcomes before speed sampling",
+    "A2 full consumer transport adaptation/equivalence not admitted; fixture compact success is not an end-to-end baseline",
+    "formal10 paired trials/two independent blocks and best qualified existing comparison not run"
+  ],
+  "preserved_failures": [
+    "windows-job-smoke-1: job-accounting teardown race; bounded drain correction",
+    "windows-job-smoke-3: QueryInformationJobObject(NULL) selected outer nested job; explicit readonly named-job query corrected",
+    "MCP capability probe initially assumed list, actual SDK returns paginated ListToolsResult; corrected to complete all pages"
+  ],
+  "scope": "Preparation only, no AI/Telegram/publish/remote business changes; no private large parsing or formal measurement"
+}

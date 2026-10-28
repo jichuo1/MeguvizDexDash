@@ -1,0 +1,25 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "fuzz/Cargo.toml",
+    "--locked",
+    "--lib"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T12:42:08.634622+00:00",
+  "finished_utc": "2026-10-28T12:42:08.927394+00:00",
+  "elapsed_seconds": 0.2969999999986612,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 253,
+    "sha256": "fd43285fbac63471f32450d2ba65413428c2d9155744471510d03753ba589c92"
+  },
+  "stderr": {
+    "bytes": 169,
+    "sha256": "7b76fec86ab7193e579b992c58c4a0e5b654fc7681321250bf059708353080c7"
+  }
+}

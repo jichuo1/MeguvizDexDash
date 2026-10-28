@@ -164,8 +164,11 @@
     ],
     "all_profiles_admitted": false,
     "sql_probe": "artifacts/mdd-006/sql-bridge-probes.json",
-    "linux_native": "M0/M1 native CI passed at d9ce060; full platform/release qualification not granted",
+    "linux_native": "Earlier M2 checkpoint47fd432 push and PR Windows/Linux CI passed; current checkpoint pending",
     "format_qualification": "not granted",
-    "metadata": "MDD-020 Windows actual small fixtures and public NewPipe complete strings/types/prototypes; all higher fact layers unbuilt"
+    "metadata": "MDD-020/021/022/023 accepted within task scope, including physical item-start requalification; not full format/profile qualification",
+    "raw_and_manifest": "MDD-025 required scope accepted, 55763 methods, 8540 class recipes, 792 resources, 76 Manifest vectors; artifacts/mdd-025/raw-evidence-conformance.json",
+    "parser_safety": "10400 actual local mutations; Linux ASan/libFuzzer pending first CI; G1 not granted",
+    "private_baseline": "Exact two APK inputs verified; complete driver prepared; resource window denied below preregistered available RAM; full private run absent"
   }
 }

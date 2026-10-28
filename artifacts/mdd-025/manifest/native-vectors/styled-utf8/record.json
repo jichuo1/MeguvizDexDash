@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\manifest_summary.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\manifest\\generated\\styled-utf8.axml.apk"
+  ],
+  "started_utc": "2026-10-28T12:26:50.574427+00:00",
+  "finished_utc": "2026-10-28T12:26:50.732781+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.17199999999866122,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 24984,
+    "sha256": "b2e8da02cb437943b8534f2977fcd348f18cdfd1c7bb0ba2dd72a37adf6e064c"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

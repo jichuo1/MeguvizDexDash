@@ -1,0 +1,17 @@
+{
+  "schema_version": "mdd.evidence-archive.v1",
+  "compression": "gzip; mtime=0; empty filename",
+  "original": {
+    "path": "artifacts/mdd-025/raw-fingerprints/legacy-class-recipes/reference-stdout.txt",
+    "bytes": 150527195,
+    "sha256": "5fa4e57ba3e614f852dd2db51884095af3c247647f9bfd278d3ae18a2f8225b0"
+  },
+  "archive": {
+    "path": "artifacts/mdd-025/raw-fingerprints/legacy-class-recipes/reference-stdout.txt.gz",
+    "bytes": 1662643,
+    "sha256": "53d9e52cad5f05d85a3dbcfae5a8852c40f9e7fb74344d4b667e84a48b59061a"
+  },
+  "lossless_verified": true,
+  "local_original_preserved": true,
+  "reason": "GitHub 100 MiB single-object limit; original raw observation remains unchanged"
+}

@@ -1,0 +1,2 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.18s
+     Running unittests src\lib.rs (fuzz\target\debug\deps\mdd_parser_fuzz-46c5fc8be9db2de9.exe)

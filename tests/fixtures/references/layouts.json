@@ -1,0 +1,4364 @@
+{
+  "classic-035": {
+    "case": "classic-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 420,
+      "target": 488
+    },
+    "encoded_method_offsets": {
+      "caller": 510,
+      "nativeNoBody": 514,
+      "target": 518
+    },
+    "labels": {
+      "class_data": 506,
+      "map": 524
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "shared-code-035": {
+    "case": "shared-code-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "aliasCaller",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "aliasCaller": 6,
+      "caller": 7,
+      "dynamicVoid": 8,
+      "external": 9,
+      "nativeNoBody": 10,
+      "repeat": 11,
+      "shared": 12,
+      "target": 13
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "aliasCaller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 448,
+      "target": 516
+    },
+    "encoded_method_offsets": {
+      "aliasCaller": 538,
+      "caller": 542,
+      "nativeNoBody": 546,
+      "target": 550
+    },
+    "labels": {
+      "class_data": 534,
+      "map": 556
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          11
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          11
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "aliasCaller",
+      "caller"
+    ]
+  },
+  "orphan-code-035": {
+    "case": "orphan-code-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 420,
+      "target": 488,
+      "orphan": 508
+    },
+    "encoded_method_offsets": {
+      "caller": 540,
+      "nativeNoBody": 544,
+      "target": 548
+    },
+    "labels": {
+      "class_data": 536,
+      "map": 552
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "poly-custom-038": {
+    "case": "poly-custom-038",
+    "version": "038",
+    "strings": [
+      "I",
+      "LL",
+      "LLLL",
+      "Lfixture/A;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;",
+      "bootstrap",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "handle",
+      "invokeExact",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "LL": 1,
+      "LLLL": 2,
+      "Lfixture/A;": 3,
+      "Lfixture/Bootstrap;": 4,
+      "Lfixture/External;": 5,
+      "Ljava/lang/Object;": 6,
+      "Ljava/lang/String;": 7,
+      "Ljava/lang/invoke/CallSite;": 8,
+      "Ljava/lang/invoke/MethodHandle;": 9,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 10,
+      "Ljava/lang/invoke/MethodType;": 11,
+      "V": 12,
+      "[Ljava/lang/Object;": 13,
+      "bootstrap": 14,
+      "caller": 15,
+      "dynamicVoid": 16,
+      "external": 17,
+      "handle": 18,
+      "invokeExact": 19,
+      "nativeNoBody": 20,
+      "repeat": 21,
+      "shared": 22,
+      "target": 23
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/Bootstrap;": 2,
+      "Lfixture/External;": 3,
+      "Ljava/lang/Object;": 4,
+      "Ljava/lang/String;": 5,
+      "Ljava/lang/invoke/CallSite;": 6,
+      "Ljava/lang/invoke/MethodHandle;": 7,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 8,
+      "Ljava/lang/invoke/MethodType;": 9,
+      "V": 10,
+      "[Ljava/lang/Object;": 11
+    },
+    "prototypes": [
+      [
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ],
+      [
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/Bootstrap;",
+        "bootstrap",
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ],
+      [
+        "Ljava/lang/invoke/MethodHandle;",
+        "invokeExact",
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "handle",
+        "Ljava/lang/invoke/MethodHandle;"
+      ],
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 796,
+      "target": 896
+    },
+    "encoded_method_offsets": {
+      "caller": 918,
+      "nativeNoBody": 922,
+      "target": 926
+    },
+    "labels": {
+      "call_site_ids": 388,
+      "method_handles": 392,
+      "call_array": 786,
+      "class_data": 914,
+      "map": 932
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          21
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          21
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          1
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          1
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      },
+      {
+        "pc": 24,
+        "label": "field_read",
+        "target": "Lfixture/External;->handle:Ljava/lang/invoke/MethodHandle;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 26,
+        "label": "polymorphic_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          4346,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 30,
+        "label": "polymorphic_range_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          507,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 34,
+        "label": "custom_call",
+        "target": 0,
+        "words": [
+          252,
+          0,
+          0
+        ]
+      },
+      {
+        "pc": 37,
+        "label": "custom_range_call",
+        "target": 0,
+        "words": [
+          253,
+          0,
+          0
+        ]
+      }
+    ],
+    "insns_units": 41,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "handles-039": {
+    "case": "handles-039",
+    "version": "039",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 436,
+      "target": 516
+    },
+    "encoded_method_offsets": {
+      "caller": 538,
+      "nativeNoBody": 542,
+      "target": 546
+    },
+    "labels": {
+      "method_handles": 272,
+      "class_data": 534,
+      "map": 552
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      },
+      {
+        "pc": 24,
+        "label": "method_handle",
+        "target": 0,
+        "words": [
+          254,
+          0
+        ]
+      },
+      {
+        "pc": 26,
+        "label": "method_handle",
+        "target": 1,
+        "words": [
+          510,
+          1
+        ]
+      },
+      {
+        "pc": 28,
+        "label": "prototype",
+        "target": 0,
+        "words": [
+          255,
+          0
+        ]
+      }
+    ],
+    "insns_units": 31,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "nonscalar-string-035": {
+    "case": "nonscalar-string-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target",
+      {
+        "encoding": "utf16_units",
+        "units": [
+          55296
+        ]
+      }
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12,
+      "utf16-units:d800": 13
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 432,
+      "target": 500
+    },
+    "encoded_method_offsets": {
+      "caller": 522,
+      "nativeNoBody": 526,
+      "target": 530
+    },
+    "labels": {
+      "class_data": 518,
+      "map": 536
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": {
+          "encoding": "utf16_units",
+          "units": [
+            55296
+          ]
+        },
+        "words": [
+          26,
+          13
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": {
+          "encoding": "utf16_units",
+          "units": [
+            55296
+          ]
+        },
+        "words": [
+          26,
+          13
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "ordinary-unrelated-bad-annotation": {
+    "case": "ordinary-unrelated-bad-annotation",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/BadAnnotation;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/BadAnnotation;": 2,
+      "Lfixture/External;": 3,
+      "Ljava/lang/Object;": 4,
+      "Ljava/lang/String;": 5,
+      "V": 6,
+      "caller": 7,
+      "dynamicVoid": 8,
+      "external": 9,
+      "nativeNoBody": 10,
+      "repeat": 11,
+      "shared": 12,
+      "target": 13
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/BadAnnotation;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/BadAnnotation;": 2,
+      "Lfixture/External;": 3,
+      "Ljava/lang/Object;": 4,
+      "Ljava/lang/String;": 5,
+      "V": 6
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 456,
+      "target": 524
+    },
+    "encoded_method_offsets": {
+      "caller": 546,
+      "nativeNoBody": 550,
+      "target": 554
+    },
+    "labels": {
+      "class_data": 542,
+      "bad_annotation": 558,
+      "bad_set": 564,
+      "bad_directory": 572,
+      "map": 588
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          11
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          11
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "poly-custom-unrelated-bad-annotation": {
+    "case": "poly-custom-unrelated-bad-annotation",
+    "version": "038",
+    "strings": [
+      "I",
+      "LL",
+      "LLLL",
+      "Lfixture/A;",
+      "Lfixture/BadAnnotation;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;",
+      "bootstrap",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "handle",
+      "invokeExact",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "LL": 1,
+      "LLLL": 2,
+      "Lfixture/A;": 3,
+      "Lfixture/BadAnnotation;": 4,
+      "Lfixture/Bootstrap;": 5,
+      "Lfixture/External;": 6,
+      "Ljava/lang/Object;": 7,
+      "Ljava/lang/String;": 8,
+      "Ljava/lang/invoke/CallSite;": 9,
+      "Ljava/lang/invoke/MethodHandle;": 10,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 11,
+      "Ljava/lang/invoke/MethodType;": 12,
+      "V": 13,
+      "[Ljava/lang/Object;": 14,
+      "bootstrap": 15,
+      "caller": 16,
+      "dynamicVoid": 17,
+      "external": 18,
+      "handle": 19,
+      "invokeExact": 20,
+      "nativeNoBody": 21,
+      "repeat": 22,
+      "shared": 23,
+      "target": 24
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/BadAnnotation;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/BadAnnotation;": 2,
+      "Lfixture/Bootstrap;": 3,
+      "Lfixture/External;": 4,
+      "Ljava/lang/Object;": 5,
+      "Ljava/lang/String;": 6,
+      "Ljava/lang/invoke/CallSite;": 7,
+      "Ljava/lang/invoke/MethodHandle;": 8,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 9,
+      "Ljava/lang/invoke/MethodType;": 10,
+      "V": 11,
+      "[Ljava/lang/Object;": 12
+    },
+    "prototypes": [
+      [
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ],
+      [
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/Bootstrap;",
+        "bootstrap",
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ],
+      [
+        "Ljava/lang/invoke/MethodHandle;",
+        "invokeExact",
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "handle",
+        "Ljava/lang/invoke/MethodHandle;"
+      ],
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 828,
+      "target": 928
+    },
+    "encoded_method_offsets": {
+      "caller": 950,
+      "nativeNoBody": 954,
+      "target": 958
+    },
+    "labels": {
+      "call_site_ids": 396,
+      "method_handles": 400,
+      "call_array": 818,
+      "class_data": 946,
+      "bad_annotation": 962,
+      "bad_set": 968,
+      "bad_directory": 976,
+      "map": 992
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          22
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          22
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          6
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          6
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          1
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          1
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      },
+      {
+        "pc": 24,
+        "label": "field_read",
+        "target": "Lfixture/External;->handle:Ljava/lang/invoke/MethodHandle;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 26,
+        "label": "polymorphic_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          4346,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 30,
+        "label": "polymorphic_range_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          507,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 34,
+        "label": "custom_call",
+        "target": 0,
+        "words": [
+          252,
+          0,
+          0
+        ]
+      },
+      {
+        "pc": 37,
+        "label": "custom_range_call",
+        "target": 0,
+        "words": [
+          253,
+          0,
+          0
+        ]
+      }
+    ],
+    "insns_units": 41,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "defined-field-035": {
+    "case": "defined-field-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "localValue",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "localValue": 9,
+      "nativeNoBody": 10,
+      "repeat": 11,
+      "shared": 12,
+      "target": 13
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/A;",
+        "localValue",
+        "Ljava/lang/String;"
+      ],
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 444,
+      "target": 512
+    },
+    "encoded_method_offsets": {
+      "caller": 536,
+      "nativeNoBody": 540,
+      "target": 544
+    },
+    "labels": {
+      "class_data": 530,
+      "map": 548
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          11
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          11
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          1
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          1
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "type-names-035": {
+    "case": "type-names-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "[I",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "[I": 6,
+      "caller": 7,
+      "dynamicVoid": 8,
+      "external": 9,
+      "nativeNoBody": 10,
+      "repeat": 11,
+      "shared": 12,
+      "target": 13
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "[I"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "[I": 6
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 432,
+      "target": 508
+    },
+    "encoded_method_offsets": {
+      "caller": 530,
+      "nativeNoBody": 534,
+      "target": 538
+    },
+    "labels": {
+      "class_data": 526,
+      "map": 544
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          11
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          11
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "type",
+        "target": "I",
+        "words": [
+          284,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "type",
+        "target": "[I",
+        "words": [
+          284,
+          6
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 14,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 16,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 19,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 22,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 25,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 29,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "jumbo-string-035": {
+    "case": "jumbo-string-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 420,
+      "target": 492
+    },
+    "encoded_method_offsets": {
+      "caller": 514,
+      "nativeNoBody": 518,
+      "target": 522
+    },
+    "labels": {
+      "class_data": 510,
+      "map": 528
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          27,
+          10,
+          0
+        ]
+      },
+      {
+        "pc": 3,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          27,
+          10,
+          0
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 14,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 17,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 20,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 23,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 27,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "bad-reference-index": {
+    "case": "classic-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 420,
+      "target": 488
+    },
+    "encoded_method_offsets": {
+      "caller": 510,
+      "nativeNoBody": 514,
+      "target": 518
+    },
+    "labels": {
+      "class_data": 506,
+      "map": 524
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "bad-invoke-argument-count": {
+    "case": "classic-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 420,
+      "target": 488
+    },
+    "encoded_method_offsets": {
+      "caller": 510,
+      "nativeNoBody": 514,
+      "target": 518
+    },
+    "labels": {
+      "class_data": 506,
+      "map": 524
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "bad-caller-ins-size": {
+    "case": "classic-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 420,
+      "target": 488
+    },
+    "encoded_method_offsets": {
+      "caller": 510,
+      "nativeNoBody": 514,
+      "target": 518
+    },
+    "labels": {
+      "class_data": 506,
+      "map": 524
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "bad-body-interior-pointer": {
+    "case": "classic-035",
+    "version": "035",
+    "strings": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5,
+      "caller": 6,
+      "dynamicVoid": 7,
+      "external": 8,
+      "nativeNoBody": 9,
+      "repeat": 10,
+      "shared": 11,
+      "target": 12
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "V"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/External;": 2,
+      "Ljava/lang/Object;": 3,
+      "Ljava/lang/String;": 4,
+      "V": 5
+    },
+    "prototypes": [
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 420,
+      "target": 488
+    },
+    "encoded_method_offsets": {
+      "caller": 510,
+      "nativeNoBody": 514,
+      "target": 518
+    },
+    "labels": {
+      "class_data": 506,
+      "map": 524
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          10
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          4
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          0
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          3,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      }
+    ],
+    "insns_units": 25,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "bad-custom-prefix": {
+    "case": "poly-custom-038",
+    "version": "038",
+    "strings": [
+      "I",
+      "LL",
+      "LLLL",
+      "Lfixture/A;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;",
+      "bootstrap",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "handle",
+      "invokeExact",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "LL": 1,
+      "LLLL": 2,
+      "Lfixture/A;": 3,
+      "Lfixture/Bootstrap;": 4,
+      "Lfixture/External;": 5,
+      "Ljava/lang/Object;": 6,
+      "Ljava/lang/String;": 7,
+      "Ljava/lang/invoke/CallSite;": 8,
+      "Ljava/lang/invoke/MethodHandle;": 9,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 10,
+      "Ljava/lang/invoke/MethodType;": 11,
+      "V": 12,
+      "[Ljava/lang/Object;": 13,
+      "bootstrap": 14,
+      "caller": 15,
+      "dynamicVoid": 16,
+      "external": 17,
+      "handle": 18,
+      "invokeExact": 19,
+      "nativeNoBody": 20,
+      "repeat": 21,
+      "shared": 22,
+      "target": 23
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/Bootstrap;": 2,
+      "Lfixture/External;": 3,
+      "Ljava/lang/Object;": 4,
+      "Ljava/lang/String;": 5,
+      "Ljava/lang/invoke/CallSite;": 6,
+      "Ljava/lang/invoke/MethodHandle;": 7,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 8,
+      "Ljava/lang/invoke/MethodType;": 9,
+      "V": 10,
+      "[Ljava/lang/Object;": 11
+    },
+    "prototypes": [
+      [
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ],
+      [
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/Bootstrap;",
+        "bootstrap",
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ],
+      [
+        "Ljava/lang/invoke/MethodHandle;",
+        "invokeExact",
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "handle",
+        "Ljava/lang/invoke/MethodHandle;"
+      ],
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 796,
+      "target": 896
+    },
+    "encoded_method_offsets": {
+      "caller": 918,
+      "nativeNoBody": 922,
+      "target": 926
+    },
+    "labels": {
+      "call_site_ids": 388,
+      "method_handles": 392,
+      "call_array": 786,
+      "class_data": 914,
+      "map": 932
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          21
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          21
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          1
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          1
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      },
+      {
+        "pc": 24,
+        "label": "field_read",
+        "target": "Lfixture/External;->handle:Ljava/lang/invoke/MethodHandle;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 26,
+        "label": "polymorphic_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          4346,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 30,
+        "label": "polymorphic_range_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          507,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 34,
+        "label": "custom_call",
+        "target": 0,
+        "words": [
+          252,
+          0,
+          0
+        ]
+      },
+      {
+        "pc": 37,
+        "label": "custom_range_call",
+        "target": 0,
+        "words": [
+          253,
+          0,
+          0
+        ]
+      }
+    ],
+    "insns_units": 41,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "bad-custom-argument-count": {
+    "case": "poly-custom-038",
+    "version": "038",
+    "strings": [
+      "I",
+      "LL",
+      "LLLL",
+      "Lfixture/A;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;",
+      "bootstrap",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "handle",
+      "invokeExact",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "LL": 1,
+      "LLLL": 2,
+      "Lfixture/A;": 3,
+      "Lfixture/Bootstrap;": 4,
+      "Lfixture/External;": 5,
+      "Ljava/lang/Object;": 6,
+      "Ljava/lang/String;": 7,
+      "Ljava/lang/invoke/CallSite;": 8,
+      "Ljava/lang/invoke/MethodHandle;": 9,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 10,
+      "Ljava/lang/invoke/MethodType;": 11,
+      "V": 12,
+      "[Ljava/lang/Object;": 13,
+      "bootstrap": 14,
+      "caller": 15,
+      "dynamicVoid": 16,
+      "external": 17,
+      "handle": 18,
+      "invokeExact": 19,
+      "nativeNoBody": 20,
+      "repeat": 21,
+      "shared": 22,
+      "target": 23
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/Bootstrap;": 2,
+      "Lfixture/External;": 3,
+      "Ljava/lang/Object;": 4,
+      "Ljava/lang/String;": 5,
+      "Ljava/lang/invoke/CallSite;": 6,
+      "Ljava/lang/invoke/MethodHandle;": 7,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 8,
+      "Ljava/lang/invoke/MethodType;": 9,
+      "V": 10,
+      "[Ljava/lang/Object;": 11
+    },
+    "prototypes": [
+      [
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ],
+      [
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/Bootstrap;",
+        "bootstrap",
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ],
+      [
+        "Ljava/lang/invoke/MethodHandle;",
+        "invokeExact",
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "handle",
+        "Ljava/lang/invoke/MethodHandle;"
+      ],
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 796,
+      "target": 896
+    },
+    "encoded_method_offsets": {
+      "caller": 918,
+      "nativeNoBody": 922,
+      "target": 926
+    },
+    "labels": {
+      "call_site_ids": 388,
+      "method_handles": 392,
+      "call_array": 786,
+      "class_data": 914,
+      "map": 932
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          21
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          21
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          1
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          1
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      },
+      {
+        "pc": 24,
+        "label": "field_read",
+        "target": "Lfixture/External;->handle:Ljava/lang/invoke/MethodHandle;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 26,
+        "label": "polymorphic_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          4346,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 30,
+        "label": "polymorphic_range_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          507,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 34,
+        "label": "custom_call",
+        "target": 0,
+        "words": [
+          252,
+          0,
+          0
+        ]
+      },
+      {
+        "pc": 37,
+        "label": "custom_range_call",
+        "target": 0,
+        "words": [
+          253,
+          0,
+          0
+        ]
+      }
+    ],
+    "insns_units": 41,
+    "shared_caller_names": [
+      "caller"
+    ]
+  },
+  "bad-poly-proto-index": {
+    "case": "poly-custom-038",
+    "version": "038",
+    "strings": [
+      "I",
+      "LL",
+      "LLLL",
+      "Lfixture/A;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;",
+      "bootstrap",
+      "caller",
+      "dynamicVoid",
+      "external",
+      "handle",
+      "invokeExact",
+      "nativeNoBody",
+      "repeat",
+      "shared",
+      "target"
+    ],
+    "string_indices": {
+      "I": 0,
+      "LL": 1,
+      "LLLL": 2,
+      "Lfixture/A;": 3,
+      "Lfixture/Bootstrap;": 4,
+      "Lfixture/External;": 5,
+      "Ljava/lang/Object;": 6,
+      "Ljava/lang/String;": 7,
+      "Ljava/lang/invoke/CallSite;": 8,
+      "Ljava/lang/invoke/MethodHandle;": 9,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 10,
+      "Ljava/lang/invoke/MethodType;": 11,
+      "V": 12,
+      "[Ljava/lang/Object;": 13,
+      "bootstrap": 14,
+      "caller": 15,
+      "dynamicVoid": 16,
+      "external": 17,
+      "handle": 18,
+      "invokeExact": 19,
+      "nativeNoBody": 20,
+      "repeat": 21,
+      "shared": 22,
+      "target": 23
+    },
+    "types": [
+      "I",
+      "Lfixture/A;",
+      "Lfixture/Bootstrap;",
+      "Lfixture/External;",
+      "Ljava/lang/Object;",
+      "Ljava/lang/String;",
+      "Ljava/lang/invoke/CallSite;",
+      "Ljava/lang/invoke/MethodHandle;",
+      "Ljava/lang/invoke/MethodHandles$Lookup;",
+      "Ljava/lang/invoke/MethodType;",
+      "V",
+      "[Ljava/lang/Object;"
+    ],
+    "type_indices": {
+      "I": 0,
+      "Lfixture/A;": 1,
+      "Lfixture/Bootstrap;": 2,
+      "Lfixture/External;": 3,
+      "Ljava/lang/Object;": 4,
+      "Ljava/lang/String;": 5,
+      "Ljava/lang/invoke/CallSite;": 6,
+      "Ljava/lang/invoke/MethodHandle;": 7,
+      "Ljava/lang/invoke/MethodHandles$Lookup;": 8,
+      "Ljava/lang/invoke/MethodType;": 9,
+      "V": 10,
+      "[Ljava/lang/Object;": 11
+    },
+    "prototypes": [
+      [
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ],
+      [
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "V",
+        []
+      ]
+    ],
+    "methods": [
+      [
+        "Lfixture/A;",
+        "caller",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "nativeNoBody",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/A;",
+        "target",
+        "V",
+        []
+      ],
+      [
+        "Lfixture/Bootstrap;",
+        "bootstrap",
+        "Ljava/lang/invoke/CallSite;",
+        [
+          "Ljava/lang/invoke/MethodHandles$Lookup;",
+          "Ljava/lang/String;",
+          "Ljava/lang/invoke/MethodType;"
+        ]
+      ],
+      [
+        "Lfixture/External;",
+        "external",
+        "V",
+        []
+      ],
+      [
+        "Ljava/lang/invoke/MethodHandle;",
+        "invokeExact",
+        "Ljava/lang/Object;",
+        [
+          "[Ljava/lang/Object;"
+        ]
+      ]
+    ],
+    "fields": [
+      [
+        "Lfixture/External;",
+        "handle",
+        "Ljava/lang/invoke/MethodHandle;"
+      ],
+      [
+        "Lfixture/External;",
+        "shared",
+        "Ljava/lang/String;"
+      ]
+    ],
+    "code_offsets": {
+      "caller": 796,
+      "target": 896
+    },
+    "encoded_method_offsets": {
+      "caller": 918,
+      "nativeNoBody": 922,
+      "target": 926
+    },
+    "labels": {
+      "call_site_ids": 388,
+      "method_handles": 392,
+      "call_array": 786,
+      "class_data": 914,
+      "map": 932
+    },
+    "instruction_sites": [
+      {
+        "pc": 0,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          21
+        ]
+      },
+      {
+        "pc": 2,
+        "label": "string",
+        "target": "repeat",
+        "words": [
+          26,
+          21
+        ]
+      },
+      {
+        "pc": 4,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 6,
+        "label": "type",
+        "target": "Ljava/lang/String;",
+        "words": [
+          284,
+          5
+        ]
+      },
+      {
+        "pc": 8,
+        "label": "field_read",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          98,
+          1
+        ]
+      },
+      {
+        "pc": 10,
+        "label": "field_write",
+        "target": "Lfixture/External;->shared:Ljava/lang/String;",
+        "words": [
+          105,
+          1
+        ]
+      },
+      {
+        "pc": 12,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 15,
+        "label": "ordinary_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          113,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 18,
+        "label": "range_call",
+        "target": "Lfixture/External;->external()V",
+        "words": [
+          119,
+          4,
+          0
+        ]
+      },
+      {
+        "pc": 21,
+        "label": "ordinary_call",
+        "target": "Lfixture/A;->target()V",
+        "words": [
+          113,
+          2,
+          0
+        ]
+      },
+      {
+        "pc": 24,
+        "label": "field_read",
+        "target": "Lfixture/External;->handle:Ljava/lang/invoke/MethodHandle;",
+        "words": [
+          98,
+          0
+        ]
+      },
+      {
+        "pc": 26,
+        "label": "polymorphic_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          4346,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 30,
+        "label": "polymorphic_range_call",
+        "target": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+        "words": [
+          507,
+          5,
+          0,
+          2
+        ]
+      },
+      {
+        "pc": 34,
+        "label": "custom_call",
+        "target": 0,
+        "words": [
+          252,
+          0,
+          0
+        ]
+      },
+      {
+        "pc": 37,
+        "label": "custom_range_call",
+        "target": 0,
+        "words": [
+          253,
+          0,
+          0
+        ]
+      }
+    ],
+    "insns_units": 41,
+    "shared_caller_names": [
+      "caller"
+    ]
+  }
+}

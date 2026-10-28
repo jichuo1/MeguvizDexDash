@@ -1,0 +1,2 @@
+    Checking mdd-parser-fuzz v0.0.0 (D:\MeguvisDexDash\fuzz)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.78s

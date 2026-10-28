@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "artifacts/local/baseline-engines/A1-0.1.1-windows/dexsql-windows-amd64.exe",
+    "query",
+    "--help"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T11:05:31.802629+00:00",
+  "finished_utc": "2026-10-28T11:05:31.900845+00:00",
+  "elapsed_seconds": 0.0940000000045984,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 2513,
+    "sha256": "32caf30304c58051577f1de1f1369a9be54773fd843ba46fa6adbfcf74d060ba"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

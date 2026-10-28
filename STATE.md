@@ -1,59 +1,39 @@
 # MeguvizDexDash 当前状态
 
-更新日期：2026-10-28，Asia/Shanghai。任务状态以 tasks/backlog.json 为唯一任务图。
+更新：2026-10-28（Asia/Shanghai）。唯一任务图：tasks/backlog.json；当前产品仍在实施，所有产品 profile admitted=false。
 
-## 已交付什么
+## Checkout 与交付
 
-独立工程位于 D:\MeguvisDexDash，目录保留原拼写、产品名使用 MeguvizDexDash。私有远端 https://github.com/jichuo1/MeguvizDexDash 已建立，原始规格提交 3bbf1088137e70c5d3d722534a5eeab8b69a596c 已推送；M0/M1检查点43ad210与CI修复d9ce060已推送；M2元数据05359f9与SHA1校验abdcdf4已推送并通过Linux/Windows原生CI；物理item起点修复及定义/代码层正在整合。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；47fd432 检查点已在审查分支推送，两次 Windows/Linux 原生 CI 成功（40681784942、40681806497）。本轮新实现尚待同版本 CI。
 
-MDD-001/002/003/004/006 已按对应任务验收完成：来源冻结、Windows Rust 1.99.0/依赖实际构建、16 查询族/38 精确模板/56 关系/17 必需关系与三层工具、29 小语料及独立 oracle、有限 SQLite 虚表实验与结果契约决策。它们不授予产品 profile 资格。
+大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
-原包严格校验通过：56 文件摘要、23 历史证据、51 无环任务、3 schema、4 正例、8 反例、2 取消状态。历史条件预算重算一致；约 37%/47% 仍是条件目标。
+原工程包 SHA-256 b5f2f3859a5a7753f83f8edc24c73ce15781075afb899e4e63b274fdcc161844，原始规格提交 3bbf1088137e70c5d3d722534a5eeab8b69a596c；handoff/original/MeguvizDexDash 保持不变。原包 verify_kit/recompute_targets 实际通过（56 文件、23 历史证据、51 DAG 任务）；这些不是引擎测试。
 
-## 引擎实现状态
+## 已验收的实现范围
 
-**in_progress。** MDD-010/011 已有真实 CLI 版本/能力入口、结果 Rust 类型、自有字节捕获和来源身份；JSON/schema、u64边界、同大小同mtime改写/重命名/删除/路径替换、重复来源、lease存活、摘要与零预算失败均实际测试。仅声明对应任务范围，未声明 DEX 完整解析或审计替代。
+- M0：MDD-001/002/003/004/006 已完成各自验收；005 尚未完成。
+- M1：MDD-010/011/012/013/014 已完成限定任务范围，包括不可变快照、逻辑出现次数、ZIP32/ZIP64 物理成员、生命周期与真实 worker 故障。012 曾重新打开补齐 ZIP64，52 向量及 65,535/65,536 成员边界已重验。
+- M2：MDD-020/021/022/023 已完成字符串/类型/原型、定义、注解与编码代码布局。020 曾因内部 item 引用反例重新打开，已用物理起点、合法 orphan、SDK 正反例与公开样本重新验收。Ready facts 对外只读。
+- MDD-024：9 引用测试、18 手工 fixture（11 所需层成功、7 真损坏）、43 个固定 A0 完整小关系比较通过。公开 NewPipe 两 DEX 共 509,322 operand sites 完整读取。精确声明查找不等于运行时分派/继承解析；合法非 scalar 文本保留 UTF-16，拒绝有损 UTF-8 投影。
+- MDD-025：原始方法体、资源和 Manifest 所需事实验收完成。公开 55,763 方法、8,540 类聚合 recipe、792 资源逐项/摘要对齐固定 A0、Python 和原 HostLab 规则；76 Manifest 向量、AAPT2 完整树及 A0 六页结果通过。方法无 body 与空 body 区分，Manifest 与资源持有同一 Arc，源改写/重命名/释放后仍保持同快照证据。见 artifacts/mdd-025/raw-evidence-conformance.json。
 
-MDD-012/013/014 已完成成员清点/受限头校验/生命周期骨架验收。整仓32项测试通过后，生命周期又补充未消费cursor释放不能洗白成功的反例，当前session为8项测试；五种实际worker故障模式通过。M1 ZIP32原型已验收，后按退出规范重新打开MDD-012补齐首版必需单磁盘ZIP64；MDD-020字符串/类型/原型事实也已完成，17项DEX与3项facts测试及公开NewPipe完整元数据构建通过。主代理单写共享 Cargo/lock、types、snapshot、CLI、STATE/backlog/ledger/index 和 CI。没有性能独占测量或正式 benchmark trial。
+公开样本为官方 NewPipe 0.28.6，10,885,562 字节，SHA-256 e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58。APK 位于 ignored artifacts/local/inputs，不进入 Git。上述均非 ART 完整验证、完整 HostLab 替代或性能资格。
 
-## 已固定的研究锚点
+## 当前推进与阻塞
 
-- 目标：HostLab 的 DexSQL 桌面/云端职能；不替代 DexKit。
-- 产品名：MeguvizDexDash；拟定命令与 backend：meguvizdexdash。
-- 参考 HostLab：8782f43d537c442905123e35af325c412caa5188。
-- 两个历史 A0 任务：94.630143 / 85.572220 秒，各一次观测。
-- 约 37% / 47% 的完整任务降时为阶段条件目标，未有 B 实测。
-- 实际环境：Rust/Cargo 1.99.0、Windows x86_64 MSVC、捆绑 SQLite 3.53.2；七项生产依赖已获用户批准，Cargo.lock 与 requirements-dev.lock 已固定。
-- 固定研究提交的13份公开源码已逐文件取得并核验；现有干净 HostLab 工作树实际 HEAD=f0e523738cd0bb5575ff04b96e407dd62bdaface，未作修改。Windows DexSQL 0.1.0 和历史 Linux 两版身份分别登记。
+MDD-026 的索引、三态 coverage 和 17 必需关系逐列独立差分正在实施；MDD-030 已满足图中依赖，类型化 IR/基础算子正在独立实施。未通过的 Methods 代码列、参数文本编码与参数注解 slot Unknown 均须显式阻断相应查询，不能填零/空值制造完整结果。
 
-## 下一动作
+解析安全独立 fuzz workspace 已实际完成 10,400 次本地 mutation、2 Rust 与 2 Python oracle/驱动测试、严格 Clippy。Linux ASan 正控制和六个各 15 秒的 libFuzzer 有限 job 已准备待首次 CI；G1 未签发。测试 nightly 不改变发布 stable 1.99.0，也不把零 crash 视作完备证明。
 
-MDD-021定义/关系已验收，MDD-022注解与MDD-012 ZIP64正在实现；MDD-023已在完整公开代码区通过，等待最终整合验收；各模块限定写入权，主代理负责共享exports和最终集成。恢复先检查实际 Git/进程状态及任务图，运行 python tools/check_progress.py，按证据恢复，不重复创建任务图。
+两个授权 APK 已核验完整 SHA/长度和 33/35 DEX，原位置未改变且不入 Git：9161100=226,519,215 字节/41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2；9170100=243,687,778 字节/f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955。实际路径及 mtime 前后核验见 artifacts/bootstrap/20261028/private-input-acquisition.json。
 
-## 已知待验证项
+MDD-005 完整固定 HostLab 驱动、A0/A1 二进制身份、隔离 Python 环境、Windows Job 受限子进程及完整结果证书技术准备已完成。根资源审查仅有 7,672,709,120 字节可用物理内存，低于预登记 10,737,418,240；未授予独占测量窗口，未运行私有完整审计或正式性能试次。不能调低阈值、终止无关进程或以公开小样本替代。历史约 37%/47% 仅条件目标，baseline-runs.jsonl 尚无正式试次。
 
-MDD-005已恢复in_progress：用户直接给出两个私有APK绝对路径，已验证226519215/243687778字节、完整SHA与33/35 DEX，mtime未改；见artifacts/bootstrap/20261028/private-input-acquisition.json。早期仅prepare.lock的目录观察是历史缺失证据，已由新取得记录更新。NewPipe公开样本现已从官方取得并核验10885562字节/SHA e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58，保存在被忽略的artifacts/local/inputs，不进入Git。A0/A1/A2 同环境完整驱动、结果证书与独占测量未建立，不选取虚构分母。
+## 锁定与恢复
 
-最终 SQLite 实验21项中16项匹配，5项是 NUL length、LIKE下划线、UTF16排序、孤立代理TEXT和TEMP CTAS差异。全部保留真实输出；MDD-031仍需无损文本/方言/目录适配，所有profile admitted=false。
+发布 Rust/Cargo 1.99.0，Windows x86_64 MSVC；Linux 同版本原生验证按不可变 CI checkout 单独登记。八项直接生产依赖均获用户批准，当前根 lock 44 个外部 package：serde、serde_json、sha2、sha1、zip、rusqlite、getrandom、quick-xml。SHA-1 仅 DEX 兼容校验；来源身份 SHA-256。SQLite 3.53.2 捆绑只读虚表桥仍只完成 M0 实验，五项文本/方言差异由后续查询任务处理。Python 本地 3.12.14，CI 3.12.10；依赖与许可证见 conformance/manifests/dependencies.json。
 
-M0/M1检查点d9ce060的Linux/Windows原生CI均通过，下载产物的10份命令记录全部exit0，见artifacts/integration/20261028/ci-d9ce060.json。M2元数据05359f9与SHA1升级abdcdf4的两平台CI均已成功；当前未提交的进一步修复仍需同版本CI；平台正式发行资格尚未取得。WSL未安装、没有Docker。DEX SHA-1现已另行批准sha1 0.11.0并按header-v2实际验证；完整ART验证、完整事实/资源、MCP/FFI/桌面与正式发行资格均未取得。BIL既有修改和全部外部工作树保持原状。
+root 单写共享 Cargo/lock、exports、STATE/backlog/ledger/index 和 CI；026 索引/coverage、030 查询、独立全事实验证分开文件所有权。性能测量先暂停其它 CPU/IO 工作并取得真实资源窗口。并行检查点用 refresh_artifact_index.py --from-index 登记精确暂存 blob，再重建检查点运行 check_progress.py，不能混入活动文件。
 
-## 续写规则
-
-原包副本 handoff/original/MeguvizDexDash 保持不变；CI可从初始Git blobs重建原始字节。开发命令和原始结果在artifacts，历史evidence仍保持历史含义。
-
-本机命令隔离helper曾连续无法启动，后续已授权的本地命令经受审查执行方式恢复；Git每次限定 -c safe.directory=D:/MeguvisDexDash，没有改全局信任配置。
-
-当前未修改HostLab生产配置、默认backend或共享部署。回滚采用新revert提交撤回候选实现，保留原规格和失败证据，不重置/清理其他工作树。远端仅为用户授权的新私有项目仓库。
-
-MDD-020实际公开输入：classes.dex 64754 strings/9630 types/13644 protos；classes2.dex 3722/1034/1455，全部所选元数据计算完成。定义层现已完成（公开输入8540类、55763方法定义，引用与定义分开）；代码层完整读取公开输入52332项/1057648指令已完成编码事实验证，annotations/references/resources仍未完成，不将此摘要当完整审计。
-
-SHA-1升级后仍未取得完整DEX/审计资格。原有传递版本未升级，候选全量重解析已拒绝并保留证据；见ADR-012。MDD-021已验收；MDD-023默认编码debug与严格源码语义分开，未知/PC替代源码位置明确单列，不把line0发为有效源码。MDD-022已完成独立六关系probe并进入生产实现。
-
-MDD-020曾因string_data内部引用反例重新打开，已用SDK正反/合法orphan/真实物理item起点和公开metadata回归恢复done；历史与新证据见item-boundaries/requalification.json。高层Ready facts只读，详见ADR-014。
-
-用户已另外批准quick-xml 0.42.0（MIT、default features为空），固定源码已取得；将在MDD-025依赖满足时实际构建并最小增量锁定，当前未把未接入库或Manifest实现计为完成。资源前置已有固定AOSP源码与AAPT2对合成/公开XML完整输出，位于artifacts/mdd-025/preflight。
-
-私有APK保持原位置、不进Git；只记录路径/身份/结果摘要。当前基线准备归query_contracts，正式测量尚未开始，等待完整驱动及根授予独占资源窗口。MDD-022与MDD-012仍在功能验证，不得同时制造正式性能试次。
-
-当前M2已完成并根复核：MDD-020（含重新打开后的物理item修复）、021定义、022注解、023编码代码布局；MDD012 ZIP64也已独立52向量与13input单元重验恢复done。整仓本轮check/Clippy/82个实际测试含compile-fail均通过，source/ART/HostLab/性能profile未因此admitted。下一步引用024与原始指纹/Manifest025；005准备独占测量条件。并行文件checkpoint用refresh_artifact_index --from-index精确登记已暂存blob，不混入未完成文件。
+恢复先检查 Git/任务/进程，不重建任务图。现有 BIL/HostLab 外部工作树、配置和用户修改保持原状。原始成功/失败记录保留；当前回滚为在审查分支创建范围 revert 提交，保留初始规格和失败证据，不 reset/clean/强推。完整审计、SQL、MCP、FFI、桌面、ARSC、正式发行与 MDD-082 性能资格仍未取得。

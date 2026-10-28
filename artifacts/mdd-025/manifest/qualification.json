@@ -1,0 +1,131 @@
+{
+  "schema_version": "mdd.manifest-qualification.v1",
+  "task": "MDD-025",
+  "component": "Manifest required facts",
+  "created_utc": "2026-10-28T12:28:44.627409+00:00",
+  "production_source_frozen": true,
+  "sources": [
+    {
+      "path": "crates/mdd-input/src/manifest/axml.rs",
+      "bytes": 21189,
+      "sha256": "b5a8d95591715769dba3ca28731cad14959e30c78454d51d93de68fe0cfdd125"
+    },
+    {
+      "path": "crates/mdd-input/src/manifest/mod.rs",
+      "bytes": 15456,
+      "sha256": "fa87aa206a6aed4b54f20379855eed713fde482557892fe09ff1f2922f4e8dd3"
+    },
+    {
+      "path": "crates/mdd-input/src/manifest/tests.rs",
+      "bytes": 7288,
+      "sha256": "8c39e6e4840cd1df1494198b66c233ad79a35f7f3fd0953309bf9aba477a7b77"
+    },
+    {
+      "path": "crates/mdd-input/src/manifest/text.rs",
+      "bytes": 16528,
+      "sha256": "f4ee666c5c87ac383e4d517526ef95a3a1a8affb77e6bf40269258323ca70c42"
+    },
+    {
+      "path": "crates/mdd-facts/examples/manifest_summary.rs",
+      "bytes": 3824,
+      "sha256": "11998040832ab17b2c94d7355a9349ed32d19324e26e329e137a9cebf170ba16"
+    },
+    {
+      "path": "tests/fixtures/manifest/generate.py",
+      "bytes": 15820,
+      "sha256": "14e6f45bb11156d0e94d005818f3043deb062cabd1823fe0306a70be84624fd5"
+    },
+    {
+      "path": "tests/fixtures/manifest/check.py",
+      "bytes": 1754,
+      "sha256": "699157c6ba3a7664946c359e42a2d62a7a6f3033c77ed00b4a22aa9e38a0a730"
+    },
+    {
+      "path": "tests/fixtures/manifest/manifest.json",
+      "bytes": 95664,
+      "sha256": "485b3ab4b30b605a224d838c8731a9185a2c0486242c1b15e0c1dee78dde5862"
+    },
+    {
+      "path": "conformance/resources/hostlab-required.json",
+      "bytes": 3426,
+      "sha256": "218afee76c4c2c66c9491d7a9f47dea4cd769e8442a4d275cd7854750738e46e"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 10804,
+      "sha256": "dbf8169031c0d4be29a902fc251dffb67c0d262b78defe1c6709a1ef29511145"
+    }
+  ],
+  "actual_binary": {
+    "path": "target/debug/examples/manifest_summary.exe",
+    "sha256": "a966b77269b3fa6aab7dc47b4849b53da36fe3b53e93e8ad84c27c8fa901635a"
+  },
+  "fixtures": {
+    "count": 76,
+    "positive": 14,
+    "negative": 62,
+    "all_expected_trees_and_errors_executed": true
+  },
+  "validation": {
+    "manifest_unit_tests": 3,
+    "all_input_unit_tests": 16,
+    "failed": 0,
+    "ignored": 0,
+    "doc_tests": 0,
+    "native_platform": "Windows x86_64 MSVC",
+    "rustc": "1.99.0",
+    "clippy_all_targets": "passed -D warnings",
+    "python_independent_reproducibility_and_elementtree": "passed with -O",
+    "aapt_small_full_trees": 9,
+    "public_full_tree": {
+      "nodes": 305,
+      "attributes": 411,
+      "equal": true
+    },
+    "fixed_A0_summary": {
+      "all_fields_equal": true,
+      "root_attributes": 8,
+      "application_attributes": 11,
+      "sdk_attributes": 2,
+      "component_count": 37,
+      "permission_rows": 12,
+      "pages": 6,
+      "terminal_page_consumed": true,
+      "dataset_closed": true
+    }
+  },
+  "contract": {
+    "owned_immutable_arc": true,
+    "raw_member_bytes_unchanged": true,
+    "prefix_ambiguity_explicit": true,
+    "null_empty_absent_distinct": true,
+    "resource_refs": "unresolved",
+    "no_exported_defaults": true,
+    "no_lossy_resource_strings": true,
+    "bad_input": "real INVALID_INPUT, QUOTA_EXCEEDED, or explicitly unsupported chunk/version; never empty successful tree"
+  },
+  "acceptance_scope": {
+    "MDD025_manifest_namespace_typed_components_permissions": "passed within frozen required fact scope",
+    "MDD025_raw_code_and_resource_fingerprints": "root-owned independent evidence, not signed by this component report",
+    "snapshot_generation_binding": "same Arc verified in example; snapshot/member identity built by root ResourceByteEvidence; root mutation tests remain separate"
+  },
+  "not_claimed": [
+    "full HostLab replacement",
+    "MDD042 MCP/XML rendering/paging",
+    "MDD072 ARSC/config/overlay/full resource tools",
+    "private APK execution",
+    "Linux native execution until root CI",
+    "performance"
+  ],
+  "evidence": [
+    "final/",
+    "small-aapt-summary.json",
+    "public-full-tree-comparison.json",
+    "public-native/",
+    "public-aapt/",
+    "a0-summary-comparison.json",
+    "a0/",
+    "experience.md"
+  ],
+  "rollback": "Remove only explicitly owned Manifest additions and let root revert module export; retain evidence and archive/snapshot implementations. No remote deployment/default switch performed."
+}

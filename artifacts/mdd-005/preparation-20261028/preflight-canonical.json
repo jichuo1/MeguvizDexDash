@@ -1,0 +1,16 @@
+{
+  "schema_version": "mdd.hostlab-baseline-preflight.v1",
+  "status": "blocked",
+  "formal_performance_ready": false,
+  "facts": {
+    "private_input_parsed": false,
+    "formal_measurement": false,
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "blockers": [
+    "RuntimeError: fixed reference checkout is absent, changed or dirty",
+    "root exclusive CPU/memory/time window not yet granted",
+    "full private A0/A1 results and 20-group equality certificate not yet executed",
+    "A2 compact MCP transport candidate not admitted for the full audit consumer"
+  ]
+}

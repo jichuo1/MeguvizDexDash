@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "-p",
+    "mdd-facts",
+    "--example",
+    "manifest_summary",
+    "--locked",
+    "--offline"
+  ],
+  "started_utc": "2026-10-28T12:26:33.756837+00:00",
+  "finished_utc": "2026-10-28T12:26:35.726649+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 1.9690000000045984,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "bytes": 143,
+    "sha256": "0969addcb25449a2d58de7a48f693bf7bc442fb1ce16f5c3c1e037e6ef77d687"
+  }
+}

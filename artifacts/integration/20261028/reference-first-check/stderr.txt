@@ -1,0 +1,2 @@
+    Checking mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.59s

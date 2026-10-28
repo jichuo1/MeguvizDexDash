@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "tests/fixtures/manifest/check.py"
+  ],
+  "started_utc": "2026-10-28T12:26:35.727180+00:00",
+  "finished_utc": "2026-10-28T12:26:35.876436+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.1559999999954016,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 233,
+    "sha256": "41b5230d22a5452d5fd571e0988368760cd3f8902b8b0e4621d559d3f6ef8054"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

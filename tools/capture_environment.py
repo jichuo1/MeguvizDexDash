@@ -72,10 +72,11 @@ def main():
         'schema_version': 'mdd.dependencies.v1',
         'rust': '1.99.0', 'msrv': '1.99',
         'lock_sha256': hashlib.sha256((ROOT/'Cargo.lock').read_bytes()).hexdigest(),
-        'approved_direct_dependencies': ['serde', 'serde_json', 'sha2', 'sha1', 'zip', 'rusqlite', 'getrandom'],
-        'platform_validation': {'windows_x86_64': 'native build probe passed', 'linux_x86_64': 'pending native CI'},
+        'approved_direct_dependencies': ['serde', 'serde_json', 'sha2', 'sha1', 'zip', 'rusqlite', 'getrandom', 'quick-xml'],
+        'platform_validation': {'windows_x86_64': 'native build probe passed', 'linux_x86_64': 'prior checkpoint CI passed; this lock requires its own CI'},
         'sqlite_profile': 'bundled; no load_extension; vtab/functions/collation/hooks/limits',
         'zip_profile': 'no default features; DEFLATE zlib-rs only',
+        'xml_profile': 'quick-xml 0.42.0; no default features; bounded synchronous text XML; DTD prohibited',
         'packages': sorted(dependencies, key=lambda x: x['name']),
         'project_distribution_license': 'not selected; private development repository only',
     })

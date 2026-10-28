@@ -3,6 +3,8 @@ pub mod annotations;
 pub mod code;
 pub mod definitions;
 pub mod metadata;
+pub mod raw_fingerprints;
+pub mod references;
 
 pub use metadata::{
     EntityKind, EntityRef, MetadataFacts, MetadataSource, PrototypeFact, StringFact,

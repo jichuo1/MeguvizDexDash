@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "-p",
+    "mdd-input",
+    "--locked",
+    "--offline"
+  ],
+  "started_utc": "2026-10-28T12:26:28.114663+00:00",
+  "finished_utc": "2026-10-28T12:26:31.394453+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 3.2819999999992433,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 1556,
+    "sha256": "1d75b1adcb623f35c2eb1525e196009b228d413f3462feeeb802e61a510bcfbf"
+  },
+  "stderr": {
+    "bytes": 252,
+    "sha256": "cc7fcce165db4a3fc04501b234c656caab900749315e42cdaac19665e97d3c03"
+  }
+}

@@ -630,7 +630,7 @@
       "id": "MDD-024",
       "phase": "M2",
       "title": "建立调用点、字符串、字段和类型引用事实",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "MDD-021",
         "MDD-023"
@@ -657,13 +657,18 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ],
+      "implementation_notes": "Exact snapshot-bound encoded sites and explicit selected-input declaration scope accepted; no runtime dispatch/inheritance/profile claim. 18 vectors,43 complete A0 tiny relations,509322 public operand sites.",
+      "implementation_evidence": [
+        "artifacts/mdd-024/reference-conformance.json",
+        "artifacts/integration/20261028/facts-024-025-root-tests/record.json"
       ]
     },
     {
       "id": "MDD-025",
       "phase": "M2",
       "title": "实现原始代码/资源指纹与必需 Manifest 事实",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "MDD-012",
         "MDD-021",
@@ -694,13 +699,17 @@
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
-      "implementation_notes": "MDD012 ZIP64, MDD021 definitions and MDD023 encoded code layout accepted; raw fingerprints/manifest production delegated"
+      "implementation_notes": "Required raw insns/resource byte evidence and bounded AXML/text Manifest facts accepted on Windows with handwritten/Python, fixed A0, unchanged HostLab and AAPT2 independent evidence; all product profiles remain unqualified.",
+      "implementation_evidence": [
+        "artifacts/mdd-025/raw-evidence-conformance.json",
+        "artifacts/mdd-025/manifest/qualification.json"
+      ]
     },
     {
       "id": "MDD-026",
       "phase": "M2",
       "title": "建立必要候选索引并签发事实层完整性",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "MDD-021",
         "MDD-022",
@@ -731,13 +740,14 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_notes": "Dependencies now accepted; indexes/coverage and independent 17-relation per-column conformance active; real gaps remain explicit."
     },
     {
       "id": "MDD-030",
       "phase": "M3",
       "title": "实现类型化查询 IR 与基础执行算子",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "MDD-010",
         "MDD-020",
@@ -767,7 +777,8 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_notes": "Eligible independent task; typed IR/operator source in progress, not included in current accepted fact checkpoint."
     },
     {
       "id": "MDD-031",

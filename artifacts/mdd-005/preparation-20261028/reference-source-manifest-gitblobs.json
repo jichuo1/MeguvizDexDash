@@ -1,0 +1,495 @@
+{
+  "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+  "actual_checkout": "D:\\MeguvisDexDash\\artifacts\\local\\hostlab-reference",
+  "source_files": {
+    "tools/hostlab/adaptive_schedule.py": {
+      "sha256": "4e3696f0f833fc600c78e52285dc647224b02436e87c3115d400170761a38498",
+      "bytes": 14912,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/ai_checkpoint.py": {
+      "sha256": "752966e5ae97e63c81790944d4bca1955adea99b04688032afc2bea91887058f",
+      "bytes": 22011,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/ai_pipeline.py": {
+      "sha256": "c01ed839f0130fd96cc6e52f8815710da13a53007c715077c8fd67615c765b08",
+      "bytes": 45986,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/ai_prompts.py": {
+      "sha256": "c60aa1766fcf3add3afb1581ccb3218db693df17efbf296f8bdc1b6cd01726b0",
+      "bytes": 6403,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/ai_recovery.py": {
+      "sha256": "28682cf33b86a39eb73eb5c56429a680d2bcbd44f1b2e72481fbd9355b5c22b0",
+      "bytes": 24975,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/ai_review.py": {
+      "sha256": "c11e3134bc28797b27a3394976cc46ca03192a483d5c9ca943149265cc5732e3",
+      "bytes": 45299,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/ai_transport.py": {
+      "sha256": "67297bd2c1bac3e5cdff2e796b7af195db6b46a8d00dcc28606f87e567918626",
+      "bytes": 23300,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis/audit_catalog.json": {
+      "sha256": "ea5099ec1020ef20735cd4bcf4a1f71dec320cc908002d2f6120d2ab825aa848",
+      "bytes": 10916,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis/dex_reader.py": {
+      "sha256": "6ef71fc658608718e0547bfbd23f3e76504f2b7e251c63c72202ea3b145199d8",
+      "bytes": 5309,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis/home_frame_audit.py": {
+      "sha256": "85351a40067cd129284ec10cd9809a9d7497aebbc93252d0ea7442c488e2b6bc",
+      "bytes": 12894,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis/HostCompatibilityAudit.java": {
+      "sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+      "bytes": 52607,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis/obfuscated_owner_drift.py": {
+      "sha256": "7a158594bcb0d02ff919d1fb87fc47631be61f4b847ab6733146d330a87a8c7c",
+      "bytes": 6116,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis/run_intake.py": {
+      "sha256": "36fce528921e54be5600bd37eb4b6273e97552d2a0701170130b798fcbbe0068",
+      "bytes": 14092,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis/SingleClassDump.java": {
+      "sha256": "aa8a09fc15842a608aea17292f99ef82d5dd4114574138d36f233ccae9a4c78d",
+      "bytes": 1902,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis_batch.py": {
+      "sha256": "8f40845d1328cae8a06dd29830c5e636d962da3cc72194e16904f6fb23030a64",
+      "bytes": 23159,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis_checkpoint.py": {
+      "sha256": "cabc41a443fde6f9798509ec7157f0577c59beaa8aaebe6c247265c31ee58d90",
+      "bytes": 15471,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis_paging.py": {
+      "sha256": "91adddc501e80e8ceeaa7f55ca6f6b12bd715502589f80e7cd4d7da2e5201cb1",
+      "bytes": 11581,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analysis_plan.py": {
+      "sha256": "acc007958419d233bf0be6271e288c10588df2984701f5f6abf585a895ad07cb",
+      "bytes": 10947,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/analyze.py": {
+      "sha256": "3ddb6298e74d3173bbea217d1bb5b51dd7ea138739dbd952bf4ed505716ce0ee",
+      "bytes": 17388,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/audit_common.py": {
+      "sha256": "6f2468bfbaebf1cecab0fd9c5eaeb3afdc7f95fa2154aaee6e0b48613769b928",
+      "bytes": 678,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/auto_intake.py": {
+      "sha256": "1a59c64eb91bc8fc389f9d4427b28af40515515982062b755e6ef5fde341ae58",
+      "bytes": 5744,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/bench_dexq.py": {
+      "sha256": "298f5da3b9431f15f7b7c21d534f168b890b35a1fae0933382f8d2cb4d593184",
+      "bytes": 1547,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/bootstrap-samples.json": {
+      "sha256": "e608c89a0c3ca4f09356be121904063848e88ccb063124582336112e6f27f50e",
+      "bytes": 1962,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/build_client.py": {
+      "sha256": "1cdaaf40cc1ffc98ee0938923cad2641be539f8f40a4830cb1bb4d5a447f5a25",
+      "bytes": 4618,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/check_ai_connectivity.py": {
+      "sha256": "53ec67dedd382497fd9a0852812513af28c42c231268224f31da62023242421f",
+      "bytes": 10026,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/dexq/dexq_workers.py": {
+      "sha256": "310a15aa413dafd2ac7db99614acd5ba68e97350950dba778868f0ba63c3ae0b",
+      "bytes": 5771,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/dexq/server.py": {
+      "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+      "bytes": 22254,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/dexq_cli.py": {
+      "sha256": "9e95d7c215c54386547dd074d7016746801a17ea2e0c82af0127b89c9b2e4d93",
+      "bytes": 7232,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/examples/comment-search-links.json": {
+      "sha256": "77a193370d290a1ded3337fa4bdf1b6e7b79f5e4cb3d65b50a5a7afaa9edb38d",
+      "bytes": 4974,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/hostlab.py": {
+      "sha256": "111dff57cef990ac1557c1d950a2fe9bf1dfb8b787c5f9c20c126a26953c15e8",
+      "bytes": 13160,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/install_dexsql.py": {
+      "sha256": "2c223b638023b325a782771e4751a6371c393cb46750d253695e4b7e7727f1ca",
+      "bytes": 4421,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/install_jadx.py": {
+      "sha256": "0222fcfa6aa8e87450081370583b5f84ebb226d245a92684d53234c377a9105e",
+      "bytes": 1154,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/native_audit.py": {
+      "sha256": "89a024d9f1b177a1b5989b623200d996e5a5013287f923579d995fee15759442",
+      "bytes": 3477,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/native_cli.py": {
+      "sha256": "ca2b1cfb824c0da8f6ab00baeb6bbb24308c734b9ebc3ba4c5c7219d9503a3e3",
+      "bytes": 9276,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/native_graph.py": {
+      "sha256": "bcad2ba7e9a02bff07e08291960cf25c2d8f36474d3a5295188d180ed7bdf085",
+      "bytes": 13971,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/native_rules.py": {
+      "sha256": "00487b4d0e2ccf16b8437cc528e354f973f99c6a2baf4a4cc9c45f71fbd2d940",
+      "bytes": 22417,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/native_session.py": {
+      "sha256": "a30457b7ebf011b5a451e008eb99f5e78ee412cbeba85e5a5658714116145920",
+      "bytes": 415,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/native_surface.py": {
+      "sha256": "503521fdbb694ca825a65e259981155dc5ccbbf69c4797d23e3e598d1bdaf174",
+      "bytes": 8822,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/plan_ci.py": {
+      "sha256": "1a07909a309aaec8646e79a7b839f65f9c46bac0641e011f518b55f694dcaa53",
+      "bytes": 1627,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/prepare_runtime.py": {
+      "sha256": "1027693ec0a465aa04ba905ec1f2f3e93bbb8ba0e2152b92f085beaa394e783d",
+      "bytes": 9750,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/priority_analysis.py": {
+      "sha256": "120f8e47da1869be02adb24da12952f0705ee89a1d89c2ae0de7580dc4434631",
+      "bytes": 8720,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/probe_ai_generation.py": {
+      "sha256": "93e0e4a7cb3d53d7df0758d7b3eb537c39ef68890b4eb4ba25deac5246e9c4eb",
+      "bytes": 17807,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/process_control.py": {
+      "sha256": "7a515e8656638d72963dc33c0f434a57907b59cb4ff49eb7c87d6327ce0b9d70",
+      "bytes": 2443,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/production-context.json": {
+      "sha256": "b35b8d68fc467a325c723800dbdfc56e687d5a7006dce8fd32a72a5eabf9dbec",
+      "bytes": 1837807,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/publish_report.py": {
+      "sha256": "15f9b5b12d7a0f1ff0710227f1d51938e05e0a51a82e7d18a5af8ef55976dfcd",
+      "bytes": 14460,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/regenerate_report.py": {
+      "sha256": "d34dd6906e73e3e97ab6d418a33dbeda683734a61f9c96c72261dd946d7af9f8",
+      "bytes": 19564,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/remote_artifacts.py": {
+      "sha256": "5ddd0e35235afc8cd3ac53b6619cfa62a826f0aa2610c459a85b55207889aa50",
+      "bytes": 12506,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/remote_dispatch.py": {
+      "sha256": "7ca1d75c57992cae29f61b74c8d37028dc603e0c8ce612fea2c24fbafa305897",
+      "bytes": 2542,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/remote_job.py": {
+      "sha256": "8c7e63257b418c2b64c3d3c5759728cf85eeb83f2628326629453bb8c769f236",
+      "bytes": 17935,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/remote_mcp.py": {
+      "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+      "bytes": 28247,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/remote_schedule.py": {
+      "sha256": "7174fae71c25670fb96e0c313180c23fe224db534729f34bf0a1f18209e6354d",
+      "bytes": 13072,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/requirements-query.txt": {
+      "sha256": "16674aa10746aaab1d3a0f71fd19f58659eec0390996457adc57a61ed29bdca0",
+      "bytes": 34,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/requirements-remote.txt": {
+      "sha256": "01c771571873832ab0a9b1814fe45ca6d3b8cae24425c2c60102663ea5e11b70",
+      "bytes": 11,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/requirements.txt": {
+      "sha256": "f3e663badb8a9e86eec2018254d07315586f8453087ae8d3ff796d05f749cd79",
+      "bytes": 52,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/runner_group.py": {
+      "sha256": "917e1ae078202d53aa5a605091237531f182f03d13e30efa36fd18695704eabb",
+      "bytes": 7155,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/runner_resources.py": {
+      "sha256": "92bf24cfa991c45a5efa60e542a94c0c6636ab7f7873cb08f7b2751044aef4ae",
+      "bytes": 23835,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/runner_worker.py": {
+      "sha256": "dae63dc34a6b27095b0040ef8e7cac6f8e09d0cb43e7b601e46c22ed2b0df665",
+      "bytes": 13428,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/snapshot_context.py": {
+      "sha256": "c278d775f8c6af81ce0dd19e14a3b5aadc0d417d1c2cd34867debdcd4a1565c6",
+      "bytes": 1441,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/snapshot_transport.py": {
+      "sha256": "b75d5c1aac417c2f192da74d85f0da840aed9c7a110d4d54be2dcfb48ef28bf8",
+      "bytes": 14985,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/source_intake.py": {
+      "sha256": "8dbf649de1b1b3967ac41e395750dbc83df14b0e4bbf434501490bd59bfb0444",
+      "bytes": 4230,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/source_snapshot.py": {
+      "sha256": "f6bdaf74f56bc6b7b3d080d16fbdf0929ec3adadfdea6edaf02422cdbb82768a",
+      "bytes": 15109,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/surface_workers.py": {
+      "sha256": "8d520bfddec822fb4b59abb671b1e87d148997086a8d9cb9230c942e4db9d0d4",
+      "bytes": 13694,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_adaptive_schedule.py": {
+      "sha256": "dfc2fecc688efeaf870a1773064b6e925d8a2cee68188a1a4f708df9f0887673",
+      "bytes": 16713,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_ai_checkpoint.py": {
+      "sha256": "d6346359adb27c28ccb1581b00e99fa9fb352a5b159a4ee090d4bc32b10a0163",
+      "bytes": 17335,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_ai_diagnostics.py": {
+      "sha256": "6c71aa3b2875200002ee53fe0bd1f89f546eaf8f70a4713502f339925e8c904d",
+      "bytes": 20599,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_ai_output_budget.py": {
+      "sha256": "1b5969f0a6fedbd0c87ed17d02e5645b0ec760ed2dc00e4f2b6be83fde2f3b15",
+      "bytes": 5386,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_ai_pipeline.py": {
+      "sha256": "e37f1d5d35902addf7965d2cc689ced97df434ca969c89b38d2f059e20a47623",
+      "bytes": 34390,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_ai_publish.py": {
+      "sha256": "703024079e8f1c78ae284437ac78f4ffd9d4cd2a42e6cd1eeebf21358bbc5fb2",
+      "bytes": 3093,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_ai_recovery.py": {
+      "sha256": "b57d018cbe2092aa7ad627bebb09764f811a5ebe034eea09875b28db82d37ffe",
+      "bytes": 43725,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_ai_review.py": {
+      "sha256": "1e9a6bf6b098c07269571e96bb0f3e6e8df57af68c2ec50f16c0194c358181bb",
+      "bytes": 30010,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_ai_transport.py": {
+      "sha256": "783a7aa2375a8ba0a050db0633ab70eccc3919ecf73e2df281bc796e229f917b",
+      "bytes": 22261,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_analysis_pagination.py": {
+      "sha256": "d1703cd5ec2e7be785e32797aa6744162fb73714027f29937d736117a3bb6cca",
+      "bytes": 29303,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_analysis_scheduler.py": {
+      "sha256": "1f8d00375f7251753d93a38f190fa4d688d0263e132f47c69db44061fb2c0316",
+      "bytes": 19516,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_audit_stability.py": {
+      "sha256": "09eb9d26e47e9d3c0b5dfe7108408f2df836f4522a8ca2fc4fae78cd21d91ebe",
+      "bytes": 9676,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_dexq_mcp.py": {
+      "sha256": "12ecdc06d4c3816319c72a5be2694376c7ec0ebf495b8bd3c946ba7396aec588",
+      "bytes": 3622,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_group_matrix.py": {
+      "sha256": "883407c5ef9d0aa8b88dea1f10d4b4c55984ca0ef976fb06ae5921312e2f596b",
+      "bytes": 16488,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_native_audit.py": {
+      "sha256": "ae662868d5c3a641d7f84b9ef6bae4330a9683cd186178fb0afe33c1b0b28b77",
+      "bytes": 20244,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_prepare_runtime.py": {
+      "sha256": "00c1624edbbdb5e8955e22b9b1f18fb888c7c429d23a59429ee11a2301e610de",
+      "bytes": 16854,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_query_output.py": {
+      "sha256": "11c401227ffb376df3df1a89f3d613294744061b69c428852491614629f759cb",
+      "bytes": 17138,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_regenerate_checkpoint.py": {
+      "sha256": "3c274768652942c84e70f07c5b0260e7e5ff4a45c995192cfde456700e549ba3",
+      "bytes": 23961,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_remote_artifacts.py": {
+      "sha256": "fa221b1068e8afa917959f4b59995f5f9407434a9fc64e46d93e63c0f8f074a3",
+      "bytes": 12220,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_remote_dispatch.py": {
+      "sha256": "85e0994a1f3c8c50893036255c76a9290d4c1399cf0f1594bcca22a2cd949856",
+      "bytes": 10160,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_remote_mcp.py": {
+      "sha256": "cc27e3cfccba7de051053178beb0c29fb06ce8709b171e5394a11a581083a999",
+      "bytes": 2463,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_runner_group.py": {
+      "sha256": "3a40be23397586e5fe41151d38c707e9993c0b378a3197459fa41826ba134868",
+      "bytes": 10774,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_runner_resources.py": {
+      "sha256": "32043ef83548bdf61a97ec40cf14af27addbbf1e9a4e993d417fe2ea5e5e442f",
+      "bytes": 14349,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_runner_worker.py": {
+      "sha256": "9614ac8e12d78806c808535ac517f9d4f0b717b034a9868fb837e720ff385f8d",
+      "bytes": 26099,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_sample_fetch.py": {
+      "sha256": "3e48eb3b60d58b0dcca10721412559c1afb318bf608bdcdf77a86792dcff1847",
+      "bytes": 10200,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_snapshot_transport.py": {
+      "sha256": "66846102d9b3fbcb933c5aaa21fd6f22b815a5a8420561a9209e77dc3a41eb7c",
+      "bytes": 14384,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_source_intake.py": {
+      "sha256": "c0c7cb3c47ee2ecfdd8e4e36a2d8cfe97f1b046b57324a0d75bdb0805dd6a6e5",
+      "bytes": 7981,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_source_runner.py": {
+      "sha256": "39af154ec1ac91687e6ca0e5b2f1d6a73ad387037335bf6dea5bb7435d6cc90d",
+      "bytes": 21865,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_source_snapshot.py": {
+      "sha256": "c747818e73a5105c85e307ff8f6320ce3b2d8ff2e51c89c1ca10b71620d89f3f",
+      "bytes": 16851,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_tooling_runtime_workflow.py": {
+      "sha256": "2ca211e1c6148760d04c04e09a83ed3edaa0a2883cc0d448e066c6d4f0e29348",
+      "bytes": 4006,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/test_version_matrix.py": {
+      "sha256": "003a2cdf65d9c6be30f5af2807344a5f931c2683a0c77fa363151c5627d6afdf",
+      "bytes": 15470,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/upload_inventory.py": {
+      "sha256": "dc139303d0ea60b428b37eece5fa6e035809ddfe8a686105a900598f4514e15e",
+      "bytes": 2059,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/verify_audits.py": {
+      "sha256": "9e9630a34091d4316fbe63cad8a8204c7ff9e59ce00ef126b5d594e60bcee600",
+      "bytes": 12821,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/verify_backends.py": {
+      "sha256": "8c7021908d1cc815adae46cc8583c04aff89489234f83925404dc1c0239c8eef",
+      "bytes": 8890,
+      "matches_git_blob": true
+    },
+    "tools/hostlab/version_matrix.py": {
+      "sha256": "8f6ab30272f90effe0e61e1d7ed805af139250615dd900800282df7fc30ea13d",
+      "bytes": 40339,
+      "matches_git_blob": true
+    }
+  },
+  "materialization": "recorded source bytes equal fixed HEAD blobs; core auto-CRLF status/stat cache is separately retained",
+  "git_content_diff_exit_code": 0,
+  "porcelain_observation": " M tools/hostlab/adaptive_schedule.py\n M tools/hostlab/ai_checkpoint.py\n M tools/hostlab/ai_pipeline.py\n M tools/hostlab/ai_prompts.py\n M tools/hostlab/ai_recovery.py\n M tools/hostlab/ai_review.py\n M tools/hostlab/ai_transport.py\n M tools/hostlab/analysis/HostCompatibilityAudit.java\n M tools/hostlab/analysis/SingleClassDump.java\n M tools/hostlab/analysis/audit_catalog.json\n M tools/hostlab/analysis/dex_reader.py\n M tools/hostlab/analysis/home_frame_audit.py\n M tools/hostlab/analysis/obfuscated_owner_drift.py\n M tools/hostlab/analysis/run_intake.py\n M tools/hostlab/analysis_batch.py\n M tools/hostlab/analysis_checkpoint.py\n M tools/hostlab/analysis_paging.py\n M tools/hostlab/analysis_plan.py\n M tools/hostlab/analyze.py\n M tools/hostlab/audit_common.py\n M tools/hostlab/auto_intake.py\n M tools/hostlab/bench_dexq.py\n M tools/hostlab/bootstrap-samples.json\n M tools/hostlab/build_client.py\n M tools/hostlab/check_ai_connectivity.py\n M tools/hostlab/dexq/dexq_workers.py\n M tools/hostlab/dexq/server.py\n M tools/hostlab/dexq_cli.py\n M tools/hostlab/examples/comment-search-links.json\n M tools/hostlab/hostlab.py\n M tools/hostlab/install_dexsql.py\n M tools/hostlab/install_jadx.py\n M tools/hostlab/native_audit.py\n M tools/hostlab/native_cli.py\n M tools/hostlab/native_graph.py\n M tools/hostlab/native_rules.py\n M tools/hostlab/native_session.py\n M tools/hostlab/native_surface.py\n M tools/hostlab/plan_ci.py\n M tools/hostlab/prepare_runtime.py\n M tools/hostlab/priority_analysis.py\n M tools/hostlab/probe_ai_generation.py\n M tools/hostlab/process_control.py\n M tools/hostlab/production-context.json\n M tools/hostlab/publish_report.py\n M tools/hostlab/regenerate_report.py\n M tools/hostlab/remote_artifacts.py\n M tools/hostlab/remote_dispatch.py\n M tools/hostlab/remote_job.py\n M tools/hostlab/remote_mcp.py\n M tools/hostlab/remote_schedule.py\n M tools/hostlab/requirements-query.txt\n M tools/hostlab/requirements-remote.txt\n M tools/hostlab/requirements.txt\n M tools/hostlab/runner_group.py\n M tools/hostlab/runner_resources.py\n M tools/hostlab/runner_worker.py\n M tools/hostlab/snapshot_context.py\n M tools/hostlab/snapshot_transport.py\n M tools/hostlab/source_intake.py\n M tools/hostlab/source_snapshot.py\n M tools/hostlab/surface_workers.py\n M tools/hostlab/test_adaptive_schedule.py\n M tools/hostlab/test_ai_checkpoint.py\n M tools/hostlab/test_ai_diagnostics.py\n M tools/hostlab/test_ai_output_budget.py\n M tools/hostlab/test_ai_pipeline.py\n M tools/hostlab/test_ai_publish.py\n M tools/hostlab/test_ai_recovery.py\n M tools/hostlab/test_ai_review.py\n M tools/hostlab/test_ai_transport.py\n M tools/hostlab/test_analysis_pagination.py\n M tools/hostlab/test_analysis_scheduler.py\n M tools/hostlab/test_audit_stability.py\n M tools/hostlab/test_dexq_mcp.py\n M tools/hostlab/test_group_matrix.py\n M tools/hostlab/test_native_audit.py\n M tools/hostlab/test_prepare_runtime.py\n M tools/hostlab/test_query_output.py\n M tools/hostlab/test_regenerate_checkpoint.py\n M tools/hostlab/test_remote_artifacts.py\n M tools/hostlab/test_remote_dispatch.py\n M tools/hostlab/test_remote_mcp.py\n M tools/hostlab/test_runner_group.py\n M tools/hostlab/test_runner_resources.py\n M tools/hostlab/test_runner_worker.py\n M tools/hostlab/test_sample_fetch.py\n M tools/hostlab/test_snapshot_transport.py\n M tools/hostlab/test_source_intake.py\n M tools/hostlab/test_source_runner.py\n M tools/hostlab/test_source_snapshot.py\n M tools/hostlab/test_tooling_runtime_workflow.py\n M tools/hostlab/test_version_matrix.py\n M tools/hostlab/upload_inventory.py\n M tools/hostlab/verify_audits.py\n M tools/hostlab/verify_backends.py\n M tools/hostlab/version_matrix.py\n",
+  "functional_source_edited": false
+}

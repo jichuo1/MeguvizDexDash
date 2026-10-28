@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "artifacts/mdd-024/compare_reference.py"
+  ],
+  "exit_code": 0,
+  "stdout": "complete tiny relation comparisons 43 ; retained known differences 8\n",
+  "stderr": ""
+}

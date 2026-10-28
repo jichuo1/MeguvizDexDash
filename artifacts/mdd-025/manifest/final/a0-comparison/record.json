@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "artifacts/mdd-025/manifest/compare_a0.py"
+  ],
+  "started_utc": "2026-10-28T12:28:44.523875+00:00",
+  "finished_utc": "2026-10-28T12:28:44.623705+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.0930000000007567,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 703,
+    "sha256": "592b5d1b2a63978b666e2c4912dd0e7a0cf79aed8bee5dfc96e40c524bf2aed5"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

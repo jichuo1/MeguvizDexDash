@@ -1,0 +1,1131 @@
+{
+  "schema_version": "mdd.fuzz-seeds.v1",
+  "private_inputs": false,
+  "files": [
+    {
+      "target": "archive",
+      "source": "tests/fixtures/generated/multidex-stored.apk",
+      "path": "fuzz/corpus/archive/6b88277747a49dfddcc91900c171ae6420449cc424d57ffd46f896891ad26098",
+      "bytes": 1236,
+      "sha256": "6b88277747a49dfddcc91900c171ae6420449cc424d57ffd46f896891ad26098"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/generated/multidex-deflated.apk",
+      "path": "fuzz/corpus/archive/d063e89802d9cc0445c547f91b22deeeda3574ee17be8bcd3190ee6ae3113697",
+      "bytes": 870,
+      "sha256": "d063e89802d9cc0445c547f91b22deeeda3574ee17be8bcd3190ee6ae3113697"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/generated/duplicate-name.apk",
+      "path": "fuzz/corpus/archive/46d7f5af4b29dfebe4a75bff5a93a11fedaa638fc1cc9a53cf9501deb9af7eb5",
+      "bytes": 894,
+      "sha256": "46d7f5af4b29dfebe4a75bff5a93a11fedaa638fc1cc9a53cf9501deb9af7eb5"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/generated/bad-crc.apk",
+      "path": "fuzz/corpus/archive/603dbaa843394e744b3e3d7ea96652e3e003d9de97eb2a5df63b81399c817d3f",
+      "bytes": 260,
+      "sha256": "603dbaa843394e744b3e3d7ea96652e3e003d9de97eb2a5df63b81399c817d3f"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/generated/member-policy.apk",
+      "path": "fuzz/corpus/archive/78c3264f1aa9ffad0096b8b69e8127ac1898dd6a24a878fad7cc11eb2ac5655d",
+      "bytes": 998,
+      "sha256": "78c3264f1aa9ffad0096b8b69e8127ac1898dd6a24a878fad7cc11eb2ac5655d"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-central-zip64-version.zip",
+      "path": "fuzz/corpus/archive/d39327f8453b9624aef88fa6c5d321db0c9c43206243290b8dc6c8d34a4351bf",
+      "bytes": 473,
+      "sha256": "d39327f8453b9624aef88fa6c5d321db0c9c43206243290b8dc6c8d34a4351bf"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-descriptor-crc.zip",
+      "path": "fuzz/corpus/archive/3ef3d28c07894bc941098886cba5584b30fc24bbdfb772cf31cd4b82d985eadd",
+      "bytes": 521,
+      "sha256": "3ef3d28c07894bc941098886cba5584b30fc24bbdfb772cf31cd4b82d985eadd"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-descriptor-size.zip",
+      "path": "fuzz/corpus/archive/c8cf588d6974058dc49bcad32932ac6960607ae38bd47c4ee8bc54ff47163a49",
+      "bytes": 513,
+      "sha256": "c8cf588d6974058dc49bcad32932ac6960607ae38bd47c4ee8bc54ff47163a49"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-descriptor-width.zip",
+      "path": "fuzz/corpus/archive/0cf46c34dfa486e925f586c67d731a8bd392d1618b9a778f60a1866277979f55",
+      "bytes": 505,
+      "sha256": "0cf46c34dfa486e925f586c67d731a8bd392d1618b9a778f60a1866277979f55"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-disk-count.zip",
+      "path": "fuzz/corpus/archive/ea39414feb5fcf0f88a2bb3dc25cfe58ed0eeda26e73bd7cb50dbbc4e73dd451",
+      "bytes": 473,
+      "sha256": "ea39414feb5fcf0f88a2bb3dc25cfe58ed0eeda26e73bd7cb50dbbc4e73dd451"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-extra-length.zip",
+      "path": "fuzz/corpus/archive/ed4898922a4385b6047fd3c77c139ac719c2f73b3672af35ce09f493e199c130",
+      "bytes": 473,
+      "sha256": "ed4898922a4385b6047fd3c77c139ac719c2f73b3672af35ce09f493e199c130"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-local-zip64-version.zip",
+      "path": "fuzz/corpus/archive/240cdaddb3f6e2bbdf41f24c5dcba36674fe56fde6d3cc900ec0aab55569ee26",
+      "bytes": 473,
+      "sha256": "240cdaddb3f6e2bbdf41f24c5dcba36674fe56fde6d3cc900ec0aab55569ee26"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-locator-offset.zip",
+      "path": "fuzz/corpus/archive/8644e5a9244fdb79e806d066fefd2ac72357d8765609329ea9928faa0301dfde",
+      "bytes": 473,
+      "sha256": "8644e5a9244fdb79e806d066fefd2ac72357d8765609329ea9928faa0301dfde"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-record-size.zip",
+      "path": "fuzz/corpus/archive/1628c4170130b81d5d70e7df2399d9152055bcba8c7813c92fc5ae24f24fc3b6",
+      "bytes": 473,
+      "sha256": "1628c4170130b81d5d70e7df2399d9152055bcba8c7813c92fc5ae24f24fc3b6"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/bad-selected-payload.zip",
+      "path": "fuzz/corpus/archive/9ba77194e594bdcf96944bc9805487824979994f352b79236e569a586b531f21",
+      "bytes": 473,
+      "sha256": "9ba77194e594bdcf96944bc9805487824979994f352b79236e569a586b531f21"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/central-local-name-mismatch.zip",
+      "path": "fuzz/corpus/archive/1bf7d08ed5ff7fbbec694a3c32bda06079c9d1a9b90bb345f53ced1bb346325f",
+      "bytes": 473,
+      "sha256": "1bf7d08ed5ff7fbbec694a3c32bda06079c9d1a9b90bb345f53ced1bb346325f"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/central-offset64-local-version20-descriptor64.zip",
+      "path": "fuzz/corpus/archive/70a6b5bfa51844f5a7bd9a0d76d54e0fcb41f81f410877e3065b08b0f3825a20",
+      "bytes": 441,
+      "sha256": "70a6b5bfa51844f5a7bd9a0d76d54e0fcb41f81f410877e3065b08b0f3825a20"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/conditional-compressed.zip",
+      "path": "fuzz/corpus/archive/dfc24bd35c128c9176ccf7665983e1dc02b0978893b1d4cb59ad7f83bf9f1efc",
+      "bytes": 401,
+      "sha256": "dfc24bd35c128c9176ccf7665983e1dc02b0978893b1d4cb59ad7f83bf9f1efc"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/conditional-disk.zip",
+      "path": "fuzz/corpus/archive/cb7096f635eb5d8016307a8041c2a8cd9c467cbd1b4ff46aea8c76fecfebe4d2",
+      "bytes": 393,
+      "sha256": "cb7096f635eb5d8016307a8041c2a8cd9c467cbd1b4ff46aea8c76fecfebe4d2"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/conditional-offset.zip",
+      "path": "fuzz/corpus/archive/b9c640503b53344deb48a5e59c72976ed6c4ff76566c9c4e3ffedef059af08d0",
+      "bytes": 401,
+      "sha256": "b9c640503b53344deb48a5e59c72976ed6c4ff76566c9c4e3ffedef059af08d0"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/conditional-size.zip",
+      "path": "fuzz/corpus/archive/621bd91a8533574fdfdd83e523eccd5736a4e1a27faa327619ec87e5b77380f9",
+      "bytes": 401,
+      "sha256": "621bd91a8533574fdfdd83e523eccd5736a4e1a27faa327619ec87e5b77380f9"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/count-only-zip64-with-32-descriptor.zip",
+      "path": "fuzz/corpus/archive/96995c2dae993b66d160938856260d64c0abacc83026c55c506dd0b7f8fd29d8",
+      "bytes": 482,
+      "sha256": "96995c2dae993b66d160938856260d64c0abacc83026c55c506dd0b7f8fd29d8"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/declared-count-huge.zip",
+      "path": "fuzz/corpus/archive/74c6205984d91ee139ff9a967a78ef4d035af21787aecdc8c479d537c9cac09d",
+      "bytes": 473,
+      "sha256": "74c6205984d91ee139ff9a967a78ef4d035af21787aecdc8c479d537c9cac09d"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/declared-directory-huge.zip",
+      "path": "fuzz/corpus/archive/8aad382314ace1f6e5b154173d0601e3cacd94398bc49d09bd03f2384075f3f2",
+      "bytes": 473,
+      "sha256": "8aad382314ace1f6e5b154173d0601e3cacd94398bc49d09bd03f2384075f3f2"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/declared-member-huge.zip",
+      "path": "fuzz/corpus/archive/481e2bcc7b9298e65730cb5bd2e791d2cb7fe6ea8a0b6345f417d5c2a3d22cf0",
+      "bytes": 473,
+      "sha256": "481e2bcc7b9298e65730cb5bd2e791d2cb7fe6ea8a0b6345f417d5c2a3d22cf0"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/declared-offset-overflow.zip",
+      "path": "fuzz/corpus/archive/34a958645e6beacce800d0ae16799987c821d4e71573c8ccc68e22248bf11037",
+      "bytes": 473,
+      "sha256": "34a958645e6beacce800d0ae16799987c821d4e71573c8ccc68e22248bf11037"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/declared-record-huge.zip",
+      "path": "fuzz/corpus/archive/3fee78466ff2bf6eeacbaa144f752e00e18dca084dbccd46560ae9d23eaac32d",
+      "bytes": 473,
+      "sha256": "3fee78466ff2bf6eeacbaa144f752e00e18dca084dbccd46560ae9d23eaac32d"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/declared-total-overflow.zip",
+      "path": "fuzz/corpus/archive/9045102cb49b8d6afdf862d744715bbbd1a52f511890e5970e9d40b22f04ba62",
+      "bytes": 473,
+      "sha256": "9045102cb49b8d6afdf862d744715bbbd1a52f511890e5970e9d40b22f04ba62"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/descriptor-deflated-signed.zip",
+      "path": "fuzz/corpus/archive/0cd8a37a2f59a126cdc013fa35fab09d424fa686f49af5e23bbbb0325c1278bb",
+      "bytes": 521,
+      "sha256": "0cd8a37a2f59a126cdc013fa35fab09d424fa686f49af5e23bbbb0325c1278bb"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/descriptor-deflated-unsigned.zip",
+      "path": "fuzz/corpus/archive/f80994dcd8d654a427626e1f47689b26d0ee066c9c6618eb22a5432e861bb3bf",
+      "bytes": 513,
+      "sha256": "f80994dcd8d654a427626e1f47689b26d0ee066c9c6618eb22a5432e861bb3bf"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/descriptor-stored-signed.zip",
+      "path": "fuzz/corpus/archive/a1e4122ca3909488c877b712bebaef11bff8a92bd84d82b5d00c33680e07363d",
+      "bytes": 594,
+      "sha256": "a1e4122ca3909488c877b712bebaef11bff8a92bd84d82b5d00c33680e07363d"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/descriptor-stored-unsigned.zip",
+      "path": "fuzz/corpus/archive/f13f1cc3051748554c0af7d77db85af584d1d00d82b0a10db76d19c75adc4b54",
+      "bytes": 586,
+      "sha256": "f13f1cc3051748554c0af7d77db85af584d1d00d82b0a10db76d19c75adc4b54"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/duplicate-central-extra.zip",
+      "path": "fuzz/corpus/archive/fc0a2a290d6ad6f2bc6171a144e47cb6d01b1575691fc2150aefbdbd45b76d69",
+      "bytes": 602,
+      "sha256": "fc0a2a290d6ad6f2bc6171a144e47cb6d01b1575691fc2150aefbdbd45b76d69"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/duplicate-content.zip",
+      "path": "fuzz/corpus/archive/31349e48021ebde4fbb56c004bb9448cc2ab9c1507defd3c4fd49be74bda253f",
+      "bytes": 672,
+      "sha256": "31349e48021ebde4fbb56c004bb9448cc2ab9c1507defd3c4fd49be74bda253f"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/duplicate-local-extra.zip",
+      "path": "fuzz/corpus/archive/8e79b00b928ccc084671ed1c90c5eec18f515211ebc020732d2b4a506030c2bd",
+      "bytes": 586,
+      "sha256": "8e79b00b928ccc084671ed1c90c5eec18f515211ebc020732d2b4a506030c2bd"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/duplicate-name.zip",
+      "path": "fuzz/corpus/archive/177b70019d480aed1ccf1242f5d84383cd57176a1085bf6ee15a041d2469b656",
+      "bytes": 753,
+      "sha256": "177b70019d480aed1ccf1242f5d84383cd57176a1085bf6ee15a041d2469b656"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/empty.zip",
+      "path": "fuzz/corpus/archive/1386d0a55e7ede0dd147c146d17edfa81720aa3a50171ba3cc6b774839dc9593",
+      "bytes": 98,
+      "sha256": "1386d0a55e7ede0dd147c146d17edfa81720aa3a50171ba3cc6b774839dc9593"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/end-extension.zip",
+      "path": "fuzz/corpus/archive/b82a8fecac7d3a8d60f20dd6513dd688edd8c8cd47d049d44791fc58a0b83422",
+      "bytes": 555,
+      "sha256": "b82a8fecac7d3a8d60f20dd6513dd688edd8c8cd47d049d44791fc58a0b83422"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/full-deflated.zip",
+      "path": "fuzz/corpus/archive/77cc6b6867cb7e5d0ec096de9ca02a04fad5ad7deaf56486a13b530a2bfcaaa2",
+      "bytes": 473,
+      "sha256": "77cc6b6867cb7e5d0ec096de9ca02a04fad5ad7deaf56486a13b530a2bfcaaa2"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/full-stored.zip",
+      "path": "fuzz/corpus/archive/844b57cbdac301adb3915350782fcc46c1fb2243ccc87026a5b542098b9baf7f",
+      "bytes": 546,
+      "sha256": "844b57cbdac301adb3915350782fcc46c1fb2243ccc87026a5b542098b9baf7f"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/local-offset-u64-overflow.zip",
+      "path": "fuzz/corpus/archive/031adb421edbcbb3f3fa8b73a76105700a70775e49aadce0dada2909b8636bec",
+      "bytes": 473,
+      "sha256": "031adb421edbcbb3f3fa8b73a76105700a70775e49aadce0dada2909b8636bec"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/local-size-mismatch.zip",
+      "path": "fuzz/corpus/archive/22f4b56dd5c07c1bb5647f7e711057782859e4f2c798c2d6bc68b07ed28813e5",
+      "bytes": 473,
+      "sha256": "22f4b56dd5c07c1bb5647f7e711057782859e4f2c798c2d6bc68b07ed28813e5"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/missing-locator-signature.zip",
+      "path": "fuzz/corpus/archive/c80f680852a1e8e7e56694ebaade7fcc61e4e5c61e8c94836f7b634c6d33f054",
+      "bytes": 473,
+      "sha256": "c80f680852a1e8e7e56694ebaade7fcc61e4e5c61e8c94836f7b634c6d33f054"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/multi-volume.zip",
+      "path": "fuzz/corpus/archive/1f6af1ba4a84d88e9a0d13fe4775613b9690498973b71abe31b24a6a52c7dd22",
+      "bytes": 473,
+      "sha256": "1f6af1ba4a84d88e9a0d13fe4775613b9690498973b71abe31b24a6a52c7dd22"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/plain32-local-nonzero-truncated-extra.zip",
+      "path": "fuzz/corpus/archive/cd5256e4ff65f19de3c381f144707af076158f03a2e6717410aacfbdd88d6a59",
+      "bytes": 376,
+      "sha256": "cd5256e4ff65f19de3c381f144707af076158f03a2e6717410aacfbdd88d6a59"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/plain32-local-padding-1.zip",
+      "path": "fuzz/corpus/archive/e8d5122d6958be1d75ad2e24ab4b9e3e2609e73435cef8538e4f15e8c73fcc0d",
+      "bytes": 376,
+      "sha256": "e8d5122d6958be1d75ad2e24ab4b9e3e2609e73435cef8538e4f15e8c73fcc0d"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/plain32-local-padding-2.zip",
+      "path": "fuzz/corpus/archive/803e56cff53cffc37c289ea3c17813e0fb3d5326b682f1433e7a786bd7762122",
+      "bytes": 378,
+      "sha256": "803e56cff53cffc37c289ea3c17813e0fb3d5326b682f1433e7a786bd7762122"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/plain32-local-padding-3.zip",
+      "path": "fuzz/corpus/archive/7ac7460619c195094264fe89e84b5def40edafb272caf3e38060750c740fb7d0",
+      "bytes": 380,
+      "sha256": "7ac7460619c195094264fe89e84b5def40edafb272caf3e38060750c740fb7d0"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/plain32.zip",
+      "path": "fuzz/corpus/archive/c961aa6034bc99f9e597e0117603eb6fc68b174f445ca1d94b819f0157bebbe7",
+      "bytes": 374,
+      "sha256": "c961aa6034bc99f9e597e0117603eb6fc68b174f445ca1d94b819f0157bebbe7"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/python-force-local-deflated.zip",
+      "path": "fuzz/corpus/archive/2fba37063f8b6df74e9c3b450de8d927a4fd707fb25964506ba15f4eb945fecf",
+      "bytes": 205,
+      "sha256": "2fba37063f8b6df74e9c3b450de8d927a4fd707fb25964506ba15f4eb945fecf"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/python-force-local-stored.zip",
+      "path": "fuzz/corpus/archive/c916ee7a1cfaecc6376de92d5a1432733937192d3268eeb2b9c1ee2fe56b9b6f",
+      "bytes": 280,
+      "sha256": "c916ee7a1cfaecc6376de92d5a1432733937192d3268eeb2b9c1ee2fe56b9b6f"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/python-stream-local-deflated.zip",
+      "path": "fuzz/corpus/archive/78034aea9f3189b0eb55384f608fa4dc3f6210669bfdfafb32da9510706f8cfa",
+      "bytes": 229,
+      "sha256": "78034aea9f3189b0eb55384f608fa4dc3f6210669bfdfafb32da9510706f8cfa"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/python-stream-local-stored.zip",
+      "path": "fuzz/corpus/archive/0934fc6d3c6cad4f38aeeba07347f3e25f5c6da53752f3bfdf453c0c41262cf9",
+      "bytes": 304,
+      "sha256": "0934fc6d3c6cad4f38aeeba07347f3e25f5c6da53752f3bfdf453c0c41262cf9"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/wrong-extra-order.zip",
+      "path": "fuzz/corpus/archive/304d566aefeae1604d25bbd0fba928cf24a7f50d292b66fb6e7c1a25975c00a8",
+      "bytes": 473,
+      "sha256": "304d566aefeae1604d25bbd0fba928cf24a7f50d292b66fb6e7c1a25975c00a8"
+    },
+    {
+      "target": "archive",
+      "source": "tests/fixtures/zip64/generated/zero-disks.zip",
+      "path": "fuzz/corpus/archive/a45a87dba5c7b70fbdfe9c44b3d3a9bb6f2108a52c76ea69cf3f05613b443b21",
+      "bytes": 473,
+      "sha256": "a45a87dba5c7b70fbdfe9c44b3d3a9bb6f2108a52c76ea69cf3f05613b443b21"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/generated/minimal-035.dex",
+      "path": "fuzz/corpus/header_raw/e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+      "bytes": 140,
+      "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/generated/minimal-037.dex",
+      "path": "fuzz/corpus/header_raw/45b6d94b81a498ff626152716c43fa3f37ae84cb347808954cdc11f2f6db5b7a",
+      "bytes": 140,
+      "sha256": "45b6d94b81a498ff626152716c43fa3f37ae84cb347808954cdc11f2f6db5b7a"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/generated/minimal-038.dex",
+      "path": "fuzz/corpus/header_raw/7e0f156611de3f393809abb6b2f355a4973b4632b877b6217d916069e811f59a",
+      "bytes": 140,
+      "sha256": "7e0f156611de3f393809abb6b2f355a4973b4632b877b6217d916069e811f59a"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/generated/minimal-039.dex",
+      "path": "fuzz/corpus/header_raw/2133d3fb663cfceadea61c1a15963a6deb69ef9cb82c1e0b7d5583a238b6e0a6",
+      "bytes": 140,
+      "sha256": "2133d3fb663cfceadea61c1a15963a6deb69ef9cb82c1e0b7d5583a238b6e0a6"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/generated/minimal-040.dex",
+      "path": "fuzz/corpus/header_raw/2ceacba2863f6acbaf5014ff304492665a30f299d1dde0113fbb7de913253f38",
+      "bytes": 140,
+      "sha256": "2ceacba2863f6acbaf5014ff304492665a30f299d1dde0113fbb7de913253f38"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/generated/bad-checksum.dex",
+      "path": "fuzz/corpus/header_raw/cc90d70fe322f17950015d5f3bd536c666a8ebadfc2e6c0d0773ebca1fd916b2",
+      "bytes": 140,
+      "sha256": "cc90d70fe322f17950015d5f3bd536c666a8ebadfc2e6c0d0773ebca1fd916b2"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/generated/bad-signature.dex",
+      "path": "fuzz/corpus/header_raw/914032948790b185d306c3425c6b830783a8c895bab247481712373cc0b28bee",
+      "bytes": 140,
+      "sha256": "914032948790b185d306c3425c6b830783a8c895bab247481712373cc0b28bee"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/generated/bad-map-offset.dex",
+      "path": "fuzz/corpus/header_raw/07245312d7d77766e11af0409c35c00895c1dccda7fe932d0a7654ee7efe0b1f",
+      "bytes": 140,
+      "sha256": "07245312d7d77766e11af0409c35c00895c1dccda7fe932d0a7654ee7efe0b1f"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/instructions/generated/all-debug-opcodes.dex",
+      "path": "fuzz/corpus/header_raw/0e8d3f0b7308c59083c50ef98c19ad9134135be2b33933fb89405fc5f569acdd",
+      "bytes": 208,
+      "sha256": "0e8d3f0b7308c59083c50ef98c19ad9134135be2b33933fb89405fc5f569acdd"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/instructions/generated/bad-debug-advance-zero.dex",
+      "path": "fuzz/corpus/header_raw/3fa77f5e8974a491bd4ff2b26c0a38bf829f62fe158ebeb02cccca365c4197c5",
+      "bytes": 188,
+      "sha256": "3fa77f5e8974a491bd4ff2b26c0a38bf829f62fe158ebeb02cccca365c4197c5"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/annotations/generated/annotations-038.dex",
+      "path": "fuzz/corpus/header_raw/65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+      "bytes": 1452,
+      "sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360"
+    },
+    {
+      "target": "header_raw",
+      "source": "tests/fixtures/annotations/generated/bad-annotation-interior.dex",
+      "path": "fuzz/corpus/header_raw/c68f5c6a8291c77934cdea3f171f30f25c9a27485c161283ddcf65ee6b23bbaa",
+      "bytes": 1452,
+      "sha256": "c68f5c6a8291c77934cdea3f171f30f25c9a27485c161283ddcf65ee6b23bbaa"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/generated/minimal-035.dex",
+      "path": "fuzz/corpus/header_repaired/e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+      "bytes": 140,
+      "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/generated/minimal-037.dex",
+      "path": "fuzz/corpus/header_repaired/45b6d94b81a498ff626152716c43fa3f37ae84cb347808954cdc11f2f6db5b7a",
+      "bytes": 140,
+      "sha256": "45b6d94b81a498ff626152716c43fa3f37ae84cb347808954cdc11f2f6db5b7a"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/generated/minimal-038.dex",
+      "path": "fuzz/corpus/header_repaired/7e0f156611de3f393809abb6b2f355a4973b4632b877b6217d916069e811f59a",
+      "bytes": 140,
+      "sha256": "7e0f156611de3f393809abb6b2f355a4973b4632b877b6217d916069e811f59a"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/generated/minimal-039.dex",
+      "path": "fuzz/corpus/header_repaired/2133d3fb663cfceadea61c1a15963a6deb69ef9cb82c1e0b7d5583a238b6e0a6",
+      "bytes": 140,
+      "sha256": "2133d3fb663cfceadea61c1a15963a6deb69ef9cb82c1e0b7d5583a238b6e0a6"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/generated/minimal-040.dex",
+      "path": "fuzz/corpus/header_repaired/2ceacba2863f6acbaf5014ff304492665a30f299d1dde0113fbb7de913253f38",
+      "bytes": 140,
+      "sha256": "2ceacba2863f6acbaf5014ff304492665a30f299d1dde0113fbb7de913253f38"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/generated/bad-checksum.dex",
+      "path": "fuzz/corpus/header_repaired/cc90d70fe322f17950015d5f3bd536c666a8ebadfc2e6c0d0773ebca1fd916b2",
+      "bytes": 140,
+      "sha256": "cc90d70fe322f17950015d5f3bd536c666a8ebadfc2e6c0d0773ebca1fd916b2"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/generated/bad-signature.dex",
+      "path": "fuzz/corpus/header_repaired/914032948790b185d306c3425c6b830783a8c895bab247481712373cc0b28bee",
+      "bytes": 140,
+      "sha256": "914032948790b185d306c3425c6b830783a8c895bab247481712373cc0b28bee"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/generated/bad-map-offset.dex",
+      "path": "fuzz/corpus/header_repaired/07245312d7d77766e11af0409c35c00895c1dccda7fe932d0a7654ee7efe0b1f",
+      "bytes": 140,
+      "sha256": "07245312d7d77766e11af0409c35c00895c1dccda7fe932d0a7654ee7efe0b1f"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/instructions/generated/all-debug-opcodes.dex",
+      "path": "fuzz/corpus/header_repaired/0e8d3f0b7308c59083c50ef98c19ad9134135be2b33933fb89405fc5f569acdd",
+      "bytes": 208,
+      "sha256": "0e8d3f0b7308c59083c50ef98c19ad9134135be2b33933fb89405fc5f569acdd"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/instructions/generated/bad-debug-advance-zero.dex",
+      "path": "fuzz/corpus/header_repaired/3fa77f5e8974a491bd4ff2b26c0a38bf829f62fe158ebeb02cccca365c4197c5",
+      "bytes": 188,
+      "sha256": "3fa77f5e8974a491bd4ff2b26c0a38bf829f62fe158ebeb02cccca365c4197c5"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/annotations/generated/annotations-038.dex",
+      "path": "fuzz/corpus/header_repaired/65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+      "bytes": 1452,
+      "sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360"
+    },
+    {
+      "target": "header_repaired",
+      "source": "tests/fixtures/annotations/generated/bad-annotation-interior.dex",
+      "path": "fuzz/corpus/header_repaired/c68f5c6a8291c77934cdea3f171f30f25c9a27485c161283ddcf65ee6b23bbaa",
+      "bytes": 1452,
+      "sha256": "c68f5c6a8291c77934cdea3f171f30f25c9a27485c161283ddcf65ee6b23bbaa"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/all-debug-opcodes.dex",
+      "path": "fuzz/corpus/code_payload/0e8d3f0b7308c59083c50ef98c19ad9134135be2b33933fb89405fc5f569acdd",
+      "bytes": 208,
+      "sha256": "0e8d3f0b7308c59083c50ef98c19ad9134135be2b33933fb89405fc5f569acdd"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-debug-advance-zero.dex",
+      "path": "fuzz/corpus/code_payload/3fa77f5e8974a491bd4ff2b26c0a38bf829f62fe158ebeb02cccca365c4197c5",
+      "bytes": 188,
+      "sha256": "3fa77f5e8974a491bd4ff2b26c0a38bf829f62fe158ebeb02cccca365c4197c5"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-debug-initial-zero.dex",
+      "path": "fuzz/corpus/code_payload/9faaebe50f13b61d8541aa531e21a62b3deaf3b5fd13f065e9ce93df10b51ba5",
+      "bytes": 188,
+      "sha256": "9faaebe50f13b61d8541aa531e21a62b3deaf3b5fd13f065e9ce93df10b51ba5"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-debug-line-overflow.dex",
+      "path": "fuzz/corpus/code_payload/1fbfaca32d28728e7709e40fb67f7afe0cc16a4eaf74e16c29abecbaea305244",
+      "bytes": 192,
+      "sha256": "1fbfaca32d28728e7709e40fb67f7afe0cc16a4eaf74e16c29abecbaea305244"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-debug-missing-end.dex",
+      "path": "fuzz/corpus/code_payload/a685e105b9822493ca95992a5f21c79c551820a8fc7c2a1d10ba9f9059777d82",
+      "bytes": 188,
+      "sha256": "a685e105b9822493ca95992a5f21c79c551820a8fc7c2a1d10ba9f9059777d82"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-debug-nonpattern-shared-suffix.dex",
+      "path": "fuzz/corpus/code_payload/612f561073424eb9cc92d8b264367720b82ed7cc4dcbe92f5dfb37470fdba247",
+      "bytes": 188,
+      "sha256": "612f561073424eb9cc92d8b264367720b82ed7cc4dcbe92f5dfb37470fdba247"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-debug-parameter-count.dex",
+      "path": "fuzz/corpus/code_payload/7e7ff15a50efc709388586a6352f1828da33b513caa07b76f9cf0a7fc33f5dba",
+      "bytes": 188,
+      "sha256": "7e7ff15a50efc709388586a6352f1828da33b513caa07b76f9cf0a7fc33f5dba"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-debug-special-negative.dex",
+      "path": "fuzz/corpus/code_payload/3a8874990e673a925a4c9fdea4dab4b92429bdf46a668826c257eaf2ac80a7c8",
+      "bytes": 188,
+      "sha256": "3a8874990e673a925a4c9fdea4dab4b92429bdf46a668826c257eaf2ac80a7c8"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-reserved-opcode.dex",
+      "path": "fuzz/corpus/code_payload/8e0ad9963263cac271df746459af0812e212cf294bdce8ad4f9012afeb5e2743",
+      "bytes": 172,
+      "sha256": "8e0ad9963263cac271df746459af0812e212cf294bdce8ad4f9012afeb5e2743"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/bad-truncated-wide.dex",
+      "path": "fuzz/corpus/code_payload/c5924ed58ac7edcbf1122107442d408a70cdbca69d107ff1c89771cf9549bfac",
+      "bytes": 172,
+      "sha256": "c5924ed58ac7edcbf1122107442d408a70cdbca69d107ff1c89771cf9549bfac"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/debug-code-unit-interior-local.dex",
+      "path": "fuzz/corpus/code_payload/7ea6cc002e84b527dd15e5700064c124dd9df69722f3d57f7b83fd8159bb68d0",
+      "bytes": 204,
+      "sha256": "7ea6cc002e84b527dd15e5700064c124dd9df69722f3d57f7b83fd8159bb68d0"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/debug-code-unit-interior-position.dex",
+      "path": "fuzz/corpus/code_payload/5fc762269d1d291a0e0f33713eaeec2cf4d18ba76378662c7b5951dc141a595d",
+      "bytes": 192,
+      "sha256": "5fc762269d1d291a0e0f33713eaeec2cf4d18ba76378662c7b5951dc141a595d"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/debug-intermediate-state-7.dex",
+      "path": "fuzz/corpus/code_payload/3bb4149bc65165d07609568fcd87899fdeef13635d83798d56ade938ae608a9b",
+      "bytes": 200,
+      "sha256": "3bb4149bc65165d07609568fcd87899fdeef13635d83798d56ade938ae608a9b"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/debug-intermediate-state-8.dex",
+      "path": "fuzz/corpus/code_payload/2969c49b396d1e47697840a7b1de3640b0e47c083e0f040bd197d805e75d7e80",
+      "bytes": 200,
+      "sha256": "2969c49b396d1e47697840a7b1de3640b0e47c083e0f040bd197d805e75d7e80"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/debug-intermediate-state-9.dex",
+      "path": "fuzz/corpus/code_payload/55c5658ab7639c359a115e7504ff0a0e677a2ada19fae82a89f1268dbca2e60a",
+      "bytes": 200,
+      "sha256": "55c5658ab7639c359a115e7504ff0a0e677a2ada19fae82a89f1268dbca2e60a"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/debug-line-u32max.dex",
+      "path": "fuzz/corpus/code_payload/97d4fc7afe2217cd7ceedbe265a8aa6555ccf98a8030fd6d41899c4be4dfd87c",
+      "bytes": 192,
+      "sha256": "97d4fc7afe2217cd7ceedbe265a8aa6555ccf98a8030fd6d41899c4be4dfd87c"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/debug-observed-zero-source-line.dex",
+      "path": "fuzz/corpus/code_payload/0c4311d48cd1cb95eccc428426bd11055410745d8b8b318abdad7314def86e6a",
+      "bytes": 352,
+      "sha256": "0c4311d48cd1cb95eccc428426bd11055410745d8b8b318abdad7314def86e6a"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/fill-array.dex",
+      "path": "fuzz/corpus/code_payload/211fcd52b84d7d31c395cac7e6b554bb6b9bf2dbab4e5e0e5963cad433b03b77",
+      "bytes": 188,
+      "sha256": "211fcd52b84d7d31c395cac7e6b554bb6b9bf2dbab4e5e0e5963cad433b03b77"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/packed-switch.dex",
+      "path": "fuzz/corpus/code_payload/286e31622963372bcdbd3592ff9f10fb9808a676cc733fcd4cd97259240d7963",
+      "bytes": 188,
+      "sha256": "286e31622963372bcdbd3592ff9f10fb9808a676cc733fcd4cd97259240d7963"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/pc-to-pc-shared-base-0.dex",
+      "path": "fuzz/corpus/code_payload/6b8c19f49be9b63c0282dcbdb116d0d21fae80972daca8198813a910dfb2b7bd",
+      "bytes": 220,
+      "sha256": "6b8c19f49be9b63c0282dcbdb116d0d21fae80972daca8198813a910dfb2b7bd"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/pc-to-pc-shared-base-1.dex",
+      "path": "fuzz/corpus/code_payload/a3085711d5e604443e178b67e8d8cde9efd13671a03b8e8c7c6e6ee9d6c02d35",
+      "bytes": 220,
+      "sha256": "a3085711d5e604443e178b67e8d8cde9efd13671a03b8e8c7c6e6ee9d6c02d35"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/sparse-switch.dex",
+      "path": "fuzz/corpus/code_payload/edf4ce6a30c1bcaf93685b3a23f10f3ee5f422236bb65be35f1b9f825d620771",
+      "bytes": 196,
+      "sha256": "edf4ce6a30c1bcaf93685b3a23f10f3ee5f422236bb65be35f1b9f825d620771"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/try-catch-all.dex",
+      "path": "fuzz/corpus/code_payload/7c6926ae613e5f44cdb96e861a4e7b31a1beb09795ee8bc824e0c95390b1b71f",
+      "bytes": 188,
+      "sha256": "7c6926ae613e5f44cdb96e861a4e7b31a1beb09795ee8bc824e0c95390b1b71f"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/try-end-inside-instruction.dex",
+      "path": "fuzz/corpus/code_payload/aeac62fc5b9f44cc56989b36b3daac642d0355ce40f7a55f09bddddb17176d0f",
+      "bytes": 188,
+      "sha256": "aeac62fc5b9f44cc56989b36b3daac642d0355ce40f7a55f09bddddb17176d0f"
+    },
+    {
+      "target": "code_payload",
+      "source": "tests/fixtures/instructions/generated/unreferenced-two-code.dex",
+      "path": "fuzz/corpus/code_payload/0e91b25b75fb54e843624258c0163f9a98eb1c05210d12b459f9bd41a22e71ef",
+      "bytes": 208,
+      "sha256": "0e91b25b75fb54e843624258c0163f9a98eb1c05210d12b459f9bd41a22e71ef"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/annotations-038.dex",
+      "path": "fuzz/corpus/encoded_values/65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+      "bytes": 1452,
+      "sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-annotation-interior.dex",
+      "path": "fuzz/corpus/encoded_values/c68f5c6a8291c77934cdea3f171f30f25c9a27485c161283ddcf65ee6b23bbaa",
+      "bytes": 1452,
+      "sha256": "c68f5c6a8291c77934cdea3f171f30f25c9a27485c161283ddcf65ee6b23bbaa"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-annotation-type.dex",
+      "path": "fuzz/corpus/encoded_values/0d2150bc7d9aa2a65ba15e44461a18c51a3b3e5196583f461a3b859efb4a3566",
+      "bytes": 1452,
+      "sha256": "0d2150bc7d9aa2a65ba15e44461a18c51a3b3e5196583f461a3b859efb4a3566"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-boolean-arg.dex",
+      "path": "fuzz/corpus/encoded_values/2180633b81ddd5ceca55027b834a209804f2f05cb922c818b47dcb35f5769bd5",
+      "bytes": 1452,
+      "sha256": "2180633b81ddd5ceca55027b834a209804f2f05cb922c818b47dcb35f5769bd5"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-call-site-arity.dex",
+      "path": "fuzz/corpus/encoded_values/ea701b54a52a85615a6c87e4b8e9865696751746d73c8bc212a1fe03e541cb53",
+      "bytes": 1692,
+      "sha256": "ea701b54a52a85615a6c87e4b8e9865696751746d73c8bc212a1fe03e541cb53"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-call-site-array-interior.dex",
+      "path": "fuzz/corpus/encoded_values/4f4ee7dab4bcb08c3ca036076f1a1957bc5b3439c8f215c4346300b12acc88bf",
+      "bytes": 1696,
+      "sha256": "4f4ee7dab4bcb08c3ca036076f1a1957bc5b3439c8f215c4346300b12acc88bf"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-call-site-handle-index.dex",
+      "path": "fuzz/corpus/encoded_values/4deacb5457e76bedccb4db53b59244c7daa64a20f838fe77b61a7ac9e43eeaef",
+      "bytes": 1696,
+      "sha256": "4deacb5457e76bedccb4db53b59244c7daa64a20f838fe77b61a7ac9e43eeaef"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-call-site-handle-kind.dex",
+      "path": "fuzz/corpus/encoded_values/4db2fffdd2d19b72f8f811a58e0c7fbd6d3190825612f1a1b293aa2deb8784bd",
+      "bytes": 1696,
+      "sha256": "4db2fffdd2d19b72f8f811a58e0c7fbd6d3190825612f1a1b293aa2deb8784bd"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-call-site-name-index.dex",
+      "path": "fuzz/corpus/encoded_values/0382340de0b34a8a1ee075823dd6dd901cef60d36cd95cb3e829ba36da85764a",
+      "bytes": 1696,
+      "sha256": "0382340de0b34a8a1ee075823dd6dd901cef60d36cd95cb3e829ba36da85764a"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-call-site-name-kind.dex",
+      "path": "fuzz/corpus/encoded_values/29f972d2618bd32e861a8466c6086e7179126a0a278fb42be3137d6295fc5fe0",
+      "bytes": 1696,
+      "sha256": "29f972d2618bd32e861a8466c6086e7179126a0a278fb42be3137d6295fc5fe0"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-call-site-type-index.dex",
+      "path": "fuzz/corpus/encoded_values/a80e77b6c457c3cdd119a7d22d1ae4ec214a58c3b47eb076dbf8f1226e3c1433",
+      "bytes": 1696,
+      "sha256": "a80e77b6c457c3cdd119a7d22d1ae4ec214a58c3b47eb076dbf8f1226e3c1433"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-call-site-type-kind.dex",
+      "path": "fuzz/corpus/encoded_values/8f779e6f19634ecc27580508de7e9e90ed84097864e76123856f2aa36b262da7",
+      "bytes": 1696,
+      "sha256": "8f779e6f19634ecc27580508de7e9e90ed84097864e76123856f2aa36b262da7"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-class-owner.dex",
+      "path": "fuzz/corpus/encoded_values/f26f2201d09107b9d42b5626be92dfa6f1ae1571911ae593a54014808905b601",
+      "bytes": 1452,
+      "sha256": "f26f2201d09107b9d42b5626be92dfa6f1ae1571911ae593a54014808905b601"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-directory-interior.dex",
+      "path": "fuzz/corpus/encoded_values/538ce1bf02d9cf3602bc0c0fe6b77edfeaf039b16b641b279f0848c1af400624",
+      "bytes": 1452,
+      "sha256": "538ce1bf02d9cf3602bc0c0fe6b77edfeaf039b16b641b279f0848c1af400624"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-element-order.dex",
+      "path": "fuzz/corpus/encoded_values/a0a5c31d5a0806e1febfd125fa285a8723c976e5c2c526d0f73a06d7c4cd97cf",
+      "bytes": 1452,
+      "sha256": "a0a5c31d5a0806e1febfd125fa285a8723c976e5c2c526d0f73a06d7c4cd97cf"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-field-entry-order.dex",
+      "path": "fuzz/corpus/encoded_values/81de4456c0595da4e07c53edfa4e3a8b07eeebf8b4482dc747a725bd64a001ff",
+      "bytes": 1452,
+      "sha256": "81de4456c0595da4e07c53edfa4e3a8b07eeebf8b4482dc747a725bd64a001ff"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-orphan-annotation.dex",
+      "path": "fuzz/corpus/encoded_values/1618c68e5649eeb84206246d94dd17fb08b683abe13f84bd5582fb708bab8b6a",
+      "bytes": 1456,
+      "sha256": "1618c68e5649eeb84206246d94dd17fb08b683abe13f84bd5582fb708bab8b6a"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-orphan-array.dex",
+      "path": "fuzz/corpus/encoded_values/19678531587ff9ca0404c5f01bf8ad1774f5bc55cba79bb1ecab43115b0cc966",
+      "bytes": 1468,
+      "sha256": "19678531587ff9ca0404c5f01bf8ad1774f5bc55cba79bb1ecab43115b0cc966"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-orphan-directory-owner.dex",
+      "path": "fuzz/corpus/encoded_values/7f0ecb46d25914abeea85896033745db2f3add4e41708fe0f3e622e4dc91c102",
+      "bytes": 1484,
+      "sha256": "7f0ecb46d25914abeea85896033745db2f3add4e41708fe0f3e622e4dc91c102"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-orphan-ref-interior.dex",
+      "path": "fuzz/corpus/encoded_values/924367ce84461835526a99b8b616770b7379360e397a0a1f30dbbb818dde096d",
+      "bytes": 1460,
+      "sha256": "924367ce84461835526a99b8b616770b7379360e397a0a1f30dbbb818dde096d"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-orphan-set-interior.dex",
+      "path": "fuzz/corpus/encoded_values/9ec05d84890d22fa570110608b2841558cf66d42254c7deccb83353430d6b3b0",
+      "bytes": 1460,
+      "sha256": "9ec05d84890d22fa570110608b2841558cf66d42254c7deccb83353430d6b3b0"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-parameter-arity.dex",
+      "path": "fuzz/corpus/encoded_values/dac87eb4842227104f1a7b3f215eb1fdc452422273c54020de89e88939ceea4f",
+      "bytes": 1452,
+      "sha256": "dac87eb4842227104f1a7b3f215eb1fdc452422273c54020de89e88939ceea4f"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-parameter-count.dex",
+      "path": "fuzz/corpus/encoded_values/19b0576495255e34828c35a813836c27be30bdcb5bb69816ff4567e2f3ba85f6",
+      "bytes": 1452,
+      "sha256": "19b0576495255e34828c35a813836c27be30bdcb5bb69816ff4567e2f3ba85f6"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-ref-list-interior.dex",
+      "path": "fuzz/corpus/encoded_values/c0fd467c3cfd33a1b05d67b1329e8e3cc621b082fdab77da1fcf94599c5db9f4",
+      "bytes": 1452,
+      "sha256": "c0fd467c3cfd33a1b05d67b1329e8e3cc621b082fdab77da1fcf94599c5db9f4"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-ref-set-interior.dex",
+      "path": "fuzz/corpus/encoded_values/4b32e823662b3c84c12fe79eefa078a7ed4e7fa3256c227751231caa87e1a6f8",
+      "bytes": 1452,
+      "sha256": "4b32e823662b3c84c12fe79eefa078a7ed4e7fa3256c227751231caa87e1a6f8"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-set-interior.dex",
+      "path": "fuzz/corpus/encoded_values/e77bea8ef5927c3e2ce56e8b8cf21e642712ca3dbab09a9471188bb69ee8e62c",
+      "bytes": 1452,
+      "sha256": "e77bea8ef5927c3e2ce56e8b8cf21e642712ca3dbab09a9471188bb69ee8e62c"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-static-array-interior.dex",
+      "path": "fuzz/corpus/encoded_values/5d29774c8d87491f9d002ebb97c040867f4ae066ef54908b087c9e4fc37c58d1",
+      "bytes": 1468,
+      "sha256": "5d29774c8d87491f9d002ebb97c040867f4ae066ef54908b087c9e4fc37c58d1"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-string-index.dex",
+      "path": "fuzz/corpus/encoded_values/99b52e4d7de2655419dc3c7db73baafc5ba24bcc2832f0a8d2b2ffc2d04720c5",
+      "bytes": 1452,
+      "sha256": "99b52e4d7de2655419dc3c7db73baafc5ba24bcc2832f0a8d2b2ffc2d04720c5"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-value-tag.dex",
+      "path": "fuzz/corpus/encoded_values/8150b2c7574b0197a84fe33ad49034909ecb03424cb0bc82fb95689bb31a5a31",
+      "bytes": 1452,
+      "sha256": "8150b2c7574b0197a84fe33ad49034909ecb03424cb0bc82fb95689bb31a5a31"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-value-width.dex",
+      "path": "fuzz/corpus/encoded_values/4107157ce5d1a6244731d9df28c8b7c8e1b5713a5d32cb5fbe33d148bb1901c9",
+      "bytes": 1452,
+      "sha256": "4107157ce5d1a6244731d9df28c8b7c8e1b5713a5d32cb5fbe33d148bb1901c9"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/bad-visibility.dex",
+      "path": "fuzz/corpus/encoded_values/d9effa82f83c695ad33712f5c8af7c79de2ef315c5e070c2702d78d743ca6813",
+      "bytes": 1452,
+      "sha256": "d9effa82f83c695ad33712f5c8af7c79de2ef315c5e070c2702d78d743ca6813"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-call-site-array.dex",
+      "path": "fuzz/corpus/encoded_values/da059521bc1ba34421ab929ffbbebe0094d66df56f106a28268693be6465a663",
+      "bytes": 1696,
+      "sha256": "da059521bc1ba34421ab929ffbbebe0094d66df56f106a28268693be6465a663"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-orphan-annotation.dex",
+      "path": "fuzz/corpus/encoded_values/3c9552e1a4c784d0f3466914239cd6ff9eaf018f1490eba0009142a3d46d1784",
+      "bytes": 1456,
+      "sha256": "3c9552e1a4c784d0f3466914239cd6ff9eaf018f1490eba0009142a3d46d1784"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-orphan-arrays.dex",
+      "path": "fuzz/corpus/encoded_values/9687ad9b7111f4c2bf9015f8fbf764ada03d4bdeb54c2c597cafcfbeae2302a8",
+      "bytes": 1468,
+      "sha256": "9687ad9b7111f4c2bf9015f8fbf764ada03d4bdeb54c2c597cafcfbeae2302a8"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-orphan-empty-directory.dex",
+      "path": "fuzz/corpus/encoded_values/b223877b24aae0bf8ff30170d3ca1659b244502b0f2cdeba1e0e88fb446d10f6",
+      "bytes": 1468,
+      "sha256": "b223877b24aae0bf8ff30170d3ca1659b244502b0f2cdeba1e0e88fb446d10f6"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-orphan-empty-ref-list.dex",
+      "path": "fuzz/corpus/encoded_values/a32c1b4bc16628b8d873564fddd2261fa3944263407add7f2f6ed0a28d0e0b45",
+      "bytes": 1456,
+      "sha256": "a32c1b4bc16628b8d873564fddd2261fa3944263407add7f2f6ed0a28d0e0b45"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-orphan-empty-set.dex",
+      "path": "fuzz/corpus/encoded_values/5b45b0738170e25913fcfa5fae083894e3a2b1f1f7da23ce67eb5cdcb214882b",
+      "bytes": 1456,
+      "sha256": "5b45b0738170e25913fcfa5fae083894e3a2b1f1f7da23ce67eb5cdcb214882b"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-orphan-external-directory.dex",
+      "path": "fuzz/corpus/encoded_values/0dcf5a9924487fa99670feee9008b291b96b8e6bab5a4e92502708d102ed4179",
+      "bytes": 1476,
+      "sha256": "0dcf5a9924487fa99670feee9008b291b96b8e6bab5a4e92502708d102ed4179"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-orphan-known-directory.dex",
+      "path": "fuzz/corpus/encoded_values/a1fc24aa3a38a94eb5dce727b51d3b3cb90b6e91b10e367d6b87f16561f30871",
+      "bytes": 1476,
+      "sha256": "a1fc24aa3a38a94eb5dce727b51d3b3cb90b6e91b10e367d6b87f16561f30871"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-shared-empty-directory.dex",
+      "path": "fuzz/corpus/encoded_values/ab0ab720a8b582577e0e083f7fafc598f77d6ec72e638e0cffb93d3868ee97b6",
+      "bytes": 1520,
+      "sha256": "ab0ab720a8b582577e0e083f7fafc598f77d6ec72e638e0cffb93d3868ee97b6"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-shared-empty-set.dex",
+      "path": "fuzz/corpus/encoded_values/36cfff5ba434f145ca2d0129288c057b370b7568805a1b58c9b067279b46ce73",
+      "bytes": 1456,
+      "sha256": "36cfff5ba434f145ca2d0129288c057b370b7568805a1b58c9b067279b46ce73"
+    },
+    {
+      "target": "encoded_values",
+      "source": "tests/fixtures/annotations/generated/valid-static-empty-array.dex",
+      "path": "fuzz/corpus/encoded_values/5f5893e0993050a07da07cd5ee5a6680a91def094c888fa8b94364d52ed18b76",
+      "bytes": 1468,
+      "sha256": "5f5893e0993050a07da07cd5ee5a6680a91def094c888fa8b94364d52ed18b76"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-0",
+      "path": "fuzz/corpus/mutf8_leb/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-1",
+      "path": "fuzz/corpus/mutf8_leb/6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-2",
+      "path": "fuzz/corpus/mutf8_leb/620bfdaa346b088fb49998d92f19a7eaf6bfc2fb0aee015753966da1028cb731",
+      "bytes": 1,
+      "sha256": "620bfdaa346b088fb49998d92f19a7eaf6bfc2fb0aee015753966da1028cb731"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-3",
+      "path": "fuzz/corpus/mutf8_leb/8509b81230019d2ad970d970f791dfbdc8caf54f5c594fcd327cef9feed206c1",
+      "bytes": 2,
+      "sha256": "8509b81230019d2ad970d970f791dfbdc8caf54f5c594fcd327cef9feed206c1"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-4",
+      "path": "fuzz/corpus/mutf8_leb/d47715dab05e27d5b308b3b64d231d6c1bdba682f9251eb1d132f8aa1300d5be",
+      "bytes": 5,
+      "sha256": "d47715dab05e27d5b308b3b64d231d6c1bdba682f9251eb1d132f8aa1300d5be"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-5",
+      "path": "fuzz/corpus/mutf8_leb/8c724d583c7e5348d9bbbbd419c5c2cc4d5c48cefe9716a4095891e08af58289",
+      "bytes": 5,
+      "sha256": "8c724d583c7e5348d9bbbbd419c5c2cc4d5c48cefe9716a4095891e08af58289"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-6",
+      "path": "fuzz/corpus/mutf8_leb/574df3078d1c457541ac14e7c0410f2922a7fbda27c044379d4feb91f73361d7",
+      "bytes": 6,
+      "sha256": "574df3078d1c457541ac14e7c0410f2922a7fbda27c044379d4feb91f73361d7"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-7",
+      "path": "fuzz/corpus/mutf8_leb/a71ba8503dcdf4a5f9ef87c35d69888046ae945882eb30d2d5369b29b2348b00",
+      "bytes": 3,
+      "sha256": "a71ba8503dcdf4a5f9ef87c35d69888046ae945882eb30d2d5369b29b2348b00"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-8",
+      "path": "fuzz/corpus/mutf8_leb/e1621605ba29a5fcb13ffdf6992b1ffba4c83ae7ff80117cb7e702244b5144a4",
+      "bytes": 4,
+      "sha256": "e1621605ba29a5fcb13ffdf6992b1ffba4c83ae7ff80117cb7e702244b5144a4"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-9",
+      "path": "fuzz/corpus/mutf8_leb/e170fd95bfffeaab112ac8b0fc57725aebd90c7f5e53a95eddded279aaaadf73",
+      "bytes": 5,
+      "sha256": "e170fd95bfffeaab112ac8b0fc57725aebd90c7f5e53a95eddded279aaaadf73"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-10",
+      "path": "fuzz/corpus/mutf8_leb/87ef7981a7dd3d8ac94cd903ea6288d1e2fc9983b294daafd7815dd7ffa37e64",
+      "bytes": 8,
+      "sha256": "87ef7981a7dd3d8ac94cd903ea6288d1e2fc9983b294daafd7815dd7ffa37e64"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-11",
+      "path": "fuzz/corpus/mutf8_leb/735060c3093a70cb16ec3abdfe11d555919a3fcd22e88ca5a39fcbfeef481e9b",
+      "bytes": 6,
+      "sha256": "735060c3093a70cb16ec3abdfe11d555919a3fcd22e88ca5a39fcbfeef481e9b"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-12",
+      "path": "fuzz/corpus/mutf8_leb/18aba869095a64f24f4444681f5b622230df69786225b44db70ca9d263b881c1",
+      "bytes": 4,
+      "sha256": "18aba869095a64f24f4444681f5b622230df69786225b44db70ca9d263b881c1"
+    },
+    {
+      "target": "mutf8_leb",
+      "source": "handwritten-utf16-leb-vector-13",
+      "path": "fuzz/corpus/mutf8_leb/d8426ea0924f3ae218033a3c608a5b7426024bf0e26e65abecac3b8ba3e59c0f",
+      "bytes": 5,
+      "sha256": "d8426ea0924f3ae218033a3c608a5b7426024bf0e26e65abecac3b8ba3e59c0f"
+    }
+  ],
+  "excluded_over_budget": [
+    "count-65535.zip",
+    "count-65536.zip"
+  ],
+  "note": "shared synthetic generators are regression seeds, not independent fuzz oracle"
+}

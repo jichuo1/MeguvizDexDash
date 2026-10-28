@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\manifest_summary.exe",
+    "D:\\MeguvisDexDash\\artifacts\\local\\inputs\\NewPipe_v0.28.6.apk",
+    "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58"
+  ],
+  "started_utc": "2026-10-28T12:26:47.828630+00:00",
+  "finished_utc": "2026-10-28T12:26:48.519246+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.6880000000019209,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 417097,
+    "sha256": "5bc4d7b6864f965d95d1d8cc30239f1ccb7581102e8cdfef00da46bf10799369"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

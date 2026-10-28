@@ -1,0 +1,1 @@
+{"cases": 76, "positive": 14, "negative": 62, "all_bytes_reproduced": true, "positive_apk_members_fully_consumed": 14, "independent_elementtree_xml": 4, "negative_scope": "byte identity, expected rejection validated by Rust tests"}

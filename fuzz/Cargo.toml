@@ -1,0 +1,86 @@
+[package]
+name = "mdd-parser-fuzz"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.99"
+publish = false
+
+[workspace]
+members = ["."]
+resolver = "3"
+
+[package.metadata]
+cargo-fuzz = true
+
+[features]
+default = []
+libfuzzer = ["dep:libfuzzer-sys"]
+detection-control = []
+
+[dependencies]
+mdd-dex = { path = "../crates/mdd-dex" }
+mdd-input = { path = "../crates/mdd-input" }
+mdd-types = { path = "../crates/mdd-types" }
+sha1 = "=0.11.0"
+serde_json = "=1.0.151"
+libfuzzer-sys = { version = "=0.4.13", optional = true }
+
+[[bin]]
+name = "mutation-smoke"
+path = "src/bin/mutation_smoke.rs"
+
+[[bin]]
+name = "asan-detection-control"
+path = "src/bin/asan_detection_control.rs"
+required-features = ["detection-control"]
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "archive"
+path = "fuzz_targets/archive.rs"
+required-features = ["libfuzzer"]
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "mutf8_leb"
+path = "fuzz_targets/mutf8_leb.rs"
+required-features = ["libfuzzer"]
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "header_raw"
+path = "fuzz_targets/header_raw.rs"
+required-features = ["libfuzzer"]
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "header_repaired"
+path = "fuzz_targets/header_repaired.rs"
+required-features = ["libfuzzer"]
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "code_payload"
+path = "fuzz_targets/code_payload.rs"
+required-features = ["libfuzzer"]
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "encoded_values"
+path = "fuzz_targets/encoded_values.rs"
+required-features = ["libfuzzer"]
+test = false
+doc = false
+bench = false

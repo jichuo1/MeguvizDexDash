@@ -1,0 +1,47 @@
+Run SQL on DEX/APK files, or start an interactive session
+
+Usage: dexsql-windows-amd64.exe query [OPTIONS] <--sql <SQL>|--interactive>
+
+Options:
+  -i, --input <FILE>      DEX/APK file to load (repeat for multiple files)
+  -s, --sql <SQL>         SQL statement to execute (repeat to run multiple statements)
+      --interactive       Read SQL from stdin and keep the dataset loaded [aliases: --repl]
+      --cache <NAME=SQL>  Create a named temporary table from a SELECT (repeatable)
+      --limit <N>         Maximum returned rows per statement (default: unlimited)
+      --full              Build all query data (interactive mode always does this)
+      --timing            Print preparation and query timings to stderr
+  -h, --help              Print help
+  -V, --version           Print version
+
+Global options:
+  -t, --threads <N>    Worker threads; 0 = auto (defaults to available logical CPUs)
+      --trusted-input  Trust input validity and cache freshness; see 'dexsql --help'
+
+Examples:
+  dexsql query --input app.apk --sql "SELECT count(*) FROM methods"
+  dexsql query -i classes.dex -i classes2.dex -s "SELECT count(*) FROM class_defs"
+  dexsql query -i app.apk -s "SELECT count(*) FROM methods" -s "SELECT count(*) FROM fields"
+  dexsql query --input app.apk --interactive --timing
+  dexsql query --cache "nums=SELECT 1 AS n" --sql "SELECT n FROM nums"
+  dexsql query --sql "SELECT 1"
+
+Query behavior:
+  Choose --sql or --interactive. Repeat --sql to run statements in order;
+  pass one statement per --sql. Inputs share one dataset; repeat --input
+  for multiple files. Input is optional for SQL that needs no DEX/APK data.
+  With --sql, --cache defines temporary tables for this invocation only.
+  --limit caps returned rows per statement, not the work done by the query.
+  Results are printed as text tables to stdout; timing goes to stderr.
+
+Build modes:
+  By default, build only the data needed by the supplied SQL. --full builds
+  all metadata, references, and opcode data; query results are the same.
+  Interactive mode always builds the full dataset, so --full has no effect.
+
+Interactive input:
+  Requires at least one --input file.
+  Reuse the loaded dataset for SQL read from the terminal or piped stdin.
+  Submit with a trailing ';' or a blank line. Use .help for help and .exit
+  or .quit to quit. EOF also finishes the session.
+  --cache, TEMP TABLE, and VIEW definitions are lazy and persist until DROP,
+  redefinition, or session exit; query results are not cached across submissions.

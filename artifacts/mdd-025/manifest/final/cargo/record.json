@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "cargo",
+    "-V"
+  ],
+  "started_utc": "2026-10-28T12:28:44.440275+00:00",
+  "finished_utc": "2026-10-28T12:28:44.523336+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.07899999999790452,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 36,
+    "sha256": "1f88eaf7fe1aaec83184752cf4c944cd22f00184136ff36a3e4c318cc60ef566"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

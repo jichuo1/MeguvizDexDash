@@ -1,0 +1,1 @@
+<manifest package="a&amp;b&#x1f600;"><application label="x&#xA;y&#9;z	q"/>a&amp;<![CDATA[<b>]]></manifest>

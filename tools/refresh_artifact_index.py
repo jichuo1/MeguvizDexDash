@@ -28,7 +28,7 @@ def main():
             _, object_id, stage = attributes.split()
             relative = name.decode('utf-8')
             if stage != b'0': raise ValueError('unmerged artifact in index: '+relative)
-            if relative == 'artifacts/index.json' or '/local/' in relative: continue
+            if relative == 'artifacts/index.json' or relative.startswith('artifacts/local/'): continue
             if Path(relative).suffix.lower() in ['.exe','.dll','.pdb','.obj','.lib']: continue
             entries.append((relative,object_id))
         objects = subprocess.run(['git','-c','safe.directory='+str(ROOT),'cat-file','--batch'],cwd=ROOT,input=b''.join(oid+b'\n' for _,oid in entries),check=True,capture_output=True).stdout
@@ -42,7 +42,7 @@ def main():
             position=start+size+1
             records.append({'path':relative,'bytes':size,'sha256':hashlib.sha256(data).hexdigest()})
     for candidate in ([] if args.from_index else sorted((ROOT/'artifacts').rglob('*'))):
-        if not candidate.is_file() or candidate == path or 'local' in candidate.parts:
+        if not candidate.is_file() or candidate == path or candidate.is_relative_to(ROOT/'artifacts/local'):
             continue
         if candidate.suffix.lower() in ['.exe', '.dll', '.pdb', '.obj', '.lib']:
             continue

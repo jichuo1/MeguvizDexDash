@@ -1,0 +1,13 @@
+{
+  "nodes": 305,
+  "attributes": 411,
+  "complete_tree_equal": true,
+  "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+  "aapt_empty_raw_presentation_omissions": [
+    {
+      "node": 56,
+      "attribute": 4
+    }
+  ],
+  "independent_raw_value_indices_verified": true
+}

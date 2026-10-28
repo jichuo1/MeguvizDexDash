@@ -1,0 +1,3312 @@
+{
+  "schema_version": "mdd.manifest-vectors.v1",
+  "cases": [
+    {
+      "file": "generated/utf8.axml",
+      "bytes": 2160,
+      "sha256": "2edaddc3c63ad1151c5115924a87506ddcdd6fa9e7aea09e4a4d31edd0e71a33",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/utf16.axml",
+      "bytes": 2608,
+      "sha256": "6a7f57695e91b38da62e2038cea6d6709354f1eda55130f4ff4ab86a3de2d6fe",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/aliased-pool.axml",
+      "bytes": 2160,
+      "sha256": "44cb42935949ba4c2140850438f7affef15c84652f1ceec632bf2c0a3cf4414a",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/styled-utf8.axml",
+      "bytes": 2372,
+      "sha256": "9c245aad306a04b92f01300fbf94d5ff78eb39e65491b347a8617c23886943ca",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/styled-utf16.axml",
+      "bytes": 2820,
+      "sha256": "ef792385ee9dd8ca44abb12c416bd4d17ea655f8dcea1e694e30ddc147a318d8",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/unpaired-value-utf16.axml",
+      "bytes": 2604,
+      "sha256": "97233c4128de1cdd5f65384d51c819a58cf12b6cfdb9a25a30fc377ba4886d8d",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/long-utf8.axml",
+      "bytes": 2560,
+      "sha256": "039b413cae644dccc7d70b3d7a01102f1cc13459ed01bf97259dbaf05368699b",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/long-utf16.axml",
+      "bytes": 82604,
+      "sha256": "0dfbd97ca580ab6a4b5f735a3e66776b702230149ec54c6a8eca0fd652eb8564",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/all-typed-values.axml",
+      "bytes": 2300,
+      "sha256": "53090dbac38fdda5eb69d58f03b899345063807528e19dbd27f65b3106f7ca70",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            },
+            {
+              "namespace_uri": null,
+              "name": "attrRef",
+              "raw": null,
+              "data_type": 2,
+              "data": 16842752
+            },
+            {
+              "namespace_uri": null,
+              "name": "dynRef",
+              "raw": null,
+              "data_type": 7,
+              "data": 33619969
+            },
+            {
+              "namespace_uri": null,
+              "name": "dynAttr",
+              "raw": null,
+              "data_type": 8,
+              "data": 33619970
+            },
+            {
+              "namespace_uri": null,
+              "name": "unknownType",
+              "raw": null,
+              "data_type": 159,
+              "data": 3735928559
+            },
+            {
+              "namespace_uri": null,
+              "name": "trueNoncanon",
+              "raw": null,
+              "data_type": 18,
+              "data": 2
+            },
+            {
+              "namespace_uri": null,
+              "name": "negativeInt",
+              "raw": null,
+              "data_type": 16,
+              "data": 4294967295
+            },
+            {
+              "namespace_uri": null,
+              "name": "text",
+              "raw": "",
+              "data_type": 3,
+              "data": ""
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/ambiguous-prefix.axml",
+      "bytes": 2208,
+      "sha256": "feb43575ac67405a9f6fbf122acbda6b332cefb164eb8082602e1b7a066ec8b2",
+      "expected_error": null,
+      "tree": [
+        {
+          "name": "manifest",
+          "namespace_uri": null,
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "raw": "example.test",
+              "data_type": 3,
+              "data": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "raw": null,
+              "data_type": 16,
+              "data": 7
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "raw": "7.2",
+              "data_type": 3,
+              "data": "7.2"
+            }
+          ]
+        },
+        {
+          "name": "uses-sdk",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 21
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "raw": null,
+              "data_type": 16,
+              "data": 35
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "uses-permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "permission",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": "p.permission",
+              "data_type": 3,
+              "data": "p.permission"
+            }
+          ]
+        },
+        {
+          "name": "application",
+          "namespace_uri": null,
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "label",
+              "raw": null,
+              "data_type": 1,
+              "data": 2130771969
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "enabled",
+              "raw": null,
+              "data_type": 18,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "ratio",
+              "raw": null,
+              "data_type": 4,
+              "data": 2143294004
+            },
+            {
+              "namespace_uri": null,
+              "name": "dimension",
+              "raw": null,
+              "data_type": 5,
+              "data": 1048577
+            },
+            {
+              "namespace_uri": null,
+              "name": "fraction",
+              "raw": null,
+              "data_type": 6,
+              "data": 2097168
+            },
+            {
+              "namespace_uri": null,
+              "name": "color",
+              "raw": null,
+              "data_type": 28,
+              "data": 4281558681
+            },
+            {
+              "namespace_uri": null,
+              "name": "nil",
+              "raw": null,
+              "data_type": 0,
+              "data": 0
+            },
+            {
+              "namespace_uri": null,
+              "name": "empty",
+              "raw": null,
+              "data_type": 0,
+              "data": 1
+            },
+            {
+              "namespace_uri": null,
+              "name": "hex",
+              "raw": null,
+              "data_type": 17,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "activity",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Main",
+              "data_type": 3,
+              "data": ".Main"
+            }
+          ]
+        },
+        {
+          "name": "service",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Svc",
+              "data_type": 3,
+              "data": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "raw": null,
+              "data_type": 18,
+              "data": 4294967295
+            }
+          ]
+        },
+        {
+          "name": "receiver",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Receiver",
+              "data_type": 3,
+              "data": ".Receiver"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Provider",
+              "data_type": 3,
+              "data": ".Provider"
+            }
+          ]
+        },
+        {
+          "name": "activity-alias",
+          "namespace_uri": null,
+          "parent": 5,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "raw": ".Alias",
+              "data_type": 3,
+              "data": ".Alias"
+            }
+          ]
+        }
+      ],
+      "note": "binary expanded name cannot prove which of two visible prefixes was originally used"
+    },
+    {
+      "file": "generated/bad-root-size.axml",
+      "bytes": 2160,
+      "sha256": "c25920f8b340623ae9abca158d4df0791981f374dd02f6e5bd2de026187ef3cd",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/zero-chunk.axml",
+      "bytes": 2160,
+      "sha256": "a23878aed502cdba514de8dc5e6d77bb0ed7027a96fcd3237fb580422b99accf",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-chunk-align.axml",
+      "bytes": 2160,
+      "sha256": "fd4de6a644b3e37c5bad6edbd5e06ec39cd45b95c1d764568e4e5ab30d67f923",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-header.axml",
+      "bytes": 2160,
+      "sha256": "54b759a78a3457f4ee23e6ea43b5ec01eb300778d21cbcd09aba8939af6a8029",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/huge-string-count.axml",
+      "bytes": 2160,
+      "sha256": "9113ae08bbc24e26abcfe38428e68a9874d36f4064a4796cf0211d4fe587188b",
+      "expected_error": "QUOTA_EXCEEDED",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-string-offset.axml",
+      "bytes": 2160,
+      "sha256": "a93e2165120ec64544cc1aa5436ca9965f67771cad144ad29f3712909d474e7c",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-element-index.axml",
+      "bytes": 2160,
+      "sha256": "96442fc8e5f13af1eb57fc5b6d8301898fa8dd57449da7ec43bdc471f660972e",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-namespace-index.axml",
+      "bytes": 2160,
+      "sha256": "a03bb1f7f95f1f946c457aa53e16d931d9ee5230bb60842f0ebf7dfd9a978cf0",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-attribute-index.axml",
+      "bytes": 2160,
+      "sha256": "52fb6e22dd750a700847615c31efe884e16765548dbe8c024dc1b794ed999f2c",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-typed-string-index.axml",
+      "bytes": 2160,
+      "sha256": "febd9ce0edc10f65b3d094f74b484193de2e94203242ae3278c60ef7824e9fcb",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-value-size.axml",
+      "bytes": 2160,
+      "sha256": "d97e70768fe1281b21a7e34c09465484ba2d8f32394ac2bc9f476416e2d8cfbb",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-value-reserved.axml",
+      "bytes": 2160,
+      "sha256": "2db2d8992ef1a8c33c609866103a514a409e4b60151d8657d58e80e3b6295ac8",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-attribute-stride.axml",
+      "bytes": 2160,
+      "sha256": "fe55047dd4a25b9ca9fa2ff4f0c923375c82f17e731f9f68e6a66a01b71a1217",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-attribute-count.axml",
+      "bytes": 2160,
+      "sha256": "8c31edbef1f74d8c9393f029ca8b160f529f612e692a753bb1b551f8ee2ed7d9",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-special-index.axml",
+      "bytes": 2160,
+      "sha256": "712bd82d6e0fde6d5123f1db35c474ba8c52094d94ab6a485a288c5e302c92d2",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/duplicate-attribute.axml",
+      "bytes": 2160,
+      "sha256": "c77b051979afe9d0873644903a3a7efddd161f2260a7fba6a384dad8011f3db9",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/shadowed-uri.axml",
+      "bytes": 2208,
+      "sha256": "3be7efaadfb6361b0f4442659055dc070d2fa3064654e6eaa4718c311cca5686",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/mismatched-end.axml",
+      "bytes": 2160,
+      "sha256": "59358ed8f252b20b38d242632a894c984ae7ed2d6947f411babdbcdc41ba59b8",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/missing-namespace-end.axml",
+      "bytes": 2136,
+      "sha256": "8b3f4b2398415c3efc5fbb0edf0193d7570eeea1ac43e8f27d2454522d453c14",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/missing-root-start.axml",
+      "bytes": 2064,
+      "sha256": "d63d3ed9acf4cfcb8df47f4e2947a2a1e9e96fe024f3a015cb893401f5d1b744",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/unknown-chunk.axml",
+      "bytes": 2160,
+      "sha256": "a763305774499687b2f34609c00340182f449205c102332d1739129044c05f19",
+      "expected_error": "UNSUPPORTED_CAPABILITY",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-resource-utf8.axml",
+      "bytes": 2160,
+      "sha256": "d1c73c4e5ed3d2aed3edc37a18ac4f54e6d13feddfa7d02746b0530616a42426",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-utf8-unit-length.axml",
+      "bytes": 2160,
+      "sha256": "e913d3ad7660e106c985dc18e141456e48133d3117905698890242f05bcfdb4d",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-utf8-terminator.axml",
+      "bytes": 2160,
+      "sha256": "8f44e396eda528faa30b23a63a9f2951fcec76de9b842e8dcd8cd6b79482ca62",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-overlong-resource-utf8.axml",
+      "bytes": 2160,
+      "sha256": "7783174ad55ba35ba3231f8dd7573696ec1631dc66a6d57f95c2f66b0dbb8739",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-resource-map-count.axml",
+      "bytes": 2164,
+      "sha256": "a10bd17846947d799c82c176053d45b3673f5ee4530628a22b29aedd8f1efb9e",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-style-name.axml",
+      "bytes": 2372,
+      "sha256": "aaaa3c708789e740cde6ff8992ab1f139057bf3b678ff156aefc54d799ed63e3",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-style-character-range.axml",
+      "bytes": 2372,
+      "sha256": "5507ed216a97e1f6dcf3bb1cfee154a0493d14e4fece93e56425ec56ff25a8d1",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-style-offset.axml",
+      "bytes": 2372,
+      "sha256": "9137498a02d814498377b04ec5423d428d2be04be56335df2966942449414cc4",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-style-count.axml",
+      "bytes": 2372,
+      "sha256": "00d9c76d18e8eb6e378676cba3b2c35b1949865434ced2543f66d0aa6ae004fe",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-utf16-terminator.axml",
+      "bytes": 2608,
+      "sha256": "8d2f62bcdb145b68c67a202353ad90af8a955ba410c63c562c076a13ab674334",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-unpaired-structural-name.axml",
+      "bytes": 2608,
+      "sha256": "d4aa5a50340d64aa021a967454f601c8344067ecb515a41974b24ea5b2724a5b",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/truncated-1.axml",
+      "bytes": 1,
+      "sha256": "084fed08b978af4d7d196a7446a86b58009e636b611db16211b65a9aadff29c5",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/truncated-7.axml",
+      "bytes": 7,
+      "sha256": "abcb76ecb61a4657b15d28056e8bfb4e05b2000eebf36c580cf91a2dffdec2af",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/truncated-9.axml",
+      "bytes": 9,
+      "sha256": "feed2bf62e03b122f9e00accbceab94017237f7b0201128dc505b8c554100bb1",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/truncated-2159.axml",
+      "bytes": 2159,
+      "sha256": "001373b4a742a0e4e99ae09d7f4830b48dbc9a7c9c98d2c92096766a38358d2d",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/text-basic.xml",
+      "bytes": 405,
+      "sha256": "31c599d9660a2f21e79fded113848ba80999fb2f536e7cd42193bd0b41e05ef3",
+      "expected_error": null,
+      "tree": [
+        {
+          "namespace_uri": null,
+          "name": "manifest",
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "text": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "text": "7"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "text": "7.2"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "uses-sdk",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "text": "21"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "text": "35"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "uses-permission",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "text": "p.permission"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "uses-permission",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "text": "p.permission"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "application",
+          "parent": 0,
+          "attributes": []
+        },
+        {
+          "namespace_uri": null,
+          "name": "activity",
+          "parent": 4,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "text": ".Main"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "service",
+          "parent": 4,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "text": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "text": "false"
+            }
+          ]
+        }
+      ],
+      "note": "XML strings are not inferred compiled integers/booleans"
+    },
+    {
+      "file": "generated/text-bom.xml",
+      "bytes": 408,
+      "sha256": "4032f79630731201e6f028a78704e6f15388ef70139a9a3ccb5c4c307a2fad65",
+      "expected_error": null,
+      "tree": [
+        {
+          "namespace_uri": null,
+          "name": "manifest",
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "text": "example.test"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionCode",
+              "text": "7"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "versionName",
+              "text": "7.2"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "uses-sdk",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "minSdkVersion",
+              "text": "21"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "targetSdkVersion",
+              "text": "35"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "uses-permission",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "text": "p.permission"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "uses-permission",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "text": "p.permission"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "application",
+          "parent": 0,
+          "attributes": []
+        },
+        {
+          "namespace_uri": null,
+          "name": "activity",
+          "parent": 4,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "text": ".Main"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "service",
+          "parent": 4,
+          "attributes": [
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "name",
+              "text": ".Svc"
+            },
+            {
+              "namespace_uri": "http://schemas.android.com/apk/res/android",
+              "name": "exported",
+              "text": "false"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/text-entities.xml",
+      "bytes": 106,
+      "sha256": "a08b68d4052febcab0d5c4763204677091ced249adaca5a77415e2e46c150e2d",
+      "expected_error": null,
+      "tree": [
+        {
+          "namespace_uri": null,
+          "name": "manifest",
+          "parent": null,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "package",
+              "text": "a&b\ud83d\ude00"
+            }
+          ]
+        },
+        {
+          "namespace_uri": null,
+          "name": "application",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "label",
+              "text": "x\ny\tz q"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/text-ns-shadow.xml",
+      "bytes": 108,
+      "sha256": "1801c23616cd9f481e3215f624e9f0c01fd33bc5b011f2c83911163adc0642a9",
+      "expected_error": null,
+      "tree": [
+        {
+          "namespace_uri": null,
+          "name": "manifest",
+          "parent": null,
+          "attributes": []
+        },
+        {
+          "namespace_uri": "urn:b",
+          "name": "n",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": "urn:b",
+              "name": "v",
+              "text": "x"
+            }
+          ]
+        },
+        {
+          "namespace_uri": "urn:a",
+          "name": "n",
+          "parent": 0,
+          "attributes": []
+        },
+        {
+          "namespace_uri": "urn:default",
+          "name": "n",
+          "parent": 0,
+          "attributes": [
+            {
+              "namespace_uri": null,
+              "name": "plain",
+              "text": "ok"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-dtd.xml",
+      "bytes": 48,
+      "sha256": "ae4d72407ca6464c44ac1c9917558f8d236c2200f52a7c50604b2e1a2974531d",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-external-dtd.xml",
+      "bytes": 56,
+      "sha256": "901b2e3e6d2b68926000031b9c968f3558670470796d330599dd436df6ca8f36",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-entity.xml",
+      "bytes": 29,
+      "sha256": "b5444291128c673d888f613a5a97aa30f9f12b8f31676288122b1fdf222159a2",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-bad-ref.xml",
+      "bytes": 20,
+      "sha256": "a231a08d37e66d0f03a9e0b82bfae739bea9bc8a8a7dfd1f989d19774e537206",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-control-ref.xml",
+      "bytes": 25,
+      "sha256": "1c73af86c220f913b98cb817a626e03b682c563dc48c0aba54c9ac6c92e91f5a",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-utf8.xml",
+      "bytes": 17,
+      "sha256": "5f25d135d849d2933a0715b6e78eded5ef9b434770eef55179d634df08b3c95f",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-utf16-xml.xml",
+      "bytes": 6,
+      "sha256": "84c6b770623391f0a8a445ba86654e7ac3884f700c0f1166a46a2a70f56d4525",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-prefix.xml",
+      "bytes": 19,
+      "sha256": "519da13f52c1e3373221cbd847242027f72ab097ee45ee7c319eb733915e4f22",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-duplicate-expanded.xml",
+      "bytes": 59,
+      "sha256": "d448580ed3c9a850c495d2da765028393297be78a4011d7450aa13af422c8af3",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-duplicate.xml",
+      "bytes": 23,
+      "sha256": "37ea6ec9764773b5e31353cc12c0645497cb873ae3fc618e69672c473dbb2ac5",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-close.xml",
+      "bytes": 24,
+      "sha256": "38783787f4f2a67fe0ff6a56bd767d5895a628c553a41f2f1b71b767a4b92d8d",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-truncated.xml",
+      "bytes": 10,
+      "sha256": "8022e554733b47c9cdf9ea98330520ea6fa435c0811456a943e8d1835c66566c",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-two-roots.xml",
+      "bytes": 22,
+      "sha256": "baca5d513f3001e2807c3a38368bc60ee47666dcb95386fe5562e790fa9706e8",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-root.xml",
+      "bytes": 14,
+      "sha256": "12f8d8872635c5cec60bb7c174fc41d4f4e6d243df9d9b14d7bf6625556ec8d0",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-colon-name.xml",
+      "bytes": 29,
+      "sha256": "614786c4efa4ae48a99bde54ee1232d3953566b894496dad8e150e8d43199cbe",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-numeric-name.xml",
+      "bytes": 28,
+      "sha256": "8f454b22059d90b08908811cb5a58af450bec10c4b903d224092af79dd3fcc23",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-bad-binding.xml",
+      "bytes": 29,
+      "sha256": "f0c5a92076203cc9b656b57a52570867f054e921d48c427413901ecd77be9d16",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-empty-prefix-uri.xml",
+      "bytes": 22,
+      "sha256": "c1820ba3517aa7b9548b434b3d361a07e94ca24130b42a0ce03eee7cd4831593",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-encoding.xml",
+      "bytes": 50,
+      "sha256": "2db407a680718bdd58b892e0f201213d7c64fdce1c52a42cc8f0ad6af68ba88b",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-decl-order.xml",
+      "bytes": 66,
+      "sha256": "96125861824218989f2c1af87e2bef33400d635ffb1e0ccf4db6336561a51b71",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-late-decl.xml",
+      "bytes": 40,
+      "sha256": "e5c995f3a2e750a9c3909f3cedc242df0dfcc4dc82ebc65a008aa921fd299497",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-outside.xml",
+      "bytes": 12,
+      "sha256": "5a0770c18fb96cb7711f90f1fa7edbf7e7aca906a8ddc4642e5877f413a7921e",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-cdata-outside.xml",
+      "bytes": 24,
+      "sha256": "0a01b67dba18a5566fdbe89b14f14b29bbe53c2f4898ed29f846577ffa4f5d8d",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-literal-control.xml",
+      "bytes": 22,
+      "sha256": "f691348dbd05f4e23fa554e977a9aadedd503db70c256ad846b5c03b8682133e",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-bad-comment.xml",
+      "bytes": 32,
+      "sha256": "2b1cb680d4aaf0c255feffea770de6d5f4dac9b5794033c1b7488e2baea50ad8",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    },
+    {
+      "file": "generated/bad-text-literal-less-than.xml",
+      "bytes": 19,
+      "sha256": "99112e2b0e7654d01b5bbfff8e1d05bac0b339089a24b46c5802ba0712b211c3",
+      "expected_error": "INVALID_INPUT",
+      "tree": null,
+      "note": ""
+    }
+  ]
+}
