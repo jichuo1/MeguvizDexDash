@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/owned_try/readback.py",
+    "artifacts/mdd-026/owned-try-audit/20261028T171328758066Z"
+  ],
+  "started_utc": "2026-10-28T17:15:20.755305+00:00",
+  "finished_utc": "2026-10-28T17:15:20.756904+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "698739478a690d9636d2319dcd52f93f92f686e1a7e92f026a812ed984a1ff50",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

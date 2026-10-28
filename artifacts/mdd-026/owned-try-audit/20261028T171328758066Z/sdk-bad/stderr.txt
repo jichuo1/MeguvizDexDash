@@ -1,0 +1,1 @@
+10-29 01:13:32.579 35568 40952 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\MeguvisDexDash\tests\fixtures\owned_try\generated\owned-try-bad-handler.dex': Invalid handler catch_all_addr: 7f

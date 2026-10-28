@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\owned_try\\generated\\owned-try-even.dex",
+    "--sql",
+    "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"method_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"method_idx\" AS TEXT)) END AS \"method_idx\",CASE WHEN \"code_off\" IS NULL THEN 'N' ELSE hex(CAST(\"code_off\" AS TEXT)) END AS \"code_off\",CASE WHEN \"registers_size\" IS NULL THEN 'N' ELSE hex(CAST(\"registers_size\" AS TEXT)) END AS \"registers_size\",CASE WHEN \"ins_size\" IS NULL THEN 'N' ELSE hex(CAST(\"ins_size\" AS TEXT)) END AS \"ins_size\",CASE WHEN \"outs_size\" IS NULL THEN 'N' ELSE hex(CAST(\"outs_size\" AS TEXT)) END AS \"outs_size\",CASE WHEN \"tries_size\" IS NULL THEN 'N' ELSE hex(CAST(\"tries_size\" AS TEXT)) END AS \"tries_size\",CASE WHEN \"debug_info_off\" IS NULL THEN 'N' ELSE hex(CAST(\"debug_info_off\" AS TEXT)) END AS \"debug_info_off\",CASE WHEN \"insns_size\" IS NULL THEN 'N' ELSE hex(CAST(\"insns_size\" AS TEXT)) END AS \"insns_size\",CASE WHEN \"insns_off\" IS NULL THEN 'N' ELSE hex(CAST(\"insns_off\" AS TEXT)) END AS \"insns_off\",CASE WHEN \"tries_off\" IS NULL THEN 'N' ELSE hex(CAST(\"tries_off\" AS TEXT)) END AS \"tries_off\",CASE WHEN \"handlers_off\" IS NULL THEN 'N' ELSE hex(CAST(\"handlers_off\" AS TEXT)) END AS \"handlers_off\" FROM code_items AS c ORDER BY c.method_idx"
+  ],
+  "started_utc": "2026-10-28T17:13:31.100828+00:00",
+  "finished_utc": "2026-10-28T17:13:31.664221+00:00",
+  "elapsed_seconds": 0.5630000000001019,
+  "exit_code": 0,
+  "stdout_sha256": "50abbd2b5b28535039e820c38ee455487b8d6dd5a05ea2846846301dfae1f8f2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

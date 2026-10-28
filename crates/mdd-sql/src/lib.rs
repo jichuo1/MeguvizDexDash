@@ -9,6 +9,8 @@ pub mod values;
 pub mod virtual_tables;
 pub use bridge::{PreparedSql, SqlBridge, SqlResult};
 #[cfg(test)]
+mod join_tests;
+#[cfg(test)]
 mod runtime_tests;
 
 use mdd_types::{ErrorCode, MddError};

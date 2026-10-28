@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\sql_bridge_probe.exe",
+    "query",
+    "native",
+    "SELECT NULL=1 AS v"
+  ],
+  "started_utc": "2026-10-28T17:32:11.639328+00:00",
+  "elapsed_seconds": 0.5468077999994421,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "68f060c5c2a4f86b5d05293021ba275e24962a5431421b96f62b5928fb26aa83",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

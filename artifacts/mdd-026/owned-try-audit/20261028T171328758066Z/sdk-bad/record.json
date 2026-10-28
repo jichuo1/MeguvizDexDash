@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "-d",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\owned_try\\generated\\owned-try-bad-handler.dex"
+  ],
+  "started_utc": "2026-10-28T17:13:32.516409+00:00",
+  "finished_utc": "2026-10-28T17:13:32.586487+00:00",
+  "elapsed_seconds": 0.06300000000010186,
+  "exit_code": 1,
+  "stdout_sha256": "d2405b5cf437215de10081b0b5eee352e61e504ca0dad4e441c79ce67bfa9d2a",
+  "stderr_sha256": "8bc7d864e51cf342967990e035ebe62576abfbceb1a2cbe0c3a20e9ac49381f9",
+  "scope": "small synthetic conformance; not performance"
+}

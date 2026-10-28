@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "stdout": "{\"error\":{\"code\":\"CANCELLED\",\"details\":{},\"message\":\"query cancelled\",\"retryable\":false,\"stage\":\"sql\"},\"status\":\"error\"}\n",
+  "stderr": "",
+  "binary_sha256": "043a9380829756e5df0104c9b17af3276184197432f900d321f4f639fbe22aed",
+  "scope": "standalone SqlControl cancelled before execution; no worker or transport coverage",
+  "profiles_admitted": false
+}

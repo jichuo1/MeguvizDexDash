@@ -169,6 +169,13 @@ fn int_float_cmp(integer: i128, float: f64) -> Ordering {
     if negative { order.reverse() } else { order }
 }
 fn compare(left: &SqlValue, right: &SqlValue) -> MddResult<Ordering> {
+    if storage_class(left) != storage_class(right) {
+        return Err(MddError::new(
+            mdd_types::ErrorCode::UnsupportedQuery,
+            "sql.affinity",
+            "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+        ));
+    }
     if let (Some(left), Some(right)) = (left.bytes(), right.bytes()) {
         return Ok(left.cmp(right));
     }
@@ -191,6 +198,22 @@ fn compare(left: &SqlValue, right: &SqlValue) -> MddResult<Ordering> {
         (a, SqlValue::F64(b)) => int_float_cmp(integer(a)?, f64::from_bits(b.0)),
         (a, b) => integer(a)?.cmp(&integer(b)?),
     })
+}
+fn storage_class(value: &SqlValue) -> u8 {
+    match value {
+        SqlValue::Null => 0,
+        SqlValue::Bool(_) | SqlValue::I64(_) | SqlValue::U64(_) | SqlValue::F64(_) => 1,
+        SqlValue::Text(_) => 2,
+        SqlValue::Bytes(_) | SqlValue::DexMutf8 { .. } => 3,
+    }
+}
+fn compare_literal(left: &SqlValue, right: &SqlValue) -> MddResult<Ordering> {
+    let order = storage_class(left).cmp(&storage_class(right));
+    if order == Ordering::Equal {
+        compare(left, right)
+    } else {
+        Ok(order)
+    }
 }
 fn equality_key(value: &SqlValue) -> MddResult<Vec<u8>> {
     // Canonical mathematical numeric keys: u64/i64 boundaries and exactly
@@ -351,16 +374,45 @@ fn cast(value: SqlValue, target: &str, dialect: SqlDialect) -> MddResult<SqlValu
             value => SqlValue::Bytes(encoded_text(&scalar_text(&value)?, dialect)),
         },
         "i64" => {
+            let from_text = matches!(&value, SqlValue::Text(_));
             let value = if let SqlValue::Text(text) = &value {
-                text.strict_utf8()?
-                    .parse::<i128>()
-                    .map_err(|_| invalid("INVALID_INTEGER_CAST"))?
+                let parsed = text.strict_utf8().and_then(|value| {
+                    value
+                        .parse::<i128>()
+                        .map_err(|_| invalid("INVALID_INTEGER_CAST"))
+                });
+                match parsed {
+                    Ok(value) => value,
+                    Err(error)
+                        if dialect != SqlDialect::NativeV1
+                            && error.code == mdd_types::ErrorCode::InvalidArgument
+                            && matches!(
+                                error.message.as_str(),
+                                "TEXT_HAS_NONSCALAR_UTF16" | "INVALID_INTEGER_CAST"
+                            ) =>
+                    {
+                        return Err(MddError::new(
+                            mdd_types::ErrorCode::UnsupportedQuery,
+                            "sql.cast",
+                            "LEGACY_TEXT_INTEGER_COERCION_NOT_IMPLEMENTED",
+                        ));
+                    }
+                    Err(error) => return Err(error),
+                }
             } else {
                 integer(&value)?
             };
-            SqlValue::I64(Signed64(
-                i64::try_from(value).map_err(|_| invalid("INTEGER_CAST_OVERFLOW"))?,
-            ))
+            SqlValue::I64(Signed64(i64::try_from(value).map_err(|_| {
+                if from_text && dialect != SqlDialect::NativeV1 {
+                    MddError::new(
+                        mdd_types::ErrorCode::UnsupportedQuery,
+                        "sql.cast",
+                        "LEGACY_TEXT_INTEGER_RANGE_NOT_IMPLEMENTED",
+                    )
+                } else {
+                    invalid("INTEGER_CAST_OVERFLOW")
+                }
+            })?))
         }
         "u64" => {
             let value = if let SqlValue::Text(text) = &value {
@@ -663,6 +715,18 @@ fn scalar(
             Ok(SqlValue::Text(text))
         }
         "mdd_neg" => {
+            if dialect != SqlDialect::NativeV1
+                && matches!(
+                    args[0],
+                    SqlValue::Text(_) | SqlValue::Bytes(_) | SqlValue::DexMutf8 { .. }
+                )
+            {
+                return Err(MddError::new(
+                    mdd_types::ErrorCode::UnsupportedQuery,
+                    "sql.numeric",
+                    "LEGACY_TEXT_NUMERIC_COERCION_NOT_IMPLEMENTED",
+                ));
+            }
             if let SqlValue::F64(bits) = args[0] {
                 Ok(SqlValue::F64(DecimalU64(bits.0 ^ (1u64 << 63))))
             } else {
@@ -670,18 +734,38 @@ fn scalar(
             }
         }
         "mdd_pos" => Ok(args[0].clone()),
-        "mdd_eq" | "mdd_ne" | "mdd_gt" | "mdd_ge" | "mdd_lt" | "mdd_le" => {
-            let order = compare(&args[0], &args[1])?;
-            Ok(SqlValue::Bool(match name {
-                "mdd_eq" => order == Ordering::Equal,
-                "mdd_ne" => order != Ordering::Equal,
-                "mdd_gt" => order == Ordering::Greater,
-                "mdd_ge" => order != Ordering::Less,
-                "mdd_lt" => order == Ordering::Less,
+        "mdd_eq" | "mdd_ne" | "mdd_gt" | "mdd_ge" | "mdd_lt" | "mdd_le" | "mdd_literal_eq"
+        | "mdd_literal_ne" | "mdd_literal_gt" | "mdd_literal_ge" | "mdd_literal_lt"
+        | "mdd_literal_le" => {
+            let (order, operator) = if let Some(operator) = name.strip_prefix("mdd_literal_") {
+                (compare_literal(&args[0], &args[1])?, operator)
+            } else {
+                (compare(&args[0], &args[1])?, &name[4..])
+            };
+            Ok(SqlValue::Bool(match operator {
+                "eq" => order == Ordering::Equal,
+                "ne" => order != Ordering::Equal,
+                "gt" => order == Ordering::Greater,
+                "ge" => order != Ordering::Less,
+                "lt" => order == Ordering::Less,
                 _ => order != Ordering::Greater,
             }))
         }
         "mdd_add" | "mdd_sub" | "mdd_mul" | "mdd_div" | "mdd_mod" => {
+            if dialect != SqlDialect::NativeV1
+                && args.iter().any(|value| {
+                    matches!(
+                        value,
+                        SqlValue::Text(_) | SqlValue::Bytes(_) | SqlValue::DexMutf8 { .. }
+                    )
+                })
+            {
+                return Err(MddError::new(
+                    mdd_types::ErrorCode::UnsupportedQuery,
+                    "sql.numeric",
+                    "LEGACY_TEXT_NUMERIC_COERCION_NOT_IMPLEMENTED",
+                ));
+            }
             numeric(&args[0], &args[1], &name[4..])
         }
         _ => Err(invalid("INTERNAL_UNKNOWN_SCALAR")),
@@ -743,6 +827,12 @@ pub(crate) fn register(
         ("mdd_ge", 2),
         ("mdd_lt", 2),
         ("mdd_le", 2),
+        ("mdd_literal_eq", 2),
+        ("mdd_literal_ne", 2),
+        ("mdd_literal_gt", 2),
+        ("mdd_literal_ge", 2),
+        ("mdd_literal_lt", 2),
+        ("mdd_literal_le", 2),
         ("mdd_concat", 2),
         ("mdd_cast", 2),
         ("mdd_add", 2),

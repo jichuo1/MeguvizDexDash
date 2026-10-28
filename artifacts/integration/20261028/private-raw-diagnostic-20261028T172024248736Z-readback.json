@@ -1,0 +1,46 @@
+{
+  "schema_version": "mdd.private-raw-readback.v1",
+  "source_commit": "e56db3e9380a60b117e9e65ec5ab3f76ffb61361",
+  "parent_path": "artifacts/integration/20261028/private-raw-diagnostic-20261028T172024248736Z.json",
+  "parent_sha256": "859dd7969b5b37c7d72ebebd729f405bd7d58d3455922eb744e47ee41f7f5a57",
+  "captured_utc": "2026-10-28T17:26:38.790206+00:00",
+  "results": [
+    {
+      "input_id": "hostlab-9161100",
+      "input": {
+        "bytes": 226519215,
+        "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2"
+      },
+      "stdout": {
+        "bytes": 1478557,
+        "sha256": "64cc1184cf59bd24e54531c20b6c943682a05a4c54a2e37f8a038144c5d8d33a"
+      },
+      "dex_occurrences": 33,
+      "method_records": 1731482,
+      "class_records": 310716,
+      "resource_fingerprints": 17755,
+      "private_raw_directory": "artifacts/local/private-raw-diagnostic/20261028T172024248736Z/hostlab-9161100"
+    },
+    {
+      "input_id": "hostlab-9170100",
+      "input": {
+        "bytes": 243687778,
+        "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955"
+      },
+      "stdout": {
+        "bytes": 1480882,
+        "sha256": "8bc385802df39d42f5f3a42936376f7e90cfb413ec13052c8167772da930a458"
+      },
+      "dex_occurrences": 35,
+      "method_records": 1848430,
+      "class_records": 345907,
+      "resource_fingerprints": 17770,
+      "private_raw_directory": "artifacts/local/private-raw-diagnostic/20261028T172024248736Z/hostlab-9170100"
+    }
+  ],
+  "status": "passed-native-raw-output-readback",
+  "full_hostlab_audit": false,
+  "result_equivalence_to_A0": false,
+  "performance_qualified": false,
+  "scope": "pinned e56db3e binary, complete raw output readback only; private outputs remain local"
+}

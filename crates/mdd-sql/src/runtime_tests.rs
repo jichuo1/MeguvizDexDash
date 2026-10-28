@@ -253,3 +253,43 @@ fn zero_rows_still_reserve_result_schema_and_identity() {
         0
     );
 }
+
+#[test]
+fn in_list_never_silently_guesses_column_or_cast_affinity() {
+    let (_, _, _, bridge) = setup();
+    for sql in [
+        "SELECT CAST('01' AS INTEGER) IN ('1')",
+        "SELECT CAST('01' AS INTEGER) NOT IN ('1')",
+        "SELECT string_idx FROM native_strings WHERE string_idx IN ('0')",
+        "SELECT string_idx FROM native_strings WHERE string_idx NOT IN ('0')",
+        "SELECT d.string_idx IN (1) FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+        "SELECT d.string_idx NOT IN (1) FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+    ] {
+        assert_eq!(
+            bridge.query(sql).unwrap_err().code,
+            ErrorCode::UnsupportedQuery,
+            "{sql}"
+        );
+    }
+    let rows = bridge
+        .query("SELECT string_idx FROM native_strings WHERE string_idx IN (0)")
+        .unwrap();
+    assert_eq!(rows.rows().len(), 1);
+    let rows = bridge
+        .query("SELECT string_idx FROM native_strings WHERE string_idx NOT IN (0)")
+        .unwrap();
+    assert!(!rows.rows().is_empty());
+    let joined = bridge.query("SELECT a.string_idx FROM native_strings a JOIN native_strings b ON a.string_idx=b.string_idx WHERE a.string_idx IN (0)").unwrap();
+    assert_eq!(joined.rows().len(), 1);
+    assert_eq!(
+        bridge.query("SELECT 1 IN ('1')").unwrap().rows()[0][0],
+        crate::values::SqlValue::I64(mdd_query::ir::Signed64(0))
+    );
+    assert_eq!(
+        bridge
+            .query("SELECT missing IN ('1') FROM native_strings")
+            .unwrap_err()
+            .code,
+        ErrorCode::InvalidArgument
+    );
+}

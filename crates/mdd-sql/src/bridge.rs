@@ -209,7 +209,7 @@ impl PreparedSql {
         Ok(mdd_session::QueryBinding {
             request_key: mdd_types::sha256(&request),
             schema_id: format!("mdd.sql.dynamic-rows.v1:{}", mdd_types::sha256(&schema)),
-            semantic_version: format!("mdd.sql.ast.v1;mdd.sql.values.v1;{:?}", self.dialect),
+            semantic_version: format!("mdd.sql.ast.v2;mdd.sql.values.v1;{:?}", self.dialect),
         })
     }
     pub fn bind_runtime(mut self, runtime: &mdd_query::budget::RuntimeBudget) -> MddResult<Self> {
@@ -468,6 +468,12 @@ impl SqlBridge {
                     "mdd_ge",
                     "mdd_lt",
                     "mdd_le",
+                    "mdd_literal_eq",
+                    "mdd_literal_ne",
+                    "mdd_literal_gt",
+                    "mdd_literal_ge",
+                    "mdd_literal_lt",
+                    "mdd_literal_le",
                     "mdd_concat",
                     "mdd_cast",
                     "mdd_add",
@@ -803,6 +809,68 @@ mod tests {
                 .code,
             ErrorCode::InvalidArgument
         );
+    }
+    #[test]
+    fn literal_mixed_class_comparisons_preserve_sqlite_rank_without_guessing_affinity() {
+        let (provider, _) = bridge();
+        let cases = [
+            ("SELECT 1='1' AS v", Some(0)),
+            ("SELECT 1<'a' AS v", Some(1)),
+            ("SELECT 'a'<X'00' AS v", Some(1)),
+            ("SELECT 1<>X'31' AS v", Some(1)),
+            ("SELECT 1.0='1.0' AS v", Some(0)),
+            ("SELECT -1<'1' AS v", Some(1)),
+            ("SELECT NULL=1 AS v", None),
+        ];
+        for dialect in [
+            SqlDialect::NativeV1,
+            SqlDialect::DexSql010,
+            SqlDialect::DexSql011,
+        ] {
+            let bridge = SqlBridge::new(provider.clone(), dialect, SqlLimits::default()).unwrap();
+            for (sql, expected) in cases {
+                let result = bridge.query(sql).unwrap();
+                let expected = expected.map_or(SqlValue::Null, |value| {
+                    SqlValue::I64(mdd_query::ir::Signed64(value))
+                });
+                assert_eq!(result.rows()[0][0], expected, "{dialect:?}: {sql}");
+            }
+            let prepared = bridge
+                .prepare_with_parameters("SELECT 1=? AS v", &[SqlValue::text("1")])
+                .unwrap();
+            let result = prepared
+                .execute(SqlControl::new(SqlLimits::default(), None))
+                .unwrap();
+            assert_eq!(
+                result.rows()[0][0],
+                SqlValue::I64(mdd_query::ir::Signed64(0))
+            );
+            assert_eq!(
+                bridge.query("SELECT CAST('1' AS TEXT)=1").unwrap_err().code,
+                ErrorCode::UnsupportedQuery
+            );
+            assert_eq!(
+                bridge.query("SELECT 1+'a'").unwrap_err().code,
+                if dialect == SqlDialect::NativeV1 {
+                    ErrorCode::InvalidArgument
+                } else {
+                    ErrorCode::UnsupportedQuery
+                }
+            );
+            for sql in [
+                "SELECT CAST('bad' AS INTEGER)",
+                "SELECT CAST('123tail' AS INTEGER)",
+            ] {
+                assert_eq!(
+                    bridge.query(sql).unwrap_err().code,
+                    if dialect == SqlDialect::NativeV1 {
+                        ErrorCode::InvalidArgument
+                    } else {
+                        ErrorCode::UnsupportedQuery
+                    }
+                );
+            }
+        }
     }
     #[test]
     fn substring_retains_policy_units_and_bounded_negative_indices() {

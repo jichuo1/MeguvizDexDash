@@ -4,7 +4,7 @@
 
 ## Checkout 与交付
 
-工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；审查分支检查点 a02cf99 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过；更晚的工作区变更须另行验证，不能继承该结论。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；审查分支检查点 28b35a4 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过；更晚的工作区变更须另行验证，不能继承该结论。
 
 大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
@@ -42,6 +42,10 @@ root 单写共享 Cargo/lock、exports、STATE/backlog/ledger/index 和 CI；026
 
 私有完整raw诊断另行在启动前被4GiB开发任务准入拒绝（并非正式基线阈值调整），没有开始编译或解析；后续独立WMI观察仅2404388KiB可用。失败记录private-raw-diagnostic-20261028T135952890645Z.json保留，不能推断引擎解析失败或性能结果。
 
+内存条件变化后重试：固定 e56db3e 二进制受限诊断在两份授权 APK 上完成原始事实计算，分别覆盖33/35 DEX、1,731,482/1,848,430方法记录及310,716/345,907类记录；输入与二进制身份、完整输出摘要和进程树终态已回读。证据 artifacts/integration/20261028/private-raw-diagnostic-20261028T172024248736Z-readback.json，原始输出留在本机忽略目录。它不是逐字段 A0 等价、完整HostLab审计或性能资格。
+
+两个APK的资源指纹另完成三方逐项核对：e56原生、固定A0/HostLab和从原始归档独立流式重算的 resources.arsc 与 res/*.xml 解压字节 SHA-256 分别17,755/17,770项一致。证据 artifacts/integration/20261028/private-resource-readback-20261028T173518129052Z.json；摘要不含私有逐项内容。类/方法输出覆盖和聚合粒度不同，尚未比较；业务退出码1不等于审计业务通过。
+
 MDD-026 已重新打开：独立复核发现资格脚本对17关系156列主要检查原子可用性声明，尚不能证明每列的字段/类型、NULL、顺序、重复性、来源及 raw 指纹均有独立证据；例如 dex_files.file_id 已有原生分配代码，但尚缺固定旧实现和全部来源场景的端到端逐列验证。已有219候选请求（55残余反例）、35 facts+4 compile-fail组件测试、11索引/coverage根测试及8场景43关系比较仍有效，69个兼容投影缺口仍明确阻断。原 conformance/manifests/hostlab-fact-qualification.json 保留为限定原生原子检查的历史记录，不代表 MDD-026 原验收完成。G1/G2、完整私有事实与 HostLab 资格仍未签。033正在只读预研，依赖031尚未完成，不先假解锁。
 
 补充事实对照：合成样本中三个定义关系的21列与固定A0完整行多重集合一致，含错误编号、NULL和缺行负例；三个合成DEX的24个头字段与独立原始字节解码及A0单输入结果一致，含四个损坏/篡改负例。原始记录和回读分别为 artifacts/mdd-026/new-audit/definition-projections/readback.json、artifacts/mdd-026/header-audit/20261028T163754102728Z/readback.json。完整A0多输入编号和兼容关系装配仍未证明。
@@ -49,6 +53,8 @@ MDD-026 已重新打开：独立复核发现资格脚本对17关系156列主要�
 随后真实 A0 多输入合成实验完整消费三组79行，验证原生六个来源出现及字符串坐标。相同内容两次输入在 A0 有两个兼容池编号，而原生物理池身份共享；兼容层必须显式映射，不能直接将物理池 ID 作为旧编号。证据 artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/readback.json；生产兼容映射和完整 HostLab 尚未完成。
 
 方法代码项补充对照：classic/shared 合成 DEX 的12列与原始字节 oracle 和 A0 有序结果相等，共享物理方法体仍保留多个方法行；无体为 NULL。非空 try/handler 只在无方法所有者的物理项上验证，不能算 A0 非空兼容行。证据 artifacts/mdd-026/code-item-audit/20261028T164825508666Z/readback.json。
+
+后续两份合成DEX补充了方法实际拥有的非空 try/handler，覆盖偶数和奇数 code-unit 对齐；12列与 A0/原生/独立字节 oracle 一致，SDK dexdump 通过。损坏 handler 被原生及 SDK 拒绝，A0 却返回行，原始反例保留；该对照不改变真实错误或授予设备/ART资格。证据 artifacts/mdd-026/owned-try-audit/20261028T171328758066Z/result.json。
 
 四类注解关系在双来源合成样本中验证行序、NULL和来源；A0 的116行在数值零符号归一化后匹配，其中两处原生 -0.0 被 A0 文本 CAST 显示为 0.0，不能称逐位相等。参数位置 Unknown 继续阻断。证据 artifacts/mdd-026/annotation-order-audit/20261028T165221569757Z/readback.json。
 
@@ -58,6 +64,8 @@ MDD-026 已重新打开：独立复核发现资格脚本对17关系156列主要�
 
 逐列总表 artifacts/mdd-026/column-ledger/20261028T170548736531Z/column-ledger.json 固定17关系156列，逐项列出已有证据与剩余边界；追加式独立重算和4项负例通过，但所有列的完整资格均为false，不据汇总签发MDD-026或产品profile。
 
+v2总表 artifacts/mdd-026/column-ledger-v2/20261028T171808763956Z/column-ledger.json 增量关联方法持有 try/handler 的12列证据，并保留损坏输入在A0与原生之间的真实差异；追加式回读和负例通过，全部字段完整资格仍为false。
+
 MDD-034 已根验收 done，范围是预算、取消和终态机制：Windows 本机 27 query、10 session、7 types 及2 compile-fail 测试通过，相关包严格 Clippy 通过；SQLite 双连接中断和独立子进程 deadline 探针通过。结果及源码身份见 artifacts/mdd-034/budget-and-terminal-states.json。生产 worker、MCP、FFI 和当前源码的 Linux CI 尚未验证；进程树隔离未由该探针证明。
 
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
@@ -65,5 +73,7 @@ MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USI
 后续 SQL 结果驻留预算修复在 Windows 工作区重新运行165项测试、0失败/跳过及严格Clippy；零行 schema 的零预算错误、结果持有与释放独立复现。该计量是保守逻辑额度，SQLite内部分配、provider/调用方副本、传输缓冲及租约自身元数据仍需单独准入，不能称 RSS 硬上限。证据 artifacts/mdd-031-audit/result-memory-probe/after-fix.json、artifacts/integration/20261029/workspace-tests-result-budget/record.json。
 
 SQL 附加对照：真实合成DEX和无损参数两条路径覆盖空字符串、NUL、普通字符、孤立代理项与补充字符；固定A0/A1各7行 CAST TEXT 的 HEX 与原始MUTF-8一致，普通显示对孤立代理项有替换，与原始字节分开。冻结Q10聚合在合成provider上与SQLite对照，并验证缺事实及源变化真实错误。证据 artifacts/mdd-031/text-projection-20261029/runs/20261028T170439632106Z/readback.json、artifacts/mdd-031-audit/q10-aggregation-audit/qualification.json；不代表完整查询集资格。
+
+SQL 比较路径已修复派生表同名遮蔽造成的 IN/NOT IN 静默错行，并支持可证明直接基础表 JOIN 的列作用域；Q03 合成provider与独立SQLite的重复行/别名反例通过，A0/A1固定小DEX另实际返回完整零行。未证明的亲和性返回明确未实现；旧版文本算术与部分文本转整数仍不兼容。该版 Windows 工作区168项测试及严格Clippy通过，见 artifacts/integration/20261029/workspace-tests-join-scope/record.json；本版Linux CI需对应提交后验证。
 
 检查点862b3dd的 Windows 和 Linux CI 均通过，各161项测试、10条构建/检查/Clippy/探针命令原始记录已核验；有限 Linux ASan/fuzz workflow 通过，但本次执行次数尚未回读。见 artifacts/integration/20261029/ci-862b3dd.json。后续源码修改须另行验证，不能继承此检查点的CI结论。

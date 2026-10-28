@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "-p",
+    "mdd-sql",
+    "--example",
+    "sql_bridge_probe",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1"
+  ],
+  "started_utc": "2026-10-28T17:31:57.937030+00:00",
+  "elapsed_seconds": 0.6396998000000167,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "7a7c5f339ce35cb7811e73ee64d146487d7e72eb2090f8175330980b4fb58593"
+}

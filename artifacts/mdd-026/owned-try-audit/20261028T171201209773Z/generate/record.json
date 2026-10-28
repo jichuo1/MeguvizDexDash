@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/owned_try/generate.py"
+  ],
+  "started_utc": "2026-10-28T17:12:01.212329+00:00",
+  "finished_utc": "2026-10-28T17:12:01.336042+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "fd4108dce84c5c0b2116f0f1155b5ef9e0eb90bc3f12e20327b4ee051ca2e7b8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "fixed DexSQL CAST examples, not qualification",
+  "profiles_admitted": false,
+  "fixture_sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+  "driver_sha256": "b6e87e3db4be37defd651a6845ab5de0ab4f6bb2a711106ce139397c2e59a4e2",
+  "helper_sha256": "590ecb8914bfe1477330ba7860463f3063c58aca3828cc05daba9e24ef8fffc1",
+  "records": [
+    {
+      "variant": "A0",
+      "cases": 3,
+      "sha256": "1f25683d4c1cd3988c22410e8020579c897838dfc2f3da166ed931e0a81a6408"
+    },
+    {
+      "variant": "A1",
+      "cases": 3,
+      "sha256": "8455d41c4b07e024295e665b8660a7db48915e642b65e1ebb29598bc7560082b"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "-d",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\owned_try\\generated\\owned-try-even.dex"
+  ],
+  "started_utc": "2026-10-28T17:13:30.218348+00:00",
+  "finished_utc": "2026-10-28T17:13:30.284312+00:00",
+  "elapsed_seconds": 0.06300000000010186,
+  "exit_code": 0,
+  "stdout_sha256": "daf042e9eb5b302215fe0f0e958c286cee60ae4cd8c3b3f2c1915d68eff7b0d2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "small synthetic conformance; not performance"
+}

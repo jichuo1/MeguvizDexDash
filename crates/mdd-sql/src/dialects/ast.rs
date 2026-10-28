@@ -38,6 +38,44 @@ fn null() -> Expr {
 fn take(expr: &mut Expr) -> Expr {
     std::mem::replace(expr, null())
 }
+fn no_affinity(expr: &Expr) -> bool {
+    match expr {
+        Expr::Value(_) => true,
+        Expr::Nested(inner) => no_affinity(inner),
+        Expr::UnaryOp {
+            op: UnaryOperator::Plus | UnaryOperator::Minus,
+            expr,
+        } => {
+            matches!(&**expr, Expr::Value(value) if matches!(value.value, Value::Number(_, _)))
+        }
+        _ => false,
+    }
+}
+#[derive(Clone, Copy, Eq, PartialEq)]
+enum InStorageClass {
+    Numeric,
+    Text,
+    Bytes,
+}
+fn literal_in_class(expr: &Expr) -> Option<Option<InStorageClass>> {
+    match expr {
+        Expr::Nested(inner) => literal_in_class(inner),
+        Expr::UnaryOp {
+            op: UnaryOperator::Plus | UnaryOperator::Minus,
+            expr,
+        } if matches!(&**expr, Expr::Value(value) if matches!(value.value, Value::Number(_, _))) => {
+            Some(Some(InStorageClass::Numeric))
+        }
+        Expr::Value(value) => match &value.value {
+            Value::Null => Some(None),
+            Value::Number(_, _) | Value::Boolean(_) => Some(Some(InStorageClass::Numeric)),
+            Value::SingleQuotedString(_) => Some(Some(InStorageClass::Text)),
+            Value::HexStringLiteral(_) => Some(Some(InStorageClass::Bytes)),
+            _ => None,
+        },
+        _ => None,
+    }
+}
 fn call(name: &str, args: Vec<Expr>) -> Expr {
     Expr::Function(Function {
         name: ObjectName::from(vec![Ident::new(name)]),
@@ -164,6 +202,7 @@ pub(crate) fn adapt(
         nodes: 0,
         dependencies: Vec::new(),
         cte_scopes: Vec::new(),
+        in_scopes: Vec::new(),
         cte_definitions: Vec::new(),
         schemas,
         schema_types,
@@ -202,6 +241,7 @@ struct Rewrite<'a> {
     nodes: usize,
     dependencies: Vec<Dependency>,
     cte_scopes: Vec<BTreeMap<String, usize>>,
+    in_scopes: Vec<Option<InScope>>,
     cte_definitions: Vec<Vec<Dependency>>,
     schemas: BTreeMap<String, Vec<String>>,
     schema_types: BTreeMap<String, BTreeMap<String, crate::values::SqlType>>,
@@ -211,7 +251,95 @@ struct Rewrite<'a> {
     display_overrides: BTreeMap<String, String>,
     dialect: super::SqlDialect,
 }
+struct InScope {
+    tables: BTreeMap<String, BTreeMap<String, crate::values::SqlType>>,
+}
 impl Rewrite<'_> {
+    fn base_in_scope(&self, select: &Select) -> Option<InScope> {
+        if !self.cte_scopes.is_empty() || select.from.is_empty() {
+            return None;
+        }
+        let mut tables = BTreeMap::new();
+        for from in &select.from {
+            for factor in
+                std::iter::once(&from.relation).chain(from.joins.iter().map(|join| &join.relation))
+            {
+                let TableFactor::Table { name, alias, .. } = factor else {
+                    return None;
+                };
+                if name.0.len() != 1 || alias.as_ref().is_some_and(|a| !a.columns.is_empty()) {
+                    return None;
+                }
+                let id = name.0[0].as_ident()?;
+                let columns = self
+                    .schema_types
+                    .get(&id.value.to_ascii_lowercase())?
+                    .clone();
+                let qualifier = alias
+                    .as_ref()
+                    .map_or_else(|| id.value.clone(), |a| a.name.value.clone())
+                    .to_ascii_lowercase();
+                if tables.insert(qualifier, columns).is_some() {
+                    return None;
+                }
+            }
+        }
+        Some(InScope { tables })
+    }
+    fn safe_in_affinity(&self, left: &Expr, list: &[Expr]) -> bool {
+        if list.is_empty() || no_affinity(left) {
+            return true;
+        }
+        // Never infer a column type from a global same-name schema. Derived
+        // tables and CTEs may shadow a name with different affinity.
+        let Some(Some(scope)) = self.in_scopes.last() else {
+            return false;
+        };
+        let mut left = left;
+        while let Expr::Nested(inner) = left {
+            left = inner;
+        }
+        let data_type = match left {
+            Expr::Identifier(id) => {
+                let name = id.value.to_ascii_lowercase();
+                let mut matches = scope
+                    .tables
+                    .values()
+                    .filter_map(|columns| columns.get(&name));
+                let Some(data_type) = matches.next() else {
+                    return false;
+                };
+                if matches.next().is_some() {
+                    return false;
+                }
+                data_type
+            }
+            Expr::CompoundIdentifier(ids) if ids.len() == 2 => {
+                let Some(data_type) = scope
+                    .tables
+                    .get(&ids[0].value.to_ascii_lowercase())
+                    .and_then(|columns| columns.get(&ids[1].value.to_ascii_lowercase()))
+                else {
+                    return false;
+                };
+                data_type
+            }
+            _ => return false,
+        };
+        let class = match data_type {
+            crate::values::SqlType::Bool
+            | crate::values::SqlType::I64
+            | crate::values::SqlType::U64
+            | crate::values::SqlType::F64 => InStorageClass::Numeric,
+            crate::values::SqlType::Text => InStorageClass::Text,
+            crate::values::SqlType::Bytes => InStorageClass::Bytes,
+        };
+        list.iter().all(|item| match literal_in_class(item) {
+            Some(None) => true,
+            Some(Some(candidate)) => candidate == class,
+            None => false,
+        })
+    }
     fn visit(&mut self, depth: usize) -> MddResult<()> {
         self.nodes = self
             .nodes
@@ -371,6 +499,8 @@ impl Rewrite<'_> {
                 {
                     return Err(unsupported("SELECT_EXTENSION_NOT_IMPLEMENTED"));
                 }
+                let in_scope = self.base_in_scope(select);
+                self.in_scopes.push(in_scope);
                 for table in &mut select.from {
                     self.table(&mut table.relation, depth + 1)?;
                     for (join_index, join) in table.joins.iter_mut().enumerate() {
@@ -485,6 +615,7 @@ impl Rewrite<'_> {
                     select.distinct = None;
                 }
                 select.group_by = GroupByExpr::Expressions(grouping, Vec::new());
+                self.in_scopes.pop();
             }
             SetExpr::Query(query) => {
                 let dependencies = self.query(query, depth + 1)?;
@@ -678,9 +809,19 @@ impl Rewrite<'_> {
                 return Ok(());
             }
             Expr::BinaryOp { left, op, right } => {
+                // Parameters and literal values have no SQLite affinity.
+                // A column, CAST or derived expression cannot be assumed to
+                // share this property; those retain the guarded comparator.
+                let no_affinity = no_affinity(left) && no_affinity(right);
                 self.expr(left, depth + 1)?;
                 self.expr(right, depth + 1)?;
                 let name = match op {
+                    BinaryOperator::Eq if no_affinity => "mdd_literal_eq",
+                    BinaryOperator::NotEq if no_affinity => "mdd_literal_ne",
+                    BinaryOperator::Gt if no_affinity => "mdd_literal_gt",
+                    BinaryOperator::GtEq if no_affinity => "mdd_literal_ge",
+                    BinaryOperator::Lt if no_affinity => "mdd_literal_lt",
+                    BinaryOperator::LtEq if no_affinity => "mdd_literal_le",
                     BinaryOperator::Eq => "mdd_eq",
                     BinaryOperator::NotEq => "mdd_ne",
                     BinaryOperator::Gt => "mdd_gt",
@@ -774,6 +915,10 @@ impl Rewrite<'_> {
             Expr::InList {
                 expr: child, list, ..
             } => {
+                if !self.safe_in_affinity(child, list) {
+                    return Err(unsupported("IN_LEFT_AFFINITY_NOT_IMPLEMENTED")
+                        .detail("confirm_sqlite_syntax", true));
+                }
                 self.expr(child, depth + 1)?;
                 **child = call("mdd_key", vec![take(child)]);
                 for value in list {

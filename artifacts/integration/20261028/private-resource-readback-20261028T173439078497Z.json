@@ -1,0 +1,20 @@
+{
+  "schema_version": "mdd.private-resource-readback.v1",
+  "status": "passed",
+  "started_utc": "2026-10-28T17:34:39.078497+00:00",
+  "original_comparison_sha256": "d063093f19148bef2e0bb3e028f08e924413f475590806c355ccd0a9c6904902",
+  "original_command_sha256": "6f8d4d532895eb33e71656c0c40eb0328732721805103624a28ac850aabd0591",
+  "recompute_exit_code": 0,
+  "recompute_stdout_sha256": "81fe2b9bde1cfa9641ce413a33e5bb8ed1d415b6cab8d86f61bb9479269af2d6",
+  "recompute_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "method_fingerprints_compared": false,
+  "performance_qualified": false,
+  "full_hostlab_audit_equivalent": false,
+  "recomputed_comparison_sha256": "a8693da11f541d69882383a6add9ac462e484b7a476694234428870a069402f0",
+  "sample_count": 2,
+  "resource_counts": [
+    17755,
+    17770
+  ],
+  "verifier_source_sha256": "f3562756d7d59ec646628f4d03397e1dc3b8ca7e0a8306d6c905f6d0bd94645f"
+}
