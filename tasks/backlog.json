@@ -469,7 +469,7 @@
       "id": "MDD-021",
       "phase": "M2",
       "title": "实现类、字段、方法定义与声明顺序",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "MDD-020"
       ],
@@ -496,7 +496,8 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_notes": "MDD-020 accepted at 05359f9; production task delegated with single-writer files"
     },
     {
       "id": "MDD-022",
@@ -536,7 +537,7 @@
       "id": "MDD-023",
       "phase": "M2",
       "title": "实现指令、payload、异常与代码布局解码",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "MDD-013",
         "MDD-020"
@@ -564,7 +565,8 @@
       "references": [
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_notes": "MDD-020 accepted at 05359f9; production task delegated with single-writer files"
     },
     {
       "id": "MDD-024",

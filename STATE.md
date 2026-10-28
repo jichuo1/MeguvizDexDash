@@ -23,7 +23,7 @@ MDD-012/013/014 已完成成员清点/受限头校验/生命周期骨架验收�
 - 参考 HostLab：8782f43d537c442905123e35af325c412caa5188。
 - 两个历史 A0 任务：94.630143 / 85.572220 秒，各一次观测。
 - 约 37% / 47% 的完整任务降时为阶段条件目标，未有 B 实测。
-- 实际环境：Rust/Cargo 1.99.0、Windows x86_64 MSVC、捆绑 SQLite 3.53.2；六项生产依赖已获用户批准，Cargo.lock 与 requirements-dev.lock 已固定。
+- 实际环境：Rust/Cargo 1.99.0、Windows x86_64 MSVC、捆绑 SQLite 3.53.2；七项生产依赖已获用户批准，Cargo.lock 与 requirements-dev.lock 已固定。
 - 固定研究提交的13份公开源码已逐文件取得并核验；现有干净 HostLab 工作树实际 HEAD=f0e523738cd0bb5575ff04b96e407dd62bdaface，未作修改。Windows DexSQL 0.1.0 和历史 Linux 两版身份分别登记。
 
 ## 下一动作
@@ -36,7 +36,7 @@ MDD-005 受阻：已知两个私有样本目录只有 prepare.lock，没有91701
 
 最终 SQLite 实验21项中16项匹配，5项是 NUL length、LIKE下划线、UTF16排序、孤立代理TEXT和TEMP CTAS差异。全部保留真实输出；MDD-031仍需无损文本/方言/目录适配，所有profile admitted=false。
 
-M0/M1检查点d9ce060的Linux/Windows原生CI均通过，下载产物的10份命令记录全部exit0，见artifacts/integration/20261028/ci-d9ce060.json。M2新元数据仍需同版本CI；平台正式发行资格尚未取得。WSL未安装、没有Docker。DEX SHA-1、完整ART验证、完整事实/资源、MCP/FFI/桌面与正式发行资格均未取得。BIL既有修改和全部外部工作树保持原状。
+M0/M1检查点d9ce060的Linux/Windows原生CI均通过，下载产物的10份命令记录全部exit0，见artifacts/integration/20261028/ci-d9ce060.json。M2新元数据仍需同版本CI；平台正式发行资格尚未取得。WSL未安装、没有Docker。DEX SHA-1现已另行批准sha1 0.11.0并按header-v2实际验证；完整ART验证、完整事实/资源、MCP/FFI/桌面与正式发行资格均未取得。BIL既有修改和全部外部工作树保持原状。
 
 ## 续写规则
 
@@ -47,3 +47,5 @@ M0/M1检查点d9ce060的Linux/Windows原生CI均通过，下载产物的10份命
 当前未修改HostLab生产配置、默认backend或共享部署。回滚采用新revert提交撤回候选实现，保留原规格和失败证据，不重置/清理其他工作树。远端仅为用户授权的新私有项目仓库。
 
 MDD-020实际公开输入：classes.dex 64754 strings/9630 types/13644 protos；classes2.dex 3722/1034/1455，全部所选元数据计算完成。definitions/annotations/code/references/resources仍未建立，不将此摘要当完整审计。
+
+SHA-1升级后仍未取得完整DEX/审计资格。原有传递版本未升级，候选全量重解析已拒绝并保留证据；见ADR-012。MDD-021/023正在实际实现，MDD-022先准备独立注解语料。

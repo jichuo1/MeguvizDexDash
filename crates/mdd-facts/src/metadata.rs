@@ -18,6 +18,11 @@ pub enum EntityKind {
     String,
     Type,
     Prototype,
+    ClassDefinition,
+    FieldReference,
+    FieldDefinition,
+    MethodReference,
+    MethodDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -248,6 +253,19 @@ impl MetadataFacts {
             EntityKind::String => self.strings.len(),
             EntityKind::Type => self.types.len(),
             EntityKind::Prototype => self.prototypes.len(),
+            EntityKind::ClassDefinition
+            | EntityKind::FieldReference
+            | EntityKind::FieldDefinition
+            | EntityKind::MethodReference
+            | EntityKind::MethodDefinition => {
+                return Err(MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.metadata",
+                    "requested entity kind belongs to an unbuilt definition layer",
+                )
+                .detail("snapshot_id", self.source.snapshot_id.clone())
+                .detail("dex_occurrence_id", self.source.dex_occurrence_id.clone()));
+            }
         };
         if local_index as usize >= count {
             return Err(MddError::new(

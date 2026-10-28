@@ -2,11 +2,12 @@
   "schema_version": "mdd.dependencies.v1",
   "rust": "1.99.0",
   "msrv": "1.99",
-  "lock_sha256": "48624496e6ffecf1696bec8aad1a36525a1e11f8c2dddd1837b9fc03a07c5944",
+  "lock_sha256": "56ada8d2bfb6d97dc28008b9823399a3fe0716d5c77fc7d471586569e0b24073",
   "approved_direct_dependencies": [
     "serde",
     "serde_json",
     "sha2",
+    "sha1",
     "zip",
     "rusqlite",
     "getrandom"
@@ -412,6 +413,21 @@
         "std"
       ],
       "cached_manifest_sha256": "00b920255c320a278bf25b962b491263a19d8c90e12e4a91c1d823db71eabb2f",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "sha1",
+      "version": "0.11.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/RustCrypto/hashes",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "alloc",
+        "default",
+        "oid"
+      ],
+      "cached_manifest_sha256": "de33b0f2415155a5af3321fc04d36a3d1c850e05505cb721a3aa78a224e8ae97",
       "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
     },
     {

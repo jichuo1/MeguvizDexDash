@@ -1,0 +1,40 @@
+
+running 17 tests
+test checked_reader::tests::arithmetic_and_ranges_reject_before_reading ... ok
+test header::tests::checksum_and_sha1_validation_scopes_remain_distinct ... ok
+test header::tests::exact_unsupported_formats_do_not_admit_numeric_ranges ... ok
+test header::tests::malformed_fixtures_have_distinct_errors_and_ranges ... ok
+test types::tests::descriptor_grammar_has_exact_void_array_name_and_version_rules ... ok
+test strings::tests::actual_pool_preserves_utf16_nul_and_surrogates ... ok
+test header::tests::map_overlap_duplicate_and_header_disagreement_are_errors ... ok
+test header::tests::header_empty_ranges_and_large_counts_fail_explicitly ... ok
+test header::tests::structured_sources_and_reordered_data_keep_valid_reference_ranges ... ok
+test types::tests::existing_independent_fixture_types_and_empty_proto_match ... ok
+test header::tests::each_standard_version_has_real_fixture ... ok
+test strings::tests::independent_component_vectors_match_without_lossy_substitution ... ok
+test types::tests::independent_nonempty_parameter_fixture_matches_every_declared_field ... ok
+test header::tests::forward_backwards_and_out_of_range_references_are_rejected ... ok
+test types::tests::independent_metadata_mutants_reject_instead_of_empty_success ... ok
+test header::tests::all_prefix_truncations_fail_without_panic ... ok
+test strings::tests::all_512_independent_fifth_byte_oracle_cases_match ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 3 tests
+test metadata::tests::unrelated_snapshot_inventory_and_zero_quota_fail_closed ... ok
+test metadata::tests::same_archive_duplicate_dexes_retain_independent_local_indices ... ok
+test metadata::tests::duplicate_content_occurrences_keep_distinct_refs_and_owned_leases ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

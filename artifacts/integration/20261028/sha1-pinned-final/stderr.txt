@@ -1,0 +1,6 @@
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.12s
+     Running unittests src\lib.rs (target\debug\deps\mdd_dex-9a3bd310c7bdcff1.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_facts-69f32e0169a7ad12.exe)
+   Doc-tests mdd_dex
+   Doc-tests mdd_facts

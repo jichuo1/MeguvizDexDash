@@ -1,10 +1,11 @@
 use crate::checked_reader::{CheckedReader, invalid};
 use mdd_types::{DecimalU64, ErrorCode, MddError, MddResult};
 use serde::{Deserialize, Serialize};
+use sha1::{Digest, Sha1};
 use std::collections::{BTreeMap, BTreeSet};
 
 const HEADER_SIZE: u64 = 112;
-const SCOPE: &str = "standard-le-header-map-fixed-references-v1";
+const SCOPE: &str = "standard-le-header-map-fixed-references-v2";
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct DexRange {
@@ -219,6 +220,9 @@ pub fn validate_header(bytes: &[u8]) -> MddResult<DexHeader> {
     let checksum = reader.u32(8)?;
     if adler32(reader.range(12, reader.len() - 12)?) != checksum {
         return Err(failure("CHECKSUM_MISMATCH", "dex.header", 8, 4));
+    }
+    if Sha1::digest(reader.range(32, reader.len() - 32)?).as_slice() != reader.range(12, 20)? {
+        return Err(failure("SIGNATURE_SHA1_MISMATCH", "dex.header", 12, 20));
     }
     let signature = reader
         .range(12, 20)?
@@ -559,7 +563,7 @@ pub fn validate_header(bytes: &[u8]) -> MddResult<DexHeader> {
         declared_checksum: checksum,
         checksum_verified: true,
         declared_signature_sha1: signature,
-        signature_verified: false,
+        signature_verified: true,
         tables,
         map,
         validated_scope: SCOPE.to_owned(),
@@ -578,6 +582,8 @@ mod tests {
     fn mutate(data: &[u8], offset: usize, value: u32) -> Vec<u8> {
         let mut changed = data.to_vec();
         changed[offset..offset + 4].copy_from_slice(&value.to_le_bytes());
+        let signature = Sha1::digest(&changed[32..]);
+        changed[12..32].copy_from_slice(&signature);
         let checksum = adler32(&changed[12..]);
         changed[8..12].copy_from_slice(&checksum.to_le_bytes());
         changed
@@ -611,7 +617,7 @@ mod tests {
             let header = validate_header(bytes).unwrap();
             assert_eq!(header.version, version);
             assert!(header.checksum_verified);
-            assert!(!header.signature_verified && !header.full_dex_validation_complete);
+            assert!(header.signature_verified && !header.full_dex_validation_complete);
             assert_eq!(header.map.len(), 2);
             let value = serde_json::to_value(&header).unwrap();
             assert_eq!(value["file_size"], "140");
@@ -753,13 +759,13 @@ mod tests {
 
     #[test]
     fn checksum_and_sha1_validation_scopes_remain_distinct() {
-        let header = validate_header(include_bytes!(
+        let error = validate_header(include_bytes!(
             "../../../tests/fixtures/generated/bad-signature.dex"
         ))
-        .unwrap();
-        assert!(header.checksum_verified);
-        assert!(!header.signature_verified);
-        assert!(!header.full_dex_validation_complete);
+        .unwrap_err();
+        assert_eq!(error.code, ErrorCode::InvalidInput);
+        assert_eq!(reason(&error), "SIGNATURE_SHA1_MISMATCH");
+        assert_eq!(error.details["byte_offset"], "12");
     }
 
     #[test]

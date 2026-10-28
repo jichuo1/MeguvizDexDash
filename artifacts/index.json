@@ -30,7 +30,7 @@
     {
       "path": "artifacts/bootstrap/20261028/environment.json",
       "bytes": 2365,
-      "sha256": "02edafe149ff5af9afc7a8448753d0d358439b2e6292dda83a53217cbbef2c6d"
+      "sha256": "88e125ee084e18db496571acaf908773620f48a0394c270766973e5f5c4e2084"
     },
     {
       "path": "artifacts/bootstrap/20261028/recompute-targets/record.json",
@@ -156,6 +156,101 @@
       "path": "artifacts/integration/20261028/public-input-acquisition.json",
       "bytes": 376,
       "sha256": "15493d31b622271264e977846b0967997701b8fba34f2b766693c06b4e17992d"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-build/record.json",
+      "bytes": 661,
+      "sha256": "8d77a306b7dfdbc0620ed3a625e025fa20715e4eabb45546bd67d6fb9cf4d83f"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-build/stderr.txt",
+      "bytes": 139,
+      "sha256": "149a1854ce9a6dade04ee3ce7593af2a307a3e41554a5913c2c082681360edc6"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-build/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-final-tests/record.json",
+      "bytes": 689,
+      "sha256": "b33b6ce361084028dd7f88fa90a6396b5a5efda98edd87d56a3755b8e5a56af8"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-final-tests/stderr.txt",
+      "bytes": 2838,
+      "sha256": "2d23f5f85c6e4dd11c6143d76f6be94c5b433b935d07076f8022494075886eb6"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-final-tests/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-inspection/record.json",
+      "bytes": 693,
+      "sha256": "63f2fad707486fefccc727fd8ec842223984b6254fc500365fefc3c4f0f11c33"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-inspection/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-inspection/stdout.txt",
+      "bytes": 1331,
+      "sha256": "9e8efee324fd1962a3b9537981e10095c03272758197707721a0c6b8357bd7a4"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-pinned-clippy/record.json",
+      "bytes": 757,
+      "sha256": "50463a0798fc1d9fa40744be2703a8b12a6fb6042d9a668397e62124de68a212"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-pinned-clippy/stderr.txt",
+      "bytes": 419,
+      "sha256": "e69207ffa0f86bc2dc257bc4d33e370a4283fa5b3c5a1888eef3dac7f27b2ff9"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-pinned-clippy/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-pinned-final/record.json",
+      "bytes": 690,
+      "sha256": "81f506ab174c9653becdd5caffd183e462ef8e8abe0c728ac421aea73b3899cb"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-pinned-final/stderr.txt",
+      "bytes": 356,
+      "sha256": "dfa2f6d11c13cbac09fda0b898e671209e572447c4d39b21849df827212d394c"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-pinned-final/stdout.txt",
+      "bytes": 2117,
+      "sha256": "a22d9bb93407f6e7f4253d5d39d03fa80bc247c007fb8655765be8907b32ac89"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-rejected-unrelated-upgrades.lock",
+      "bytes": 10558,
+      "sha256": "0980dd4c541cac2147335d2a2fa5a52c17b9d99412173aea3b3be45879f298d8"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-tests/record.json",
+      "bytes": 691,
+      "sha256": "3c38b2b75acd645f4d5184db483fec44fa28b7e3cf3f99ca9521a78cd757964d"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-tests/stderr.txt",
+      "bytes": 921,
+      "sha256": "5618f75372f6f501667061684544d2447c73d0550b956e113b3fc589169334e9"
+    },
+    {
+      "path": "artifacts/integration/20261028/sha1-tests/stdout.txt",
+      "bytes": 2117,
+      "sha256": "632e7c242e756c48317ec671746a470a34bff69b45c5c8078c77d5e4677e5616"
     },
     {
       "path": "artifacts/integration/20261028/windows-check/record.json",

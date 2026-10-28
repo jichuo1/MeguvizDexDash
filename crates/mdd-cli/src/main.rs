@@ -142,7 +142,7 @@ fn inspect(kind: InputKind, paths: &[std::ffi::OsString]) -> Result<Value, MddEr
     let data = json!({"rows":rows,"snapshot_manifest":snapshot.manifest(),"inventories":inventories,
         "scope_manifest":{"scope_id":scope_id,"selection":"top-level-classes-or-raw",
             "required_layers":["inventory","dex_header"],"full_dex_validation_required":false,
-            "signature_verification":"not performed; declared SHA-1 retained",
+            "signature_verification":"SHA-1 over captured DEX bytes 32..file_size; source identity uses SHA-256",
             "profile_qualification":"unadmitted development inspection"}});
     let envelope = ResultEnvelope {
         schema_version: "mdd.result.v1".to_owned(),

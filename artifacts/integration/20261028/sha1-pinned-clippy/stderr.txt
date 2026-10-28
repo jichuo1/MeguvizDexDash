@@ -1,0 +1,6 @@
+   Compiling mdd-cli v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-cli)
+    Checking mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+    Checking mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+    Checking mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+    Checking mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.92s

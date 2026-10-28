@@ -1,0 +1,64 @@
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+error[E0004]: non-exhaustive patterns: `EntityKind::ClassDefinition`, `EntityKind::FieldReference`, `EntityKind::FieldDefinition` and 2 more not covered
+   --> crates\mdd-facts\src\metadata.rs:252:27
+    |
+252 |         let count = match kind {
+    |                           ^^^^ patterns `EntityKind::ClassDefinition`, `EntityKind::FieldReference`, `EntityKind::FieldDefinition` and 2 more not covered
+    |
+note: `EntityKind` defined here
+   --> crates\mdd-facts\src\metadata.rs:17:10
+    |
+ 17 | pub enum EntityKind {
+    |          ^^^^^^^^^^
+...
+ 21 |     ClassDefinition,
+    |     --------------- not covered
+ 22 |     FieldReference,
+    |     -------------- not covered
+ 23 |     FieldDefinition,
+    |     --------------- not covered
+ 24 |     MethodReference,
+    |     --------------- not covered
+ 25 |     MethodDefinition,
+    |     ---------------- not covered
+    = note: the matched value is of type `EntityKind`
+help: ensure that all possible cases are being handled by adding a match arm with a wildcard pattern as shown, or multiple match arms
+    |
+255 ~             EntityKind::Prototype => self.prototypes.len(),
+256 ~             _ => todo!(),
+    |
+
+For more information about this error, try `rustc --explain E0004`.
+error: could not compile `mdd-facts` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error[E0004]: non-exhaustive patterns: `metadata::EntityKind::ClassDefinition`, `metadata::EntityKind::FieldReference`, `metadata::EntityKind::FieldDefinition` and 2 more not covered
+   --> crates\mdd-facts\src\metadata.rs:252:27
+    |
+252 |         let count = match kind {
+    |                           ^^^^ patterns `metadata::EntityKind::ClassDefinition`, `metadata::EntityKind::FieldReference`, `metadata::EntityKind::FieldDefinition` and 2 more not covered
+    |
+note: `metadata::EntityKind` defined here
+   --> crates\mdd-facts\src\metadata.rs:17:10
+    |
+ 17 | pub enum EntityKind {
+    |          ^^^^^^^^^^
+...
+ 21 |     ClassDefinition,
+    |     --------------- not covered
+ 22 |     FieldReference,
+    |     -------------- not covered
+ 23 |     FieldDefinition,
+    |     --------------- not covered
+ 24 |     MethodReference,
+    |     --------------- not covered
+ 25 |     MethodDefinition,
+    |     ---------------- not covered
+    = note: the matched value is of type `metadata::EntityKind`
+help: ensure that all possible cases are being handled by adding a match arm with a wildcard pattern as shown, or multiple match arms
+    |
+255 ~             EntityKind::Prototype => self.prototypes.len(),
+256 ~             _ => todo!(),
+    |
+
+error: could not compile `mdd-facts` (lib test) due to 1 previous error

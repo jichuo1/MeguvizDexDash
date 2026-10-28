@@ -36,7 +36,7 @@ def main():
         rows = value['data']['rows']
         require(len(rows) == count and value['response']['emitted_rows'] == str(count), 'row count mismatch')
         require(all(not row['header']['full_dex_validation_complete'] for row in rows), 'premature full-format claim')
-        require(all(not row['header']['signature_verified'] for row in rows), 'unverified signature claimed valid')
+        require(all(row['header']['signature_verified'] for row in rows), 'required DEX SHA-1 signature verification missing')
         require(len({row['dex_occurrence_id'] for row in rows}) == count, 'logical input multiplicity lost')
         source = value['data']['snapshot_manifest']['sources'][0]
         require(source['content_id'] == 'sha256:'+hashlib.sha256(path.read_bytes()).hexdigest(), 'captured source digest mismatch')
@@ -46,6 +46,7 @@ def main():
         results.append({'input':name,'rows':count,'status':'passed'})
     for operation, name, code in [
         ('inspect-dex','bad-map-offset.dex','INVALID_INPUT'),
+        ('inspect-dex','bad-signature.dex','INVALID_INPUT'),
         ('inspect-dex','unsupported-036.dex','UNSUPPORTED_CAPABILITY'),
         ('inspect-dex','unsupported-041.dex','UNSUPPORTED_CAPABILITY'),
         ('inspect-apk','bad-crc.apk','INVALID_INPUT'),

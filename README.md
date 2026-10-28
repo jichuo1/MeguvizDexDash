@@ -19,7 +19,7 @@ cargo run --locked -p mdd-cli -- inspect-dex tests/fixtures/generated/structured
 cargo run --locked -p mdd-cli -- inspect-apk tests/fixtures/generated/multidex-deflated.apk
 ```
 
-`inspect-dex` / `inspect-apk` 可以接收多个路径，结果只覆盖成员清单和标准 little-endian DEX 035/037/038/039/040 的 header/map/固定引用范围。返回来源内容摘要、独立 occurrence、物理成员与逻辑 DEX 标识，明确 `full_dex_validation_complete=false`、`signature_verified=false`。036、041、ZIP64、多卷、加密等未获资格能力明确拒绝，损坏输入以真实错误拒绝。SQL、Smali、完整资源、MCP、FFI 和桌面尚未交付。
+`inspect-dex` / `inspect-apk` 可以接收多个路径，结果只覆盖成员清单和标准 little-endian DEX 035/037/038/039/040 的 header/map/固定引用范围。返回来源内容摘要、独立 occurrence、物理成员与逻辑 DEX 标识，明确 `full_dex_validation_complete=false`。当前 header-v2 同时验证 Adler32 与 DEX 原生 SHA-1 摘要，来源身份仍采用 SHA-256；SHA-1 不是签名认证。036、041、ZIP64、多卷、加密等未获资格能力明确拒绝，损坏输入以真实错误拒绝。SQL、Smali、完整资源、MCP、FFI 和桌面尚未交付。
 
 Windows x86_64 本机已实际运行；Linux x86_64 由 CI 验收，状态以真实 CI 结果为准。`.github/workflows/ci.yml` 对两个原生平台执行独立语料、构建、lint、测试和真实 CLI 检查，不执行或冒称生产性能基准。
 
