@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "-p",
+    "mdd-sql",
+    "--example",
+    "sql_bridge_probe",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--message-format=json"
+  ],
+  "started_utc": "2026-10-28T17:04:06.195058+00:00",
+  "elapsed_seconds": 0.382548599999609,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "a0dbf3c625ac47e77dae9547512f671b198736a5970a9d8b0df4c81101b1e9af",
+  "stderr_sha256": "2461b00c8697c4189b2de92ca6fb05b5d72273c78a0a47b1ce4e83ccca077b70",
+  "scope": "synthetic development corpus; not performance"
+}

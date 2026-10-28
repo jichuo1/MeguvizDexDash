@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "result_sha256": "cf1ceaf3facaa5794ffa511ed667c617670df2d51b9b6192812b29839849fab8",
+  "readback_source_sha256": "7db5ae33980a70742b69803a78436d150843667ba209ff326c68b02d1a756b13",
+  "cases": 4,
+  "string_rows_checked": 67,
+  "negative_terminals": 2,
+  "source_files_checked": 52,
+  "task_complete_proven": false,
+  "scope": "small synthetic DEX; A0 raw MUTF8 display is not standard UTF-8 compatibility"
+}

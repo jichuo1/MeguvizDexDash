@@ -1,0 +1,10 @@
+warning: unused variable: `null`
+  --> D:\MeguvisDexDash\artifacts\mdd-031\text-projection-20261029\probe.rs:35:13
+   |
+35 |         let null = bridge.query("SELECT NULL AS v,hex(CAST(NULL AS TEXT)) AS h")?;
+   |             ^^^^ help: if this is intentional, prefix it with an underscore: `_null`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: 1 warning emitted
+

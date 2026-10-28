@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\type-text-audit\\20261028T170141878298Z\\type_text_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\bad-checksum.dex"
+  ],
+  "started_utc": "2026-10-28T17:01:48.846663+00:00",
+  "finished_utc": "2026-10-28T17:01:48.903269+00:00",
+  "elapsed_seconds": 0.06300000000010186,
+  "exit_code": 1,
+  "stdout_sha256": "338b050de15f95076e955aad1199a6f479552079701ce470e311788ba1132a03",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "bounded negative conformance"
+}

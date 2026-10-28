@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/q10-aggregation-audit/verify.py"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"status\": \"pass\", \"frozen_query\": \"Q10\", \"sqlite_version\": \"3.53.1\", \"columns\": [\"file_id\", \"method\", \"callee\", \"n\"], \"ordered_rows\": [[0, \"LA;->a()V\", \"Lfixture/F;->f()V\", 2], [0, \"LA;->a()V\", \"Lfixture/G;->g()V\", 1], [0, \"LB;->b()V\", \"Lfixture/F;->f()V\", 1]], \"input_rows\": 6, \"tests\": [\"full ordered rows and duplicate count\", \"genuine zero result\", \"LIMIT 0 incomplete facts\", \"midscan source changed\"], \"binary_sha256\": \"4e1c28e42f9b40b72acb4bcb57a583f60a9cf3ff16d3e0b704f55d0964de72d9\", \"fixture_sha256\": \"0c98f1a91481050206516b9abb47b271a5572521e6ded736a06ad51932800701\", \"corpus_sha256\": \"e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4\", \"candidate_result_sha256\": \"681f2ce3b19aa115a3c2688b23fab68c0209d9fce5718c2453bb6cf0ed51205b\", \"profiles_admitted\": false, \"scope\": \"synthetic provider, fixed Q10 and injected provider errors; not real APK or production qualification\"}\n",
+  "stderr": "",
+  "binary_sha256": "4e1c28e42f9b40b72acb4bcb57a583f60a9cf3ff16d3e0b704f55d0964de72d9",
+  "probe_source_sha256": "ffe993d100789f45e4aa11b5b1367a6bc2551e5cd742af5a053379536962f0b5",
+  "fixture_sha256": "0c98f1a91481050206516b9abb47b271a5572521e6ded736a06ad51932800701",
+  "verifier_sha256": "db9773cdc247b6c59954f6c05adfcff2d02d20aa049c6f70df9bf240d3b6d311",
+  "probe_lock_sha256": "f5de36a886b40ef9b7f60216aee3c5e2e69fdf211a0723e9991075cefd068cfe",
+  "root_lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "profiles_admitted": false,
+  "scope": "synthetic source, not real DEX nor full HostLab corpus"
+}

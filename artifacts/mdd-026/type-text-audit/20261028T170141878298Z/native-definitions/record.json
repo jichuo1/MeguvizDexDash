@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\type-text-audit\\20261028T170141878298Z\\type_text_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex"
+  ],
+  "started_utc": "2026-10-28T17:01:46.793092+00:00",
+  "finished_utc": "2026-10-28T17:01:47.464226+00:00",
+  "elapsed_seconds": 0.6570000000001528,
+  "exit_code": 0,
+  "stdout_sha256": "d732c020727242de2e2820a252f1b38408afdf39c34e4856b0131d6501fa3f7c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\type-names-035.dex",
+    "--sql",
+    "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"type_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"type_idx\" AS TEXT)) END AS \"type_idx\",CASE WHEN \"descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"descriptor\" AS TEXT)) END AS \"descriptor\",CASE WHEN \"java_name\" IS NULL THEN 'N' ELSE hex(CAST(\"java_name\" AS TEXT)) END AS \"java_name\" FROM types AS t ORDER BY t.type_idx"
+  ],
+  "started_utc": "2026-10-28T17:02:24.151543+00:00",
+  "finished_utc": "2026-10-28T17:02:24.756598+00:00",
+  "elapsed_seconds": 0.6100000000001273,
+  "exit_code": 0,
+  "stdout_sha256": "a2772a9dbdb57692249e99831e2a1d3ce796774f2db9b7f86b942a580b0f886d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}
