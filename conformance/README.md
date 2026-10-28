@@ -1,6 +1,6 @@
 # 当前可执行验证
 
-使用 Rust 1.99.0 与 `requirements-dev.lock` 指定的独立 Python 开发环境。Windows 本地为 `.venv/Scripts/python.exe`；Linux CI 使用固定 Python 3.12.14。
+使用 Rust 1.99.0 与 `requirements-dev.lock` 指定的独立 Python 开发环境。Windows 本地为 `.venv/Scripts/python.exe`（3.12.14）；两平台 CI 固定 Python 3.12.10。官方托管清单没有 Windows 3.12.14，首轮真实失败后选择了双方可取得的同一精确版本，环境差异明确记录。
 
 - `python tools/verify_original_handoff.py`：从不可变初始 Git 提交重建原包并严格校验；不是引擎测试。
 - `python conformance/oracles/reproduce.py`：实际生成/比较小语料、手工期望、独立编码与变形验证。

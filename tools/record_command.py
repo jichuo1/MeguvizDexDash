@@ -16,6 +16,7 @@ def run() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--cwd', type=Path, default=Path.cwd())
+    parser.add_argument('--quiet', action='store_true', help='Keep full output in evidence files; print a compact receipt')
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     command = args.command[1:] if args.command[:1] == ['--'] else args.command
@@ -39,8 +40,12 @@ def run() -> int:
         record[name] = {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
     (args.output / 'record.json').write_text(
         json.dumps(record, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
-    sys.stdout.buffer.write(result.stdout)
-    sys.stderr.buffer.write(result.stderr)
+    if args.quiet:
+        print(json.dumps({'record': str(args.output/'record.json'), 'exit_code':result.returncode,
+                          'stdout_bytes':len(result.stdout), 'stderr_bytes':len(result.stderr)}))
+    else:
+        sys.stdout.buffer.write(result.stdout)
+        sys.stderr.buffer.write(result.stderr)
     return result.returncode
 
 
