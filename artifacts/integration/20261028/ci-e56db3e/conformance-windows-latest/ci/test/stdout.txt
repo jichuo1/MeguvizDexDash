@@ -1,0 +1,188 @@
+
+running 2 tests
+test sql::tests::sqlite_vtable_probe_records_successes_and_real_gaps ... ok
+test tests::dependency_apis_are_usable ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 42 tests
+test annotations::tests::embedded_value_components_enforce_progress_depth_and_nodes ... ok
+test annotations::tests::depth_nodes_and_bytes_fail_closed ... ok
+test annotations::tests::full_physical_annotations_preserve_types_bits_and_local_positions ... ok
+test annotations::tests::parameter_lists_preserve_encoded_slots_without_inventing_nulls ... ok
+test checked_reader::tests::arithmetic_and_ranges_reject_before_reading ... ok
+test definitions::tests::definitions_match_hand_semantic_expectations ... ok
+test annotations::tests::every_physical_fixture_matches_independent_sdk_classification ... ok
+test definitions::tests::physical_orphan_probe_reports_real_acceptance ... ok
+test definitions::tests::invalid_delta_owner_body_and_duplicate_layout_are_located ... ok
+test definitions::tests::present_zero_insns_is_not_no_body_and_empty_class_data_is_explicit ... ok
+test definitions::tests::standard_versions_and_lossless_source_file_keep_definition_semantics ... ok
+test header::tests::checksum_and_sha1_validation_scopes_remain_distinct ... ok
+test header::tests::each_standard_version_has_real_fixture ... ok
+test header::tests::all_prefix_truncations_fail_without_panic ... ok
+test header::tests::exact_unsupported_formats_do_not_admit_numeric_ranges ... ok
+test header::tests::header_empty_ranges_and_large_counts_fail_explicitly ... ok
+test header::tests::malformed_fixtures_have_distinct_errors_and_ranges ... ok
+test header::tests::forward_backwards_and_out_of_range_references_are_rejected ... ok
+test header::tests::map_overlap_duplicate_and_header_disagreement_are_errors ... ok
+test header::tests::structured_sources_and_reordered_data_keep_valid_reference_ranges ... ok
+test instructions::tests::debug_references_must_name_physical_item_starts_and_outs_layout_is_checked ... ok
+test instructions::tests::debug_all_opcodes_no_index_and_pc_line_register_failures_are_visible ... ok
+test instructions::tests::encoded_unknown_source_lines_are_retained_and_strict_source_policy_still_fails ... ok
+test instructions::tests::debug_state_only_operations_and_try_ends_preserve_format_permitted_positions ... ok
+test instructions::tests::full_map_includes_unreferenced_code_and_offsets_have_explicit_narrow_scope ... ok
+test instructions::tests::hand_expected_operands_literals_ranges_and_dynamic_invokes_remain_distinct ... ok
+test instructions::tests::limits_are_cumulative_and_zero_never_means_unlimited ... ok
+test instructions::tests::malformed_width_register_wide_range_branch_payload_and_index_cases_fail ... ok
+test instructions::tests::payload_units_raw_ranges_targets_and_repetition_are_exact ... ok
+test instructions::tests::shared_payload_expansion_and_duplicate_offset_projection_each_consume_budget ... ok
+test instructions::tests::every_active_opcode_and_format_is_actually_decoded_and_reserved_items_fail ... ok
+test instructions::tests::shared_pc_to_pc_pattern_keeps_complete_raw_events_and_explicit_method_projection ... ok
+test instructions::tests::tries_padding_handler_origin_and_catch_all_targets_are_bounded ... ok
+test strings::tests::actual_pool_preserves_utf16_nul_and_surrogates ... ok
+test strings::tests::independent_component_vectors_match_without_lossy_substitution ... ok
+test strings::tests::physical_string_item_starts_allow_orphans_and_reject_interior_offsets ... ok
+test types::prototype_type_list_must_reference_a_real_physical_item_start ... ok
+test types::tests::descriptor_grammar_has_exact_void_array_name_and_version_rules ... ok
+test types::tests::existing_independent_fixture_types_and_empty_proto_match ... ok
+test types::tests::independent_metadata_mutants_reject_instead_of_empty_success ... ok
+test types::tests::independent_nonempty_parameter_fixture_matches_every_declared_field ... ok
+test strings::tests::all_512_independent_fifth_byte_oracle_cases_match ... ok
+
+test result: ok. 42 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+
+running 24 tests
+test annotations::tests::short_parameter_lists_have_explicit_unknown_prototype_coverage ... ok
+test annotations::tests::same_snapshot_duplicate_occurrences_keep_distinct_annotation_refs ... ok
+test annotations::tests::signature_parts_keep_array_order_pool_and_owner_source ... ok
+test annotations::tests::six_full_relations_equal_independent_oracle_and_reference ... ok
+test code::tests::raw_code_retains_exact_member_lease_scope_and_occurrence_after_source_changes ... ok
+test code::tests::all_hand_fixtures_match_independent_python_oracle_fields_and_raw_bytes ... ok
+test definitions::tests::occurrences_and_reference_definition_kinds_remain_distinct ... ok
+test metadata::tests::duplicate_content_occurrences_keep_distinct_refs_and_owned_leases ... ok
+test metadata::tests::same_archive_duplicate_dexes_retain_independent_local_indices ... ok
+test metadata::tests::unrelated_snapshot_inventory_and_zero_quota_fail_closed ... ok
+test definitions::tests::wildcard_definition_columns_match_frozen_reference_schema ... ok
+test raw_fingerprints::tests::present_empty_insns_has_empty_digest_not_absent_body ... ok
+test raw_fingerprints::tests::missing_projection_bad_item_source_and_zero_quotas_fail_closed ... ok
+test raw_fingerprints::tests::raw_body_bytes_and_explicit_order_match_handwritten_python_digests ... ok
+test raw_fingerprints::tests::resource_fingerprint_is_raw_same_snapshot_and_survives_source_mutation ... ok
+test references::tests::caller_site_expansion_query_and_search_budgets_fail_before_partial_success ... ok
+test references::tests::custom_narrow_metadata_scope_and_definition_candidate_budget_are_explicit ... ok
+test references::tests::index_and_scalar_definition_search_keep_world_scope_external_and_ambiguity ... ok
+test references::tests::ordinary_scope_does_not_consume_unrelated_annotations_and_custom_does_not_fake_callee ... ok
+test references::tests::partial_or_missing_code_never_becomes_complete_empty_rows ... ok
+test references::tests::physical_invalid_body_is_not_downgraded_to_unbuilt_partial_scope ... ok
+test references::tests::shared_code_expands_callers_without_counting_projection_duplicates_or_fake_callers ... ok
+test references::tests::source_and_snapshot_guards_reject_local_id_cross_joins ... ok
+test references::tests::all_hand_fixtures_match_independent_sites_ranges_and_complete_rows ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+
+running 16 tests
+test archive::tests::all_reads_use_owned_capture_and_member_identity ... ok
+test archive::tests::budgets_corrupt_ranges_crc_and_unsupported_formats_fail_closed ... ok
+test archive::tests::data_descriptor_and_lazy_resource_crc_are_checked ... ok
+test archive::tests::duplicate_names_and_contents_retain_distinct_occurrences ... ok
+test archive::tests::partially_overlapping_physical_members_are_rejected ... ok
+test archive::tests::fixtures_match_independent_physical_inventory_and_raw_content ... ok
+test archive::tests::raw_member_names_and_malformed_declared_sizes_are_not_normalized ... ok
+test archive::tests::selection_scope_resource_only_and_raw_dex_are_explicit ... ok
+test archive::zip64_tests::malformed_or_huge_zip64_is_not_unsupported_or_empty_success ... ok
+test archive::zip64_tests::zip64_tail_uses_u64_without_allocating_a_fake_large_archive ... ok
+test manifest::tests::budgets_and_nulls_remain_distinct ... ok
+test manifest::tests::independent_vectors_cover_full_tree_and_errors ... ok
+test manifest::tests::text_manifest_preserves_namespaces_raw_and_absence ... ok
+test snapshot::tests::capture_retains_generation_and_occurrences ... ok
+test snapshot::tests::source_expected_hash_and_zero_budget_fail_closed ... ok
+test archive::zip64_tests::real_zip64_and_python_force_local_members_are_fully_consumed ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.54s
+
+
+running 7 tests
+test executor::tests::empty_right_join_keeps_schema_and_empty_grouped_aggregate_has_no_row ... ok
+test executor::tests::exact_cell_codec_preserves_large_integers_bytes_and_surrogates ... ok
+test executor::tests::native_facts_duplicate_occurrences_and_bound_raw_code ... ok
+test executor::tests::native_utf16_like_escape_matches_hand_and_independent_python_oracles ... ok
+test executor::tests::prepared_source_generation_cancel_and_budget_are_real_failures ... ok
+test executor::tests::present_empty_body_is_distinct_from_no_body_and_invalid_entity_is_not_empty_success ... ok
+test executor::tests::independent_small_table_oracle_both_execution_paths ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 8 tests
+test tests::computation_delivery_and_catalog_generations_remain_distinct ... ok
+test tests::abandoned_cursors_cannot_be_released_into_delivery_success ... ok
+test tests::concurrent_close_and_computation_never_reopen_a_cancelled_query ... ok
+test tests::handles_reject_wrong_owner_parent_generation_and_released_identity ... ok
+test tests::shared_budget_reservations_and_releases_are_enforced_across_sessions ... ok
+test tests::snapshot_close_and_release_preserve_existing_owned_leases ... ok
+test tests::worker_loss_fails_every_unfinished_request_but_keeps_completed_terminal ... ok
+test tests::deadlines_cover_queue_time_and_zero_is_not_unlimited ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 2 tests
+test tests::decimal_u64_is_lossless_and_strict ... ok
+test tests::contract_examples_roundtrip_and_partial_states_do_not_pass ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test lifecycle::tests::supervisor_observes_real_process_exit_pipe_close_and_limits ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 4 tests
+test crates\mdd-facts\src\code.rs - code::CodeFacts (line 255) - compile fail ... ok
+test crates\mdd-facts\src\annotations.rs - annotations::AnnotationFacts (line 43) - compile fail ... ok
+test crates\mdd-facts\src\references.rs - references::ReferenceFacts (line 146) - compile fail ... ok
+test crates\mdd-facts\src\metadata.rs - metadata::MetadataFacts (line 82) - compile fail ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 2 tests
+test crates\mdd-query\src\executor.rs - executor::PreparedQuery (line 147) - compile fail ... ok
+test crates\mdd-query\src\executor.rs - executor::QueryOutput (line 523) - compile fail ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

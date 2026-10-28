@@ -1,0 +1,1 @@
+{"required_relations": 17, "required_columns": 156, "relations_with_nonempty_full_row_multiset_comparison": 8, "relations_without_such_comparison": 9, "unassembled_projection_columns": 69, "required_columns_in_historical_a0_metadata_comparison": 40, "required_columns_in_new_definition_api_comparison": 21}

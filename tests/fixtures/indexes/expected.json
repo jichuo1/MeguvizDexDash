@@ -1,0 +1,11 @@
+{
+  "schema_version": "mdd.index-hand-oracle.v1",
+  "origin": "Manually transcribed UTF16 units and local indices from the existing MDD004 hand-authored fixture; independent oracle never parses the DEX or imports Rust predicate code.",
+  "input": "tests/fixtures/generated/strings-mutf8-035.dex",
+  "sha256": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+  "ordered_string_pool": [[], [0], [65], [20013], [55296], [55357, 56832], [56320]],
+  "alphabet": [0, 65, 20013, 55296, 55357, 56832, 56320, 65535],
+  "occurrences": 2,
+  "reference_hand_counts_per_occurrence": {"defined_target_call_sites": 1, "external_call_sites": 3, "owner_class_definition_local_index": 0, "owner_type_index": 1, "owner_field_definitions": 1, "owner_method_definitions": 3},
+  "not_claimed": ["ART verification", "HostLab query admission", "SQL projection admission", "performance"]
+}

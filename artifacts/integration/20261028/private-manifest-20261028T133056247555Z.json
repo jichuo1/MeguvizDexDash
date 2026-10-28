@@ -1,0 +1,32 @@
+{
+  "schema_version": "mdd.private-manifest-comparison.v1",
+  "run": "20261028T133056247555Z",
+  "binaries": {
+    "native": {
+      "bytes": 2108416,
+      "sha256": "888b6e754b7585f46220068cae599d0f907dc10478b73dc6939c73fc1d074697"
+    },
+    "aapt2": {
+      "bytes": 5036696,
+      "sha256": "4b09f89d449cc4498fcf5076a4ad6b28f079e565d2737f7881a674580960c8df"
+    }
+  },
+  "measurement_scope": "bounded development comparison; not full HostLab or performance",
+  "results": [
+    {
+      "input_id": "hostlab-9161100",
+      "status": "failed",
+      "error_type": "ValueError",
+      "diagnostic": "artifacts/local/private-manifest/20261028T133056247555Z/hostlab-9161100-failure.txt"
+    },
+    {
+      "input_id": "hostlab-9170100",
+      "status": "failed",
+      "error_type": "ValueError",
+      "diagnostic": "artifacts/local/private-manifest/20261028T133056247555Z/hostlab-9170100-failure.txt"
+    }
+  ],
+  "full_audit_complete": false,
+  "formal_performance_qualified": false,
+  "status": "failed"
+}

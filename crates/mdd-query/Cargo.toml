@@ -9,11 +9,13 @@ publish.workspace = true
 mdd-types.workspace = true
 mdd-facts.workspace = true
 mdd-dex.workspace = true
+mdd-session.workspace = true
+mdd-input.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 
 [dev-dependencies]
-mdd-input.workspace = true
+rusqlite.workspace = true
 
 [lints]
 workspace = true

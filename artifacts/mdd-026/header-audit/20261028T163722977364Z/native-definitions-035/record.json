@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\header-audit\\20261028T163722977364Z\\header_byte_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex"
+  ],
+  "started_utc": "2026-10-28T16:37:31.703466+00:00",
+  "finished_utc": "2026-10-28T16:37:32.451762+00:00",
+  "elapsed_seconds": 0.75,
+  "exit_code": 0,
+  "stdout_sha256": "53e58295e844c59e5084817c6fd1e688a983d34333ede369263a30f99972c556",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

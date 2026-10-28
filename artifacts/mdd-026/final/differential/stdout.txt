@@ -1,0 +1,1 @@
+{"probe_cases": 8, "indexed_scalar_target_checks": 331, "complete_relation_comparisons": 43, "native_fact_composition_checks_passed": true, "task_026_complete": false}

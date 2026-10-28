@@ -1,0 +1,1 @@
+{"relations": 17, "columns": 156, "all_columns_mapped": true, "task_complete": false}

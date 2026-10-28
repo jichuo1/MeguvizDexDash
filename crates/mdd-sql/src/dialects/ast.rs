@@ -1,0 +1,1520 @@
+//! Structural AST adaptation. No SQL regular-expression substitution.
+use crate::{control::SqlLimits, invalid, quota, values::SqlValue};
+use mdd_query::ir::Signed64;
+use mdd_types::{DecimalU64, ErrorCode, MddError, MddResult};
+use sqlparser::{
+    ast::*,
+    dialect::SQLiteDialect,
+    parser::{Parser, ParserError},
+    tokenizer::{Token, Tokenizer},
+};
+use std::collections::{BTreeMap, BTreeSet};
+
+pub(crate) struct Adapted {
+    pub sql: String,
+    pub parameters: Vec<SqlValue>,
+    pub nodes: usize,
+    pub required_relations: Vec<String>,
+    pub display_overrides: BTreeMap<String, String>,
+}
+#[derive(Clone)]
+enum Dependency {
+    Base(String),
+    Cte(usize),
+}
+fn unsupported(reason: &str) -> MddError {
+    MddError::new(ErrorCode::UnsupportedQuery, "sql.ast", reason)
+}
+fn parse_error(error: ParserError) -> MddError {
+    if error == ParserError::RecursionLimitExceeded {
+        quota("SQL_PARSER_DEPTH")
+    } else {
+        invalid(&format!("SQL_PARSE_ERROR: {error}")).detail("confirm_sqlite_syntax", true)
+    }
+}
+fn null() -> Expr {
+    Expr::Value(Value::Null.into())
+}
+fn take(expr: &mut Expr) -> Expr {
+    std::mem::replace(expr, null())
+}
+fn call(name: &str, args: Vec<Expr>) -> Expr {
+    Expr::Function(Function {
+        name: ObjectName::from(vec![Ident::new(name)]),
+        uses_odbc_syntax: false,
+        parameters: FunctionArguments::None,
+        args: FunctionArguments::List(FunctionArgumentList {
+            duplicate_treatment: None,
+            args: args
+                .into_iter()
+                .map(|arg| FunctionArg::Unnamed(FunctionArgExpr::Expr(arg)))
+                .collect(),
+            clauses: Vec::new(),
+        }),
+        within_group: Vec::new(),
+        filter: None,
+        null_treatment: None,
+        over: None,
+    })
+}
+
+pub(crate) fn adapt(
+    sql: &str,
+    limits: SqlLimits,
+    parameters: &[SqlValue],
+    relations: &[crate::provider::SqlRelation],
+    dialect_policy: super::SqlDialect,
+) -> MddResult<Adapted> {
+    if sql.len() > limits.max_sql_bytes {
+        return Err(quota("SQL_TEXT_BYTES"));
+    }
+    let dialect = SQLiteDialect {};
+    let tokens = Tokenizer::new(&dialect, sql)
+        .tokenize()
+        .map_err(|e| invalid(&format!("SQL_TOKEN_ERROR: {e}")))?;
+    if tokens.len() > limits.max_tokens || tokens.len() > limits.max_ast_nodes.saturating_mul(4) {
+        return Err(quota("SQL_TOKEN_OR_NODE_PREFLIGHT"));
+    }
+    // A recursive parser limit alone does not bound left-associative BinaryOp
+    // or UNION trees. Bound their input before any owned recursive AST exists.
+    let mut nesting = 0usize;
+    let mut operators = 0usize;
+    for token in &tokens {
+        match token {
+            Token::LParen | Token::LBracket => {
+                nesting += 1;
+                if nesting > limits.max_ast_depth {
+                    return Err(quota("SQL_LEXICAL_DEPTH"));
+                }
+            }
+            Token::RParen | Token::RBracket => nesting = nesting.saturating_sub(1),
+            Token::Whitespace(_)
+            | Token::SingleQuotedString(_)
+            | Token::DoubleQuotedString(_)
+            | Token::Number(_, _) => (),
+            Token::Word(word)
+                if word.quote_style.is_none()
+                    && matches!(
+                        word.value.to_ascii_uppercase().as_str(),
+                        "AND" | "OR" | "NOT" | "UNION" | "INTERSECT" | "EXCEPT" | "CASE"
+                    ) =>
+            {
+                operators += 1
+            }
+            Token::Word(_) | Token::Comma | Token::Period | Token::SemiColon => (),
+            _ => operators += 1,
+        }
+        if operators > limits.max_ast_operators {
+            return Err(quota("SQL_FLAT_OPERATOR_BUDGET"));
+        }
+    }
+    if limits.max_ast_depth == 0 || limits.max_ast_nodes == 0 {
+        return Err(quota("SQL_AST_BUDGET"));
+    }
+    let mut statements = Parser::new(&dialect)
+        .with_recursion_limit(limits.max_ast_depth)
+        .try_with_sql(sql)
+        .map_err(parse_error)?
+        .parse_statements()
+        .map_err(parse_error)?;
+    if statements.len() != 1 {
+        return Err(invalid("SQL_REQUIRES_ONE_STATEMENT"));
+    }
+    let Statement::Query(query) = &mut statements[0] else {
+        return Err(invalid("SQL_STATEMENT_NOT_READ_ONLY_QUERY"));
+    };
+    let mut reserved = relations
+        .iter()
+        .flat_map(|r| {
+            std::iter::once(r.name.to_ascii_lowercase())
+                .chain(r.columns.iter().map(|c| c.name.to_ascii_lowercase()))
+        })
+        .collect::<BTreeSet<_>>();
+    for token in &tokens {
+        if let Token::Word(word) = token {
+            reserved.insert(word.value.to_ascii_lowercase());
+        }
+    }
+    let schemas = relations
+        .iter()
+        .map(|r| {
+            (
+                r.name.to_ascii_lowercase(),
+                r.columns.iter().map(|c| c.name.clone()).collect(),
+            )
+        })
+        .collect();
+    let schema_types = relations
+        .iter()
+        .map(|r| {
+            (
+                r.name.to_ascii_lowercase(),
+                r.columns
+                    .iter()
+                    .map(|c| (c.name.to_ascii_lowercase(), c.data_type))
+                    .collect(),
+            )
+        })
+        .collect();
+    let mut rewrite = Rewrite {
+        limits,
+        parameters: Vec::new(),
+        inputs: parameters,
+        next_input: 0,
+        nodes: 0,
+        dependencies: Vec::new(),
+        cte_scopes: Vec::new(),
+        cte_definitions: Vec::new(),
+        schemas,
+        schema_types,
+        cte_columns: BTreeMap::new(),
+        reserved,
+        next_symbol: 0,
+        display_overrides: BTreeMap::new(),
+        dialect: dialect_policy,
+    };
+    let dependencies = rewrite.query(query, 1)?;
+    let required_relations = rewrite.resolve(&dependencies)?;
+    if rewrite.next_input != parameters.len() {
+        return Err(invalid("UNUSED_SQL_PARAMETERS"));
+    }
+    let Statement::Query(query) = &statements[0] else {
+        return Err(invalid("INTERNAL_QUERY_KIND"));
+    };
+    let actual_nodes = validate_iterative(query, limits)?;
+    let adapted = statements[0].to_string();
+    if adapted.len() > limits.max_sql_bytes.saturating_mul(8) {
+        return Err(quota("SQL_FORMATTED_BYTES"));
+    }
+    Ok(Adapted {
+        sql: adapted,
+        parameters: rewrite.parameters,
+        nodes: actual_nodes,
+        required_relations,
+        display_overrides: rewrite.display_overrides,
+    })
+}
+struct Rewrite<'a> {
+    limits: SqlLimits,
+    parameters: Vec<SqlValue>,
+    inputs: &'a [SqlValue],
+    next_input: usize,
+    nodes: usize,
+    dependencies: Vec<Dependency>,
+    cte_scopes: Vec<BTreeMap<String, usize>>,
+    cte_definitions: Vec<Vec<Dependency>>,
+    schemas: BTreeMap<String, Vec<String>>,
+    schema_types: BTreeMap<String, BTreeMap<String, crate::values::SqlType>>,
+    cte_columns: BTreeMap<usize, Vec<String>>,
+    reserved: BTreeSet<String>,
+    next_symbol: usize,
+    display_overrides: BTreeMap<String, String>,
+    dialect: super::SqlDialect,
+}
+impl Rewrite<'_> {
+    fn visit(&mut self, depth: usize) -> MddResult<()> {
+        self.nodes = self
+            .nodes
+            .checked_add(1)
+            .ok_or_else(|| quota("SQL_AST_NODES"))?;
+        if depth > self.limits.max_ast_depth || self.nodes > self.limits.max_ast_nodes {
+            return Err(quota("SQL_AST_NODE_OR_DEPTH"));
+        }
+        Ok(())
+    }
+    fn bind(&mut self, value: SqlValue) -> MddResult<Expr> {
+        if value.byte_size() > self.limits.max_cell_bytes {
+            return Err(quota("SQL_LITERAL_CELL_BYTES"));
+        }
+        self.parameters.push(value);
+        Ok(Expr::Value(
+            Value::Placeholder(format!("?{}", self.parameters.len())).into(),
+        ))
+    }
+    fn fresh(&mut self) -> String {
+        loop {
+            let symbol = format!("__mdd_internal_{}", self.next_symbol);
+            self.next_symbol += 1;
+            if self.reserved.insert(symbol.clone()) {
+                return symbol;
+            }
+        }
+    }
+    fn query(&mut self, query: &mut Query, depth: usize) -> MddResult<Vec<Dependency>> {
+        self.visit(depth)?;
+        let outer = std::mem::take(&mut self.dependencies);
+        let had_with = query.with.is_some();
+        if !query.locks.is_empty()
+            || query.fetch.is_some()
+            || query.for_clause.is_some()
+            || query.settings.is_some()
+            || query.format_clause.is_some()
+            || !query.pipe_operators.is_empty()
+        {
+            return Err(unsupported("QUERY_EXTENSION_NOT_IMPLEMENTED"));
+        }
+        if let Some(with) = &mut query.with {
+            if with.recursive {
+                return Err(unsupported("RECURSIVE_CTE_NOT_YET_QUALIFIED"));
+            }
+            let mut frame = BTreeMap::new();
+            for cte in &with.cte_tables {
+                let id = self.cte_definitions.len();
+                self.cte_definitions.push(Vec::new());
+                if frame
+                    .insert(cte.alias.name.value.to_ascii_lowercase(), id)
+                    .is_some()
+                {
+                    return Err(invalid("DUPLICATE_CTE_NAME"));
+                }
+            }
+            self.cte_scopes.push(frame);
+            for cte in &mut with.cte_tables {
+                if cte.from.is_some() {
+                    return Err(unsupported("CTE_FROM_EXTENSION"));
+                }
+                let id =
+                    self.cte_scopes.last().unwrap()[&cte.alias.name.value.to_ascii_lowercase()];
+                self.cte_definitions[id] = self.query(&mut cte.query, depth + 1)?;
+                if let Ok(names) = self.output_names(&cte.query.body) {
+                    self.cte_columns.insert(
+                        id,
+                        if cte.alias.columns.is_empty() {
+                            names
+                        } else {
+                            cte.alias
+                                .columns
+                                .iter()
+                                .map(|c| c.name.value.clone())
+                                .collect()
+                        },
+                    );
+                }
+            }
+        }
+        self.body(&mut query.body, depth + 1)?;
+        if let Some(order) = &mut query.order_by {
+            if order.interpolate.is_some() {
+                return Err(unsupported("ORDER_INTERPOLATE"));
+            }
+            let OrderByKind::Expressions(expressions) = &mut order.kind else {
+                return Err(unsupported("ORDER_BY_ALL"));
+            };
+            for order in expressions {
+                if order.with_fill.is_some() {
+                    return Err(unsupported("ORDER_WITH_FILL"));
+                }
+                if !matches!(*query.body, SetExpr::SetOperation { .. }) {
+                    if let Some(ordinal) = ordinal(&order.expr)? {
+                        order.expr = self.projection_at(&query.body, ordinal)?;
+                    } else {
+                        self.expr(&mut order.expr, depth + 1)?;
+                    }
+                    order.expr = call("mdd_sort_key", vec![take(&mut order.expr)]);
+                } else if ordinal(&order.expr)?.is_none() {
+                    self.expr(&mut order.expr, depth + 1)?;
+                }
+            }
+        }
+        if let Some(limit) = &mut query.limit_clause {
+            match limit {
+                LimitClause::LimitOffset {
+                    limit,
+                    offset,
+                    limit_by,
+                } => {
+                    if !limit_by.is_empty() {
+                        return Err(unsupported("LIMIT_BY"));
+                    }
+                    if let Some(limit) = limit {
+                        self.expr(limit, depth + 1)?;
+                    }
+                    if let Some(offset) = offset {
+                        self.expr(&mut offset.value, depth + 1)?;
+                    }
+                }
+                LimitClause::OffsetCommaLimit { offset, limit } => {
+                    self.expr(offset, depth + 1)?;
+                    self.expr(limit, depth + 1)?;
+                }
+            }
+        }
+        if matches!(*query.body, SetExpr::SetOperation { .. }) && query.order_by.is_some() {
+            self.compound_order(query)?;
+        }
+        if had_with {
+            self.cte_scopes.pop();
+        }
+        let dependencies = std::mem::replace(&mut self.dependencies, outer);
+        Ok(dependencies)
+    }
+    fn body(&mut self, body: &mut SetExpr, depth: usize) -> MddResult<()> {
+        self.visit(depth)?;
+        match body {
+            SetExpr::Select(select) => {
+                if select.into.is_some() {
+                    return Err(invalid("SELECT_INTO_FORBIDDEN"));
+                }
+                if !select.optimizer_hints.is_empty()
+                    || select.select_modifiers.is_some()
+                    || select.top.is_some()
+                    || select.exclude.is_some()
+                    || !select.lateral_views.is_empty()
+                    || select.prewhere.is_some()
+                    || !select.connect_by.is_empty()
+                    || !select.cluster_by.is_empty()
+                    || !select.distribute_by.is_empty()
+                    || !select.sort_by.is_empty()
+                    || !select.named_window.is_empty()
+                    || select.qualify.is_some()
+                    || select.value_table_mode.is_some()
+                {
+                    return Err(unsupported("SELECT_EXTENSION_NOT_IMPLEMENTED"));
+                }
+                for table in &mut select.from {
+                    self.table(&mut table.relation, depth + 1)?;
+                    for (join_index, join) in table.joins.iter_mut().enumerate() {
+                        self.table(&mut join.relation, depth + 1)?;
+                        let using_allowed = matches!(
+                            join.join_operator,
+                            JoinOperator::Join(_)
+                                | JoinOperator::Inner(_)
+                                | JoinOperator::Left(_)
+                                | JoinOperator::LeftOuter(_)
+                        );
+                        let constraint = match &mut join.join_operator {
+                            JoinOperator::Join(c)
+                            | JoinOperator::Inner(c)
+                            | JoinOperator::Left(c)
+                            | JoinOperator::LeftOuter(c)
+                            | JoinOperator::Right(c)
+                            | JoinOperator::RightOuter(c)
+                            | JoinOperator::FullOuter(c)
+                            | JoinOperator::CrossJoin(c) => c,
+                            _ => return Err(unsupported("JOIN_KIND_NOT_IMPLEMENTED")),
+                        };
+                        match constraint {
+                            JoinConstraint::On(expr) => {
+                                self.expr(expr, depth + 1)?;
+                                *expr = call("mdd_truth_input", vec![take(expr)]);
+                            }
+                            JoinConstraint::Using(columns) => {
+                                if join_index != 0 || !using_allowed {
+                                    return Err(unsupported("JOIN_USING_COMPLEX_SCOPE"));
+                                }
+                                self.check_using(&table.relation, &join.relation, columns)?;
+                            }
+                            JoinConstraint::None => (),
+                            JoinConstraint::Natural => {
+                                return Err(unsupported("NATURAL_JOIN_NEEDS_TYPED_BINDING"));
+                            }
+                        }
+                    }
+                }
+                for projection in &mut select.projection {
+                    match projection {
+                        SelectItem::UnnamedExpr(expr) => {
+                            let display = match &*expr {
+                                Expr::Identifier(id) => id.value.clone(),
+                                Expr::CompoundIdentifier(ids) => ids.last().unwrap().value.clone(),
+                                expr => expr.to_string(),
+                            };
+                            self.expr(expr, depth + 1)?;
+                            let name = if display.contains('\0') {
+                                let name = self.fresh();
+                                self.display_overrides.insert(name.clone(), display);
+                                name
+                            } else {
+                                display
+                            };
+                            *projection = SelectItem::ExprWithAlias {
+                                expr: take(expr),
+                                alias: Ident::with_quote('"', name),
+                            };
+                        }
+                        SelectItem::ExprWithAlias { expr, .. } => self.expr(expr, depth + 1)?,
+                        SelectItem::Wildcard(options)
+                            if *options == WildcardAdditionalOptions::default() => {}
+                        SelectItem::QualifiedWildcard(
+                            SelectItemQualifiedWildcardKind::ObjectName(_),
+                            options,
+                        ) if *options == WildcardAdditionalOptions::default() => (),
+                        _ => return Err(unsupported("SELECT_WILDCARD_EXTENSION")),
+                    }
+                }
+                if let Some(selection) = &mut select.selection {
+                    self.expr(selection, depth + 1)?;
+                    *selection = call("mdd_truth_input", vec![take(selection)]);
+                }
+                if let Some(having) = &mut select.having {
+                    self.expr(having, depth + 1)?;
+                    *having = call("mdd_truth_input", vec![take(having)]);
+                }
+                let mut grouping = match std::mem::replace(
+                    &mut select.group_by,
+                    GroupByExpr::Expressions(Vec::new(), Vec::new()),
+                ) {
+                    GroupByExpr::Expressions(expressions, modifiers) => {
+                        if !modifiers.is_empty() {
+                            return Err(unsupported("GROUP_BY_MODIFIER"));
+                        }
+                        expressions
+                    }
+                    GroupByExpr::All(_) => return Err(unsupported("GROUP_BY_ALL")),
+                };
+                for expr in &mut grouping {
+                    if let Some(ordinal) = ordinal(expr)? {
+                        *expr = self.select_projection_at(select, ordinal)?;
+                    } else {
+                        self.expr(expr, depth + 1)?;
+                    }
+                    *expr = call("mdd_key", vec![take(expr)]);
+                }
+                if let Some(distinct) = &select.distinct {
+                    if !matches!(distinct, Distinct::Distinct) {
+                        return Err(unsupported("DISTINCT_ON"));
+                    }
+                    if !grouping.is_empty() || select.having.is_some() {
+                        return Err(unsupported("DISTINCT_AFTER_GROUP_REQUIRES_OUTER_SCOPE"));
+                    }
+                    let expressions = self.select_expressions(select)?;
+                    grouping = expressions
+                        .into_iter()
+                        .map(|expr| call("mdd_key", vec![expr]))
+                        .collect();
+                    select.distinct = None;
+                }
+                select.group_by = GroupByExpr::Expressions(grouping, Vec::new());
+            }
+            SetExpr::Query(query) => {
+                let dependencies = self.query(query, depth + 1)?;
+                self.dependencies.extend(dependencies);
+            }
+            SetExpr::SetOperation { left, right, .. } => {
+                self.body(left, depth + 1)?;
+                self.body(right, depth + 1)?;
+            }
+            SetExpr::Values(values) => {
+                for row in &mut values.rows {
+                    for expr in row.iter_mut() {
+                        self.expr(expr, depth + 1)?;
+                    }
+                }
+            }
+            SetExpr::Insert(_) | SetExpr::Update(_) | SetExpr::Delete(_) | SetExpr::Merge(_) => {
+                return Err(invalid("DML_IN_QUERY_FORBIDDEN"));
+            }
+            _ => return Err(unsupported("QUERY_BODY_NOT_IMPLEMENTED")),
+        }
+        Ok(())
+    }
+    fn table(&mut self, table: &mut TableFactor, depth: usize) -> MddResult<()> {
+        self.visit(depth)?;
+        match table {
+            TableFactor::Table {
+                name,
+                args,
+                with_hints,
+                version,
+                with_ordinality,
+                partitions,
+                json_path,
+                sample,
+                index_hints,
+                ..
+            } => {
+                if args.is_some()
+                    || !with_hints.is_empty()
+                    || version.is_some()
+                    || *with_ordinality
+                    || !partitions.is_empty()
+                    || json_path.is_some()
+                    || sample.is_some()
+                    || !index_hints.is_empty()
+                {
+                    return Err(unsupported("TABLE_EXTENSION_NOT_IMPLEMENTED"));
+                }
+                if name.0.len() != 1 {
+                    return Err(unsupported("DATABASE_QUALIFIED_RELATION_NOT_AVAILABLE"));
+                }
+                let name = name.0[0]
+                    .as_ident()
+                    .ok_or_else(|| unsupported("NON_IDENTIFIER_RELATION"))?
+                    .value
+                    .to_ascii_lowercase();
+                if let Some(id) = self
+                    .cte_scopes
+                    .iter()
+                    .rev()
+                    .find_map(|scope| scope.get(&name))
+                {
+                    self.dependencies.push(Dependency::Cte(*id));
+                } else {
+                    self.dependencies.push(Dependency::Base(name));
+                }
+            }
+            TableFactor::Derived {
+                lateral,
+                subquery,
+                sample,
+                alias,
+            } => {
+                if *lateral || sample.is_some() {
+                    return Err(unsupported("LATERAL_OR_TABLE_SAMPLE"));
+                }
+                let dependencies = self.query(subquery, depth + 1)?;
+                self.dependencies.extend(dependencies);
+                if alias.is_none() {
+                    *alias = Some(TableAlias {
+                        name: Ident::with_quote('"', self.fresh()),
+                        columns: Vec::new(),
+                        explicit: true,
+                        at: None,
+                    });
+                }
+            }
+            _ => return Err(unsupported("TABLE_FUNCTION_NOT_AVAILABLE")),
+        }
+        Ok(())
+    }
+    fn expr(&mut self, expr: &mut Expr, depth: usize) -> MddResult<()> {
+        self.visit(depth)?;
+        match expr {
+            Expr::Identifier(_) | Expr::CompoundIdentifier(_) => return Ok(()),
+            Expr::Value(value) => {
+                let value = match &value.value {
+                    Value::Null => return Ok(()),
+                    Value::Boolean(value) => SqlValue::Bool(*value),
+                    Value::SingleQuotedString(value) => {
+                        if value.encode_utf16().count() as u64 > self.limits.max_cell_bytes / 2 {
+                            return Err(quota("SQL_LITERAL_UTF16_BEFORE_ALLOCATION"));
+                        }
+                        SqlValue::text(value)
+                    }
+                    Value::Number(number, _) => {
+                        if let Ok(value) = number.parse::<i64>() {
+                            SqlValue::I64(Signed64(value))
+                        } else if let Ok(value) = number.parse::<u64>() {
+                            if self.dialect == super::SqlDialect::NativeV1 {
+                                SqlValue::U64(DecimalU64(value))
+                            } else {
+                                SqlValue::F64(DecimalU64((value as f64).to_bits()))
+                            }
+                        } else {
+                            if self.dialect == super::SqlDialect::NativeV1
+                                && !number.contains(['.', 'e', 'E'])
+                            {
+                                return Err(invalid("INTEGER_LITERAL_OUT_OF_RANGE"));
+                            }
+                            SqlValue::F64(DecimalU64(
+                                number
+                                    .parse::<f64>()
+                                    .map_err(|_| invalid("BAD_NUMERIC_LITERAL"))?
+                                    .to_bits(),
+                            ))
+                        }
+                    }
+                    Value::HexStringLiteral(hex) => {
+                        if !hex.len().is_multiple_of(2) {
+                            return Err(invalid("ODD_HEX_LITERAL"));
+                        }
+                        if hex.len() as u64 / 2 > self.limits.max_cell_bytes {
+                            return Err(quota("SQL_HEX_LITERAL_BEFORE_ALLOCATION"));
+                        }
+                        let bytes = (0..hex.len())
+                            .step_by(2)
+                            .map(|i| {
+                                u8::from_str_radix(&hex[i..i + 2], 16)
+                                    .map_err(|_| invalid("BAD_HEX_LITERAL"))
+                            })
+                            .collect::<MddResult<Vec<_>>>()?;
+                        SqlValue::Bytes(bytes)
+                    }
+                    Value::Placeholder(name) => {
+                        if name != "?" {
+                            return Err(invalid("ONLY_POSITIONAL_BARE_PARAMETERS_SUPPORTED"));
+                        }
+                        let value = self
+                            .inputs
+                            .get(self.next_input)
+                            .ok_or_else(|| invalid("UNBOUND_SQL_PARAMETER"))?;
+                        if value.byte_size() > self.limits.max_cell_bytes {
+                            return Err(quota("SQL_PARAMETER_BEFORE_CLONE"));
+                        }
+                        let value = value.clone();
+                        self.next_input += 1;
+                        value
+                    }
+                    _ => return Err(unsupported("LITERAL_KIND_NOT_IMPLEMENTED")),
+                };
+                *expr = self.bind(value)?;
+                return Ok(());
+            }
+            Expr::Nested(child) | Expr::IsNull(child) | Expr::IsNotNull(child) => {
+                self.expr(child, depth + 1)?
+            }
+            Expr::IsTrue(child)
+            | Expr::IsFalse(child)
+            | Expr::IsNotTrue(child)
+            | Expr::IsNotFalse(child) => {
+                self.expr(child, depth + 1)?;
+                **child = call("mdd_truth_input", vec![take(child)]);
+            }
+            Expr::UnaryOp { expr: child, op } => {
+                self.expr(child, depth + 1)?;
+                let name = match op {
+                    UnaryOperator::Minus => Some("mdd_neg"),
+                    UnaryOperator::Plus => Some("mdd_pos"),
+                    UnaryOperator::Not => {
+                        **child = call("mdd_truth_input", vec![take(child)]);
+                        None
+                    }
+                    _ => return Err(unsupported("UNARY_OPERATOR")),
+                };
+                if let Some(name) = name {
+                    let child = take(child);
+                    *expr = call(name, vec![child]);
+                }
+                return Ok(());
+            }
+            Expr::BinaryOp { left, op, right } => {
+                self.expr(left, depth + 1)?;
+                self.expr(right, depth + 1)?;
+                let name = match op {
+                    BinaryOperator::Eq => "mdd_eq",
+                    BinaryOperator::NotEq => "mdd_ne",
+                    BinaryOperator::Gt => "mdd_gt",
+                    BinaryOperator::GtEq => "mdd_ge",
+                    BinaryOperator::Lt => "mdd_lt",
+                    BinaryOperator::LtEq => "mdd_le",
+                    BinaryOperator::StringConcat => "mdd_concat",
+                    BinaryOperator::Plus => "mdd_add",
+                    BinaryOperator::Minus => "mdd_sub",
+                    BinaryOperator::Multiply => "mdd_mul",
+                    BinaryOperator::Divide => "mdd_div",
+                    BinaryOperator::Modulo => "mdd_mod",
+                    BinaryOperator::And | BinaryOperator::Or => {
+                        **left = call("mdd_truth_input", vec![take(left)]);
+                        **right = call("mdd_truth_input", vec![take(right)]);
+                        return Ok(());
+                    }
+                    _ => return Err(unsupported("BINARY_OPERATOR_NOT_IMPLEMENTED")),
+                };
+                let left = take(left);
+                let right = take(right);
+                *expr = call(name, vec![left, right]);
+                return Ok(());
+            }
+            Expr::Like {
+                negated,
+                any,
+                expr: value,
+                pattern,
+                escape_char,
+            } => {
+                if *any {
+                    return Err(unsupported("LIKE_ANY"));
+                }
+                self.expr(value, depth + 1)?;
+                self.expr(pattern, depth + 1)?;
+                if let Some(escape) = escape_char {
+                    self.expr(escape, depth + 1)?;
+                }
+                let has_escape = Expr::Value(Value::Boolean(escape_char.is_some()).into());
+                let function = call(
+                    "mdd_like",
+                    vec![
+                        take(value),
+                        take(pattern),
+                        escape_char.as_mut().map_or_else(null, |v| take(v)),
+                        has_escape,
+                    ],
+                );
+                *expr = if *negated {
+                    Expr::UnaryOp {
+                        op: UnaryOperator::Not,
+                        expr: Box::new(function),
+                    }
+                } else {
+                    function
+                };
+                return Ok(());
+            }
+            Expr::Cast {
+                expr: child,
+                data_type,
+                format,
+                ..
+            } => {
+                if format.is_some() {
+                    return Err(unsupported("CAST_FORMAT"));
+                }
+                self.expr(child, depth + 1)?;
+                let target = match data_type {
+                    DataType::Text
+                    | DataType::Varchar(None)
+                    | DataType::Char(None)
+                    | DataType::Character(None) => "text",
+                    DataType::Blob(None) | DataType::Binary(None) => "bytes",
+                    DataType::Int(None)
+                    | DataType::Integer(None)
+                    | DataType::BigInt(None)
+                    | DataType::Int64 => "i64",
+                    DataType::Unsigned
+                    | DataType::UnsignedInteger
+                    | DataType::BigIntUnsigned(None) => "u64",
+                    DataType::Real | DataType::Float64 | DataType::DoublePrecision => "f64",
+                    DataType::Boolean | DataType::Bool => "bool",
+                    _ => return Err(unsupported("CAST_TARGET_NOT_IMPLEMENTED")),
+                };
+                let target = self.bind(SqlValue::text(target))?;
+                *expr = call("mdd_cast", vec![take(child), target]);
+                return Ok(());
+            }
+            Expr::InList {
+                expr: child, list, ..
+            } => {
+                self.expr(child, depth + 1)?;
+                **child = call("mdd_key", vec![take(child)]);
+                for value in list {
+                    self.expr(value, depth + 1)?;
+                    *value = call("mdd_key", vec![take(value)]);
+                }
+            }
+            Expr::Between {
+                expr: child,
+                low,
+                high,
+                negated,
+            } => {
+                self.expr(child, depth + 1)?;
+                self.expr(low, depth + 1)?;
+                self.expr(high, depth + 1)?;
+                // Repeating a value expression is safe only for this deterministic
+                // admitted expression subset. Volatile functions are rejected.
+                let value = take(child);
+                let lower = call("mdd_ge", vec![value.clone(), take(low)]);
+                let upper = call("mdd_le", vec![value, take(high)]);
+                let both = Expr::BinaryOp {
+                    left: Box::new(lower),
+                    op: BinaryOperator::And,
+                    right: Box::new(upper),
+                };
+                *expr = if *negated {
+                    Expr::UnaryOp {
+                        op: UnaryOperator::Not,
+                        expr: Box::new(both),
+                    }
+                } else {
+                    both
+                };
+                return Ok(());
+            }
+            Expr::Case {
+                operand,
+                conditions,
+                else_result,
+                ..
+            } => {
+                if let Some(value) = operand {
+                    self.expr(value, depth + 1)?;
+                }
+                for condition in conditions.iter_mut() {
+                    self.expr(&mut condition.condition, depth + 1)?;
+                    self.expr(&mut condition.result, depth + 1)?;
+                }
+                if let Some(value) = operand.take() {
+                    for condition in conditions.iter_mut() {
+                        condition.condition = call(
+                            "mdd_eq",
+                            vec![(*value).clone(), take(&mut condition.condition)],
+                        );
+                    }
+                }
+                for condition in conditions {
+                    condition.condition =
+                        call("mdd_truth_input", vec![take(&mut condition.condition)]);
+                }
+                if let Some(value) = else_result {
+                    self.expr(value, depth + 1)?;
+                }
+            }
+            Expr::Subquery(query)
+            | Expr::Exists {
+                subquery: query, ..
+            } => {
+                let dependencies = self.query(query, depth + 1)?;
+                self.dependencies.extend(dependencies);
+            }
+            Expr::InSubquery { .. } => {
+                return Err(unsupported("IN_SUBQUERY_REQUIRES_TYPED_KEY_BINDING"));
+            }
+            Expr::Substring {
+                expr: value,
+                substring_from,
+                substring_for,
+                special,
+                ..
+            } => {
+                if !*special || substring_from.is_none() {
+                    return Err(invalid("SQLITE_SUBSTRING_ARGUMENT_FORM"));
+                }
+                self.expr(value, depth + 1)?;
+                let start = substring_from.as_mut().unwrap();
+                self.expr(start, depth + 1)?;
+                let mut args = vec![take(value), take(start)];
+                if let Some(length) = substring_for {
+                    self.expr(length, depth + 1)?;
+                    args.push(take(length));
+                }
+                *expr = call("mdd_substr", args);
+                return Ok(());
+            }
+            Expr::Function(function) => {
+                if function.name.0.len() != 1
+                    || function.over.is_some()
+                    || function.null_treatment.is_some()
+                    || !function.within_group.is_empty()
+                    || function.uses_odbc_syntax
+                    || !matches!(function.parameters, FunctionArguments::None)
+                {
+                    return Err(unsupported("FUNCTION_EXTENSION"));
+                }
+                let name = function.name.0[0]
+                    .as_ident()
+                    .ok_or_else(|| invalid("FUNCTION_IDENTIFIER_REQUIRED"))?
+                    .value
+                    .to_ascii_lowercase();
+                if name == "load_extension" {
+                    return Err(invalid("FUNCTION_NOT_AUTHORIZED"));
+                }
+                let replacement = match name.as_str() {
+                    "length" => Some("mdd_length"),
+                    "hex" => Some("mdd_hex"),
+                    "lower" => Some("mdd_lower"),
+                    "upper" => Some("mdd_upper"),
+                    "min" => Some("mdd_min"),
+                    "max" => Some("mdd_max"),
+                    "sum" => Some("mdd_sum"),
+                    "nullif" => Some("mdd_nullif"),
+                    "count" | "coalesce" | "ifnull" => None,
+                    _ => {
+                        return Err(unsupported("FUNCTION_NOT_IMPLEMENTED")
+                            .detail("confirm_sqlite_syntax", true));
+                    }
+                };
+                let FunctionArguments::List(arguments) = &mut function.args else {
+                    return Err(unsupported("FUNCTION_ARGUMENT_FORM"));
+                };
+                if !arguments.clauses.is_empty() {
+                    return Err(unsupported("FUNCTION_ARGUMENT_CLAUSE"));
+                }
+                let count_distinct = name == "count"
+                    && arguments.duplicate_treatment == Some(DuplicateTreatment::Distinct);
+                for argument in &mut arguments.args {
+                    match argument {
+                        FunctionArg::Unnamed(FunctionArgExpr::Expr(value)) => {
+                            self.expr(value, depth + 1)?;
+                            if count_distinct {
+                                *value = call("mdd_key", vec![take(value)]);
+                            }
+                        }
+                        FunctionArg::Unnamed(FunctionArgExpr::Wildcard)
+                            if name == "count" && !count_distinct => {}
+                        _ => return Err(unsupported("NAMED_OR_QUALIFIED_FUNCTION_ARGUMENT")),
+                    }
+                }
+                if let Some(filter) = &mut function.filter {
+                    self.expr(filter, depth + 1)?;
+                }
+                if let Some(name) = replacement {
+                    function.name = ObjectName::from(vec![Ident::new(name)]);
+                }
+            }
+            _ => return Err(unsupported("EXPRESSION_KIND_NOT_IMPLEMENTED")),
+        }
+        Ok(())
+    }
+    fn resolve(&self, dependencies: &[Dependency]) -> MddResult<Vec<String>> {
+        fn visit(
+            dependency: &Dependency,
+            definitions: &[Vec<Dependency>],
+            path: &mut BTreeSet<usize>,
+            out: &mut BTreeSet<String>,
+            depth: usize,
+            limit: usize,
+        ) -> MddResult<()> {
+            if depth > limit {
+                return Err(quota("SQL_CTE_DEPENDENCY_DEPTH"));
+            }
+            match dependency {
+                Dependency::Base(name) => {
+                    out.insert(name.clone());
+                }
+                Dependency::Cte(id) => {
+                    if !path.insert(*id) {
+                        return Err(invalid("CYCLIC_CTE_DEPENDENCY"));
+                    }
+                    for child in &definitions[*id] {
+                        visit(child, definitions, path, out, depth + 1, limit)?;
+                    }
+                    path.remove(id);
+                }
+            }
+            Ok(())
+        }
+        let mut out = BTreeSet::new();
+        for dependency in dependencies {
+            visit(
+                dependency,
+                &self.cte_definitions,
+                &mut BTreeSet::new(),
+                &mut out,
+                0,
+                self.limits.max_ast_depth,
+            )?;
+        }
+        Ok(out.into_iter().collect())
+    }
+    fn table_expressions(&self, table: &TableFactor) -> MddResult<Vec<Expr>> {
+        let (qualifier, names) = match table {
+            TableFactor::Table { name, alias, .. } => {
+                let id = name
+                    .0
+                    .first()
+                    .and_then(|n| n.as_ident())
+                    .ok_or_else(|| unsupported("TABLE_NAME_SHAPE"))?;
+                let name = id.value.to_ascii_lowercase();
+                let names =
+                    if let Some(id) = self.cte_scopes.iter().rev().find_map(|s| s.get(&name)) {
+                        self.cte_columns
+                            .get(id)
+                            .ok_or_else(|| unsupported("FORWARD_CTE_WILDCARD_SCHEMA"))?
+                    } else {
+                        self.schemas
+                            .get(&name)
+                            .ok_or_else(|| invalid("UNKNOWN_RELATION"))?
+                    };
+                (
+                    alias
+                        .as_ref()
+                        .map_or_else(|| id.clone(), |a| a.name.clone()),
+                    names.clone(),
+                )
+            }
+            TableFactor::Derived {
+                subquery, alias, ..
+            } => (
+                alias
+                    .as_ref()
+                    .ok_or_else(|| invalid("DERIVED_ALIAS_MISSING"))?
+                    .name
+                    .clone(),
+                self.output_names(&subquery.body)?,
+            ),
+            _ => return Err(unsupported("WILDCARD_TABLE_SHAPE")),
+        };
+        Ok(names
+            .into_iter()
+            .map(|name| {
+                Expr::CompoundIdentifier(vec![qualifier.clone(), Ident::with_quote('"', name)])
+            })
+            .collect())
+    }
+    fn check_using(
+        &self,
+        left: &TableFactor,
+        right: &TableFactor,
+        columns: &[ObjectName],
+    ) -> MddResult<()> {
+        let types = |factor: &TableFactor| -> MddResult<&BTreeMap<String, crate::values::SqlType>> {
+            let TableFactor::Table { name, .. } = factor else {
+                return Err(unsupported("JOIN_USING_DERIVED_SCHEMA"));
+            };
+            let id = name
+                .0
+                .first()
+                .and_then(|p| p.as_ident())
+                .ok_or_else(|| invalid("TABLE_NAME_SHAPE"))?;
+            let name = id.value.to_ascii_lowercase();
+            if self
+                .cte_scopes
+                .iter()
+                .rev()
+                .any(|scope| scope.contains_key(&name))
+            {
+                return Err(unsupported("JOIN_USING_CTE_SCHEMA"));
+            }
+            self.schema_types
+                .get(&name)
+                .ok_or_else(|| invalid("UNKNOWN_RELATION"))
+        };
+        let (left, right) = (types(left)?, types(right)?);
+        let mut seen = BTreeSet::new();
+        for column in columns {
+            let id = column
+                .0
+                .first()
+                .filter(|_| column.0.len() == 1)
+                .and_then(|p| p.as_ident())
+                .ok_or_else(|| invalid("JOIN_USING_COLUMN"))?;
+            let name = id.value.to_ascii_lowercase();
+            if !seen.insert(name.clone()) {
+                return Err(invalid("JOIN_USING_DUPLICATE_COLUMN"));
+            }
+            let left = left
+                .get(&name)
+                .ok_or_else(|| invalid("JOIN_USING_MISSING_COLUMN"))?;
+            let right = right
+                .get(&name)
+                .ok_or_else(|| invalid("JOIN_USING_MISSING_COLUMN"))?;
+            // Same-type carriers below have bytewise equality equivalent to
+            // the SQL equality used by this bridge. F64 (signed zero/NaN),
+            // bytes (MUTF8 versus ordinary blob), and mixed types do not.
+            if left != right
+                || !matches!(
+                    left,
+                    crate::values::SqlType::I64
+                        | crate::values::SqlType::U64
+                        | crate::values::SqlType::Bool
+                        | crate::values::SqlType::Text
+                )
+            {
+                return Err(unsupported("JOIN_USING_REQUIRES_EXACT_EQUALITY"));
+            }
+        }
+        Ok(())
+    }
+    fn wildcard_expressions(&self, table: &TableWithJoins) -> MddResult<Vec<Expr>> {
+        let mut out = self.table_expressions(&table.relation)?;
+        for join in &table.joins {
+            let constraint = match &join.join_operator {
+                JoinOperator::Join(c)
+                | JoinOperator::Inner(c)
+                | JoinOperator::Left(c)
+                | JoinOperator::LeftOuter(c)
+                | JoinOperator::Right(c)
+                | JoinOperator::RightOuter(c)
+                | JoinOperator::FullOuter(c)
+                | JoinOperator::CrossJoin(c) => c,
+                _ => return Err(unsupported("JOIN_KIND_NOT_IMPLEMENTED")),
+            };
+            let names: BTreeSet<String> = match constraint {
+                JoinConstraint::Using(names) => names
+                    .iter()
+                    .filter_map(|name| {
+                        name.0
+                            .first()
+                            .and_then(|p| p.as_ident())
+                            .map(|id| id.value.to_ascii_lowercase())
+                    })
+                    .collect(),
+                _ => BTreeSet::new(),
+            };
+            out.extend(self.table_expressions(&join.relation)?.into_iter().filter(|expr| {
+                !matches!(expr, Expr::CompoundIdentifier(ids) if ids.last().is_some_and(|id| names.contains(&id.value.to_ascii_lowercase())))
+            }));
+        }
+        Ok(out)
+    }
+    fn select_expressions(&self, select: &Select) -> MddResult<Vec<Expr>> {
+        let mut out = Vec::new();
+        for projection in &select.projection {
+            match projection {
+                SelectItem::ExprWithAlias { expr, .. } | SelectItem::UnnamedExpr(expr) => {
+                    out.push(expr.clone())
+                }
+                SelectItem::Wildcard(_) => {
+                    for table in &select.from {
+                        out.extend(self.wildcard_expressions(table)?);
+                    }
+                }
+                SelectItem::QualifiedWildcard(
+                    SelectItemQualifiedWildcardKind::ObjectName(name),
+                    _,
+                ) => {
+                    let qualifier = name.to_string().trim_matches('"').to_ascii_lowercase();
+                    let mut found = false;
+                    for table in &select.from {
+                        for relation in std::iter::once(&table.relation)
+                            .chain(table.joins.iter().map(|j| &j.relation))
+                        {
+                            let values = self.table_expressions(relation)?;
+                            if values.first().is_some_and(|v|matches!(v,Expr::CompoundIdentifier(ids)if ids[0].value.eq_ignore_ascii_case(&qualifier))){out.extend(values);found=true;}
+                        }
+                    }
+                    if !found {
+                        return Err(invalid("UNKNOWN_WILDCARD_QUALIFIER"));
+                    }
+                }
+                _ => return Err(unsupported("PROJECTION_SHAPE")),
+            }
+        }
+        Ok(out)
+    }
+    fn select_projection_at(&self, select: &Select, index: usize) -> MddResult<Expr> {
+        self.select_expressions(select)?
+            .get(index)
+            .cloned()
+            .ok_or_else(|| invalid("PROJECTION_ORDINAL_OUT_OF_RANGE"))
+    }
+    fn projection_at(&self, body: &SetExpr, index: usize) -> MddResult<Expr> {
+        match body {
+            SetExpr::Select(select) => self.select_projection_at(select, index),
+            SetExpr::Query(query) => self.projection_at(&query.body, index),
+            _ => Err(unsupported("POSITIONAL_ORDER_BODY")),
+        }
+    }
+    fn output_names(&self, body: &SetExpr) -> MddResult<Vec<String>> {
+        match body {
+            SetExpr::Select(select) => {
+                let mut names = Vec::new();
+                for projection in &select.projection {
+                    match projection {
+                        SelectItem::ExprWithAlias { alias, .. } => names.push(alias.value.clone()),
+                        SelectItem::UnnamedExpr(Expr::Identifier(id)) => {
+                            names.push(id.value.clone())
+                        }
+                        SelectItem::UnnamedExpr(Expr::CompoundIdentifier(ids)) => {
+                            names.push(ids.last().unwrap().value.clone())
+                        }
+                        SelectItem::Wildcard(_) => {
+                            for table in &select.from {
+                                for expr in self.wildcard_expressions(table)? {
+                                    if let Expr::CompoundIdentifier(ids) = expr {
+                                        names.push(ids.last().unwrap().value.clone());
+                                    } else {
+                                        return Err(unsupported("WILDCARD_NAME"));
+                                    }
+                                }
+                            }
+                        }
+                        SelectItem::QualifiedWildcard(
+                            SelectItemQualifiedWildcardKind::ObjectName(name),
+                            _,
+                        ) => {
+                            let target = name
+                                .0
+                                .last()
+                                .and_then(|p| p.as_ident())
+                                .ok_or_else(|| invalid("WILDCARD_QUALIFIER"))?
+                                .value
+                                .to_ascii_lowercase();
+                            let mut found = false;
+                            for table in &select.from {
+                                for factor in std::iter::once(&table.relation)
+                                    .chain(table.joins.iter().map(|j| &j.relation))
+                                {
+                                    let expressions = self.table_expressions(factor)?;
+                                    if expressions.first().is_some_and(|e|matches!(e,Expr::CompoundIdentifier(ids)if ids[0].value.eq_ignore_ascii_case(&target))){for expr in expressions{if let Expr::CompoundIdentifier(ids)=expr{names.push(ids.last().unwrap().value.clone());}}found=true;}
+                                }
+                            }
+                            if !found {
+                                return Err(invalid("UNKNOWN_WILDCARD_QUALIFIER"));
+                            }
+                        }
+                        _ => return Err(unsupported("OUTPUT_COLUMN_NAME")),
+                    }
+                }
+                Ok(names)
+            }
+            SetExpr::Query(query) => self.output_names(&query.body),
+            SetExpr::SetOperation { left, .. } => self.output_names(left),
+            _ => Err(unsupported("OUTPUT_SCHEMA_BODY")),
+        }
+    }
+    fn compound_order(&mut self, query: &mut Query) -> MddResult<()> {
+        fn first(body: &mut SetExpr) -> MddResult<&mut Select> {
+            match body {
+                SetExpr::Select(select) => Ok(select),
+                SetExpr::Query(query) => first(&mut query.body),
+                SetExpr::SetOperation { left, .. } => first(left),
+                _ => Err(unsupported("COMPOUND_FIRST_BODY")),
+            }
+        }
+        let names = self.output_names(&query.body)?;
+        let original_expressions = self.select_expressions(first(&mut query.body)?)?;
+        let mut skeleton =
+            Parser::parse_sql(&SQLiteDialect {}, "SELECT * FROM placeholder AS holder")
+                .map_err(parse_error)?;
+        let Statement::Query(mut wrapper) = skeleton.remove(0) else {
+            return Err(invalid("INTERNAL_QUERY_TEMPLATE"));
+        };
+        let mut original = std::mem::replace(query, *wrapper.clone());
+        wrapper.order_by = original.order_by.take();
+        wrapper.limit_clause = original.limit_clause.take();
+        let owner = Ident::with_quote('"', self.fresh());
+        let internal = (0..names.len())
+            .map(|_| Ident::with_quote('"', self.fresh()))
+            .collect::<Vec<_>>();
+        let head = first(&mut original.body)?;
+        if head.having.is_some()
+            || matches!(&head.group_by,GroupByExpr::Expressions(values,_)if !values.is_empty())
+        {
+            return Err(unsupported("COMPOUND_GROUP_ALIAS_BINDING"));
+        }
+        if head.projection.len() != names.len()
+            || head
+                .projection
+                .iter()
+                .any(|p| !matches!(p, SelectItem::ExprWithAlias { .. }))
+        {
+            return Err(unsupported("COMPOUND_WILDCARD_SCHEMA"));
+        }
+        for (projection, alias) in head.projection.iter_mut().zip(&internal) {
+            if let SelectItem::ExprWithAlias { alias: old, .. } = projection {
+                *old = alias.clone();
+            }
+        }
+        if let Some(order) = &mut wrapper.order_by
+            && let OrderByKind::Expressions(values) = &mut order.kind
+        {
+            for value in values {
+                let position = if let Some(index) = ordinal(&value.expr)? {
+                    Some(index)
+                } else if let Expr::Identifier(id) = &value.expr {
+                    names
+                        .iter()
+                        .position(|name| name.eq_ignore_ascii_case(&id.value))
+                } else {
+                    let expr = value.expr.to_string();
+                    original_expressions
+                        .iter()
+                        .position(|v| v.to_string() == expr)
+                }
+                .ok_or_else(|| invalid("COMPOUND_ORDER_NOT_OUTPUT_EXPRESSION"))?;
+                let column = internal
+                    .get(position)
+                    .ok_or_else(|| invalid("ORDER_ORDINAL_OUT_OF_RANGE"))?
+                    .clone();
+                value.expr = call(
+                    "mdd_sort_key",
+                    vec![Expr::CompoundIdentifier(vec![owner.clone(), column])],
+                );
+            }
+        }
+        let SetExpr::Select(select) = wrapper.body.as_mut() else {
+            return Err(invalid("INTERNAL_OUTER_SELECT"));
+        };
+        select.projection = internal
+            .iter()
+            .zip(&names)
+            .map(|(column, name)| SelectItem::ExprWithAlias {
+                expr: Expr::CompoundIdentifier(vec![owner.clone(), column.clone()]),
+                alias: Ident::with_quote('"', name),
+            })
+            .collect();
+        select.from[0].relation = TableFactor::Derived {
+            lateral: false,
+            subquery: Box::new(original),
+            alias: Some(TableAlias {
+                name: owner,
+                columns: Vec::new(),
+                explicit: true,
+                at: None,
+            }),
+            sample: None,
+        };
+        *query = *wrapper;
+        Ok(())
+    }
+}
+fn ordinal(expr: &Expr) -> MddResult<Option<usize>> {
+    if let Expr::Value(ValueWithSpan {
+        value: Value::Number(number, _),
+        ..
+    }) = expr
+    {
+        let number = number
+            .parse::<usize>()
+            .map_err(|_| invalid("ORDER_OR_GROUP_ORDINAL"))?;
+        if number == 0 {
+            return Err(invalid("ORDER_OR_GROUP_ORDINAL_ZERO"));
+        }
+        Ok(Some(number - 1))
+    } else {
+        Ok(None)
+    }
+}
+
+/// Count/check the emitted semantic tree without recursive walking. Generated
+/// casts, keys and outer ordering scopes also consume the declared budget.
+fn validate_iterative(query: &Query, limits: SqlLimits) -> MddResult<usize> {
+    enum Node<'a> {
+        Query(&'a Query),
+        Body(&'a SetExpr),
+        Table(&'a TableFactor),
+        Expr(&'a Expr),
+    }
+    let mut stack = vec![(Node::Query(query), 1usize)];
+    let mut count = 0usize;
+    while let Some((node, depth)) = stack.pop() {
+        count = count
+            .checked_add(1)
+            .ok_or_else(|| quota("EMITTED_AST_NODE_OVERFLOW"))?;
+        if count > limits.max_ast_nodes || depth > limits.max_ast_depth {
+            return Err(quota("EMITTED_AST_NODE_OR_DEPTH"));
+        }
+        match node {
+            Node::Query(query) => {
+                if let Some(with) = &query.with {
+                    for cte in &with.cte_tables {
+                        stack.push((Node::Query(&cte.query), depth + 1));
+                    }
+                }
+                stack.push((Node::Body(&query.body), depth + 1));
+                if let Some(order) = &query.order_by
+                    && let OrderByKind::Expressions(values) = &order.kind
+                {
+                    for value in values {
+                        stack.push((Node::Expr(&value.expr), depth + 1));
+                    }
+                }
+                if let Some(limit) = &query.limit_clause {
+                    match limit {
+                        LimitClause::LimitOffset { limit, offset, .. } => {
+                            if let Some(limit) = limit {
+                                stack.push((Node::Expr(limit), depth + 1));
+                            }
+                            if let Some(offset) = offset {
+                                stack.push((Node::Expr(&offset.value), depth + 1));
+                            }
+                        }
+                        LimitClause::OffsetCommaLimit { offset, limit } => {
+                            stack.push((Node::Expr(offset), depth + 1));
+                            stack.push((Node::Expr(limit), depth + 1));
+                        }
+                    }
+                }
+            }
+            Node::Body(body) => match body {
+                SetExpr::Select(select) => {
+                    for table in &select.from {
+                        stack.push((Node::Table(&table.relation), depth + 1));
+                        for join in &table.joins {
+                            stack.push((Node::Table(&join.relation), depth + 1));
+                            let constraint = match &join.join_operator {
+                                JoinOperator::Join(c)
+                                | JoinOperator::Inner(c)
+                                | JoinOperator::Left(c)
+                                | JoinOperator::LeftOuter(c)
+                                | JoinOperator::Right(c)
+                                | JoinOperator::RightOuter(c)
+                                | JoinOperator::FullOuter(c)
+                                | JoinOperator::CrossJoin(c) => c,
+                                _ => return Err(invalid("INTERNAL_JOIN_KIND")),
+                            };
+                            if let JoinConstraint::On(expr) = constraint {
+                                stack.push((Node::Expr(expr), depth + 1));
+                            }
+                        }
+                    }
+                    for projection in &select.projection {
+                        match projection {
+                            SelectItem::UnnamedExpr(expr)
+                            | SelectItem::ExprWithAlias { expr, .. } => {
+                                stack.push((Node::Expr(expr), depth + 1))
+                            }
+                            SelectItem::Wildcard(_)
+                            | SelectItem::QualifiedWildcard(
+                                SelectItemQualifiedWildcardKind::ObjectName(_),
+                                _,
+                            ) => (),
+                            _ => return Err(invalid("INTERNAL_PROJECTION_KIND")),
+                        }
+                    }
+                    for expr in [&select.selection, &select.having].into_iter().flatten() {
+                        stack.push((Node::Expr(expr), depth + 1));
+                    }
+                    if let GroupByExpr::Expressions(values, _) = &select.group_by {
+                        for expr in values {
+                            stack.push((Node::Expr(expr), depth + 1));
+                        }
+                    }
+                }
+                SetExpr::Query(query) => stack.push((Node::Query(query), depth + 1)),
+                SetExpr::SetOperation { left, right, .. } => {
+                    stack.push((Node::Body(left), depth + 1));
+                    stack.push((Node::Body(right), depth + 1));
+                }
+                SetExpr::Values(values) => {
+                    for row in &values.rows {
+                        for expr in row.iter() {
+                            stack.push((Node::Expr(expr), depth + 1));
+                        }
+                    }
+                }
+                _ => return Err(invalid("INTERNAL_QUERY_BODY")),
+            },
+            Node::Table(table) => match table {
+                TableFactor::Table { .. } => (),
+                TableFactor::Derived { subquery, .. } => {
+                    stack.push((Node::Query(subquery), depth + 1))
+                }
+                _ => return Err(invalid("INTERNAL_TABLE_KIND")),
+            },
+            Node::Expr(expr) => match expr {
+                Expr::Identifier(_) | Expr::CompoundIdentifier(_) | Expr::Value(_) => (),
+                Expr::Nested(child)
+                | Expr::IsNull(child)
+                | Expr::IsNotNull(child)
+                | Expr::IsTrue(child)
+                | Expr::IsFalse(child)
+                | Expr::IsNotTrue(child)
+                | Expr::IsNotFalse(child)
+                | Expr::UnaryOp { expr: child, .. } => stack.push((Node::Expr(child), depth + 1)),
+                Expr::BinaryOp { left, right, .. } => {
+                    stack.push((Node::Expr(left), depth + 1));
+                    stack.push((Node::Expr(right), depth + 1));
+                }
+                Expr::InList { expr, list, .. } => {
+                    stack.push((Node::Expr(expr), depth + 1));
+                    for expr in list {
+                        stack.push((Node::Expr(expr), depth + 1));
+                    }
+                }
+                Expr::Case {
+                    operand,
+                    conditions,
+                    else_result,
+                    ..
+                } => {
+                    if let Some(expr) = operand {
+                        stack.push((Node::Expr(expr), depth + 1));
+                    }
+                    for condition in conditions {
+                        stack.push((Node::Expr(&condition.condition), depth + 1));
+                        stack.push((Node::Expr(&condition.result), depth + 1));
+                    }
+                    if let Some(expr) = else_result {
+                        stack.push((Node::Expr(expr), depth + 1));
+                    }
+                }
+                Expr::Subquery(query)
+                | Expr::Exists {
+                    subquery: query, ..
+                } => stack.push((Node::Query(query), depth + 1)),
+                Expr::Function(function) => {
+                    if let FunctionArguments::List(arguments) = &function.args {
+                        for arg in &arguments.args {
+                            match arg {
+                                FunctionArg::Unnamed(FunctionArgExpr::Expr(expr)) => {
+                                    stack.push((Node::Expr(expr), depth + 1))
+                                }
+                                FunctionArg::Unnamed(FunctionArgExpr::Wildcard) => (),
+                                _ => return Err(invalid("INTERNAL_FUNCTION_ARGUMENT")),
+                            }
+                        }
+                    } else {
+                        return Err(invalid("INTERNAL_FUNCTION_FORM"));
+                    }
+                    if let Some(expr) = &function.filter {
+                        stack.push((Node::Expr(expr), depth + 1));
+                    }
+                }
+                _ => return Err(invalid("INTERNAL_UNWALKED_EXPRESSION")),
+            },
+        }
+    }
+    Ok(count)
+}

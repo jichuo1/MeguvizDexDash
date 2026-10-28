@@ -1,0 +1,74 @@
+{
+  "schema_version": "mdd.sql-owned-child-limits.v1",
+  "binary_sha256": "9f2862bc573687c707284ea077fba19f92c4dd664f49137b28938f8fb5537495",
+  "actual_cases": [
+    {
+      "case": "binary",
+      "argv": [
+        "D:\\MeguvisDexDash\\target\\debug\\examples\\sql_bridge_probe.exe",
+        "stress",
+        "native",
+        "binary"
+      ],
+      "started_utc": "2026-10-28T14:30:02.412328+00:00",
+      "elapsed_seconds": 0.375,
+      "exit_code": 0,
+      "stdout_sha256": "4975053f9245b7ece9c11fb2fcf23a36a381c624389a97e1f09cdf6315fdb3bb",
+      "scope": "development rejection test, not performance",
+      "error": {
+        "code": "QUOTA_EXCEEDED",
+        "details": {},
+        "message": "SQL_FLAT_OPERATOR_BUDGET",
+        "retryable": false,
+        "stage": "sql"
+      },
+      "process_survived": true
+    },
+    {
+      "case": "union",
+      "argv": [
+        "D:\\MeguvisDexDash\\target\\debug\\examples\\sql_bridge_probe.exe",
+        "stress",
+        "native",
+        "union"
+      ],
+      "started_utc": "2026-10-28T14:30:02.784312+00:00",
+      "elapsed_seconds": 0.06199999999807915,
+      "exit_code": 0,
+      "stdout_sha256": "89e7b5d5f746847e728eb050193e7ed064d5132091fbe65e8dbbbf9b39cde2ea",
+      "scope": "development rejection test, not performance",
+      "error": {
+        "code": "QUOTA_EXCEEDED",
+        "details": {},
+        "message": "SQL_FLAT_OPERATOR_BUDGET",
+        "retryable": false,
+        "stage": "sql"
+      },
+      "process_survived": true
+    },
+    {
+      "case": "nested",
+      "argv": [
+        "D:\\MeguvisDexDash\\target\\debug\\examples\\sql_bridge_probe.exe",
+        "stress",
+        "native",
+        "nested"
+      ],
+      "started_utc": "2026-10-28T14:30:02.851625+00:00",
+      "elapsed_seconds": 0.031000000002677552,
+      "exit_code": 0,
+      "stdout_sha256": "1a7977875e10c801721e1b08e96ad045a6d13c70a6abb138ea7477cbfe602ab9",
+      "scope": "development rejection test, not performance",
+      "error": {
+        "code": "QUOTA_EXCEEDED",
+        "details": {},
+        "message": "SQL_LEXICAL_DEPTH",
+        "retryable": false,
+        "stage": "sql"
+      },
+      "process_survived": true
+    }
+  ],
+  "all_child_processes_survived": true,
+  "profile_admitted": false
+}

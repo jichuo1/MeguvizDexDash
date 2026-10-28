@@ -1,0 +1,36 @@
+{
+  "schema_version": "mdd.index-coverage-conformance.v1",
+  "task": "MDD-026",
+  "passed": true,
+  "checks": {
+    "predicates": 219,
+    "distinct_occurrences": 2,
+    "residual_false_positive_candidate_cases": 55,
+    "columns_checked": 156,
+    "unassembled_projection_columns": 69
+  },
+  "native_atoms_only": true,
+  "profiles_admitted": false,
+  "source_sha256": {
+    "crates/mdd-facts/src/coverage.rs": "b1400866b7eadcb0d7c9a79481af44f1c788ad5e8e9735b46e7226f103df35bb",
+    "crates/mdd-facts/src/indexes/columns.rs": "45209ee1590465e696d243c9671cf307ceb0fb25651c6751271d300f75d61336",
+    "crates/mdd-facts/src/indexes/lazy.rs": "64f00b432f6ad641376b57bdd3b9d94b52da0131f445b1f5c8d51b7f39e0a862",
+    "crates/mdd-facts/src/indexes/mod.rs": "480248d533bb8cb6d2d456e929a4032e3c0bf67f12d90ea08bbd602bb80092cd",
+    "crates/mdd-facts/src/indexes/scope.rs": "95b5b8c704f5bf14576834b0f231381ca4775b4a15d5e7516d3f754ff260ed10",
+    "crates/mdd-facts/src/indexes/tests.rs": "642ddde0d715634703457aae8b3f742217d8f92fac8bf08cbe49e60d2e57f548",
+    "crates/mdd-facts/src/indexes/views.rs": "9edb1fa3ac471a6a7a48b30ba624009e9b5a5d099060b3718635c4955d03a2ba"
+  },
+  "hand_oracle_sha256": "8cf113b4e7b1bbb34d2010bfc7e96387926a3d2d46145be8fa1dede271e7b0a3",
+  "independent_matrix_sha256": "7283875ca5372848bf08a0e91beb981e18ed9b96ff9bb586c9597ee6397f069c",
+  "lock_sha256": "19323721f4102af40d3f4c79684ac35a6b04ae186e2dc77dea720c849714e9b9",
+  "raw_receipt_directory": "artifacts/mdd-026/indexes/runs/20261028T141315875747Z",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "not_claimed": [
+    "SQL projection admission",
+    "HostLab replacement",
+    "full DEX/ART verification",
+    "private corpus facts",
+    "performance",
+    "G1 admission"
+  ]
+}

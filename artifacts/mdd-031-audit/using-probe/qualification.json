@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/using-probe/verify.py"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"status\": \"pass\", \"probe_sha256\": \"708a6188e130be874c6c9b00eacdb2f21e13422e5ca4b90455dbbc2bc77c6f40\", \"python_sqlite\": \"3.53.1\", \"mdd_sqlite\": \"3.53.2\", \"columns\": [\"file_id\", \"source\", \"member\"], \"rows\": [[1, \"one.apk\", \"classes.dex\"], [1, \"one.apk\", \"classes.dex\"], [2, \"two.dex\", null]], \"result_order_significant\": false, \"profiles_admitted\": false, \"scope\": \"synthetic provider and exact legacy helper SQL, native dialect only\"}\n",
+  "stderr": "",
+  "probe_sha256": "708a6188e130be874c6c9b00eacdb2f21e13422e5ca4b90455dbbc2bc77c6f40",
+  "probe_source_sha256": "c579b10ac6ae377ad8b9ba39c467935c31c3ae2327fb104682994c12cc9c437f",
+  "verifier_sha256": "03b154374eeb72ac1dc33315afeff87aca142d97749c88cb8cf382f295b4e920",
+  "probe_lock_sha256": "602f916dea1d7654e13eea86b7e100ea3fbbecc3b3fd1f896effa99557ce8f33",
+  "root_lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "external_packages_identical_to_root": true,
+  "source_generation_note": "Probe binary built before subsequent concurrent SQL source edits; binary identity, not current SQL source, is the tested artifact.",
+  "profiles_admitted": false
+}

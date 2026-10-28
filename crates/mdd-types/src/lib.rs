@@ -3,6 +3,7 @@ use serde_json::{Map, Value};
 use sha2::{Digest, Sha256};
 use std::fmt;
 
+pub mod result;
 pub mod source_identity;
 
 pub type MddResult<T> = Result<T, MddError>;

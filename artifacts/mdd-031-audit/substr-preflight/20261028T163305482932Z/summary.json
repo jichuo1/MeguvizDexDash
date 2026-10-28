@@ -1,0 +1,21 @@
+{
+  "scope": "fixed DexSQL substr observations, not legacy SQLite qualification",
+  "profiles_admitted": false,
+  "formal_performance_measurement": false,
+  "private_input_parsed": false,
+  "driver_sha256": "cfd5a2832ace55b60408b8c41e4c7729e74bb5ac31bfbf499c5b94a3895831ca",
+  "helper_sha256": "590ecb8914bfe1477330ba7860463f3063c58aca3828cc05daba9e24ef8fffc1",
+  "fixture_sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+  "records": [
+    {
+      "variant": "A0",
+      "cases": 8,
+      "observations_sha256": "38aeacdfdf034d75e51062a23df65e20ac57fd3b6631091f18c7ead06eaf4d78"
+    },
+    {
+      "variant": "A1",
+      "cases": 8,
+      "observations_sha256": "4bcf79257ddf1ecc8f721e93dbb6f22eff4cbf8b71c5c7fa3084d59cd8f06f50"
+    }
+  ]
+}

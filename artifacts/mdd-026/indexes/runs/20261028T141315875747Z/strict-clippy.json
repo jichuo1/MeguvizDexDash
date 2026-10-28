@@ -1,0 +1,21 @@
+{
+  "command": [
+    "cargo",
+    "clippy",
+    "--locked",
+    "-p",
+    "mdd-facts",
+    "--all-targets",
+    "-j",
+    "2",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "started_utc": "2026-10-28T14:13:29.254748+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "ff906ef995a5ecbcbc566186c573007c40fb1f05d747996af4ab0951a1ee2b29",
+  "lock_before_sha256": "19323721f4102af40d3f4c79684ac35a6b04ae186e2dc77dea720c849714e9b9",
+  "lock_after_sha256": "19323721f4102af40d3f4c79684ac35a6b04ae186e2dc77dea720c849714e9b9"
+}

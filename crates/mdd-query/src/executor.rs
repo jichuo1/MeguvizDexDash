@@ -1,4 +1,5 @@
 //! Immutable-provider execution with typed prepare, explicit work checkpoints and bag semantics.
+use crate::budget::{Resource, RuntimeBudget};
 use crate::ir::*;
 use crate::operators::{self, Truth};
 use mdd_types::{DecimalU64, ErrorCode, MddError, MddResult};
@@ -6,6 +7,8 @@ use serde::Serialize;
 use std::collections::{BTreeMap, BTreeSet};
 
 pub mod facts;
+#[cfg(test)]
+mod runtime_tests;
 #[cfg(test)]
 mod tests;
 
@@ -61,6 +64,7 @@ pub struct Control<'a> {
     buffered: u64,
     scanned: u64,
     hook: Option<Box<CheckHook<'a>>>,
+    runtime: Option<RuntimeBudget>,
 }
 impl<'a> Control<'a> {
     pub fn new(limits: ExecutionLimits) -> Self {
@@ -70,11 +74,21 @@ impl<'a> Control<'a> {
             buffered: 0,
             scanned: 0,
             hook: None,
+            runtime: None,
         }
     }
     pub fn with_hook(mut self, hook: impl FnMut(&Checkpoint) -> MddResult<()> + 'a) -> Self {
         self.hook = Some(Box::new(hook));
         self
+    }
+    pub fn with_runtime(mut self, runtime: RuntimeBudget) -> Self {
+        self.runtime = Some(runtime);
+        self
+    }
+    fn stop(&self, error: MddError) -> MddError {
+        self.runtime
+            .as_ref()
+            .map_or(error.clone(), |runtime| runtime.stop(error))
     }
     pub fn step(&mut self, phase: &'static str, amount: u64) -> MddResult<()> {
         self.steps = self
@@ -82,7 +96,15 @@ impl<'a> Control<'a> {
             .checked_add(amount)
             .ok_or_else(|| quota("STEP_OVERFLOW"))?;
         if self.steps > self.limits.max_steps {
-            return Err(quota("MAX_STEPS"));
+            return Err(self.stop(
+                quota("MAX_STEPS")
+                    .detail("budget", "query_steps")
+                    .detail("limit", self.limits.max_steps.to_string())
+                    .detail("observed", self.steps.to_string()),
+            ));
+        }
+        if let Some(runtime) = &self.runtime {
+            runtime.charge(Resource::QuerySteps, amount)?;
         }
         if let Some(hook) = &mut self.hook {
             hook(&Checkpoint {
@@ -99,13 +121,26 @@ impl<'a> Control<'a> {
             .checked_add(bytes)
             .ok_or_else(|| quota("BUFFER_OVERFLOW"))?;
         if self.buffered > self.limits.max_buffered_bytes {
-            return Err(quota("MAX_BUFFERED_BYTES"));
+            return Err(self.stop(
+                quota("MAX_BUFFERED_BYTES")
+                    .detail("budget", "query_work_bytes")
+                    .detail("limit", self.limits.max_buffered_bytes.to_string())
+                    .detail("observed", self.buffered.to_string()),
+            ));
+        }
+        if let Some(runtime) = &self.runtime {
+            runtime.charge(Resource::QueryWorkBytes, bytes)?;
         }
         self.step("buffer_admission", 1)
     }
     pub fn charge_cell(&mut self, bytes: u64) -> MddResult<()> {
         if bytes > self.limits.max_cell_bytes {
-            return Err(quota("MAX_CELL_BYTES"));
+            return Err(self.stop(
+                quota("MAX_CELL_BYTES")
+                    .detail("budget", "cell_bytes")
+                    .detail("limit", self.limits.max_cell_bytes.to_string())
+                    .detail("observed", bytes.to_string()),
+            ));
         }
         self.charge(bytes)
     }
@@ -156,6 +191,19 @@ pub struct PreparedQuery {
     nodes: Vec<NodePlan>,
 }
 impl PreparedQuery {
+    pub fn runtime_binding(&self) -> MddResult<mdd_session::QueryBinding> {
+        let request = serde_json::to_vec(
+            &serde_json::json!({"source_identity":self.source_identity,"query":self.query}),
+        )
+        .map_err(|_| invalid("QUERY_BINDING_ENCODING"))?;
+        let schema = serde_json::to_vec(&self.output_schema)
+            .map_err(|_| invalid("SCHEMA_BINDING_ENCODING"))?;
+        Ok(mdd_session::QueryBinding {
+            request_key: mdd_types::sha256(&request),
+            schema_id: format!("mdd.rows.v1:{}", mdd_types::sha256(&schema)),
+            semantic_version: format!("{IR_VERSION};{TEXT_VERSION}"),
+        })
+    }
     pub fn schema(&self) -> &Schema {
         &self.output_schema
     }
@@ -1063,7 +1111,7 @@ fn reference(
         }
     }
 }
-pub fn execute(
+fn execute_materialized_sdk(
     prepared: &PreparedQuery,
     source: &dyn FactSource,
     mode: ExecutionMode,
@@ -1088,7 +1136,10 @@ pub fn execute(
         ExecutionMode::MaterializedReference => reference(&prepared.query.root, source, control)?,
     };
     if rows.len() as u64 > control.limits.max_output_rows {
-        return Err(quota("MAX_OUTPUT_ROWS"));
+        return Err(quota("MAX_OUTPUT_ROWS")
+            .detail("budget", "output_rows")
+            .detail("limit", control.limits.max_output_rows.to_string())
+            .detail("observed", rows.len().to_string()));
     }
     for row in &rows {
         validate_row(row, &prepared.output_schema, source.snapshot_id())?;
@@ -1114,4 +1165,152 @@ pub fn execute(
             "unspecified"
         },
     })
+}
+
+fn runtime_begin(prepared: &PreparedQuery, control: &Control<'_>) -> MddResult<()> {
+    if let Some(runtime) = &control.runtime {
+        let cancel = runtime.cancellation();
+        let binding = cancel.binding()?;
+        let expected = prepared.runtime_binding()?;
+        if cancel.snapshot_id()? != prepared.snapshot_id()
+            || cancel.status()?.catalog_epoch != prepared.catalog_epoch()
+            || binding.request_key != expected.request_key
+            || binding.schema_id != expected.schema_id
+            || binding.semantic_version != expected.semantic_version
+        {
+            return Err(invalid("RUNTIME_QUERY_SNAPSHOT_GENERATION_OR_BINDING"));
+        }
+        cancel.claim_execution()?;
+    }
+    Ok(())
+}
+pub fn execute(
+    prepared: &PreparedQuery,
+    source: &dyn FactSource,
+    mode: ExecutionMode,
+    control: &mut Control<'_>,
+) -> MddResult<QueryOutput> {
+    runtime_begin(prepared, control)?;
+    let result = execute_materialized_sdk(prepared, source, mode, control)
+        .map_err(|error| control.stop(error))?;
+    if let Some(runtime) = &control.runtime {
+        runtime.cancellation().mark_computed()?;
+        if let Some(error) = runtime.cancellation().status()?.error {
+            return Err(error
+                .detail("execution_complete", true)
+                .detail("total_rows", result.rows.len().to_string()));
+        }
+    }
+    Ok(result)
+}
+
+/// The sink acknowledges accepted rows. Operational failures return an error envelope,
+/// never ordinary EOF; API/binding misuse before computation remains a Result error.
+pub fn execute_into(
+    prepared: &PreparedQuery,
+    source: &dyn FactSource,
+    mode: ExecutionMode,
+    control: &mut Control<'_>,
+    mut terminal: mdd_types::result::TerminalBuilder,
+    mut sink: impl FnMut(u64, &Row) -> MddResult<()>,
+) -> MddResult<mdd_types::ResultEnvelope> {
+    let binding = prepared.runtime_binding()?;
+    let identity = terminal.identity();
+    let mut expected: Vec<String> = prepared
+        .required_layers
+        .iter()
+        .map(|layer| {
+            serde_json::to_value(layer)
+                .expect("enum serializes")
+                .as_str()
+                .unwrap()
+                .to_owned()
+        })
+        .collect();
+    expected.sort();
+    let mut actual = terminal.coverage().required_layers.clone();
+    actual.sort();
+    if identity.snapshot_id.as_deref() != Some(prepared.snapshot_id())
+        || identity.catalog_epoch != Some(prepared.catalog_epoch())
+        || identity.schema_id.as_deref() != Some(binding.schema_id.as_str())
+        || actual != expected
+    {
+        return Err(invalid("TERMINAL_PLAN_BINDING"));
+    }
+    if prepared.source_identity != source.identity() {
+        return Err(invalid("PREPARED_SOURCE_OR_GENERATION_CHANGED"));
+    }
+    if let Some(runtime) = &control.runtime {
+        if identity.query_id.as_deref() != Some(runtime.cancellation().query_handle().id()) {
+            return Err(invalid("TERMINAL_QUERY_ID"));
+        }
+        if identity.session_id.as_deref() != Some(runtime.cancellation().session_id()?.as_str()) {
+            return Err(invalid("TERMINAL_SESSION_OWNER"));
+        }
+    }
+    source.require_layers(&prepared.required_layers)?;
+    runtime_begin(prepared, control)?;
+    let runtime = control.runtime.clone();
+    let mut dropped = false;
+    let result = (|| {
+        control.step("execute_start", 1)?;
+        let mut input = match mode {
+            ExecutionMode::Streaming => cursor(&prepared.query.root, source, control)?,
+            ExecutionMode::MaterializedReference => {
+                Cursor::Rows(reference(&prepared.query.root, source, control)?.into_iter())
+            }
+        };
+        if let Cursor::Rows(rows) = &input {
+            terminal.computation_complete(rows.len() as u64)?;
+            if let Some(runtime) = &runtime {
+                runtime.cancellation().mark_computed()?;
+            }
+        }
+        let mut produced = 0u64;
+        while let Some(row) = input.next(source, control)? {
+            validate_row(&row, &prepared.output_schema, source.snapshot_id())?;
+            if produced >= control.limits.max_output_rows {
+                dropped = true;
+                return Err(quota("MAX_OUTPUT_ROWS")
+                    .detail("budget", "output_rows")
+                    .detail("limit", control.limits.max_output_rows.to_string())
+                    .detail(
+                        "observed",
+                        produced
+                            .checked_add(1)
+                            .map_or("overflow".into(), |n| n.to_string()),
+                    ));
+            }
+            let encoded = serde_json::to_vec(&row).map_err(|_| invalid("ROW_ENCODING"))?;
+            if let Some(runtime) = &runtime
+                && let Err(error) = runtime.charge(Resource::OutputBytes, encoded.len() as u64)
+            {
+                dropped = true;
+                return Err(error);
+            }
+            control.step("output_row", 1)?;
+            if let Err(error) = sink(produced, &row) {
+                dropped = true;
+                return Err(error);
+            }
+            terminal.record_batch(produced, 1)?;
+            produced = produced
+                .checked_add(1)
+                .ok_or_else(|| quota("OUTPUT_ROW_OVERFLOW"))?;
+        }
+        if !terminal.execution_complete() {
+            terminal.computation_complete(produced)?;
+            if let Some(runtime) = &runtime {
+                runtime.cancellation().mark_computed()?;
+            }
+        }
+        if let Some(runtime) = &runtime {
+            runtime.cancellation().finish_delivery()?;
+        }
+        Ok::<_, MddError>(())
+    })();
+    match result {
+        Ok(()) => terminal.succeed(None),
+        Err(error) => terminal.fail(control.stop(error), dropped, None),
+    }
 }

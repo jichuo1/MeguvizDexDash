@@ -1,0 +1,23 @@
+warning: unused import: `Completeness`
+ --> crates\mdd-types\src\result.rs:2:13
+  |
+2 | use crate::{Completeness,Coverage,DecimalU64,ErrorCode,Execution,MddError,MddResult,OperationStatus,Response,ResultEnvelope};
+  |             ^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `mdd-types` (lib) generated 1 warning (run `cargo fix --lib -p mdd-types` to apply 1 suggestion)
+    Checking mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+    Checking mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+error[E0308]: `?` operator has incompatible types
+  --> crates\mdd-query\src\budget.rs:54:246
+   |
+54 | ...r-member check"));}Self::add(&mut self.lock()?,&self.owner,resource,amount)}
+   |                                      ^^^^^^^^^^^^ expected `State`, found `MutexGuard<'_, State>`
+   |
+   = note: `?` operator cannot convert from `std::sync::MutexGuard<'_, State>` to `State`
+   = note: expected struct `State`
+              found struct `std::sync::MutexGuard<'_, State>`
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `mdd-query` (lib) due to 1 previous error

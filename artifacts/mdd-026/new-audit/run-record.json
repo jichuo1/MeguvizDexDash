@@ -1,0 +1,67 @@
+{
+  "runs": [
+    {
+      "argv": [
+        "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+        "-O",
+        "conformance/facts/readback_definition_projections.py"
+      ],
+      "started_utc": "2026-10-28T16:35:19.575098+00:00",
+      "finished_utc": "2026-10-28T16:35:19.754444+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "aa615072f1c3455f92ede688505d6a9d132374c255743475e7ad9c570b73b34c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+        "-O",
+        "conformance/facts/audit_columns.py"
+      ],
+      "started_utc": "2026-10-28T16:35:19.754444+00:00",
+      "finished_utc": "2026-10-28T16:35:19.995374+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "7cae045ff2faa5603e11e6a85ad18664d8d99039e13879748dac5acacd9d2329",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+        "-O",
+        "conformance/facts/test_audit_columns.py"
+      ],
+      "started_utc": "2026-10-28T16:35:19.995374+00:00",
+      "finished_utc": "2026-10-28T16:35:20.214286+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "0c99e35cae7ba8f73a846ac8bc54bf54801d3188a7b02b515eed73f931ca78d8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "identities": [
+    {
+      "path": "conformance/facts/audit_columns.py",
+      "sha256": "d040892d59942cb0788621356bf98e5b40643be5b00efdf37e36e5b2a91ce61d"
+    },
+    {
+      "path": "conformance/facts/test_audit_columns.py",
+      "sha256": "80aaadf19cacead57b880ec0979e66edba0f5a3882cc19e98ef6e49106636b35"
+    },
+    {
+      "path": "conformance/facts/readback_definition_projections.py",
+      "sha256": "4d5659877b965d6a0f9bd19c79361993405903dafd9711f068868dbb8b125aef"
+    },
+    {
+      "path": "artifacts/mdd-026/new-audit/column-evidence.json",
+      "sha256": "d89d7e45f81d9352691b21ad1a49473c320dfb083ffcf8792e968c10daad951f"
+    },
+    {
+      "path": "artifacts/mdd-026/new-audit/definition-projections/result.json",
+      "sha256": "74e06621d80b0beaf822284a9f84a36ff214c3f897316f45974cdd61ab684e73"
+    },
+    {
+      "path": "artifacts/mdd-026/new-audit/definition-projections/readback.json",
+      "sha256": "18b0a41346b8117a772f748db7068b3cdcd7257d5871ebab295804a3795a592e"
+    }
+  ],
+  "task_complete_proven": false
+}

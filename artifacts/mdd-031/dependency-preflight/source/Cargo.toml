@@ -1,0 +1,11 @@
+[package]
+name = "mdd-sqlparser-dependency-probe"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+sqlparser = { version = "=0.63.0", default-features = false, features = ["std"] }
+log = "=0.4.34"

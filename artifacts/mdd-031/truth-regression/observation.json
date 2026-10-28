@@ -1,0 +1,20 @@
+{
+  "schema_version": "mdd.manual-tool-observation.v1",
+  "captured": "2026-10-29",
+  "basis": "tool-returned actual command output; raw stream was not persisted",
+  "failure": {
+    "command": "cargo test -p mdd-sql --locked --offline --jobs 1 runtime_tests::typed_numeric_truth_preserves_sql_three_valued_conditions -- --exact --nocapture",
+    "exit_code": 1,
+    "tests_run": 1,
+    "observed": "[I64(0), I64(0), I64(1), I64(0), I64(0), I64(0), Null]",
+    "expected": "[I64(1), I64(1), I64(0), I64(1), I64(1), Null, I64(1)]",
+    "failing_source_hash": "not_captured"
+  },
+  "after_change": {
+    "command": "cargo test -p mdd-sql --locked --offline --jobs 1 runtime_tests::typed_numeric_truth_preserves_sql_three_valued_conditions -- --exact --nocapture",
+    "exit_code": 0,
+    "tests_run": 1,
+    "tests_passed": 1
+  },
+  "scope": "limited local regression, not complete dialect qualification"
+}

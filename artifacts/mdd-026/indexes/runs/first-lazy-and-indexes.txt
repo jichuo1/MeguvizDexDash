@@ -1,0 +1,17 @@
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.56s
+     Running unittests src\lib.rs (target\debug\deps\mdd_facts-f5fcaccb54dddfd1.exe)
+
+running 9 tests
+test indexes::lazy::tests::concurrent_first_build_publishes_one_immutable_terminal ... ok
+test indexes::lazy::tests::joined_failed_attempt_survives_immediate_ready_retry ... ok
+test indexes::lazy::tests::panic_quota_deadline_failures_are_audited_without_implicit_retry ... ok
+test indexes::tests::coverage_retains_late_genuine_errors_and_rejects_terminal_overwrite ... ok
+test indexes::tests::definitions_owners_and_encoded_reference_symbols_preserve_distinct_sites ... ok
+test indexes::tests::explicit_subset_negative_proof_and_foreign_generation_are_bounded ... ok
+test indexes::tests::index_quota_deadline_and_unbuilt_failures_never_publish_ready_or_zero ... ok
+test indexes::tests::fine_coverage_parameter_positions_projection_bodies_source_and_resource ... ok
+test indexes::tests::utf16_raw_candidates_match_scalar_and_hand_oracle_without_occurrence_dedup ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out; finished in 0.01s
+

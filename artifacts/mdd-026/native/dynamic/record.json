@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\native_probe.exe",
+    "tests/fixtures/references/generated/poly-custom-038.dex"
+  ],
+  "started_utc": "2026-10-28T13:06:25.489447+00:00",
+  "finished_utc": "2026-10-28T13:06:25.572449+00:00",
+  "elapsed_seconds": 0.07799999999406282,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "743f72d92fcdd573d3fd3e182ac71c23521d21fb956e763b5909385b24740796",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

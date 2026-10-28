@@ -2,7 +2,7 @@
   "schema_version": "mdd.dependencies.v1",
   "rust": "1.99.0",
   "msrv": "1.99",
-  "lock_sha256": "1f14343221fbd36894948ceb2a92300f7192c37266e5dc42f2950a05febf088d",
+  "lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
   "approved_direct_dependencies": [
     "serde",
     "serde_json",
@@ -11,7 +11,9 @@
     "zip",
     "rusqlite",
     "getrandom",
-    "quick-xml"
+    "quick-xml",
+    "sqlparser",
+    "log"
   ],
   "platform_validation": {
     "windows_x86_64": "native build probe passed",
@@ -20,6 +22,7 @@
   "sqlite_profile": "bundled; no load_extension; vtab/functions/collation/hooks/limits",
   "zip_profile": "no default features; DEFLATE zlib-rs only",
   "xml_profile": "quick-xml 0.42.0; no default features; bounded synchronous text XML; DTD prohibited",
+  "sql_ast_profile": "sqlparser 0.63.0 std-only and log 0.4.34; user-approved; syntax/semantic/budget qualification tracked separately",
   "packages": [
     {
       "name": "bitflags",
@@ -279,6 +282,17 @@
       "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
     },
     {
+      "name": "log",
+      "version": "0.4.34",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-lang/log",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "a6b553a374b237960e65d91de04e102a1755a7a20ff21f2c1ef6ba74b9d0ab76",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
       "name": "memchr",
       "version": "2.8.3",
       "source": "registry+https://github.com/rust-lang/crates.io-index",
@@ -481,6 +495,19 @@
       "license_file": null,
       "features": [],
       "cached_manifest_sha256": "d9bc8a6b4b295048bc0dbc0c0cae4916095d3cef4870fb93cb0587e00eb8ca72",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "sqlparser",
+      "version": "0.63.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/apache/datafusion-sqlparser-rs",
+      "license": "Apache-2.0",
+      "license_file": null,
+      "features": [
+        "std"
+      ],
+      "cached_manifest_sha256": "04f3871e76dc0361f11c295798502d6eec5a4af3c4b7fe809415663b4a52eb30",
       "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
     },
     {

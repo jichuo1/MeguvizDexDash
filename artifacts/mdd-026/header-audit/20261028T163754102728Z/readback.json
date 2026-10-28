@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "result_sha256": "e96704be028ce01ef4548f8a635c6d6d1eb6ed1967efa38153b0f5f92871d188",
+  "readback_source_sha256": "0e38d1ac85d53de90666e3b8d7c3896c6d3ad36f2fc340c78f9ff00d55fdd5f3",
+  "cases": 3,
+  "fields_per_case": 24,
+  "source_files_checked": 50,
+  "task_complete_proven": false,
+  "scope": "3 small fixtures and A0 single-input queries; not full HostLab or A0 multi-input"
+}

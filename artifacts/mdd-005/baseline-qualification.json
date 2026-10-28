@@ -4,13 +4,12 @@
   "status": "blocked",
   "technical_preparation_ready": true,
   "measured_runs": 0,
-  "qualification_runs": 0,
+  "qualification_runs": 4,
   "performance_qualified": false,
   "best_existing_baseline": null,
-  "current_evidence": "artifacts/mdd-005/preparation-20261028/summary.json",
+  "current_evidence": "artifacts/mdd-005/static-qualification-20261029.json",
+  "observation": "four complete A0/A1 static qualifications passed delivery gates; both same-input comparisons equal in all20 groups, while all business exit codes were 1",
   "blockers": [
-    "root one-at-a-time exclusive qualification lease, with measured free RAM >=10GiB and unchanged8GiB job cap",
-    "first actual full A0 certificate then A1, compare all20 groups and cross-version outcomes before speed sampling",
     "A2 full consumer transport adaptation/equivalence not admitted; fixture compact success is not an end-to-end baseline",
     "formal10 paired trials/two independent blocks and best qualified existing comparison not run"
   ],

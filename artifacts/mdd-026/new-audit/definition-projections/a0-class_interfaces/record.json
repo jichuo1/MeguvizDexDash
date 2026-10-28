@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+    "--sql",
+    "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"ordinal\" IS NULL THEN 'N' ELSE hex(CAST(\"ordinal\" AS TEXT)) END AS \"ordinal\",CASE WHEN \"interface_type_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"interface_type_idx\" AS TEXT)) END AS \"interface_type_idx\",CASE WHEN \"interface_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"interface_descriptor\" AS TEXT)) END AS \"interface_descriptor\" FROM class_interfaces"
+  ],
+  "started_utc": "2026-10-28T16:34:06.305552+00:00",
+  "finished_utc": "2026-10-28T16:34:07.093196+00:00",
+  "elapsed_seconds": 0.7970000000000255,
+  "exit_code": 0,
+  "stdout_sha256": "8c53014320ee4b5c0932cd95500275ba9472501038dddbf011b89420bed16116",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

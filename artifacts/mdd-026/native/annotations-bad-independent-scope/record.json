@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\native_probe.exe",
+    "tests/fixtures/references/generated/ordinary-unrelated-bad-annotation.dex"
+  ],
+  "started_utc": "2026-10-28T13:06:25.728578+00:00",
+  "finished_utc": "2026-10-28T13:06:25.785666+00:00",
+  "elapsed_seconds": 0.06300000000192085,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "43bd72656d18bb61e646cd9330c417e2f683ff07cf5875fe6fde04ee0fa6b543",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

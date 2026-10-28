@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\native_probe.exe",
+    "tests/fixtures/references/generated/classic-035.dex",
+    "tests/fixtures/references/generated/classic-035.dex"
+  ],
+  "started_utc": "2026-10-28T13:06:25.857758+00:00",
+  "finished_utc": "2026-10-28T13:06:25.930587+00:00",
+  "elapsed_seconds": 0.06199999999807915,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "6479246a56d7002c5f4087e70069632c1d14c6b0947377b96c82729891a762ea",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "cargo",
+    "run",
+    "--manifest-path",
+    "artifacts/local/sqlparser-probe/Cargo.toml"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T13:18:54.451225+00:00",
+  "finished_utc": "2026-10-28T13:19:12.564932+00:00",
+  "elapsed_seconds": 18.109000000004016,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 108,
+    "sha256": "149bfcaf147ccbe370d4a30bce1b879477ed44b4e11e727a938bcde23b0c94a9"
+  },
+  "stderr": {
+    "bytes": 478,
+    "sha256": "0e34761003e55b0ad9912e731687622962f3d1922f7772fee7486345a878ea97"
+  }
+}

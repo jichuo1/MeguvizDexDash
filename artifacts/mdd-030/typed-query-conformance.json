@@ -1,7 +1,7 @@
 {
   "schema_version": "mdd.typed-query-conformance.v1",
   "recorded_utc": "2026-10-28T13:23:37.895307+00:00",
-  "component_status": "root-reviewed-windows-local-scope-passed-linux-pending",
+  "component_status": "root-reviewed-windows-and-linux-checkpoint-scope-passed",
   "task_status_owner": "root",
   "validation_summary": "artifacts/mdd-030/validation/20261028T132212361104Z/summary.json",
   "source_stable": true,
@@ -51,7 +51,6 @@
   "like_escape_scope": "native UTF16 tokens/helper only; NUL and isolated surrogates preserved; explicit single-unit escape; trailing escape error; no SQL dialect admission",
   "raw_code_scope": "same snapshot/occurrence/physical member/content and Arc lease, checked relative byte range, known abstract/native None vs present empty Bytes",
   "missing_or_not_claimed": [
-    "Linux execution pending feature-branch CI",
     "SQL dialect and HostLab17 compatibility remain MDD031/032",
     "M4 terminal/envelope/cursor/budget lifecycle remain MDD034 and later",
     "buffer admission is conservative logical work accounting, not measured RSS or hard allocator limit",
@@ -79,5 +78,11 @@
     "target/debug/deps/mdd_query-b4cbff6f2345f366.exe": "c9ec3e2733ee3714682386d084bb06c7204560ab8dcf63f2edaaf505f95c7a69"
   },
   "rollback": "root reverts explicit new module/fixture/conformance files and internal workspace wiring; preserve all failed command records and unrelated work",
-  "root_review": "artifacts/mdd-030/root-review/record.json"
+  "root_review": "artifacts/mdd-030/root-review/record.json",
+  "native_ci": {
+    "head_sha": "e56db3e9380a60b117e9e65ec5ab3f76ffb61361",
+    "run_id": 40696463963,
+    "readback": "artifacts/integration/20261028/ci-e56db3e.json",
+    "per_platform_workspace_tests": 108
+  }
 }

@@ -1,0 +1,736 @@
+{
+  "schema_version": "mdd.temp-policy-preflight-readback.v1",
+  "passed": true,
+  "variants": 2,
+  "independent_datasets_per_variant": 16,
+  "statements_per_variant": 70,
+  "sdk_tool_calls_verified_per_variant": 103,
+  "all_datasets_closed": true,
+  "final_dataset_usage_zero": true,
+  "cross_version_complete_policy_results_equal": true,
+  "broken_close_receipt_rejected": true,
+  "profile_admitted": false,
+  "MDD033_done": false,
+  "policy_results": {
+    "table-if-not-exists": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    ],
+    "view-if-not-exists": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    ],
+    "table-drop-if-exists": [
+      {
+        "kind": "drop_definition",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "no such table: absent",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "drop_definition",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `item`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "drop_definition",
+        "columns": [],
+        "rows": []
+      }
+    ],
+    "view-drop-if-exists": [
+      {
+        "kind": "drop_definition",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "no such view: absent",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "drop_definition",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `item`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "drop_definition",
+        "columns": [],
+        "rows": []
+      }
+    ],
+    "table-then-view-same-name": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "2"
+            }
+          ]
+        ]
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "use DROP VIEW to delete item",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "2"
+            }
+          ]
+        ]
+      }
+    ],
+    "view-then-table-same-name": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "2"
+            }
+          ]
+        ]
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "use DROP TABLE to delete item",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "2"
+            }
+          ]
+        ]
+      }
+    ],
+    "table-then-view-if-not-exists": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "use DROP TABLE to delete item",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    ],
+    "view-then-table-if-not-exists": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "use DROP VIEW to delete item",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    ],
+    "drop-view-on-table": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "use DROP TABLE to delete item",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    ],
+    "drop-table-on-view": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "use DROP VIEW to delete item",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    ],
+    "drop-view-if-exists-on-table": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "use DROP TABLE to delete item",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    ],
+    "drop-table-if-exists-on-view": [
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "use DROP VIEW to delete item",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "query",
+        "columns": [
+          {
+            "data_type": "sqlite_dynamic",
+            "name": "x",
+            "nullable": false
+          }
+        ],
+        "rows": [
+          [
+            {
+              "type": "uint64",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    ],
+    "forward-table": [
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `future`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `derived`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `derived`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      }
+    ],
+    "forward-view": [
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `future`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `derived`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `derived`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      }
+    ],
+    "forward-table-if-not-exists": [
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `future`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `derived`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `derived`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      }
+    ],
+    "forward-view-if-not-exists": [
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `future`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `derived`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      },
+      {
+        "kind": "create_temp_table",
+        "columns": [],
+        "rows": []
+      },
+      {
+        "error": {
+          "input": null,
+          "kind": "invalid_query",
+          "message": "unknown relation `derived`",
+          "source": null,
+          "stage": "execute_sql",
+          "statement_index": 0
+        }
+      }
+    ]
+  },
+  "not_verified": [
+    "cycles",
+    "syntax-invalid IF NOT EXISTS body parsing",
+    "atomic multi-statement rollback",
+    "native MDD catalog/cursor",
+    "epoch values exposed by reference engine",
+    "cross-session TEMP visibility",
+    "private inputs",
+    "performance"
+  ]
+}

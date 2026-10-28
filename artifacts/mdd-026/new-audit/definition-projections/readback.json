@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "result_sha256": "74e06621d80b0beaf822284a9f84a36ff214c3f897316f45974cdd61ab684e73",
+  "relations": 3,
+  "source_files_checked": 50,
+  "task_complete_proven": false,
+  "scope": "captured synthetic fixture and single-input A0 rows; not A0 multi-input equality"
+}

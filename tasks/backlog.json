@@ -188,11 +188,12 @@
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
       "blocking_reasons": [
-        "Fixed private inputs are now acquired/verified; same-environment complete A0/A1/A2 drivers/certificates still being prepared",
-        "Formal measurement must await an exclusive CPU/IO window; no performance trial has been claimed"
+        "A0/A1 static qualifications completed on two inputs with all20 groups equal; A2 complete transport/consumer qualification remains unavailable",
+        "Formal measurement and best-qualified existing baseline selection require an exclusive comparable window; no formal trial has run"
       ],
       "implementation_evidence": [
-        "artifacts/mdd-005/baseline-qualification.json"
+        "artifacts/mdd-005/baseline-qualification.json",
+        "artifacts/mdd-005/static-qualification-20261029.json"
       ],
       "input_evidence": "artifacts/bootstrap/20261028/private-input-acquisition.json"
     },
@@ -741,7 +742,15 @@
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
-      "implementation_notes": "Dependencies now accepted; indexes/coverage and independent 17-relation per-column conformance active; real gaps remain explicit."
+      "implementation_notes": "Reopened after independent review: candidate indexes and scoped coverage have passed recorded tests, but native atom declarations do not establish independent field/type/NULL/order/multiplicity/source/raw-fingerprint evidence for every required HostLab fact; 69 compatibility projections remain unassembled. Original acceptance unchanged; qualification remains partial.",
+      "implementation_evidence": [
+        "conformance/manifests/hostlab-fact-qualification.json",
+        "artifacts/mdd-026/facts-differential.json",
+        "artifacts/mdd-026/indexes/runs/20261028T141315875747Z/result.json",
+        "artifacts/mdd-026/indexes/runs/20261028T141315875747Z/readback.json",
+        "artifacts/mdd-026/root-reviewed-index-tests/record.json",
+        "artifacts/mdd-026/new-audit/column-evidence.json"
+      ]
     },
     {
       "id": "MDD-030",
@@ -788,7 +797,7 @@
       "id": "MDD-031",
       "phase": "M3",
       "title": "实现固定 SQLite 只读虚表兼容桥",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "MDD-006",
         "MDD-030"
@@ -818,7 +827,8 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_notes": "Dependencies accepted; independent SQL bridge and runtime budget/terminal implementation assigned; not qualified until actual task evidence passes."
     },
     {
       "id": "MDD-032",
@@ -900,7 +910,7 @@
       "id": "MDD-034",
       "phase": "M3",
       "title": "实现预算、取消、背压与完整结果终态",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-014",
         "MDD-030"
@@ -929,6 +939,14 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ],
+      "implementation_notes": "Scoped unified budget/cancellation/terminal mechanisms accepted:19 resource dimensions,preallocation input/archive adapters,real backpressure,identity/claim/fault retention;46 relevant unit/doc tests+strict Clippy+actual2conn interrupt/250ms owned child. Wire/MCP/FFI enforcement and process-tree isolation not granted.",
+      "implementation_evidence": [
+        "artifacts/mdd-034/budget-and-terminal-states.json",
+        "artifacts/mdd-034/root-final-units/record.json",
+        "artifacts/mdd-034/root-final-clippy/record.json",
+        "artifacts/mdd-034/root-final-sqlite/record.json",
+        "artifacts/mdd-034/root-final-supervisor/record.json"
       ]
     },
     {

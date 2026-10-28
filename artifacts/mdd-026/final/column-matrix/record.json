@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "conformance/facts/build_matrix.py"
+  ],
+  "started_utc": "2026-10-28T13:06:26.053473+00:00",
+  "finished_utc": "2026-10-28T13:06:26.141230+00:00",
+  "elapsed_seconds": 0.09399999999732245,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "16d96382f88f33746f1104ddddbb02bd69b3d20f84cdcf45e2dcfc2eb7a377fc",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

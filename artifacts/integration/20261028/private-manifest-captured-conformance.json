@@ -1,0 +1,73 @@
+{
+  "schema_version": "mdd.captured-private-manifest-readback.v1",
+  "captured_run": "20261028T133711100506Z",
+  "parent": {
+    "path": "artifacts/integration/20261028/private-manifest-20261028T133711100506Z.json",
+    "bytes": 2777,
+    "sha256": "58f6755616da2aa0922804653a33dfb0b3ec64e3695cf323ba5e289f4da0970d"
+  },
+  "sources": [
+    {
+      "path": "conformance/resources/verify_captured_private_manifests.py",
+      "bytes": 4918,
+      "sha256": "5a333ac105704447320334aa79a6848a248a0a0f2825f15778b3134239a96bba"
+    },
+    {
+      "path": "conformance/resources/compare_manifest_trees.py",
+      "bytes": 5045,
+      "sha256": "c7ebc9eb566a35a6a4357eb881370b6f509c7a7fe6dc45f5b5763894b4dc1706"
+    },
+    {
+      "path": "artifacts/mdd-025/manifest/run_validation.py",
+      "bytes": 9796,
+      "sha256": "7bdabe6f72820e6f9ef4a172be95c167769d17a39eba0c8433d2a7fba4eb518d"
+    }
+  ],
+  "results": [
+    {
+      "input_id": "hostlab-9161100",
+      "input": {
+        "bytes": 226519215,
+        "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2"
+      },
+      "comparison": {
+        "nodes": 2115,
+        "attributes": 5275,
+        "complete_tree_equal": true,
+        "independent_raw_typed_attributes": 5275,
+        "raw_value_indices_verified": true,
+        "float32_exact_bit_checks": 1,
+        "aapt_empty_raw_omissions": 20,
+        "aapt_zero_reference_null_display": 1,
+        "float_policy": "decimal re-encoding must match exact float32 bits; NaN display plus independent raw payload bits",
+        "comparison": "all ordered element namespace/name/parent and attribute namespace/name/resource ID/raw/typed value"
+      },
+      "status": "passed-captured-full-manifest-tree"
+    },
+    {
+      "input_id": "hostlab-9170100",
+      "input": {
+        "bytes": 243687778,
+        "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955"
+      },
+      "comparison": {
+        "nodes": 2119,
+        "attributes": 5291,
+        "complete_tree_equal": true,
+        "independent_raw_typed_attributes": 5291,
+        "raw_value_indices_verified": true,
+        "float32_exact_bit_checks": 1,
+        "aapt_empty_raw_omissions": 20,
+        "aapt_zero_reference_null_display": 1,
+        "float_policy": "decimal re-encoding must match exact float32 bits; NaN display plus independent raw payload bits",
+        "comparison": "all ordered element namespace/name/parent and attribute namespace/name/resource ID/raw/typed value"
+      },
+      "status": "passed-captured-full-manifest-tree"
+    }
+  ],
+  "negative_raw_bit_checks": 2,
+  "status": "passed-full-manifest-tree-and-raw-types",
+  "full_audit_complete": false,
+  "formal_performance_qualified": false,
+  "previous_failed_deliveries_retained": true
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "mdd.ci-readback.v1",
+  "head_sha": "e56db3e9380a60b117e9e65ec5ab3f76ffb61361",
+  "run_id": 40696463963,
+  "url": "https://github.com/jichuo1/MeguvizDexDash/actions/runs/40696463963",
+  "success": true,
+  "commands": [
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-ubuntu-latest/ci/build/record.json",
+      "exit_code": 0,
+      "sha256": "979890af393fef967ab4bc9fd21b095e70719cb849ee353580bd31a013ac730d"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-ubuntu-latest/ci/check/record.json",
+      "exit_code": 0,
+      "sha256": "53b1c18cb5cc2c432e531ab5038db80e2acc08355eac22d2ee1364ac01b02318"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-ubuntu-latest/ci/clippy/record.json",
+      "exit_code": 0,
+      "sha256": "2a4496c901c8c157e90578e2dbf7c3eb9be5e5122ceeda3fb47e22e39a92b94e"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-ubuntu-latest/ci/probe/record.json",
+      "exit_code": 0,
+      "sha256": "dd4d3a12e1fc6972ee297b3c55fc1e54ab17e40dce94ef5a750b7edf04ff5020"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-ubuntu-latest/ci/test/record.json",
+      "exit_code": 0,
+      "sha256": "e8aac11849c0ad74eed6123e3e122b5f749859004a358f96690c259d6b8b8e67"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-windows-latest/ci/build/record.json",
+      "exit_code": 0,
+      "sha256": "6a143edf703fde47fe4685784ed656af63591e8c9504d739cabe4ff7e60ca8ef"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-windows-latest/ci/check/record.json",
+      "exit_code": 0,
+      "sha256": "3a4cb4ddcc3a84eed910af0b9081ee248badef0d80dcdbdfb319fa23a20adac7"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-windows-latest/ci/clippy/record.json",
+      "exit_code": 0,
+      "sha256": "9434c946740267c8beb238f7353f78a35c12ce65290b27d21039767df622adb8"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-windows-latest/ci/probe/record.json",
+      "exit_code": 0,
+      "sha256": "4bb78b8ccb332876124243191e586ed36735578f3d3857b965c848112022ae20"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-e56db3e/conformance-windows-latest/ci/test/record.json",
+      "exit_code": 0,
+      "sha256": "ee15e45e908d088e47fcfb3933ced2c098a63fb4b1a0f7473f42a7d94509e934"
+    }
+  ],
+  "native_tests": [
+    {
+      "platform": "conformance-ubuntu-latest",
+      "passed": 108,
+      "nonzero_failed": false
+    },
+    {
+      "platform": "conformance-windows-latest",
+      "passed": 108,
+      "nonzero_failed": false
+    }
+  ],
+  "profiles_admitted": false
+}

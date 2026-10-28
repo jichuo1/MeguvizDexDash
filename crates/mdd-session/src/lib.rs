@@ -1,4 +1,6 @@
 //! Owned lifecycle registry. This crate does not execute queries or admit profiles.
+pub mod cancellation;
+
 use mdd_input::snapshot::Snapshot;
 use mdd_types::{DecimalU64, ErrorCode, MddError, MddResult, opaque_id};
 use serde::Serialize;
@@ -136,6 +138,7 @@ struct QueryEntry {
     reserved_threads: usize,
     buffered_bytes: u64,
     delivery_abandoned: bool,
+    execution_claimed: bool,
 }
 struct CursorEntry {
     token: Token,
@@ -522,6 +525,7 @@ impl Lifecycle {
                 reserved_threads: 0,
                 buffered_bytes: 0,
                 delivery_abandoned: false,
+                execution_claimed: false,
             },
         );
         Ok(QueryHandle(token))

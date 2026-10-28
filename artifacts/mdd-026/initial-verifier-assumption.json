@@ -1,0 +1,10 @@
+{
+  "record_kind": "conformance_implementation_failure",
+  "command": "python -O conformance/facts/verify.py",
+  "observed_exception": "RuntimeError: annotation_elements finite test Float64",
+  "cause": "The new verifier initially assumed Float64 JSON was always a finite number, despite the already frozen annotation contract explicitly allowing nonfinite spellings.",
+  "contract_evidence": "conformance/relations/annotation-and-signature.json: Float64 encoding policy",
+  "actual_native_observations": [1.0, "NaN", "Infinity", -0.0],
+  "resolution": "Verifier accepts finite numbers or declared Float64 NaN/Infinity/-Infinity spellings; independent full relation values remain equal. Production code and golden were not changed.",
+  "scope": "A verifier bug, not a parser defect or unsupported production input. Subsequent final receipt records the real rerun."
+}

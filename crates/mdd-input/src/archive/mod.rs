@@ -21,6 +21,13 @@ pub struct InventoryPolicy {
     pub require_dex: bool,
 }
 
+impl InventoryPolicy {
+    /// Reuse the inventory selector when admitting expansion before allocation.
+    pub fn selects(&self, raw_name: &[u8]) -> bool {
+        selected_name(raw_name, self.dex_selection)
+    }
+}
+
 impl Default for InventoryPolicy {
     fn default() -> Self {
         Self {

@@ -1,0 +1,16 @@
+{
+  "schema_version": "mdd.runtime-probe-record.v1",
+  "started_utc": "2026-10-28T15:34:07.453225+00:00",
+  "finished_utc": "2026-10-28T15:34:07.674862+00:00",
+  "seconds": 0.2180000000007567,
+  "command": [
+    "D:\\MeguvisDexDash\\conformance\\runtime\\target\\debug\\mdd-runtime-conformance.exe",
+    "--sqlite"
+  ],
+  "binary_sha256": "dd59fbd7c0471427baa714be204ff638a3a01c04696dbd9ab0d6be7ca9d50c8c",
+  "exit_code": 0,
+  "timed_out": false,
+  "measurement_scope": "bounded correctness conformance; no performance or private input",
+  "stdout_sha256": "b680a751bb348e984b2b1263aa868a7737f63d9921783116a6710a8ef68dd948",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
