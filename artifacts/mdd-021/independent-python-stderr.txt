@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "D:\MeguvisDexDash\tests\fixtures\definitions\check.py", line 137, in <module>
+    main()
+  File "D:\MeguvisDexDash\tests\fixtures\definitions\check.py", line 121, in main
+    actual = decode(data)
+             ^^^^^^^^^^^^
+  File "D:\MeguvisDexDash\tests\fixtures\definitions\check.py", line 92, in decode
+    require(index < len(refs), 'INDEX_OUT_OF_RANGE')
+  File "D:\MeguvisDexDash\tests\fixtures\definitions\check.py", line 17, in require
+    raise Invalid(reason)
+Invalid: INDEX_OUT_OF_RANGE

@@ -1,0 +1,1 @@
+{"valid": 20, "invalid": 5, "gates_active_with_optimized_python": true}

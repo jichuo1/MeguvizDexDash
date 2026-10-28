@@ -1,0 +1,89 @@
+{
+  "task": "MDD-012",
+  "qualification_scope": "ZIP32 plus single-disk ZIP64 STORE/DEFLATE with declared budgets; Windows x86_64 only in this record",
+  "state": "ready_for_root_review",
+  "source_files": [
+    {
+      "path": "crates/mdd-input/src/archive/central.rs",
+      "sha256": "bc26b26fcf7e47f929937e3fab68cfef86defba086c3aca49c86fbd40b10bf11"
+    },
+    {
+      "path": "crates/mdd-input/src/archive/mod.rs",
+      "sha256": "4ca81310476a92979b1d86fee7262a7074ec5e7a158ba24a16abf2ec6a958df7"
+    },
+    {
+      "path": "crates/mdd-input/src/archive/tests.rs",
+      "sha256": "566e027e596f60926155fa1dd049dd3c14cb310b235bd530d35f3915984995f0"
+    },
+    {
+      "path": "crates/mdd-input/src/archive/zip64.rs",
+      "sha256": "f51a671ead4c6c2d8a7f5fa754e314cf83deac466d2167a50ceb55f0d2fab9b0"
+    },
+    {
+      "path": "crates/mdd-input/src/archive/zip64_tests.rs",
+      "sha256": "af80e13c98936c75683c5acce1e04b2b0052a393b8ca4728a8d8084dde1007a5"
+    },
+    {
+      "path": "tests/fixtures/zip64/generate.py",
+      "sha256": "58abaf678148c322f3e7b29161492c8f902acab3d21b5098103742bcbbb09339"
+    },
+    {
+      "path": "tests/fixtures/zip64/check.py",
+      "sha256": "5e0a0bc4503780b009234e32d17c5bdd3a2a7e84426d087ad6ab336876fe77d1"
+    },
+    {
+      "path": "tests/fixtures/zip64/manifest.json",
+      "sha256": "7a1eaa706392d1375dcfb35295854ede58ef2124a0de68a9340b3df84f42fe0c"
+    },
+    {
+      "path": "conformance/input/archive-cases.json",
+      "sha256": "1bb73a89a4edc61e1df4365bf611e81c603c53c78d475ecbfedb2527b96279e4"
+    }
+  ],
+  "validation": {
+    "fixture_count": 52,
+    "positive": 26,
+    "negative": 26,
+    "independent_python": "artifacts/mdd-012/zip64/final/python-command.json",
+    "archive_tests": "artifacts/mdd-012/zip64/final/archive-tests-command.json",
+    "all_input_tests": "artifacts/mdd-012/zip64/final/input-all-tests-command.json",
+    "clippy": "artifacts/mdd-012/zip64/final/clippy-command.json",
+    "actual_count_boundaries": [
+      65535,
+      65536
+    ],
+    "four_gigabyte_data_allocated": false,
+    "virtual_tail_tests": "u64 offset > u32 and u64 length overflow only, not a huge valid input qualification",
+    "all_input_unit_tests_passed": 13,
+    "archive_unit_tests_passed": 11
+  },
+  "zip32_regression": {
+    "observed_root_cause": "293 NewPipe local headers use trailing1-3 all-zero alignment bytes, previously misread as truncated TLV",
+    "diagnostic": "artifacts/mdd-012/zip64/zip32-regression/local-extra-observations.json",
+    "recovered_public_inventory": "artifacts/mdd-012/zip64/zip32-regression/public-inventory-stdout.txt",
+    "expected_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+    "members": 1351,
+    "selected_dexes": 2,
+    "selected_crc_fully_consumed": true,
+    "permanent_padding_regressions": "plain32-local-padding-1/2/3 and plain32-local-nonzero-truncated-extra"
+  },
+  "policies": {
+    "physical_multiplicity": "no raw-name dedup; original central ordinal retained; zip8.6 single-entry view over original data prefix",
+    "zip64_tail": "u64 EOCD64+locator generated when needed, no u32 truncation",
+    "quotas": "count/metadata/uncompressed per member+total checked before materialization; sum overflow QUOTA_EXCEEDED",
+    "invalid_metadata": "INVALID_INPUT, never reclassified as unsupported",
+    "unsupported": [
+      "multi-volume",
+      "encryption",
+      "other codecs"
+    ],
+    "snapshot_magic": "PK0606 empty ZIP64 source capture handled by root in shared snapshot module"
+  },
+  "limits": [
+    "No full4GB data trial",
+    "Linux final source nativeCI remains root responsibility",
+    "Resource bytes validated lazily per read; selectedDEX bytes fully CRC checked",
+    "No DEX facts/HostLab/performance qualification implied"
+  ],
+  "experience": "artifacts/mdd-012/zip64/experience.md"
+}

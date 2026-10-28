@@ -1,0 +1,12 @@
+{
+  "code_item_byte_offset": 1431188,
+  "registers": 2,
+  "ins": 1,
+  "outs": 0,
+  "tries": 0,
+  "debug_offset": 6178493,
+  "insns_code_units": 3,
+  "raw_insns_hex": "5410da001100",
+  "debug_preview_hex": "01000e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e",
+  "scope": "independent struct extraction only; not debug validity assertion"
+}

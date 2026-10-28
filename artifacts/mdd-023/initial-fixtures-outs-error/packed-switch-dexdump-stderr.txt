@@ -1,0 +1,1 @@
+10-28 16:55:16.683 36912  1064 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\MeguvisDexDash\artifacts\mdd-023\initial-fixtures-outs-error\packed-switch.dex': outs_size (8d) > registers_size (1d)

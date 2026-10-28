@@ -1,0 +1,597 @@
+{
+  "schema_version": "mdd.annotation-sdk-matrix.v1",
+  "sdk_sha256": "f870af85191214f8f59d78e6a27748f00e724bbcce362115347014419969bcce",
+  "sdk_bytes": 1191576,
+  "records": [
+    {
+      "fixture": "tests/fixtures/annotations/generated/annotations-038.dex",
+      "fixture_sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : d75b0cf1\nsignature           : 1e16...725d\nfile_size           : 1452\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1024\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-visibility.dex",
+      "fixture_sha256": "d9effa82f83c695ad33712f5c8af7c79de2ef315c5e070c2702d78d743ca6813",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-visibility.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-visibility.dex'...\n",
+      "stderr": "10-28 19:03:09.107 55660 49348 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-visibility.dex': Bad annotation visibility: 3\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-annotation-type.dex",
+      "fixture_sha256": "0d2150bc7d9aa2a65ba15e44461a18c51a3b3e5196583f461a3b859efb4a3566",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-annotation-type.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-annotation-type.dex'...\n",
+      "stderr": "10-28 19:03:09.160 56052 41928 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-annotation-type.dex': Bad index for encoded_annotation type_idx: 7f >= 9\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-class-owner.dex",
+      "fixture_sha256": "f26f2201d09107b9d42b5626be92dfa6f1ae1571911ae593a54014808905b601",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-class-owner.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-class-owner.dex'...\n",
+      "stderr": "10-28 19:03:09.174 43752 54652 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-class-owner.dex': Out-of-order field_idx for annotation: 2 then 1\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-parameter-count.dex",
+      "fixture_sha256": "19b0576495255e34828c35a813836c27be30bdcb5bb69816ff4567e2f3ba85f6",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-count.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-count.dex'...\n",
+      "stderr": "10-28 19:03:09.191 54068 56872 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-count.dex': Section overlap or out-of-order map: 4b4, 4b0\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-parameter-arity.dex",
+      "fixture_sha256": "dac87eb4842227104f1a7b3f215eb1fdc452422273c54020de89e88939ceea4f",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-arity.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-arity.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-arity.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 459c0bf0\nsignature           : 660d...223f\nfile_size           : 1452\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1024\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-value-tag.dex",
+      "fixture_sha256": "8150b2c7574b0197a84fe33ad49034909ecb03424cb0bc82fb95689bb31a5a31",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-value-tag.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-value-tag.dex'...\n",
+      "stderr": "10-28 19:03:09.233 59388 56428 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-value-tag.dex': Bogus encoded_value value_type 1\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-value-width.dex",
+      "fixture_sha256": "4107157ce5d1a6244731d9df28c8b7c8e1b5713a5d32cb5fbe33d148bb1901c9",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-value-width.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-value-width.dex'...\n",
+      "stderr": "10-28 19:03:09.246 54504 43156 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-value-width.dex': Bad encoded_value byte size 1\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-boolean-arg.dex",
+      "fixture_sha256": "2180633b81ddd5ceca55027b834a209804f2f05cb922c818b47dcb35f5769bd5",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-boolean-arg.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-boolean-arg.dex'...\n",
+      "stderr": "10-28 19:03:09.260  8300 48736 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-boolean-arg.dex': Bad encoded_value boolean size 2\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-string-index.dex",
+      "fixture_sha256": "99b52e4d7de2655419dc3c7db73baafc5ba24bcc2832f0a8d2b2ffc2d04720c5",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-string-index.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-string-index.dex'...\n",
+      "stderr": "10-28 19:03:09.275 26316  2416 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-string-index.dex': Bad index for encoded_value string: ff >= 31\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-element-order.dex",
+      "fixture_sha256": "a0a5c31d5a0806e1febfd125fa285a8723c976e5c2c526d0f73a06d7c4cd97cf",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-element-order.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-element-order.dex'...\n",
+      "stderr": "10-28 19:03:09.348 54852 32016 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-element-order.dex': Out-of-order annotation_element name_idx: 12 then 12\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-field-entry-order.dex",
+      "fixture_sha256": "81de4456c0595da4e07c53edfa4e3a8b07eeebf8b4482dc747a725bd64a001ff",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-field-entry-order.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-field-entry-order.dex'...\n",
+      "stderr": "10-28 19:03:09.363  5264 57676 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-field-entry-order.dex': Out-of-order field_idx for annotation: 0 then 0\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-orphan-annotation.dex",
+      "fixture_sha256": "3c9552e1a4c784d0f3466914239cd6ff9eaf018f1490eba0009142a3d46d1784",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-annotation.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-annotation.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-annotation.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : aabb0c92\nsignature           : 2e62...20e0\nfile_size           : 1456\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1028\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-orphan-annotation.dex",
+      "fixture_sha256": "1618c68e5649eeb84206246d94dd17fb08b683abe13f84bd5582fb708bab8b6a",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-annotation.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-annotation.dex'...\n",
+      "stderr": "10-28 19:03:09.392  1696 35116 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-annotation.dex': Bad annotation visibility: 3\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-orphan-arrays.dex",
+      "fixture_sha256": "9687ad9b7111f4c2bf9015f8fbf764ada03d4bdeb54c2c597cafcfbeae2302a8",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-arrays.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-arrays.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-arrays.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 42d50db8\nsignature           : 052e...5942\nfile_size           : 1468\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1040\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-orphan-array.dex",
+      "fixture_sha256": "19678531587ff9ca0404c5f01bf8ad1774f5bc55cba79bb1ecab43115b0cc966",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-array.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-array.dex'...\n",
+      "stderr": "10-28 19:03:09.440 30796 58132 E dexdump.exe: dexdump.cc:2037 Bad encoded_array value: Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-array.dex': Bad index for encoded_value string: ff >= 31\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-orphan-empty-set.dex",
+      "fixture_sha256": "5b45b0738170e25913fcfa5fae083894e3a2b1f1f7da23ce67eb5cdcb214882b",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-set.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-set.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-set.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 48010dd2\nsignature           : 67bc...801c\nfile_size           : 1456\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1028\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-shared-empty-set.dex",
+      "fixture_sha256": "36cfff5ba434f145ca2d0129288c057b370b7568805a1b58c9b067279b46ce73",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-shared-empty-set.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-shared-empty-set.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-shared-empty-set.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : f0680c23\nsignature           : 08e2...0d91\nfile_size           : 1456\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1028\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-orphan-set-interior.dex",
+      "fixture_sha256": "9ec05d84890d22fa570110608b2841558cf66d42254c7deccb83353430d6b3b0",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-set-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-set-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.480 20800 46756 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-set-interior.dex': No data map entry found @ 3e9; expected 2004\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-orphan-empty-ref-list.dex",
+      "fixture_sha256": "a32c1b4bc16628b8d873564fddd2261fa3944263407add7f2f6ed0a28d0e0b45",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-ref-list.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-ref-list.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-ref-list.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 72bb0c90\nsignature           : e199...dc61\nfile_size           : 1456\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1028\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-orphan-ref-interior.dex",
+      "fixture_sha256": "924367ce84461835526a99b8b616770b7379360e397a0a1f30dbbb818dde096d",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-ref-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-ref-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.511 39560 53640 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-ref-interior.dex': No data map entry found @ 490; expected 1003\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-orphan-empty-directory.dex",
+      "fixture_sha256": "b223877b24aae0bf8ff30170d3ca1659b244502b0f2cdeba1e0e88fb446d10f6",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-directory.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-directory.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-empty-directory.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 549a0ce8\nsignature           : dd3f...eb5e\nfile_size           : 1468\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1040\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-orphan-known-directory.dex",
+      "fixture_sha256": "a1fc24aa3a38a94eb5dce727b51d3b3cb90b6e91b10e367d6b87f16561f30871",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-known-directory.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-known-directory.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-known-directory.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : c3850a8a\nsignature           : 109e...1c90\nfile_size           : 1476\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1048\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-orphan-external-directory.dex",
+      "fixture_sha256": "0dcf5a9924487fa99670feee9008b291b96b8e6bab5a4e92502708d102ed4179",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-external-directory.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-external-directory.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-orphan-external-directory.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 2b660baa\nsignature           : b29a...8672\nfile_size           : 1476\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1048\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-orphan-directory-owner.dex",
+      "fixture_sha256": "7f0ecb46d25914abeea85896033745db2f3add4e41708fe0f3e622e4dc91c102",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-directory-owner.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-directory-owner.dex'...\n",
+      "stderr": "10-28 19:03:09.563 56972 47772 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-orphan-directory-owner.dex': Mismatched defining class for field_annotation\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-shared-empty-directory.dex",
+      "fixture_sha256": "ab0ab720a8b582577e0e083f7fafc598f77d6ec72e638e0cffb93d3868ee97b6",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-shared-empty-directory.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-shared-empty-directory.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-shared-empty-directory.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 05d80e74\nsignature           : 59fa...6965\nfile_size           : 1520\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 50\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 10\ntype_ids_off        : 312 (0x000138)\nproto_ids_size      : 1\nproto_ids_off       : 352 (0x000160)\nfield_ids_size      : 3\nfield_ids_off       : 364 (0x00016c)\nmethod_ids_size     : 2\nmethod_ids_off      : 388 (0x000184)\nclass_defs_size     : 2\nclass_defs_off      : 404 (0x000194)\ndata_size           : 1052\ndata_off            : 468 (0x0001d4)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nClass #1            -\n  Class descriptor  : 'Lfixture/B;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n  Instance fields   -\n  Direct methods    -\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-directory-interior.dex",
+      "fixture_sha256": "538ce1bf02d9cf3602bc0c0fe6b77edfeaf039b16b641b279f0848c1af400624",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-directory-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-directory-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.590 47928  5032 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-directory-interior.dex': No data map entry found @ 4b4; expected 2006\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-set-interior.dex",
+      "fixture_sha256": "e77bea8ef5927c3e2ce56e8b8cf21e642712ca3dbab09a9471188bb69ee8e62c",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-set-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-set-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.603 45628 51680 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-set-interior.dex': No data map entry found @ 490; expected 1003\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-annotation-interior.dex",
+      "fixture_sha256": "c68f5c6a8291c77934cdea3f171f30f25c9a27485c161283ddcf65ee6b23bbaa",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-annotation-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-annotation-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.615 57628 40308 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-annotation-interior.dex': No data map entry found @ 461; expected 2004\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-ref-list-interior.dex",
+      "fixture_sha256": "c0fd467c3cfd33a1b05d67b1329e8e3cc621b082fdab77da1fcf94599c5db9f4",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-ref-list-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-ref-list-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.629 54352 51212 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-ref-list-interior.dex': No data map entry found @ 4a8; expected 1002\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-ref-set-interior.dex",
+      "fixture_sha256": "4b32e823662b3c84c12fe79eefa078a7ed4e7fa3256c227751231caa87e1a6f8",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-ref-set-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-ref-set-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.641 44668 56020 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-ref-set-interior.dex': No data map entry found @ 4a0; expected 1003\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-static-array-interior.dex",
+      "fixture_sha256": "5d29774c8d87491f9d002ebb97c040867f4ae066ef54908b087c9e4fc37c58d1",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-static-array-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-static-array-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.653   552 55680 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-static-array-interior.dex': No data map entry found @ 3ea; expected 2005\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-static-empty-array.dex",
+      "fixture_sha256": "5f5893e0993050a07da07cd5ee5a6680a91def094c888fa8b94364d52ed18b76",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-static-empty-array.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-static-empty-array.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-static-empty-array.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 8ac70fcb\nsignature           : f3ef...4228\nfile_size           : 1468\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1040\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/valid-call-site-array.dex",
+      "fixture_sha256": "da059521bc1ba34421ab929ffbbebe0094d66df56f106a28268693be6465a663",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-call-site-array.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-call-site-array.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\valid-call-site-array.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 1553440e\nsignature           : bbbd...6ef4\nfile_size           : 1696\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 55\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 13\ntype_ids_off        : 332 (0x00014c)\nproto_ids_size      : 2\nproto_ids_off       : 384 (0x000180)\nfield_ids_size      : 3\nfield_ids_off       : 408 (0x000198)\nmethod_ids_size     : 3\nmethod_ids_off      : 432 (0x0001b0)\nclass_defs_size     : 1\nclass_defs_off      : 456 (0x0001c8)\ndata_size           : 1208\ndata_off            : 488 (0x0001e8)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/Bootstrap; bootstrap\n  target_type : (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;\nCall site #0: // offset 1210\n  link_argument[0] : 0 (MethodHandle)\n  link_argument[1] : m (String)\n  link_argument[2] : (Ljava/util/List;I)Ljava/util/List; (MethodType)\n",
+      "stderr": "",
+      "expected_valid": true,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-call-site-array-interior.dex",
+      "fixture_sha256": "4f4ee7dab4bcb08c3ca036076f1a1957bc5b3439c8f215c4346300b12acc88bf",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-array-interior.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-array-interior.dex'...\n",
+      "stderr": "10-28 19:03:09.694 53088 26904 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-array-interior.dex': No data map entry found @ 4bb; expected 2005\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-call-site-arity.dex",
+      "fixture_sha256": "ea701b54a52a85615a6c87e4b8e9865696751746d73c8bc212a1fe03e541cb53",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-arity.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-arity.dex'...\n",
+      "stderr": "10-28 19:03:09.709 56420 50044 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-arity.dex': CallSiteArray missing method type\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-call-site-handle-kind.dex",
+      "fixture_sha256": "4db2fffdd2d19b72f8f811a58e0c7fbd6d3190825612f1a1b293aa2deb8784bd",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-handle-kind.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-handle-kind.dex'...\n",
+      "stderr": "10-28 19:03:09.725 32348 55916 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-handle-kind.dex': CallSiteArray missing method handle\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-call-site-name-kind.dex",
+      "fixture_sha256": "29f972d2618bd32e861a8466c6086e7179126a0a278fb42be3137d6295fc5fe0",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-name-kind.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-name-kind.dex'...\n",
+      "stderr": "10-28 19:03:09.737 40784 35528 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-name-kind.dex': CallSiteArray missing target method name\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-call-site-type-kind.dex",
+      "fixture_sha256": "8f779e6f19634ecc27580508de7e9e90ed84097864e76123856f2aa36b262da7",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-type-kind.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-type-kind.dex'...\n",
+      "stderr": "10-28 19:03:09.750 46432 42520 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-type-kind.dex': CallSiteArray missing method type\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-call-site-handle-index.dex",
+      "fixture_sha256": "4deacb5457e76bedccb4db53b59244c7daa64a20f838fe77b61a7ac9e43eeaef",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-handle-index.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-handle-index.dex'...\n",
+      "stderr": "10-28 19:03:09.764 56284 58696 E dexdump.exe: dexdump.cc:2037 Bad encoded_array value: Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-handle-index.dex': Bad index for method_handle value: ff >= 1\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-call-site-name-index.dex",
+      "fixture_sha256": "0382340de0b34a8a1ee075823dd6dd901cef60d36cd95cb3e829ba36da85764a",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-name-index.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-name-index.dex'...\n",
+      "stderr": "10-28 19:03:09.776 46140 50636 E dexdump.exe: dexdump.cc:2037 Bad encoded_array value: Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-name-index.dex': Bad index for encoded_value string: ff >= 37\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    },
+    {
+      "fixture": "tests/fixtures/annotations/generated/bad-call-site-type-index.dex",
+      "fixture_sha256": "a80e77b6c457c3cdd119a7d22d1ae4ec214a58c3b47eb076dbf8f1226e3c1433",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-type-index.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-type-index.dex'...\n",
+      "stderr": "10-28 19:03:09.789 41924 58720 E dexdump.exe: dexdump.cc:2037 Bad encoded_array value: Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-call-site-type-index.dex': Bad index for method_type value: ff >= 2\n",
+      "expected_valid": false,
+      "matches_expectation": true
+    }
+  ],
+  "success": true,
+  "scope": "SDK37 format verifier on synthetic DEX only; independent of the Rust reader, not installation/runtime or a compatibility profile"
+}

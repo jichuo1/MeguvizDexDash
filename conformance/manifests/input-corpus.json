@@ -19,8 +19,8 @@
       "version_code": 9170100,
       "expected_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
       "expected_bytes": 243687778,
-      "status": "not_acquired",
-      "actual_sha256": null,
+      "status": "acquired_verified",
+      "actual_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
       "observed_directory": "D:\\Bilibili_Innocent_Lab\\runtime\\hostlab\\samples\\f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
       "observed_files": [
         {
@@ -29,7 +29,10 @@
         }
       ],
       "acquisition": "explicit authorized HostLab private sample intake; no token or private APK copied",
-      "historical_reference_path": "apks/tv.danmaku.bili/9170100/f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955/base.apk"
+      "historical_reference_path": "apks/tv.danmaku.bili/9170100/f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955/base.apk",
+      "actual_path": "D:\\Bilibili_Innocent_Lab\\Bilibili_Innocent_Lab\\哔哩哔哩_9.17.0(9170100).apk",
+      "actual_bytes": 243687778,
+      "acquisition_evidence": "artifacts/bootstrap/20261028/private-input-acquisition.json"
     },
     {
       "visibility": "restricted",
@@ -37,8 +40,8 @@
       "version_code": 9161100,
       "expected_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
       "expected_bytes": 226519215,
-      "status": "not_acquired",
-      "actual_sha256": null,
+      "status": "acquired_verified",
+      "actual_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
       "observed_directory": "D:\\Bilibili_Innocent_Lab\\runtime\\hostlab\\samples\\41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
       "observed_files": [
         {
@@ -47,7 +50,10 @@
         }
       ],
       "acquisition": "explicit authorized HostLab private sample intake; no token or private APK copied",
-      "historical_reference_path": "apks/tv.danmaku.bili/9161100/41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2/base.apk"
+      "historical_reference_path": "apks/tv.danmaku.bili/9161100/41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2/base.apk",
+      "actual_path": "D:\\Bilibili_Innocent_Lab\\Bilibili_Innocent_Lab\\哔哩哔哩-9.16.1(9161100).apk",
+      "actual_bytes": 226519215,
+      "acquisition_evidence": "artifacts/bootstrap/20261028/private-input-acquisition.json"
     }
   ],
   "scope": "Input identity registry only; historical hashes do not prove present bytes",

@@ -1,0 +1,91 @@
+{
+  "schema_version": "mdd.instruction-fixtures.v1",
+  "generator": "tests/fixtures/instructions/generate.py",
+  "opcode_vector_count": 224,
+  "format_count": 26,
+  "manual_expectation_count": 9,
+  "files": [
+    {
+      "path": "unreferenced-two-code.dex",
+      "sha256": "0e91b25b75fb54e843624258c0163f9a98eb1c05210d12b459f9bd41a22e71ef",
+      "bytes": 208,
+      "code_offsets": [
+        112,
+        132
+      ],
+      "debug_offset": 150,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "packed-switch.dex",
+      "sha256": "48340299e6aeb4f77900f677e4239748194bd465cf20fbc2a8f908ebb1ae24c4",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "sparse-switch.dex",
+      "sha256": "642284da56a1aad4e5126d31b5046d63ce40ff02f064a8f86eb05ea7f3045c3c",
+      "bytes": 196,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "fill-array.dex",
+      "sha256": "d0cb3d880b0914e5867f989cc302a9d325626f367e1b066737f0e2cb958869af",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "try-catch-all.dex",
+      "sha256": "7e40d63fe307174c2d28579b465b6856afa338ccb037e0609e39974236b5da14",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "all-debug-opcodes.dex",
+      "sha256": "e7850fee36471ba1e04de20a38d3777a6ce1034774348541e8c948467a1270e3",
+      "bytes": 208,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-reserved-opcode.dex",
+      "sha256": "7226c34b78bf7bea728f8cddd76c81146fe9e26bcebfd2ddcde1595980cc254f",
+      "bytes": 172,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-truncated-wide.dex",
+      "sha256": "5c0353d8ab76d7a393e4f0f0e57e81babf59dab52b4f70985be87538fab27b19",
+      "bytes": 172,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    }
+  ],
+  "oracle_note": "AOSP-derived full-coverage vectors are not independent of opcode metadata; literal expectations and explicit malformed cases supplement them."
+}

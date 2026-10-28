@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tests/fixtures/definitions/check.py"
+  ],
+  "exit_code": 0,
+  "oracle_source_sha256": "cc90dde575e243957c7408a7aa4037d82584659ec175297e47709cca8fe93114",
+  "fixture_manifest_sha256": "0bae26875268e1ef78acf4c6e52ef309fd5ddb6bd677a96a069de649d64389f4"
+}

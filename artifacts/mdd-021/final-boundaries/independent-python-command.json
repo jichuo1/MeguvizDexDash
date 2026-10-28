@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tests/fixtures/definitions/check.py"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "bade441c0c59080ceff082996e4296f75faab86acaf0775e67e2ef9a6d7d9dc4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

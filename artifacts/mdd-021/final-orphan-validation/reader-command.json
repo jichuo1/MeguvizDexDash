@@ -1,0 +1,17 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-dex",
+    "definitions::",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "e2f6969c39e31da7ed792d5a46ac1fd1da899df24901bbb4cd997c9eb67c8b57",
+  "stderr_sha256": "4f21c95004f573f43469a95e124502120f06379cde0ab6f14a6e41099f5661f7",
+  "fixture_manifest_sha256": "772f5c88fe017fedab62a12019c4a8394d4aa78f7731a2c286b9496113270b05"
+}

@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tests/fixtures/annotations/oracle.py"
+  ],
+  "exit_code": 0,
+  "stdout": "annotation oracle passed: 42 fixtures, 10 components, 44 flattened value rows, depth budget rejected\n",
+  "stderr": ""
+}

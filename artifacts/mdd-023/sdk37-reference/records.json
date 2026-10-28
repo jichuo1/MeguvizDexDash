@@ -1,0 +1,237 @@
+{
+  "schema_version": "mdd.sdk-code-reference.v1",
+  "record_kind": "observed_reference_validation_not_benchmark",
+  "binary_path": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+  "binary_sha256": "f870af85191214f8f59d78e6a27748f00e724bbcce362115347014419969bcce",
+  "records": [
+    {
+      "input": "unreferenced-two-code.dex",
+      "input_sha256": "0e91b25b75fb54e843624258c0163f9a98eb1c05210d12b459f9bd41a22e71ef",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\unreferenced-two-code.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "0e4dc58c06ac9b2abdd27896047d343cdfc96679c71cbb4fee72cbf3a13a1808",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "packed-switch.dex",
+      "input_sha256": "286e31622963372bcdbd3592ff9f10fb9808a676cc733fcd4cd97259240d7963",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\packed-switch.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "50230edb6bc881f387503b508d0807a7310a86d739e396682dba2017bfad5a3a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "sparse-switch.dex",
+      "input_sha256": "edf4ce6a30c1bcaf93685b3a23f10f3ee5f422236bb65be35f1b9f825d620771",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\sparse-switch.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "70edfd6c25101287017727ee5dc73034056271ea155d97c10e29ad10b89d88d6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "fill-array.dex",
+      "input_sha256": "211fcd52b84d7d31c395cac7e6b554bb6b9bf2dbab4e5e0e5963cad433b03b77",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\fill-array.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "aec54e86423a308fcfec3769c921e62e30a545b129d3047377fde641ad61d841",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "try-catch-all.dex",
+      "input_sha256": "7c6926ae613e5f44cdb96e861a4e7b31a1beb09795ee8bc824e0c95390b1b71f",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\try-catch-all.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "54f287ff21e9973e8faf33a2dd3335af0e9670710027bda1f0435e75782ca404",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "all-debug-opcodes.dex",
+      "input_sha256": "0e8d3f0b7308c59083c50ef98c19ad9134135be2b33933fb89405fc5f569acdd",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\all-debug-opcodes.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "56da18c1ee0507230a8816bfdd915d120aec9ea7de00863dea7d7fa2b59e4167",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "bad-reserved-opcode.dex",
+      "input_sha256": "8e0ad9963263cac271df746459af0812e212cf294bdce8ad4f9012afeb5e2743",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\bad-reserved-opcode.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "1de1e619cf7859dbeb5b07e3e53321062a3127153574bf7a1497a54bb4181adf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "invalid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "bad-truncated-wide.dex",
+      "input_sha256": "c5924ed58ac7edcbf1122107442d408a70cdbca69d107ff1c89771cf9549bfac",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\bad-truncated-wide.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "92e3a969ec16c4f57bcfd9f79b900b53f40c67b33bfe381ef7ad1e810d40adb2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "invalid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "debug-intermediate-state-7.dex",
+      "input_sha256": "3bb4149bc65165d07609568fcd87899fdeef13635d83798d56ade938ae608a9b",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\debug-intermediate-state-7.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "ec5f3808c3b59691a796e4abbfa6d2d604d7174df054785bff987c3dd9b38c15",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "debug-intermediate-state-8.dex",
+      "input_sha256": "2969c49b396d1e47697840a7b1de3640b0e47c083e0f040bd197d805e75d7e80",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\debug-intermediate-state-8.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "0d18c362e95eb1c690ab9014933a40dee66dd0bd9e1282b86a440fc7f4b09cc6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "debug-intermediate-state-9.dex",
+      "input_sha256": "55c5658ab7639c359a115e7504ff0a0e677a2ada19fae82a89f1268dbca2e60a",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\debug-intermediate-state-9.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "77451e8a4017239acc45e264b3108b063b7d5e20c1957d8e745b9b9ad89e9c0a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "try-end-inside-instruction.dex",
+      "input_sha256": "aeac62fc5b9f44cc56989b36b3daac642d0355ce40f7a55f09bddddb17176d0f",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\try-end-inside-instruction.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "0e88e037c5e7d34344c67bfa6c54b8aeb2178ab7ba04d1c9ec1be3a5d4bf0e3a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "valid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "bad-debug-initial-zero.dex",
+      "input_sha256": "9faaebe50f13b61d8541aa531e21a62b3deaf3b5fd13f065e9ce93df10b51ba5",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\bad-debug-initial-zero.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "44094ff5699a39de11981ae0e5389e388192bf781ace441acdcc5a2a045ba6ea",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "invalid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "bad-debug-advance-zero.dex",
+      "input_sha256": "3fa77f5e8974a491bd4ff2b26c0a38bf829f62fe158ebeb02cccca365c4197c5",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\bad-debug-advance-zero.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "b34038f8535f311f7bf6c26559ef051a6faa20f74aad66753cf5479971b65b58",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "invalid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "bad-debug-special-negative.dex",
+      "input_sha256": "3a8874990e673a925a4c9fdea4dab4b92429bdf46a668826c257eaf2ac80a7c8",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\bad-debug-special-negative.dex"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "95decf3fb3d7e4dcca4386058aa7c67b08e9104591017bb93b1b53325ff81cc6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_native_scope": "invalid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    },
+    {
+      "input": "bad-debug-missing-end.dex",
+      "input_sha256": "a685e105b9822493ca95992a5f21c79c551820a8fc7c2a1d10ba9f9059777d82",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\instructions\\generated\\bad-debug-missing-end.dex"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "129b048b12502b93c8c6f1d60b740dcabc881bcad30a6536bf83fbe96e53f808",
+      "stderr_sha256": "5382cc6281cbd60510490ad3b4dabab3c937321269efbe568502c7345d4677c8",
+      "expected_native_scope": "invalid",
+      "observation_scope": "SDK header/map/code-item verifier over orphan-code synthetic input; no class method invokes disassembly, no complete instruction oracle claim"
+    }
+  ],
+  "limits": [
+    "Unreferenced code items are not rendered through method disassembly; exit0 does not independently prove opcode/target semantics",
+    "SDK acceptance of malformed debug line state cannot override the explicit positive-line DEX-spec contract",
+    "AOSP ancestry is shared with the normative opcode table, not with the handwritten Rust reader"
+  ]
+}

@@ -1,0 +1,1060 @@
+{
+  "scope": "finite definition metadata fields only; no full SQL, opcode, HostLab, ordering or performance qualification",
+  "reference_binary_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "fixture_sha256": "4e8f9e8deedf44c8793e10d99f2614e0bed705dcac617c0d74137e7b2bd459cc",
+  "comparisons": [
+    {
+      "relation": "classes",
+      "columns": [
+        "file_id",
+        "class_def_idx",
+        "class_idx",
+        "descriptor",
+        "access_flags",
+        "superclass_descriptor",
+        "interface_count",
+        "source_file"
+      ],
+      "expected_rows": 4,
+      "observed_rows": 4,
+      "equal_multiset": true,
+      "command": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "--threads",
+        "1",
+        "query",
+        "--input",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+        "--sql",
+        "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"class_def_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_def_idx\" AS TEXT)) END AS \"class_def_idx\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"descriptor\" AS TEXT)) END AS \"descriptor\",CASE WHEN \"access_flags\" IS NULL THEN 'N' ELSE hex(CAST(\"access_flags\" AS TEXT)) END AS \"access_flags\",CASE WHEN \"superclass_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"superclass_descriptor\" AS TEXT)) END AS \"superclass_descriptor\",CASE WHEN \"interface_count\" IS NULL THEN 'N' ELSE hex(CAST(\"interface_count\" AS TEXT)) END AS \"interface_count\",CASE WHEN \"source_file\" IS NULL THEN 'N' ELSE hex(CAST(\"source_file\" AS TEXT)) END AS \"source_file\" FROM classes ORDER BY file_id"
+      ],
+      "exit_code": 0,
+      "expected": [
+        {
+          "file_id": 0,
+          "class_def_idx": 0,
+          "class_idx": 4,
+          "descriptor": "Lfixture/I0;",
+          "access_flags": 1537,
+          "superclass_descriptor": "Ljava/lang/Object;",
+          "interface_count": 0,
+          "source_file": "I0.java"
+        },
+        {
+          "file_id": 0,
+          "class_def_idx": 1,
+          "class_idx": 5,
+          "descriptor": "Lfixture/I1;",
+          "access_flags": 1537,
+          "superclass_descriptor": "Ljava/lang/Object;",
+          "interface_count": 1,
+          "source_file": "I1.java"
+        },
+        {
+          "file_id": 0,
+          "class_def_idx": 2,
+          "class_idx": 1,
+          "descriptor": "Lfixture/Base;",
+          "access_flags": 1025,
+          "superclass_descriptor": "Ljava/lang/Object;",
+          "interface_count": 1,
+          "source_file": "Base.java"
+        },
+        {
+          "file_id": 0,
+          "class_def_idx": 3,
+          "class_idx": 2,
+          "descriptor": "Lfixture/Child;",
+          "access_flags": 1025,
+          "superclass_descriptor": "Lfixture/Base;",
+          "interface_count": 0,
+          "source_file": "Child.java"
+        }
+      ],
+      "observed": [
+        {
+          "file_id": "0",
+          "class_def_idx": "0",
+          "class_idx": "4",
+          "descriptor": "Lfixture/I0;",
+          "access_flags": "1537",
+          "superclass_descriptor": "Ljava/lang/Object;",
+          "interface_count": "0",
+          "source_file": "I0.java"
+        },
+        {
+          "file_id": "0",
+          "class_def_idx": "1",
+          "class_idx": "5",
+          "descriptor": "Lfixture/I1;",
+          "access_flags": "1537",
+          "superclass_descriptor": "Ljava/lang/Object;",
+          "interface_count": "1",
+          "source_file": "I1.java"
+        },
+        {
+          "file_id": "0",
+          "class_def_idx": "2",
+          "class_idx": "1",
+          "descriptor": "Lfixture/Base;",
+          "access_flags": "1025",
+          "superclass_descriptor": "Ljava/lang/Object;",
+          "interface_count": "1",
+          "source_file": "Base.java"
+        },
+        {
+          "file_id": "0",
+          "class_def_idx": "3",
+          "class_idx": "2",
+          "descriptor": "Lfixture/Child;",
+          "access_flags": "1025",
+          "superclass_descriptor": "Lfixture/Base;",
+          "interface_count": "0",
+          "source_file": "Child.java"
+        }
+      ]
+    },
+    {
+      "relation": "class_interfaces",
+      "columns": [
+        "class_idx",
+        "ordinal",
+        "interface_type_idx",
+        "interface_descriptor",
+        "file_id"
+      ],
+      "expected_rows": 2,
+      "observed_rows": 2,
+      "equal_multiset": true,
+      "command": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "--threads",
+        "1",
+        "query",
+        "--input",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+        "--sql",
+        "SELECT CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"ordinal\" IS NULL THEN 'N' ELSE hex(CAST(\"ordinal\" AS TEXT)) END AS \"ordinal\",CASE WHEN \"interface_type_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"interface_type_idx\" AS TEXT)) END AS \"interface_type_idx\",CASE WHEN \"interface_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"interface_descriptor\" AS TEXT)) END AS \"interface_descriptor\",CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\" FROM class_interfaces ORDER BY file_id"
+      ],
+      "exit_code": 0,
+      "expected": [
+        {
+          "class_idx": 5,
+          "ordinal": 0,
+          "interface_type_idx": 4,
+          "interface_descriptor": "Lfixture/I0;",
+          "file_id": 0
+        },
+        {
+          "class_idx": 1,
+          "ordinal": 0,
+          "interface_type_idx": 5,
+          "interface_descriptor": "Lfixture/I1;",
+          "file_id": 0
+        }
+      ],
+      "observed": [
+        {
+          "class_idx": "5",
+          "ordinal": "0",
+          "interface_type_idx": "4",
+          "interface_descriptor": "Lfixture/I0;",
+          "file_id": "0"
+        },
+        {
+          "class_idx": "1",
+          "ordinal": "0",
+          "interface_type_idx": "5",
+          "interface_descriptor": "Lfixture/I1;",
+          "file_id": "0"
+        }
+      ]
+    },
+    {
+      "relation": "class_fields",
+      "columns": [
+        "file_id",
+        "class_idx",
+        "class_descriptor",
+        "field_idx",
+        "field_name",
+        "field_descriptor",
+        "kind",
+        "access_flags"
+      ],
+      "expected_rows": 5,
+      "observed_rows": 5,
+      "equal_multiset": true,
+      "command": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "--threads",
+        "1",
+        "query",
+        "--input",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+        "--sql",
+        "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"class_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"class_descriptor\" AS TEXT)) END AS \"class_descriptor\",CASE WHEN \"field_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"field_idx\" AS TEXT)) END AS \"field_idx\",CASE WHEN \"field_name\" IS NULL THEN 'N' ELSE hex(CAST(\"field_name\" AS TEXT)) END AS \"field_name\",CASE WHEN \"field_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"field_descriptor\" AS TEXT)) END AS \"field_descriptor\",CASE WHEN \"kind\" IS NULL THEN 'N' ELSE hex(CAST(\"kind\" AS TEXT)) END AS \"kind\",CASE WHEN \"access_flags\" IS NULL THEN 'N' ELSE hex(CAST(\"access_flags\" AS TEXT)) END AS \"access_flags\" FROM class_fields ORDER BY file_id"
+      ],
+      "exit_code": 0,
+      "expected": [
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "field_idx": 2,
+          "field_name": "sValue",
+          "field_descriptor": "Lfixture/Base;->sValue:I",
+          "kind": "static",
+          "access_flags": 9
+        },
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "field_idx": 3,
+          "field_name": "zStatic",
+          "field_descriptor": "Lfixture/Base;->zStatic:I",
+          "kind": "static",
+          "access_flags": 9
+        },
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "field_idx": 0,
+          "field_name": "iValue",
+          "field_descriptor": "Lfixture/Base;->iValue:I",
+          "kind": "instance",
+          "access_flags": 1
+        },
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "field_idx": 1,
+          "field_name": "mValue",
+          "field_descriptor": "Lfixture/Base;->mValue:I",
+          "kind": "instance",
+          "access_flags": 1
+        },
+        {
+          "file_id": 0,
+          "class_idx": 2,
+          "class_descriptor": "Lfixture/Child;",
+          "field_idx": 4,
+          "field_name": "childRef",
+          "field_descriptor": "Lfixture/Child;->childRef:Lfixture/Base;",
+          "kind": "instance",
+          "access_flags": 1
+        }
+      ],
+      "observed": [
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "field_idx": "2",
+          "field_name": "sValue",
+          "field_descriptor": "Lfixture/Base;->sValue:I",
+          "kind": "static",
+          "access_flags": "9"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "field_idx": "3",
+          "field_name": "zStatic",
+          "field_descriptor": "Lfixture/Base;->zStatic:I",
+          "kind": "static",
+          "access_flags": "9"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "field_idx": "0",
+          "field_name": "iValue",
+          "field_descriptor": "Lfixture/Base;->iValue:I",
+          "kind": "instance",
+          "access_flags": "1"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "field_idx": "1",
+          "field_name": "mValue",
+          "field_descriptor": "Lfixture/Base;->mValue:I",
+          "kind": "instance",
+          "access_flags": "1"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "2",
+          "class_descriptor": "Lfixture/Child;",
+          "field_idx": "4",
+          "field_name": "childRef",
+          "field_descriptor": "Lfixture/Child;->childRef:Lfixture/Base;",
+          "kind": "instance",
+          "access_flags": "1"
+        }
+      ]
+    },
+    {
+      "relation": "class_methods",
+      "columns": [
+        "file_id",
+        "class_idx",
+        "class_descriptor",
+        "method_idx",
+        "method_name",
+        "method_descriptor",
+        "kind",
+        "access_flags"
+      ],
+      "expected_rows": 10,
+      "observed_rows": 10,
+      "equal_multiset": true,
+      "command": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "--threads",
+        "1",
+        "query",
+        "--input",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+        "--sql",
+        "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"class_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"class_descriptor\" AS TEXT)) END AS \"class_descriptor\",CASE WHEN \"method_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"method_idx\" AS TEXT)) END AS \"method_idx\",CASE WHEN \"method_name\" IS NULL THEN 'N' ELSE hex(CAST(\"method_name\" AS TEXT)) END AS \"method_name\",CASE WHEN \"method_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"method_descriptor\" AS TEXT)) END AS \"method_descriptor\",CASE WHEN \"kind\" IS NULL THEN 'N' ELSE hex(CAST(\"kind\" AS TEXT)) END AS \"kind\",CASE WHEN \"access_flags\" IS NULL THEN 'N' ELSE hex(CAST(\"access_flags\" AS TEXT)) END AS \"access_flags\" FROM class_methods ORDER BY file_id"
+      ],
+      "exit_code": 0,
+      "expected": [
+        {
+          "file_id": 0,
+          "class_idx": 4,
+          "class_descriptor": "Lfixture/I0;",
+          "method_idx": 9,
+          "method_name": "iMethod",
+          "method_descriptor": "Lfixture/I0;->iMethod()V",
+          "kind": "virtual",
+          "access_flags": 1025
+        },
+        {
+          "file_id": 0,
+          "class_idx": 5,
+          "class_descriptor": "Lfixture/I1;",
+          "method_idx": 10,
+          "method_name": "jMethod",
+          "method_descriptor": "Lfixture/I1;->jMethod()V",
+          "kind": "virtual",
+          "access_flags": 1025
+        },
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": 0,
+          "method_name": "<init>",
+          "method_descriptor": "Lfixture/Base;-><init>()V",
+          "kind": "direct",
+          "access_flags": 65537
+        },
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": 1,
+          "method_name": "nativeCall",
+          "method_descriptor": "Lfixture/Base;->nativeCall()V",
+          "kind": "direct",
+          "access_flags": 265
+        },
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": 2,
+          "method_name": "privateCall",
+          "method_descriptor": "Lfixture/Base;->privateCall()V",
+          "kind": "direct",
+          "access_flags": 2
+        },
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": 3,
+          "method_name": "staticCall",
+          "method_descriptor": "Lfixture/Base;->staticCall(I)I",
+          "kind": "direct",
+          "access_flags": 9
+        },
+        {
+          "file_id": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": 4,
+          "method_name": "virtualCall",
+          "method_descriptor": "Lfixture/Base;->virtualCall()V",
+          "kind": "virtual",
+          "access_flags": 1
+        },
+        {
+          "file_id": 0,
+          "class_idx": 2,
+          "class_descriptor": "Lfixture/Child;",
+          "method_idx": 5,
+          "method_name": "<init>",
+          "method_descriptor": "Lfixture/Child;-><init>()V",
+          "kind": "direct",
+          "access_flags": 65537
+        },
+        {
+          "file_id": 0,
+          "class_idx": 2,
+          "class_descriptor": "Lfixture/Child;",
+          "method_idx": 6,
+          "method_name": "abstractCall",
+          "method_descriptor": "Lfixture/Child;->abstractCall()V",
+          "kind": "virtual",
+          "access_flags": 1025
+        },
+        {
+          "file_id": 0,
+          "class_idx": 2,
+          "class_descriptor": "Lfixture/Child;",
+          "method_idx": 7,
+          "method_name": "overrideCall",
+          "method_descriptor": "Lfixture/Child;->overrideCall(I)I",
+          "kind": "virtual",
+          "access_flags": 1
+        }
+      ],
+      "observed": [
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": "0",
+          "method_name": "<init>",
+          "method_descriptor": "Lfixture/Base;-><init>()V",
+          "kind": "direct",
+          "access_flags": "65537"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": "1",
+          "method_name": "nativeCall",
+          "method_descriptor": "Lfixture/Base;->nativeCall()V",
+          "kind": "direct",
+          "access_flags": "265"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": "2",
+          "method_name": "privateCall",
+          "method_descriptor": "Lfixture/Base;->privateCall()V",
+          "kind": "direct",
+          "access_flags": "2"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": "3",
+          "method_name": "staticCall",
+          "method_descriptor": "Lfixture/Base;->staticCall(I)I",
+          "kind": "direct",
+          "access_flags": "9"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "method_idx": "4",
+          "method_name": "virtualCall",
+          "method_descriptor": "Lfixture/Base;->virtualCall()V",
+          "kind": "virtual",
+          "access_flags": "1"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "2",
+          "class_descriptor": "Lfixture/Child;",
+          "method_idx": "5",
+          "method_name": "<init>",
+          "method_descriptor": "Lfixture/Child;-><init>()V",
+          "kind": "direct",
+          "access_flags": "65537"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "2",
+          "class_descriptor": "Lfixture/Child;",
+          "method_idx": "6",
+          "method_name": "abstractCall",
+          "method_descriptor": "Lfixture/Child;->abstractCall()V",
+          "kind": "virtual",
+          "access_flags": "1025"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "2",
+          "class_descriptor": "Lfixture/Child;",
+          "method_idx": "7",
+          "method_name": "overrideCall",
+          "method_descriptor": "Lfixture/Child;->overrideCall(I)I",
+          "kind": "virtual",
+          "access_flags": "1"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "4",
+          "class_descriptor": "Lfixture/I0;",
+          "method_idx": "9",
+          "method_name": "iMethod",
+          "method_descriptor": "Lfixture/I0;->iMethod()V",
+          "kind": "virtual",
+          "access_flags": "1025"
+        },
+        {
+          "file_id": "0",
+          "class_idx": "5",
+          "class_descriptor": "Lfixture/I1;",
+          "method_idx": "10",
+          "method_name": "jMethod",
+          "method_descriptor": "Lfixture/I1;->jMethod()V",
+          "kind": "virtual",
+          "access_flags": "1025"
+        }
+      ]
+    },
+    {
+      "relation": "fields",
+      "columns": [
+        "file_id",
+        "field_idx",
+        "class_idx",
+        "class_descriptor",
+        "type_idx",
+        "type_descriptor",
+        "name",
+        "descriptor"
+      ],
+      "expected_rows": 6,
+      "observed_rows": 6,
+      "equal_multiset": true,
+      "command": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "--threads",
+        "1",
+        "query",
+        "--input",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+        "--sql",
+        "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"field_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"field_idx\" AS TEXT)) END AS \"field_idx\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"class_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"class_descriptor\" AS TEXT)) END AS \"class_descriptor\",CASE WHEN \"type_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"type_idx\" AS TEXT)) END AS \"type_idx\",CASE WHEN \"type_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"type_descriptor\" AS TEXT)) END AS \"type_descriptor\",CASE WHEN \"name\" IS NULL THEN 'N' ELSE hex(CAST(\"name\" AS TEXT)) END AS \"name\",CASE WHEN \"descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"descriptor\" AS TEXT)) END AS \"descriptor\" FROM fields ORDER BY file_id"
+      ],
+      "exit_code": 0,
+      "expected": [
+        {
+          "file_id": 0,
+          "field_idx": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "type_idx": 0,
+          "type_descriptor": "I",
+          "name": "iValue",
+          "descriptor": "Lfixture/Base;->iValue:I"
+        },
+        {
+          "file_id": 0,
+          "field_idx": 1,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "type_idx": 0,
+          "type_descriptor": "I",
+          "name": "mValue",
+          "descriptor": "Lfixture/Base;->mValue:I"
+        },
+        {
+          "file_id": 0,
+          "field_idx": 2,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "type_idx": 0,
+          "type_descriptor": "I",
+          "name": "sValue",
+          "descriptor": "Lfixture/Base;->sValue:I"
+        },
+        {
+          "file_id": 0,
+          "field_idx": 3,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "type_idx": 0,
+          "type_descriptor": "I",
+          "name": "zStatic",
+          "descriptor": "Lfixture/Base;->zStatic:I"
+        },
+        {
+          "file_id": 0,
+          "field_idx": 4,
+          "class_idx": 2,
+          "class_descriptor": "Lfixture/Child;",
+          "type_idx": 1,
+          "type_descriptor": "Lfixture/Base;",
+          "name": "childRef",
+          "descriptor": "Lfixture/Child;->childRef:Lfixture/Base;"
+        },
+        {
+          "file_id": 0,
+          "field_idx": 5,
+          "class_idx": 3,
+          "class_descriptor": "Lfixture/External;",
+          "type_idx": 0,
+          "type_descriptor": "I",
+          "name": "outside",
+          "descriptor": "Lfixture/External;->outside:I"
+        }
+      ],
+      "observed": [
+        {
+          "file_id": "0",
+          "field_idx": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "type_idx": "0",
+          "type_descriptor": "I",
+          "name": "iValue",
+          "descriptor": "Lfixture/Base;->iValue:I"
+        },
+        {
+          "file_id": "0",
+          "field_idx": "1",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "type_idx": "0",
+          "type_descriptor": "I",
+          "name": "mValue",
+          "descriptor": "Lfixture/Base;->mValue:I"
+        },
+        {
+          "file_id": "0",
+          "field_idx": "2",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "type_idx": "0",
+          "type_descriptor": "I",
+          "name": "sValue",
+          "descriptor": "Lfixture/Base;->sValue:I"
+        },
+        {
+          "file_id": "0",
+          "field_idx": "3",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "type_idx": "0",
+          "type_descriptor": "I",
+          "name": "zStatic",
+          "descriptor": "Lfixture/Base;->zStatic:I"
+        },
+        {
+          "file_id": "0",
+          "field_idx": "4",
+          "class_idx": "2",
+          "class_descriptor": "Lfixture/Child;",
+          "type_idx": "1",
+          "type_descriptor": "Lfixture/Base;",
+          "name": "childRef",
+          "descriptor": "Lfixture/Child;->childRef:Lfixture/Base;"
+        },
+        {
+          "file_id": "0",
+          "field_idx": "5",
+          "class_idx": "3",
+          "class_descriptor": "Lfixture/External;",
+          "type_idx": "0",
+          "type_descriptor": "I",
+          "name": "outside",
+          "descriptor": "Lfixture/External;->outside:I"
+        }
+      ]
+    },
+    {
+      "relation": "methods",
+      "columns": [
+        "file_id",
+        "method_idx",
+        "class_idx",
+        "class_descriptor",
+        "proto_idx",
+        "name",
+        "descriptor",
+        "return_descriptor",
+        "param_count",
+        "access_flags",
+        "method_kind"
+      ],
+      "expected_rows": 13,
+      "observed_rows": 13,
+      "equal_multiset": true,
+      "command": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "--threads",
+        "1",
+        "query",
+        "--input",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+        "--sql",
+        "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"method_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"method_idx\" AS TEXT)) END AS \"method_idx\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"class_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"class_descriptor\" AS TEXT)) END AS \"class_descriptor\",CASE WHEN \"proto_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"proto_idx\" AS TEXT)) END AS \"proto_idx\",CASE WHEN \"name\" IS NULL THEN 'N' ELSE hex(CAST(\"name\" AS TEXT)) END AS \"name\",CASE WHEN \"descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"descriptor\" AS TEXT)) END AS \"descriptor\",CASE WHEN \"return_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"return_descriptor\" AS TEXT)) END AS \"return_descriptor\",CASE WHEN \"param_count\" IS NULL THEN 'N' ELSE hex(CAST(\"param_count\" AS TEXT)) END AS \"param_count\",CASE WHEN \"access_flags\" IS NULL THEN 'N' ELSE hex(CAST(\"access_flags\" AS TEXT)) END AS \"access_flags\",CASE WHEN \"method_kind\" IS NULL THEN 'N' ELSE hex(CAST(\"method_kind\" AS TEXT)) END AS \"method_kind\" FROM methods ORDER BY file_id"
+      ],
+      "exit_code": 0,
+      "expected": [
+        {
+          "file_id": 0,
+          "method_idx": 0,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": 2,
+          "name": "<init>",
+          "descriptor": "Lfixture/Base;-><init>()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": 65537,
+          "method_kind": "direct"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 1,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": 2,
+          "name": "nativeCall",
+          "descriptor": "Lfixture/Base;->nativeCall()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": 265,
+          "method_kind": "direct"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 2,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": 2,
+          "name": "privateCall",
+          "descriptor": "Lfixture/Base;->privateCall()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": 2,
+          "method_kind": "direct"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 3,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": 0,
+          "name": "staticCall",
+          "descriptor": "Lfixture/Base;->staticCall(I)I",
+          "return_descriptor": "I",
+          "param_count": 1,
+          "access_flags": 9,
+          "method_kind": "direct"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 4,
+          "class_idx": 1,
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": 2,
+          "name": "virtualCall",
+          "descriptor": "Lfixture/Base;->virtualCall()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": 1,
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 5,
+          "class_idx": 2,
+          "class_descriptor": "Lfixture/Child;",
+          "proto_idx": 2,
+          "name": "<init>",
+          "descriptor": "Lfixture/Child;-><init>()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": 65537,
+          "method_kind": "direct"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 6,
+          "class_idx": 2,
+          "class_descriptor": "Lfixture/Child;",
+          "proto_idx": 2,
+          "name": "abstractCall",
+          "descriptor": "Lfixture/Child;->abstractCall()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": 1025,
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 7,
+          "class_idx": 2,
+          "class_descriptor": "Lfixture/Child;",
+          "proto_idx": 0,
+          "name": "overrideCall",
+          "descriptor": "Lfixture/Child;->overrideCall(I)I",
+          "return_descriptor": "I",
+          "param_count": 1,
+          "access_flags": 1,
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 8,
+          "class_idx": 3,
+          "class_descriptor": "Lfixture/External;",
+          "proto_idx": 0,
+          "name": "externalCall",
+          "descriptor": "Lfixture/External;->externalCall(I)I",
+          "return_descriptor": "I",
+          "param_count": 1,
+          "access_flags": null,
+          "method_kind": null
+        },
+        {
+          "file_id": 0,
+          "method_idx": 9,
+          "class_idx": 4,
+          "class_descriptor": "Lfixture/I0;",
+          "proto_idx": 2,
+          "name": "iMethod",
+          "descriptor": "Lfixture/I0;->iMethod()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": 1025,
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 10,
+          "class_idx": 5,
+          "class_descriptor": "Lfixture/I1;",
+          "proto_idx": 2,
+          "name": "jMethod",
+          "descriptor": "Lfixture/I1;->jMethod()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": 1025,
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": 0,
+          "method_idx": 11,
+          "class_idx": 6,
+          "class_descriptor": "Ljava/lang/Object;",
+          "proto_idx": 2,
+          "name": "<init>",
+          "descriptor": "Ljava/lang/Object;-><init>()V",
+          "return_descriptor": "V",
+          "param_count": 0,
+          "access_flags": null,
+          "method_kind": null
+        },
+        {
+          "file_id": 0,
+          "method_idx": 12,
+          "class_idx": 8,
+          "class_descriptor": "[Lfixture/Base;",
+          "proto_idx": 1,
+          "name": "clone",
+          "descriptor": "[Lfixture/Base;->clone()Ljava/lang/Object;",
+          "return_descriptor": "Ljava/lang/Object;",
+          "param_count": 0,
+          "access_flags": null,
+          "method_kind": null
+        }
+      ],
+      "observed": [
+        {
+          "file_id": "0",
+          "method_idx": "0",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": "2",
+          "name": "<init>",
+          "descriptor": "Lfixture/Base;-><init>()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": "65537",
+          "method_kind": "direct"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "1",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": "2",
+          "name": "nativeCall",
+          "descriptor": "Lfixture/Base;->nativeCall()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": "265",
+          "method_kind": "direct"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "2",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": "2",
+          "name": "privateCall",
+          "descriptor": "Lfixture/Base;->privateCall()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": "2",
+          "method_kind": "direct"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "3",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": "0",
+          "name": "staticCall",
+          "descriptor": "Lfixture/Base;->staticCall(I)I",
+          "return_descriptor": "I",
+          "param_count": "1",
+          "access_flags": "9",
+          "method_kind": "direct"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "4",
+          "class_idx": "1",
+          "class_descriptor": "Lfixture/Base;",
+          "proto_idx": "2",
+          "name": "virtualCall",
+          "descriptor": "Lfixture/Base;->virtualCall()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": "1",
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "5",
+          "class_idx": "2",
+          "class_descriptor": "Lfixture/Child;",
+          "proto_idx": "2",
+          "name": "<init>",
+          "descriptor": "Lfixture/Child;-><init>()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": "65537",
+          "method_kind": "direct"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "6",
+          "class_idx": "2",
+          "class_descriptor": "Lfixture/Child;",
+          "proto_idx": "2",
+          "name": "abstractCall",
+          "descriptor": "Lfixture/Child;->abstractCall()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": "1025",
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "7",
+          "class_idx": "2",
+          "class_descriptor": "Lfixture/Child;",
+          "proto_idx": "0",
+          "name": "overrideCall",
+          "descriptor": "Lfixture/Child;->overrideCall(I)I",
+          "return_descriptor": "I",
+          "param_count": "1",
+          "access_flags": "1",
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "8",
+          "class_idx": "3",
+          "class_descriptor": "Lfixture/External;",
+          "proto_idx": "0",
+          "name": "externalCall",
+          "descriptor": "Lfixture/External;->externalCall(I)I",
+          "return_descriptor": "I",
+          "param_count": "1",
+          "access_flags": null,
+          "method_kind": null
+        },
+        {
+          "file_id": "0",
+          "method_idx": "9",
+          "class_idx": "4",
+          "class_descriptor": "Lfixture/I0;",
+          "proto_idx": "2",
+          "name": "iMethod",
+          "descriptor": "Lfixture/I0;->iMethod()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": "1025",
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "10",
+          "class_idx": "5",
+          "class_descriptor": "Lfixture/I1;",
+          "proto_idx": "2",
+          "name": "jMethod",
+          "descriptor": "Lfixture/I1;->jMethod()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": "1025",
+          "method_kind": "virtual"
+        },
+        {
+          "file_id": "0",
+          "method_idx": "11",
+          "class_idx": "6",
+          "class_descriptor": "Ljava/lang/Object;",
+          "proto_idx": "2",
+          "name": "<init>",
+          "descriptor": "Ljava/lang/Object;-><init>()V",
+          "return_descriptor": "V",
+          "param_count": "0",
+          "access_flags": null,
+          "method_kind": null
+        },
+        {
+          "file_id": "0",
+          "method_idx": "12",
+          "class_idx": "8",
+          "class_descriptor": "[Lfixture/Base;",
+          "proto_idx": "1",
+          "name": "clone",
+          "descriptor": "[Lfixture/Base;->clone()Ljava/lang/Object;",
+          "return_descriptor": "Ljava/lang/Object;",
+          "param_count": "0",
+          "access_flags": null,
+          "method_kind": null
+        }
+      ]
+    }
+  ],
+  "complete": true
+}

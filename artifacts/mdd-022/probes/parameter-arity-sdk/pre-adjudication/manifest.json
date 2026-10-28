@@ -1,0 +1,100 @@
+{
+  "schema_version": "mdd.annotation-fixtures.v1",
+  "generator": "tests/fixtures/annotations/generate.py",
+  "format": "038 little endian",
+  "files": [
+    {
+      "path": "tests/fixtures/annotations/generated/annotations-038.dex",
+      "bytes": 1452,
+      "sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+      "expected": "valid_structural_annotation_fixture",
+      "reason": null
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-visibility.dex",
+      "bytes": 1452,
+      "sha256": "d9effa82f83c695ad33712f5c8af7c79de2ef315c5e070c2702d78d743ca6813",
+      "expected": "invalid_annotation_fixture",
+      "reason": "invalid_visibility"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-annotation-type.dex",
+      "bytes": 1452,
+      "sha256": "0d2150bc7d9aa2a65ba15e44461a18c51a3b3e5196583f461a3b859efb4a3566",
+      "expected": "invalid_annotation_fixture",
+      "reason": "annotation_type_out_of_range"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-class-owner.dex",
+      "bytes": 1452,
+      "sha256": "f26f2201d09107b9d42b5626be92dfa6f1ae1571911ae593a54014808905b601",
+      "expected": "invalid_annotation_fixture",
+      "reason": "field_owner_mismatch"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-parameter-count.dex",
+      "bytes": 1452,
+      "sha256": "19b0576495255e34828c35a813836c27be30bdcb5bb69816ff4567e2f3ba85f6",
+      "expected": "invalid_annotation_fixture",
+      "reason": "parameter_ref_bounds"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-parameter-arity.dex",
+      "bytes": 1452,
+      "sha256": "dac87eb4842227104f1a7b3f215eb1fdc452422273c54020de89e88939ceea4f",
+      "expected": "invalid_annotation_fixture",
+      "reason": "parameter_count_mismatch"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-value-tag.dex",
+      "bytes": 1452,
+      "sha256": "8150b2c7574b0197a84fe33ad49034909ecb03424cb0bc82fb95689bb31a5a31",
+      "expected": "invalid_annotation_fixture",
+      "reason": "unknown_value_tag"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-value-width.dex",
+      "bytes": 1452,
+      "sha256": "4107157ce5d1a6244731d9df28c8b7c8e1b5713a5d32cb5fbe33d148bb1901c9",
+      "expected": "invalid_annotation_fixture",
+      "reason": "invalid_value_arg"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-boolean-arg.dex",
+      "bytes": 1452,
+      "sha256": "2180633b81ddd5ceca55027b834a209804f2f05cb922c818b47dcb35f5769bd5",
+      "expected": "invalid_annotation_fixture",
+      "reason": "invalid_value_arg"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-string-index.dex",
+      "bytes": 1452,
+      "sha256": "99b52e4d7de2655419dc3c7db73baafc5ba24bcc2832f0a8d2b2ffc2d04720c5",
+      "expected": "invalid_annotation_fixture",
+      "reason": "value_index_out_of_range"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-element-order.dex",
+      "bytes": 1452,
+      "sha256": "a0a5c31d5a0806e1febfd125fa285a8723c976e5c2c526d0f73a06d7c4cd97cf",
+      "expected": "invalid_annotation_fixture",
+      "reason": "annotation_element_order"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-field-entry-order.dex",
+      "bytes": 1452,
+      "sha256": "81de4456c0595da4e07c53edfa4e3a8b07eeebf8b4482dc747a725bd64a001ff",
+      "expected": "invalid_annotation_fixture",
+      "reason": "directory_entry_order"
+    }
+  ],
+  "source_reference": "https://source.android.com/docs/core/runtime/dex-format",
+  "claim": "Synthetic structurally controlled static-analysis fixture; external annotation types/enum symbol unresolved; no installability or complete ART verifier qualification.",
+  "sha1_signature_and_adler32": "recomputed for every fixture and mutant",
+  "generated_implementation_ancestors": "Python struct/hashlib/zlib only; no production parser",
+  "component_vectors": {
+    "path": "tests/fixtures/annotations/component-vectors.json",
+    "sha256": "a6570bd763e9bfc0f0500dcd2095c16bfcc08020e687fd2d80e45ee61834b803",
+    "count": 8
+  }
+}

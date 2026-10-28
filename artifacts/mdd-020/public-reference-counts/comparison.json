@@ -1,0 +1,44 @@
+{
+  "record_kind": "observed_independent_count_projection",
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\artifacts\\local\\inputs\\NewPipe_v0.28.6.apk",
+    "--sql",
+    "SELECT d.entry_name,(SELECT count(*) FROM strings s WHERE s.string_pool_id=d.string_pool_id) AS string_rows,(SELECT count(*) FROM types t WHERE t.file_id=d.file_id) AS type_rows,(SELECT count(*) FROM protos p WHERE p.file_id=d.file_id) AS proto_rows FROM dex_files d ORDER BY d.file_id"
+  ],
+  "exit_code": 0,
+  "input_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+  "reference_binary_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "native_evidence": "artifacts/mdd-020/public-newpipe-metadata.json",
+  "reference_rows": {
+    "classes.dex": {
+      "strings": 64754,
+      "types": 9630,
+      "prototypes": 13644
+    },
+    "classes2.dex": {
+      "strings": 3722,
+      "types": 1034,
+      "prototypes": 1455
+    }
+  },
+  "native_rows": {
+    "classes.dex": {
+      "strings": 64754,
+      "types": 9630,
+      "prototypes": 13644
+    },
+    "classes2.dex": {
+      "strings": 3722,
+      "types": 1034,
+      "prototypes": 1455
+    }
+  },
+  "equivalent_for_this_projection": true,
+  "stdout_sha256": "1726fcb0ba52ee91d078e8a9891f7e32db96087150f87c77168e1733317d99cf",
+  "scope": "count projection over both physical DEX members only; no full value/NULL/order/multiplicity/HostLab/performance qualification"
+}

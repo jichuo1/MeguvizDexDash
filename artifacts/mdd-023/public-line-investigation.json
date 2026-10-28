@@ -1,0 +1,154 @@
+{
+  "apk_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+  "dex_sha256": "e95ea094cdfb755304f5027ba6e64fa98f9b10e874c4093f3b19c43d62bfee3f",
+  "code_item_byte_offset": 124676,
+  "registers": 2,
+  "ins": 0,
+  "outs": 2,
+  "tries": 0,
+  "insns_size": 72,
+  "raw_insns_hex": "630001003800200071007e1700000c006e10741700000c0060018900390004001200282b20017100380107001f00710054008a002822220170007020a60201000710281b63000200380016007100030000000c00220106007020000001006e10020001000c006e10010000000c0071100400000062001200690003001a014b0c71103b1701000c016e20ee0210000e00",
+  "debug_info_byte_offset": 517314,
+  "initial_line": 26,
+  "parameter_names_encoded": [],
+  "raw_debug_hex": "1a000e4c4b4b0262680220fe020b4a4b01101002672c2d2d00",
+  "events": [
+    {
+      "byte_offset": 517316,
+      "opcode": 14,
+      "address_code_units": 0,
+      "encoded_line": 26,
+      "operands": []
+    },
+    {
+      "byte_offset": 517317,
+      "opcode": 76,
+      "address_code_units": 4,
+      "encoded_line": 28,
+      "operands": []
+    },
+    {
+      "byte_offset": 517318,
+      "opcode": 75,
+      "address_code_units": 8,
+      "encoded_line": 29,
+      "operands": []
+    },
+    {
+      "byte_offset": 517319,
+      "opcode": 75,
+      "address_code_units": 12,
+      "encoded_line": 30,
+      "operands": []
+    },
+    {
+      "byte_offset": 517320,
+      "opcode": 2,
+      "address_code_units": 12,
+      "encoded_line": 0,
+      "operands": [
+        -30
+      ]
+    },
+    {
+      "byte_offset": 517322,
+      "opcode": 104,
+      "address_code_units": 18,
+      "encoded_line": 0,
+      "operands": []
+    },
+    {
+      "byte_offset": 517323,
+      "opcode": 2,
+      "address_code_units": 18,
+      "encoded_line": 32,
+      "operands": [
+        32
+      ]
+    },
+    {
+      "byte_offset": 517325,
+      "opcode": 254,
+      "address_code_units": 34,
+      "encoded_line": 32,
+      "operands": []
+    },
+    {
+      "byte_offset": 517326,
+      "opcode": 2,
+      "address_code_units": 34,
+      "encoded_line": 43,
+      "operands": [
+        11
+      ]
+    },
+    {
+      "byte_offset": 517328,
+      "opcode": 74,
+      "address_code_units": 38,
+      "encoded_line": 43,
+      "operands": []
+    },
+    {
+      "byte_offset": 517329,
+      "opcode": 75,
+      "address_code_units": 42,
+      "encoded_line": 44,
+      "operands": []
+    },
+    {
+      "byte_offset": 517330,
+      "opcode": 1,
+      "address_code_units": 58,
+      "encoded_line": 44,
+      "operands": [
+        16
+      ]
+    },
+    {
+      "byte_offset": 517332,
+      "opcode": 16,
+      "address_code_units": 58,
+      "encoded_line": 46,
+      "operands": []
+    },
+    {
+      "byte_offset": 517333,
+      "opcode": 2,
+      "address_code_units": 58,
+      "encoded_line": 21,
+      "operands": [
+        -25
+      ]
+    },
+    {
+      "byte_offset": 517335,
+      "opcode": 44,
+      "address_code_units": 60,
+      "encoded_line": 21,
+      "operands": []
+    },
+    {
+      "byte_offset": 517336,
+      "opcode": 45,
+      "address_code_units": 62,
+      "encoded_line": 22,
+      "operands": []
+    },
+    {
+      "byte_offset": 517337,
+      "opcode": 45,
+      "address_code_units": 64,
+      "encoded_line": 23,
+      "operands": []
+    },
+    {
+      "byte_offset": 517338,
+      "opcode": 0,
+      "address_code_units": 64,
+      "encoded_line": 23,
+      "operands": []
+    }
+  ],
+  "observation": "Raw non-pc-to-pc event sequence includes non-positive encoded line; no input bytes or line values normalized."
+}

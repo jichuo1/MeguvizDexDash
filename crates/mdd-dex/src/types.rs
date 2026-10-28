@@ -122,6 +122,95 @@ fn scalar_string(strings: &[DexString], index: u32, at: u64) -> MddResult<String
         })
 }
 
+pub fn type_list_item_starts(bytes: &[u8], header: &DexHeader) -> MddResult<Vec<u64>> {
+    let Some(section_index) = header.map.iter().position(|item| item.type_code == 0x1001) else {
+        return Ok(Vec::new());
+    };
+    let reader = CheckedReader::new(bytes);
+    let section = &header.map[section_index];
+    if u64::from(section.count) > MAX_TOTAL_PARAMETER_REFERENCES {
+        return Err(MddError::new(
+            ErrorCode::QuotaExceeded,
+            "dex.metadata",
+            "physical type-list item budget exceeded",
+        ));
+    }
+    let section_end = header.map.get(section_index + 1).map_or(
+        header.data_range.byte_offset.0 + header.data_range.byte_length.0,
+        |item| item.byte_offset.0,
+    );
+    let type_count = header
+        .tables
+        .iter()
+        .find(|table| table.name == "type_ids")
+        .ok_or_else(|| failure("MISSING_TYPE_TABLE", 64, 8))?
+        .count;
+    let mut starts = Vec::new();
+    starts
+        .try_reserve_exact(section.count as usize)
+        .map_err(|_| {
+            MddError::new(
+                ErrorCode::QuotaExceeded,
+                "dex.metadata",
+                "type-list index allocation failed",
+            )
+        })?;
+    let mut cursor = section.byte_offset.0;
+    let mut total_references = 0u64;
+    for _ in 0..section.count {
+        let aligned = cursor
+            .checked_add(3)
+            .map(|value| value & !3)
+            .ok_or_else(|| failure("TYPE_LIST_ALIGNMENT_OVERFLOW", cursor, 4))?;
+        if aligned > section_end
+            || reader
+                .range(cursor, aligned - cursor)?
+                .iter()
+                .any(|byte| *byte != 0)
+        {
+            return Err(failure(
+                "TYPE_LIST_PADDING",
+                cursor,
+                aligned.saturating_sub(cursor),
+            ));
+        }
+        cursor = aligned;
+        if cursor.checked_add(4).is_none_or(|end| end > section_end) {
+            return Err(failure("TRUNCATED_TYPE_LIST", cursor, 4));
+        }
+        let count = u64::from(reader.u32(cursor)?);
+        total_references = total_references
+            .checked_add(count)
+            .ok_or_else(|| failure("TYPE_LIST_REFERENCE_OVERFLOW", cursor, 4))?;
+        if total_references > MAX_TOTAL_PARAMETER_REFERENCES {
+            return Err(MddError::new(
+                ErrorCode::QuotaExceeded,
+                "dex.metadata",
+                "physical type-list reference budget exceeded",
+            )
+            .detail("budget", "physical_type_list_references")
+            .detail("limit", MAX_TOTAL_PARAMETER_REFERENCES.to_string()));
+        }
+        let length = 4 + count * 2;
+        let end = cursor
+            .checked_add(length)
+            .ok_or_else(|| failure("TYPE_LIST_RANGE_OVERFLOW", cursor, length))?;
+        if end > section_end {
+            return Err(failure("TRUNCATED_TYPE_LIST", cursor, length));
+        }
+        reader.range(cursor, length)?;
+        for index in 0..count {
+            let at = cursor + 4 + index * 2;
+            if u32::from(reader.u16(at)?) >= type_count {
+                return Err(failure("PARAMETER_TYPE_INDEX_OUT_OF_RANGE", at, 2));
+            }
+        }
+        starts.push(cursor);
+        cursor = end;
+    }
+    Ok(starts)
+}
+
 pub fn read_types_and_prototypes(
     bytes: &[u8],
     header: &DexHeader,
@@ -170,6 +259,7 @@ pub fn read_types_and_prototypes(
         previous_string = Some(string_idx);
     }
     let mut prototypes = Vec::new();
+    let physical_type_lists = type_list_item_starts(bytes, header)?;
     let mut previous_key = None;
     let mut total_parameters = 0u64;
     let mut total_descriptor_bytes = 0u64;
@@ -201,6 +291,9 @@ pub fn read_types_and_prototypes(
                 return Err(failure("MISSING_TYPE_LIST_SECTION", at + 8, 4));
             };
             let offset = u64::from(parameters_off);
+            if physical_type_lists.binary_search(&offset).is_err() {
+                return Err(failure("TYPE_LIST_OFFSET_NOT_ITEM_START", offset, 4));
+            }
             if !parameters_off.is_multiple_of(4) || offset < start || offset + 4 > end {
                 return Err(failure("TYPE_LIST_OUTSIDE_SECTION", offset, 4));
             }
@@ -479,4 +572,26 @@ mod tests {
             assert_eq!(result.unwrap_err().details["reason"], expected);
         }
     }
+}
+#[test]
+fn prototype_type_list_must_reference_a_real_physical_item_start() {
+    let valid = include_bytes!(
+        "../../../artifacts/integration/20261028/item-boundaries/valid-unused-type-list.dex"
+    );
+    let header = crate::validate_header(valid).unwrap();
+    let strings =
+        crate::strings::read_string_pool(valid, &header, crate::strings::StringLimits::default())
+            .unwrap();
+    let (_, protos) = read_types_and_prototypes(valid, &header, &strings).unwrap();
+    assert_eq!(protos[0].descriptor, "()V");
+    assert_eq!(type_list_item_starts(valid, &header).unwrap(), [136]);
+    let bad = include_bytes!(
+        "../../../artifacts/integration/20261028/item-boundaries/bad-interior-type-list.dex"
+    );
+    let header = crate::validate_header(bad).unwrap();
+    let strings =
+        crate::strings::read_string_pool(bad, &header, crate::strings::StringLimits::default())
+            .unwrap();
+    let error = read_types_and_prototypes(bad, &header, &strings).unwrap_err();
+    assert_eq!(error.details["reason"], "TYPE_LIST_OFFSET_NOT_ITEM_START");
 }

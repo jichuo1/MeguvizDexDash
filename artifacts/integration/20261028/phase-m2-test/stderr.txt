@@ -1,0 +1,21 @@
+   Compiling mdd-cli v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-cli)
+   Compiling mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+   Compiling mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+   Compiling mdd-worker v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-worker)
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.26s
+     Running unittests src\main.rs (target\debug\deps\mdd_build_probe-0e449183d36c2b77.exe)
+     Running unittests src\main.rs (target\debug\deps\meguvizdexdash-4a26ba424a1fe456.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_dex-9a3bd310c7bdcff1.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_facts-69f32e0169a7ad12.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_input-3b50ad186c53aaec.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_session-c3c93d1716dbec56.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_types-22644c537d602cc8.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_worker-48ac20dfd6d49189.exe)
+   Doc-tests mdd_dex
+   Doc-tests mdd_facts
+   Doc-tests mdd_input
+   Doc-tests mdd_session
+   Doc-tests mdd_types
+   Doc-tests mdd_worker

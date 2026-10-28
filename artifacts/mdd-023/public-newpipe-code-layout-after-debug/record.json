@@ -1,0 +1,30 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "cargo",
+    "run",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-facts",
+    "--example",
+    "code_layout_summary",
+    "--",
+    "artifacts/local/inputs/NewPipe_v0.28.6.apk",
+    "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T09:17:23.675342+00:00",
+  "finished_utc": "2026-10-28T09:17:26.190275+00:00",
+  "elapsed_seconds": 2.514999999999418,
+  "exit_code": 1,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 909,
+    "sha256": "72bef9c19ba6701e971216f64a6f5a9fd0c77a50ca53236dfebca8b282b1240b"
+  },
+  "stderr": {
+    "bytes": 524,
+    "sha256": "34a0cfbec8336e41cfbaa3d057bdf448f14daaf1934d8ce4271637a3beecd91c"
+  }
+}

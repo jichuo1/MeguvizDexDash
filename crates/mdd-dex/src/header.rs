@@ -419,11 +419,9 @@ pub fn validate_header(bytes: &[u8]) -> MddResult<DexHeader> {
     let [strings, types, protos, fields, methods, classes] = tables.as_slice() else {
         return Err(failure("INTERNAL_TABLE_LAYOUT", "dex.tables", 0, 0));
     };
-    if strings.count > 0
-        && sections.get(&0x2002).map(|section| section.count) != Some(strings.count)
-    {
+    if strings.count > 0 && !sections.contains_key(&0x2002) {
         return Err(failure(
-            "STRING_POOL_MAP_COUNT_MISMATCH",
+            "MISSING_STRING_DATA_MAP_SECTION",
             "dex.references",
             56,
             8,

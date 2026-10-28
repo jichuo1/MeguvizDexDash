@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "cargo",
+    "clippy",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-dex",
+    "-p",
+    "mdd-facts",
+    "--all-targets",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "    Checking mdd-dex v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-dex)\n    Checking mdd-facts v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-facts)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.89s\n"
+}

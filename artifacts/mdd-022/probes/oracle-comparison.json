@@ -1,0 +1,887 @@
+{
+  "schema_version": "mdd.annotation-reference-comparison.v1",
+  "success": true,
+  "comparisons": [
+    {
+      "relation": "annotation_directories",
+      "columns": [
+        "file_id",
+        "class_idx",
+        "annotations_off",
+        "class_annotations_off",
+        "fields_size",
+        "methods_size",
+        "parameters_size"
+      ],
+      "reference_rows": 1,
+      "oracle_rows": 1,
+      "equal_multiset": true,
+      "reference_sha256": "b8bf891a07804ee6376eedc253845039aa607915dc6f1202d11ad3475f2c741d",
+      "oracle_sha256": "b8bf891a07804ee6376eedc253845039aa607915dc6f1202d11ad3475f2c741d",
+      "first_difference": null
+    },
+    {
+      "relation": "annotation_directory_entries",
+      "columns": [
+        "file_id",
+        "class_idx",
+        "annotations_off",
+        "entry_kind",
+        "entry_idx",
+        "annotation_set_off",
+        "annotation_set_ref_list_off"
+      ],
+      "reference_rows": 5,
+      "oracle_rows": 5,
+      "equal_multiset": true,
+      "reference_sha256": "09a3b0319ef1de01f70175b46fc3314745dcaa204e458002952cc931c17ce04c",
+      "oracle_sha256": "09a3b0319ef1de01f70175b46fc3314745dcaa204e458002952cc931c17ce04c",
+      "first_difference": null
+    },
+    {
+      "relation": "annotation_set_entries",
+      "columns": [
+        "file_id",
+        "annotation_set_off",
+        "ordinal",
+        "annotation_off"
+      ],
+      "reference_rows": 5,
+      "oracle_rows": 5,
+      "equal_multiset": true,
+      "reference_sha256": "eca4df9849380111fb4d7ee36b501fcba55be43e719e68175ee4bb7d179393a1",
+      "oracle_sha256": "eca4df9849380111fb4d7ee36b501fcba55be43e719e68175ee4bb7d179393a1",
+      "first_difference": null
+    },
+    {
+      "relation": "annotation_set_refs",
+      "columns": [
+        "file_id",
+        "annotation_set_ref_list_off",
+        "ordinal",
+        "annotation_set_off"
+      ],
+      "reference_rows": 2,
+      "oracle_rows": 2,
+      "equal_multiset": true,
+      "reference_sha256": "0f6ad4f335fd272ad69f1e8f7edd2ed3dee0983d6c4269b07443924348f257c8",
+      "oracle_sha256": "0f6ad4f335fd272ad69f1e8f7edd2ed3dee0983d6c4269b07443924348f257c8",
+      "first_difference": null
+    },
+    {
+      "relation": "annotations",
+      "columns": [
+        "file_id",
+        "annotation_off",
+        "visibility",
+        "type_idx",
+        "element_count"
+      ],
+      "reference_rows": 4,
+      "oracle_rows": 4,
+      "equal_multiset": true,
+      "reference_sha256": "accd07163f0505a93799af652ec2a100b0276c1aafb21e7d6091fa8ad421e6e9",
+      "oracle_sha256": "accd07163f0505a93799af652ec2a100b0276c1aafb21e7d6091fa8ad421e6e9",
+      "first_difference": null
+    },
+    {
+      "relation": "annotation_elements",
+      "columns": [
+        "file_id",
+        "annotation_off",
+        "depth",
+        "ordinal",
+        "name_idx",
+        "value_off",
+        "value_end_off",
+        "value_kind",
+        "value_index",
+        "value_i64",
+        "value_f64"
+      ],
+      "reference_rows": 44,
+      "oracle_rows": 44,
+      "equal_multiset": true,
+      "reference_sha256": "69010c1b081782dd203a92c679ef5f49b1c41f56ef207170854248fe167218ad",
+      "oracle_sha256": "69010c1b081782dd203a92c679ef5f49b1c41f56ef207170854248fe167218ad",
+      "first_difference": null
+    }
+  ],
+  "normalized_reference_rows": {
+    "annotation_directories": [
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "class_annotations_off": 1152,
+        "fields_size": 2,
+        "methods_size": 1,
+        "parameters_size": 2
+      }
+    ],
+    "annotation_directory_entries": [
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "field",
+        "entry_idx": 0,
+        "annotation_set_off": 1164,
+        "annotation_set_ref_list_off": null
+      },
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "field",
+        "entry_idx": 1,
+        "annotation_set_off": 1164,
+        "annotation_set_ref_list_off": null
+      },
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "method",
+        "entry_idx": 0,
+        "annotation_set_off": 1172,
+        "annotation_set_ref_list_off": null
+      },
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "parameter",
+        "entry_idx": 0,
+        "annotation_set_off": null,
+        "annotation_set_ref_list_off": 1188
+      },
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "parameter",
+        "entry_idx": 1,
+        "annotation_set_off": null,
+        "annotation_set_ref_list_off": 1188
+      }
+    ],
+    "annotation_set_entries": [
+      {
+        "file_id": 0,
+        "annotation_set_off": 1152,
+        "ordinal": 0,
+        "annotation_off": 1000
+      },
+      {
+        "file_id": 0,
+        "annotation_set_off": 1152,
+        "ordinal": 1,
+        "annotation_off": 1012
+      },
+      {
+        "file_id": 0,
+        "annotation_set_off": 1164,
+        "ordinal": 0,
+        "annotation_off": 1120
+      },
+      {
+        "file_id": 0,
+        "annotation_set_off": 1172,
+        "ordinal": 0,
+        "annotation_off": 1132
+      },
+      {
+        "file_id": 0,
+        "annotation_set_off": 1180,
+        "ordinal": 0,
+        "annotation_off": 1012
+      }
+    ],
+    "annotation_set_refs": [
+      {
+        "file_id": 0,
+        "annotation_set_ref_list_off": 1188,
+        "ordinal": 0,
+        "annotation_set_off": 1180
+      },
+      {
+        "file_id": 0,
+        "annotation_set_ref_list_off": 1188,
+        "ordinal": 1,
+        "annotation_set_off": null
+      }
+    ],
+    "annotations": [
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "visibility": 2,
+        "type_idx": 1,
+        "element_count": 1
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "visibility": 1,
+        "type_idx": 5,
+        "element_count": 24
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "visibility": 2,
+        "type_idx": 1,
+        "element_count": 1
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "visibility": 2,
+        "type_idx": 1,
+        "element_count": 1
+      }
+    ],
+    "annotation_elements": [
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "depth": 0,
+        "ordinal": 0,
+        "name_idx": 45,
+        "value_off": 1004,
+        "value_end_off": 1012,
+        "value_kind": "array",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": null,
+        "value_off": 1006,
+        "value_end_off": 1008,
+        "value_kind": "string",
+        "value_index": 1,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "depth": 1,
+        "ordinal": 1,
+        "name_idx": null,
+        "value_off": 1008,
+        "value_end_off": 1010,
+        "value_kind": "string",
+        "value_index": 13,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "depth": 1,
+        "ordinal": 2,
+        "name_idx": null,
+        "value_off": 1010,
+        "value_end_off": 1012,
+        "value_kind": "string",
+        "value_index": 4,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 0,
+        "name_idx": 18,
+        "value_off": 1016,
+        "value_end_off": 1018,
+        "value_kind": "byte",
+        "value_index": null,
+        "value_i64": "-128",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": null,
+        "value_off": 1074,
+        "value_end_off": 1076,
+        "value_kind": "string",
+        "value_index": 48,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": 45,
+        "value_off": 1085,
+        "value_end_off": 1087,
+        "value_kind": "int",
+        "value_index": null,
+        "value_i64": "7",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 1,
+        "name_idx": 19,
+        "value_off": 1019,
+        "value_end_off": 1022,
+        "value_kind": "short",
+        "value_index": null,
+        "value_i64": "-32768",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 1,
+        "ordinal": 1,
+        "name_idx": null,
+        "value_off": 1076,
+        "value_end_off": 1078,
+        "value_kind": "string",
+        "value_index": 17,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 2,
+        "name_idx": 20,
+        "value_off": 1023,
+        "value_end_off": 1026,
+        "value_kind": "char",
+        "value_index": null,
+        "value_i64": "65535",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 1,
+        "ordinal": 2,
+        "name_idx": null,
+        "value_off": 1078,
+        "value_end_off": 1080,
+        "value_kind": "string",
+        "value_index": 48,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 3,
+        "name_idx": 21,
+        "value_off": 1027,
+        "value_end_off": 1032,
+        "value_kind": "int",
+        "value_index": null,
+        "value_i64": "-2147483648",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 4,
+        "name_idx": 22,
+        "value_off": 1033,
+        "value_end_off": 1042,
+        "value_kind": "long",
+        "value_index": null,
+        "value_i64": "-9223372036854775808",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 5,
+        "name_idx": 25,
+        "value_off": 1043,
+        "value_end_off": 1046,
+        "value_kind": "float",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": 1.0
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 6,
+        "name_idx": 26,
+        "value_off": 1047,
+        "value_end_off": 1050,
+        "value_kind": "double",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": 1.0
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 7,
+        "name_idx": 27,
+        "value_off": 1051,
+        "value_end_off": 1053,
+        "value_kind": "string",
+        "value_index": 28,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 8,
+        "name_idx": 29,
+        "value_off": 1054,
+        "value_end_off": 1056,
+        "value_kind": "type",
+        "value_index": 7,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 9,
+        "name_idx": 30,
+        "value_off": 1057,
+        "value_end_off": 1059,
+        "value_kind": "field",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 10,
+        "name_idx": 31,
+        "value_off": 1060,
+        "value_end_off": 1062,
+        "value_kind": "method",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 11,
+        "name_idx": 32,
+        "value_off": 1063,
+        "value_end_off": 1065,
+        "value_kind": "enum",
+        "value_index": 2,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 12,
+        "name_idx": 35,
+        "value_off": 1066,
+        "value_end_off": 1068,
+        "value_kind": "method_type",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 13,
+        "name_idx": 36,
+        "value_off": 1069,
+        "value_end_off": 1071,
+        "value_kind": "method_handle",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 14,
+        "name_idx": 37,
+        "value_off": 1072,
+        "value_end_off": 1080,
+        "value_kind": "array",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 15,
+        "name_idx": 38,
+        "value_off": 1081,
+        "value_end_off": 1087,
+        "value_kind": "annotation",
+        "value_index": 4,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 16,
+        "name_idx": 39,
+        "value_off": 1088,
+        "value_end_off": 1089,
+        "value_kind": "null",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 17,
+        "name_idx": 40,
+        "value_off": 1090,
+        "value_end_off": 1091,
+        "value_kind": "boolean",
+        "value_index": null,
+        "value_i64": "0",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 18,
+        "name_idx": 41,
+        "value_off": 1092,
+        "value_end_off": 1093,
+        "value_kind": "boolean",
+        "value_index": null,
+        "value_i64": "1",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 19,
+        "name_idx": 42,
+        "value_off": 1094,
+        "value_end_off": 1099,
+        "value_kind": "float",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": "NaN"
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 20,
+        "name_idx": 43,
+        "value_off": 1100,
+        "value_end_off": 1109,
+        "value_kind": "double",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": "NaN"
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 21,
+        "name_idx": 44,
+        "value_off": 1110,
+        "value_end_off": 1113,
+        "value_kind": "float",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": "Infinity"
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 22,
+        "name_idx": 46,
+        "value_off": 1114,
+        "value_end_off": 1117,
+        "value_kind": "double",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": "Infinity"
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 23,
+        "name_idx": 47,
+        "value_off": 1118,
+        "value_end_off": 1120,
+        "value_kind": "float",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": -0.0
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "depth": 0,
+        "ordinal": 0,
+        "name_idx": 45,
+        "value_off": 1124,
+        "value_end_off": 1132,
+        "value_kind": "array",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": null,
+        "value_off": 1126,
+        "value_end_off": 1128,
+        "value_kind": "string",
+        "value_index": 16,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "depth": 1,
+        "ordinal": 1,
+        "name_idx": null,
+        "value_off": 1128,
+        "value_end_off": 1130,
+        "value_kind": "string",
+        "value_index": 14,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "depth": 1,
+        "ordinal": 2,
+        "name_idx": null,
+        "value_off": 1130,
+        "value_end_off": 1132,
+        "value_kind": "string",
+        "value_index": 2,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 0,
+        "ordinal": 0,
+        "name_idx": 45,
+        "value_off": 1136,
+        "value_end_off": 1152,
+        "value_kind": "array",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": null,
+        "value_off": 1138,
+        "value_end_off": 1140,
+        "value_kind": "string",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 1,
+        "name_idx": null,
+        "value_off": 1140,
+        "value_end_off": 1142,
+        "value_kind": "string",
+        "value_index": 16,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 2,
+        "name_idx": null,
+        "value_off": 1142,
+        "value_end_off": 1144,
+        "value_kind": "string",
+        "value_index": 14,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 3,
+        "name_idx": null,
+        "value_off": 1144,
+        "value_end_off": 1146,
+        "value_kind": "string",
+        "value_index": 3,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 4,
+        "name_idx": null,
+        "value_off": 1146,
+        "value_end_off": 1148,
+        "value_kind": "string",
+        "value_index": 16,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 5,
+        "name_idx": null,
+        "value_off": 1148,
+        "value_end_off": 1150,
+        "value_kind": "string",
+        "value_index": 14,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 6,
+        "name_idx": null,
+        "value_off": 1150,
+        "value_end_off": 1152,
+        "value_kind": "string",
+        "value_index": 2,
+        "value_i64": null,
+        "value_f64": null
+      }
+    ]
+  },
+  "reference_result_sha256": "2eea632723c2102a67828795c8dbd767d69fafb984685bec4c5894d1daa6abed",
+  "oracle_result_sha256": "dc7fc27f6977703e16f9973ecf1bfcd9986c0933276d9a0e62acacf10e04d4e1",
+  "observations": [
+    "annotation_directory_entries excludes the class annotation set; class_annotations_off is in annotation_directories.",
+    "entry_kind is singular parameter and entry_idx is method_idx; annotation_set_off is NULL while annotation_set_ref_list_off identifies its ordered parameter slots.",
+    "Top-level annotation elements have depth0; array/nested annotation children have depth1. ordinal resets per sibling sequence, not a global preorder ID.",
+    "Array children have name_idx NULL; nested named annotation children retain their own name_idx. Both can share depth/ordinal inside one root annotation.",
+    "value_off includes encoded_value tag byte; value_end_off excludes the end and spans complete child payloads for containers.",
+    "Boolean projects integer0/1, annotation-valued node projects its type_idx in value_index, long values retain exact decimal strings.",
+    "Nonfinite float64 MCP cells use tagged type=float64 with value string NaN/Infinity; negative-zero remains -0.0. The projection does not retain NaN payload bits, which the native oracle separately retains.",
+    "Frozen UInt32 relation columns project as uint64 typed cells in observed MCP; every observed value was range-checked before comparison."
+  ],
+  "duplicate_depth_ordinal_example": [
+    {
+      "file_id": 0,
+      "annotation_off": 1012,
+      "depth": 1,
+      "ordinal": 0,
+      "name_idx": null,
+      "value_off": 1074,
+      "value_end_off": 1076,
+      "value_kind": "string",
+      "value_index": 48,
+      "value_i64": null,
+      "value_f64": null
+    },
+    {
+      "file_id": 0,
+      "annotation_off": 1012,
+      "depth": 1,
+      "ordinal": 0,
+      "name_idx": 45,
+      "value_off": 1085,
+      "value_end_off": 1087,
+      "value_kind": "int",
+      "value_index": null,
+      "value_i64": "7",
+      "value_f64": null
+    },
+    {
+      "file_id": 0,
+      "annotation_off": 1012,
+      "depth": 1,
+      "ordinal": 1,
+      "name_idx": null,
+      "value_off": 1076,
+      "value_end_off": 1078,
+      "value_kind": "string",
+      "value_index": 17,
+      "value_i64": null,
+      "value_f64": null
+    },
+    {
+      "file_id": 0,
+      "annotation_off": 1012,
+      "depth": 1,
+      "ordinal": 2,
+      "name_idx": null,
+      "value_off": 1078,
+      "value_end_off": 1080,
+      "value_kind": "string",
+      "value_index": 48,
+      "value_i64": null,
+      "value_f64": null
+    }
+  ],
+  "scope": "Complete tiny synthetic relation comparison on A0 Windows0.1.0 only. No production annotation implementation, complete compatibility profile, HostLab qualification or performance claim."
+}

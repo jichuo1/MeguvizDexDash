@@ -1,0 +1,58 @@
+{
+  "schema_version": "mdd.instruction-component-final.v1",
+  "task": "MDD-023",
+  "production_source_frozen": true,
+  "component_checks": "passed",
+  "overall_lint_gate": "passed",
+  "current_source_ids": {
+    "crates/mdd-dex/src/instructions/debug.rs": "c513acab6698fb67b1556bd411ee56e5490f24526cefcd4fa5853a18bda9bcea",
+    "crates/mdd-dex/src/instructions/decode.rs": "3d2afb1196eee7bd0601defb636cca207c8581a27138bacd61bdd8f08f1e1d9b",
+    "crates/mdd-dex/src/instructions/mod.rs": "d7149dbbce95994715b516f8f919a92917eb906461dccd030089277b525fc3d8",
+    "crates/mdd-dex/src/instructions/opcodes.rs": "a0d33bc5870e65f49b673e32a2f6182ffd9dbc3fc3dbaf1d7170daaeca597cca",
+    "crates/mdd-dex/src/instructions/tests.rs": "4e1e11aaad63910e1a666c07475a485ff3ddb3b6614c13fc9d37c41d64f744d6",
+    "crates/mdd-facts/src/code.rs": "aac9068337f96e0e5c24c861d88c5b5cf04d57bb3c4fead8c1609cbe9f10549e"
+  },
+  "actual_passed_commands": [
+    {
+      "name": "instruction-tests",
+      "record": "artifacts/mdd-023/validation/20261028T104327654304Z/instruction-tests/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "code-facts-tests",
+      "record": "artifacts/mdd-023/validation/20261028T104327654304Z/code-facts-tests/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "immutable-facts-doc-tests",
+      "record": "artifacts/mdd-023/validation/20261028T104327654304Z/immutable-facts-doc-tests/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "format",
+      "record": "artifacts/mdd-023/final-format-check/record.json",
+      "exit_code": 0
+    }
+  ],
+  "external_lint_block_record": "artifacts/mdd-023/validation/20261028T104327654304Z/clippy/record.json",
+  "external_lint_block_file": "crates/mdd-input/src/archive/central.rs:119 collapsible_if; not edited by this agent",
+  "full_fixture_count": 25,
+  "encoded_valid": 20,
+  "encoded_invalid": 5,
+  "strict_source_unknown_cases": 7,
+  "opcode_vectors": 224,
+  "reserved_rejections": 32,
+  "formats": 26,
+  "debug_policy_default": "mdd-debug-encoded-v1",
+  "debug_policy_strict": "mdd-debug-source-lines-strict-v1",
+  "line_behavior": "Raw encoded signed line retained; source_line=None/usable=false for unknown/pc-pattern/context; explicit strict policy returns INCOMPLETE_FACTS. Structural validation is unchanged.",
+  "public_complete_record": "artifacts/mdd-023/public-newpipe-code-layout-encoded-policy/record.json",
+  "private_inputs": "Root reported intake identities verified; this agent did not parse private APKs or run a performance measurement.",
+  "task_done": false,
+  "profile_admitted": false,
+  "full_art_qualified": false,
+  "performance_qualified": false,
+  "next_gate": "Root archive regression/full lint and dependency review; root owns task/ADR/ledger/index updates.",
+  "latest_complete_validation": "artifacts/mdd-023/validation/20261028T105125085473Z",
+  "prior_archive_lint_failure_retained": "artifacts/mdd-023/validation/20261028T104327654304Z/clippy/record.json"
+}

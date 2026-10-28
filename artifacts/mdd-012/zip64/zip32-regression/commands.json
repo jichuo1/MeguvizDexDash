@@ -1,0 +1,47 @@
+[
+  {
+    "command": [
+      "cargo",
+      "build",
+      "--locked",
+      "--offline",
+      "-p",
+      "mdd-input"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "rustc",
+      "--edition=2024",
+      "artifacts\\mdd-012\\zip64\\zip32-regression\\inventory_probe.rs",
+      "-L",
+      "dependency=target/debug/deps",
+      "--extern",
+      "mdd_input=target\\debug\\deps\\libmdd_input-1a8853fbb6f749c5.rlib",
+      "-o",
+      "artifacts\\mdd-012\\zip64\\zip32-regression\\inventory_probe.exe"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\MeguvisDexDash\\artifacts\\mdd-012\\zip64\\zip32-regression\\inventory_probe.exe",
+      "D:\\MeguvisDexDash\\artifacts\\local\\inputs\\NewPipe_v0.28.6.apk",
+      "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--offline",
+      "-p",
+      "mdd-input",
+      "archive::"
+    ],
+    "exit_code": 0
+  }
+]

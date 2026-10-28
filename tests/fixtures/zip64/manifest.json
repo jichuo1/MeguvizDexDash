@@ -1,0 +1,1928 @@
+{
+  "schema_version": "mdd.zip64-fixtures.v1",
+  "specification": "PKWARE APPNOTE 6.3.10 sections 4.3.9,4.3.14-16,4.5.3",
+  "source_url": "https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT",
+  "generator": "tests/fixtures/zip64/generate.py",
+  "large_data_allocated": false,
+  "files": [
+    {
+      "id": "full-stored",
+      "path": "generated/full-stored.zip",
+      "bytes": 546,
+      "sha256": "844b57cbdac301adb3915350782fcc46c1fb2243ccc87026a5b542098b9baf7f",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 201,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 275,
+            "central_extra": 332
+          },
+          {
+            "local": 201,
+            "local_extra": 245,
+            "data_start": 265,
+            "descriptor_start": 275,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 360,
+            "central_extra": 420
+          }
+        ],
+        "central_start": 275,
+        "central_size": 173,
+        "zip64_start": 448,
+        "locator": 504,
+        "end": 524
+      },
+      "note": null
+    },
+    {
+      "id": "descriptor-stored-signed",
+      "path": "generated/descriptor-stored-signed.zip",
+      "bytes": 594,
+      "sha256": "a1e4122ca3909488c877b712bebaef11bff8a92bd84d82b5d00c33680e07363d",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 201,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 323,
+            "central_extra": 380
+          },
+          {
+            "local": 225,
+            "local_extra": 269,
+            "data_start": 289,
+            "descriptor_start": 299,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 408,
+            "central_extra": 468
+          }
+        ],
+        "central_start": 323,
+        "central_size": 173,
+        "zip64_start": 496,
+        "locator": 552,
+        "end": 572
+      },
+      "note": null
+    },
+    {
+      "id": "descriptor-stored-unsigned",
+      "path": "generated/descriptor-stored-unsigned.zip",
+      "bytes": 586,
+      "sha256": "f13f1cc3051748554c0af7d77db85af584d1d00d82b0a10db76d19c75adc4b54",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 201,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 315,
+            "central_extra": 372
+          },
+          {
+            "local": 221,
+            "local_extra": 265,
+            "data_start": 285,
+            "descriptor_start": 295,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 400,
+            "central_extra": 460
+          }
+        ],
+        "central_start": 315,
+        "central_size": 173,
+        "zip64_start": 488,
+        "locator": 544,
+        "end": 564
+      },
+      "note": null
+    },
+    {
+      "id": "python-force-local-stored",
+      "path": "generated/python-force-local-stored.zip",
+      "bytes": 280,
+      "sha256": "c916ee7a1cfaecc6376de92d5a1432733937192d3268eeb2b9c1ee2fe56b9b6f",
+      "expected": "ok",
+      "layout": null,
+      "note": "Python stdlib force_zip64=True, normal central/EOCD fields"
+    },
+    {
+      "id": "python-stream-local-stored",
+      "path": "generated/python-stream-local-stored.zip",
+      "bytes": 304,
+      "sha256": "0934fc6d3c6cad4f38aeeba07347f3e25f5c6da53752f3bfdf453c0c41262cf9",
+      "expected": "ok",
+      "layout": null,
+      "note": "Python nonseekable force_zip64, zero local ZIP64 placeholders and 64-bit descriptor"
+    },
+    {
+      "id": "full-deflated",
+      "path": "generated/full-deflated.zip",
+      "bytes": 473,
+      "sha256": "77cc6b6867cb7e5d0ec096de9ca02a04fad5ad7deaf56486a13b530a2bfcaaa2",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "descriptor-deflated-signed",
+      "path": "generated/descriptor-deflated-signed.zip",
+      "bytes": 521,
+      "sha256": "0cd8a37a2f59a126cdc013fa35fab09d424fa686f49af5e23bbbb0325c1278bb",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 250,
+            "central_extra": 307
+          },
+          {
+            "local": 150,
+            "local_extra": 194,
+            "data_start": 214,
+            "descriptor_start": 226,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 335,
+            "central_extra": 395
+          }
+        ],
+        "central_start": 250,
+        "central_size": 173,
+        "zip64_start": 423,
+        "locator": 479,
+        "end": 499
+      },
+      "note": null
+    },
+    {
+      "id": "descriptor-deflated-unsigned",
+      "path": "generated/descriptor-deflated-unsigned.zip",
+      "bytes": 513,
+      "sha256": "f80994dcd8d654a427626e1f47689b26d0ee066c9c6618eb22a5432e861bb3bf",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 242,
+            "central_extra": 299
+          },
+          {
+            "local": 146,
+            "local_extra": 190,
+            "data_start": 210,
+            "descriptor_start": 222,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 327,
+            "central_extra": 387
+          }
+        ],
+        "central_start": 242,
+        "central_size": 173,
+        "zip64_start": 415,
+        "locator": 471,
+        "end": 491
+      },
+      "note": null
+    },
+    {
+      "id": "python-force-local-deflated",
+      "path": "generated/python-force-local-deflated.zip",
+      "bytes": 205,
+      "sha256": "2fba37063f8b6df74e9c3b450de8d927a4fd707fb25964506ba15f4eb945fecf",
+      "expected": "ok",
+      "layout": null,
+      "note": "Python stdlib force_zip64=True, normal central/EOCD fields"
+    },
+    {
+      "id": "python-stream-local-deflated",
+      "path": "generated/python-stream-local-deflated.zip",
+      "bytes": 229,
+      "sha256": "78034aea9f3189b0eb55384f608fa4dc3f6210669bfdfafb32da9510706f8cfa",
+      "expected": "ok",
+      "layout": null,
+      "note": "Python nonseekable force_zip64, zero local ZIP64 placeholders and 64-bit descriptor"
+    },
+    {
+      "id": "conditional-size",
+      "path": "generated/conditional-size.zip",
+      "bytes": 401,
+      "sha256": "621bd91a8533574fdfdd83e523eccd5736a4e1a27faa327619ec87e5b77380f9",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 41,
+            "descriptor_start": 106,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 162,
+            "central_extra": 219
+          },
+          {
+            "local": 106,
+            "local_extra": 150,
+            "data_start": 150,
+            "descriptor_start": 162,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 231,
+            "central_extra": 291
+          }
+        ],
+        "central_start": 162,
+        "central_size": 141,
+        "zip64_start": 303,
+        "locator": 359,
+        "end": 379
+      },
+      "note": null
+    },
+    {
+      "id": "conditional-compressed",
+      "path": "generated/conditional-compressed.zip",
+      "bytes": 401,
+      "sha256": "dfc24bd35c128c9176ccf7665983e1dc02b0978893b1d4cb59ad7f83bf9f1efc",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 41,
+            "descriptor_start": 106,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 162,
+            "central_extra": 219
+          },
+          {
+            "local": 106,
+            "local_extra": 150,
+            "data_start": 150,
+            "descriptor_start": 162,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 231,
+            "central_extra": 291
+          }
+        ],
+        "central_start": 162,
+        "central_size": 141,
+        "zip64_start": 303,
+        "locator": 359,
+        "end": 379
+      },
+      "note": null
+    },
+    {
+      "id": "conditional-offset",
+      "path": "generated/conditional-offset.zip",
+      "bytes": 401,
+      "sha256": "b9c640503b53344deb48a5e59c72976ed6c4ff76566c9c4e3ffedef059af08d0",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 41,
+            "descriptor_start": 106,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 162,
+            "central_extra": 219
+          },
+          {
+            "local": 106,
+            "local_extra": 150,
+            "data_start": 150,
+            "descriptor_start": 162,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 231,
+            "central_extra": 291
+          }
+        ],
+        "central_start": 162,
+        "central_size": 141,
+        "zip64_start": 303,
+        "locator": 359,
+        "end": 379
+      },
+      "note": null
+    },
+    {
+      "id": "conditional-disk",
+      "path": "generated/conditional-disk.zip",
+      "bytes": 393,
+      "sha256": "cb7096f635eb5d8016307a8041c2a8cd9c467cbd1b4ff46aea8c76fecfebe4d2",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 41,
+            "descriptor_start": 106,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 162,
+            "central_extra": 219
+          },
+          {
+            "local": 106,
+            "local_extra": 150,
+            "data_start": 150,
+            "descriptor_start": 162,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 227,
+            "central_extra": 287
+          }
+        ],
+        "central_start": 162,
+        "central_size": 133,
+        "zip64_start": 295,
+        "locator": 351,
+        "end": 371
+      },
+      "note": null
+    },
+    {
+      "id": "duplicate-name",
+      "path": "generated/duplicate-name.zip",
+      "bytes": 753,
+      "sha256": "177b70019d480aed1ccf1242f5d84383cd57176a1085bf6ee15a041d2469b656",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 485,
+            "central_extra": 542
+          },
+          {
+            "local": 126,
+            "local_extra": 167,
+            "data_start": 187,
+            "descriptor_start": 485,
+            "name": "classes.dex",
+            "size": 536,
+            "compressed": 298,
+            "crc32": 3609563083,
+            "central": 570,
+            "central_extra": 627
+          }
+        ],
+        "central_start": 485,
+        "central_size": 170,
+        "zip64_start": 655,
+        "locator": 711,
+        "end": 731
+      },
+      "note": null
+    },
+    {
+      "id": "duplicate-content",
+      "path": "generated/duplicate-content.zip",
+      "bytes": 672,
+      "sha256": "31349e48021ebde4fbb56c004bb9448cc2ab9c1507defd3c4fd49be74bda253f",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 201,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 403,
+            "central_extra": 460
+          },
+          {
+            "local": 201,
+            "local_extra": 243,
+            "data_start": 263,
+            "descriptor_start": 403,
+            "name": "classes2.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 488,
+            "central_extra": 546
+          }
+        ],
+        "central_start": 403,
+        "central_size": 171,
+        "zip64_start": 574,
+        "locator": 630,
+        "end": 650
+      },
+      "note": null
+    },
+    {
+      "id": "empty",
+      "path": "generated/empty.zip",
+      "bytes": 98,
+      "sha256": "1386d0a55e7ede0dd147c146d17edfa81720aa3a50171ba3cc6b774839dc9593",
+      "expected": "ok",
+      "layout": {
+        "members": [],
+        "central_start": 0,
+        "central_size": 0,
+        "zip64_start": 0,
+        "locator": 56,
+        "end": 76
+      },
+      "note": null
+    },
+    {
+      "id": "end-extension",
+      "path": "generated/end-extension.zip",
+      "bytes": 555,
+      "sha256": "b82a8fecac7d3a8d60f20dd6513dd688edd8c8cd47d049d44791fc58a0b83422",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 201,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 275,
+            "central_extra": 332
+          },
+          {
+            "local": 201,
+            "local_extra": 245,
+            "data_start": 265,
+            "descriptor_start": 275,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 360,
+            "central_extra": 420
+          }
+        ],
+        "central_start": 275,
+        "central_size": 173,
+        "zip64_start": 448,
+        "locator": 513,
+        "end": 533
+      },
+      "note": null
+    },
+    {
+      "id": "plain32",
+      "path": "generated/plain32.zip",
+      "bytes": 374,
+      "sha256": "c961aa6034bc99f9e597e0117603eb6fc68b174f445ca1d94b819f0157bebbe7",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 41,
+            "descriptor_start": 181,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 235,
+            "central_extra": 292
+          },
+          {
+            "local": 181,
+            "local_extra": 225,
+            "data_start": 225,
+            "descriptor_start": 235,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 292,
+            "central_extra": 352
+          }
+        ],
+        "central_start": 235,
+        "central_size": 117,
+        "zip64_start": null,
+        "locator": null,
+        "end": 352
+      },
+      "note": null
+    },
+    {
+      "id": "plain32-local-padding-1",
+      "path": "generated/plain32-local-padding-1.zip",
+      "bytes": 376,
+      "sha256": "e8d5122d6958be1d75ad2e24ab4b9e3e2609e73435cef8538e4f15e8c73fcc0d",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 42,
+            "descriptor_start": 182,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 237,
+            "central_extra": 294
+          },
+          {
+            "local": 182,
+            "local_extra": 226,
+            "data_start": 227,
+            "descriptor_start": 237,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 294,
+            "central_extra": 354
+          }
+        ],
+        "central_start": 237,
+        "central_size": 117,
+        "zip64_start": null,
+        "locator": null,
+        "end": 354
+      },
+      "note": null
+    },
+    {
+      "id": "plain32-local-padding-2",
+      "path": "generated/plain32-local-padding-2.zip",
+      "bytes": 378,
+      "sha256": "803e56cff53cffc37c289ea3c17813e0fb3d5326b682f1433e7a786bd7762122",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 43,
+            "descriptor_start": 183,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 239,
+            "central_extra": 296
+          },
+          {
+            "local": 183,
+            "local_extra": 227,
+            "data_start": 229,
+            "descriptor_start": 239,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 296,
+            "central_extra": 356
+          }
+        ],
+        "central_start": 239,
+        "central_size": 117,
+        "zip64_start": null,
+        "locator": null,
+        "end": 356
+      },
+      "note": null
+    },
+    {
+      "id": "plain32-local-padding-3",
+      "path": "generated/plain32-local-padding-3.zip",
+      "bytes": 380,
+      "sha256": "7ac7460619c195094264fe89e84b5def40edafb272caf3e38060750c740fb7d0",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 44,
+            "descriptor_start": 184,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 241,
+            "central_extra": 298
+          },
+          {
+            "local": 184,
+            "local_extra": 228,
+            "data_start": 231,
+            "descriptor_start": 241,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 298,
+            "central_extra": 358
+          }
+        ],
+        "central_start": 241,
+        "central_size": 117,
+        "zip64_start": null,
+        "locator": null,
+        "end": 358
+      },
+      "note": null
+    },
+    {
+      "id": "plain32-local-nonzero-truncated-extra",
+      "path": "generated/plain32-local-nonzero-truncated-extra.zip",
+      "bytes": 376,
+      "sha256": "cd5256e4ff65f19de3c381f144707af076158f03a2e6717410aacfbdd88d6a59",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 42,
+            "descriptor_start": 182,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 237,
+            "central_extra": 294
+          },
+          {
+            "local": 182,
+            "local_extra": 226,
+            "data_start": 227,
+            "descriptor_start": 237,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 294,
+            "central_extra": 354
+          }
+        ],
+        "central_start": 237,
+        "central_size": 117,
+        "zip64_start": null,
+        "locator": null,
+        "end": 354
+      },
+      "note": null
+    },
+    {
+      "id": "count-only-zip64-with-32-descriptor",
+      "path": "generated/count-only-zip64-with-32-descriptor.zip",
+      "bytes": 482,
+      "sha256": "96995c2dae993b66d160938856260d64c0abacc83026c55c506dd0b7f8fd29d8",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 41,
+            "descriptor_start": 181,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 267,
+            "central_extra": 324
+          },
+          {
+            "local": 197,
+            "local_extra": 241,
+            "data_start": 241,
+            "descriptor_start": 251,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 324,
+            "central_extra": 384
+          }
+        ],
+        "central_start": 267,
+        "central_size": 117,
+        "zip64_start": 384,
+        "locator": 440,
+        "end": 460
+      },
+      "note": null
+    },
+    {
+      "id": "central-offset64-local-version20-descriptor64",
+      "path": "generated/central-offset64-local-version20-descriptor64.zip",
+      "bytes": 441,
+      "sha256": "70a6b5bfa51844f5a7bd9a0d76d54e0fcb41f81f410877e3065b08b0f3825a20",
+      "expected": "ok",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 41,
+            "descriptor_start": 106,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 170,
+            "descriptor_start": 182,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 271,
+            "central_extra": 331
+          }
+        ],
+        "central_start": 202,
+        "central_size": 141,
+        "zip64_start": 343,
+        "locator": 399,
+        "end": 419
+      },
+      "note": null
+    },
+    {
+      "id": "duplicate-central-extra",
+      "path": "generated/duplicate-central-extra.zip",
+      "bytes": 602,
+      "sha256": "fc0a2a290d6ad6f2bc6171a144e47cb6d01b1575691fc2150aefbdbd45b76d69",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 201,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 275,
+            "central_extra": 332
+          },
+          {
+            "local": 201,
+            "local_extra": 245,
+            "data_start": 265,
+            "descriptor_start": 275,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 388,
+            "central_extra": 448
+          }
+        ],
+        "central_start": 275,
+        "central_size": 229,
+        "zip64_start": 504,
+        "locator": 560,
+        "end": 580
+      },
+      "note": null
+    },
+    {
+      "id": "duplicate-local-extra",
+      "path": "generated/duplicate-local-extra.zip",
+      "bytes": 586,
+      "sha256": "8e79b00b928ccc084671ed1c90c5eec18f515211ebc020732d2b4a506030c2bd",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 81,
+            "descriptor_start": 221,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 140,
+            "crc32": 2346151302,
+            "central": 315,
+            "central_extra": 372
+          },
+          {
+            "local": 221,
+            "local_extra": 265,
+            "data_start": 305,
+            "descriptor_start": 315,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 10,
+            "crc32": 1937133378,
+            "central": 400,
+            "central_extra": 460
+          }
+        ],
+        "central_start": 315,
+        "central_size": 173,
+        "zip64_start": 488,
+        "locator": 544,
+        "end": 564
+      },
+      "note": null
+    },
+    {
+      "id": "bad-locator-offset",
+      "path": "generated/bad-locator-offset.zip",
+      "bytes": 473,
+      "sha256": "8644e5a9244fdb79e806d066fefd2ac72357d8765609329ea9928faa0301dfde",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "bad-record-size",
+      "path": "generated/bad-record-size.zip",
+      "bytes": 473,
+      "sha256": "1628c4170130b81d5d70e7df2399d9152055bcba8c7813c92fc5ae24f24fc3b6",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "declared-record-huge",
+      "path": "generated/declared-record-huge.zip",
+      "bytes": 473,
+      "sha256": "3fee78466ff2bf6eeacbaa144f752e00e18dca084dbccd46560ae9d23eaac32d",
+      "expected": "QUOTA_EXCEEDED",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "bad-disk-count",
+      "path": "generated/bad-disk-count.zip",
+      "bytes": 473,
+      "sha256": "ea39414feb5fcf0f88a2bb3dc25cfe58ed0eeda26e73bd7cb50dbbc4e73dd451",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "declared-directory-huge",
+      "path": "generated/declared-directory-huge.zip",
+      "bytes": 473,
+      "sha256": "8aad382314ace1f6e5b154173d0601e3cacd94398bc49d09bd03f2384075f3f2",
+      "expected": "QUOTA_EXCEEDED",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "declared-offset-overflow",
+      "path": "generated/declared-offset-overflow.zip",
+      "bytes": 473,
+      "sha256": "34a958645e6beacce800d0ae16799987c821d4e71573c8ccc68e22248bf11037",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "multi-volume",
+      "path": "generated/multi-volume.zip",
+      "bytes": 473,
+      "sha256": "1f6af1ba4a84d88e9a0d13fe4775613b9690498973b71abe31b24a6a52c7dd22",
+      "expected": "UNSUPPORTED_CAPABILITY",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "zero-disks",
+      "path": "generated/zero-disks.zip",
+      "bytes": 473,
+      "sha256": "a45a87dba5c7b70fbdfe9c44b3d3a9bb6f2108a52c76ea69cf3f05613b443b21",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "bad-extra-length",
+      "path": "generated/bad-extra-length.zip",
+      "bytes": 473,
+      "sha256": "ed4898922a4385b6047fd3c77c139ac719c2f73b3672af35ce09f493e199c130",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "bad-local-zip64-version",
+      "path": "generated/bad-local-zip64-version.zip",
+      "bytes": 473,
+      "sha256": "240cdaddb3f6e2bbdf41f24c5dcba36674fe56fde6d3cc900ec0aab55569ee26",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "bad-central-zip64-version",
+      "path": "generated/bad-central-zip64-version.zip",
+      "bytes": 473,
+      "sha256": "d39327f8453b9624aef88fa6c5d321db0c9c43206243290b8dc6c8d34a4351bf",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "local-size-mismatch",
+      "path": "generated/local-size-mismatch.zip",
+      "bytes": 473,
+      "sha256": "22f4b56dd5c07c1bb5647f7e711057782859e4f2c798c2d6bc68b07ed28813e5",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "local-offset-u64-overflow",
+      "path": "generated/local-offset-u64-overflow.zip",
+      "bytes": 473,
+      "sha256": "031adb421edbcbb3f3fa8b73a76105700a70775e49aadce0dada2909b8636bec",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "central-local-name-mismatch",
+      "path": "generated/central-local-name-mismatch.zip",
+      "bytes": 473,
+      "sha256": "1bf7d08ed5ff7fbbec694a3c32bda06079c9d1a9b90bb345f53ced1bb346325f",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "declared-count-huge",
+      "path": "generated/declared-count-huge.zip",
+      "bytes": 473,
+      "sha256": "74c6205984d91ee139ff9a967a78ef4d035af21787aecdc8c479d537c9cac09d",
+      "expected": "QUOTA_EXCEEDED",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "missing-locator-signature",
+      "path": "generated/missing-locator-signature.zip",
+      "bytes": 473,
+      "sha256": "c80f680852a1e8e7e56694ebaade7fcc61e4e5c61e8c94836f7b634c6d33f054",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "wrong-extra-order",
+      "path": "generated/wrong-extra-order.zip",
+      "bytes": 473,
+      "sha256": "304d566aefeae1604d25bbd0fba928cf24a7f50d292b66fb6e7c1a25975c00a8",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": null
+    },
+    {
+      "id": "declared-total-overflow",
+      "path": "generated/declared-total-overflow.zip",
+      "bytes": 473,
+      "sha256": "9045102cb49b8d6afdf862d744715bbbd1a52f511890e5970e9d40b22f04ba62",
+      "expected": "QUOTA_EXCEEDED",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": "Declaration-only invalid/over-budget vector, not a legal huge archive; test with per-member/total limits u64::MAX"
+    },
+    {
+      "id": "declared-member-huge",
+      "path": "generated/declared-member-huge.zip",
+      "bytes": 473,
+      "sha256": "481e2bcc7b9298e65730cb5bd2e791d2cb7fe6ea8a0b6345f417d5c2a3d22cf0",
+      "expected": "QUOTA_EXCEEDED",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": "Declaration-only quota vector; no true 4GB data allocated"
+    },
+    {
+      "id": "bad-selected-payload",
+      "path": "generated/bad-selected-payload.zip",
+      "bytes": 473,
+      "sha256": "9ba77194e594bdcf96944bc9805487824979994f352b79236e569a586b531f21",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 202,
+            "central_extra": 259
+          },
+          {
+            "local": 126,
+            "local_extra": 170,
+            "data_start": 190,
+            "descriptor_start": 202,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 287,
+            "central_extra": 347
+          }
+        ],
+        "central_start": 202,
+        "central_size": 173,
+        "zip64_start": 375,
+        "locator": 431,
+        "end": 451
+      },
+      "note": "Selected member must be fully decompressed and CRC checked"
+    },
+    {
+      "id": "bad-descriptor-crc",
+      "path": "generated/bad-descriptor-crc.zip",
+      "bytes": 521,
+      "sha256": "3ef3d28c07894bc941098886cba5584b30fc24bbdfb772cf31cd4b82d985eadd",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 250,
+            "central_extra": 307
+          },
+          {
+            "local": 150,
+            "local_extra": 194,
+            "data_start": 214,
+            "descriptor_start": 226,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 335,
+            "central_extra": 395
+          }
+        ],
+        "central_start": 250,
+        "central_size": 173,
+        "zip64_start": 423,
+        "locator": 479,
+        "end": 499
+      },
+      "note": null
+    },
+    {
+      "id": "bad-descriptor-size",
+      "path": "generated/bad-descriptor-size.zip",
+      "bytes": 513,
+      "sha256": "c8cf588d6974058dc49bcad32932ac6960607ae38bd47c4ee8bc54ff47163a49",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 242,
+            "central_extra": 299
+          },
+          {
+            "local": 146,
+            "local_extra": 190,
+            "data_start": 210,
+            "descriptor_start": 222,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 327,
+            "central_extra": 387
+          }
+        ],
+        "central_start": 242,
+        "central_size": 173,
+        "zip64_start": 415,
+        "locator": 471,
+        "end": 491
+      },
+      "note": null
+    },
+    {
+      "id": "bad-descriptor-width",
+      "path": "generated/bad-descriptor-width.zip",
+      "bytes": 505,
+      "sha256": "0cf46c34dfa486e925f586c67d731a8bd392d1618b9a778f60a1866277979f55",
+      "expected": "INVALID_INPUT",
+      "layout": {
+        "members": [
+          {
+            "local": 0,
+            "local_extra": 41,
+            "data_start": 61,
+            "descriptor_start": 126,
+            "name": "classes.dex",
+            "size": 140,
+            "compressed": 65,
+            "crc32": 2346151302,
+            "central": 234,
+            "central_extra": 291
+          },
+          {
+            "local": 142,
+            "local_extra": 186,
+            "data_start": 206,
+            "descriptor_start": 218,
+            "name": "assets/raw.bin",
+            "size": 10,
+            "compressed": 12,
+            "crc32": 1937133378,
+            "central": 319,
+            "central_extra": 379
+          }
+        ],
+        "central_start": 234,
+        "central_size": 173,
+        "zip64_start": 407,
+        "locator": 463,
+        "end": 483
+      },
+      "note": null
+    },
+    {
+      "id": "count-65535",
+      "path": "generated/count-65535.zip",
+      "bytes": 5111912,
+      "sha256": "23821cc834b6c8c425a084da3c35ada6fde578c3988a9bfe10d3d90eaa8cb655",
+      "expected": "ok",
+      "layout": null,
+      "note": "Real small archive with many zero-byte duplicate resource names; not 4GB payload",
+      "expected_count": 65535,
+      "large_metadata": true
+    },
+    {
+      "id": "count-65536",
+      "path": "generated/count-65536.zip",
+      "bytes": 5112066,
+      "sha256": "64ac98c192b4f68642e16ec431ea9b123bb447453720cd2b31d4e078fa4bed50",
+      "expected": "ok",
+      "layout": null,
+      "note": "Real small archive with many zero-byte duplicate resource names; not 4GB payload",
+      "expected_count": 65536,
+      "large_metadata": true
+    }
+  ]
+}

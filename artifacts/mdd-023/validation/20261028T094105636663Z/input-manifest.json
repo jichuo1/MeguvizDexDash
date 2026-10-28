@@ -1,0 +1,253 @@
+{
+  "schema_version": "mdd.instruction-fixtures.v1",
+  "generator": "tests/fixtures/instructions/generate.py",
+  "opcode_vector_count": 224,
+  "format_count": 26,
+  "manual_expectation_count": 9,
+  "files": [
+    {
+      "path": "unreferenced-two-code.dex",
+      "sha256": "0e91b25b75fb54e843624258c0163f9a98eb1c05210d12b459f9bd41a22e71ef",
+      "bytes": 208,
+      "code_offsets": [
+        112,
+        132
+      ],
+      "debug_offset": 150,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "packed-switch.dex",
+      "sha256": "286e31622963372bcdbd3592ff9f10fb9808a676cc733fcd4cd97259240d7963",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "sparse-switch.dex",
+      "sha256": "edf4ce6a30c1bcaf93685b3a23f10f3ee5f422236bb65be35f1b9f825d620771",
+      "bytes": 196,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "fill-array.dex",
+      "sha256": "211fcd52b84d7d31c395cac7e6b554bb6b9bf2dbab4e5e0e5963cad433b03b77",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "try-catch-all.dex",
+      "sha256": "7c6926ae613e5f44cdb96e861a4e7b31a1beb09795ee8bc824e0c95390b1b71f",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "all-debug-opcodes.dex",
+      "sha256": "0e8d3f0b7308c59083c50ef98c19ad9134135be2b33933fb89405fc5f569acdd",
+      "bytes": 208,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-reserved-opcode.dex",
+      "sha256": "8e0ad9963263cac271df746459af0812e212cf294bdce8ad4f9012afeb5e2743",
+      "bytes": 172,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-truncated-wide.dex",
+      "sha256": "c5924ed58ac7edcbf1122107442d408a70cdbca69d107ff1c89771cf9549bfac",
+      "bytes": 172,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "debug-intermediate-state-7.dex",
+      "sha256": "3bb4149bc65165d07609568fcd87899fdeef13635d83798d56ade938ae608a9b",
+      "bytes": 200,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 136,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "debug-intermediate-state-8.dex",
+      "sha256": "2969c49b396d1e47697840a7b1de3640b0e47c083e0f040bd197d805e75d7e80",
+      "bytes": 200,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 136,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "debug-intermediate-state-9.dex",
+      "sha256": "55c5658ab7639c359a115e7504ff0a0e677a2ada19fae82a89f1268dbca2e60a",
+      "bytes": 200,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 136,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "try-end-inside-instruction.dex",
+      "sha256": "aeac62fc5b9f44cc56989b36b3daac642d0355ce40f7a55f09bddddb17176d0f",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": null,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "debug-code-unit-interior-position.dex",
+      "sha256": "5fc762269d1d291a0e0f33713eaeec2cf4d18ba76378662c7b5951dc141a595d",
+      "bytes": 192,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 136,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "debug-code-unit-interior-local.dex",
+      "sha256": "7ea6cc002e84b527dd15e5700064c124dd9df69722f3d57f7b83fd8159bb68d0",
+      "bytes": 204,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 136,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "pc-to-pc-shared-base-0.dex",
+      "sha256": "6b8c19f49be9b63c0282dcbdb116d0d21fae80972daca8198813a910dfb2b7bd",
+      "bytes": 220,
+      "code_offsets": [
+        112,
+        132
+      ],
+      "debug_offset": 156,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "pc-to-pc-shared-base-1.dex",
+      "sha256": "a3085711d5e604443e178b67e8d8cde9efd13671a03b8e8c7c6e6ee9d6c02d35",
+      "bytes": 220,
+      "code_offsets": [
+        112,
+        132
+      ],
+      "debug_offset": 156,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-debug-initial-zero.dex",
+      "sha256": "9faaebe50f13b61d8541aa531e21a62b3deaf3b5fd13f065e9ce93df10b51ba5",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-debug-advance-zero.dex",
+      "sha256": "3fa77f5e8974a491bd4ff2b26c0a38bf829f62fe158ebeb02cccca365c4197c5",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-debug-special-negative.dex",
+      "sha256": "3a8874990e673a925a4c9fdea4dab4b92429bdf46a668826c257eaf2ac80a7c8",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-debug-missing-end.dex",
+      "sha256": "a685e105b9822493ca95992a5f21c79c551820a8fc7c2a1d10ba9f9059777d82",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-debug-parameter-count.dex",
+      "sha256": "7e7ff15a50efc709388586a6352f1828da33b513caa07b76f9cf0a7fc33f5dba",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "debug-line-u32max.dex",
+      "sha256": "97d4fc7afe2217cd7ceedbe265a8aa6555ccf98a8030fd6d41899c4be4dfd87c",
+      "bytes": 192,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-debug-line-overflow.dex",
+      "sha256": "1fbfaca32d28728e7709e40fb67f7afe0cc16a4eaf74e16c29abecbaea305244",
+      "bytes": 192,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    },
+    {
+      "path": "bad-debug-nonpattern-shared-suffix.dex",
+      "sha256": "612f561073424eb9cc92d8b264367720b82ed7cc4dcbe92f5dfb37470fdba247",
+      "bytes": 188,
+      "code_offsets": [
+        112
+      ],
+      "debug_offset": 130,
+      "kind": "synthetic-layout-fixture-not-installable-APK"
+    }
+  ],
+  "oracle_note": "AOSP-derived full-coverage vectors are not independent of opcode metadata; literal expectations and explicit malformed cases supplement them."
+}

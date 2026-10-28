@@ -1,0 +1,1 @@
+10-28 17:31:06.202 52868 40016 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\MeguvisDexDash\tests\fixtures\definitions\generated\orphan-field-valid.dex': Could not find declaring class for non-empty class data item.

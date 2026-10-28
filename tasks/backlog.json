@@ -154,7 +154,7 @@
       "id": "MDD-005",
       "phase": "M0",
       "title": "建立 A0/A1/A2 配对基线与阶段计时方案",
-      "status": "blocked",
+      "status": "in_progress",
       "depends_on": [
         "MDD-001",
         "MDD-003",
@@ -188,13 +188,13 @@
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
       "blocking_reasons": [
-        "No validated private 9170100/9161100 APKs",
-        "No same-environment complete A0/A1/A2 drivers/trials or qualified best-existing denominator",
-        "Dedicated measurement window not entered; no performance claim"
+        "Fixed private inputs are now acquired/verified; same-environment complete A0/A1/A2 drivers/certificates still being prepared",
+        "Formal measurement must await an exclusive CPU/IO window; no performance trial has been claimed"
       ],
       "implementation_evidence": [
         "artifacts/mdd-005/baseline-qualification.json"
-      ]
+      ],
+      "input_evidence": "artifacts/bootstrap/20261028/private-input-acquisition.json"
     },
     {
       "id": "MDD-006",
@@ -348,9 +348,27 @@
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
       "implementation_evidence": [
-        "artifacts/mdd-012/inventory-and-extraction.json"
+        "artifacts/mdd-012/inventory-and-extraction.json",
+        "artifacts/mdd-012/zip64/qualification.json",
+        "artifacts/mdd-012/zip64/root-input-accepted/record.json"
       ],
-      "completion_scope": "M1 task scope only; no full-format, HostLab or performance qualification"
+      "completion_scope": "M1 task scope only; no full-format, HostLab or performance qualification",
+      "reopened_reason": null,
+      "implementation_notes": "Extend bounded physical directory/item inventory to ZIP64; preserve prior ZIP32 evidence and unsupported declaration until actually verified",
+      "status_history": [
+        {
+          "status": "done",
+          "scope": "initial ZIP32 prototype, no ZIP64 claim"
+        },
+        {
+          "status": "in_progress",
+          "reason": "complete docs/04 single-disk ZIP64 required input gate"
+        },
+        {
+          "status": "done",
+          "scope": "bounded single-disk ZIP32/ZIP64; unsupported codecs/multivolume/encryption explicit"
+        }
+      ]
     },
     {
       "id": "MDD-013",
@@ -461,15 +479,35 @@
       ],
       "implementation_evidence": [
         "artifacts/mdd-020/metadata-conformance.json",
-        "artifacts/mdd-020/public-newpipe-metadata.json"
+        "artifacts/mdd-020/public-newpipe-metadata.json",
+        "artifacts/integration/20261028/item-boundaries/requalification.json"
       ],
-      "completion_scope": "strings/types/prototypes only; remaining fact layers explicitly unbuilt"
+      "completion_scope": "strings/types/prototypes only; remaining fact layers explicitly unbuilt",
+      "reopened_reason": null,
+      "reopened_evidence": "artifacts/integration/20261028/item-boundaries/bad-interior-string-dexdump-record.json",
+      "status_history": [
+        {
+          "status": "done",
+          "revision": "05359f9",
+          "scope": "initial metadata conformance"
+        },
+        {
+          "status": "in_progress",
+          "reason": "SDK dexdump rejects interior string_data reference accepted by prior metadata reader; item-start regression repair in progress",
+          "evidence": "artifacts/integration/20261028/item-boundaries/bad-interior-string-dexdump-record.json"
+        },
+        {
+          "status": "done",
+          "reason": "requalified with real physical-item start proof and valid orphan controls",
+          "evidence": "artifacts/integration/20261028/item-boundaries/requalification.json"
+        }
+      ]
     },
     {
       "id": "MDD-021",
       "phase": "M2",
       "title": "实现类、字段、方法定义与声明顺序",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "MDD-020"
       ],
@@ -497,13 +535,20 @@
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
-      "implementation_notes": "MDD-020 accepted at 05359f9; production task delegated with single-writer files"
+      "implementation_notes": "MDD-020 accepted at 05359f9; production task delegated with single-writer files",
+      "implementation_evidence": [
+        "artifacts/mdd-021/definition-conformance.json",
+        "artifacts/mdd-021/public-newpipe-definitions/record.json",
+        "artifacts/mdd-021/root-accepted-reader/record.json",
+        "artifacts/mdd-021/root-accepted-facts/record.json"
+      ],
+      "completion_scope": "definition metadata only; unbuilt code and source-position columns are not NULL"
     },
     {
       "id": "MDD-022",
       "phase": "M2",
       "title": "实现注解、encoded values 与泛型签名",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-020",
         "MDD-021"
@@ -531,13 +576,19 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_notes": "MDD020 physically revalidated and MDD021 accepted; production annotations now delegated",
+      "implementation_evidence": [
+        "artifacts/mdd-022/annotation-conformance.json",
+        "artifacts/integration/20261028/root-annotations-accepted/record.json"
+      ],
+      "completion_scope": "complete encoded annotations/values and ordered Signature; missing parameter slots are unknown, not NULL"
     },
     {
       "id": "MDD-023",
       "phase": "M2",
       "title": "实现指令、payload、异常与代码布局解码",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "MDD-013",
         "MDD-020"
@@ -566,13 +617,20 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
-      "implementation_notes": "MDD-020 accepted at 05359f9; production task delegated with single-writer files"
+      "implementation_notes": "MDD-020 accepted at 05359f9; production task delegated with single-writer files",
+      "implementation_evidence": [
+        "artifacts/mdd-023/component-final-summary.json",
+        "artifacts/mdd-023/final-review.json",
+        "artifacts/mdd-023/public-newpipe-code-layout-encoded-policy/record.json",
+        "artifacts/integration/20261028/root-instructions-accepted/record.json"
+      ],
+      "completion_scope": "complete encoded code layout and debug; source mapping/dispatch/ART/HostLab/performance not qualified"
     },
     {
       "id": "MDD-024",
       "phase": "M2",
       "title": "建立调用点、字符串、字段和类型引用事实",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "MDD-021",
         "MDD-023"
@@ -605,7 +663,7 @@
       "id": "MDD-025",
       "phase": "M2",
       "title": "实现原始代码/资源指纹与必需 Manifest 事实",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "MDD-012",
         "MDD-021",
@@ -635,7 +693,8 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_notes": "MDD012 ZIP64, MDD021 definitions and MDD023 encoded code layout accepted; raw fingerprints/manifest production delegated"
     },
     {
       "id": "MDD-026",

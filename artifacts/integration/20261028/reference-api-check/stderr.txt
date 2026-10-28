@@ -1,0 +1,4 @@
+    Checking mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+    Checking mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+    Checking mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.42s

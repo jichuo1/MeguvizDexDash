@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tests/fixtures/annotations/generate.py"
+  ],
+  "exit_code": 0,
+  "stdout": "generated 32 annotation fixtures\n",
+  "stderr": ""
+}

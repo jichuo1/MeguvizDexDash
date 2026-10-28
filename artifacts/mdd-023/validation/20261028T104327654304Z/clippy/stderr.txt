@@ -1,0 +1,21 @@
+    Checking mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+    Checking mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+error: this `if` statement can be collapsed
+   --> crates\mdd-input\src\archive\central.rs:119:5
+    |
+119 | /     if pos != central_end {
+120 | |         if checked(bytes, pos, 4)? != b"PK\x05\x05" || pos.checked_add(6 + usize::from(u16_at(bytes, pos + 4)?)) != Some(central_...
+121 | |     }
+    | |_____^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+119 ~     if pos != central_end
+120 ~         && (checked(bytes, pos, 4)? != b"PK\x05\x05" || pos.checked_add(6 + usize::from(u16_at(bytes, pos + 4)?)) != Some(central_end)) { return Err(invalid("central directory count or byte length disagrees")); }
+    |
+
+error: could not compile `mdd-input` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

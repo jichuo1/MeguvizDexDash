@@ -1,0 +1,12 @@
+{
+  "schema_version":"mdd.annotation-adjudication.v1",
+  "question":"Must annotation_set_ref_list.size equal the referenced prototype parameter count?",
+  "previous_assumption":"Preflight Python oracle required equality and labelled the size1/prototype2 vector bad-parameter-arity.dex invalid.",
+  "new_evidence":"Fixed SDK37 dexdump -f and hash-verified A0 Windows0.1.0 both returned exit0 for the same unchanged vector. Fixed ART verifier checks physical list/indices/owner but does not impose equality.",
+  "evidence":"artifacts/mdd-022/probes/parameter-arity-sdk/results.json",
+  "decision":"Remove the unsupported equality assumption. Preserve exactly encoded slots and their ordinal; missing trailing prototype positions are not manufactured as NULL rows. Position-to-prototype binding is explicitly separate.",
+  "case_identity":"bad-parameter-arity.dex retains its original filename and bytes for provenance, now classified valid_parameter_prefix_adjudicated.",
+  "unchanged_rejections":"The size3 vector physically exceeds the ref-list section and is independently rejected by SDK and A0. Invalid owner/index/order/width/depth cases remain errors.",
+  "history":"pre-adjudication/manifest.json and oracle-results.json retain the earlier preflight judgment. No production reader existed when the assumption was corrected.",
+  "scope":"Format and compatibility boundary on controlled bytes only; no runtime reflection or complete Android installation claim."
+}

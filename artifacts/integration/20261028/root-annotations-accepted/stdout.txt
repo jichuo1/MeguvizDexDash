@@ -1,0 +1,10 @@
+
+running 5 tests
+test annotations::tests::embedded_value_components_enforce_progress_depth_and_nodes ... ok
+test annotations::tests::parameter_lists_preserve_encoded_slots_without_inventing_nulls ... ok
+test annotations::tests::full_physical_annotations_preserve_types_bits_and_local_positions ... ok
+test annotations::tests::depth_nodes_and_bytes_fail_closed ... ok
+test annotations::tests::every_physical_fixture_matches_independent_sdk_classification ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 37 filtered out; finished in 0.01s
+

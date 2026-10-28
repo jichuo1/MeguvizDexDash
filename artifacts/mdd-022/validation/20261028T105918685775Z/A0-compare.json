@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "artifacts/mdd-022/probes/compare_oracle.py"
+  ],
+  "exit_code": 0,
+  "stdout": "six complete annotation relations match independent oracle; annotation_directories=1, annotation_directory_entries=5, annotation_set_entries=5, annotation_set_refs=2, annotations=4, annotation_elements=44\n",
+  "stderr": ""
+}

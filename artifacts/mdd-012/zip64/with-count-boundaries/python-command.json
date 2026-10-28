@@ -1,0 +1,8 @@
+{
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tests/fixtures/zip64/check.py"
+  ],
+  "exit_code": 0,
+  "fixture_manifest_sha256": "287c31ebde04f4db1628a1a41181174e162f55a6a0cf5e6b0211773df221de64"
+}

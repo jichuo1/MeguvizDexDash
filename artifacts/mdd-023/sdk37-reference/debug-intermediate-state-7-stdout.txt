@@ -1,0 +1,25 @@
+Processing 'D:\MeguvisDexDash\tests\fixtures\instructions\generated\debug-intermediate-state-7.dex'...
+Opened 'D:\MeguvisDexDash\tests\fixtures\instructions\generated\debug-intermediate-state-7.dex', DEX version '040'
+DEX file header:
+magic               : 'dex\n040\0'
+checksum            : 492d1199
+signature           : d9f4...70c2
+file_size           : 200
+header_size         : 112
+link_size           : 0
+link_off            : 0 (0x000000)
+string_ids_size     : 0
+string_ids_off      : 0 (0x000000)
+type_ids_size       : 0
+type_ids_off        : 0 (0x000000)
+proto_ids_size      : 0
+proto_ids_off       : 0 (0x000000)
+field_ids_size      : 0
+field_ids_off       : 0 (0x000000)
+method_ids_size     : 0
+method_ids_off      : 0 (0x000000)
+class_defs_size     : 0
+class_defs_off      : 0 (0x000000)
+data_size           : 88
+data_off            : 112 (0x000070)
+

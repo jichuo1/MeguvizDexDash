@@ -1,0 +1,9 @@
+
+running 4 tests
+test types::tests::descriptor_grammar_has_exact_void_array_name_and_version_rules ... ok
+test types::tests::existing_independent_fixture_types_and_empty_proto_match ... ok
+test types::tests::independent_nonempty_parameter_fixture_matches_every_declared_field ... ok
+test types::tests::independent_metadata_mutants_reject_instead_of_empty_success ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out; finished in 0.00s
+

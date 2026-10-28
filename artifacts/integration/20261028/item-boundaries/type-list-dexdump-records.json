@@ -1,0 +1,22 @@
+[
+  {
+    "argv": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+      "-f",
+      "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\valid-unused-type-list.dex"
+    ],
+    "exit_code": 0,
+    "input_sha256": "c605aa4b71cdd86fd91901a68dd196135e14ebc0e3eaaecc35904c6bec102ccd",
+    "expected": 0
+  },
+  {
+    "argv": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+      "-f",
+      "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\bad-interior-type-list.dex"
+    ],
+    "exit_code": 1,
+    "input_sha256": "4a793e630c2758224f71dad6f693f7a3fc42d9daa9fa9641249705be5450eb11",
+    "expected": 1
+  }
+]

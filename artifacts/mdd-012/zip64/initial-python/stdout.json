@@ -1,0 +1,488 @@
+{
+  "oracle": "Python stdlib zipfile; no Rust zip implementation shared",
+  "checks": [
+    {
+      "id": "full-stored",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "descriptor-stored-signed",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "descriptor-stored-unsigned",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "python-force-local-stored",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        }
+      ]
+    },
+    {
+      "id": "python-stream-local-stored",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        }
+      ]
+    },
+    {
+      "id": "full-deflated",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "descriptor-deflated-signed",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "descriptor-deflated-unsigned",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "python-force-local-deflated",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        }
+      ]
+    },
+    {
+      "id": "python-stream-local-deflated",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        }
+      ]
+    },
+    {
+      "id": "conditional-size",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "conditional-compressed",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "conditional-offset",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "conditional-disk",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "duplicate-name",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "classes.dex",
+          "size": 536,
+          "sha256": "108cf907d330b823c6e32d38eaab8f23709fe493f52537688bbd09ba3e271605",
+          "crc32": 3609563083
+        }
+      ]
+    },
+    {
+      "id": "duplicate-content",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "classes2.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        }
+      ]
+    },
+    {
+      "id": "empty",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": []
+    },
+    {
+      "id": "end-extension",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "plain32",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "count-only-zip64-with-32-descriptor",
+      "byte_reproduction": true,
+      "consumer_status": "fully_consumed",
+      "members": [
+        {
+          "ordinal": 0,
+          "name": "classes.dex",
+          "size": 140,
+          "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "crc32": 2346151302
+        },
+        {
+          "ordinal": 1,
+          "name": "assets/raw.bin",
+          "size": 10,
+          "sha256": "cde6eb9f267ca1ada03e0d81100b2527cadfc7a4ff478dc7b79ea7ccf097102d",
+          "crc32": 1937133378
+        }
+      ]
+    },
+    {
+      "id": "duplicate-central-extra",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "duplicate-local-extra",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "bad-locator-offset",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "bad-record-size",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "declared-record-huge",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "bad-disk-count",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "declared-directory-huge",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "declared-offset-overflow",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "multi-volume",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "zero-disks",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "bad-extra-length",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "local-size-mismatch",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "central-local-name-mismatch",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "declared-count-huge",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "missing-locator-signature",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "wrong-extra-order",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "declared-total-overflow",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "declared-member-huge",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "bad-selected-payload",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "bad-descriptor-crc",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    },
+    {
+      "id": "bad-descriptor-size",
+      "byte_reproduction": true,
+      "consumer_status": "negative declaration/layout vector; no format success claimed"
+    }
+  ],
+  "scope": "small real ZIP64 positive files plus explicit malformed/quota vectors; not 4GB data or performance qualification"
+}

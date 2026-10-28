@@ -1,0 +1,25 @@
+Processing 'D:\MeguvisDexDash\tests\fixtures\instructions\generated\fill-array.dex'...
+Opened 'D:\MeguvisDexDash\tests\fixtures\instructions\generated\fill-array.dex', DEX version '040'
+DEX file header:
+magic               : 'dex\n040\0'
+checksum            : df290fbf
+signature           : 8d58...b686
+file_size           : 188
+header_size         : 112
+link_size           : 0
+link_off            : 0 (0x000000)
+string_ids_size     : 0
+string_ids_off      : 0 (0x000000)
+type_ids_size       : 0
+type_ids_off        : 0 (0x000000)
+proto_ids_size      : 0
+proto_ids_off       : 0 (0x000000)
+field_ids_size      : 0
+field_ids_off       : 0 (0x000000)
+method_ids_size     : 0
+method_ids_off      : 0 (0x000000)
+class_defs_size     : 0
+class_defs_off      : 0 (0x000000)
+data_size           : 76
+data_off            : 112 (0x000070)
+

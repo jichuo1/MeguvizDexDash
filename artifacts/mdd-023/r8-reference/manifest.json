@@ -1,0 +1,7 @@
+{
+  "revision": "f7593381b816d1dd1e4fae52b4635c8c10527749",
+  "url": "https://r8.googlesource.com/r8/+/f7593381b816d1dd1e4fae52b4635c8c10527749/src/main/java/com/android/tools/r8/graph/DexDebugInfo.java?format=TEXT",
+  "bytes": 11282,
+  "sha256": "729853fae4c45efc7d950c55d2c1afb1746a21564634c0af989dfc15c3ef91d2",
+  "scope": "reference encoding description only; no provider/production dependency"
+}

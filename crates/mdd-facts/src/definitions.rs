@@ -1,0 +1,519 @@
+//! Source-bound definition facts. Unbuilt code columns never masquerade as NULL.
+use crate::metadata::{EntityKind, EntityRef, MetadataFacts};
+use mdd_dex::{
+    definitions::{
+        ClassDefinition, DefinitionLimits, DefinitionMetadata, DexDefinitions, read_definitions,
+    },
+    strings::DexString,
+    types::{DexPrototype, DexType},
+};
+use mdd_types::{Completeness, ErrorCode, MddError, MddResult, content_id};
+use serde::Serialize;
+
+impl DefinitionMetadata for MetadataFacts {
+    fn string(&self, index: u32) -> Option<&DexString> {
+        self.strings.get(index as usize).map(|f| &f.data)
+    }
+    fn dex_type(&self, index: u32) -> Option<&DexType> {
+        self.types.get(index as usize).map(|f| &f.data)
+    }
+    fn prototype(&self, index: u32) -> Option<&DexPrototype> {
+        self.prototypes.get(index as usize).map(|f| &f.data)
+    }
+}
+
+#[derive(Clone, Serialize)]
+pub struct DefinitionFacts {
+    pub(crate) metadata: MetadataFacts,
+    pub(crate) definitions: DexDefinitions,
+    pub(crate) definition_coverage: Completeness,
+    pub(crate) completed_layers: Vec<String>,
+    pub(crate) unbuilt_layers: Vec<String>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum DefinitionRelation {
+    Classes,
+    ClassInterfaces,
+    ClassFields,
+    ClassMethods,
+    Methods,
+}
+
+#[derive(Clone, Debug, Serialize)]
+pub struct ClassFieldRow {
+    pub file_id: u32,
+    pub class_idx: u32,
+    pub class_descriptor: String,
+    pub field_idx: u32,
+    pub field_name: String,
+    pub field_descriptor: String,
+    pub kind: String,
+    pub access_flags: u32,
+}
+#[derive(Clone, Debug, Serialize)]
+pub struct ClassMethodRow {
+    pub file_id: u32,
+    pub class_idx: u32,
+    pub class_descriptor: String,
+    pub method_idx: u32,
+    pub method_name: String,
+    pub method_descriptor: String,
+    pub kind: String,
+    pub access_flags: u32,
+}
+#[derive(Clone, Debug, Serialize)]
+pub struct ClassInterfaceRow {
+    pub file_id: u32,
+    pub class_idx: u32,
+    pub ordinal: u32,
+    pub interface_type_idx: u32,
+    pub interface_descriptor: String,
+}
+
+impl DefinitionFacts {
+    pub fn metadata(&self) -> &MetadataFacts {
+        &self.metadata
+    }
+    pub fn definitions(&self) -> &DexDefinitions {
+        &self.definitions
+    }
+    pub fn definition_coverage(&self) -> Completeness {
+        self.definition_coverage
+    }
+    pub fn completed_layers(&self) -> &[String] {
+        &self.completed_layers
+    }
+    pub fn unbuilt_layers(&self) -> &[String] {
+        &self.unbuilt_layers
+    }
+    pub fn build(metadata: MetadataFacts, limits: DefinitionLimits) -> MddResult<Self> {
+        let source = &metadata.source;
+        let bind = |error: MddError| {
+            error
+                .detail("snapshot_id", source.snapshot_id.clone())
+                .detail("dex_occurrence_id", source.dex_occurrence_id.clone())
+                .detail("member_id", source.member_id.clone())
+                .detail("content_id", source.content_id.clone())
+        };
+        if metadata.metadata_coverage != Completeness::Complete {
+            return Err(bind(MddError::new(
+                ErrorCode::IncompleteFacts,
+                "facts.definitions",
+                "validated metadata is required before definition construction",
+            )));
+        }
+        if content_id(metadata.bytes()) != source.content_id {
+            return Err(bind(MddError::new(
+                ErrorCode::InternalFault,
+                "facts.definitions",
+                "held bytes do not match metadata content identity",
+            )));
+        }
+        let definitions = read_definitions(metadata.bytes(), &metadata.header, &metadata, limits)
+            .map_err(bind)?;
+        let mut completed_layers = metadata.completed_layers.clone();
+        completed_layers.push("definitions".into());
+        let mut unbuilt_layers: Vec<_> = metadata
+            .unbuilt_layers
+            .iter()
+            .filter(|l| l.as_str() != "definitions")
+            .cloned()
+            .collect();
+        for layer in &definitions.unbuilt_layers {
+            if !unbuilt_layers.contains(layer) {
+                unbuilt_layers.push(layer.clone());
+            }
+        }
+        Ok(Self {
+            metadata,
+            definitions,
+            definition_coverage: Completeness::Complete,
+            completed_layers,
+            unbuilt_layers,
+        })
+    }
+
+    pub fn bytes(&self) -> &[u8] {
+        self.metadata.bytes()
+    }
+
+    pub fn entity(&self, kind: EntityKind, local_index: u32) -> MddResult<EntityRef> {
+        let exists = match kind {
+            EntityKind::ClassDefinition => {
+                self.definitions.classes.get(local_index as usize).is_some()
+            }
+            EntityKind::FieldReference => self
+                .definitions
+                .field_references
+                .get(local_index as usize)
+                .is_some(),
+            EntityKind::MethodReference => self
+                .definitions
+                .method_references
+                .get(local_index as usize)
+                .is_some(),
+            EntityKind::FieldDefinition => self
+                .definitions
+                .field_definitions
+                .iter()
+                .any(|d| d.field_idx == local_index),
+            EntityKind::MethodDefinition => self
+                .definitions
+                .method_definitions
+                .iter()
+                .any(|d| d.method_idx == local_index),
+            _ => false,
+        };
+        if !exists {
+            return Err(MddError::new(
+                ErrorCode::InvalidArgument,
+                "facts.definitions",
+                "definition entity kind/index does not exist in this occurrence",
+            ));
+        }
+        Ok(EntityRef {
+            snapshot_id: self.metadata.source.snapshot_id.clone(),
+            dex_occurrence_id: self.metadata.source.dex_occurrence_id.clone(),
+            kind,
+            local_index,
+        })
+    }
+
+    pub fn require_relation_columns(
+        &self,
+        relation: DefinitionRelation,
+        columns: &[&str],
+    ) -> MddResult<()> {
+        let available: &[&str] = match relation {
+            DefinitionRelation::Classes => &[
+                "file_id",
+                "class_def_idx",
+                "class_idx",
+                "descriptor",
+                "access_flags",
+                "superclass_descriptor",
+                "interface_count",
+                "source_file",
+            ],
+            DefinitionRelation::ClassInterfaces => &[
+                "file_id",
+                "class_idx",
+                "ordinal",
+                "interface_type_idx",
+                "interface_descriptor",
+            ],
+            DefinitionRelation::ClassFields => &[
+                "file_id",
+                "class_idx",
+                "class_descriptor",
+                "field_idx",
+                "field_name",
+                "field_descriptor",
+                "kind",
+                "access_flags",
+            ],
+            DefinitionRelation::ClassMethods => &[
+                "file_id",
+                "class_idx",
+                "class_descriptor",
+                "method_idx",
+                "method_name",
+                "method_descriptor",
+                "kind",
+                "access_flags",
+            ],
+            DefinitionRelation::Methods => &[
+                "file_id",
+                "method_idx",
+                "class_idx",
+                "class_descriptor",
+                "proto_idx",
+                "name",
+                "descriptor",
+                "return_descriptor",
+                "param_count",
+                "access_flags",
+                "method_kind",
+            ],
+        };
+        for column in columns {
+            if relation == DefinitionRelation::Methods
+                && ["opcode_count", "opcode_hex", "*"].contains(column)
+            {
+                return Err(MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.definitions",
+                    "complete methods columns require code_layout facts",
+                )
+                .detail("required_layer", "code_layout")
+                .detail("column", (*column).to_owned()));
+            }
+            if relation == DefinitionRelation::Methods && *column == "param_descriptors" {
+                return Err(MddError::new(ErrorCode::IncompleteFacts, "facts.definitions", "native parameter descriptors are exact; compatibility text encoding is not qualified")
+                    .detail("required_layer", "compatibility_text_profile"));
+            }
+            if *column != "*" && !available.contains(column) {
+                return Err(MddError::new(
+                    ErrorCode::InvalidArgument,
+                    "facts.definitions",
+                    "unknown definition relation column",
+                )
+                .detail("column", (*column).to_owned()));
+            }
+        }
+        Ok(())
+    }
+
+    pub fn class_field_rows(&self, file_id: u32) -> Vec<ClassFieldRow> {
+        self.definitions
+            .field_definitions
+            .iter()
+            .map(|d| {
+                let r = &self.definitions.field_references[d.field_idx as usize];
+                ClassFieldRow {
+                    file_id,
+                    class_idx: d.class_idx,
+                    class_descriptor: r.class_descriptor.clone(),
+                    field_idx: d.field_idx,
+                    field_name: r.field_name.clone(),
+                    field_descriptor: r.descriptor.clone(),
+                    kind: d.kind.as_str().into(),
+                    access_flags: d.access_flags,
+                }
+            })
+            .collect()
+    }
+    pub fn class_method_rows(&self, file_id: u32) -> Vec<ClassMethodRow> {
+        self.definitions
+            .method_definitions
+            .iter()
+            .map(|d| {
+                let r = &self.definitions.method_references[d.method_idx as usize];
+                ClassMethodRow {
+                    file_id,
+                    class_idx: d.class_idx,
+                    class_descriptor: r.class_descriptor.clone(),
+                    method_idx: d.method_idx,
+                    method_name: r.method_name.clone(),
+                    method_descriptor: r.descriptor.clone(),
+                    kind: d.kind.as_str().into(),
+                    access_flags: d.access_flags,
+                }
+            })
+            .collect()
+    }
+    pub fn class_interface_rows(&self, file_id: u32) -> Vec<ClassInterfaceRow> {
+        self.definitions
+            .interfaces
+            .iter()
+            .map(|d| ClassInterfaceRow {
+                file_id,
+                class_idx: d.class_idx,
+                ordinal: d.ordinal,
+                interface_type_idx: d.interface_type_idx,
+                interface_descriptor: d.interface_descriptor.clone(),
+            })
+            .collect()
+    }
+}
+
+pub struct ClassMatch<'a> {
+    pub facts: &'a DefinitionFacts,
+    pub class: &'a ClassDefinition,
+}
+pub enum ClassResolution<'a> {
+    Missing,
+    Unique(ClassMatch<'a>),
+    Ambiguous(Vec<ClassMatch<'a>>),
+}
+pub fn resolve_class<'a>(
+    facts: &'a [DefinitionFacts],
+    descriptor: &str,
+) -> MddResult<ClassResolution<'a>> {
+    if let Some(first) = facts.first()
+        && facts
+            .iter()
+            .any(|f| f.metadata.source.snapshot_id != first.metadata.source.snapshot_id)
+    {
+        return Err(MddError::new(
+            ErrorCode::InvalidArgument,
+            "facts.definitions",
+            "a definition lookup cannot combine different snapshots",
+        ));
+    }
+    let mut matches: Vec<_> = facts
+        .iter()
+        .flat_map(|facts| {
+            facts
+                .definitions
+                .classes
+                .iter()
+                .filter(move |c| c.descriptor == descriptor)
+                .map(move |class| ClassMatch { facts, class })
+        })
+        .collect();
+    Ok(match matches.len() {
+        0 => ClassResolution::Missing,
+        1 => ClassResolution::Unique(matches.remove(0)),
+        _ => ClassResolution::Ambiguous(matches),
+    })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use mdd_dex::strings::StringLimits;
+    use mdd_input::{
+        archive::{ArchiveInventory, ArchiveLimits, InventoryPolicy},
+        snapshot::{CaptureLimits, InputKind, InputSpec, Snapshot},
+    };
+    use serde_json::Value;
+    use std::path::PathBuf;
+    fn build_two() -> Vec<DefinitionFacts> {
+        let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("../../tests/fixtures/definitions/generated/definitions-035.dex");
+        let input = InputSpec {
+            path,
+            kind: InputKind::RawDex,
+            expected_sha256: None,
+        };
+        let snapshot =
+            Snapshot::capture(&[input.clone(), input], CaptureLimits::default()).unwrap();
+        snapshot
+            .sources()
+            .iter()
+            .map(|source| {
+                let inventory = ArchiveInventory::build(
+                    source,
+                    InventoryPolicy::default(),
+                    ArchiveLimits::default(),
+                )
+                .unwrap();
+                DefinitionFacts::build(
+                    MetadataFacts::build(&snapshot, &inventory, 0, StringLimits::default())
+                        .unwrap(),
+                    DefinitionLimits::default(),
+                )
+                .unwrap()
+            })
+            .collect()
+    }
+    #[test]
+    fn occurrences_and_reference_definition_kinds_remain_distinct() {
+        let facts = build_two();
+        match resolve_class(&facts, "Lfixture/Base;").unwrap() {
+            ClassResolution::Ambiguous(rows) => {
+                assert_eq!(rows.len(), 2);
+                assert_ne!(
+                    rows[0].facts.metadata.source.dex_occurrence_id,
+                    rows[1].facts.metadata.source.dex_occurrence_id
+                );
+            }
+            _ => panic!("same descriptor from two occurrences must remain ambiguous"),
+        }
+        let first = &facts[0];
+        assert!(first.entity(EntityKind::ClassDefinition, 0).is_ok());
+        assert!(
+            first
+                .entity(
+                    EntityKind::ClassDefinition,
+                    first.definitions.classes[0].class_idx
+                )
+                .is_err()
+        );
+        let method = first.definitions.method_definitions[0].method_idx;
+        assert_ne!(
+            first.entity(EntityKind::MethodReference, method).unwrap(),
+            first.entity(EntityKind::MethodDefinition, method).unwrap()
+        );
+        let external = first
+            .definitions
+            .method_references
+            .iter()
+            .find(|r| r.method_name == "externalCall")
+            .unwrap();
+        assert!(
+            first
+                .entity(EntityKind::MethodReference, external.method_idx)
+                .is_ok()
+        );
+        assert!(
+            first
+                .entity(EntityKind::MethodDefinition, external.method_idx)
+                .is_err()
+        );
+        assert!(!first.bytes().is_empty());
+        assert!(first.completed_layers.iter().any(|s| s == "definitions"));
+        assert!(first.unbuilt_layers.iter().any(|s| s == "code_layout"));
+        assert_eq!(
+            first
+                .require_relation_columns(DefinitionRelation::Methods, &["opcode_count"])
+                .unwrap_err()
+                .code,
+            ErrorCode::IncompleteFacts
+        );
+        assert_eq!(
+            first
+                .require_relation_columns(DefinitionRelation::Methods, &["*"])
+                .unwrap_err()
+                .code,
+            ErrorCode::IncompleteFacts
+        );
+        assert_eq!(
+            first
+                .require_relation_columns(DefinitionRelation::Methods, &["opcod_count"])
+                .unwrap_err()
+                .code,
+            ErrorCode::InvalidArgument
+        );
+        assert!(
+            first
+                .require_relation_columns(
+                    DefinitionRelation::Methods,
+                    &[
+                        "file_id",
+                        "method_idx",
+                        "class_descriptor",
+                        "return_descriptor"
+                    ]
+                )
+                .is_ok()
+        );
+        let mut mixed = build_two();
+        let other = build_two().remove(0);
+        mixed.push(other);
+        assert!(resolve_class(&mixed, "Lfixture/Base;").is_err());
+    }
+    #[test]
+    fn wildcard_definition_columns_match_frozen_reference_schema() {
+        let facts = build_two();
+        let first = &facts[0];
+        let schema: Value = serde_json::from_str(include_str!(
+            "../../../conformance/manifests/relations.json"
+        ))
+        .unwrap();
+        let field = serde_json::to_value(&first.class_field_rows(7)[0]).unwrap();
+        let method = serde_json::to_value(&first.class_method_rows(7)[0]).unwrap();
+        for (relation, row) in [("class_fields", field), ("class_methods", method)] {
+            let expected = schema["relations"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .find(|r| r["name"] == relation)
+                .unwrap();
+            assert_eq!(row.as_object().unwrap().len(), 8);
+            for column in expected["columns"].as_array().unwrap() {
+                assert!(row.get(column["name"].as_str().unwrap()).is_some());
+            }
+            let relation = if relation == "class_fields" {
+                DefinitionRelation::ClassFields
+            } else {
+                DefinitionRelation::ClassMethods
+            };
+            assert_eq!(row["file_id"], 7);
+            assert!(first.require_relation_columns(relation, &["*"]).is_ok());
+        }
+        assert_eq!(first.class_interface_rows(7).len(), 2);
+    }
+}

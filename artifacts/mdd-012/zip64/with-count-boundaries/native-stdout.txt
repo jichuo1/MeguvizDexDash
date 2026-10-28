@@ -1,0 +1,16 @@
+
+running 11 tests
+test archive::zip64_tests::zip64_tail_uses_u64_without_allocating_a_fake_large_archive ... ok
+test archive::tests::duplicate_names_and_contents_retain_distinct_occurrences ... ok
+test archive::tests::partially_overlapping_physical_members_are_rejected ... ok
+test archive::tests::selection_scope_resource_only_and_raw_dex_are_explicit ... ok
+test archive::tests::fixtures_match_independent_physical_inventory_and_raw_content ... ok
+test archive::zip64_tests::malformed_or_huge_zip64_is_not_unsupported_or_empty_success ... ok
+test archive::tests::budgets_corrupt_ranges_crc_and_unsupported_formats_fail_closed ... ok
+test archive::tests::data_descriptor_and_lazy_resource_crc_are_checked ... ok
+test archive::tests::all_reads_use_owned_capture_and_member_identity ... ok
+test archive::tests::raw_member_names_and_malformed_declared_sizes_are_not_normalized ... ok
+test archive::zip64_tests::real_zip64_and_python_force_local_members_are_fully_consumed ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.43s
+

@@ -1,0 +1,53 @@
+{
+  "schema_version": "mdd.annotation-progress.v1",
+  "task_id": "MDD-022",
+  "status": "in_progress",
+  "time_utc": "2026-10-28T10:46:31.664432+00:00",
+  "source_sha256": {
+    "crates/mdd-dex/src/annotations.rs": "9fdb6fc6a6747f94f863379ebcdef03b413232584f1454cd8ba4e08ef62b646b",
+    "crates/mdd-facts/src/annotations.rs": "bafa5ae304e938862c42161b0a027818ffb3243a92eea5dcfd8dc2740e85874a",
+    "crates/mdd-facts/examples/annotation_summary.rs": "73aadfd6c3a862e55d6f03bff110dda900814102e3645fb3368c6def963868cd",
+    "tests/fixtures/annotations/generate.py": "51d28e6ef13f79ee6da046283ec6110a0bb56640b333b75b88c15735b929fba4",
+    "tests/fixtures/annotations/oracle.py": "1130d8d7a4b4229f14dfd8f210bb52f28e70da5cb791ee3e0ee195e1a1ee663c",
+    "tests/fixtures/annotations/manifest.json": "77913d6970163059d963c13220218ab3b5a6f180229498fe163d27ad7b6438f5",
+    "tests/fixtures/annotations/expected.json": "c5a0d073291b76a68db02e46102c2b860911428707be14c22b1fcfe5dc02b063",
+    "artifacts/mdd-022/probes/sdk-physical-items.json": "a471063843bbddf5cd4868d526c08be41e1edf25d5e5046eab9627ca747e561d",
+    "artifacts/mdd-022/probes/oracle-comparison.json": "3b4f0296b7695040770508b0c490ad967a97a7e01835209d0fb63591a4189f67"
+  },
+  "verified": {
+    "production_reader_tests": 5,
+    "production_facts_tests": 3,
+    "fixture_accept_reject": [
+      11,
+      21
+    ],
+    "sdk_fixture_classifications_matched": 32,
+    "embedded_vectors": 8,
+    "complete_synthetic_relations": [
+      1,
+      5,
+      5,
+      2,
+      4,
+      44
+    ],
+    "facts_immutable_getters": true,
+    "ordered_signatures_with_source_pool_and_duplicate_occurrences": "passed"
+  },
+  "not_passed_yet": {
+    "public_NewPipe_annotation_build": "blocked before annotation entry by current archive.directory regression: ZIP range exceeds captured source; source SHA matched",
+    "latest_crate_clippy": "blocked by concurrent mdd-input central.rs:119 collapsible_if; initial annotation-only implementation Clippy passed",
+    "final_integrated_reproduce": "not_run"
+  },
+  "not_run": [
+    "private APK parsing; main agent explicitly requested no private large parsing",
+    "performance trials"
+  ],
+  "current_scope": "annotations/encoded values/Signature raw fragments only; full audit remains false",
+  "remaining_work": [
+    "run public NewPipe full two-DEX construction after archive repair",
+    "final independent row/schema and source-bound diagnostic verification",
+    "record final commands and source/binary/input identity, then root review"
+  ],
+  "production_done": false
+}

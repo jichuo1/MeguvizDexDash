@@ -1,0 +1,117 @@
+{
+  "schema_version": "mdd.instruction-conformance.v1",
+  "task": "MDD-023",
+  "record_kind": "observed_component_validation",
+  "status": "failed",
+  "failure": "format failed; original output retained",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_before": {
+    "crates/mdd-dex/src/instructions/debug.rs": "e73538e409fce5094893f9fce1fdc6f0310094abae49a514ad13f14229cc762b",
+    "crates/mdd-dex/src/instructions/decode.rs": "3d2afb1196eee7bd0601defb636cca207c8581a27138bacd61bdd8f08f1e1d9b",
+    "crates/mdd-dex/src/instructions/mod.rs": "a014bf97d790092df7d72617dfd06ae7df1a494fd836922a6d240a0384fd2146",
+    "crates/mdd-dex/src/instructions/opcodes.rs": "a0d33bc5870e65f49b673e32a2f6182ffd9dbc3fc3dbaf1d7170daaeca597cca",
+    "crates/mdd-dex/src/instructions/tests.rs": "f605f327def7f9310e2298558fb272320c58f48101abee0a34d0d52eefa09f89",
+    "crates/mdd-facts/src/code.rs": "61836bcbbc01086801aa7e6776e02ef8ae55bde6cc7d9fe49851bb54e4f24273"
+  },
+  "source_after": {
+    "crates/mdd-dex/src/instructions/debug.rs": "e73538e409fce5094893f9fce1fdc6f0310094abae49a514ad13f14229cc762b",
+    "crates/mdd-dex/src/instructions/decode.rs": "3d2afb1196eee7bd0601defb636cca207c8581a27138bacd61bdd8f08f1e1d9b",
+    "crates/mdd-dex/src/instructions/mod.rs": "a014bf97d790092df7d72617dfd06ae7df1a494fd836922a6d240a0384fd2146",
+    "crates/mdd-dex/src/instructions/opcodes.rs": "a0d33bc5870e65f49b673e32a2f6182ffd9dbc3fc3dbaf1d7170daaeca597cca",
+    "crates/mdd-dex/src/instructions/tests.rs": "f605f327def7f9310e2298558fb272320c58f48101abee0a34d0d52eefa09f89",
+    "crates/mdd-facts/src/code.rs": "61836bcbbc01086801aa7e6776e02ef8ae55bde6cc7d9fe49851bb54e4f24273"
+  },
+  "dependency_before": {
+    "Cargo.lock": "56ada8d2bfb6d97dc28008b9823399a3fe0716d5c77fc7d471586569e0b24073",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "crates/mdd-dex/src/header.rs": "7c16fefbe4b2078a0b4c8e0f94f8b6e7e2df362d45714e97a7888411e1ec32d0",
+    "crates/mdd-dex/src/strings.rs": "5abafc2942b4ce4501742c77f643530aaf92a589b7a59abe4763f5853e2bfe96",
+    "crates/mdd-dex/src/types.rs": "799fd8591ee0318b4e192fe14ff329d4b9c2c07003c6f57befad3cc7c5d73a64",
+    "crates/mdd-dex/src/checked_reader.rs": "58c14936ccd64e63a0a8930468cec210a331c5beb77bec3ba0684bb2b6631a3a",
+    "crates/mdd-types/src/lib.rs": "9ac5371ecbe5a6292aafe9e8d94a1278395b2b8994ec703bdd73d72c71706b95",
+    "crates/mdd-dex/src/lib.rs": "f533227b20debee8aad627d390d69ddcd5c6d0809efa9b6227eb23fbf18af595",
+    "crates/mdd-facts/src/lib.rs": "2215524b5e0811155a9aa271585e6ac1441764a7368e6f070863a4c542340095"
+  },
+  "dependency_after": {
+    "Cargo.lock": "56ada8d2bfb6d97dc28008b9823399a3fe0716d5c77fc7d471586569e0b24073",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "crates/mdd-dex/src/header.rs": "7c16fefbe4b2078a0b4c8e0f94f8b6e7e2df362d45714e97a7888411e1ec32d0",
+    "crates/mdd-dex/src/strings.rs": "5abafc2942b4ce4501742c77f643530aaf92a589b7a59abe4763f5853e2bfe96",
+    "crates/mdd-dex/src/types.rs": "799fd8591ee0318b4e192fe14ff329d4b9c2c07003c6f57befad3cc7c5d73a64",
+    "crates/mdd-dex/src/checked_reader.rs": "58c14936ccd64e63a0a8930468cec210a331c5beb77bec3ba0684bb2b6631a3a",
+    "crates/mdd-types/src/lib.rs": "9ac5371ecbe5a6292aafe9e8d94a1278395b2b8994ec703bdd73d72c71706b95",
+    "crates/mdd-dex/src/lib.rs": "f533227b20debee8aad627d390d69ddcd5c6d0809efa9b6227eb23fbf18af595",
+    "crates/mdd-facts/src/lib.rs": "2215524b5e0811155a9aa271585e6ac1441764a7368e6f070863a4c542340095"
+  },
+  "source_stable": true,
+  "commands": [
+    {
+      "name": "generate-first",
+      "record": "artifacts/mdd-023/validation/20261028T093909629631Z/generate-first/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "generate-second",
+      "record": "artifacts/mdd-023/validation/20261028T093909629631Z/generate-second/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "manual-oracle",
+      "record": "artifacts/mdd-023/validation/20261028T093909629631Z/manual-oracle/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "instruction-tests",
+      "record": "artifacts/mdd-023/validation/20261028T093909629631Z/instruction-tests/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "code-facts-tests",
+      "record": "artifacts/mdd-023/validation/20261028T093909629631Z/code-facts-tests/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "record": "artifacts/mdd-023/validation/20261028T093909629631Z/clippy/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "format",
+      "record": "artifacts/mdd-023/validation/20261028T093909629631Z/format/record.json",
+      "exit_code": 1
+    }
+  ],
+  "fixture_manifest_sha256": "486a9e2874c3e566539e3a237518739e7a0213a00ea0440f342067be5fe9d806",
+  "expected_results_sha256": "8666f8b5155576035f00e880ae7d035e05e72996b8f970772dcd793f93da876d",
+  "opcode_vectors": 224,
+  "formats": 26,
+  "reserved_rejection_vectors": 32,
+  "hand_operand_vectors": 9,
+  "full_dex_fixture_count": 24,
+  "independent_fixture_valid": 15,
+  "independent_fixture_invalid": 9,
+  "profile_admitted": false,
+  "full_art_verification_complete": false,
+  "hostlab_replacement_qualified": false,
+  "performance_qualified": false,
+  "task_done": false,
+  "scope": [
+    "complete declared code-map enumeration including unreferenced items",
+    "explicit offset scope preserves order and repeats with projection budgets",
+    "same snapshot member lease for raw code/insns",
+    "all active standard opcode formats, payload/target/register/reference layouts",
+    "bounded catch/debug programs, exact pc-to-pc encoding pattern and explicit borrowed method projection"
+  ],
+  "oracle_limits": [
+    "224 format vectors and opcode descriptors share AOSP table ancestry; not independent oracles",
+    "Python oracle is independently implemented for listed hand fixtures only; no full opcode/ART claim",
+    "SDK dexdump over orphan code does not prove all opcode/target semantics"
+  ],
+  "remaining": [
+    "parent dependency review after MDD-020 physical item corrections",
+    "native Linux execution/CI not recorded by this local verifier",
+    "method/prototype binding, references relation graph and ART type flow are separate scopes",
+    "full HostLab corpus/equivalence/performance gates not claimed"
+  ],
+  "run_directory": "artifacts/mdd-023/validation/20261028T093909629631Z"
+}

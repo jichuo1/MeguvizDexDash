@@ -1,0 +1,17 @@
+
+running 12 tests
+test instructions::tests::hand_expected_operands_literals_ranges_and_dynamic_invokes_remain_distinct ... ok
+test instructions::tests::malformed_width_register_wide_range_branch_payload_and_index_cases_fail ... ok
+test instructions::tests::debug_all_opcodes_no_index_and_pc_line_register_failures_are_visible ... ok
+test instructions::tests::tries_padding_handler_origin_and_catch_all_targets_are_bounded ... ok
+test instructions::tests::debug_references_must_name_physical_item_starts_and_outs_layout_is_checked ... ok
+test instructions::tests::shared_payload_expansion_and_duplicate_offset_projection_each_consume_budget ... ok
+test instructions::tests::full_map_includes_unreferenced_code_and_offsets_have_explicit_narrow_scope ... ok
+test instructions::tests::payload_units_raw_ranges_targets_and_repetition_are_exact ... ok
+test instructions::tests::limits_are_cumulative_and_zero_never_means_unlimited ... ok
+test instructions::tests::every_active_opcode_and_format_is_actually_decoded_and_reserved_items_fail ... ok
+test instructions::tests::shared_pc_to_pc_pattern_keeps_complete_raw_events_and_explicit_method_projection ... ok
+test instructions::tests::debug_state_only_operations_and_try_ends_preserve_format_permitted_positions ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out; finished in 0.00s
+

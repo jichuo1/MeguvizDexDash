@@ -1,4 +1,7 @@
 //! Snapshot-scoped exact facts. Metadata completion never implies complete audit facts.
+pub mod annotations;
+pub mod code;
+pub mod definitions;
 pub mod metadata;
 
 pub use metadata::{

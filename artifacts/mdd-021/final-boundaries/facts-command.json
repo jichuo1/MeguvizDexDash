@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-facts",
+    "definitions::",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "72f26abbc9dff5c0e60f94112778e8550b917d2792f4b9185628201779fb9f49",
+  "stderr_sha256": "e229858b74d216acee9e381b17d8546cad02a105af00fb02e8753dd212008e50"
+}

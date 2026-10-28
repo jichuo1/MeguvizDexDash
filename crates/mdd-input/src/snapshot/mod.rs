@@ -147,7 +147,9 @@ impl Snapshot {
             let correct_magic = match input.kind {
                 InputKind::RawDex => bytes.starts_with(b"dex\n"),
                 InputKind::Apk => {
-                    bytes.starts_with(b"PK\x03\x04") || bytes.starts_with(b"PK\x05\x06")
+                    bytes.starts_with(b"PK\x03\x04")
+                        || bytes.starts_with(b"PK\x05\x06")
+                        || bytes.starts_with(b"PK\x06\x06")
                 }
             };
             if !correct_magic {

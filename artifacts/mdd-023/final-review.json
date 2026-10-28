@@ -1,0 +1,76 @@
+{
+  "schema_version": "mdd.code-layout-review.v1",
+  "task": "MDD-023",
+  "date": "2026-10-28",
+  "component_validation": "artifacts/mdd-023/validation/20261028T104327654304Z",
+  "public_complete_record": "artifacts/mdd-023/public-newpipe-code-layout-encoded-policy/record.json",
+  "public_complete_record_sha256": "b5c80e8cb23baa6425f960b72359089dee8542437104c7f578ef1dc149516bfb",
+  "public_summary_sha256": "9304f62284cb8b8c7babc6fd01d8ab0228e1a8cd5a43805849a948ebb25f5ffe",
+  "public_input_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+  "public_scope": "all declared physical code-map items in both selected DEX members; no method ownership, references graph, source-position or ART/audit qualification",
+  "preserved_public_failure_records": [
+    "artifacts/mdd-023/public-newpipe-code-layout/record.json",
+    "artifacts/mdd-023/public-newpipe-code-layout-after-debug/record.json",
+    "artifacts/mdd-023/public-newpipe-code-layout-pc2pc/record.json"
+  ],
+  "debug_contract": {
+    "default": "mdd-debug-encoded-v1",
+    "strict": "mdd-debug-source-lines-strict-v1",
+    "raw_line": "encoded_line_decimal preserves signed mathematical state without normalization",
+    "source_line": "Raw 0/negative/pc-pattern/context values retained, nullable source-line eligibility only; encoded default and explicit strict source semantics are different profiles.",
+    "source_positions_built": false,
+    "full_art_verification_complete": false,
+    "strict_unknown_rejections_in_independent_oracle": 7,
+    "structural_failures_remain": [
+      "reserved/unknown opcode",
+      "instruction/reference/register width",
+      "branch/payload target and alignment",
+      "try/catch ranges and offsets",
+      "ULEB/SLEB/signed-line/PC arithmetic overflow",
+      "parameter count and string/type indexes",
+      "missing End/section truncation",
+      "all cumulative and projection quotas"
+    ]
+  },
+  "acceptance_review": [
+    {
+      "ordinal": 1,
+      "status": "met",
+      "evidence": "byte_offset/code_unit_offset/instruction_ordinal separately tested; payload excluded from instruction ordinals; raw insns length = units * 2"
+    },
+    {
+      "ordinal": 2,
+      "status": "met_in_declared_layout_scope",
+      "evidence": "224 opcode vectors/26 formats, hand operand and payload/branch/register/try/debug boundaries, strict source-line policy separately enforced"
+    },
+    {
+      "ordinal": 3,
+      "status": "met",
+      "evidence": "ordinary/range invoke, polymorphic method+proto, custom call-site and method-handle/proto references remain distinct; no dynamic dispatch claim"
+    },
+    {
+      "ordinal": 4,
+      "status": "met",
+      "evidence": "32 reserved rejection vectors plus truncated/index/overflow/quota cases return actual errors; all requested section objects publish only on complete scoped parse"
+    },
+    {
+      "ordinal": 5,
+      "status": "met",
+      "evidence": "CodeFacts keeps exact same MemberBlob Arc, raw code/insns ranges and duplicate source identities; external mutation/rename does not change bytes; public getters prevent caller mutation of completion proof"
+    }
+  ],
+  "independence_limits": [
+    "AOSP-derived opcode table and exhaustive format vectors share an ancestor; not counted as separate oracles",
+    "Independent Python + manual expected values cover listed synthetic cases, not every possible ART program",
+    "SDK37 dexdump over orphan code verifies a narrower contract and can accept malformed opcode/source-line examples; all observations retained"
+  ],
+  "task_done": false,
+  "profile_admitted": false,
+  "performance_qualified": false,
+  "recommendation": "ready for root dependency/platform review and task-state update",
+  "rollback": "Root can revert the scoped MDD-023 commit together with root-owned exports/example adapters; HostLab backend/defaults and original handoff/reference binaries were not modified.",
+  "component_final_summary": "artifacts/mdd-023/component-final-summary.json",
+  "overall_lint_gate": "passed",
+  "latest_complete_validation": "artifacts/mdd-023/validation/20261028T105125085473Z",
+  "prior_archive_lint_failure_retained": "artifacts/mdd-023/validation/20261028T104327654304Z/clippy/record.json"
+}

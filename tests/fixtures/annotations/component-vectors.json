@@ -1,0 +1,61 @@
+{
+  "schema_version": "mdd.annotation-component-vectors.v1",
+  "scope": "standalone encoded_value bytes in a known metadata context, not a full DEX",
+  "vectors": [
+    {
+      "id": "standalone-null",
+      "hex": "1e",
+      "expected_kind": "null"
+    },
+    {
+      "id": "null-invalid-arg",
+      "hex": "3e",
+      "reason": "invalid_value_arg"
+    },
+    {
+      "id": "float-invalid-width",
+      "hex": "90",
+      "reason": "invalid_value_arg"
+    },
+    {
+      "id": "truncated-long",
+      "hex": "e60102",
+      "reason": "truncated"
+    },
+    {
+      "id": "deep-array",
+      "hex": "1c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011c011e",
+      "max_depth": 8,
+      "reason": "depth_budget"
+    },
+    {
+      "id": "node-budget",
+      "hex": "1c031e1e1e",
+      "max_nodes": 2,
+      "reason": "node_budget"
+    },
+    {
+      "id": "array-count-budget",
+      "hex": "1c7f1e",
+      "max_nodes": 64,
+      "reason": "node_budget"
+    },
+    {
+      "id": "array-count-uleb-overflow",
+      "hex": "1cffffffff10",
+      "reason": "uleb_overflow"
+    },
+    {
+      "id": "method-type-before-038",
+      "hex": "1500",
+      "version": "035",
+      "reason": "encoded_value_version"
+    },
+    {
+      "id": "method-handle-before-038",
+      "hex": "1600",
+      "version": "035",
+      "reason": "encoded_value_version"
+    }
+  ]
+}

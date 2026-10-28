@@ -1,0 +1,183 @@
+Processing 'D:\MeguvisDexDash\tests\fixtures\definitions\generated\orphan-field-defined-owner.dex'...
+Opened 'D:\MeguvisDexDash\tests\fixtures\definitions\generated\orphan-field-defined-owner.dex', DEX version '035'
+DEX file header:
+magic               : 'dex\n035\0'
+checksum            : e199a223
+signature           : 48c0...d707
+file_size           : 1316
+header_size         : 112
+link_size           : 0
+link_off            : 0 (0x000000)
+string_ids_size     : 32
+string_ids_off      : 112 (0x000070)
+type_ids_size       : 9
+type_ids_off        : 240 (0x0000f0)
+proto_ids_size      : 3
+proto_ids_off       : 276 (0x000114)
+field_ids_size      : 6
+field_ids_off       : 312 (0x000138)
+method_ids_size     : 13
+method_ids_off      : 360 (0x000168)
+class_defs_size     : 4
+class_defs_off      : 464 (0x0001d0)
+data_size           : 724
+data_off            : 592 (0x000250)
+
+Class #0            -
+  Class descriptor  : 'Lfixture/I0;'
+  Access flags      : 0x0601 (PUBLIC INTERFACE ABSTRACT)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+  Direct methods    -
+  Virtual methods   -
+    #0              : (in Lfixture/I0;)
+      name          : 'iMethod'
+      type          : '()V'
+      access        : 0x0401 (PUBLIC ABSTRACT)
+      code          : (none)
+  source_file_idx   : 4 (I0.java)
+
+Class #1            -
+  Class descriptor  : 'Lfixture/I1;'
+  Access flags      : 0x0601 (PUBLIC INTERFACE ABSTRACT)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+    #0              : 'Lfixture/I0;'
+  Static fields     -
+  Instance fields   -
+  Direct methods    -
+  Virtual methods   -
+    #0              : (in Lfixture/I1;)
+      name          : 'jMethod'
+      type          : '()V'
+      access        : 0x0401 (PUBLIC ABSTRACT)
+      code          : (none)
+  source_file_idx   : 5 (I1.java)
+
+Class #2            -
+  Class descriptor  : 'Lfixture/Base;'
+  Access flags      : 0x0401 (PUBLIC ABSTRACT)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+    #0              : 'Lfixture/I1;'
+  Static fields     -
+    #0              : (in Lfixture/Base;)
+      name          : 'sValue'
+      type          : 'I'
+      access        : 0x0009 (PUBLIC STATIC)
+    #1              : (in Lfixture/Base;)
+      name          : 'zStatic'
+      type          : 'I'
+      access        : 0x0009 (PUBLIC STATIC)
+  Instance fields   -
+    #0              : (in Lfixture/Base;)
+      name          : 'iValue'
+      type          : 'I'
+      access        : 0x0001 (PUBLIC)
+    #1              : (in Lfixture/Base;)
+      name          : 'mValue'
+      type          : 'I'
+      access        : 0x0001 (PUBLIC)
+  Direct methods    -
+    #0              : (in Lfixture/Base;)
+      name          : '<init>'
+      type          : '()V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 1
+      insns size    : 4 16-bit code units
+      catches       : (none)
+      positions     :
+      locals        :
+    #1              : (in Lfixture/Base;)
+      name          : 'nativeCall'
+      type          : '()V'
+      access        : 0x0109 (PUBLIC STATIC NATIVE)
+      code          : (none)
+    #2              : (in Lfixture/Base;)
+      name          : 'privateCall'
+      type          : '()V'
+      access        : 0x0002 (PRIVATE)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 0
+      insns size    : 1 16-bit code units
+      catches       : (none)
+      positions     :
+      locals        :
+    #3              : (in Lfixture/Base;)
+      name          : 'staticCall'
+      type          : '(I)I'
+      access        : 0x0009 (PUBLIC STATIC)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 0
+      insns size    : 1 16-bit code units
+      catches       : (none)
+      positions     :
+      locals        :
+  Virtual methods   -
+    #0              : (in Lfixture/Base;)
+      name          : 'virtualCall'
+      type          : '()V'
+      access        : 0x0001 (PUBLIC)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 0
+      insns size    : 1 16-bit code units
+      catches       : (none)
+      positions     :
+      locals        :
+  source_file_idx   : 1 (Base.java)
+
+Class #3            -
+  Class descriptor  : 'Lfixture/Child;'
+  Access flags      : 0x0401 (PUBLIC ABSTRACT)
+  Superclass        : 'Lfixture/Base;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+    #0              : (in Lfixture/Child;)
+      name          : 'childRef'
+      type          : 'Lfixture/Base;'
+      access        : 0x0001 (PUBLIC)
+  Direct methods    -
+    #0              : (in Lfixture/Child;)
+      name          : '<init>'
+      type          : '()V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 1
+      insns size    : 4 16-bit code units
+      catches       : (none)
+      positions     :
+      locals        :
+  Virtual methods   -
+    #0              : (in Lfixture/Child;)
+      name          : 'abstractCall'
+      type          : '()V'
+      access        : 0x0401 (PUBLIC ABSTRACT)
+      code          : (none)
+    #1              : (in Lfixture/Child;)
+      name          : 'overrideCall'
+      type          : '(I)I'
+      access        : 0x0001 (PUBLIC)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 0
+      insns size    : 1 16-bit code units
+      catches       : (none)
+      positions     :
+      locals        :
+  source_file_idx   : 2 (Child.java)
+

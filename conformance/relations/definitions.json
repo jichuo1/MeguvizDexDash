@@ -1,0 +1,396 @@
+{
+  "schema_version": "mdd.definition-relations.v1",
+  "task": "MDD-021",
+  "source_api": "DefinitionFacts owns MetadataFacts and its private MemberBlob lease; does not reopen paths",
+  "entity_identity": "snapshot_id + dex_occurrence_id + distinct ref/def EntityKind + local index; class_def_idx distinct from class_idx/type_idx",
+  "relation_gate": "DefinitionRelation enum accepts known definition relations; unbuilt known columns INCOMPLETE_FACTS; unknown columns INVALID_ARGUMENT",
+  "relations": [
+    {
+      "name": "classes",
+      "required_columns": [
+        "file_id",
+        "class_def_idx",
+        "class_idx",
+        "descriptor",
+        "access_flags",
+        "superclass_descriptor"
+      ],
+      "reference_columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "explicit snapshot-local catalog ID supplied by caller, not a physical/semantic ID",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_def_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "definitions.classes[].class_def_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "definitions.classes[].class_idx (type_idx)",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "definitions.classes[].descriptor",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "definitions.classes[].access_flags",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "superclass_descriptor",
+          "data_type": "Utf8",
+          "nullable": true,
+          "source_mapping": "definitions.classes[].superclass_descriptor",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "interface_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "count(definitions.interfaces where same class_def_idx)",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "source_file",
+          "data_type": "Utf8",
+          "nullable": true,
+          "source_mapping": "definitions.classes[].source_file_idx + lossless source_file DexText; no lossy UTF-8 conversion",
+          "availability": "exact_source_mapping"
+        }
+      ],
+      "wildcard_metadata_ready": false,
+      "sql_profile_admitted": false
+    },
+    {
+      "name": "class_interfaces",
+      "required_columns": [
+        "file_id",
+        "class_idx",
+        "ordinal",
+        "interface_descriptor"
+      ],
+      "reference_columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "explicit snapshot-local catalog ID",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "interfaces[].class_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "interfaces[].ordinal, encoded declaration order",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "interface_type_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "interfaces[].interface_type_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "interface_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "interfaces[].interface_descriptor",
+          "availability": "exact_source_mapping"
+        }
+      ],
+      "wildcard_metadata_ready": false,
+      "sql_profile_admitted": false
+    },
+    {
+      "name": "class_fields",
+      "required_columns": [
+        "file_id",
+        "class_idx",
+        "kind",
+        "field_idx",
+        "class_descriptor",
+        "field_name",
+        "field_descriptor",
+        "access_flags"
+      ],
+      "reference_columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "explicit snapshot-local catalog ID",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "field_definitions[].class_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "field_references[field_idx].class_descriptor",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "field_definitions[].field_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "field_name",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "field_references[field_idx].field_name",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "field_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "field_references[field_idx].descriptor",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "kind",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "field_definitions[].kind (static/instance)",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "field_definitions[].access_flags",
+          "availability": "exact_source_mapping"
+        }
+      ],
+      "wildcard_metadata_ready": true,
+      "sql_profile_admitted": false
+    },
+    {
+      "name": "class_methods",
+      "required_columns": [
+        "file_id",
+        "class_idx",
+        "kind",
+        "method_idx",
+        "class_descriptor",
+        "method_name",
+        "method_descriptor",
+        "access_flags"
+      ],
+      "reference_columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "explicit snapshot-local catalog ID",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "method_definitions[].class_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "method_references[method_idx].class_descriptor",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "method_definitions[].method_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "method_references[method_idx].method_name",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "method_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "method_references[method_idx].descriptor",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "kind",
+          "data_type": "Utf8",
+          "nullable": false,
+          "source_mapping": "method_definitions[].kind (direct/virtual)",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "method_definitions[].access_flags",
+          "availability": "exact_source_mapping"
+        }
+      ],
+      "wildcard_metadata_ready": true,
+      "sql_profile_admitted": false
+    },
+    {
+      "name": "methods",
+      "required_columns": [
+        "file_id",
+        "method_idx",
+        "class_descriptor",
+        "return_descriptor"
+      ],
+      "reference_columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "explicit snapshot-local catalog ID",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "method_references[].method_idx; reference IDs remain present without a definition",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "method_references[].class_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "class_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "source_mapping": "method_references[].class_descriptor; array owner references allowed",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "proto_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "method_references[].proto_idx",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "source_mapping": "method_references[].method_name",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "descriptor",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "source_mapping": "method_references[].descriptor",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "return_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "source_mapping": "method_references[].return_descriptor",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "param_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "source_mapping": "length(method_references[].parameter_descriptors)",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "param_descriptors",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "source_mapping": "exact native parameter_descriptors vector; compatibility Utf8 serialization UNBUILT",
+          "availability": "native_vector_compat_text_unqualified"
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": true,
+          "source_mapping": "lookup unique method_definition, else genuine NULL for reference-only member",
+          "availability": "exact_source_mapping"
+        },
+        {
+          "name": "opcode_count",
+          "data_type": "UInt32",
+          "nullable": true,
+          "source_mapping": "UNBUILT; requires code_layout, not insns_size code units",
+          "availability": "unbuilt_code_layout"
+        },
+        {
+          "name": "opcode_hex",
+          "data_type": "Utf8View",
+          "nullable": true,
+          "source_mapping": "UNBUILT; requires code_layout",
+          "availability": "unbuilt_code_layout"
+        },
+        {
+          "name": "method_kind",
+          "data_type": "Utf8",
+          "nullable": true,
+          "source_mapping": "lookup unique method_definition.kind, else genuine NULL for reference-only member",
+          "availability": "exact_source_mapping"
+        }
+      ],
+      "wildcard_metadata_ready": false,
+      "sql_profile_admitted": false
+    }
+  ],
+  "body_states": [
+    "reference_only (no method definition)",
+    "native (encoded code_off=0)",
+    "abstract (encoded code_off=0)",
+    "present (aligned in-range code header, declared size may be zero; full code_layout remains unbuilt)"
+  ],
+  "class_data_items": "All map-declared physical class_data items are bounded and validated (delta/index/group flags/body/implicit owner); nonempty item owner must have a class_def. Offsets referenced by class_defs must be exact physical item starts. Empty orphans and nonempty orphans with an existing owner are accepted; unreferenced items do not silently add logical class_fields/class_methods. SDK37 positive/negative evidence retained.",
+  "definition_order": "class_def_idx, class-data static/instance/direct/virtual group and ordinal retained; deltas reset for each group; internal superclass/interface definitions must precede dependents",
+  "support_scope": "definition metadata only; independent hand model + Python oracle + finite A0 metadata comparison; no ART installation, SQL, HostLab, full DEX or performance qualification",
+  "snapshot_lookup": "resolve_class returns MddResult<ClassResolution>; a single lookup rejects mixed snapshot_id values",
+  "interface_items": "interfaces_off must be an actual type_list item start from shared physical type_list_item_starts index"
+}

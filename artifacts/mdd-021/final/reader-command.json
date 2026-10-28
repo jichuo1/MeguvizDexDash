@@ -1,0 +1,14 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-dex",
+    "definitions::",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 0
+}

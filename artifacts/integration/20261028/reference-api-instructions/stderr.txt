@@ -1,0 +1,4 @@
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.92s
+     Running unittests src\lib.rs (target\debug\deps\mdd_dex-53da92c92ae5d2fd.exe)
+error: test failed, to rerun pass `-p mdd-dex --lib`

@@ -1,0 +1,4 @@
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.25s
+     Running `target\debug\examples\code_layout_summary.exe artifacts/local/inputs/NewPipe_v0.28.6.apk e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58`
+error: process didn't exit successfully: `target\debug\examples\code_layout_summary.exe artifacts/local/inputs/NewPipe_v0.28.6.apk e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58` (exit code: 1)
