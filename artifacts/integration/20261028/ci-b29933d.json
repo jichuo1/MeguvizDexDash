@@ -1,0 +1,60 @@
+{
+  "schema_version": "mdd.ci-readback.v1",
+  "head_sha": "b29933d489d945b91f8becf62d34af6b69288978",
+  "run_id": 40692557253,
+  "url": "https://github.com/jichuo1/MeguvizDexDash/actions/runs/40692557253",
+  "windows_and_linux": "success",
+  "command_records": [
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-ubuntu-latest/ci/build/record.json",
+      "exit_code": 0,
+      "sha256": "376cf08cf1d188d483d264091fc2a8e2bfea954921c0b130fae6c6541b16c2bc"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-ubuntu-latest/ci/check/record.json",
+      "exit_code": 0,
+      "sha256": "60b54c81028d13b55a50ae287de5eeea238b3cdf124ea81d0212f31d54d97932"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-ubuntu-latest/ci/clippy/record.json",
+      "exit_code": 0,
+      "sha256": "6ceb8494f49787f739fe721fc5ecf68da6ecbdbd1640cefd8f41bb9ec20e96ea"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-ubuntu-latest/ci/probe/record.json",
+      "exit_code": 0,
+      "sha256": "bc14f13ea2b7e04fbe537f1370e2a1ff9458cff9e60cae7dd39e2ba72afee883"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-ubuntu-latest/ci/test/record.json",
+      "exit_code": 0,
+      "sha256": "df98f2d49213ebd93d678b3c920ec75fedf339aae2bb8feae967bc91d1f5b31d"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-windows-latest/ci/build/record.json",
+      "exit_code": 0,
+      "sha256": "e0021c4de26d56c08f3664e8f47440e1c60b78701fd56047439cbf915c610b07"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-windows-latest/ci/check/record.json",
+      "exit_code": 0,
+      "sha256": "f4bfc6a0fc4fa5401a097eb2ab2686fb19abe21ffd5281b60d3557b00a2d4104"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-windows-latest/ci/clippy/record.json",
+      "exit_code": 0,
+      "sha256": "65faa9e6a4645a32c059a729556b2ec43657a335959fdef1e253f798aaced641"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-windows-latest/ci/probe/record.json",
+      "exit_code": 0,
+      "sha256": "44796d640676eb28882c758400663860308a7754c5906a322b11f85d49adc7b8"
+    },
+    {
+      "path": "artifacts/integration/20261028/ci-b29933d/conformance-windows-latest/ci/test/record.json",
+      "exit_code": 0,
+      "sha256": "40d47bb95675c592bb197076714aba81d4003dd93e9b62e73245fd3ba7aa8508"
+    }
+  ],
+  "product_profile_qualification": false
+}

@@ -1,0 +1,16 @@
+   Compiling mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+error[E0616]: field `occurrences` of struct `NativeCatalog` is private
+   --> crates\mdd-query\src\executor\tests.rs:305:22
+    |
+305 |     let o = &catalog.occurrences[0];
+    |                      ^^^^^^^^^^^ private field
+
+error[E0616]: field `occurrences` of struct `NativeCatalog` is private
+   --> crates\mdd-query\src\executor\tests.rs:350:22
+    |
+350 |     let o = &no_code.occurrences[0];
+    |                      ^^^^^^^^^^^ private field
+
+For more information about this error, try `rustc --explain E0616`.
+error: could not compile `mdd-query` (lib test) due to 2 previous errors
+warning: build failed, waiting for other jobs to finish...

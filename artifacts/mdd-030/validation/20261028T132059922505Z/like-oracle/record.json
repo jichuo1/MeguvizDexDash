@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "tests/fixtures/query/like_oracle.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T13:21:00.369601+00:00",
+  "finished_utc": "2026-10-28T13:21:00.414287+00:00",
+  "elapsed_seconds": 0.030999999995401595,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 117,
+    "sha256": "c1e067e2780320d797e7aa99fdaf626e7ad9866e10bf91b91246b26799f4a277"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

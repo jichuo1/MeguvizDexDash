@@ -1,0 +1,641 @@
+use super::facts::{MemoryCatalog, NativeCatalog, OccurrenceFacts, Table};
+use super::*;
+use mdd_dex::{definitions::DefinitionLimits, instructions::CodeLimits, strings::StringLimits};
+use mdd_facts::{
+    EntityKind, EntityRef, MetadataFacts, code::CodeFacts, definitions::DefinitionFacts,
+};
+use mdd_input::{
+    archive::{ArchiveInventory, ArchiveLimits, InventoryPolicy},
+    snapshot::{CaptureLimits, InputKind, InputSpec, Snapshot},
+};
+use serde::Deserialize;
+use std::{path::PathBuf, sync::Arc};
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct Fixture {
+    schema_version: String,
+    snapshot_id: String,
+    catalog_epoch: DecimalU64,
+    ready_layers: BTreeSet<FactLayer>,
+    tables: BTreeMap<String, Table>,
+    cases: Vec<Case>,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct Case {
+    id: String,
+    query: QueryIr,
+    expected_rows: Option<Vec<Row>>,
+    expected_error: Option<ExpectedError>,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ExpectedError {
+    code: ErrorCode,
+    reason: String,
+    stage: String,
+}
+fn fixture() -> Fixture {
+    serde_json::from_str(include_str!("../../../../tests/fixtures/query/cases.json")).unwrap()
+}
+fn source(f: Fixture) -> MemoryCatalog {
+    MemoryCatalog::new(f.snapshot_id, f.catalog_epoch, f.tables, f.ready_layers).unwrap()
+}
+fn check_error(error: MddError, expected: &ExpectedError, id: &str) {
+    assert_eq!(error.code, expected.code, "{id}: {error:?}");
+    let field = if error.code == ErrorCode::IncompleteFacts {
+        "required_layer"
+    } else {
+        "reason"
+    };
+    assert_eq!(
+        error.details.get(field).and_then(serde_json::Value::as_str),
+        Some(expected.reason.as_str()),
+        "{id}: {error:?}"
+    );
+}
+
+#[test]
+fn independent_small_table_oracle_both_execution_paths() {
+    let data = fixture();
+    assert_eq!(data.schema_version, "mdd.hand-query-cases.v1");
+    let catalog = source(fixture());
+    let mut passed = 0;
+    for case in data.cases {
+        let prepared = prepare(case.query.clone(), &catalog);
+        if let Some(expected) = &case.expected_error
+            && expected.stage == "prepare"
+        {
+            match prepared {
+                Err(error) => check_error(error, expected, &case.id),
+                Ok(_) => panic!("{} incorrectly prepared", case.id),
+            };
+            passed += 1;
+            continue;
+        }
+        let prepared = prepared.unwrap_or_else(|error| panic!("{}: {error:?}", case.id));
+        for mode in [
+            ExecutionMode::Streaming,
+            ExecutionMode::MaterializedReference,
+        ] {
+            let result = execute(
+                &prepared,
+                &catalog,
+                mode,
+                &mut Control::new(ExecutionLimits::default()),
+            );
+            if let Some(expected) = &case.expected_error {
+                match result {
+                    Err(error) => check_error(error, expected, &case.id),
+                    Ok(_) => panic!("{} incorrectly executed", case.id),
+                }
+            } else {
+                let result = result.unwrap_or_else(|e| panic!("{}: {e:?}", case.id));
+                assert_eq!(
+                    result.rows(),
+                    case.expected_rows.as_ref().unwrap(),
+                    "{} {mode:?}",
+                    case.id
+                );
+                assert!(result.execution_complete());
+                println!(
+                    "{}",
+                    serde_json::json!({"case":case.id,"actual":result,"plan":prepared.nodes()})
+                );
+            }
+        }
+        passed += 1;
+    }
+    assert_eq!(passed, 36);
+}
+
+fn query(node: Node, snapshot: &str, epoch: DecimalU64) -> QueryIr {
+    QueryIr {
+        schema_version: IR_VERSION.into(),
+        text_semantics: TEXT_VERSION.into(),
+        snapshot_id: snapshot.into(),
+        catalog_epoch: epoch,
+        require_stable_order: false,
+        root: node,
+    }
+}
+fn col(name: &str, ty: DataType, nullable: bool) -> Column {
+    Column {
+        id: name.into(),
+        display_name: name.into(),
+        data_type: ty,
+        nullable,
+    }
+}
+#[test]
+fn prepared_source_generation_cancel_and_budget_are_real_failures() {
+    let a = source(fixture());
+    let b = source(fixture());
+    let q = query(
+        Node::Scan {
+            relation: "left".into(),
+        },
+        a.snapshot_id(),
+        a.catalog_epoch(),
+    );
+    let plan = prepare(q.clone(), &a).unwrap();
+    let error = execute(
+        &plan,
+        &b,
+        ExecutionMode::Streaming,
+        &mut Control::new(ExecutionLimits::default()),
+    )
+    .err()
+    .unwrap();
+    assert_eq!(
+        error.details["reason"],
+        "PREPARED_SOURCE_OR_GENERATION_CHANGED"
+    );
+    let mut wrong = q;
+    wrong.catalog_epoch = DecimalU64(0);
+    assert!(prepare(wrong, &a).is_err());
+    for mode in [
+        ExecutionMode::Streaming,
+        ExecutionMode::MaterializedReference,
+    ] {
+        let mut control = Control::new(ExecutionLimits::default()).with_hook(|point| {
+            if point.phase == "scan_row" {
+                Err(MddError::new(
+                    ErrorCode::Cancelled,
+                    "query.test",
+                    "real checkpoint cancellation",
+                ))
+            } else {
+                Ok(())
+            }
+        });
+        assert_eq!(
+            execute(&plan, &a, mode, &mut control).err().unwrap().code,
+            ErrorCode::Cancelled
+        );
+        for limits in [
+            ExecutionLimits {
+                max_steps: 0,
+                ..ExecutionLimits::default()
+            },
+            ExecutionLimits {
+                max_output_rows: 0,
+                ..ExecutionLimits::default()
+            },
+            ExecutionLimits {
+                max_buffered_bytes: 0,
+                ..ExecutionLimits::default()
+            },
+            ExecutionLimits {
+                max_cell_bytes: 0,
+                ..ExecutionLimits::default()
+            },
+        ] {
+            assert_eq!(
+                execute(&plan, &a, mode, &mut Control::new(limits))
+                    .err()
+                    .unwrap()
+                    .code,
+                ErrorCode::QuotaExceeded
+            );
+        }
+    }
+}
+
+fn native(filename: &str, with_code: bool) -> NativeCatalog {
+    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("../../tests/fixtures/definitions/generated")
+        .join(filename);
+    let input = InputSpec {
+        path,
+        kind: InputKind::RawDex,
+        expected_sha256: None,
+    };
+    let snapshot = Snapshot::capture(&[input.clone(), input], CaptureLimits::default()).unwrap();
+    let mut occurrences = Vec::new();
+    for input in snapshot.sources() {
+        let inventory =
+            ArchiveInventory::build(input, InventoryPolicy::default(), ArchiveLimits::default())
+                .unwrap();
+        let metadata =
+            MetadataFacts::build(&snapshot, &inventory, 0, StringLimits::default()).unwrap();
+        let definitions = Arc::new(
+            DefinitionFacts::build(metadata.clone(), DefinitionLimits::default()).unwrap(),
+        );
+        let code = with_code.then(|| {
+            Arc::new(
+                CodeFacts::build_all_code_items(&snapshot, &inventory, 0, CodeLimits::default())
+                    .unwrap(),
+            )
+        });
+        occurrences.push(OccurrenceFacts {
+            metadata: Arc::new(metadata),
+            definitions: Some(definitions),
+            code,
+        });
+    }
+    NativeCatalog::new(
+        snapshot.manifest().snapshot_id.clone(),
+        DecimalU64(u64::MAX),
+        occurrences,
+    )
+    .unwrap()
+}
+fn read_literal(
+    catalog: &NativeCatalog,
+    entity: EntityRef,
+    offset: u64,
+    length: Option<u64>,
+) -> MddResult<QueryOutput> {
+    let node = Node::Project {
+        input: Box::new(Node::Limit {
+            input: Box::new(Node::Scan {
+                relation: "method_definitions".into(),
+            }),
+            offset: DecimalU64(0),
+            count: DecimalU64(1),
+        }),
+        columns: vec![Projection {
+            column: col("body", DataType::Bytes, true),
+            expression: Expr::ReadCodeBytes {
+                entity: Box::new(Expr::Literal {
+                    value: Value::Entity(entity),
+                }),
+                byte_offset: DecimalU64(offset),
+                byte_length: length.map(DecimalU64),
+            },
+        }],
+    };
+    let plan = prepare(
+        query(node, catalog.snapshot_id(), catalog.catalog_epoch()),
+        catalog,
+    )?;
+    assert!(plan.required_layers().contains(&FactLayer::CodeLayout));
+    execute(
+        &plan,
+        catalog,
+        ExecutionMode::Streaming,
+        &mut Control::new(ExecutionLimits::default()),
+    )
+}
+#[test]
+fn native_facts_duplicate_occurrences_and_bound_raw_code() {
+    let catalog = native("definitions-038.dex", true);
+    let plan = prepare(
+        query(
+            Node::Scan {
+                relation: "methods".into(),
+            },
+            catalog.snapshot_id(),
+            catalog.catalog_epoch(),
+        ),
+        &catalog,
+    )
+    .unwrap();
+    let rows = execute(
+        &plan,
+        &catalog,
+        ExecutionMode::Streaming,
+        &mut Control::new(ExecutionLimits::default()),
+    )
+    .unwrap();
+    assert_eq!(rows.rows().len(), 26);
+    assert_ne!(rows.rows()[0][0], rows.rows()[13][0]);
+    let o = &catalog.occurrences[0];
+    let definitions = o.definitions.as_ref().unwrap();
+    let method = |name: &str| {
+        let reference = definitions
+            .definitions()
+            .method_references
+            .iter()
+            .find(|v| v.class_descriptor == "Lfixture/Base;" && v.method_name == name)
+            .unwrap();
+        EntityRef {
+            snapshot_id: catalog.snapshot_id().into(),
+            dex_occurrence_id: o.metadata.source().dex_occurrence_id.clone(),
+            kind: EntityKind::MethodDefinition,
+            local_index: reference.method_idx,
+        }
+    };
+    assert_eq!(
+        read_literal(&catalog, method("privateCall"), 0, None)
+            .unwrap()
+            .rows(),
+        &[vec![Value::Bytes(Bytes(vec![0x0e, 0]))]]
+    );
+    assert_eq!(
+        read_literal(&catalog, method("privateCall"), 1, Some(1))
+            .unwrap()
+            .rows(),
+        &[vec![Value::Bytes(Bytes(vec![0]))]]
+    );
+    assert_eq!(
+        read_literal(&catalog, method("nativeCall"), 0, None)
+            .unwrap()
+            .rows(),
+        &[vec![Value::Null]]
+    );
+    assert_eq!(
+        read_literal(&catalog, method("privateCall"), 3, Some(1))
+            .err()
+            .unwrap()
+            .code,
+        ErrorCode::InvalidArgument
+    );
+    let mut foreign = method("privateCall");
+    foreign.snapshot_id = "foreign".into();
+    assert!(read_literal(&catalog, foreign, 0, None).is_err());
+    let no_code = native("definitions-038.dex", false);
+    let o = &no_code.occurrences[0];
+    let reference = o
+        .definitions
+        .as_ref()
+        .unwrap()
+        .definitions()
+        .method_references
+        .iter()
+        .find(|v| v.method_name == "privateCall")
+        .unwrap();
+    let entity = EntityRef {
+        snapshot_id: no_code.snapshot_id().into(),
+        dex_occurrence_id: o.metadata.source().dex_occurrence_id.clone(),
+        kind: EntityKind::MethodDefinition,
+        local_index: reference.method_idx,
+    };
+    assert_eq!(
+        read_literal(&no_code, entity, 0, None).err().unwrap().code,
+        ErrorCode::IncompleteFacts
+    );
+    let metadata_only = NativeCatalog::new(
+        catalog.snapshot_id().into(),
+        catalog.catalog_epoch(),
+        vec![OccurrenceFacts {
+            metadata: catalog.occurrences[0].metadata.clone(),
+            definitions: None,
+            code: None,
+        }],
+    )
+    .unwrap();
+    let unbuilt = prepare(
+        query(
+            Node::Limit {
+                input: Box::new(Node::Scan {
+                    relation: "methods".into(),
+                }),
+                offset: DecimalU64(0),
+                count: DecimalU64(0),
+            },
+            metadata_only.snapshot_id(),
+            metadata_only.catalog_epoch(),
+        ),
+        &metadata_only,
+    );
+    assert_eq!(unbuilt.err().unwrap().code, ErrorCode::IncompleteFacts);
+    assert!(
+        prepare(
+            query(
+                Node::Scan {
+                    relation: "strings".into()
+                },
+                metadata_only.snapshot_id(),
+                metadata_only.catalog_epoch()
+            ),
+            &metadata_only
+        )
+        .is_ok()
+    );
+    assert!(
+        NativeCatalog::new(
+            catalog.snapshot_id().into(),
+            catalog.catalog_epoch(),
+            vec![OccurrenceFacts {
+                metadata: catalog.occurrences[0].metadata.clone(),
+                definitions: catalog.occurrences[0].definitions.clone(),
+                code: catalog.occurrences[1].code.clone()
+            }]
+        )
+        .is_err()
+    );
+}
+
+#[test]
+fn present_empty_body_is_distinct_from_no_body_and_invalid_entity_is_not_empty_success() {
+    let catalog = native("zero-insns-present.dex", true);
+    let occurrence = &catalog.occurrences[0];
+    let method = occurrence
+        .definitions
+        .as_ref()
+        .unwrap()
+        .definitions()
+        .method_references
+        .iter()
+        .find(|m| m.method_name == "privateCall")
+        .unwrap();
+    let mut entity = EntityRef {
+        snapshot_id: catalog.snapshot_id().into(),
+        dex_occurrence_id: occurrence.metadata.source().dex_occurrence_id.clone(),
+        kind: EntityKind::MethodDefinition,
+        local_index: method.method_idx,
+    };
+    assert_eq!(
+        read_literal(&catalog, entity.clone(), 0, None)
+            .unwrap()
+            .rows(),
+        &[vec![Value::Bytes(Bytes(Vec::new()))]]
+    );
+    entity.local_index = u32::MAX;
+    assert!(read_literal(&catalog, entity, 0, None).is_err());
+    let generic = source(fixture());
+    let invalid = EntityRef {
+        snapshot_id: generic.snapshot_id().into(),
+        dex_occurrence_id: "not-in-this-catalog".into(),
+        kind: EntityKind::MethodReference,
+        local_index: 0,
+    };
+    let empty = Node::Project {
+        input: Box::new(Node::Scan {
+            relation: "empty".into(),
+        }),
+        columns: vec![Projection {
+            column: col("invalid", DataType::Entity, false),
+            expression: Expr::Literal {
+                value: Value::Entity(invalid),
+            },
+        }],
+    };
+    assert_eq!(
+        prepare(
+            query(empty, generic.snapshot_id(), generic.catalog_epoch()),
+            &generic
+        )
+        .err()
+        .unwrap()
+        .details["reason"],
+        "ENTITY_OUTSIDE_CATALOG"
+    );
+}
+
+#[test]
+fn exact_cell_codec_preserves_large_integers_bytes_and_surrogates() {
+    let cases: serde_json::Value = serde_json::from_str(include_str!(
+        "../../../../tests/fixtures/query/codec-cases.json"
+    ))
+    .unwrap();
+    for case in cases["accepted"].as_array().unwrap() {
+        let bytes: Vec<u8> = serde_json::from_value(case["bytes"].clone()).unwrap();
+        let value = Value::Bytes(Bytes(bytes));
+        let expected = serde_json::json!({"type":"bytes","value":case["base64"]});
+        assert_eq!(serde_json::to_value(&value).unwrap(), expected);
+        assert_eq!(serde_json::from_value::<Value>(expected).unwrap(), value);
+    }
+    for case in cases["rejected"].as_array().unwrap() {
+        let wire = serde_json::json!({"type":"bytes","value":case});
+        assert!(serde_json::from_value::<Value>(wire).is_err(), "{case}");
+    }
+    for value in [
+        Value::Null,
+        Value::Bytes(Bytes(vec![])),
+        Value::Bytes(Bytes(vec![0, 255, 128, 1])),
+        Value::Utf16(vec![0, 0xd800, 0xdc00]),
+        Value::I64(Signed64(i64::MIN)),
+        Value::U64(DecimalU64(u64::MAX)),
+    ] {
+        let wire = serde_json::to_string(&value).unwrap();
+        assert_eq!(serde_json::from_str::<Value>(&wire).unwrap(), value);
+    }
+    for bad in [
+        r#"{"type":"i64","value":"-0"}"#,
+        r#"{"type":"u64","value":"18446744073709551616"}"#,
+        r#"{"type":"i64","value":9007199254740993}"#,
+        r#"{"type":"bytes","value":"AB=="}"#,
+        r#"{"type":"bytes","value":"AA=A"}"#,
+    ] {
+        assert!(serde_json::from_str::<Value>(bad).is_err(), "{bad}");
+    }
+    for bad in [
+        "A", "AAA", "_A==", " A==", "AA==\n", "=AAA", "A===", "AA==AAAA", "AAB=", "____",
+    ] {
+        let wire = serde_json::json!({"type":"bytes","value":bad}).to_string();
+        assert!(serde_json::from_str::<Value>(&wire).is_err(), "{wire}");
+    }
+    for (wire, expected) in [
+        ("", vec![]),
+        ("AA==", vec![0]),
+        ("AAAA", vec![0, 0, 0]),
+        ("AP+A", vec![0, 255, 128]),
+    ] {
+        let value = Value::Bytes(Bytes(expected));
+        let encoded = serde_json::json!({"type":"bytes","value":wire}).to_string();
+        assert_eq!(serde_json::from_str::<Value>(&encoded).unwrap(), value);
+    }
+}
+
+#[test]
+fn native_utf16_like_escape_matches_hand_and_independent_python_oracles() {
+    let cases: serde_json::Value = serde_json::from_str(include_str!(
+        "../../../../tests/fixtures/query/like-cases.json"
+    ))
+    .unwrap();
+    let catalog = source(fixture());
+    for case in cases["cases"].as_array().unwrap() {
+        let text: Option<Vec<u16>> = serde_json::from_value(case["text"].clone()).unwrap();
+        let pattern: Vec<u16> = serde_json::from_value(case["pattern"].clone()).unwrap();
+        let escape: Option<u16> = serde_json::from_value(case["escape"].clone()).unwrap();
+        let pattern = operators::native_like_pattern(&pattern, escape);
+        if case["expected"].is_string() {
+            assert_eq!(pattern.err().unwrap().details["reason"], case["expected"]);
+            continue;
+        }
+        let predicate = Predicate::Like {
+            value: Expr::Literal {
+                value: text.map_or(Value::Null, Value::Utf16),
+            },
+            pattern: pattern.unwrap(),
+        };
+        let expected = match case["expected"].as_bool() {
+            Some(true) => Truth::True,
+            Some(false) => Truth::False,
+            None => Truth::Unknown,
+        };
+        operators::check_predicate(&predicate, &Vec::new(), 0).unwrap();
+        for reference in [false, true] {
+            assert_eq!(
+                operators::predicate(
+                    &predicate,
+                    &Vec::new(),
+                    &catalog,
+                    &mut Control::new(ExecutionLimits::default()),
+                    reference
+                )
+                .unwrap(),
+                expected,
+                "{} reference={reference}",
+                case["id"]
+            );
+        }
+    }
+}
+
+#[test]
+fn empty_right_join_keeps_schema_and_empty_grouped_aggregate_has_no_row() {
+    let mut data = fixture();
+    data.tables.get_mut("right").unwrap().rows.clear();
+    let expected_left = data.tables["left"].rows.clone();
+    let catalog = source(data);
+    let join = Node::EquiJoin {
+        left: Box::new(Node::Scan {
+            relation: "left".into(),
+        }),
+        right: Box::new(Node::Scan {
+            relation: "right".into(),
+        }),
+        left_keys: vec![2],
+        right_keys: vec![0],
+        kind: JoinKind::Left,
+    };
+    let aggregate = Node::Aggregate {
+        input: Box::new(Node::Scan {
+            relation: "empty".into(),
+        }),
+        group_by: vec![0],
+        aggregates: vec![Aggregate {
+            kind: AggregateKind::CountStar,
+            ordinal: None,
+            column: col("count", DataType::U64, false),
+        }],
+    };
+    for node in [join, aggregate] {
+        let plan = prepare(
+            query(node, catalog.snapshot_id(), catalog.catalog_epoch()),
+            &catalog,
+        )
+        .unwrap();
+        for mode in [
+            ExecutionMode::Streaming,
+            ExecutionMode::MaterializedReference,
+        ] {
+            let result = execute(
+                &plan,
+                &catalog,
+                mode,
+                &mut Control::new(ExecutionLimits::default()),
+            )
+            .unwrap();
+            if plan.schema().len() == 6 {
+                let expected: Vec<Row> = expected_left
+                    .iter()
+                    .cloned()
+                    .map(|mut r| {
+                        r.extend([Value::Null, Value::Null]);
+                        r
+                    })
+                    .collect();
+                assert_eq!(result.rows(), expected);
+                assert!(plan.schema()[4..].iter().all(|c| c.nullable));
+            } else {
+                assert!(result.rows().is_empty());
+            }
+        }
+    }
+}

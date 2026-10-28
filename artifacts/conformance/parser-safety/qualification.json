@@ -1,7 +1,7 @@
 {
   "schema_version": "mdd.parser-safety-preparation.v1",
   "updated_utc": "2026-10-28T12:45:47.297580+00:00",
-  "status": "local-bounded-mutation-passed-linux-asan-pending",
+  "status": "bounded-local-and-linux-asan-fuzz-passed-full-gates-unqualified",
   "g1_complete": false,
   "mdd_026_complete": false,
   "release_toolchain_unchanged": "1.99.0",
@@ -300,5 +300,12 @@
     "conformance/sanitizers/toolchain-lock.json": "a0c3f15aa34f2795bcc8f2d02e7714a204718d30a7f5ea247087307a035dad2c",
     "conformance/sanitizers/verify_local.py": "fa88ff6c97edc5eb7c6b10afa4585b79f990866e0a3bd80f84f708528ff623c5",
     ".github/workflows/parser-safety.yml": "8bf762d95d067d55a8f7970f1440010d6bb4e6bda0edc95592c81b96bc5384c9"
+  },
+  "linux_ci": {
+    "head_sha": "b29933d489d945b91f8becf62d34af6b69288978",
+    "run_id": 40692557250,
+    "readback": "artifacts/conformance/parser-safety/ci-readback.json",
+    "executions": 2426570,
+    "asan_positive_control": "actual diagnostic and nonzero exit"
   }
 }

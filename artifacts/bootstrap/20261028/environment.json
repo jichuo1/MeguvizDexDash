@@ -1,6 +1,6 @@
 {
   "schema_version": "mdd.environment.v1",
-  "captured_utc": "2026-10-28T12:48:47.075656+00:00",
+  "captured_utc": "2026-10-28T13:25:50.440331+00:00",
   "user_timezone": "Asia/Shanghai",
   "os": "Windows-11-10.0.26300-SP0",
   "machine": "AMD64",
@@ -57,7 +57,7 @@
         "HEAD"
       ],
       "exit_code": 0,
-      "stdout": "47fd4326c0de2d5ba35c357e6433cbe5f362a4ba\n",
+      "stdout": "b29933d489d945b91f8becf62d34af6b69288978\n",
       "stderr": ""
     }
   ],

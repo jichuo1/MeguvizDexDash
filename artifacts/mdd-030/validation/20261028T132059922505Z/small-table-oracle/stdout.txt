@@ -1,0 +1,1 @@
+{"cases": 36, "manual_positive_oracle_comparisons": 26, "negative_cases": "hand-adjudicated, Rust must execute exact failure stage/reason", "independence": "Python handwritten lists/arithmetic/sets/stable sorting, no production parser or SQLite"}

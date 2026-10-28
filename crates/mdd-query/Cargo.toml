@@ -1,0 +1,19 @@
+[package]
+name = "mdd-query"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+mdd-types.workspace = true
+mdd-facts.workspace = true
+mdd-dex.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+mdd-input.workspace = true
+
+[lints]
+workspace = true

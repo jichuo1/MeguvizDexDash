@@ -41,6 +41,8 @@ python conformance/sanitizers/run_ci.py --output artifacts/conformance/parser-sa
 
 CI 在私有进度库 `codex/**` 分支 push、相关PR及手工dispatch运行，无cron。工作流只授read权限，不运行业务、不上传私有输入。普通“0 crash”仅说明这个预算内没有发现，不是格式完备、UB证明、G1或MDD-026通过。原始stderr中的libFuzzer `cov/ft`是插桩计数，报告不转换成源码覆盖百分比；本地计数不是覆盖率。没有runner/工具/网络时明确失败或blocked，不能skip。
 
-新增文件和独立构建产物可整体移除以回滚；无根生产代码、主工具链、旧CI或旧原始trial变更。Linux远端真实结果在Root审阅workflow并推送后追加；准备完成不得填写“ASan已通过”。
+Linux 首次真实结果已回读：检查点 b29933d，run 40692557250，六目标合计 2,426,570 次执行；ASan 正控制实际产生预期非零 heap-buffer-overflow，普通目标无超时或 crash artifact。原始 ZIP 已核对 GitHub SHA-256，保存在 artifacts/conformance/parser-safety/ci-40692557250.zip。`python -O conformance/sanitizers/verify_ci_artifact.py` 独立复核全部流摘要、实际计数和 12 条子 Cargo 锁参数；摘要在 ci-readback.json。源码覆盖百分比仍未知，不授予完整 G1、026、业务或性能资格。
+
+新增文件和独立构建产物可用范围 revert 回滚；发布工具链、旧CI与旧原始trial保持原身份。保留实际失败与成功证据。
 
 官方依据：[Rust sanitizer](https://doc.rust-lang.org/unstable-book/compiler-flags/sanitizer.html)、[Rust Fuzz setup](https://rust-fuzz.github.io/book/cargo-fuzz/setup.html)、[cargo-fuzz features](https://rust-fuzz.github.io/book/cargo-fuzz/guide.html)、[libFuzzer limits](https://llvm.org/docs/LibFuzzer.html)。这些资料分别支撑 nightly/ASan、目标结构、feature传递、有限预算；不支撑本项目未运行配置的通过声明。

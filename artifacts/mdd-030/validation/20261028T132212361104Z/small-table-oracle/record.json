@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "tests/fixtures/query/build_cases.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T13:22:12.623533+00:00",
+  "finished_utc": "2026-10-28T13:22:12.683624+00:00",
+  "elapsed_seconds": 0.06199999999807915,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 248,
+    "sha256": "fd94abfc87bda63d650ed62878b9c3a877c6936cb99076962dc2ea3ee6e6fa21"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

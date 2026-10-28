@@ -1,0 +1,18 @@
+
+running 6 tests
+test executor::tests::exact_cell_codec_preserves_large_integers_bytes_and_surrogates ... ok
+test executor::tests::native_utf16_like_escape_matches_hand_and_independent_python_oracles ... ok
+test executor::tests::prepared_source_generation_cancel_and_budget_are_real_failures ... ok
+test executor::tests::native_facts_duplicate_occurrences_and_bound_raw_code ... ok
+test executor::tests::present_empty_body_is_distinct_from_no_body_and_invalid_entity_is_not_empty_success ... ok
+test executor::tests::independent_small_table_oracle_both_execution_paths ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 2 tests
+test crates\mdd-query\src\executor.rs - executor::PreparedQuery (line 147) - compile fail ... ok
+test crates\mdd-query\src\executor.rs - executor::QueryOutput (line 523) - compile fail ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+

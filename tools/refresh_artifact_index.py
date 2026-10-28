@@ -19,6 +19,11 @@ def main():
     tasks = json.loads((ROOT/'tasks/backlog.json').read_text(encoding='utf-8'))['tasks']
     task_status = {task['id'].lower():task['status'] for task in tasks}
     records = []
+    ignored = set()
+    if not args.from_index:
+        listing = subprocess.run(['git','-c','safe.directory='+str(ROOT),'ls-files','--others','--ignored',
+                                  '--exclude-standard','-z','--','artifacts'],cwd=ROOT,check=True,capture_output=True).stdout
+        ignored = {name.decode('utf-8') for name in listing.split(b'\0') if name}
     if args.from_index:
         listing = subprocess.run(['git','-c','safe.directory='+str(ROOT),'ls-files','--stage','-z','--','artifacts'],cwd=ROOT,check=True,capture_output=True).stdout
         entries = []
@@ -47,6 +52,8 @@ def main():
         if candidate.suffix.lower() in ['.exe', '.dll', '.pdb', '.obj', '.lib']:
             continue
         relative = candidate.relative_to(ROOT).as_posix()
+        if relative in ignored:
+            continue
         task_directory = candidate.relative_to(ROOT).parts[1] if len(candidate.relative_to(ROOT).parts) > 1 else ''
         if task_directory in task_status and task_status[task_directory] not in ['done','blocked'] and relative not in prior_paths:
             continue

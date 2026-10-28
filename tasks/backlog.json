@@ -747,7 +747,7 @@
       "id": "MDD-030",
       "phase": "M3",
       "title": "实现类型化查询 IR 与基础执行算子",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "MDD-010",
         "MDD-020",
@@ -778,7 +778,11 @@
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
-      "implementation_notes": "Eligible independent task; typed IR/operator source in progress, not included in current accepted fact checkpoint."
+      "implementation_notes": "Root reviewed stable sources and reran7unit+2compilefail;36case dual path,20LIKE and322+12codec oracle passed. Native typed component only; no SQL/G2/profile admission.",
+      "implementation_evidence": [
+        "artifacts/mdd-030/typed-query-conformance.json",
+        "artifacts/mdd-030/root-review/record.json"
+      ]
     },
     {
       "id": "MDD-031",

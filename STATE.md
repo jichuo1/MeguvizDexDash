@@ -4,7 +4,7 @@
 
 ## Checkout 与交付
 
-工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；47fd432 检查点已在审查分支推送，两次 Windows/Linux 原生 CI 成功（40681784942、40681806497）。本轮新实现尚待同版本 CI。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；47fd432 检查点已在审查分支推送，两次 Windows/Linux 原生 CI 成功（40681784942、40681806497）。最新事实检查点 b29933d 已推送并通过两平台原生与有限 Linux ASan/fuzz；当前026源码仍在实施；030已在Windows本地验收，尚待同版本Linux CI。
 
 大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
@@ -22,11 +22,11 @@
 
 ## 当前推进与阻塞
 
-MDD-026 的索引、三态 coverage 和 17 必需关系逐列独立差分正在实施；MDD-030 已满足图中依赖，类型化 IR/基础算子正在独立实施。未通过的 Methods 代码列、参数文本编码与参数注解 slot Unknown 均须显式阻断相应查询，不能填零/空值制造完整结果。
+MDD-026 的索引、三态 coverage 和 17 必需关系逐列独立差分正在实施；MDD-030 类型化 IR/基础算子已完成Windows限定范围验收：7单元+2compilefail、36查询case、20LIKE、322正/12负Base64均实际通过，源码稳定且根复验通过。031 SQL桥与034预算/取消/终态的前置依赖现已满足。未通过的 Methods 代码列、参数文本编码与参数注解 slot Unknown 均须显式阻断相应查询，不能填零/空值制造完整结果。
 
-解析安全独立 fuzz workspace 已实际完成 10,400 次本地 mutation、2 Rust 与 2 Python oracle/驱动测试、严格 Clippy。Linux ASan 正控制和六个各 15 秒的 libFuzzer 有限 job 已准备待首次 CI；G1 未签发。测试 nightly 不改变发布 stable 1.99.0，也不把零 crash 视作完备证明。
+解析安全独立 fuzz workspace 已实际完成 10,400 次本地 mutation、2 Rust 与 2 Python oracle/驱动测试、严格 Clippy。b29933d 两平台原生 CI 已通过，原始十份命令记录均 exit0。Linux ASan run40692557250 也真实通过：正控制非零检测到预期越界，六个各 15 秒目标共 2,426,570 次执行、无 crash 文件或超时，原 ZIP 的 GitHub 摘要及每份日志计数/锁参数均独立核验。见 artifacts/conformance/parser-safety/ci-readback.json。G1 未签发；固定预算不是完备证明，测试 nightly 不改变发布 stable 1.99.0。
 
-两个授权 APK 已核验完整 SHA/长度和 33/35 DEX，原位置未改变且不入 Git：9161100=226,519,215 字节/41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2；9170100=243,687,778 字节/f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955。实际路径及 mtime 前后核验见 artifacts/bootstrap/20261028/private-input-acquisition.json。
+两个授权 APK 已核验完整 SHA/长度和 33/35 DEX，原位置未改变且不入 Git：9161100=226,519,215 字节/41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2；9170100=243,687,778 字节/f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955。实际路径及 mtime 前后核验见 artifacts/bootstrap/20261028/private-input-acquisition.json。两个私有输入另有实际受限 CLI 成员/头部检查通过：68 个 DEX 全为 037，进程树均清空，峰值 Job commit 623,386,624/676,052,992 字节；原始输出留在 artifacts/local，摘要为 artifacts/integration/20261028/private-headers-20261028T130804307935Z.json。该检查不含完整事实、业务审计或性能试次。
 
 MDD-005 完整固定 HostLab 驱动、A0/A1 二进制身份、隔离 Python 环境、Windows Job 受限子进程及完整结果证书技术准备已完成。根资源审查仅有 7,672,709,120 字节可用物理内存，低于预登记 10,737,418,240；未授予独占测量窗口，未运行私有完整审计或正式性能试次。不能调低阈值、终止无关进程或以公开小样本替代。历史约 37%/47% 仅条件目标，baseline-runs.jsonl 尚无正式试次。
 

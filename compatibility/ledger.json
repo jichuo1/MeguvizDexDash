@@ -40,36 +40,61 @@
       "kind": "dex",
       "version": "035",
       "required_for_initial_standard_dex": true,
-      "status": "planned",
-      "evidence": []
+      "status": "implemented_unqualified",
+      "evidence": [
+        "artifacts/mdd-020/metadata-conformance.json",
+        "artifacts/mdd-023/component-final-summary.json",
+        "artifacts/mdd-024/reference-conformance.json",
+        "artifacts/conformance/parser-safety/ci-readback.json"
+      ]
     },
     {
       "kind": "dex",
       "version": "037",
       "required_for_initial_standard_dex": true,
-      "status": "planned",
-      "evidence": []
+      "status": "implemented_unqualified",
+      "evidence": [
+        "artifacts/mdd-020/metadata-conformance.json",
+        "artifacts/mdd-023/component-final-summary.json",
+        "artifacts/mdd-024/reference-conformance.json",
+        "artifacts/conformance/parser-safety/ci-readback.json"
+      ]
     },
     {
       "kind": "dex",
       "version": "038",
       "required_for_initial_standard_dex": true,
-      "status": "planned",
-      "evidence": []
+      "status": "implemented_unqualified",
+      "evidence": [
+        "artifacts/mdd-020/metadata-conformance.json",
+        "artifacts/mdd-023/component-final-summary.json",
+        "artifacts/mdd-024/reference-conformance.json",
+        "artifacts/conformance/parser-safety/ci-readback.json"
+      ]
     },
     {
       "kind": "dex",
       "version": "039",
       "required_for_initial_standard_dex": true,
-      "status": "planned",
-      "evidence": []
+      "status": "implemented_unqualified",
+      "evidence": [
+        "artifacts/mdd-020/metadata-conformance.json",
+        "artifacts/mdd-023/component-final-summary.json",
+        "artifacts/mdd-024/reference-conformance.json",
+        "artifacts/conformance/parser-safety/ci-readback.json"
+      ]
     },
     {
       "kind": "dex",
       "version": "040",
       "required_for_initial_standard_dex": true,
-      "status": "planned",
-      "evidence": []
+      "status": "implemented_unqualified",
+      "evidence": [
+        "artifacts/mdd-020/metadata-conformance.json",
+        "artifacts/mdd-023/component-final-summary.json",
+        "artifacts/mdd-024/reference-conformance.json",
+        "artifacts/conformance/parser-safety/ci-readback.json"
+      ]
     },
     {
       "kind": "dex",
@@ -164,11 +189,12 @@
     ],
     "all_profiles_admitted": false,
     "sql_probe": "artifacts/mdd-006/sql-bridge-probes.json",
-    "linux_native": "Earlier M2 checkpoint47fd432 push and PR Windows/Linux CI passed; current checkpoint pending",
+    "linux_native": "b29933d Windows/Linux native CI40692557253 passed; actual 10 command records exit0; current026/030 changes pending own CI",
     "format_qualification": "not granted",
     "metadata": "MDD-020/021/022/023 accepted within task scope, including physical item-start requalification; not full format/profile qualification",
     "raw_and_manifest": "MDD-025 required scope accepted, 55763 methods, 8540 class recipes, 792 resources, 76 Manifest vectors; artifacts/mdd-025/raw-evidence-conformance.json",
-    "parser_safety": "10400 actual local mutations; Linux ASan/libFuzzer pending first CI; G1 not granted",
-    "private_baseline": "Exact two APK inputs verified; complete driver prepared; resource window denied below preregistered available RAM; full private run absent"
+    "parser_safety": "10400 local mutations plus b29933d Linux ASan positive control and 2426570 actual libFuzzer executions; artifacts/conformance/parser-safety/ci-readback.json; full G1 not granted",
+    "private_baseline": "Exact two APK inputs verified; complete driver prepared; resource window denied below preregistered available RAM; full private run absent",
+    "private_header_inspection": "User-fixed 9161100/9170100:33/35 DEX037 header/inventory complete in bounded owned jobs; artifacts/integration/20261028/private-headers-20261028T130804307935Z.json; no complete facts/workflow/performance claim"
   }
 }

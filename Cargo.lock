@@ -226,6 +226,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "mdd-query"
+version = "0.1.0-dev"
+dependencies = [
+ "mdd-dex",
+ "mdd-facts",
+ "mdd-input",
+ "mdd-types",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "mdd-session"
 version = "0.1.0-dev"
 dependencies = [

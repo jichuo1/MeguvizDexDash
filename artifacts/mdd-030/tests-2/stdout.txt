@@ -1,0 +1,14 @@
+
+running 4 tests
+test executor::tests::exact_cell_codec_preserves_large_integers_bytes_and_surrogates ... ok
+test executor::tests::prepared_source_generation_cancel_and_budget_are_real_failures ... ok
+test executor::tests::native_facts_duplicate_occurrences_and_bound_raw_code ... ok
+test executor::tests::independent_small_table_oracle_both_execution_paths ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
