@@ -1,0 +1,262 @@
+{
+  "kind": "real_public_APK_complete_consumer_replay_not_engine_benchmark",
+  "started_utc": "2026-10-26T10:53:07Z",
+  "machine": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "logical_cpus": 9,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "cpu_max": "800000 100000",
+    "memory_max": "8589934592",
+    "loadavg": [
+      0.5537109375,
+      0.435546875,
+      0.1875
+    ],
+    "gc_enabled": true
+  },
+  "rounds": 5,
+  "harness_sha256": "0b82f282e878c843bd8ebf356a04e4cf7efa72a69ab4445c0ee11bb293e34a7a",
+  "shared_decoder_harness_sha256": "1e161708e46782c0b63207caa953cbf0a5b095df25ed394b01839d9118ae45e8",
+  "hostlab_provenance": {
+    "file": "/workspace/scratch/acc0e5058f47/research/desktop_v2/hostlab/tools/hostlab/native_cli.py",
+    "file_sha256": "ca2b1cfb824c0da8f6ab00baeb6bbb24308c734b9ebc3ba4c5c7219d9503a3e3",
+    "method_source_sha256": {
+      "__init__": "88065d5bb3c9f700283ef3521a5331328c2df09d7707eca57c9e841375a0c7b3",
+      "read": "8814352f2370590dea7eb5e1e2d5835dbf35377221d68c6a2f12b787f36ce254",
+      "line": "f40cb4b40265f519e34abd9a523f350f3b548d5b1b9993617033b76e1dee5b36",
+      "table": "d1a899d035776f8dc0a913c0219431cc5db6065ea834d0d089e24a267b288def",
+      "rows": "c43119f9d4b59ba9df9c5edfd6bc957432041513ca1c7d8550e4a9cd1ed76aa9"
+    },
+    "method_ast_sha256": {
+      "__init__": "68270c656d721232c9df03bbd06c35ef951d20162e55ea3afae4c9008719ee88",
+      "read": "e9ff49bcae0531dfc2ebc6b4bf9c75a3baa86abfbad14d7210d704acf06bacbd",
+      "line": "0922a249d4324182d078f8876a8422654d6a9b379378b52590d7a3ec780b003d",
+      "table": "efba61135cee2ae1a0200e33971e585cccfd23201267bcb7c7284006a1db6055",
+      "rows": "d94d31f5e210fc6cba612fe08a1b5c819992746c58ab87318e8d30c79db62cf8"
+    },
+    "method_names": [
+      "__init__",
+      "read",
+      "line",
+      "table",
+      "rows"
+    ],
+    "adaptation": "Original method ASTs unchanged. write() and stdout are safe replay I/O; __enter__/__exit__ and database preparation are not called."
+  },
+  "apk": "/workspace/scratch/acc0e5058f47/research/quant_v3/samples/NewPipe_v0.28.6.apk",
+  "apk_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+  "capture_producer": "Fixed DexSQL 0.1.0, --threads 2 --full --timing, full class_methods query; see public_apk_profile.py and its results",
+  "source_query": "SELECT file_id,class_descriptor,method_idx,method_name,method_descriptor FROM class_methods ORDER BY file_id,class_idx,method_idx",
+  "inputs": {
+    "hex_table": {
+      "path": "/workspace/scratch/acc0e5058f47/research/quant_v3/public_apk_hex_table.bin",
+      "bytes": 305380092,
+      "sha256": "95c5a70a0bbec6235a549ee560d80ae8228551a1026fe112eac5ad69abc07823"
+    },
+    "rows_json": {
+      "path": "/workspace/scratch/acc0e5058f47/research/quant_v3/public_apk_rows.json",
+      "bytes": 10632455,
+      "sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398"
+    },
+    "shape_table": {
+      "path": "/workspace/scratch/acc0e5058f47/research/quant_v3/public_apk_shape_table.bin",
+      "bytes": 312,
+      "sha256": "e5941c9e24a2dd46cace5103654782e7d36ecb2d650b2abca21a8b5eec777522"
+    },
+    "marker_table": {
+      "path": "/workspace/scratch/acc0e5058f47/research/quant_v3/public_apk_marker_table.bin",
+      "bytes": 255,
+      "sha256": "a098e7e3697a417d1f382fd26ca4631811316888e068d75c97e43042384af185"
+    }
+  },
+  "binary_frame": {
+    "path": "/workspace/scratch/acc0e5058f47/research/quant_v3/public_apk_rows.dxb1",
+    "bytes": 10836227,
+    "sha256": "4abf4a9c6342604fe958793d89223a730f9a043da444f90ba335b36a3de3f837",
+    "batch_rows": 1024
+  },
+  "data": {
+    "rows": 55763,
+    "columns": [
+      "file_id",
+      "class_descriptor",
+      "method_idx",
+      "method_name",
+      "method_descriptor"
+    ],
+    "all_cells_non_null": true,
+    "total_utf8_value_bytes": 9684483,
+    "max_utf8_cell_bytes_by_column": {
+      "file_id": 1,
+      "class_descriptor": 165,
+      "method_idx": 5,
+      "method_name": 120,
+      "method_descriptor": 2436
+    }
+  },
+  "canonical_digest_algorithm": "schema and ordered str/None cells with byte tags and u32 UTF-8 byte lengths, SHA-256; original input JSON SHA recorded separately",
+  "expected_canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc",
+  "timed": "session setup, identical original read() background thread, bounded 8x64KiB queue, protocol parsing, strict UTF-8 decoding, complete str/None dict list, reader shutdown",
+  "excluded": "APK parsing, indexing, SQL planning/execution, DexSQL producer/output encoding, file-content I/O, binary pre-encoding, correctness comparison/hashing, audit rules",
+  "caveats": [
+    "Replay stdout is an in-memory byte source, not an OS pipe",
+    "All captured bytes and expected values are resident before timing",
+    "Python GC remains enabled; gc.collect is outside each timing",
+    "No peak memory saving was measured",
+    "This five-column class_methods workload does not represent every audit query",
+    "Producer and consumer can overlap in the live pipeline; their times must not simply be added"
+  ],
+  "samples": [
+    {
+      "pair": 0,
+      "order": [
+        "original_hostlab_hex",
+        "binary_column_batch"
+      ],
+      "measurements": {
+        "original_hostlab_hex": {
+          "wall_ns": 821976999,
+          "process_cpu_ns": 813508175,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        },
+        "binary_column_batch": {
+          "wall_ns": 143233002,
+          "process_cpu_ns": 143448370,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        }
+      }
+    },
+    {
+      "pair": 1,
+      "order": [
+        "binary_column_batch",
+        "original_hostlab_hex"
+      ],
+      "measurements": {
+        "binary_column_batch": {
+          "wall_ns": 113411505,
+          "process_cpu_ns": 113416836,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        },
+        "original_hostlab_hex": {
+          "wall_ns": 851696604,
+          "process_cpu_ns": 839950742,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        }
+      }
+    },
+    {
+      "pair": 2,
+      "order": [
+        "original_hostlab_hex",
+        "binary_column_batch"
+      ],
+      "measurements": {
+        "original_hostlab_hex": {
+          "wall_ns": 846783692,
+          "process_cpu_ns": 831141900,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        },
+        "binary_column_batch": {
+          "wall_ns": 134713867,
+          "process_cpu_ns": 135127426,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        }
+      }
+    },
+    {
+      "pair": 3,
+      "order": [
+        "binary_column_batch",
+        "original_hostlab_hex"
+      ],
+      "measurements": {
+        "binary_column_batch": {
+          "wall_ns": 123599016,
+          "process_cpu_ns": 123499654,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        },
+        "original_hostlab_hex": {
+          "wall_ns": 869004901,
+          "process_cpu_ns": 847719095,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        }
+      }
+    },
+    {
+      "pair": 4,
+      "order": [
+        "original_hostlab_hex",
+        "binary_column_batch"
+      ],
+      "measurements": {
+        "original_hostlab_hex": {
+          "wall_ns": 801234284,
+          "process_cpu_ns": 793945440,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        },
+        "binary_column_batch": {
+          "wall_ns": 124889161,
+          "process_cpu_ns": 124622601,
+          "complete_rows": 55763,
+          "exact_equal": true,
+          "canonical_sha256": "b23d0fd961d5938828c93637d7154de1e6d217d1f409a11974c976f808a753fc"
+        }
+      }
+    }
+  ],
+  "median_wall_ms": {
+    "original_hostlab_hex": 846.783692,
+    "binary_column_batch": 124.889161
+  },
+  "min_max_wall_ms": {
+    "original_hostlab_hex": [
+      801.234284,
+      869.004901
+    ],
+    "binary_column_batch": [
+      113.411505,
+      143.233002
+    ]
+  },
+  "median_speedup_hex_over_binary": 6.780281693140688,
+  "median_time_reduction_percent": 85.25135023502554,
+  "paired_speedup_factors": [
+    5.738740286962638,
+    7.509790157532959,
+    6.285794557437803,
+    7.030839962350509,
+    6.415563028724327
+  ],
+  "finished_utc": "2026-10-26T10:53:13Z"
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "mdd.artifacts-index.v1",
+  "product": "MeguvizDexDash",
+  "implementation_state": "not_started",
+  "historical_evidence_index": "evidence/index.json",
+  "engine_builds": [],
+  "engine_runs": [],
+  "conformance_manifests": [],
+  "benchmark_runs": [],
+  "qualifications": [],
+  "note": "Empty by design: the delivered engineering plan is not an implemented engine. Add actual implementation evidence here; never copy historical DexSQL checks as MeguvizDexDash passes."
+}

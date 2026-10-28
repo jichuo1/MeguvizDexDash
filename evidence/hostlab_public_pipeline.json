@@ -1,0 +1,636 @@
+{
+  "schema": 1,
+  "kind": "live_original_HostLab_CliSession_public_APK_full_export_not_new_engine",
+  "started_utc": "2026-10-26T10:55:16Z",
+  "complete": true,
+  "harness_sha256": "74aacd190aa67f15e7698e846f85463b2f7e960dedfe2e7c33a562911444ccc3",
+  "profile_harness_sha256": "a3a2f23685c4bcd08cc0551e57482cf7195cf1b9b107fcb41006acfefab70704",
+  "provenance": {
+    "fixed_main_sha": "8782f43d537c442905123e35af325c412caa5188",
+    "cli": {
+      "path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/hostlab/tools/hostlab/native_cli.py",
+      "file_sha256": "ca2b1cfb824c0da8f6ab00baeb6bbb24308c734b9ebc3ba4c5c7219d9503a3e3",
+      "node_source_sha256": {
+        "CliSession": "af8dc1596b52105630ae1dd6aab86c317770e6506500c89b86247419697c4469"
+      },
+      "node_ast_sha256": {
+        "CliSession": "f2b778cac2e0ca1feaa5ea018a391e6dda6e92b6fce92d81b03943e23811c26b"
+      },
+      "unchanged_node_names": [
+        "CliSession"
+      ]
+    },
+    "batch_helpers": {
+      "path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/hostlab/tools/hostlab/analysis_batch.py",
+      "file_sha256": "8f40845d1328cae8a06dd29830c5e636d962da3cc72194e16904f6fb23030a64",
+      "node_source_sha256": {
+        "BackendError": "fb4ecc976f7e97b15e83d43291e7624bb91afd345bff75aa042619591fef15f0",
+        "cache_directory": "818a612859a9d819e3a0f7139b5a71f135dcf7a8801c53f6a35038b56a59d036",
+        "archive_inventory": "b611e13a1512fba4e8b6def67bc5eb5396defa106ada2f9b734e5157d698c7ab",
+        "verify_inventory": "95a64c4ed5de01d83458ae2de8e23e43e59343815a61a0ddc64c4b0d961db04b",
+        "child_environment": "214d5ed8ff263a7dd2c21123c6b6e40f1d33a7ef7fef4c48175f54f69d1b961f"
+      },
+      "node_ast_sha256": {
+        "BackendError": "d39be2e1ba6578be2b081d7e445470a4892bd3d9c6219e814d1256133ea61dea",
+        "cache_directory": "9f8de576f6b57279a220abfe0ae48cdcb1b3ae86a6b401b86850329e973a9dfa",
+        "archive_inventory": "f871a83f844899ce771cbe613c4340976d296cd729814937dc16c78aa9fbc728",
+        "verify_inventory": "b49003bab800fa14d0ff0ef49a0693e84e282bbffb4f56bfd92789752c82f5d5",
+        "child_environment": "c349fbfe1a3bf84215f900472fd07a9744db3a527b6941ea5a9765948a453fe7"
+      },
+      "unchanged_node_names": [
+        "BackendError",
+        "cache_directory",
+        "archive_inventory",
+        "verify_inventory",
+        "child_environment"
+      ]
+    },
+    "other_original_files": {
+      "hostlab.py": "111dff57cef990ac1557c1d950a2fe9bf1dfb8b787c5f9c20c126a26953c15e8",
+      "install_dexsql.py": "2c223b638023b325a782771e4751a6371c393cb46750d253695e4b7e7727f1ca",
+      "process_control.py": "7a515e8656638d72963dc33c0f434a57907b59cb4ff49eb7c87d6327ce0b9d70"
+    },
+    "reason_for_ast_loading": "mcp package is absent; load only original synchronous helpers, without installing dependencies or mocking transport",
+    "adaptation": "Entire original CliSession AST unchanged, including __enter__/__exit__, write/read/line/table/rows. Inventory and child_environment AST unchanged. install_dexsql.verify temporarily returns the already SHA256-verified version path; binary hash verification is outside trial timing."
+  },
+  "rounds_requested": 5,
+  "budget_seconds": 115,
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "cpu_count": 9,
+  "cpu_max": "800000 100000",
+  "memory_max": "8589934592",
+  "apk": {
+    "name": "NewPipe_v0.28.6.apk",
+    "bytes": 10885562,
+    "sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+    "dex": [
+      {
+        "name": "classes.dex",
+        "bytes": 8765584,
+        "compressed_bytes": 3849232
+      },
+      {
+        "name": "classes2.dex",
+        "bytes": 680712,
+        "compressed_bytes": 289979
+      }
+    ]
+  },
+  "binaries": {
+    "0.1.0": {
+      "path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c"
+    },
+    "0.1.1": {
+      "path": "/workspace/scratch/acc0e5058f47/research/dexsql-linux-amd64",
+      "sha256": "f35c57610fcee62864e68f12e51997621375c025447aa2f32a0be9eb2df464bc"
+    }
+  },
+  "plain_query": "SELECT file_id,class_descriptor,method_idx,method_name,method_descriptor FROM class_methods ORDER BY file_id,class_idx,method_idx",
+  "columns": [
+    "file_id",
+    "class_descriptor",
+    "method_idx",
+    "method_name",
+    "method_descriptor"
+  ],
+  "expected_rows": 55763,
+  "expected_canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+  "canonical_algorithm": "ordered arrays of every dict cell in fixed COLUMNS order; UTF-8 JSON ensure_ascii=False,separators=(',',':'); SHA256; same as public_apk_profile",
+  "timed": "fresh CliSession constructor and unchanged __enter__ (including two inventory passes and initial dex_files), actual CLI OS pipes, original writer/reader with 64KiB queue8, shape/data/markers, full str/None dict list; close separately recorded",
+  "excluded": "prior executable/APK SHA verification, Python module/AST setup, expected-result loading, GC collection, post-result equivalence/hash and JSON save; no audit rules or Python gates",
+  "method": "one warm-up per version then five alternating-order paired rounds; --threads 2; original query --input APK --interactive; OS cache retained; CPU slot reserved",
+  "caveats": [
+    "single public APK and single five-column full class_methods export, not complete HostLab audit",
+    "0.1.1 is an upstream upgrade, not self-developed engine",
+    "producer and consumer execute concurrently through real OS pipe and must not have isolated times added",
+    "benchmark leaves original row/byte/deadline guards and physical DEX inventory intact",
+    "binary verification moved outside timed window equally for both versions"
+  ],
+  "warmups": [
+    {
+      "version": "0.1.0",
+      "round": 0,
+      "rows": 55763,
+      "null_cells": 0,
+      "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+      "canonical_json_bytes": 10632455,
+      "full_ordered_str_or_none_dicts_verified": true,
+      "files": {
+        "0": "classes.dex",
+        "1": "classes2.dex"
+      },
+      "logical_queries_completed": 2,
+      "opened": {
+        "backend": "dexsql",
+        "transport": "cli_hex_v1",
+        "prepare_ms": 76.20679600222502,
+        "files": {
+          "0": "classes.dex",
+          "1": "classes2.dex"
+        },
+        "cache": "memory_session",
+        "source_diagnostics": []
+      },
+      "prepare_ms": 76.326247,
+      "query_to_complete_dicts_ms": 3912.843199,
+      "startup_to_complete_dicts_ms": 3989.169446,
+      "close_ms": 7.424099,
+      "startup_through_close_ms": 3996.593545,
+      "self_cpu_user_ms": 2124.161,
+      "self_cpu_system_ms": 1310.538,
+      "child_cpu_user_ms": 3480.1839999999997,
+      "child_cpu_system_ms": 504.31199999999995
+    },
+    {
+      "version": "0.1.1",
+      "round": 0,
+      "rows": 55763,
+      "null_cells": 0,
+      "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+      "canonical_json_bytes": 10632455,
+      "full_ordered_str_or_none_dicts_verified": true,
+      "files": {
+        "0": "classes.dex",
+        "1": "classes2.dex"
+      },
+      "logical_queries_completed": 2,
+      "opened": {
+        "backend": "dexsql",
+        "transport": "cli_hex_v1",
+        "prepare_ms": 84.57089100193116,
+        "files": {
+          "0": "classes.dex",
+          "1": "classes2.dex"
+        },
+        "cache": "memory_session",
+        "source_diagnostics": []
+      },
+      "prepare_ms": 84.665293,
+      "query_to_complete_dicts_ms": 1164.401813,
+      "startup_to_complete_dicts_ms": 1249.067106,
+      "close_ms": 7.400064,
+      "startup_through_close_ms": 1256.46717,
+      "self_cpu_user_ms": 833.4680000000003,
+      "self_cpu_system_ms": 135.42500000000013,
+      "child_cpu_user_ms": 661.4040000000001,
+      "child_cpu_system_ms": 103.99099999999994
+    }
+  ],
+  "pairs": [
+    {
+      "round": 1,
+      "order": [
+        "0.1.0",
+        "0.1.1"
+      ],
+      "measurements": {
+        "0.1.0": {
+          "version": "0.1.0",
+          "round": 1,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 75.0522220005223,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 75.14342,
+          "query_to_complete_dicts_ms": 4048.663582,
+          "startup_to_complete_dicts_ms": 4123.807002,
+          "close_ms": 7.379893,
+          "startup_through_close_ms": 4131.186895,
+          "self_cpu_user_ms": 2287.661,
+          "self_cpu_system_ms": 1276.862,
+          "child_cpu_user_ms": 3460.5420000000004,
+          "child_cpu_system_ms": 592.6510000000002
+        },
+        "0.1.1": {
+          "version": "0.1.1",
+          "round": 1,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 72.7522900015174,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 72.850889,
+          "query_to_complete_dicts_ms": 1432.597462,
+          "startup_to_complete_dicts_ms": 1505.448351,
+          "close_ms": 7.425938,
+          "startup_through_close_ms": 1512.874289,
+          "self_cpu_user_ms": 979.9860000000002,
+          "self_cpu_system_ms": 178.31499999999954,
+          "child_cpu_user_ms": 640.7389999999999,
+          "child_cpu_system_ms": 150.83399999999992
+        }
+      }
+    },
+    {
+      "round": 2,
+      "order": [
+        "0.1.1",
+        "0.1.0"
+      ],
+      "measurements": {
+        "0.1.1": {
+          "version": "0.1.1",
+          "round": 2,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 88.32981100204051,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 88.420158,
+          "query_to_complete_dicts_ms": 1200.889709,
+          "startup_to_complete_dicts_ms": 1289.309867,
+          "close_ms": 7.429968,
+          "startup_through_close_ms": 1296.739835,
+          "self_cpu_user_ms": 781.9180000000001,
+          "self_cpu_system_ms": 117.5780000000004,
+          "child_cpu_user_ms": 661.4719999999999,
+          "child_cpu_system_ms": 127.04399999999994
+        },
+        "0.1.0": {
+          "version": "0.1.0",
+          "round": 2,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 73.11180800024886,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 73.223036,
+          "query_to_complete_dicts_ms": 4071.45261,
+          "startup_to_complete_dicts_ms": 4144.675646,
+          "close_ms": 7.401506,
+          "startup_through_close_ms": 4152.077152,
+          "self_cpu_user_ms": 2290.898,
+          "self_cpu_system_ms": 1261.015,
+          "child_cpu_user_ms": 3658.4819999999995,
+          "child_cpu_system_ms": 455.26500000000004
+        }
+      }
+    },
+    {
+      "round": 3,
+      "order": [
+        "0.1.0",
+        "0.1.1"
+      ],
+      "measurements": {
+        "0.1.0": {
+          "version": "0.1.0",
+          "round": 3,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 71.04631500260439,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 71.144153,
+          "query_to_complete_dicts_ms": 3963.788928,
+          "startup_to_complete_dicts_ms": 4034.933081,
+          "close_ms": 7.388796,
+          "startup_through_close_ms": 4042.321877,
+          "self_cpu_user_ms": 2265.070999999999,
+          "self_cpu_system_ms": 1172.218,
+          "child_cpu_user_ms": 3413.903000000001,
+          "child_cpu_system_ms": 580.7579999999999
+        },
+        "0.1.1": {
+          "version": "0.1.1",
+          "round": 3,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 73.11542499883217,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 73.369759,
+          "query_to_complete_dicts_ms": 1333.217157,
+          "startup_to_complete_dicts_ms": 1406.586916,
+          "close_ms": 7.546304,
+          "startup_through_close_ms": 1414.13322,
+          "self_cpu_user_ms": 904.1069999999997,
+          "self_cpu_system_ms": 136.83400000000034,
+          "child_cpu_user_ms": 629.3299999999995,
+          "child_cpu_system_ms": 107.09800000000014
+        }
+      }
+    },
+    {
+      "round": 4,
+      "order": [
+        "0.1.1",
+        "0.1.0"
+      ],
+      "measurements": {
+        "0.1.1": {
+          "version": "0.1.1",
+          "round": 4,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 75.42620399908628,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 75.518063,
+          "query_to_complete_dicts_ms": 1147.273997,
+          "startup_to_complete_dicts_ms": 1222.79206,
+          "close_ms": 7.360443,
+          "startup_through_close_ms": 1230.152503,
+          "self_cpu_user_ms": 827.9250000000004,
+          "self_cpu_system_ms": 126.54999999999994,
+          "child_cpu_user_ms": 606.1550000000011,
+          "child_cpu_system_ms": 63.5889999999999
+        },
+        "0.1.0": {
+          "version": "0.1.0",
+          "round": 4,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 70.80127099834499,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 70.883485,
+          "query_to_complete_dicts_ms": 3456.50556,
+          "startup_to_complete_dicts_ms": 3527.389045,
+          "close_ms": 7.405352,
+          "startup_through_close_ms": 3534.794397,
+          "self_cpu_user_ms": 1938.3540000000003,
+          "self_cpu_system_ms": 1167.2669999999998,
+          "child_cpu_user_ms": 3066.635999999999,
+          "child_cpu_system_ms": 466.76900000000023
+        }
+      }
+    },
+    {
+      "round": 5,
+      "order": [
+        "0.1.0",
+        "0.1.1"
+      ],
+      "measurements": {
+        "0.1.0": {
+          "version": "0.1.0",
+          "round": 5,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 75.41026699982467,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 75.496388,
+          "query_to_complete_dicts_ms": 3421.25614,
+          "startup_to_complete_dicts_ms": 3496.752528,
+          "close_ms": 7.381774,
+          "startup_through_close_ms": 3504.134302,
+          "self_cpu_user_ms": 1987.1520000000019,
+          "self_cpu_system_ms": 1076.898,
+          "child_cpu_user_ms": 3132.959,
+          "child_cpu_system_ms": 358.48499999999996
+        },
+        "0.1.1": {
+          "version": "0.1.1",
+          "round": 5,
+          "rows": 55763,
+          "null_cells": 0,
+          "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+          "canonical_json_bytes": 10632455,
+          "full_ordered_str_or_none_dicts_verified": true,
+          "files": {
+            "0": "classes.dex",
+            "1": "classes2.dex"
+          },
+          "logical_queries_completed": 2,
+          "opened": {
+            "backend": "dexsql",
+            "transport": "cli_hex_v1",
+            "prepare_ms": 75.86695700229029,
+            "files": {
+              "0": "classes.dex",
+              "1": "classes2.dex"
+            },
+            "cache": "memory_session",
+            "source_diagnostics": []
+          },
+          "prepare_ms": 75.9618,
+          "query_to_complete_dicts_ms": 1087.606871,
+          "startup_to_complete_dicts_ms": 1163.568671,
+          "close_ms": 7.466508,
+          "startup_through_close_ms": 1171.035179,
+          "self_cpu_user_ms": 724.2359999999976,
+          "self_cpu_system_ms": 161.55400000000066,
+          "child_cpu_user_ms": 617.642,
+          "child_cpu_system_ms": 101.23900000000008
+        }
+      }
+    }
+  ],
+  "summary": {
+    "0.1.0": {
+      "prepare_ms": {
+        "median": 73.223036,
+        "min": 70.883485,
+        "max": 75.496388
+      },
+      "query_to_complete_dicts_ms": {
+        "median": 3963.788928,
+        "min": 3421.25614,
+        "max": 4071.45261
+      },
+      "startup_to_complete_dicts_ms": {
+        "median": 4034.933081,
+        "min": 3496.752528,
+        "max": 4144.675646
+      },
+      "close_ms": {
+        "median": 7.388796,
+        "min": 7.379893,
+        "max": 7.405352
+      },
+      "startup_through_close_ms": {
+        "median": 4042.321877,
+        "min": 3504.134302,
+        "max": 4152.077152
+      }
+    },
+    "0.1.1": {
+      "prepare_ms": {
+        "median": 75.518063,
+        "min": 72.850889,
+        "max": 88.420158
+      },
+      "query_to_complete_dicts_ms": {
+        "median": 1200.889709,
+        "min": 1087.606871,
+        "max": 1432.597462
+      },
+      "startup_to_complete_dicts_ms": {
+        "median": 1289.309867,
+        "min": 1163.568671,
+        "max": 1505.448351
+      },
+      "close_ms": {
+        "median": 7.429968,
+        "min": 7.360443,
+        "max": 7.546304
+      },
+      "startup_through_close_ms": {
+        "median": 1296.739835,
+        "min": 1171.035179,
+        "max": 1512.874289
+      }
+    }
+  },
+  "paired_speedup_startup_to_dicts": [
+    2.739255052663045,
+    3.2146466509590437,
+    2.8685984741521655,
+    2.884700645668242,
+    3.005196526127507
+  ],
+  "median_of_paired_speedups": 2.884700645668242,
+  "ratio_of_version_medians": 3.1295293585153336,
+  "time_reduction_from_version_medians": 0.6804631350464769,
+  "finished_utc": "2026-10-26T10:55:49Z",
+  "benchmark_wall_seconds": 33.0304376799977
+}

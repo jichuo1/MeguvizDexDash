@@ -1,0 +1,51 @@
+{
+  "schema_version": "mdd.result.v1",
+  "request_id": "example-request-page",
+  "operation": "query",
+  "profile": "mdd-native-v1",
+  "sql_dialect": null,
+  "session_id": "example-session",
+  "snapshot_id": "example-snapshot",
+  "catalog_epoch": "0",
+  "query_id": "example-query",
+  "operation_status": "ok",
+  "coverage": {
+    "scope_id": "example-complete-scope",
+    "input": "complete",
+    "facts": "complete",
+    "required_layers": [
+      "inventory",
+      "structure"
+    ],
+    "issues": []
+  },
+  "execution": {
+    "complete": true
+  },
+  "response": {
+    "schema_id": "example-rows-v1",
+    "emitted_rows": "1",
+    "total_rows": "2",
+    "total_rows_exact": true,
+    "more_available": true,
+    "truncated": false,
+    "next_cursor": "example-opaque-cursor"
+  },
+  "data": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "id": "example-col-1",
+        "display_name": "value",
+        "type": "utf8"
+      }
+    ],
+    "rows": [
+      [
+        "example-first-row"
+      ]
+    ]
+  },
+  "error": null,
+  "warnings": []
+}

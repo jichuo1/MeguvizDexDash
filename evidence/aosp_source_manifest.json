@@ -1,0 +1,214 @@
+[
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/Android.bp",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/Android.bp",
+    "sha256": "f7135ef090111365f64321c5db8bb5c4e34b8dab6ae9f5e92c6d2be0ed766c13",
+    "bytes": 17575,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/Android.bp",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/external/include/art_api/dex_file_support.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/external/include/art_api/dex_file_support.h",
+    "sha256": "9657b1c4246efdde2aed0ee43069c0dc5925c6c002f9dbb0f3d46ef390a82762",
+    "bytes": 4568,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/external/include/art_api/dex_file_support.h",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/external/include/art_api/ext_dex_file.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/external/include/art_api/ext_dex_file.h",
+    "status": "error",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/external/dex_file_support.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/external/dex_file_support.cc",
+    "status": "error",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/external/dex_file_ext.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/external/dex_file_ext.cc",
+    "sha256": "bbf8c6d1b909ad61d8169af147409dbf4aca7ce3082d14d38aafbfc6e02aeabc",
+    "bytes": 11370,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/external/dex_file_ext.cc",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/dex_file_loader.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_file_loader.cc",
+    "sha256": "99ebdc37b5c586a0ac378882c59ba4e61868c91f62a60536abe464dfce8a6ddc",
+    "bytes": 25595,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_file_loader.cc",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/dex_file.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_file.cc",
+    "sha256": "194978e5b1db835abe32800d75d8ee1e9236205daf9fe57303b2ad3f28746058",
+    "bytes": 27931,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_file.cc",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/dex_file.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_file.h",
+    "sha256": "7c94c7e405a9bfce0744970d100ae4ee508bb9f49fe0297d4b4c286018601548",
+    "bytes": 44974,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_file.h",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/standard_dex_file.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/standard_dex_file.cc",
+    "sha256": "2092ed8ffede359607e742810d3c84a91bd5edcb844144da154bb80df9def280",
+    "bytes": 3030,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/standard_dex_file.cc",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/standard_dex_file.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/standard_dex_file.h",
+    "sha256": "9e3ec812452c557edb90183d9c6ff1885d0c5748b712de7fe3caa76b22e2b749",
+    "bytes": 5427,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/standard_dex_file.h",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/dex_file_verifier.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_file_verifier.cc",
+    "sha256": "8e3d595c8c37e7e49f5df2070db9d93bc6825a6e351eadbee7e342a6a52cb207",
+    "bytes": 146287,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_file_verifier.cc",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/dex_instruction.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_instruction.h",
+    "sha256": "ce970d0b87b94f3b2d985dd6c2df260a3ddd558bb24b946759888751343e2f8d",
+    "bytes": 26953,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_instruction.h",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/dex_instruction-inl.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_instruction-inl.h",
+    "sha256": "4f10e9b2c6406bed40b75e7d72bbfe6f61149745e93d342433640175e9000a51",
+    "bytes": 17405,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_instruction-inl.h",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/dex_instruction_list.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_instruction_list.h",
+    "sha256": "6dec605fb0d44317eb8534fe7c186d6d0fdeb651375f618de5a929f76d60ef45",
+    "bytes": 30990,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/dex_instruction_list.h",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/compact_dex_file.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/compact_dex_file.h",
+    "sha256": "f681a762690bf745f7acab10653b7a868ae2cbc3eee63ba87cce4fc1245e1171",
+    "bytes": 12234,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/compact_dex_file.h",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "libdexfile/dex/compact_dex_file.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/compact_dex_file.cc",
+    "sha256": "df86adad164b0ea5cdbd149510c7f7466c8e461721b576c693de4100b37bb15a",
+    "bytes": 3702,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/libdexfile/dex/compact_dex_file.cc",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "runtime/vdex_file.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/runtime/vdex_file.h",
+    "sha256": "2bf42d3232c1ad2e1724f01951cb848548fce85c8901aaeeb6e3875f7607be33",
+    "bytes": 11929,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/runtime/vdex_file.h",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "runtime/oat_file.h",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/runtime/oat_file.h",
+    "status": "error",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "dexdump/dexdump.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/dexdump/dexdump.cc",
+    "sha256": "d7a4191b324f1d3b01505d4405ef56fea7ffd1cb2ac8298e3538145a5177282e",
+    "bytes": 72900,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/dexdump/dexdump.cc",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "dexdump/Android.bp",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/dexdump/Android.bp",
+    "sha256": "76211d1f50366d93ed7f8c53791848fddbd25cb2e34f7e4a3d759857b3125ab9",
+    "bytes": 3104,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/dexdump/Android.bp",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "compiler/optimizing/instruction_builder.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/compiler/optimizing/instruction_builder.cc",
+    "sha256": "ffed8c85737aeefe7a53364c3a0f6175772075ad986289f8cc45f8f2eb084c87",
+    "bytes": 164373,
+    "local_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/aosp_sources/platform_art/6484611fd45e69db9f33f98bfd6864014b030ecf/compiler/optimizing/instruction_builder.cc",
+    "status": "ok"
+  },
+  {
+    "repository": "platform/art",
+    "revision": "6484611fd45e69db9f33f98bfd6864014b030ecf",
+    "path": "compiler/optimizing/graph_builder.cc",
+    "url": "https://android.googlesource.com/platform/art/+/6484611fd45e69db9f33f98bfd6864014b030ecf/compiler/optimizing/graph_builder.cc",
+    "status": "error",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

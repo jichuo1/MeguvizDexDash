@@ -1,0 +1,227 @@
+[
+  {
+    "name": "changed_mtime:cache_build",
+    "actual": 0,
+    "expected": 0,
+    "status": "verified",
+    "basis": "Precondition for the cache experiment"
+  },
+  {
+    "name": "changed_mtime:same_size",
+    "actual": 500,
+    "expected": 500,
+    "status": "verified",
+    "basis": "Controlled valid-DEX rewrite"
+  },
+  {
+    "name": "changed_mtime:stale_cache_detected",
+    "actual": true,
+    "expected": true,
+    "status": "verified",
+    "basis": "Embedded cache docs: changed inputs require a new cache; default validates freshness"
+  },
+  {
+    "name": "preserved_mtime:cache_build",
+    "actual": 0,
+    "expected": 0,
+    "status": "verified",
+    "basis": "Precondition for the cache experiment"
+  },
+  {
+    "name": "preserved_mtime:same_size",
+    "actual": 500,
+    "expected": 500,
+    "status": "verified",
+    "basis": "Controlled valid-DEX rewrite"
+  },
+  {
+    "name": "preserved_mtime:mtime_unchanged",
+    "actual": 1793010539531764785,
+    "expected": 1793010539531764785,
+    "status": "verified",
+    "basis": "Controlled metadata preservation"
+  },
+  {
+    "name": "preserved_mtime:stale_cache_detected",
+    "actual": true,
+    "expected": true,
+    "status": "verified",
+    "basis": "Embedded cache docs: changed inputs require a new cache; default validates freshness"
+  },
+  {
+    "name": "resident:binary_build",
+    "actual": "0.1.0",
+    "expected": "0.1.0",
+    "status": "verified",
+    "basis": "Exact release identity plus separately verified binary SHA256"
+  },
+  {
+    "name": "reopened_sees_changed_bytes_warm=False",
+    "actual": [
+      [
+        "noodle",
+        2
+      ]
+    ],
+    "expected": [
+      [
+        "noodle",
+        2
+      ]
+    ],
+    "status": "verified",
+    "basis": "A new dataset loads the actual valid changed input"
+  },
+  {
+    "name": "reopened_sees_changed_bytes_warm=True",
+    "actual": [
+      [
+        "noodle",
+        2
+      ]
+    ],
+    "expected": [
+      [
+        "noodle",
+        2
+      ]
+    ],
+    "status": "verified",
+    "basis": "A new dataset loads the actual valid changed input"
+  },
+  {
+    "name": "pagination_temp:binary_build",
+    "actual": "0.1.0",
+    "expected": "0.1.0",
+    "status": "verified",
+    "basis": "Exact release identity plus separately verified binary SHA256"
+  },
+  {
+    "name": "page_one_before",
+    "actual": [
+      [
+        1,
+        "before"
+      ],
+      [
+        2,
+        "before"
+      ]
+    ],
+    "expected": [
+      [
+        1,
+        "before"
+      ],
+      [
+        2,
+        "before"
+      ]
+    ],
+    "status": "verified",
+    "basis": "Controlled stable ORDER BY"
+  },
+  {
+    "name": "pagination_reexecutes_current_definition",
+    "actual": [
+      [
+        13,
+        "after"
+      ],
+      [
+        14,
+        "after"
+      ]
+    ],
+    "expected": [
+      [
+        13,
+        "after"
+      ],
+      [
+        14,
+        "after"
+      ]
+    ],
+    "status": "verified",
+    "basis": "Embedded query docs: paging reexecutes using current definitions"
+  },
+  {
+    "name": "dependent_definition_rebinds_after_recreate",
+    "actual": [
+      [
+        7
+      ]
+    ],
+    "expected": [
+      [
+        7
+      ]
+    ],
+    "status": "verified",
+    "basis": "Observed lazy definitions; no persistent materialized result contract"
+  },
+  {
+    "name": "drop_removes_definition",
+    "actual": true,
+    "expected": true,
+    "status": "verified",
+    "basis": "Embedded SQL session lifetime contract"
+  },
+  {
+    "name": "input_identity:binary_build",
+    "actual": "0.1.0",
+    "expected": "0.1.0",
+    "status": "verified",
+    "basis": "Exact release identity plus separately verified binary SHA256"
+  },
+  {
+    "name": "quota_close:binary_build",
+    "actual": "0.1.0",
+    "expected": "0.1.0",
+    "status": "verified",
+    "basis": "Exact release identity plus separately verified binary SHA256"
+  },
+  {
+    "name": "max_dataset_quota_rejects_second",
+    "actual": true,
+    "expected": true,
+    "status": "verified",
+    "basis": "Configured --max-datasets 1"
+  },
+  {
+    "name": "closed_handle_cannot_query",
+    "actual": true,
+    "expected": true,
+    "status": "verified",
+    "basis": "Documented close lifecycle"
+  },
+  {
+    "name": "close_releases_quota",
+    "actual": false,
+    "expected": false,
+    "status": "verified",
+    "basis": "Documented close releases dataset resources"
+  },
+  {
+    "name": "bounded_timeout:binary_build",
+    "actual": "0.1.0",
+    "expected": "0.1.0",
+    "status": "verified",
+    "basis": "Exact release identity plus separately verified binary SHA256"
+  },
+  {
+    "name": "bounded_heavy_returns_error",
+    "actual": true,
+    "expected": true,
+    "status": "verified",
+    "basis": "A deliberately oversized query must not silently return a partial successful sum"
+  },
+  {
+    "name": "bounded_cancel:binary_build",
+    "actual": "0.1.0",
+    "expected": "0.1.0",
+    "status": "verified",
+    "basis": "Exact release identity plus separately verified binary SHA256"
+  }
+]

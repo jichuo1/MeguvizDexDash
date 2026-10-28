@@ -1,0 +1,222 @@
+{
+  "schema_version": "mdd.workload-plan.v1",
+  "product": "MeguvizDexDash",
+  "definition_status": "initial_plan_not_executed",
+  "measured_runs": [],
+  "variants": [
+    "A0",
+    "A1",
+    "A2",
+    "B0",
+    "B1"
+  ],
+  "baseline_policy": "Freeze deployable compatible variants. A2 may be unavailable with evidence. Attribute new-engine value to the strongest valid existing variant per workload.",
+  "comparison_policy": {
+    "full_consumption": true,
+    "canonical_equivalence_required": true,
+    "total_cpu_budget_fixed": true,
+    "cache_state_explicit": true,
+    "alternating_paired_runs": true,
+    "minimum_pairs_for_primary_comparison": 10,
+    "independent_time_blocks_minimum": 2,
+    "p95_separate_sample_plan": true,
+    "contaminated_runs_retained_but_not_silently_selected": true
+  },
+  "source_inputs": [
+    {
+      "id": "hostlab-9170100",
+      "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "bytes": "243687778",
+      "bundled": false,
+      "availability": "must_verify_in_M0"
+    },
+    {
+      "id": "hostlab-9161100",
+      "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "bytes": "226519215",
+      "bundled": false,
+      "availability": "must_verify_in_M0"
+    },
+    {
+      "id": "newpipe-0.28.6",
+      "sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+      "bytes": "10885562",
+      "bundled": false,
+      "availability": "must_verify_in_M0"
+    }
+  ],
+  "workloads": [
+    {
+      "id": "W01",
+      "title": "导入、验证与基础事实",
+      "earliest_phase": "M1",
+      "status": "planned",
+      "required_layers": [
+        "inventory",
+        "structure"
+      ],
+      "acceptance": "完整来源成员与逻辑DEX清单、拒绝/接纳记录、验证层证据；计入hash和必要解压",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W02",
+      "title": "精确类、方法、字段与字符串定位",
+      "earliest_phase": "M3",
+      "status": "planned",
+      "required_layers": [
+        "structure"
+      ],
+      "acceptance": "固定NULL、重复、来源和完整小结果；不能只测第一条命中",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W03",
+      "title": "字符串组合、调用与字段引用",
+      "earliest_phase": "M3",
+      "status": "planned",
+      "required_layers": [
+        "structure",
+        "references"
+      ],
+      "acceptance": "保留调用点、重复次数、动态调用种类和未知目标",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W04",
+      "title": "HostLab SQL与复杂查询",
+      "earliest_phase": "M3",
+      "status": "planned",
+      "required_layers": [
+        "structure",
+        "references",
+        "annotations"
+      ],
+      "acceptance": "冻结全部必要SQL模板及动态参数类别；严格比较NULL/CAST/LIKE/join/CTE/聚合/排序",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W05",
+      "title": "完整大结果生产和消费",
+      "earliest_phase": "M4",
+      "status": "planned",
+      "required_layers": [
+        "structure"
+      ],
+      "acceptance": "短/长/偏斜字符串、1k/10k/100k及真实APK；相同完整DTO；计入编码/管道/解码/物化",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W06",
+      "title": "Smali与可选高级分析",
+      "earliest_phase": "M4",
+      "status": "planned",
+      "required_layers": [
+        "code"
+      ],
+      "acceptance": "按已准入能力分层；M5所需反汇编必需；CFG/def-use单独后续资格",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W07",
+      "title": "HostLab完整审计",
+      "earliest_phase": "M5",
+      "status": "planned",
+      "required_layers": [
+        "inventory",
+        "structure",
+        "references",
+        "annotations",
+        "code",
+        "resources"
+      ],
+      "acceptance": "两个固定APK的完整结构、surface、27FEATURE、门禁、指纹与跨版本报告；保留E/P/S/F/R/O实际边界",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W08",
+      "title": "持久缓存构建、重启和失效",
+      "earliest_phase": "M6",
+      "status": "planned",
+      "required_layers": [
+        "inventory",
+        "structure"
+      ],
+      "acceptance": "首次构建、暖重开、损坏/失效重建分别计时；同证书；校验与修复成本入账",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W09",
+      "title": "同机1/2/4任务并发",
+      "earliest_phase": "M6",
+      "status": "planned",
+      "required_layers": [
+        "inventory",
+        "structure"
+      ],
+      "acceptance": "固定公平总CPU/内存；统计吞吐、尾延迟、饥饿、取消和真实资源口径",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W10",
+      "title": "多版本增量和跨APK",
+      "earliest_phase": "M6",
+      "status": "planned",
+      "required_layers": [
+        "inventory",
+        "structure",
+        "references"
+      ],
+      "acceptance": "全量B与增量B分别对照；计入hash、重绑和全局依赖更新；不得复用错误负结果",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W11",
+      "title": "资源与可选输入格式",
+      "earliest_phase": "M7",
+      "status": "planned",
+      "required_layers": [
+        "resources"
+      ],
+      "acceptance": "逐项声明格式、配置与版本；unsupported不能从分母删除后声称全覆盖",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    },
+    {
+      "id": "W12",
+      "title": "取消、预算、坏输入、坏缓存和故障",
+      "earliest_phase": "M1",
+      "status": "planned",
+      "required_layers": [],
+      "acceptance": "有界失败和明确完成/覆盖状态；expected_failure用例不进入速度成绩资格",
+      "input_manifest": null,
+      "harness_revision": null,
+      "notes": "Refine and freeze before measurement; no new-engine run exists in this package."
+    }
+  ],
+  "references": [
+    "docs/04_VALIDATION_AND_PERFORMANCE.md",
+    "docs/03_HOSTLAB_MIGRATION.md",
+    "contracts/benchmark_result.schema.json"
+  ]
+}

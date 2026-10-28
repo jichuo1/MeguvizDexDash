@@ -1,0 +1,647 @@
+{
+  "basis": "artifacts/40067936875/remote-output/verification.json",
+  "basis_sha256": "bf4ca0cd3df35dab13ed1a83dedf92e5b6dfa485e4d48611d424cf8462b01f7d",
+  "source_run_url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40067936875",
+  "method": "Paired per-sample measured phase costs; current implementation=dexsql only. Engineering speed multipliers are conditional targets, not observations.",
+  "observations_per_sample_per_implementation": 1,
+  "formula": "T_new = P / s_p + S / s_s + F / s_f + R + O / s_o + additional_overhead",
+  "phase_meaning": {
+    "P": "explicit prepare",
+    "S": "structural composite",
+    "F": "surface composite",
+    "R": "native unassigned",
+    "O": "outer minus native composite"
+  },
+  "samples": [
+    {
+      "sample": "target",
+      "version_code": 9170100,
+      "measured_seconds": {
+        "P": 1.442956307999907,
+        "S": 13.663421107000088,
+        "F": 56.52524726499996,
+        "R": 0.2534249609999506,
+        "O": 22.74509322500012,
+        "N": 71.88504964099991,
+        "T": 94.63014286600003
+      },
+      "phase_percent_of_total": {
+        "P": 1.5248379261597327,
+        "S": 14.43876199822294,
+        "F": 59.732814041126325,
+        "R": 0.2678057470110874,
+        "O": 24.03578028747992
+      },
+      "queries": 647,
+      "scenarios": [
+        {
+          "name": "prepare_2x",
+          "assumed_stage_speedups": {
+            "P": 2,
+            "S": 1,
+            "F": 1,
+            "O": 1
+          },
+          "new_seconds": 93.90866471200007,
+          "saved_seconds": 0.7214781539999535,
+          "time_reduction_percent": 0.7624189630798694,
+          "whole_task_speedup": 1.0076827644841144,
+          "throughput_increase_percent_at_same_capacity": 0.7682764484114424
+        },
+        {
+          "name": "prepare_5x",
+          "assumed_stage_speedups": {
+            "P": 5,
+            "S": 1,
+            "F": 1,
+            "O": 1
+          },
+          "new_seconds": 93.4757778196001,
+          "saved_seconds": 1.1543650463999313,
+          "time_reduction_percent": 1.2198703409277867,
+          "whole_task_speedup": 1.012349349460646,
+          "throughput_increase_percent_at_same_capacity": 1.234934946064592
+        },
+        {
+          "name": "prepare_free_theoretical",
+          "assumed_stage_speedups": {
+            "P": "infinite",
+            "S": 1,
+            "F": 1,
+            "O": 1
+          },
+          "new_seconds": 93.18718655800012,
+          "saved_seconds": 1.442956307999907,
+          "time_reduction_percent": 1.5248379261597278,
+          "whole_task_speedup": 1.0154844926786346,
+          "throughput_increase_percent_at_same_capacity": 1.548449267863461
+        },
+        {
+          "name": "surface_2x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 1,
+            "F": 2,
+            "O": 1
+          },
+          "new_seconds": 66.36751923350005,
+          "saved_seconds": 28.26262363249998,
+          "time_reduction_percent": 29.86640702056316,
+          "whole_task_speedup": 1.4258502345562132,
+          "throughput_increase_percent_at_same_capacity": 42.58502345562132
+        },
+        {
+          "name": "structural_surface_1_5x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 1.5,
+            "F": 1.5,
+            "O": 1
+          },
+          "new_seconds": 71.23392007533334,
+          "saved_seconds": 23.396222790666684,
+          "time_reduction_percent": 24.723858679783085,
+          "whole_task_speedup": 1.3284421630302534,
+          "throughput_increase_percent_at_same_capacity": 32.84421630302534
+        },
+        {
+          "name": "structural_surface_2x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 2,
+            "F": 2,
+            "O": 1
+          },
+          "new_seconds": 59.53580868,
+          "saved_seconds": 35.094334186000026,
+          "time_reduction_percent": 37.085788019674624,
+          "whole_task_speedup": 1.5894659863382246,
+          "throughput_increase_percent_at_same_capacity": 58.946598633822454
+        },
+        {
+          "name": "structural_2x_surface_3x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 2,
+            "F": 3,
+            "O": 1
+          },
+          "new_seconds": 50.11493413583334,
+          "saved_seconds": 44.51520873016669,
+          "time_reduction_percent": 47.041257026529024,
+          "whole_task_speedup": 1.8882623413114952,
+          "throughput_increase_percent_at_same_capacity": 88.82623413114952
+        },
+        {
+          "name": "structural_2x_surface_3x_outer_1_333x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 2,
+            "F": 3,
+            "O": 1.3333333333333333
+          },
+          "new_seconds": 44.42866082958331,
+          "saved_seconds": 50.20148203641672,
+          "time_reduction_percent": 53.050202098399005,
+          "whole_task_speedup": 2.129934621009092,
+          "throughput_increase_percent_at_same_capacity": 112.99346210090921
+        },
+        {
+          "name": "native_free_theoretical",
+          "assumed_stage_speedups": {
+            "P": "infinite",
+            "S": "infinite",
+            "F": "infinite",
+            "O": 1
+          },
+          "new_seconds": 22.74509322500012,
+          "saved_seconds": 71.88504964099991,
+          "time_reduction_percent": 75.96421971252008,
+          "whole_task_speedup": 4.160464058330961,
+          "throughput_increase_percent_at_same_capacity": 316.04640583309606
+        }
+      ],
+      "already_implemented_comparison": {
+        "before_seconds": 107.99263089100003,
+        "after_seconds": 94.63014286600003,
+        "saved_seconds": 13.362488025000014,
+        "time_reduction_percent": 12.373518373200065
+      },
+      "surface_required_with_structural_2x_others_unchanged": [
+        {
+          "target_total_reduction_percent": 20.0,
+          "total_budget_seconds": 75.70411429280003,
+          "surface_budget_seconds": 44.43092924530001,
+          "required_surface_speedup": 1.2722049307798198
+        },
+        {
+          "target_total_reduction_percent": 30.0,
+          "total_budget_seconds": 66.24110000620001,
+          "surface_budget_seconds": 34.96791495869999,
+          "required_surface_speedup": 1.616488925112091
+        },
+        {
+          "target_total_reduction_percent": 40.0,
+          "total_budget_seconds": 56.778085719600014,
+          "surface_budget_seconds": 25.504900672099993,
+          "required_surface_speedup": 2.2162504371888563
+        },
+        {
+          "target_total_reduction_percent": 50.0,
+          "total_budget_seconds": 47.315071433000014,
+          "surface_budget_seconds": 16.041886385499993,
+          "required_surface_speedup": 3.5236035156122436
+        },
+        {
+          "target_total_reduction_percent": 60.0,
+          "total_budget_seconds": 37.852057146400014,
+          "surface_budget_seconds": 6.578872098899993,
+          "required_surface_speedup": 8.59193588433664
+        }
+      ],
+      "core_only_sensitivity": [
+        {
+          "assumed_engine_wall_fraction": 0.1,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 91.4758047704667,
+          "time_reduction_percent": 3.333333333333334,
+          "whole_task_speedup": 1.0344827586206897
+        },
+        {
+          "assumed_engine_wall_fraction": 0.1,
+          "assumed_core_speedup": 2,
+          "new_seconds": 89.89863572270004,
+          "time_reduction_percent": 5.0,
+          "whole_task_speedup": 1.0526315789473684
+        },
+        {
+          "assumed_engine_wall_fraction": 0.1,
+          "assumed_core_speedup": 3,
+          "new_seconds": 88.32146667493336,
+          "time_reduction_percent": 6.666666666666668,
+          "whole_task_speedup": 1.0714285714285714
+        },
+        {
+          "assumed_engine_wall_fraction": 0.2,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 88.32146667493336,
+          "time_reduction_percent": 6.666666666666668,
+          "whole_task_speedup": 1.0714285714285714
+        },
+        {
+          "assumed_engine_wall_fraction": 0.2,
+          "assumed_core_speedup": 2,
+          "new_seconds": 85.16712857940003,
+          "time_reduction_percent": 10.0,
+          "whole_task_speedup": 1.1111111111111112
+        },
+        {
+          "assumed_engine_wall_fraction": 0.2,
+          "assumed_core_speedup": 3,
+          "new_seconds": 82.0127904838667,
+          "time_reduction_percent": 13.333333333333336,
+          "whole_task_speedup": 1.1538461538461537
+        },
+        {
+          "assumed_engine_wall_fraction": 0.3,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 85.16712857940001,
+          "time_reduction_percent": 10.000000000000002,
+          "whole_task_speedup": 1.1111111111111112
+        },
+        {
+          "assumed_engine_wall_fraction": 0.3,
+          "assumed_core_speedup": 2,
+          "new_seconds": 80.43562143610002,
+          "time_reduction_percent": 15.0,
+          "whole_task_speedup": 1.1764705882352942
+        },
+        {
+          "assumed_engine_wall_fraction": 0.3,
+          "assumed_core_speedup": 3,
+          "new_seconds": 75.70411429280001,
+          "time_reduction_percent": 20.000000000000004,
+          "whole_task_speedup": 1.25
+        },
+        {
+          "assumed_engine_wall_fraction": 0.4,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 82.0127904838667,
+          "time_reduction_percent": 13.333333333333336,
+          "whole_task_speedup": 1.1538461538461537
+        },
+        {
+          "assumed_engine_wall_fraction": 0.4,
+          "assumed_core_speedup": 2,
+          "new_seconds": 75.70411429280003,
+          "time_reduction_percent": 20.0,
+          "whole_task_speedup": 1.25
+        },
+        {
+          "assumed_engine_wall_fraction": 0.4,
+          "assumed_core_speedup": 3,
+          "new_seconds": 69.39543810173335,
+          "time_reduction_percent": 26.66666666666667,
+          "whole_task_speedup": 1.3636363636363638
+        },
+        {
+          "assumed_engine_wall_fraction": 0.5,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 78.85845238833335,
+          "time_reduction_percent": 16.666666666666668,
+          "whole_task_speedup": 1.2000000000000002
+        },
+        {
+          "assumed_engine_wall_fraction": 0.5,
+          "assumed_core_speedup": 2,
+          "new_seconds": 70.97260714950002,
+          "time_reduction_percent": 25.0,
+          "whole_task_speedup": 1.3333333333333333
+        },
+        {
+          "assumed_engine_wall_fraction": 0.5,
+          "assumed_core_speedup": 3,
+          "new_seconds": 63.08676191066668,
+          "time_reduction_percent": 33.333333333333336,
+          "whole_task_speedup": 1.5
+        },
+        {
+          "assumed_engine_wall_fraction": 0.6,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 75.70411429280003,
+          "time_reduction_percent": 20.000000000000004,
+          "whole_task_speedup": 1.25
+        },
+        {
+          "assumed_engine_wall_fraction": 0.6,
+          "assumed_core_speedup": 2,
+          "new_seconds": 66.24110000620001,
+          "time_reduction_percent": 30.0,
+          "whole_task_speedup": 1.4285714285714286
+        },
+        {
+          "assumed_engine_wall_fraction": 0.6,
+          "assumed_core_speedup": 3,
+          "new_seconds": 56.778085719600014,
+          "time_reduction_percent": 40.00000000000001,
+          "whole_task_speedup": 1.6666666666666667
+        }
+      ]
+    },
+    {
+      "sample": "baseline",
+      "version_code": 9161100,
+      "measured_seconds": {
+        "P": 1.3083350089999612,
+        "S": 11.911596121000002,
+        "F": 50.80152401199996,
+        "R": 0.24118263499997283,
+        "O": 21.309581756000057,
+        "N": 64.2626377769999,
+        "T": 85.57221953299995
+      },
+      "phase_percent_of_total": {
+        "P": 1.5289249433286194,
+        "S": 13.9199335789186,
+        "F": 59.36684158625678,
+        "R": 0.28184688479064574,
+        "O": 24.902453006705358
+      },
+      "queries": 635,
+      "scenarios": [
+        {
+          "name": "prepare_2x",
+          "assumed_stage_speedups": {
+            "P": 2,
+            "S": 1,
+            "F": 1,
+            "O": 1
+          },
+          "new_seconds": 84.91805202849997,
+          "saved_seconds": 0.6541675044999806,
+          "time_reduction_percent": 0.7644624716643067,
+          "whole_task_speedup": 1.007703515199341,
+          "throughput_increase_percent_at_same_capacity": 0.7703515199340982
+        },
+        {
+          "name": "prepare_5x",
+          "assumed_stage_speedups": {
+            "P": 5,
+            "S": 1,
+            "F": 1,
+            "O": 1
+          },
+          "new_seconds": 84.52555152579998,
+          "saved_seconds": 1.046668007199969,
+          "time_reduction_percent": 1.2231399546628996,
+          "whole_task_speedup": 1.0123828592455915,
+          "throughput_increase_percent_at_same_capacity": 1.238285924559146
+        },
+        {
+          "name": "prepare_free_theoretical",
+          "assumed_stage_speedups": {
+            "P": "infinite",
+            "S": 1,
+            "F": 1,
+            "O": 1
+          },
+          "new_seconds": 84.26388452399999,
+          "saved_seconds": 1.3083350089999612,
+          "time_reduction_percent": 1.5289249433286245,
+          "whole_task_speedup": 1.015526640106739,
+          "throughput_increase_percent_at_same_capacity": 1.5526640106739098
+        },
+        {
+          "name": "surface_2x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 1,
+            "F": 2,
+            "O": 1
+          },
+          "new_seconds": 60.17145752699997,
+          "saved_seconds": 25.40076200599998,
+          "time_reduction_percent": 29.68342079312839,
+          "whole_task_speedup": 1.4221397162367593,
+          "throughput_increase_percent_at_same_capacity": 42.21397162367593
+        },
+        {
+          "name": "structural_surface_1_5x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 1.5,
+            "F": 1.5,
+            "O": 1
+          },
+          "new_seconds": 64.6678461553333,
+          "saved_seconds": 20.90437337766666,
+          "time_reduction_percent": 24.42892505505846,
+          "whole_task_speedup": 1.323257609778034,
+          "throughput_increase_percent_at_same_capacity": 32.3257609778034
+        },
+        {
+          "name": "structural_surface_2x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 2,
+            "F": 2,
+            "O": 1
+          },
+          "new_seconds": 54.21565946649997,
+          "saved_seconds": 31.35656006649998,
+          "time_reduction_percent": 36.643387582587685,
+          "whole_task_speedup": 1.5783672166871878,
+          "throughput_increase_percent_at_same_capacity": 57.83672166871878
+        },
+        {
+          "name": "structural_2x_surface_3x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 2,
+            "F": 3,
+            "O": 1
+          },
+          "new_seconds": 45.74873879783331,
+          "saved_seconds": 39.82348073516664,
+          "time_reduction_percent": 46.53786118029715,
+          "whole_task_speedup": 1.870482592124544,
+          "throughput_increase_percent_at_same_capacity": 87.04825921245441
+        },
+        {
+          "name": "structural_2x_surface_3x_outer_1_333x",
+          "assumed_stage_speedups": {
+            "P": 1,
+            "S": 2,
+            "F": 3,
+            "O": 1.3333333333333333
+          },
+          "new_seconds": 40.4213433588333,
+          "saved_seconds": 45.150876174166655,
+          "time_reduction_percent": 52.76347443197349,
+          "whole_task_speedup": 2.117005829651622,
+          "throughput_increase_percent_at_same_capacity": 111.70058296516218
+        },
+        {
+          "name": "native_free_theoretical",
+          "assumed_stage_speedups": {
+            "P": "infinite",
+            "S": "infinite",
+            "F": "infinite",
+            "O": 1
+          },
+          "new_seconds": 21.309581756000057,
+          "saved_seconds": 64.2626377769999,
+          "time_reduction_percent": 75.09754699329464,
+          "whole_task_speedup": 4.015668656138955,
+          "throughput_increase_percent_at_same_capacity": 301.5668656138955
+        }
+      ],
+      "already_implemented_comparison": {
+        "before_seconds": 97.37306483600003,
+        "after_seconds": 85.57221953299995,
+        "saved_seconds": 11.800845303000067,
+        "time_reduction_percent": 12.119209067595405
+      },
+      "surface_required_with_structural_2x_others_unchanged": [
+        {
+          "target_total_reduction_percent": 20.0,
+          "total_budget_seconds": 68.45777562639996,
+          "surface_budget_seconds": 39.64287816589997,
+          "required_surface_speedup": 1.2814792054048798
+        },
+        {
+          "target_total_reduction_percent": 30.0,
+          "total_budget_seconds": 59.900553673099964,
+          "surface_budget_seconds": 31.08565621259997,
+          "required_surface_speedup": 1.6342432556211743
+        },
+        {
+          "target_total_reduction_percent": 40.0,
+          "total_budget_seconds": 51.34333171979997,
+          "surface_budget_seconds": 22.528434259299978,
+          "required_surface_speedup": 2.2549957723328484
+        },
+        {
+          "target_total_reduction_percent": 50.0,
+          "total_budget_seconds": 42.786109766499976,
+          "surface_budget_seconds": 13.971212305999984,
+          "required_surface_speedup": 3.6361571851701857
+        },
+        {
+          "target_total_reduction_percent": 60.0,
+          "total_budget_seconds": 34.22888781319998,
+          "surface_budget_seconds": 5.41399035269999,
+          "required_surface_speedup": 9.383379116415478
+        }
+      ],
+      "core_only_sensitivity": [
+        {
+          "assumed_engine_wall_fraction": 0.1,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 82.71981221523329,
+          "time_reduction_percent": 3.333333333333334,
+          "whole_task_speedup": 1.0344827586206897
+        },
+        {
+          "assumed_engine_wall_fraction": 0.1,
+          "assumed_core_speedup": 2,
+          "new_seconds": 81.29360855634997,
+          "time_reduction_percent": 5.0,
+          "whole_task_speedup": 1.0526315789473684
+        },
+        {
+          "assumed_engine_wall_fraction": 0.1,
+          "assumed_core_speedup": 3,
+          "new_seconds": 79.86740489746663,
+          "time_reduction_percent": 6.666666666666668,
+          "whole_task_speedup": 1.0714285714285714
+        },
+        {
+          "assumed_engine_wall_fraction": 0.2,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 79.86740489746663,
+          "time_reduction_percent": 6.666666666666668,
+          "whole_task_speedup": 1.0714285714285714
+        },
+        {
+          "assumed_engine_wall_fraction": 0.2,
+          "assumed_core_speedup": 2,
+          "new_seconds": 77.01499757969997,
+          "time_reduction_percent": 10.0,
+          "whole_task_speedup": 1.1111111111111112
+        },
+        {
+          "assumed_engine_wall_fraction": 0.2,
+          "assumed_core_speedup": 3,
+          "new_seconds": 74.16259026193329,
+          "time_reduction_percent": 13.333333333333336,
+          "whole_task_speedup": 1.1538461538461537
+        },
+        {
+          "assumed_engine_wall_fraction": 0.3,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 77.01499757969995,
+          "time_reduction_percent": 10.000000000000002,
+          "whole_task_speedup": 1.1111111111111112
+        },
+        {
+          "assumed_engine_wall_fraction": 0.3,
+          "assumed_core_speedup": 2,
+          "new_seconds": 72.73638660304995,
+          "time_reduction_percent": 15.0,
+          "whole_task_speedup": 1.1764705882352942
+        },
+        {
+          "assumed_engine_wall_fraction": 0.3,
+          "assumed_core_speedup": 3,
+          "new_seconds": 68.45777562639995,
+          "time_reduction_percent": 20.000000000000004,
+          "whole_task_speedup": 1.25
+        },
+        {
+          "assumed_engine_wall_fraction": 0.4,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 74.16259026193329,
+          "time_reduction_percent": 13.333333333333336,
+          "whole_task_speedup": 1.1538461538461537
+        },
+        {
+          "assumed_engine_wall_fraction": 0.4,
+          "assumed_core_speedup": 2,
+          "new_seconds": 68.45777562639996,
+          "time_reduction_percent": 20.0,
+          "whole_task_speedup": 1.25
+        },
+        {
+          "assumed_engine_wall_fraction": 0.4,
+          "assumed_core_speedup": 3,
+          "new_seconds": 62.752960990866626,
+          "time_reduction_percent": 26.66666666666667,
+          "whole_task_speedup": 1.3636363636363638
+        },
+        {
+          "assumed_engine_wall_fraction": 0.5,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 71.31018294416663,
+          "time_reduction_percent": 16.666666666666668,
+          "whole_task_speedup": 1.2000000000000002
+        },
+        {
+          "assumed_engine_wall_fraction": 0.5,
+          "assumed_core_speedup": 2,
+          "new_seconds": 64.17916464974996,
+          "time_reduction_percent": 25.0,
+          "whole_task_speedup": 1.3333333333333333
+        },
+        {
+          "assumed_engine_wall_fraction": 0.5,
+          "assumed_core_speedup": 3,
+          "new_seconds": 57.0481463553333,
+          "time_reduction_percent": 33.333333333333336,
+          "whole_task_speedup": 1.5
+        },
+        {
+          "assumed_engine_wall_fraction": 0.6,
+          "assumed_core_speedup": 1.5,
+          "new_seconds": 68.45777562639996,
+          "time_reduction_percent": 20.000000000000004,
+          "whole_task_speedup": 1.25
+        },
+        {
+          "assumed_engine_wall_fraction": 0.6,
+          "assumed_core_speedup": 2,
+          "new_seconds": 59.900553673099964,
+          "time_reduction_percent": 30.0,
+          "whole_task_speedup": 1.4285714285714286
+        },
+        {
+          "assumed_engine_wall_fraction": 0.6,
+          "assumed_core_speedup": 3,
+          "new_seconds": 51.34333171979997,
+          "time_reduction_percent": 40.00000000000001,
+          "whole_task_speedup": 1.6666666666666667
+        }
+      ]
+    }
+  ]
+}

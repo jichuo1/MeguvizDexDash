@@ -1,0 +1,159 @@
+{
+  "schema_version": "mdd.compatibility-ledger.v1",
+  "product": "MeguvizDexDash",
+  "implementation_state": "not_started",
+  "updated_date": "2026-10-26",
+  "timezone": "Asia/Shanghai",
+  "authority": "Qualification for the new implementation only; historical DexSQL checks do not admit MeguvizDexDash.",
+  "profiles": [
+    {
+      "name": "hostlab-audit-v1",
+      "status": "planned",
+      "admitted": false,
+      "evidence": [],
+      "conformance_manifest_sha256": null
+    },
+    {
+      "name": "mdd-native-v1",
+      "status": "planned",
+      "admitted": false,
+      "evidence": [],
+      "conformance_manifest_sha256": null
+    },
+    {
+      "name": "dexsql-0.1.0-compat-v1",
+      "status": "planned",
+      "admitted": false,
+      "evidence": [],
+      "conformance_manifest_sha256": null
+    },
+    {
+      "name": "dexsql-0.1.1-compat-v1",
+      "status": "planned",
+      "admitted": false,
+      "evidence": [],
+      "conformance_manifest_sha256": null
+    }
+  ],
+  "format_qualifications": [
+    {
+      "kind": "dex",
+      "version": "035",
+      "required_for_initial_standard_dex": true,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "dex",
+      "version": "037",
+      "required_for_initial_standard_dex": true,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "dex",
+      "version": "038",
+      "required_for_initial_standard_dex": true,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "dex",
+      "version": "039",
+      "required_for_initial_standard_dex": true,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "dex",
+      "version": "040",
+      "required_for_initial_standard_dex": true,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "dex",
+      "version": "036",
+      "required_for_initial_standard_dex": false,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "dex-container",
+      "version": "041",
+      "required_for_initial_standard_dex": false,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "compact-dex",
+      "version": null,
+      "required_for_initial_standard_dex": false,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "vdex",
+      "version": null,
+      "required_for_initial_standard_dex": false,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "kind": "oat",
+      "version": null,
+      "required_for_initial_standard_dex": false,
+      "status": "planned",
+      "evidence": []
+    }
+  ],
+  "platforms": [
+    {
+      "os": "Linux",
+      "arch": "x86_64",
+      "target_tier": 1,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "os": "Windows",
+      "arch": "x86_64",
+      "target_tier": 1,
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "os": "macOS",
+      "arch": "arm64",
+      "target_tier": 2,
+      "status": "planned",
+      "evidence": []
+    }
+  ],
+  "hostlab": {
+    "reference_commit": "8782f43d537c442905123e35af325c412caa5188",
+    "required_query_template_count_observed": 16,
+    "required_relation_count_observed": 17,
+    "feature_count_observed": 27,
+    "inventory_source": "evidence/hostlab_integration_inventory.json",
+    "status": "planned",
+    "new_backend_fallback_free": false,
+    "evidence": []
+  },
+  "public_surface": {
+    "observed_relation_count": 56,
+    "observed_native_mcp_tool_count": 12,
+    "enumeration_status": "must_freeze_and_validate_in_M0",
+    "full_replacement_admitted": false,
+    "requirement": "Counts are research observations. Enumerate and qualify names, columns, semantics and lifecycle; matching counts alone never admits a profile."
+  },
+  "entry_statuses": [
+    "planned",
+    "implemented_unqualified",
+    "qualified",
+    "unsupported",
+    "blocked",
+    "superseded"
+  ],
+  "evidence_policy": "Each qualified entry must reference actual new-engine artifacts, profile/build/platform/input coverage, canonical checks and a conformance manifest."
+}

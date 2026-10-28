@@ -1,0 +1,197 @@
+[
+  {
+    "label": "changed_mtime:prepare",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "prepare-cache",
+      "--input",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime.dex",
+      "--output",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime",
+      "--timing"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "load_inputs_ms=0 parse_ms=0 write_cache_ms=2 cached_rows=16 input_mmap_ms=0 zip_scan_ms=0 zip_inflate_ms=0 zip_inflate_wall_ms=0 zip_inflate_entry_max_ms=0 zip_inflate_cache_hits=0 zip_inflate_cache_misses=0 raw_dex_entries=1 stored_dex_entries=0 deflated_dex_entries=0 raw_dex_bytes=500 stored_dex_bytes=0 deflated_compressed_bytes=0 deflated_uncompressed_bytes=0 skipped_malformed_dex_entries=0 first_malformed_dex_error=None vmhwm_kb=5964\n"
+  },
+  {
+    "label": "changed_mtime:before",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime/cache.dxc2",
+      "--sql",
+      "SELECT value,count(*) AS n FROM method_strings GROUP BY value ORDER BY value"
+    ],
+    "returncode": 0,
+    "stdout": "+--------+---+\n| value  | n |\n+--------+---+\n| needle | 2 |\n+--------+---+\n",
+    "stderr": ""
+  },
+  {
+    "label": "changed_mtime:after_valid_same_size_edit",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime/cache.dxc2",
+      "--sql",
+      "SELECT value,count(*) AS n FROM method_strings GROUP BY value ORDER BY value"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Error: load_failed at load_inputs: failed to open native cache /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime/cache.dxc2\n\nCaused by:\n    cache is stale: source input /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime.dex content changed since cache build\n"
+  },
+  {
+    "label": "changed_mtime:restored",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime/cache.dxc2",
+      "--sql",
+      "SELECT value,count(*) AS n FROM method_strings GROUP BY value ORDER BY value"
+    ],
+    "returncode": 0,
+    "stdout": "+--------+---+\n| value  | n |\n+--------+---+\n| needle | 2 |\n+--------+---+\n",
+    "stderr": ""
+  },
+  {
+    "label": "preserved_mtime:prepare",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "prepare-cache",
+      "--input",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime.dex",
+      "--output",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime",
+      "--timing"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "load_inputs_ms=0 parse_ms=0 write_cache_ms=1 cached_rows=16 input_mmap_ms=0 zip_scan_ms=0 zip_inflate_ms=0 zip_inflate_wall_ms=0 zip_inflate_entry_max_ms=0 zip_inflate_cache_hits=0 zip_inflate_cache_misses=0 raw_dex_entries=1 stored_dex_entries=0 deflated_dex_entries=0 raw_dex_bytes=500 stored_dex_bytes=0 deflated_compressed_bytes=0 deflated_uncompressed_bytes=0 skipped_malformed_dex_entries=0 first_malformed_dex_error=None vmhwm_kb=5936\n"
+  },
+  {
+    "label": "preserved_mtime:before",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime/cache.dxc2",
+      "--sql",
+      "SELECT value,count(*) AS n FROM method_strings GROUP BY value ORDER BY value"
+    ],
+    "returncode": 0,
+    "stdout": "+--------+---+\n| value  | n |\n+--------+---+\n| needle | 2 |\n+--------+---+\n",
+    "stderr": ""
+  },
+  {
+    "label": "preserved_mtime:after_valid_same_size_edit",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime/cache.dxc2",
+      "--sql",
+      "SELECT value,count(*) AS n FROM method_strings GROUP BY value ORDER BY value"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Error: load_failed at load_inputs: failed to open native cache /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime/cache.dxc2\n\nCaused by:\n    cache is stale: source input /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime.dex content changed since cache build\n"
+  },
+  {
+    "label": "preserved_mtime:restored",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime/cache.dxc2",
+      "--sql",
+      "SELECT value,count(*) AS n FROM method_strings GROUP BY value ORDER BY value"
+    ],
+    "returncode": 0,
+    "stdout": "+--------+---+\n| value  | n |\n+--------+---+\n| needle | 2 |\n+--------+---+\n",
+    "stderr": ""
+  },
+  {
+    "label": "path:prepare",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "prepare-cache",
+      "--input",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency.dex",
+      "--output",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "path:source_missing",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency/cache.dxc2",
+      "--sql",
+      "SELECT value,count(*) FROM method_strings GROUP BY value ORDER BY value"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Error: load_failed at load_inputs: failed to open native cache /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency/cache.dxc2\n\nCaused by:\n    cache is stale: source input /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency.dex is not readable: failed to canonicalize cache input /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency.dex: No such file or directory (os error 2)\n"
+  },
+  {
+    "label": "path:source_missing_trusted",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "--trusted-input",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency/cache.dxc2",
+      "--sql",
+      "SELECT value,count(*) FROM method_strings GROUP BY value ORDER BY value"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Error: SQL statement 1 failed\n\nCaused by:\n    0: query_failed at execute_sql: cache plan execution failed\n    1: required execution data source is unavailable\n"
+  },
+  {
+    "label": "path:cache_file_relocated",
+    "argv": [
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+      "--threads",
+      "2",
+      "query-cache",
+      "--cache-file",
+      "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/relocated_cache.dxc2",
+      "--sql",
+      "SELECT count(*) FROM methods"
+    ],
+    "returncode": 0,
+    "stdout": "+-------+\n| count |\n+-------+\n| 2     |\n+-------+\n",
+    "stderr": ""
+  }
+]

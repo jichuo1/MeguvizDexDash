@@ -1,0 +1,291 @@
+{
+  "schema_version": "mdd.engineering-package.v1",
+  "product": "MeguvizDexDash",
+  "package_version": "0.1-planning",
+  "created_date": "2026-10-26",
+  "timezone": "Asia/Shanghai",
+  "engine_implemented": false,
+  "scope": "Initial engineering handoff; hashes exclude this manifest itself. Editing the future project requires new artifact manifests, not preserving these hashes.",
+  "files": [
+    {
+      "path": "AI_EXECUTION_PROMPT.md",
+      "bytes": 12641,
+      "sha256": "34ebd9602cd0c06ed54e4df6b204ec1b01dd294128d7b94200b222de8dae6c24"
+    },
+    {
+      "path": "ENGINEERING_PLAN.md",
+      "bytes": 21753,
+      "sha256": "2424726ec5c7a6ea115e7e8dd4f07f811ad8dff33bcf26e3e23ffd506b5e45ee"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4399,
+      "sha256": "f78aceedab74cc28f905473eb8eace50339a839c477f3d337431e0a18ec86249"
+    },
+    {
+      "path": "STATE.md",
+      "bytes": 2035,
+      "sha256": "07b543e10ee2d962d5aa616e8d959c9034ae16f55e65a72b1409d460604052c9"
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "bytes": 3406,
+      "sha256": "168d5b8701af6f14e7d58c633568b9b936cc246d37dd2adcb4c92f79f1f087ff"
+    },
+    {
+      "path": "artifacts/index.json",
+      "bytes": 492,
+      "sha256": "125fb8d7fc0e84d94ebcd8988fcc15e5e6ee61d48a3ab73ad52ba9300068bca7"
+    },
+    {
+      "path": "benchmarks/workloads/initial.json",
+      "bytes": 7573,
+      "sha256": "b81e45b2c90539d4d032fa2e6b66a045ff506b9b3afa9a8463846192aca35ae6"
+    },
+    {
+      "path": "compatibility/ledger.json",
+      "bytes": 4058,
+      "sha256": "df3f646e6753638eb99132bc8af425b3127d37b3d1d48ffb6a55f12b342467ce"
+    },
+    {
+      "path": "contracts/README.md",
+      "bytes": 7066,
+      "sha256": "a186f56dc4bc9762121acdae2525510e8e8fbe8fa80bcff80f980891b737b4ba"
+    },
+    {
+      "path": "contracts/benchmark_result.schema.json",
+      "bytes": 11852,
+      "sha256": "c381988b489f5aed415bff56c40ffe892befe11922d84953eabd2f3d4f99283a"
+    },
+    {
+      "path": "contracts/capabilities.schema.json",
+      "bytes": 8421,
+      "sha256": "4fb4081944e7cf20d5d0ede0d017f6146614a2ad42343e58eccbf411d408440a"
+    },
+    {
+      "path": "contracts/examples/README.md",
+      "bytes": 759,
+      "sha256": "74ec9e56efb2186180214b01c74b5036a00025f592b91fdd33eb0fd0ec1eaaf6"
+    },
+    {
+      "path": "contracts/examples/capabilities_unqualified.example.json",
+      "bytes": 1188,
+      "sha256": "8166c95f4b94d8945d8b22e713758a60086b386ab925c8499277313ed6ce5006"
+    },
+    {
+      "path": "contracts/examples/result_complete.example.json",
+      "bytes": 849,
+      "sha256": "46fe45fc09a8858435cbe8514fd3b9204e24a5f7616c51616998a6b2d48c2344"
+    },
+    {
+      "path": "contracts/examples/result_error.example.json",
+      "bytes": 1243,
+      "sha256": "89fe1e82986a0f1a918d6ac4aff75f8afede85a4807515975c9b32eab075f627"
+    },
+    {
+      "path": "contracts/examples/result_page.example.json",
+      "bytes": 1049,
+      "sha256": "a6151b995a974af8c0599de19928228d2e86c1394c1b4bd1299cd59c14f224a8"
+    },
+    {
+      "path": "contracts/result.schema.json",
+      "bytes": 8428,
+      "sha256": "ad631566261960e848131ae22247a83da7c23b09084abb2f575fa606c2c54113"
+    },
+    {
+      "path": "docs/00_EVIDENCE_BASELINE.md",
+      "bytes": 8951,
+      "sha256": "11d82a2b087b1d4eb85d3dc70b20429545b68b0494eba6e6efada1469902e05e"
+    },
+    {
+      "path": "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+      "bytes": 7434,
+      "sha256": "77665f54ba99269b12ae58f4ffc56d025d78c0ca2f2db750f753cca7372f8863"
+    },
+    {
+      "path": "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+      "bytes": 56846,
+      "sha256": "8ac8f76e252f2710a495a47c2f6d0f3b86b49234ae1f7f548415d5fe92b04505"
+    },
+    {
+      "path": "docs/03_HOSTLAB_MIGRATION.md",
+      "bytes": 63136,
+      "sha256": "3d71952bec67cf5606502a9e104406d0f14253447960795ed466fc0e4f99cc5f"
+    },
+    {
+      "path": "docs/04_VALIDATION_AND_PERFORMANCE.md",
+      "bytes": 66674,
+      "sha256": "c7ea11f47857f5a44622287e1b1d60bbb348e14577134373254bf14ff45d1a14"
+    },
+    {
+      "path": "docs/05_EXECUTION_AND_HANDOFF.md",
+      "bytes": 18137,
+      "sha256": "82ee480690fdd287e6550a680858d5e6ee0cd0fd80673ee688be9c581cc2be2a"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 375,
+      "sha256": "d7d13a22ea222cdcce0a193693da514c0f0c1fd9205bcae20af245fe4101665d"
+    },
+    {
+      "path": "evidence/aosp_additional_manifest.json",
+      "bytes": 10818,
+      "sha256": "0648433514f4eaa45cb63bab902003abb37bbeccb0e33c7a190b152eb88222d3"
+    },
+    {
+      "path": "evidence/aosp_source_manifest.json",
+      "bytes": 11864,
+      "sha256": "4d4f31a945f62f8e775eed8e24836e0df3b4f9bef7fb98d2f396a2f1165961ad"
+    },
+    {
+      "path": "evidence/compatibility/0.1.0/checks.json",
+      "bytes": 5002,
+      "sha256": "d9fd9edb227d0c09836407ebdd683674e905a7c82524a5de06fe162400cdaa96"
+    },
+    {
+      "path": "evidence/compatibility/0.1.0/cli-records.json",
+      "bytes": 8747,
+      "sha256": "c79873ac316caed2e1d7b5c493faf5a6e92195fe0277e4d75cfce7d87c09ddc5"
+    },
+    {
+      "path": "evidence/compatibility/0.1.0/manifest.json",
+      "bytes": 719,
+      "sha256": "4ac3773edfa2a32286c188b866b189fa7f33518f2f3346e30b51bf9b97cef884"
+    },
+    {
+      "path": "evidence/compatibility/0.1.0/mcp-records.json",
+      "bytes": 419243,
+      "sha256": "79244ec529db739dfa2a087a5926f43f7ce83712e5b13b94a953fb8d48ff2c0e"
+    },
+    {
+      "path": "evidence/compatibility/0.1.0/observations.json",
+      "bytes": 29721,
+      "sha256": "011447f2dc065c17c89798e3036e0c21321e0bf421ea9ff8a3490afc0c93c4c6"
+    },
+    {
+      "path": "evidence/compatibility/0.1.0/summary.json",
+      "bytes": 212,
+      "sha256": "c1a920a048177f96773271af37b9007c11b1b447c9c1caa9f06bee9dabf3ab18"
+    },
+    {
+      "path": "evidence/compatibility/0.1.1/checks.json",
+      "bytes": 5002,
+      "sha256": "637385e80b35c92ae89f9b8994ba30c8fc1749a91a35d5b61d58da68e44369a9"
+    },
+    {
+      "path": "evidence/compatibility/0.1.1/cli-records.json",
+      "bytes": 8553,
+      "sha256": "5326689398b9078d737b9c22b20695c62c37bbc84c080cc979406470c24b5d56"
+    },
+    {
+      "path": "evidence/compatibility/0.1.1/manifest.json",
+      "bytes": 742,
+      "sha256": "5deef404ed8020f396dc4ddb637775982f8cec4c7f891b93bf455b8fe049e748"
+    },
+    {
+      "path": "evidence/compatibility/0.1.1/mcp-records.json",
+      "bytes": 423673,
+      "sha256": "3d2d06412e6f090276ff7f93a4741ef346b19a32b64d52e749903a614ed86907"
+    },
+    {
+      "path": "evidence/compatibility/0.1.1/observations.json",
+      "bytes": 28656,
+      "sha256": "0a95331675e2e3e0b40de4d0baa07f556b51b5f5c7a7efc3c61a27046ca714c7"
+    },
+    {
+      "path": "evidence/compatibility/0.1.1/summary.json",
+      "bytes": 213,
+      "sha256": "dcac5eb5863ec658da69e7900427339124eb480a100c1f669703a13c05fa11cd"
+    },
+    {
+      "path": "evidence/decoder_microbenchmark_results.json",
+      "bytes": 32669,
+      "sha256": "e46e0ae0ff33b410bd6152089c3b9f565f8c9926a18eae8eb8ef5062189bf167"
+    },
+    {
+      "path": "evidence/decoder_public_apk_results.json",
+      "bytes": 9424,
+      "sha256": "46189117a05e61c46275a235cc00f3d23cebbd69051fe1e930095e2cd77abe50"
+    },
+    {
+      "path": "evidence/hostlab_integration_inventory.json",
+      "bytes": 35341,
+      "sha256": "788ccd3e5be84b7f653db98fd30887658923a8b50295b26a141c285f0770d5d5"
+    },
+    {
+      "path": "evidence/hostlab_measured_basis.json",
+      "bytes": 162435,
+      "sha256": "3613aa76fe69455d7590df04df38eb8363b247180cca1a99b0756cc8d2f06dcb"
+    },
+    {
+      "path": "evidence/hostlab_public_pipeline.json",
+      "bytes": 22620,
+      "sha256": "9f58b19438a5a120c457b72f1b850c9faf54df128be5120fd6a315ccfd915df2"
+    },
+    {
+      "path": "evidence/hostlab_verification.json",
+      "bytes": 45538,
+      "sha256": "bf4ca0cd3df35dab13ed1a83dedf92e5b6dfa485e4d48611d424cf8462b01f7d"
+    },
+    {
+      "path": "evidence/index.json",
+      "bytes": 7782,
+      "sha256": "450bee2af1e2552507222f0cf82e754ae8b74d4e636e8a035a15f38cc07946a0"
+    },
+    {
+      "path": "evidence/measured_phase_model.json",
+      "bytes": 22471,
+      "sha256": "d445e05fef739960d913f67e29f7439b0abb21aa2aebdcbb06888d13d69ce6e8"
+    },
+    {
+      "path": "evidence/public_apk_profile.json",
+      "bytes": 23515,
+      "sha256": "540805a535d3498eaedc29342666294a586e09c87ea89c9e2bc84bbc32549836"
+    },
+    {
+      "path": "evidence/public_apk_timing_review.json",
+      "bytes": 18840,
+      "sha256": "be7ccb003d06f114bfd7f469102dd0e764f80db6dfdff8f8fabcf299f6c57860"
+    },
+    {
+      "path": "tasks/backlog.json",
+      "bytes": 82250,
+      "sha256": "54d95f6c65f8008977c4581c0b745e98cd4b350554b332b921feb678c895500f"
+    },
+    {
+      "path": "templates/ADR.template.md",
+      "bytes": 948,
+      "sha256": "97316c286651f7a462163425297fcde2cedd78eb03e77025964308320d2cde3a"
+    },
+    {
+      "path": "templates/AGENTS.template.md",
+      "bytes": 2103,
+      "sha256": "587b0d14ebd2005034bd0bf319277cae6b77c7abf186a375c250c0355c37edc9"
+    },
+    {
+      "path": "templates/EXPERIENCE_RECORD.template.md",
+      "bytes": 1061,
+      "sha256": "2369b5c1a97e30d5d9da0d977fd1cbc3546d75f42a7e48ba447c8fc1996dc558"
+    },
+    {
+      "path": "templates/PHASE_HANDOFF.template.md",
+      "bytes": 879,
+      "sha256": "3e3cc9e9e2e8d086406f4cdaaee21529c1c06506ba36cab469f6cc5a62833444"
+    },
+    {
+      "path": "templates/STATE.template.md",
+      "bytes": 646,
+      "sha256": "6e07f65164b8f894f32a4d8c4495538e1b1074506c2efcd7557fd85502a74404"
+    },
+    {
+      "path": "tools/recompute_targets.py",
+      "bytes": 5372,
+      "sha256": "a84c5658728ed873eb4a17245da91e558fa4f090ef8247ce45baa579b9adb171"
+    },
+    {
+      "path": "tools/verify_kit.py",
+      "bytes": 10304,
+      "sha256": "0b6051b5569b4540e5fd0bdf5519e56f650879729ec80f1f422b73d0479f4604"
+    }
+  ]
+}

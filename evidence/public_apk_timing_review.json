@@ -1,0 +1,839 @@
+{
+  "review_type": "read-only recomputation of parent agent performance artifact; reviewer did not rerun benchmarks",
+  "source": {
+    "path": "public_apk_profile.json",
+    "sha256": "540805a535d3498eaedc29342666294a586e09c87ea89c9e2bc84bbc32549836",
+    "runner_sha256": "a3a2f23685c4bcd08cc0551e57482cf7195cf1b9b107fcb41006acfefab70704"
+  },
+  "all_20_raw_stderr_parsed_fields_match": true,
+  "all_20_envelope_inequalities_hold": true,
+  "rows": [
+    {
+      "version": "0.1.0",
+      "mode": "plain",
+      "wall_ms": {
+        "median": 2435.336962,
+        "min": 2359.98428,
+        "max": 2798.456367,
+        "samples": [
+          2798.456367,
+          2420.699624,
+          2447.466824,
+          2435.336962,
+          2359.98428
+        ]
+      },
+      "reported_timings_ms": {
+        "load_inputs_ms": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "samples": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parse_ms": {
+          "median": 43.0,
+          "min": 42.0,
+          "max": 49.0,
+          "samples": [
+            48.0,
+            43.0,
+            49.0,
+            43.0,
+            42.0
+          ]
+        },
+        "table_build_ms": {
+          "median": 10.0,
+          "min": 10.0,
+          "max": 13.0,
+          "samples": [
+            13.0,
+            10.0,
+            11.0,
+            10.0,
+            10.0
+          ]
+        },
+        "load_and_register_ms": {
+          "median": 43.0,
+          "min": 42.0,
+          "max": 49.0,
+          "samples": [
+            48.0,
+            43.0,
+            49.0,
+            43.0,
+            42.0
+          ]
+        },
+        "cache_total_ms": {
+          "median": 10.0,
+          "min": 10.0,
+          "max": 13.0,
+          "samples": [
+            13.0,
+            10.0,
+            11.0,
+            10.0,
+            10.0
+          ]
+        },
+        "sql_wall_ms": {
+          "median": 29.0,
+          "min": 28.0,
+          "max": 34.0,
+          "samples": [
+            34.0,
+            29.0,
+            30.0,
+            28.0,
+            29.0
+          ]
+        },
+        "library_total_ms": {
+          "median": 85.87,
+          "min": 83.283,
+          "max": 97.193,
+          "samples": [
+            97.193,
+            85.87,
+            92.106,
+            83.702,
+            83.283
+          ]
+        },
+        "facade_wall_ms": {
+          "median": 86.609,
+          "min": 84.043,
+          "max": 98.081,
+          "samples": [
+            98.081,
+            86.609,
+            92.759,
+            84.36,
+            84.043
+          ]
+        },
+        "output_wall_ms": {
+          "median": 2259.597,
+          "min": 2194.147,
+          "max": 2616.375,
+          "samples": [
+            2616.375,
+            2243.454,
+            2269.031,
+            2259.597,
+            2194.147
+          ]
+        },
+        "cli_wall_ms": {
+          "median": 2351.178,
+          "min": 2284.932,
+          "max": 2722.545,
+          "samples": [
+            2722.545,
+            2338.362,
+            2368.868,
+            2351.178,
+            2284.932
+          ]
+        }
+      },
+      "stdout_bytes": 153638085,
+      "rows": 55763,
+      "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+      "output_pct_outer_wall": {
+        "median": 92.7837517049109,
+        "min": 92.67791748126452,
+        "max": 93.49350702240197,
+        "samples": [
+          93.49350702240197,
+          92.67791748126452,
+          92.70936699732768,
+          92.7837517049109,
+          92.97294980286901
+        ]
+      },
+      "cli_minus_facade_minus_output_ms": {
+        "median": 7.220999999999549,
+        "min": 6.741999999999734,
+        "max": 8.298999999999978,
+        "samples": [
+          8.088999999999942,
+          8.298999999999978,
+          7.0779999999999745,
+          7.220999999999549,
+          6.741999999999734
+        ]
+      },
+      "outer_minus_cli_ms": {
+        "median": 78.59882400000015,
+        "min": 75.05228000000034,
+        "max": 84.15896199999997,
+        "samples": [
+          75.9113669999997,
+          82.33762399999978,
+          78.59882400000015,
+          84.15896199999997,
+          75.05228000000034
+        ]
+      },
+      "load_and_register_minus_parse_ms": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "samples": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "cache_total_minus_table_build_ms": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "samples": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "version": "0.1.0",
+      "mode": "hex",
+      "wall_ms": {
+        "median": 4590.411098,
+        "min": 4448.335941,
+        "max": 5099.370009,
+        "samples": [
+          5099.370009,
+          4754.297776,
+          4448.335941,
+          4515.971131,
+          4590.411098
+        ]
+      },
+      "reported_timings_ms": {
+        "load_inputs_ms": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "samples": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parse_ms": {
+          "median": 47.0,
+          "min": 45.0,
+          "max": 88.0,
+          "samples": [
+            88.0,
+            54.0,
+            47.0,
+            45.0,
+            45.0
+          ]
+        },
+        "table_build_ms": {
+          "median": 11.0,
+          "min": 10.0,
+          "max": 17.0,
+          "samples": [
+            17.0,
+            11.0,
+            11.0,
+            10.0,
+            10.0
+          ]
+        },
+        "load_and_register_ms": {
+          "median": 47.0,
+          "min": 45.0,
+          "max": 88.0,
+          "samples": [
+            88.0,
+            54.0,
+            47.0,
+            45.0,
+            45.0
+          ]
+        },
+        "cache_total_ms": {
+          "median": 11.0,
+          "min": 10.0,
+          "max": 17.0,
+          "samples": [
+            17.0,
+            11.0,
+            11.0,
+            10.0,
+            10.0
+          ]
+        },
+        "sql_wall_ms": {
+          "median": 118.0,
+          "min": 110.0,
+          "max": 175.0,
+          "samples": [
+            175.0,
+            126.0,
+            117.0,
+            118.0,
+            110.0
+          ]
+        },
+        "library_total_ms": {
+          "median": 178.013,
+          "min": 168.011,
+          "max": 283.346,
+          "samples": [
+            283.346,
+            195.22,
+            178.013,
+            176.204,
+            168.011
+          ]
+        },
+        "facade_wall_ms": {
+          "median": 179.498,
+          "min": 169.469,
+          "max": 286.611,
+          "samples": [
+            286.611,
+            196.701,
+            179.498,
+            178.009,
+            169.469
+          ]
+        },
+        "output_wall_ms": {
+          "median": 4230.341,
+          "min": 4110.922,
+          "max": 4636.961,
+          "samples": [
+            4636.961,
+            4380.78,
+            4110.922,
+            4168.328,
+            4230.341
+          ]
+        },
+        "cli_wall_ms": {
+          "median": 4416.67,
+          "min": 4306.768,
+          "max": 4940.342,
+          "samples": [
+            4940.342,
+            4594.581,
+            4306.768,
+            4362.229,
+            4416.67
+          ]
+        }
+      },
+      "stdout_bytes": 305380092,
+      "rows": 55763,
+      "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+      "output_pct_outer_wall": {
+        "median": 92.15603809086122,
+        "min": 90.93203654208494,
+        "max": 92.414827803582,
+        "samples": [
+          90.93203654208494,
+          92.14357632612871,
+          92.414827803582,
+          92.30191865901014,
+          92.15603809086122
+        ]
+      },
+      "cli_minus_facade_minus_output_ms": {
+        "median": 16.769999999999527,
+        "min": 15.891999999999825,
+        "max": 17.100000000000364,
+        "samples": [
+          16.769999999999527,
+          17.100000000000364,
+          16.348000000000866,
+          15.891999999999825,
+          16.859999999999673
+        ]
+      },
+      "outer_minus_cli_ms": {
+        "median": 159.02800900000057,
+        "min": 141.56794100000025,
+        "max": 173.7410979999995,
+        "samples": [
+          159.02800900000057,
+          159.7167760000002,
+          141.56794100000025,
+          153.74213099999997,
+          173.7410979999995
+        ]
+      },
+      "load_and_register_minus_parse_ms": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "samples": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "cache_total_minus_table_build_ms": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "samples": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "version": "0.1.1",
+      "mode": "plain",
+      "wall_ms": {
+        "median": 394.141075,
+        "min": 362.7026,
+        "max": 454.966931,
+        "samples": [
+          372.756522,
+          454.966931,
+          362.7026,
+          436.99352,
+          394.141075
+        ]
+      },
+      "reported_timings_ms": {
+        "load_inputs_ms": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "samples": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parse_ms": {
+          "median": 43.0,
+          "min": 41.0,
+          "max": 47.0,
+          "samples": [
+            43.0,
+            42.0,
+            41.0,
+            45.0,
+            47.0
+          ]
+        },
+        "table_build_ms": {
+          "median": 14.0,
+          "min": 10.0,
+          "max": 17.0,
+          "samples": [
+            10.0,
+            17.0,
+            17.0,
+            13.0,
+            14.0
+          ]
+        },
+        "load_and_register_ms": {
+          "median": 43.0,
+          "min": 42.0,
+          "max": 47.0,
+          "samples": [
+            43.0,
+            42.0,
+            42.0,
+            45.0,
+            47.0
+          ]
+        },
+        "cache_total_ms": {
+          "median": 14.0,
+          "min": 10.0,
+          "max": 17.0,
+          "samples": [
+            10.0,
+            17.0,
+            17.0,
+            13.0,
+            14.0
+          ]
+        },
+        "sql_wall_ms": {
+          "median": 32.0,
+          "min": 29.0,
+          "max": 37.0,
+          "samples": [
+            31.0,
+            37.0,
+            29.0,
+            32.0,
+            34.0
+          ]
+        },
+        "library_total_ms": {
+          "median": 92.523,
+          "min": 86.581,
+          "max": 98.893,
+          "samples": [
+            86.581,
+            98.893,
+            90.366,
+            92.523,
+            97.505
+          ]
+        },
+        "facade_wall_ms": {
+          "median": 93.22,
+          "min": 87.466,
+          "max": 99.69,
+          "samples": [
+            87.466,
+            99.69,
+            91.141,
+            93.22,
+            98.751
+          ]
+        },
+        "output_wall_ms": {
+          "median": 229.273,
+          "min": 201.118,
+          "max": 287.887,
+          "samples": [
+            219.559,
+            287.887,
+            201.118,
+            278.475,
+            229.273
+          ]
+        },
+        "cli_wall_ms": {
+          "median": 334.701,
+          "min": 298.324,
+          "max": 395.914,
+          "samples": [
+            313.721,
+            395.914,
+            298.324,
+            378.115,
+            334.701
+          ]
+        }
+      },
+      "stdout_bytes": 153638085,
+      "rows": 55763,
+      "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+      "output_pct_outer_wall": {
+        "median": 58.90145095838189,
+        "min": 55.449836863590164,
+        "max": 63.72520123410526,
+        "samples": [
+          58.90145095838189,
+          63.27646700986275,
+          55.449836863590164,
+          63.72520123410526,
+          58.170288392297095
+        ]
+      },
+      "cli_minus_facade_minus_output_ms": {
+        "median": 6.677000000000021,
+        "min": 6.064999999999998,
+        "max": 8.336999999999989,
+        "samples": [
+          6.695999999999998,
+          8.336999999999989,
+          6.064999999999998,
+          6.419999999999959,
+          6.677000000000021
+        ]
+      },
+      "outer_minus_cli_ms": {
+        "median": 59.052931,
+        "min": 58.87851999999998,
+        "max": 64.3786,
+        "samples": [
+          59.035522000000014,
+          59.052931,
+          64.3786,
+          58.87851999999998,
+          59.44007499999998
+        ]
+      },
+      "load_and_register_minus_parse_ms": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 1.0,
+        "samples": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "cache_total_minus_table_build_ms": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "samples": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "version": "0.1.1",
+      "mode": "hex",
+      "wall_ms": {
+        "median": 761.03181,
+        "min": 695.153716,
+        "max": 813.089267,
+        "samples": [
+          761.03181,
+          813.089267,
+          743.885549,
+          764.452449,
+          695.153716
+        ]
+      },
+      "reported_timings_ms": {
+        "load_inputs_ms": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "samples": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parse_ms": {
+          "median": 42.0,
+          "min": 40.0,
+          "max": 44.0,
+          "samples": [
+            44.0,
+            42.0,
+            40.0,
+            40.0,
+            43.0
+          ]
+        },
+        "table_build_ms": {
+          "median": 11.0,
+          "min": 10.0,
+          "max": 15.0,
+          "samples": [
+            13.0,
+            15.0,
+            10.0,
+            10.0,
+            11.0
+          ]
+        },
+        "load_and_register_ms": {
+          "median": 42.0,
+          "min": 40.0,
+          "max": 44.0,
+          "samples": [
+            44.0,
+            42.0,
+            40.0,
+            40.0,
+            43.0
+          ]
+        },
+        "cache_total_ms": {
+          "median": 11.0,
+          "min": 10.0,
+          "max": 15.0,
+          "samples": [
+            13.0,
+            15.0,
+            10.0,
+            10.0,
+            11.0
+          ]
+        },
+        "sql_wall_ms": {
+          "median": 114.0,
+          "min": 103.0,
+          "max": 132.0,
+          "samples": [
+            114.0,
+            132.0,
+            103.0,
+            105.0,
+            115.0
+          ]
+        },
+        "library_total_ms": {
+          "median": 172.169,
+          "min": 156.455,
+          "max": 191.489,
+          "samples": [
+            174.148,
+            191.489,
+            156.455,
+            157.266,
+            172.169
+          ]
+        },
+        "facade_wall_ms": {
+          "median": 173.518,
+          "min": 157.718,
+          "max": 193.239,
+          "samples": [
+            175.436,
+            193.239,
+            157.718,
+            158.506,
+            173.518
+          ]
+        },
+        "output_wall_ms": {
+          "median": 460.335,
+          "min": 394.662,
+          "max": 472.535,
+          "samples": [
+            460.335,
+            472.535,
+            424.413,
+            463.417,
+            394.662
+          ]
+        },
+        "cli_wall_ms": {
+          "median": 638.96,
+          "min": 586.259,
+          "max": 685.914,
+          "samples": [
+            653.483,
+            685.914,
+            601.601,
+            638.96,
+            586.259
+          ]
+        }
+      },
+      "stdout_bytes": 305380092,
+      "rows": 55763,
+      "canonical_sha256": "47fced1f3413c1dcc82400226a126dca14281e978a8614f3f2a37ccb1bde2398",
+      "output_pct_outer_wall": {
+        "median": 58.11600511509396,
+        "min": 56.773342487606,
+        "max": 60.62077511900285,
+        "samples": [
+          60.48827315115777,
+          58.11600511509396,
+          57.053534723256206,
+          60.62077511900285,
+          56.773342487606
+        ]
+      },
+      "cli_minus_facade_minus_output_ms": {
+        "median": 18.079000000000008,
+        "min": 17.03700000000009,
+        "max": 20.13999999999993,
+        "samples": [
+          17.711999999999932,
+          20.13999999999993,
+          19.470000000000027,
+          17.03700000000009,
+          18.079000000000008
+        ]
+      },
+      "outer_minus_cli_ms": {
+        "median": 125.49244899999997,
+        "min": 107.54881,
+        "max": 142.28454899999997,
+        "samples": [
+          107.54881,
+          127.17526699999996,
+          142.28454899999997,
+          125.49244899999997,
+          108.89471600000002
+        ]
+      },
+      "load_and_register_minus_parse_ms": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "samples": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "cache_total_minus_table_build_ms": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "samples": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ],
+  "version_comparisons": {
+    "plain": {
+      "ratio_of_medians_010_over_011": 6.178845891664552,
+      "reduction_pct": 83.81574783489857
+    },
+    "hex": {
+      "ratio_of_medians_010_over_011": 6.0318255264520415,
+      "reduction_pct": 83.42127112903735
+    }
+  },
+  "interpretation": "Observed numbers are consistent with library nested inside facade, then output plus small residual within CLI. They support output-path dominance for this public APK full-table export, not a proof of exact timer source placement or pure formatting CPU time. output can include writes and pipe backpressure. Parent decode/hash excluded from outer timer.",
+  "must_not_add": [
+    "parse_ms + load_and_register_ms",
+    "table_build_ms + cache_total_ms",
+    "library_total_ms + facade_wall_ms",
+    "cli_wall_ms + output_wall_ms"
+  ],
+  "not_measured": [
+    "HostLab full end-to-end",
+    "replacement engine B",
+    "pure transport vs formatter CPU split",
+    "general lossless plain-text output compatibility"
+  ]
+}

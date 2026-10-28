@@ -1,0 +1,55 @@
+{
+  "schema_version": "mdd.result.v1",
+  "request_id": "example-request-error",
+  "operation": "query",
+  "profile": "mdd-native-v1",
+  "sql_dialect": null,
+  "session_id": "example-session",
+  "snapshot_id": "example-snapshot",
+  "catalog_epoch": "0",
+  "query_id": "example-query",
+  "operation_status": "error",
+  "coverage": {
+    "scope_id": "example-complete-scope",
+    "input": "partial",
+    "facts": "unknown",
+    "required_layers": [
+      "inventory",
+      "structure"
+    ],
+    "issues": [
+      {
+        "layer": "inventory",
+        "reason": "example-malformed-member",
+        "blocking": true,
+        "member_id": "example-member",
+        "details": {
+          "fixture": true
+        }
+      }
+    ]
+  },
+  "execution": {
+    "complete": false
+  },
+  "response": {
+    "schema_id": "example-rows-v1",
+    "emitted_rows": "0",
+    "total_rows": null,
+    "total_rows_exact": false,
+    "more_available": false,
+    "truncated": false,
+    "next_cursor": null
+  },
+  "data": null,
+  "error": {
+    "code": "PARTIAL_INPUT",
+    "stage": "input-validation",
+    "message": "Example only: one required member was not admitted.",
+    "retryable": false,
+    "details": {
+      "example": true
+    }
+  },
+  "warnings": []
+}

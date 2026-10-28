@@ -1,0 +1,1013 @@
+[
+  {
+    "name": "changed_mtime:valid_same_size_edit",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "metadata": {
+        "before_size": 500,
+        "after_size": 500,
+        "before_mtime_ns": 1793010539514343687,
+        "after_mtime_ns": 1793010539519882552,
+        "before_inode": 808148,
+        "after_inode": 808148,
+        "content_sha256": "fa9ead29e4fbdf11ab20d3b5e846763ca38a34ba16f6168d42d39b839406ae67"
+      },
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Error: load_failed at load_inputs: failed to open native cache /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime/cache.dxc2\n\nCaused by:\n    cache is stale: source input /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_changed_mtime.dex content changed since cache build\n"
+    }
+  },
+  {
+    "name": "changed_mtime:restored_original_bytes",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  {
+    "name": "preserved_mtime:valid_same_size_edit",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "metadata": {
+        "before_size": 500,
+        "after_size": 500,
+        "before_mtime_ns": 1793010539531764785,
+        "after_mtime_ns": 1793010539531764785,
+        "before_inode": 808151,
+        "after_inode": 808151,
+        "content_sha256": "fa9ead29e4fbdf11ab20d3b5e846763ca38a34ba16f6168d42d39b839406ae67"
+      },
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Error: load_failed at load_inputs: failed to open native cache /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime/cache.dxc2\n\nCaused by:\n    cache is stale: source input /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_preserved_mtime.dex content changed since cache build\n"
+    }
+  },
+  {
+    "name": "preserved_mtime:restored_original_bytes",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  {
+    "name": "cache_requires_original_source_path",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "missing": {
+        "label": "path:source_missing",
+        "argv": [
+          "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+          "--threads",
+          "2",
+          "query-cache",
+          "--cache-file",
+          "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency/cache.dxc2",
+          "--sql",
+          "SELECT value,count(*) FROM method_strings GROUP BY value ORDER BY value"
+        ],
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "Error: load_failed at load_inputs: failed to open native cache /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency/cache.dxc2\n\nCaused by:\n    cache is stale: source input /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency.dex is not readable: failed to canonicalize cache input /workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency.dex: No such file or directory (os error 2)\n"
+      },
+      "trusted": {
+        "label": "path:source_missing_trusted",
+        "argv": [
+          "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+          "--threads",
+          "2",
+          "--trusted-input",
+          "query-cache",
+          "--cache-file",
+          "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cache_path_dependency/cache.dxc2",
+          "--sql",
+          "SELECT value,count(*) FROM method_strings GROUP BY value ORDER BY value"
+        ],
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "Error: SQL statement 1 failed\n\nCaused by:\n    0: query_failed at execute_sql: cache plan execution failed\n    1: required execution data source is unavailable\n"
+      }
+    }
+  },
+  {
+    "name": "cache_container_relocation",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "label": "path:cache_file_relocated",
+      "argv": [
+        "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+        "--threads",
+        "2",
+        "query-cache",
+        "--cache-file",
+        "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/relocated_cache.dxc2",
+        "--sql",
+        "SELECT count(*) FROM methods"
+      ],
+      "returncode": 0,
+      "stdout": "+-------+\n| count |\n+-------+\n| 2     |\n+-------+\n",
+      "stderr": ""
+    }
+  },
+  {
+    "name": "resident_source_mutation_decode_warm=False",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "metadata": {
+        "before_size": 500,
+        "after_size": 500,
+        "before_mtime_ns": 1793010539564700797,
+        "after_mtime_ns": 1793010539564700797,
+        "before_inode": 808158,
+        "after_inode": 808158,
+        "content_sha256": "fa9ead29e4fbdf11ab20d3b5e846763ca38a34ba16f6168d42d39b839406ae67"
+      },
+      "before": {
+        "isError": false,
+        "rows": [
+          [
+            "needle",
+            2
+          ]
+        ]
+      },
+      "after": {
+        "isError": false,
+        "rows": [
+          [
+            "needle",
+            2
+          ]
+        ]
+      },
+      "decode": {
+        "dataset_id": "dataset-1",
+        "error": {
+          "code_unit_offset": null,
+          "file_id": 0,
+          "kind": "source_changed",
+          "message": "dexsql cache is corrupt or tampered: reopened dex for file_id 0 does not match the recorded identity (byte_len/checksum/signature/file_size/version); refusing to serve foreign bytes; close and reopen the dataset",
+          "method_idx": 0
+        }
+      }
+    }
+  },
+  {
+    "name": "resident_source_mutation_decode_warm=True",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "metadata": {
+        "before_size": 500,
+        "after_size": 500,
+        "before_mtime_ns": 1793010539578772166,
+        "after_mtime_ns": 1793010539578772166,
+        "before_inode": 808159,
+        "after_inode": 808159,
+        "content_sha256": "fa9ead29e4fbdf11ab20d3b5e846763ca38a34ba16f6168d42d39b839406ae67"
+      },
+      "before": {
+        "isError": false,
+        "rows": [
+          [
+            "needle",
+            2
+          ]
+        ]
+      },
+      "after": {
+        "isError": false,
+        "rows": [
+          [
+            "needle",
+            2
+          ]
+        ]
+      },
+      "decode": {
+        "dataset_id": "dataset-3",
+        "error": {
+          "code_unit_offset": null,
+          "file_id": 0,
+          "kind": "source_changed",
+          "message": "dexsql cache is corrupt or tampered: reopened dex for file_id 0 does not match the recorded identity (byte_len/checksum/signature/file_size/version); refusing to serve foreign bytes; close and reopen the dataset",
+          "method_idx": 0
+        }
+      }
+    }
+  },
+  {
+    "name": "resident_source_unlinked",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "query": {
+        "isError": false,
+        "rows": [
+          [
+            "needle",
+            2
+          ]
+        ]
+      },
+      "decode": {
+        "dataset_id": "dataset-5",
+        "method_offset": 0,
+        "methods": [
+          {
+            "access_flags": 9,
+            "code_units": 8,
+            "declaration": ".method public static foo()V",
+            "descriptor": "Ldemo/A;->foo()V",
+            "end_line": 8,
+            "ends_mid_line": false,
+            "file_id": 0,
+            "method_idx": 0,
+            "next_offset": null,
+            "offset": 0,
+            "registers": 1,
+            "smali": ".method public static foo()V\n    .registers 1\n\n    const-string v0, \"needle\"\n    const-string v0, \"needle\"\n    invoke-static {}, Ldemo/B;->bar()V\n    return-void\n.end method\n",
+            "start_line": 0,
+            "starts_mid_line": false,
+            "total_bytes": 174,
+            "total_lines": 8,
+            "try_count": 0
+          }
+        ],
+        "mode": "smali",
+        "next_method_offset": null,
+        "total_methods": 1
+      }
+    }
+  },
+  {
+    "name": "resident:server_exit",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  {
+    "name": "page_mixture",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "first": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "sqlite_dynamic",
+                "name": "id",
+                "nullable": false
+              },
+              {
+                "data_type": "sqlite_dynamic",
+                "name": "tag",
+                "nullable": false
+              }
+            ],
+            "kind": "query",
+            "next_offset": 2,
+            "offset": 0,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "utf8",
+                  "value": "before"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "utf8",
+                  "value": "before"
+                }
+              ]
+            ],
+            "sql": "SELECT id,tag FROM page_base ORDER BY id",
+            "statement_index": 0,
+            "total_rows": 4,
+            "truncated": true
+          }
+        ]
+      },
+      "second": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "sqlite_dynamic",
+                "name": "id",
+                "nullable": false
+              },
+              {
+                "data_type": "sqlite_dynamic",
+                "name": "tag",
+                "nullable": false
+              }
+            ],
+            "kind": "query",
+            "next_offset": null,
+            "offset": 2,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "13"
+                },
+                {
+                  "type": "utf8",
+                  "value": "after"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "14"
+                },
+                {
+                  "type": "utf8",
+                  "value": "after"
+                }
+              ]
+            ],
+            "sql": "SELECT id,tag FROM page_base ORDER BY id",
+            "statement_index": 0,
+            "total_rows": 4,
+            "truncated": false
+          }
+        ]
+      },
+      "query_unchanged": "SELECT id,tag FROM page_base ORDER BY id"
+    }
+  },
+  {
+    "name": "temp_dependency_drop_recreate",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "initial": {
+        "isError": false,
+        "rows": [
+          [
+            1
+          ]
+        ]
+      },
+      "drop": {
+        "isError": false,
+        "rows": []
+      },
+      "after_drop": {
+        "isError": true,
+        "body": {
+          "error": {
+            "input": null,
+            "kind": "invalid_query",
+            "message": "unknown relation `base`",
+            "source": null,
+            "stage": "execute_sql",
+            "statement_index": 0
+          }
+        }
+      },
+      "recreate": {
+        "isError": false,
+        "rows": []
+      },
+      "after_recreate": {
+        "isError": false,
+        "rows": [
+          [
+            7
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "name": "pagination_temp:server_exit",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  {
+    "name": "a_then_b",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "identities": {
+        "isError": false,
+        "rows": [
+          [
+            0,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_a.dex",
+            "Ldemo/A;"
+          ],
+          [
+            1,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_b.dex",
+            "Ldemo/B;"
+          ]
+        ]
+      },
+      "counts": {
+        "isError": false,
+        "rows": [
+          [
+            4,
+            2,
+            2
+          ]
+        ]
+      },
+      "descriptor_decode": {
+        "dataset_id": "dataset-1",
+        "method_offset": 0,
+        "methods": [
+          {
+            "access_flags": 9,
+            "code_units": 8,
+            "declaration": ".method public static foo()V",
+            "descriptor": "Ldemo/A;->foo()V",
+            "end_line": 8,
+            "ends_mid_line": false,
+            "file_id": 0,
+            "method_idx": 0,
+            "next_offset": null,
+            "offset": 0,
+            "registers": 1,
+            "smali": ".method public static foo()V\n    .registers 1\n\n    const-string v0, \"needle\"\n    const-string v0, \"needle\"\n    invoke-static {}, Ldemo/B;->bar()V\n    return-void\n.end method\n",
+            "start_line": 0,
+            "starts_mid_line": false,
+            "total_bytes": 174,
+            "total_lines": 8,
+            "try_count": 0
+          }
+        ],
+        "mode": "smali",
+        "next_method_offset": null,
+        "total_methods": 1
+      },
+      "key_decode": {
+        "dataset_id": "dataset-1",
+        "method_offset": 0,
+        "methods": [
+          {
+            "access_flags": 9,
+            "code_units": 8,
+            "declaration": ".method public static foo()V",
+            "descriptor": "Ldemo/A;->foo()V",
+            "end_line": 8,
+            "ends_mid_line": false,
+            "file_id": 0,
+            "method_idx": 0,
+            "next_offset": null,
+            "offset": 0,
+            "registers": 1,
+            "smali": ".method public static foo()V\n    .registers 1\n\n    const-string v0, \"needle\"\n    const-string v0, \"needle\"\n    invoke-static {}, Ldemo/B;->bar()V\n    return-void\n.end method\n",
+            "start_line": 0,
+            "starts_mid_line": false,
+            "total_bytes": 174,
+            "total_lines": 8,
+            "try_count": 0
+          }
+        ],
+        "mode": "smali",
+        "next_method_offset": null,
+        "total_methods": 1
+      }
+    }
+  },
+  {
+    "name": "b_then_a",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "identities": {
+        "isError": false,
+        "rows": [
+          [
+            0,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_b.dex",
+            "Ldemo/B;"
+          ],
+          [
+            1,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_a.dex",
+            "Ldemo/A;"
+          ]
+        ]
+      },
+      "counts": {
+        "isError": false,
+        "rows": [
+          [
+            4,
+            2,
+            2
+          ]
+        ]
+      },
+      "descriptor_decode": {
+        "dataset_id": "dataset-2",
+        "method_offset": 0,
+        "methods": [
+          {
+            "access_flags": 9,
+            "code_units": 8,
+            "declaration": ".method public static foo()V",
+            "descriptor": "Ldemo/A;->foo()V",
+            "end_line": 8,
+            "ends_mid_line": false,
+            "file_id": 1,
+            "method_idx": 0,
+            "next_offset": null,
+            "offset": 0,
+            "registers": 1,
+            "smali": ".method public static foo()V\n    .registers 1\n\n    const-string v0, \"needle\"\n    const-string v0, \"needle\"\n    invoke-static {}, Ldemo/B;->bar()V\n    return-void\n.end method\n",
+            "start_line": 0,
+            "starts_mid_line": false,
+            "total_bytes": 174,
+            "total_lines": 8,
+            "try_count": 0
+          }
+        ],
+        "mode": "smali",
+        "next_method_offset": null,
+        "total_methods": 1
+      },
+      "key_decode": {
+        "dataset_id": "dataset-2",
+        "method_offset": 0,
+        "methods": [
+          {
+            "access_flags": 9,
+            "code_units": 8,
+            "declaration": ".method public static foo()V",
+            "descriptor": "Ldemo/A;->foo()V",
+            "end_line": 8,
+            "ends_mid_line": false,
+            "file_id": 1,
+            "method_idx": 0,
+            "next_offset": null,
+            "offset": 0,
+            "registers": 1,
+            "smali": ".method public static foo()V\n    .registers 1\n\n    const-string v0, \"needle\"\n    const-string v0, \"needle\"\n    invoke-static {}, Ldemo/B;->bar()V\n    return-void\n.end method\n",
+            "start_line": 0,
+            "starts_mid_line": false,
+            "total_bytes": 174,
+            "total_lines": 8,
+            "try_count": 0
+          }
+        ],
+        "mode": "smali",
+        "next_method_offset": null,
+        "total_methods": 1
+      }
+    }
+  },
+  {
+    "name": "same_path_twice",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "identities": {
+        "isError": false,
+        "rows": [
+          [
+            0,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_a.dex",
+            "Ldemo/A;"
+          ],
+          [
+            1,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_a.dex",
+            "Ldemo/A;"
+          ]
+        ]
+      },
+      "counts": {
+        "isError": false,
+        "rows": [
+          [
+            4,
+            2,
+            2
+          ]
+        ]
+      },
+      "descriptor_decode": {
+        "dataset_id": "dataset-3",
+        "error": {
+          "code_unit_offset": null,
+          "file_id": null,
+          "kind": "ambiguous",
+          "message": "method occurs in multiple DEX files; supply file_id from {0, 1}",
+          "method_idx": null
+        }
+      },
+      "key_decode": {
+        "dataset_id": "dataset-3",
+        "method_offset": 0,
+        "methods": [
+          {
+            "access_flags": 9,
+            "code_units": 8,
+            "declaration": ".method public static foo()V",
+            "descriptor": "Ldemo/A;->foo()V",
+            "end_line": 8,
+            "ends_mid_line": false,
+            "file_id": 0,
+            "method_idx": 0,
+            "next_offset": null,
+            "offset": 0,
+            "registers": 1,
+            "smali": ".method public static foo()V\n    .registers 1\n\n    const-string v0, \"needle\"\n    const-string v0, \"needle\"\n    invoke-static {}, Ldemo/B;->bar()V\n    return-void\n.end method\n",
+            "start_line": 0,
+            "starts_mid_line": false,
+            "total_bytes": 174,
+            "total_lines": 8,
+            "try_count": 0
+          }
+        ],
+        "mode": "smali",
+        "next_method_offset": null,
+        "total_methods": 1
+      }
+    }
+  },
+  {
+    "name": "same_content_two_paths",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "identities": {
+        "isError": false,
+        "rows": [
+          [
+            0,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_a.dex",
+            "Ldemo/A;"
+          ],
+          [
+            1,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_a_copy.dex",
+            "Ldemo/A;"
+          ]
+        ]
+      },
+      "counts": {
+        "isError": false,
+        "rows": [
+          [
+            4,
+            2,
+            2
+          ]
+        ]
+      },
+      "descriptor_decode": {
+        "dataset_id": "dataset-4",
+        "error": {
+          "code_unit_offset": null,
+          "file_id": null,
+          "kind": "ambiguous",
+          "message": "method occurs in multiple DEX files; supply file_id from {0, 1}",
+          "method_idx": null
+        }
+      },
+      "key_decode": {
+        "dataset_id": "dataset-4",
+        "method_offset": 0,
+        "methods": [
+          {
+            "access_flags": 9,
+            "code_units": 8,
+            "declaration": ".method public static foo()V",
+            "descriptor": "Ldemo/A;->foo()V",
+            "end_line": 8,
+            "ends_mid_line": false,
+            "file_id": 0,
+            "method_idx": 0,
+            "next_offset": null,
+            "offset": 0,
+            "registers": 1,
+            "smali": ".method public static foo()V\n    .registers 1\n\n    const-string v0, \"needle\"\n    const-string v0, \"needle\"\n    invoke-static {}, Ldemo/B;->bar()V\n    return-void\n.end method\n",
+            "start_line": 0,
+            "starts_mid_line": false,
+            "total_bytes": 174,
+            "total_lines": 8,
+            "try_count": 0
+          }
+        ],
+        "mode": "smali",
+        "next_method_offset": null,
+        "total_methods": 1
+      }
+    }
+  },
+  {
+    "name": "path_plus_symlink",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "identities": {
+        "isError": false,
+        "rows": [
+          [
+            0,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_a.dex",
+            "Ldemo/A;"
+          ],
+          [
+            1,
+            "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/identity_a_link.dex",
+            "Ldemo/A;"
+          ]
+        ]
+      },
+      "counts": {
+        "isError": false,
+        "rows": [
+          [
+            4,
+            2,
+            2
+          ]
+        ]
+      },
+      "descriptor_decode": {
+        "dataset_id": "dataset-5",
+        "error": {
+          "code_unit_offset": null,
+          "file_id": null,
+          "kind": "ambiguous",
+          "message": "method occurs in multiple DEX files; supply file_id from {0, 1}",
+          "method_idx": null
+        }
+      },
+      "key_decode": {
+        "dataset_id": "dataset-5",
+        "method_offset": 0,
+        "methods": [
+          {
+            "access_flags": 9,
+            "code_units": 8,
+            "declaration": ".method public static foo()V",
+            "descriptor": "Ldemo/A;->foo()V",
+            "end_line": 8,
+            "ends_mid_line": false,
+            "file_id": 0,
+            "method_idx": 0,
+            "next_offset": null,
+            "offset": 0,
+            "registers": 1,
+            "smali": ".method public static foo()V\n    .registers 1\n\n    const-string v0, \"needle\"\n    const-string v0, \"needle\"\n    invoke-static {}, Ldemo/B;->bar()V\n    return-void\n.end method\n",
+            "start_line": 0,
+            "starts_mid_line": false,
+            "total_bytes": 174,
+            "total_lines": 8,
+            "try_count": 0
+          }
+        ],
+        "mode": "smali",
+        "next_method_offset": null,
+        "total_methods": 1
+      }
+    }
+  },
+  {
+    "name": "input_identity:server_exit",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  {
+    "name": "quota_close_sequence",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "over_quota": {
+        "error": {
+          "kind": "session_quota_exceeded",
+          "message": "dataset/input-byte quota exhausted; close unused datasets before opening another"
+        }
+      },
+      "listing": {
+        "admitted_requests": 0,
+        "datasets": [
+          {
+            "archive_inputs": [],
+            "dataset_id": "dataset-1",
+            "has_dex": true,
+            "input_bytes": 500,
+            "inputs": [
+              "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/quota_a.dex"
+            ],
+            "prepare_ms": 0.583791
+          }
+        ],
+        "limits": {
+          "max_datasets": 1,
+          "max_dex_bytes": 1073741824,
+          "max_input_bytes": 1073741824,
+          "max_output_bytes": 131072,
+          "max_pending": 16,
+          "max_resource_bytes": 67108864,
+          "max_total_input_bytes": 2147483648,
+          "timeout_ms": 60000
+        },
+        "running_requests": 0,
+        "usage": {
+          "datasets": 1,
+          "input_bytes": 500
+        }
+      },
+      "close": {
+        "closed": true,
+        "dataset_id": "dataset-1"
+      },
+      "query_closed": {
+        "error": {
+          "kind": "unknown_dataset",
+          "message": "dataset \"dataset-1\" is not open; call open_dataset first"
+        }
+      },
+      "close_again": {
+        "error": {
+          "kind": "unknown_dataset",
+          "message": "dataset \"dataset-1\" is not open; call open_dataset first"
+        }
+      },
+      "reopen": {
+        "archive_inputs": [],
+        "dataset_id": "dataset-2",
+        "has_dex": true,
+        "input_bytes": 488,
+        "inputs": [
+          "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/quota_b.dex"
+        ],
+        "prepare_ms": 0.570797
+      }
+    }
+  },
+  {
+    "name": "quota_close:server_exit",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  {
+    "name": "bounded_timeout_and_pending",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "pending_request": {
+        "error": {
+          "kind": "server_busy",
+          "message": "request queue is full; retry after an active request completes"
+        }
+      },
+      "timed_request": {
+        "dataset_id": "dataset-1",
+        "error": {
+          "dataset_closed": true,
+          "kind": "timeout",
+          "message": "running computation was terminated and this dataset was closed; call open_dataset to use it again"
+        }
+      },
+      "datasets": {
+        "admitted_requests": 0,
+        "datasets": [],
+        "limits": {
+          "max_datasets": 4,
+          "max_dex_bytes": 1073741824,
+          "max_input_bytes": 1073741824,
+          "max_output_bytes": 131072,
+          "max_pending": 1,
+          "max_resource_bytes": 67108864,
+          "max_total_input_bytes": 2147483648,
+          "timeout_ms": 250
+        },
+        "running_requests": 0,
+        "usage": {
+          "datasets": 0,
+          "input_bytes": 0
+        }
+      }
+    }
+  },
+  {
+    "name": "bounded_timeout:server_exit",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  {
+    "name": "bounded_cancel",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "list_immediate": {
+        "admitted_requests": 1,
+        "datasets": [
+          {
+            "archive_inputs": [],
+            "dataset_id": "dataset-1",
+            "has_dex": true,
+            "input_bytes": 500,
+            "inputs": [
+              "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final/cancel.dex"
+            ],
+            "prepare_ms": 0.500455
+          }
+        ],
+        "limits": {
+          "max_datasets": 4,
+          "max_dex_bytes": 1073741824,
+          "max_input_bytes": 1073741824,
+          "max_output_bytes": 131072,
+          "max_pending": 16,
+          "max_resource_bytes": 67108864,
+          "max_total_input_bytes": 2147483648,
+          "timeout_ms": 500
+        },
+        "running_requests": 1,
+        "usage": {
+          "datasets": 1,
+          "input_bytes": 500
+        }
+      },
+      "list_settled": {
+        "admitted_requests": 0,
+        "datasets": [],
+        "limits": {
+          "max_datasets": 4,
+          "max_dex_bytes": 1073741824,
+          "max_input_bytes": 1073741824,
+          "max_output_bytes": 131072,
+          "max_pending": 16,
+          "max_resource_bytes": 67108864,
+          "max_total_input_bytes": 2147483648,
+          "timeout_ms": 500
+        },
+        "running_requests": 0,
+        "usage": {
+          "datasets": 0,
+          "input_bytes": 0
+        }
+      },
+      "query_after": {
+        "error": {
+          "kind": "unknown_dataset",
+          "message": "dataset \"dataset-1\" is not open; call open_dataset first"
+        }
+      },
+      "timing_note": "Cancellation sent 20ms after request. Raw progress/response events are retained; phase is not assumed merely from sleep."
+    }
+  },
+  {
+    "name": "bounded_cancel:server_exit",
+    "status": "observed",
+    "scope": "observed on the fixed tiny fixture only",
+    "value": {
+      "returncode": 0,
+      "stderr": ""
+    }
+  }
+]

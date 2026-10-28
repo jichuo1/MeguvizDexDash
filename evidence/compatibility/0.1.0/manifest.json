@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-10-26T10:28:59.514159+00:00",
+  "release": "0.1.0",
+  "server_builds": [
+    "0.1.0"
+  ],
+  "runner_sha256": "d8a1693facc65a1d02bb216c28cc2e15ce7ef7cdc17c6d0a4189124798e6d2f8",
+  "binary_sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+  "binary_path": "/workspace/scratch/acc0e5058f47/research/desktop_v2/dexsql-v0.1.0-linux-amd64",
+  "original_dex_sha256": "1438581dacb486d3f97d707bd927c65379b736d88a091b05322a6e6c04532efc",
+  "valid_changed_dex_sha256": "fa9ead29e4fbdf11ab20d3b5e846763ca38a34ba16f6168d42d39b839406ae67",
+  "source_size": 500,
+  "note": "Semantic observations only. Not a HostLab production performance benchmark. Previous evidence unchanged."
+}

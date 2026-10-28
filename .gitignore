@@ -1,0 +1,9 @@
+/target/
+/.venv/
+/handoff/
+**/__pycache__/
+*.pyc
+.env
+.env.*
+*.apk
+/artifacts/local/

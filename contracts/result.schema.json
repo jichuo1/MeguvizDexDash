@@ -1,0 +1,434 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:meguvizdexdash:result:v1",
+  "title": "MeguvizDexDash result proposed contract",
+  "x-contract-status": "proposed-not-implemented",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_id",
+    "operation",
+    "profile",
+    "sql_dialect",
+    "session_id",
+    "snapshot_id",
+    "catalog_epoch",
+    "query_id",
+    "operation_status",
+    "coverage",
+    "execution",
+    "response",
+    "data",
+    "error",
+    "warnings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "mdd.result.v1"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sql_dialect": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "session_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "snapshot_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "catalog_epoch": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/decimalU64"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "query_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "operation_status": {
+      "enum": [
+        "ok",
+        "error",
+        "cancelled"
+      ]
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "scope_id",
+        "input",
+        "facts",
+        "required_layers",
+        "issues"
+      ],
+      "properties": {
+        "scope_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input": {
+          "enum": [
+            "complete",
+            "partial",
+            "unknown"
+          ]
+        },
+        "facts": {
+          "enum": [
+            "complete",
+            "partial",
+            "unknown"
+          ]
+        },
+        "required_layers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/issue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "required": [
+        "complete"
+      ],
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "response": {
+      "type": "object",
+      "required": [
+        "schema_id",
+        "emitted_rows",
+        "total_rows",
+        "total_rows_exact",
+        "more_available",
+        "truncated",
+        "next_cursor"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "emitted_rows": {
+          "$ref": "#/$defs/decimalU64"
+        },
+        "total_rows": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/decimalU64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "total_rows_exact": {
+          "type": "boolean"
+        },
+        "more_available": {
+          "type": "boolean"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "total_rows_exact": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "total_rows": {
+                "$ref": "#/$defs/decimalU64"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "more_available": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "next_cursor": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "next_cursor": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "data": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "error": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/error"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/issue"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "decimalU64": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]{0,19})$",
+      "description": "Decimal unsigned 64-bit integer. Runtime must also enforce <= 18446744073709551615."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "issue": {
+      "type": "object",
+      "required": [
+        "layer",
+        "reason",
+        "blocking"
+      ],
+      "properties": {
+        "layer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blocking": {
+          "type": "boolean"
+        },
+        "entity_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "member_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "range": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "details": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "error": {
+      "type": "object",
+      "required": [
+        "code",
+        "stage",
+        "message",
+        "retryable",
+        "details"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "UNAVAILABLE_BACKEND",
+            "UNSUPPORTED_CAPABILITY",
+            "UNSUPPORTED_QUERY",
+            "INVALID_ARGUMENT",
+            "INVALID_INPUT",
+            "PARTIAL_INPUT",
+            "INCOMPLETE_FACTS",
+            "SOURCE_CHANGED",
+            "AMBIGUOUS_ENTITY",
+            "STALE_CACHE",
+            "CACHE_CORRUPT",
+            "QUOTA_EXCEEDED",
+            "DEADLINE_EXCEEDED",
+            "CANCELLED",
+            "SNAPSHOT_CLOSED",
+            "INVALID_CURSOR",
+            "INTERNAL_FAULT",
+            "WORKER_LOST"
+          ]
+        },
+        "stage": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "details": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation_status": {
+            "const": "ok"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "error": {
+            "$ref": "#/$defs/error"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation_status": {
+            "const": "cancelled"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "CANCELLED"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code"
+            ],
+            "properties": {
+              "code": {
+                "const": "CANCELLED"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "operation_status": {
+            "const": "cancelled"
+          }
+        }
+      }
+    }
+  ]
+}

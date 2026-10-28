@@ -1,0 +1,1850 @@
+{
+  "schema_version": "mdd.backlog.v1",
+  "product": "MeguvizDexDash",
+  "implementation_state": "not_started",
+  "tasks": [
+    {
+      "id": "MDD-001",
+      "phase": "M0",
+      "title": "冻结源码、输入、二进制与历史证据身份",
+      "status": "todo",
+      "depends_on": [],
+      "owner_role": "证据与集成负责人",
+      "scope": [
+        "冻结 HostLab main 8782f43d537c442905123e35af325c412caa5188 及实际工作区状态",
+        "分别登记生产 DexSQL 0.1.0、候选 0.1.1、公开与授权私有语料，不覆盖历史证据",
+        "建立本项目独立于 DexMeguviz、DexKit 与手机端 Hook 的范围边界"
+      ],
+      "outputs": [
+        "conformance/manifests/source-baseline.json",
+        "conformance/manifests/engine-binaries.json",
+        "conformance/manifests/input-corpus.json",
+        "artifacts/mdd-001/provenance-verification.json"
+      ],
+      "acceptance": [
+        "固定提交、二进制 SHA256、输入 SHA256、来源与可再取得方式；公开语料与受限语料分开登记",
+        "核验包内证据摘要，历史单轮结果、原始观察与本项目未实现状态明确分离",
+        "缺少 APK、权限或 runner 时列出具体受阻 gate，不使用公开小样本冒充完整 HostLab 工作负载",
+        "核心构建不以 DexMeguviz 实现或 DexSQL 二进制为必需依赖"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/00_EVIDENCE_BASELINE.md",
+        "docs/03_HOSTLAB_MIGRATION.md"
+      ]
+    },
+    {
+      "id": "MDD-002",
+      "phase": "M0",
+      "title": "验证并锁定 Rust 工具链、依赖与许可",
+      "status": "todo",
+      "depends_on": [],
+      "owner_role": "构建与架构负责人",
+      "scope": [
+        "在可用目标平台实际验证 Rust stable、MSRV、SQLite 与输入解压等依赖",
+        "固定依赖方向、版本策略、许可证和可选 provider 边界",
+        "评估 Linux/Windows x86_64 构建与分发约束"
+      ],
+      "outputs": [
+        "rust-toolchain.toml",
+        "Cargo.lock",
+        "docs/adr/ADR-001-toolchain-and-boundaries.md",
+        "conformance/manifests/dependencies.json",
+        "artifacts/mdd-002/build-probes.json"
+      ],
+      "acceptance": [
+        "以实际构建记录确定精确版本和编译参数，不能以未核验的最新版替代锁定",
+        "登记直接及传递依赖许可、来源和发布条件；未确认项有具体处理记录",
+        "核心依赖图不反向引用 HostLab、桌面 UI、GitHub 或网络下载实现",
+        "与 DexMeguviz 的未来复用仅通过独立版本包或窄 ABI；当前构建无需等待其实现"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md"
+      ]
+    },
+    {
+      "id": "MDD-003",
+      "phase": "M0",
+      "title": "冻结真实查询、公开关系与三层工具契约",
+      "status": "todo",
+      "depends_on": [
+        "MDD-001"
+      ],
+      "owner_role": "兼容性与 HostLab 负责人",
+      "scope": [
+        "提取 HostLab 17 个必需关系、16 类查询模板及动态参数类别",
+        "分别登记原生 MCP 12 工具、旧 dexq 8 工具、远程编排 12 工具",
+        "建立 56 个公开关系、兼容方言与 profile 的逐项清单"
+      ],
+      "outputs": [
+        "conformance/corpus/hostlab/queries.jsonl",
+        "conformance/manifests/relations.json",
+        "conformance/manifests/tools-and-options.json",
+        "conformance/manifests/profile-requirements.json"
+      ],
+      "acceptance": [
+        "每个必需查询记录源码位置、SQL、参数范围、返回字段与类型、NULL、顺序和重复次数约束",
+        "枚举真实工具名和参数，保留 Smali/Manifest UTF-8 字节分页与资源原字节分页的区别",
+        "明确实际 HostLab 已调用的五个原生工具与完整产品十二工具之间的范围差异",
+        "记录 cf.*、cm.* 等通配列的完整 schema，不能以当前业务只读的少数列代替兼容契约",
+        "profile 和 sql_dialect 分开；必需查询缺口列为阻断项，非必需扩展按能力单独登记"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/00_EVIDENCE_BASELINE.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md"
+      ]
+    },
+    {
+      "id": "MDD-004",
+      "phase": "M0",
+      "title": "建立独立 oracle、边界语料与变形验证方案",
+      "status": "todo",
+      "depends_on": [],
+      "owner_role": "独立验证负责人",
+      "scope": [
+        "以固定规范和独立实现建立小型 DEX/APK/AXML fixture 与手工期望",
+        "覆盖来源、多 DEX、重复引用、字符串、指令、损坏和生命周期边界",
+        "规划 fuzz 种子及与完整业务报告互补的验证层"
+      ],
+      "outputs": [
+        "tests/fixtures/manifest.json",
+        "conformance/oracles/README.md",
+        "conformance/oracles/expected-results.json",
+        "conformance/manifests/metamorphic-cases.json",
+        "artifacts/mdd-004/fixture-reproducibility.json"
+      ],
+      "acceptance": [
+        "可重复生成合法与明确无效语料，分别保存生成器、输入摘要、手工预期和独立 oracle 身份",
+        "包含 MUTF-8 NUL/代理项、ULEB/SLEB 溢出、相同局部 ID 跨 DEX、重复调用点、无 body、payload/try-catch 等反例",
+        "区分无效输入、未知格式、不完整事实与正常空结果；036/041 不靠数字连续假定支持",
+        "变形用例包括输入次序、逻辑重复来源、成员重命名、同大小同 mtime 内容变化以及保留语义的重排",
+        "独立 oracle 不复用被测解析核心，合成 DEX 语料不被描述为可安装 Android APK"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/00_EVIDENCE_BASELINE.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-005",
+      "phase": "M0",
+      "title": "建立 A0/A1/A2 配对基线与阶段计时方案",
+      "status": "todo",
+      "depends_on": [
+        "MDD-001",
+        "MDD-003",
+        "MDD-004"
+      ],
+      "owner_role": "性能与独立验证负责人",
+      "scope": [
+        "定义 A0 固定生产 0.1.0、A1 经验证的 0.1.1、A2 最佳可用现成接口/配置",
+        "冻结完整审计、交互查询、大表导出、批处理、缓存和取消工作负载",
+        "测量完整 wall time 及可观测阶段，保留不可拆分残差"
+      ],
+      "outputs": [
+        "benchmarks/baseline-manifest.json",
+        "benchmarks/run-existing-baselines.py",
+        "benchmarks/measurement-schema.json",
+        "artifacts/mdd-005/baseline-runs.jsonl",
+        "artifacts/mdd-005/baseline-qualification.json"
+      ],
+      "acceptance": [
+        "记录每轮输入、引擎、源码、配置、缓存状态、线程预算与机器身份，并采用交替或随机配对顺序",
+        "A0/A1/A2 均在完整结果等价后才作为有效速度样本；失败、超时与缺样本单列；A2 不可部署或不满足语义时记录具体排除原因，最佳现成对照从实际合格路径选择",
+        "prepare 计时不冒充纯 parser 成本；CLI producer 与 Python consumer 的重叠不串行相加",
+        "保留历史每个 APK 仅一轮的边界；新基线没有真实运行时标为 blocked，不生成 p95 或置信承诺",
+        "确定同环境性能阈值与统计方法；37%/47% 仅是完整阶段条件目标，不记为实测成绩"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/00_EVIDENCE_BASELINE.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-006",
+      "phase": "M0",
+      "title": "通过 SQL 桥、结果契约与能力准入 ADR",
+      "status": "todo",
+      "depends_on": [
+        "MDD-002",
+        "MDD-003",
+        "MDD-004"
+      ],
+      "owner_role": "核心架构与查询负责人",
+      "scope": [
+        "对固定 SQLite 只读 virtual-table 桥做有限、可退出的语义实验",
+        "锁定 mdd.result.v1、mdd.capabilities.v1、错误分类和版本策略",
+        "建立 profile 资格与实现路线的阻断条件"
+      ],
+      "outputs": [
+        "docs/adr/ADR-002-sql-bridge.md",
+        "docs/adr/ADR-003-results-and-capabilities.md",
+        "conformance/manifests/capability-ledger.json",
+        "artifacts/mdd-006/sql-bridge-probes.json"
+      ],
+      "acceptance": [
+        "使用真实 corpus 的代表性 NULL、CAST、LIKE/ESCAPE、字符串、JOIN、聚合、CTE、排序与 TEMP 反例，记录通过和失败表达式",
+        "确定损失零容忍的文本/UTF-16 表示及必要 AST/UDF/collation 适配；不得用正则改写 SQL",
+        "虚表 omit、orderByConsumed 和 LIMIT/OFFSET 下推默认保守，只有等价证据才启用",
+        "若桥无法支持必需查询，记录替代执行器与退出条件；保留 facts/typed IR 边界，不以整程 fallback 签发 HostLab 资格",
+        "结果固定 operation_status、三态 coverage、execution.complete 与分页状态分离；catalog_epoch 为十进制 u64 字符串；未验证 profile 不 admitted"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-010",
+      "phase": "M1",
+      "title": "创建可构建 workspace 与版本能力入口",
+      "status": "todo",
+      "depends_on": [
+        "MDD-002",
+        "MDD-006"
+      ],
+      "owner_role": "核心构建负责人",
+      "scope": [
+        "建立实际有职责的 mdd-* workspace 模块和统一版本",
+        "落实核心依赖方向、错误类型和 schema 类型",
+        "提供版本与能力发现的最小真实入口"
+      ],
+      "outputs": [
+        "Cargo.toml",
+        "crates/mdd-types/",
+        "crates/mdd-cli/",
+        "conformance/check-workspace-boundaries.py",
+        "artifacts/mdd-010/build-and-capabilities.json"
+      ],
+      "acceptance": [
+        "在锁定工具链下离线可重现依赖解析与构建，记录目标和构建身份",
+        "能力入口只列实际实现和已验证的版本、输入格式、关系及工具，不预宣称完整替代",
+        "标准错误与三态 coverage 类型可独立序列化/反序列化，并通过 schema 校验",
+        "以不含 BIL 业务配置的公共用例验证核心独立性；无 DexSQL 二进制仍可构建"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md"
+      ]
+    },
+    {
+      "id": "MDD-011",
+      "phase": "M1",
+      "title": "实现受校验的自有输入快照与来源身份",
+      "status": "todo",
+      "depends_on": [
+        "MDD-001",
+        "MDD-004",
+        "MDD-010"
+      ],
+      "owner_role": "输入与生命周期负责人",
+      "scope": [
+        "从原始 DEX/APK 建立自有字节或私有内容对象",
+        "区分来源实例、物理内容对象、逻辑 DEX 与 snapshot-local ID",
+        "定义修改、替换、重命名、消失的行为与诊断"
+      ],
+      "outputs": [
+        "crates/mdd-input/src/snapshot/",
+        "crates/mdd-types/src/source_identity.rs",
+        "conformance/input/source-mutation-cases.json",
+        "artifacts/mdd-011/snapshot-isolation.json"
+      ],
+      "acceptance": [
+        "查询、解码和指纹始终读取同一快照字节；外部只读 mmap 不被视为不可变保证",
+        "同大小同 mtime 改写、原路径替换、重命名与删除不会混合新旧事实；按契约隔离或明确 SOURCE_CHANGED",
+        "内容摘要与逻辑来源多重性都保留；同内容输入两次不得静默去重为一条来源",
+        "所有权和存活期明确，无借用超过输入对象生命周期；错误不降格为空快照"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-012",
+      "phase": "M1",
+      "title": "实现 ZIP/APK 多成员清点与有界解压",
+      "status": "todo",
+      "depends_on": [
+        "MDD-011"
+      ],
+      "owner_role": "输入与容器负责人",
+      "scope": [
+        "清点 APK/ZIP 中全部声明范围内 DEX 和资源成员",
+        "处理 stored/deflated、成员顺序、同名项及多 DEX 来源映射",
+        "对解压、长度和成员范围施加预算并报告覆盖"
+      ],
+      "outputs": [
+        "crates/mdd-input/src/archive/",
+        "conformance/input/archive-cases.json",
+        "artifacts/mdd-012/inventory-and-extraction.json"
+      ],
+      "acceptance": [
+        "保持物理成员索引、成员名、内容身份、逻辑输入次序与重复性，file_id 仅作快照内兼容映射",
+        "单个无效 magic/CRC/损坏成员被诊断并影响 input coverage，不能静默跳过后宣称完整",
+        "先验证长度、偏移与压缩输出预算，再分配/暴露 slice；超额返回明确预算错误",
+        "原始资源字节可按身份读取，raw DEX 与资源专用输入的支持范围由 profile 明确",
+        "多 DEX 和逻辑重复来源 fixture 与独立 inventory 结果一致"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-013",
+      "phase": "M1",
+      "title": "实现标准 DEX header、版本与边界校验",
+      "status": "todo",
+      "depends_on": [
+        "MDD-004",
+        "MDD-011"
+      ],
+      "owner_role": "DEX 格式负责人",
+      "scope": [
+        "实现确切标准版本 035、037、038、039、040 的基础 reader",
+        "验证 endian、header、map、表区域、索引、checked arithmetic 和截断",
+        "为 041/036/特殊格式保留明确未支持边界"
+      ],
+      "outputs": [
+        "crates/mdd-dex/src/header.rs",
+        "crates/mdd-dex/src/checked_reader.rs",
+        "conformance/dex/header-and-version-cases.json",
+        "artifacts/mdd-013/format-validation.json"
+      ],
+      "acceptance": [
+        "支持矩阵按版本逐一验证，036 与 041 不因数字范围被接纳为已支持",
+        "读取前证明区间合法，整数加乘、count 和 offset 溢出返回具体诊断而非 panic/越界",
+        "坏 magic、截断、非法 map、反向/越界引用与不支持版本有可区分结果及 coverage",
+        "合法最小 DEX 独立解析成功，完全不调用 DexSQL 获取自身事实",
+        "诊断保留来源、区间和失败层，不能将部分事实称为全文件完整"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-014",
+      "phase": "M1",
+      "title": "实现快照、会话、句柄和 worker 生命周期骨架",
+      "status": "todo",
+      "depends_on": [
+        "MDD-010",
+        "MDD-011"
+      ],
+      "owner_role": "会话与运行时负责人",
+      "scope": [
+        "建立 snapshot/session/query 的所有权、代次和关闭规则",
+        "实现 worker 隔离与 supervisor 的基础终止传播",
+        "准备并发访问、旧句柄与重复关闭的明确行为"
+      ],
+      "outputs": [
+        "crates/mdd-session/",
+        "crates/mdd-worker/src/lifecycle/",
+        "conformance/session/lifetime-cases.json",
+        "artifacts/mdd-014/lifecycle-checks.json"
+      ],
+      "acceptance": [
+        "创建/关闭顺序覆盖 close_session、close_snapshot、未完成查询和遗留 cursor；不能出现悬挂借用或跨会话串用",
+        "句柄绑定 owner、代次与对象类型；旧句柄和错误 owner 明确失败",
+        "worker crash/IPC 断开使所有受影响未完成请求收到终态，不能被当 EOF 成功",
+        "基础线程与资源上限由统一预算传递，snapshot 与 session 的边界不混为同一概念"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-020",
+      "phase": "M2",
+      "title": "实现字符串、类型、原型和局部 ID 事实",
+      "status": "todo",
+      "depends_on": [
+        "MDD-013"
+      ],
+      "owner_role": "DEX 元数据负责人",
+      "scope": [
+        "读取 string_data/string_ids、type_ids、proto_ids 与 type_lists",
+        "保留 MUTF-8 原始编码与 UTF-16 语义",
+        "建立来源作用域内的稳定事实引用"
+      ],
+      "outputs": [
+        "crates/mdd-dex/src/strings.rs",
+        "crates/mdd-dex/src/types.rs",
+        "crates/mdd-facts/src/metadata.rs",
+        "artifacts/mdd-020/metadata-conformance.json"
+      ],
+      "acceptance": [
+        "NUL、补充平面和孤立代理项不经有损 UTF-8 替换；展示转换与相等性明确分离",
+        "ULEB/SLEB 长度、声明 UTF-16 长度及所有引用索引验证有明确反例",
+        "相同 string_idx/type_idx 在不同来源不混同，string_pool_id 关联可重建",
+        "原型返回类型、参数次序、空参数列表与 descriptor 跟独立 fixture 逐字段一致"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-021",
+      "phase": "M2",
+      "title": "实现类、字段、方法定义与声明顺序",
+      "status": "todo",
+      "depends_on": [
+        "MDD-020"
+      ],
+      "owner_role": "DEX 定义与关系负责人",
+      "scope": [
+        "读取 class_defs/class_data、字段、方法、接口和继承关系",
+        "区分 method_id 引用、真正定义、direct/virtual 方法及无 body",
+        "保留访问标志、声明序列和重复 descriptor 的来源歧义"
+      ],
+      "outputs": [
+        "crates/mdd-dex/src/definitions.rs",
+        "crates/mdd-facts/src/definitions.rs",
+        "conformance/relations/definitions.json",
+        "artifacts/mdd-021/definition-conformance.json"
+      ],
+      "acceptance": [
+        "classes、class_interfaces、class_fields、class_methods、methods 的必需列及通配 schema 有真实来源映射",
+        "方法签名、静态/实例字段、direct/virtual 编码次序和 delta 索引正确还原",
+        "相同 descriptor 的多来源定义不静默合并；只有引用无定义的外部成员仍被保留",
+        "abstract/native/no-body 与正常零长度结果分离；非法索引及重复非法布局诊断可定位"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-022",
+      "phase": "M2",
+      "title": "实现注解、encoded values 与泛型签名",
+      "status": "todo",
+      "depends_on": [
+        "MDD-020",
+        "MDD-021"
+      ],
+      "owner_role": "DEX 注解负责人",
+      "scope": [
+        "读取 annotation_directory、set、annotation_item 和 encoded values",
+        "支持 HostLab Signature 必需层级、元素和字符串拼接顺序",
+        "保留值类型、visibility、owner 和递归边界"
+      ],
+      "outputs": [
+        "crates/mdd-dex/src/annotations.rs",
+        "crates/mdd-facts/src/annotations.rs",
+        "conformance/relations/annotation-and-signature.json",
+        "artifacts/mdd-022/annotation-conformance.json"
+      ],
+      "acceptance": [
+        "annotation_directory_entries、annotation_set_entries、annotations、annotation_elements 逐列满足冻结 schema",
+        "Signature 多字符串段的声明顺序与 string_pool_id 关联正确，不能以排序后拼接代替",
+        "encoded array/annotation/null/boolean/数值及索引类型保留，未知或越界值不当空字符串",
+        "嵌套深度、长度和错误归属有界；方法/字段/类与参数注解不混同"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-023",
+      "phase": "M2",
+      "title": "实现指令、payload、异常与代码布局解码",
+      "status": "todo",
+      "depends_on": [
+        "MDD-013",
+        "MDD-020"
+      ],
+      "owner_role": "DEX 指令与控制流负责人",
+      "scope": [
+        "按冻结指令表解码生产涉及的全部标准 opcode 和格式",
+        "保留 ordinary/range invoke、polymorphic/custom、handles、switch/array payload",
+        "读取 code_item、try/catch、debug 与精确位置单位"
+      ],
+      "outputs": [
+        "crates/mdd-dex/src/instructions/",
+        "crates/mdd-facts/src/code.rs",
+        "conformance/dex/instruction-matrix.json",
+        "artifacts/mdd-023/instruction-conformance.json"
+      ],
+      "acceptance": [
+        "byte_offset、code_unit_offset、instruction_ordinal 分开；insns_size 按 16 位 code unit 计算",
+        "分支、payload 对齐/目标、寄存器范围、操作数宽度、try/catch 范围均通过独立边界 fixture",
+        "invoke-polymorphic 的 method/proto 与 invoke-custom 的 call site 不被误写为确定普通调用",
+        "未知 opcode、截断或无法证明完整的 code_item 明确标为对应事实层不完整，不能跳过并返回完整事实",
+        "保留 raw bytes 与布局引用，后续 Smali/CFG 不从格式化文本反推原始代码"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-024",
+      "phase": "M2",
+      "title": "建立调用点、字符串、字段和类型引用事实",
+      "status": "todo",
+      "depends_on": [
+        "MDD-021",
+        "MDD-023"
+      ],
+      "owner_role": "事实图与引用负责人",
+      "scope": [
+        "从受校验指令建立逐调用点与逐引用点事实",
+        "实现 method_strings、method_calls、method_field_accesses、method_used_types",
+        "保留跨 DEX 局部索引作用域、未知目标和多重性"
+      ],
+      "outputs": [
+        "crates/mdd-facts/src/references.rs",
+        "conformance/relations/reference-multiplicity.json",
+        "artifacts/mdd-024/reference-conformance.json"
+      ],
+      "acceptance": [
+        "同方法重复引用同字符串或 callee 的次数和位置保留，COUNT(*) 不退化为去重边数",
+        "所有 JOIN 使用完整来源作用域，不以单独 method_idx/string_idx 跨 DEX 关联",
+        "外部未定义 callee、歧义定义、动态未知目标各有明确表示，不制造不存在的确定边",
+        "每条事实可追溯至原始位置；优化后的索引结果与标量全扫及手工小 fixture 一致"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-025",
+      "phase": "M2",
+      "title": "实现原始代码/资源指纹与必需 Manifest 事实",
+      "status": "todo",
+      "depends_on": [
+        "MDD-012",
+        "MDD-021",
+        "MDD-023"
+      ],
+      "owner_role": "原始证据与资源负责人",
+      "scope": [
+        "按 HostLab 契约读取原始 insns bytes 和原始资源成员",
+        "实现 HostLab get_manifest 所需 AXML/文本 XML 解析表示",
+        "建立 snapshot 绑定的资源定位与 byte fingerprint provider"
+      ],
+      "outputs": [
+        "crates/mdd-facts/src/raw_fingerprints.rs",
+        "crates/mdd-input/src/manifest/",
+        "conformance/resources/hostlab-required.json",
+        "artifacts/mdd-025/raw-evidence-conformance.json"
+      ],
+      "acceptance": [
+        "方法定位、insns_off 和 insns_size×2 原始字节指纹与现有独立门禁逐项一致；无 body 语义不混同空字节",
+        "资源指纹来自原始成员字节，不来自重排 XML、Smali 或反编译文本",
+        "Manifest 命名空间、typed 属性、组件和权限在冻结 HostLab 请求中有独立预期，坏 AXML 不返回空成功",
+        "Manifest/资源读取与 query/decode 使用相同 snapshot；外部源改变不产生混合证据",
+        "只声明已验必需范围；完整 resources.arsc 与公开资源工具由 MDD-072 补齐"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-026",
+      "phase": "M2",
+      "title": "建立必要候选索引并签发事实层完整性",
+      "status": "todo",
+      "depends_on": [
+        "MDD-021",
+        "MDD-022",
+        "MDD-024",
+        "MDD-025"
+      ],
+      "owner_role": "事实索引与独立验证负责人",
+      "scope": [
+        "为必需查询建立可按需构建的字符串、定义、引用和 owner 索引",
+        "根据 required_layers 计算事实覆盖，禁止索引近似替代精确事实",
+        "完成 M2 必需事实的独立逐层 conformance"
+      ],
+      "outputs": [
+        "crates/mdd-facts/src/indexes/",
+        "crates/mdd-facts/src/coverage.rs",
+        "conformance/manifests/hostlab-fact-qualification.json",
+        "artifacts/mdd-026/facts-differential.json"
+      ],
+      "acceptance": [
+        "候选索引不得漏召回；所有近似候选通过精确谓词验证后才进入结果",
+        "惰性构建、并发首次建立和错误重试有单一可审计终态，不将未建索引解释为零事实",
+        "required_layers 与 scope_id 的 input/facts 三态 coverage 可重算，任何必需层失败阻断完整结果",
+        "所有 HostLab 必需事实均有字段/类型、NULL、顺序、重复性、来源和 raw 指纹证据",
+        "通过手工 fixture、独立 oracle 与标量路径交叉核验，不能只让同一个 parser 比较自身输出"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-030",
+      "phase": "M3",
+      "title": "实现类型化查询 IR 与基础执行算子",
+      "status": "todo",
+      "depends_on": [
+        "MDD-010",
+        "MDD-020",
+        "MDD-021"
+      ],
+      "owner_role": "查询执行负责人",
+      "scope": [
+        "建立可序列化版本化 typed IR 与类型检查",
+        "实现扫描、投影、精确过滤、集合筛选、JOIN、聚合和排序的必需算子",
+        "让直接 SDK 请求与 SQL 桥共享 facts/index"
+      ],
+      "outputs": [
+        "crates/mdd-query/src/ir/",
+        "crates/mdd-query/src/operators/",
+        "conformance/query/typed-ir-cases.json",
+        "artifacts/mdd-030/typed-query-conformance.json"
+      ],
+      "acceptance": [
+        "IR 不包含 BIL family/protocol/FEATURE 分类，不把业务模板硬编码成答案",
+        "空集、NULL、重复行、多来源键、稳定要求与类型错误有确定语义",
+        "算子结果与独立小表 oracle 对照，流式与保守全物化参考路径一致",
+        "执行计划记录事实需求与候选访问，后续预算/取消可在可控检查点介入"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-031",
+      "phase": "M3",
+      "title": "实现固定 SQLite 只读虚表兼容桥",
+      "status": "todo",
+      "depends_on": [
+        "MDD-006",
+        "MDD-030"
+      ],
+      "owner_role": "SQL 兼容负责人",
+      "scope": [
+        "实现固定 SQLite 版本的事实虚表、planner 回调和 cursor",
+        "落实 ADR-002 的值表示、方言、函数和必要 AST 适配",
+        "拒绝修改受校验事实的 SQL，TEMP catalog 单独授权"
+      ],
+      "outputs": [
+        "crates/mdd-sql/src/virtual_tables/",
+        "crates/mdd-sql/src/dialects/",
+        "conformance/query/sql-semantics.json",
+        "artifacts/mdd-031/sql-bridge-conformance.json"
+      ],
+      "acceptance": [
+        "不进行全量 facts ETL 作为默认访问方式，装载或惰性构建成本均在测量内",
+        "NULL、CAST、LIKE/ESCAPE、字符串长度、比较、聚合、ORDER、JOIN/CTE 对各声明方言逐项验证",
+        "omit、orderByConsumed、LIMIT/OFFSET 和 IN 下推只在完整等价证据下启用；候选过滤不谎报精确处理",
+        "语法/绑定/输入错误与真正 unsupported 分开，不以正则改写 SQL 改变用户语义",
+        "所有查询绑定统一 snapshot/session；兼容失败保留具体反例并阻断对应 profile"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-032",
+      "phase": "M3",
+      "title": "完成 HostLab 十七关系与必需 SQL corpus",
+      "status": "todo",
+      "depends_on": [
+        "MDD-012",
+        "MDD-020",
+        "MDD-021",
+        "MDD-022",
+        "MDD-023",
+        "MDD-024",
+        "MDD-025",
+        "MDD-031"
+      ],
+      "owner_role": "HostLab 查询兼容负责人",
+      "scope": [
+        "将全部 HostLab 必需关系完整映射至兼容表",
+        "覆盖冻结十六类模板与实际参数、schema 探测和 helper 查询",
+        "验证多 DEX 关联、泛型、调用统计和 surface 查询"
+      ],
+      "outputs": [
+        "crates/mdd-sql/src/profiles/hostlab.rs",
+        "conformance/corpus/hostlab/expected-results/",
+        "artifacts/mdd-032/hostlab-query-matrix.json"
+      ],
+      "acceptance": [
+        "dex_files、strings、types、classes、class_interfaces、class_fields、class_methods、methods、四类 annotation 关系及四类 code/reference 关系和 method_strings 全部满足冻结列契约",
+        "所有必需模板、动态参数类别与 helper 语句均执行完整，不能因主 SQL 通过而遗漏 schema/hex/marker 请求",
+        "跨 DEX 字符串关联、COUNT(*) 多重性、泛型顺序、cf.*/cm.* 列和 raw code 单位均有反例验证",
+        "LIKE 等候选条件保留既有 Python 精确分类所需的完整候选超集",
+        "任何必需查询 unsupported、少行、错误 NULL 或缺事实使任务不通过；不调用旧引擎生成本引擎结果"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-033",
+      "phase": "M3",
+      "title": "实现会话 TEMP catalog 与快照绑定分页",
+      "status": "todo",
+      "depends_on": [
+        "MDD-014",
+        "MDD-030",
+        "MDD-031"
+      ],
+      "owner_role": "会话与查询负责人",
+      "scope": [
+        "实现 session-local TEMP 定义、依赖、DROP/重定义及目录代次",
+        "实现原生 cursor 与兼容 offset 重执行的不同契约",
+        "固定 query/schema/source 身份并防止页间串用"
+      ],
+      "outputs": [
+        "crates/mdd-session/src/catalog.rs",
+        "crates/mdd-session/src/cursors.rs",
+        "conformance/session/catalog-and-paging.json",
+        "artifacts/mdd-033/paging-isolation.json"
+      ],
+      "acceptance": [
+        "cursor 同时绑定 snapshot、session、catalog_epoch、query 和 schema；跨作用域或旧代次明确失败",
+        "catalog_epoch 使用十进制 u64 字符串；不能把运行中 cursor 暗中迁移到新 TEMP 定义",
+        "同 SQL、相同 row count/schema 的来源变化仍不能拼接混合页面",
+        "兼容 offset 的重执行成本和稳定性边界明确；原生快照 cursor 不被伪装为该行为",
+        "TEMP 自有 catalog 遵循已验证 profile；循环、IF NOT EXISTS、DROP、重定义和跨会话隔离有准确错误"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-034",
+      "phase": "M3",
+      "title": "实现预算、取消、背压与完整结果终态",
+      "status": "todo",
+      "depends_on": [
+        "MDD-014",
+        "MDD-030"
+      ],
+      "owner_role": "运行时与完整性负责人",
+      "scope": [
+        "统一输入、解压、事实、查询、输出、队列和内存预算",
+        "实现 query 级取消、软/硬 deadline 与 supervisor 传播",
+        "落实 mdd.result.v1 的覆盖、执行、响应和错误状态"
+      ],
+      "outputs": [
+        "crates/mdd-query/src/budget.rs",
+        "crates/mdd-session/src/cancellation.rs",
+        "crates/mdd-types/src/result.rs",
+        "artifacts/mdd-034/budget-and-terminal-states.json"
+      ],
+      "acceptance": [
+        "operation_status、input/facts 三态 coverage、execution.complete 与 more_available/truncated/next_cursor 独立可验证",
+        "预算耗尽和 deadline 不返回普通 EOF；部分行之后仍发出明确失败终态，消费者不得当完整成功",
+        "原生 cancel 仅影响目标 query；SQLite connection 的 interrupt 隔离有实证，强杀 worker 明确影响该 worker 全部未完成任务",
+        "兼容能力使用 compat_cancel_closes_dataset 字段逐 profile 声明并验证，不混同原生取消",
+        "仅 UNAVAILABLE_BACKEND、UNSUPPORTED_CAPABILITY、UNSUPPORTED_QUERY 可按显式等价策略 fallback；完整性、源变化、配额、取消和内部故障不得静默切换"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-035",
+      "phase": "M3",
+      "title": "完成必需查询组合验证与 profile 准入门禁",
+      "status": "todo",
+      "depends_on": [
+        "MDD-026",
+        "MDD-032",
+        "MDD-033",
+        "MDD-034"
+      ],
+      "owner_role": "独立查询验证负责人",
+      "scope": [
+        "组合验证 facts、SQL/typed IR、TEMP、分页和预算",
+        "建立 hostlab-audit-v1 查询层资格及兼容 profile 分项状态",
+        "检查完整性与错误在所有查询路径一致传播"
+      ],
+      "outputs": [
+        "conformance/run-required-query-suite.py",
+        "conformance/manifests/query-profile-qualification.json",
+        "artifacts/mdd-035/required-query-results.json"
+      ],
+      "acceptance": [
+        "冻结 HostLab 全部必需语句在完整 facts 上逐字段、逐类型、重复性和要求的顺序一致",
+        "complete 只有在 required scope 的 input/facts 完整、执行完成且无剩余页时成立",
+        "同一请求在 typed IR、SQL 桥与保守参考路径之间没有静默语义差异",
+        "分页/取消/TEMP/损坏输入组合反例通过，失败和未知格式不被记作正常 MISSING",
+        "仅登记查询层通过，整个 hostlab-audit-v1 工作流需 MDD-055 后才可宣称可替代"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-040",
+      "phase": "M4",
+      "title": "实现版本化 JSON 批与隔离 worker 协议",
+      "status": "todo",
+      "depends_on": [
+        "MDD-014",
+        "MDD-033",
+        "MDD-034"
+      ],
+      "owner_role": "协议与 worker 负责人",
+      "scope": [
+        "实现 mdd-wire/1 framing、协商、结构化 JSON 批与终态",
+        "接入 bounded queue、背压、断链和 worker 回收",
+        "区分 stderr 日志、MCP JSON stdout 与专用机器通道"
+      ],
+      "outputs": [
+        "crates/mdd-wire/",
+        "crates/mdd-worker/src/protocol/",
+        "conformance/protocol/wire-v1-cases.json",
+        "artifacts/mdd-040/wire-conformance.json"
+      ],
+      "acceptance": [
+        "帧长度、版本、schema、来源和预算可验证；半帧、超长帧、乱序和重复终态有明确失败",
+        "NULL、整数精度、UTF-16/MUTF-8 展示边界、空批与重复行不因编码丢失",
+        "消费者停读或取消时生产者有界停滞/退出，队列不能无限增长",
+        "收到行批不等于完成；所有已接收批与终态行数/摘要一致后才能提交结果",
+        "MCP stdout 只承载合法 JSON 协议；二进制批不混入该流"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-041",
+      "phase": "M4",
+      "title": "实现 CLI、机器输出与 B0 对照入口",
+      "status": "todo",
+      "depends_on": [
+        "MDD-035",
+        "MDD-040"
+      ],
+      "owner_role": "CLI 与集成负责人",
+      "scope": [
+        "提供真实自有引擎 CLI 的查询、输入和版本入口",
+        "提供机器 JSON 批与明确版本的人读输出，兼容展示能力按需声明",
+        "使 B0 保持原 HostLab DTO 与请求调度进行真实联动对照，wire 选择单独记录"
+      ],
+      "outputs": [
+        "crates/mdd-cli/src/",
+        "conformance/cli/command-and-output-cases.json",
+        "benchmarks/hostlab-b0-pipeline.py",
+        "artifacts/mdd-041/cli-pipeline-conformance.json"
+      ],
+      "acceptance": [
+        "全部结果由本引擎事实执行获得，不能调用 DexSQL 作为隐藏 producer",
+        "CLI 退出码、stdout/stderr、错误、空结果、完整/截断状态有冻结契约",
+        "B0 通过适配器恢复相同 DTO、请求次序和业务消费边界；不强制模拟旧 Unicode 表格 wire，若采用旧 CliSession 路径则如实记录 64 KiB 读取和有界队列条件",
+        "B0 计时覆盖实际 producer→传输→完整 DTO 消费，wire、序列化与 producer 实现差异逐项登记；相同 DTO/调度不被称为隔离了纯 core 收益",
+        "人读格式与机器格式各自明确支持范围，未实现兼容选项不返回伪成功"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-042",
+      "phase": "M4",
+      "title": "实现原生 MCP 必需工具与 decode/Manifest 纵向能力",
+      "status": "todo",
+      "depends_on": [
+        "MDD-023",
+        "MDD-025",
+        "MDD-035",
+        "MDD-040"
+      ],
+      "owner_role": "MCP 与展示层负责人",
+      "scope": [
+        "实现 open_dataset、list_datasets、close_dataset、list_tables、describe_table、query、decode、get_manifest",
+        "完成 HostLab 实际使用的 Smali/decode 与 Manifest 请求参数",
+        "将未完成资源能力留待 MDD-072，不注册伪成功工具"
+      ],
+      "outputs": [
+        "crates/mdd-mcp/",
+        "crates/mdd-facts/src/smali_required/",
+        "conformance/mcp/hostlab-required-tools.json",
+        "artifacts/mdd-042/mcp-required-conformance.json"
+      ],
+      "acceptance": [
+        "HostLab 实际五工具 open_dataset/query/decode/get_manifest/close_dataset 逐请求响应等价，检查 discovery 三工具的真实 schema",
+        "decode 生成生产涉及指令、方法上下文与必要声明，不能返回占位文本或只有 opcode",
+        "Smali/Manifest 展示分页保留 UTF-8 字节 offset、行数和权限列表各自单位，不与原始 DEX byte_offset 混用",
+        "工具所有权、配额、关闭、错误和 source 身份通过真实 MCP JSON-RPC 联动验证",
+        "M4 capability 只登记通过项；未实现 get_manifest_components/list_resource_files/read_resource/query_resources 明确不可用或不注册"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-043",
+      "phase": "M4",
+      "title": "实现通用 Python SDK 与稳定 C ABI",
+      "status": "todo",
+      "depends_on": [
+        "MDD-014",
+        "MDD-034",
+        "MDD-040"
+      ],
+      "owner_role": "SDK 与 ABI 负责人",
+      "scope": [
+        "提供 snapshot/session/query/cursor 的通用 Python API",
+        "提供 mdd_* ABI major 1 的长度、所有权、错误和释放规则",
+        "统一异常、状态、预算和资源释放映射"
+      ],
+      "outputs": [
+        "python/",
+        "crates/mdd-ffi/",
+        "include/mdd.h",
+        "conformance/abi/ownership-cases.json",
+        "artifacts/mdd-043/sdk-and-abi-conformance.json"
+      ],
+      "acceptance": [
+        "open_snapshot/open_session/prepare_query/start_query/next_batch/cancel_query/close_session/close_snapshot 有实际实现及版本协商",
+        "跨 ABI 传递对象不暴露 Rust 私有布局；buffer 由明确 allocator/owner 释放，重复释放与旧句柄不产生未定义访问",
+        "Python 保留 NULL、精确整数、来源、重复性、错误代码和最终 coverage，不把缺页当空列表",
+        "并发、取消、GC/显式关闭、异常退出与 worker lost 有有界清理证据",
+        "不导入 HostLab/BIL 业务包即可读取通用公开 fixture"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-044",
+      "phase": "M4",
+      "title": "验证真实生产消费管道并评估可选列批",
+      "status": "todo",
+      "depends_on": [
+        "MDD-035",
+        "MDD-040",
+        "MDD-041",
+        "MDD-042",
+        "MDD-043"
+      ],
+      "owner_role": "协议性能与独立验证负责人",
+      "scope": [
+        "贯通 CLI/MCP/SDK 的实际 OS 管道与完整结果消费",
+        "比较已正确 JSON 批与可选列批表示",
+        "校验 schema、行数、NULL、重复性和数据摘要"
+      ],
+      "outputs": [
+        "benchmarks/producer-consumer-pipeline.py",
+        "conformance/protocol/column-batch-cases.json",
+        "artifacts/mdd-044/pipeline-runs.jsonl",
+        "artifacts/mdd-044/encoding-decision.json"
+      ],
+      "acceptance": [
+        "至少包含完整 55,763 行公开方法导出工作负载及小型 Unicode/NULL/重复数据反例，按固定输入摘要定位",
+        "计时从约定启动/初始化边界到完整应用对象或终态，不把离线 consumer 回放当真实管道",
+        "JSON 与候选列批恢复的字段、类型、完整行数和 canonical hash 相同；任何失真否决该编码",
+        "分别报告 wire bytes、排队、CPU 和真实峰值内存；编码体积不能直接推算整体 RSS",
+        "列批若没有证明优势可保持禁用；MCP 仍使用 JSON，二进制仅经专用 worker/SDK"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/00_EVIDENCE_BASELINE.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-050",
+      "phase": "M5",
+      "title": "新增 HostLab 后端选择、安装与契约适配层",
+      "status": "todo",
+      "depends_on": [
+        "MDD-003",
+        "MDD-041",
+        "MDD-042",
+        "MDD-043"
+      ],
+      "owner_role": "HostLab 集成负责人",
+      "scope": [
+        "映射 HL-03/HL-04/HL-05：独立 backend meguvizdexdash 与安装校验",
+        "分离 engine implementation、SQL dialect、profile 和能力协商",
+        "保持既有路径、权限与显式 fallback 策略"
+      ],
+      "outputs": [
+        "integrations/hostlab/provider.py",
+        "integrations/hostlab/install_meguvizdexdash.py",
+        "integrations/hostlab/config-schema.json",
+        "artifacts/mdd-050/provider-selection.json"
+      ],
+      "acceptance": [
+        "旧 --backend dexsql 不悄悄指向新程序，报告记录实际引擎版本/摘要、profile、方言和配置",
+        "新增独立 MDD_CACHE_DIR 与运行身份，不覆盖 DexSQL query-cache、HostLab 完成缓存或旧报告",
+        "只对明确允许的 Unavailable/Unsupported 错误执行显式等价 fallback；其他错误失败并保留完整性证据",
+        "源 SHA、物理 DEX 门禁、工作区权限及远端 source snapshot 约束继续有效",
+        "回滚：单一显式配置恢复原后端，已生成新报告/缓存保留独立身份而非删除或冒充旧结果"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-051",
+      "phase": "M5",
+      "title": "迁移 NativeSession、Graph 与二十七 FEATURE 结构审计",
+      "status": "todo",
+      "depends_on": [
+        "MDD-026",
+        "MDD-035",
+        "MDD-050"
+      ],
+      "owner_role": "HostLab 结构审计负责人",
+      "scope": [
+        "映射 HL-08/HL-09/HL-10：B0 与 B1 provider 接入 NativeSession",
+        "保留 Graph、family/protocol 分类和 27 FEATURE 业务规则",
+        "保留类/方法、泛型、调用点与次数的证据链"
+      ],
+      "outputs": [
+        "integrations/hostlab/native_session.py",
+        "integrations/hostlab/structural_provider.py",
+        "conformance/hostlab/structural-goldens.json",
+        "artifacts/mdd-051/structural-equivalence.json"
+      ],
+      "acceptance": [
+        "27 FEATURE、类记录、协议、泛型、方法签名、边和重复调用次数逐项对齐固定规则结果",
+        "BIL 包名和业务规则仅在适配层，核心不按业务字符串硬编码筛选答案",
+        "正常 MISSING/PARTIAL 业务结论与引擎运行失败/不完整覆盖区分，合法失败 verdict 不伪装成引擎异常",
+        "B0 保留 DTO 与请求调度，wire 变化单独登记；B1 用 typed/batch 接口及必要业务消费优化；两者各有完整结果和实际引擎身份",
+        "回滚：provider 配置可恢复原 NativeSession 路径，输出目录独立且不改变业务规则"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-052",
+      "phase": "M5",
+      "title": "迁移 native_surface 与原始指纹证据",
+      "status": "todo",
+      "depends_on": [
+        "MDD-025",
+        "MDD-026",
+        "MDD-035",
+        "MDD-050"
+      ],
+      "owner_role": "HostLab surface 负责人",
+      "scope": [
+        "映射 HL-11：迁移类/方法 surface、原始 code 和资源 fingerprint provider",
+        "保留排序、去重范围、无 body 与跨版本比较语义",
+        "保留现有独立 intake/home 门禁作为初始验证路径"
+      ],
+      "outputs": [
+        "integrations/hostlab/surface_provider.py",
+        "conformance/hostlab/surface-goldens.json",
+        "artifacts/mdd-052/surface-equivalence.json"
+      ],
+      "acceptance": [
+        "raw insns bytes、资源原字节、类与方法记录及原报告 hash 对齐，不用 Smali/IR/Java 文本替代",
+        "所有本地 ID 结合来源身份解释，跨 DEX 不串联同号方法/字符串",
+        "无 body、空值、重复与排序规则明确，跨版本 diff 的新增/删除/变化分类保持一致",
+        "Python 独立门禁可原样运行并完整计时，M5 不预先计入尚未实现的门禁复用收益",
+        "回滚：surface provider 独立开关恢复原路径，避免与新旧 cache schema 混用"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-053",
+      "phase": "M5",
+      "title": "迁移分页、checkpoint、批处理与远程 runner 契约",
+      "status": "todo",
+      "depends_on": [
+        "MDD-033",
+        "MDD-040",
+        "MDD-050"
+      ],
+      "owner_role": "HostLab 编排与存储负责人",
+      "scope": [
+        "映射 HL-13/HL-14/HL-15：分页、任务 checkpoint 和恢复身份",
+        "保持远程十二编排工具、版本矩阵和 worker 任务契约",
+        "保留 samples/reports/source-snapshots/artifact-cache 等路径作用域"
+      ],
+      "outputs": [
+        "integrations/hostlab/checkpoint_adapter.py",
+        "integrations/hostlab/remote_runner_adapter.py",
+        "conformance/hostlab/remote-contracts.json",
+        "artifacts/mdd-053/remote-and-resume-equivalence.json"
+      ],
+      "acceptance": [
+        "remote 十二工具名称、请求/响应、run attempt 和 artifact/source SHA 绑定保持兼容，不把它们误作引擎内置 MCP 工具",
+        "checkpoint 记录 engine/profile/schema/source/rule/config 身份，不跨不同快照、目录代次或引擎语义恢复页",
+        "生产源变化、worker lost、取消和部分结果不能写完成缓存或被恢复为成功",
+        "已有非查询 memo、队列、范围筛选、64 KiB/有界消费等优化保留，不重复登记为新收益",
+        "回滚：旧 engine job 可继续按原身份读回；新 job 显式选择后端，不能在已接收页或 TEMP 副作用后透明重放到另一个引擎"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-054",
+      "phase": "M5",
+      "title": "执行副作用隔离的完整 HostLab shadow 等价",
+      "status": "todo",
+      "depends_on": [
+        "MDD-005",
+        "MDD-044",
+        "MDD-051",
+        "MDD-052",
+        "MDD-053"
+      ],
+      "owner_role": "独立 HostLab 验证负责人",
+      "scope": [
+        "映射 HL-16：相同输入、规则和预算下执行 A/B 完整审计",
+        "隔离报告、缓存、任务标记和远端副作用",
+        "将原二十项 hash 与更细语义证据联合核验"
+      ],
+      "outputs": [
+        "integrations/hostlab/run_shadow.py",
+        "conformance/hostlab/compare_full_reports.py",
+        "artifacts/mdd-054/shadow-manifest.json",
+        "artifacts/mdd-054/full-equivalence.json"
+      ],
+      "acceptance": [
+        "固定实际输入/源码/二进制/config，A 与 B 不共享可变报告路径或完成 cache，不触发重复远端提交",
+        "二十项既有 hash、跨版本结果、27 FEATURE、门禁状态、verdict 及 raw 指纹全部核验",
+        "额外核验 NULL、重复引用次数、来源局部 ID、声明顺序与 coverage；hash 相同不替代独立小语料验证",
+        "每个必要请求均由新引擎完成，fallback 次数为零；unsupported/partial/timeout 均阻断资格",
+        "缺授权私有 APK/runner 时任务保持受阻，不使用公开样本替代完整生产资格；回滚仅撤销新配置，不改原证据"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-055",
+      "phase": "M5",
+      "title": "签发完整 HostLab 可切换后端资格与回滚方案",
+      "status": "todo",
+      "depends_on": [
+        "MDD-026",
+        "MDD-035",
+        "MDD-044",
+        "MDD-051",
+        "MDD-052",
+        "MDD-053",
+        "MDD-054"
+      ],
+      "owner_role": "集成与发布资格负责人",
+      "scope": [
+        "汇总全部必需事实、查询、接口和业务报告的资格",
+        "映射 HL-18 的 HostLab-MVP 部分，准备显式启用与回滚",
+        "声明工作负载版本范围，不提前宣称全桌面/全 SQL 兼容"
+      ],
+      "outputs": [
+        "conformance/manifests/hostlab-backend-qualification.json",
+        "integrations/hostlab/enablement-config.example.json",
+        "integrations/hostlab/ROLLBACK.md",
+        "artifacts/mdd-055/cutover-rehearsal.json",
+        "artifacts/previews/<build_id>/ 中可审查的 HostLab 功能预览包、能力清单和未获性能替代资格标识。"
+      ],
+      "acceptance": [
+        "所有 HostLab 必需关系/模板/事实/指纹/门禁均已通过，不能只依赖少数 demo 或被整程 fallback 掩盖",
+        "每次完整审计满足 operation_status=ok、required input/facts complete、execution.complete=true、无截断/剩余页/cursor",
+        "启用前后可从报告还原实际 backend/source/profile/config，复演显式回退且不污染旧 cache",
+        "M5 允许继续独立 Python 门禁；完整十二工具及其余公开关系在 M7 单独验收",
+        "资格只适用于通过的提交/输入范围；本任务不声称达到 37% 性能目标，实际部署遵循已有授权",
+        "功能正确性已通过时可交付明确标识 preview 的制品；未通过 MDD-082 不称性能替代正式发行，不因此把 MDD-082 标 done，不默认切换生产。"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-060",
+      "phase": "M6",
+      "title": "建立 A0/A1/A2/B0/B1 同环境热点与阶段实测",
+      "status": "todo",
+      "depends_on": [
+        "MDD-005",
+        "MDD-055"
+      ],
+      "owner_role": "性能负责人",
+      "scope": [
+        "映射 HL-02/HL-17：重建五组完整等价配对基线",
+        "定位结构、surface、管道、Python 聚合与独立门禁热点",
+        "确定已有优化与新贡献的时间窗归属"
+      ],
+      "outputs": [
+        "benchmarks/run-five-way-comparison.py",
+        "artifacts/mdd-060/paired-runs.jsonl",
+        "artifacts/mdd-060/stage-and-resource-profile.json",
+        "artifacts/mdd-060/optimization-priorities.json"
+      ],
+      "acceptance": [
+        "按每轮配对计算时间比与降幅，不能混合两个不同中位轮次得出配对收益",
+        "A2 只选完整正确且实际可用的现成路径，不可部署/不等价时保留排除证据；0.1.1 已有收益与新引擎贡献分开",
+        "记录完整 wall time、CPU、真实内存计量、wire/输出字节、cache 与排队；未知残差继续保留",
+        "B0 同 DTO/请求调度不等于纯 core 隔离，wire 与 producer 差异明确登记，lazy 事实建立不能全算入显式 prepare",
+        "37%/47% 按同机完整 S/F 阶段条件重算；观察到的单查询或 decoder 加速不外推全审计"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/00_EVIDENCE_BASELINE.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-061",
+      "phase": "M6",
+      "title": "优化已证实的查询与传输热点",
+      "status": "todo",
+      "depends_on": [
+        "MDD-044",
+        "MDD-060"
+      ],
+      "owner_role": "查询与管道性能负责人",
+      "scope": [
+        "依据 profile 优化候选筛选、聚合、重复 schema 探测和行对象成本",
+        "评估批传输、按需解码、数据布局及可关闭的低级优化",
+        "保留保守参考路径与端到端归因"
+      ],
+      "outputs": [
+        "crates/mdd-query/src/optimized/",
+        "crates/mdd-wire/src/optimized/",
+        "artifacts/mdd-061/optimization-ablation.json",
+        "artifacts/mdd-061/end-to-end-regression.json"
+      ],
+      "acceptance": [
+        "每个启用优化有明确热点证据、独立消融和相同完整输出，索引近似不能漏召回",
+        "针对已实现的每项优化提供可关闭路径，与标量/保守路径差分",
+        "producer/consumer 重叠、共享阶段与缓存收益不相加重复计数",
+        "SIMD/mmap/arena/并行仅在实际瓶颈与正确性证据支持时采用，未采用时记录否决依据",
+        "完整关键负载对最佳合格 A 路径按门槛验证；组件更快但整体退化的方案不能默认启用"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-062",
+      "phase": "M6",
+      "title": "复用 HostLab 门禁事实并保留独立验证",
+      "status": "todo",
+      "depends_on": [
+        "MDD-025",
+        "MDD-026",
+        "MDD-055",
+        "MDD-060"
+      ],
+      "owner_role": "HostLab 门禁与验证负责人",
+      "scope": [
+        "映射 HL-12：引入 AuditDataProvider 复用 intake/home 所需事实",
+        "明确 gate 所需事实、原始字节、来源和验证等级",
+        "保留至少一个独立实现用于正确性审计"
+      ],
+      "outputs": [
+        "integrations/hostlab/audit_data_provider.py",
+        "conformance/hostlab/gate-reuse-cases.json",
+        "artifacts/mdd-062/gate-equivalence-and-timing.json"
+      ],
+      "acceptance": [
+        "门禁需要的检查逐项映射，复用不删除 SHA/物理成员/代码完整性等现有保护",
+        "复用前后 gate 状态、诊断、报告及失败范围一致；缺层/partial 时失败而非空命中",
+        "同一核心产生与校验自身结果不被称为独立验证，独立 oracle 继续覆盖必要样本",
+        "单独测量实际 gate 时间窗，未测残差不全归因于 Python 解析；收益不重复加入 S/F 目标",
+        "回滚：AuditDataProvider 可恢复独立原路径，新事实不足时显式失败或使用预先选定完整旧模式，不运行中静默混合"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-063",
+      "phase": "M6",
+      "title": "实现版本化持久事实缓存与原子恢复",
+      "status": "todo",
+      "depends_on": [
+        "MDD-011",
+        "MDD-012",
+        "MDD-014",
+        "MDD-026",
+        "MDD-034",
+        "MDD-055"
+      ],
+      "owner_role": "缓存与数据完整性负责人",
+      "scope": [
+        "实现 mdd-index/1 及内容对象缓存",
+        "实现身份、schema、验证等级与 provider 版本匹配",
+        "处理并发写、部分写、损坏、旧版与负结果"
+      ],
+      "outputs": [
+        "crates/mdd-cache/",
+        "conformance/cache/invalidation-matrix.json",
+        "artifacts/mdd-063/cache-fault-recovery.json"
+      ],
+      "acceptance": [
+        "键包含内容/逻辑来源多重性、事实 schema、parser/validator/profile、指令语义及必要 provider 身份；规则缓存另含规则/config",
+        "同大小同 mtime 源变化、逻辑重复来源和版本变化均触发正确失效，不能依赖路径/mtime 作为强身份",
+        "写入经临时对象、校验和原子发布；半写、截断、错摘要和不支持版本不能返回空事实",
+        "只有相关 scope 完整时持久化负结果，部分输入/事实、deadline 和分页未完成不写完成 cache",
+        "冷/热/失效/修复路径与无缓存路径完整结果一致，文件所有权、并发锁和资源回收有故障证据"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-064",
+      "phase": "M6",
+      "title": "实现全局调度预算与可审计缓存复用",
+      "status": "todo",
+      "depends_on": [
+        "MDD-034",
+        "MDD-060",
+        "MDD-063"
+      ],
+      "owner_role": "运行时与缓存性能负责人",
+      "scope": [
+        "统一 worker、解压、事实构建与查询的线程/内存预算",
+        "实现公平排队、取消响应和完整内容对象复用",
+        "评估细粒度增量依赖，仅在资格成立时启用"
+      ],
+      "outputs": [
+        "crates/mdd-worker/src/scheduler/",
+        "crates/mdd-cache/src/dependency_tracking/",
+        "artifacts/mdd-064/scheduling-and-reuse.json"
+      ],
+      "acceptance": [
+        "不同层不各自开满 CPU；并发多 APK 下吞吐、延迟、峰值和取消时间在同预算下对照",
+        "排队/运行/取消/worker lost 的状态可观察且有上界，超额任务不破坏其他会话事实",
+        "完整内容对象缓存先正确复用，物理去重保持每个逻辑来源在结果中存在",
+        "细粒度增量必须记录引用、全局/负依赖、共享容器边界；没有证明时保持该 capability disabled",
+        "增量收益以实际受影响工作量和同任务分母计算，不能按变化字节比例推算；041 支持不作为本任务或普通发布前置"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-065",
+      "phase": "M6",
+      "title": "交付第二个通用消费者并核验核心可复用性",
+      "status": "todo",
+      "depends_on": [
+        "MDD-035",
+        "MDD-043",
+        "MDD-055"
+      ],
+      "owner_role": "通用 SDK 与架构验证负责人",
+      "scope": [
+        "以公开或合成 DEX 创建不依赖 BIL 的实际消费者",
+        "覆盖查询、引用、raw 证据、取消和完整状态",
+        "检查共享核心边界与独立版本包策略"
+      ],
+      "outputs": [
+        "examples/generic-dex-audit/",
+        "conformance/generic-consumer/",
+        "artifacts/mdd-065/consumer-portability.json"
+      ],
+      "acceptance": [
+        "第二消费者仅依赖公开 SDK/协议，不导入 HostLab、BIL FEATURE、业务目录或 DexMeguviz 项目",
+        "能对未出现于 HostLab corpus 的公开样本完成至少一种有用关系/引用分析并核验完整结果",
+        "相同 snapshot 与 schema 规则跨消费者一致，不能为通用示例另写解析核心",
+        "仅可复用实现有独立版本与所有权边界；无可用共享代码时不阻塞自身实现",
+        "记录实际构建/运行命令与输入摘要，示例输出不是手工硬编码"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-070",
+      "phase": "M7",
+      "title": "补齐已承诺的五十六关系与兼容 ledger",
+      "status": "todo",
+      "depends_on": [
+        "MDD-035",
+        "MDD-042"
+      ],
+      "owner_role": "完整关系与 SQL 兼容负责人",
+      "scope": [
+        "按冻结 manifest 补齐 HostLab 子集之外的公开 raw/resolved 关系",
+        "验证 handles、call_sites、debug、layout、完整 annotation/encoded values 等已承诺事实",
+        "完善 list_tables/describe_table 与各方言能力清单"
+      ],
+      "outputs": [
+        "crates/mdd-facts/src/public_relations/",
+        "crates/mdd-sql/src/profiles/compatibility/",
+        "conformance/manifests/full-relation-qualification.json",
+        "artifacts/mdd-070/public-relations-conformance.json"
+      ],
+      "acceptance": [
+        "五十六关系逐个登记列、类型、NULL、作用域、重复性、顺序、版本和错误行为，不以数量一致代替语义",
+        "每个 advertised 关系在独立 fixture 与支持版本上有事实来源和请求结果证据",
+        "新关系按 required_layers 触发受校验事实，未建立/不支持层不返回伪空表",
+        "兼容 0.1.0 与 0.1.1 分 profile 记录差异，未经验证的通用 SQL 不宣称全部支持",
+        "普通版本公开关系资格不依赖可选 041/CDex/OAT/VDEX；特殊格式仅进入其单独能力矩阵"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-071",
+      "phase": "M7",
+      "title": "补齐 Smali、decode 与上下文分页公开契约",
+      "status": "todo",
+      "depends_on": [
+        "MDD-023",
+        "MDD-024",
+        "MDD-035",
+        "MDD-042"
+      ],
+      "owner_role": "Smali 与代码展示负责人",
+      "scope": [
+        "完成声明、字段/方法、注解、debug、异常与生产支持指令的 Smali 输出",
+        "实现 decode 的类/方法选择、模式、上下文与完整分页",
+        "固定展示格式版本和 raw 事实的区别"
+      ],
+      "outputs": [
+        "crates/mdd-facts/src/smali/",
+        "conformance/mcp/decode-full-contract.json",
+        "artifacts/mdd-071/smali-and-paging-conformance.json"
+      ],
+      "acceptance": [
+        "class/method/annotation/debug/try-catch 及 payload 表示有逐项 golden 与原始事实回链，不能只列 opcode",
+        "UTF-8 byte offset、max_lines、method_offset 和上下文索引各自按外部契约解释，不混用 DEX code units",
+        "无方法体、非法选择器、资源上限、截断和续页状态明确，末页正确终止",
+        "输出与同 snapshot 的 raw bytes 来源一致，文本格式变更独立版本化",
+        "Smali 文本不替代 raw code fingerprint；高级反编译和运行时目标推断不作为输出事实"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-072",
+      "phase": "M7",
+      "title": "补齐 Manifest、资源查询与十二工具公开面",
+      "status": "todo",
+      "depends_on": [
+        "MDD-025",
+        "MDD-035",
+        "MDD-042"
+      ],
+      "owner_role": "资源与 MCP 负责人",
+      "scope": [
+        "实现完整 get_manifest、get_manifest_components、list_resource_files、read_resource、query_resources",
+        "解析 resources.arsc、AXML 与配置变体，保留原始资源访问",
+        "联合既有八工具完成原生 MCP 十二工具资格"
+      ],
+      "outputs": [
+        "crates/mdd-input/src/resources/",
+        "crates/mdd-mcp/src/resource_tools/",
+        "conformance/mcp/resources-full-contract.json",
+        "artifacts/mdd-072/twelve-tool-conformance.json"
+      ],
+      "acceptance": [
+        "十二工具逐一验证实际参数、输出 schema、分页、错误、会话和支持格式，tools/list 不列虚假可用项",
+        "Manifest summary/xml、权限列表与 XML byte 分页各自正确；命名空间和 typed 属性不丢失",
+        "read_resource 的 auto/hex、AXML→XML、UTF-8 文本及二进制 lower-case hex 遵循契约，offset 单位随表示明确",
+        "资源配置变体不只保留默认 locale，查询与读取可追溯至完整资源来源和快照",
+        "资源专用 APK/无 DEX/损坏资源的完整性范围明确；尚不支持配置返回准确错误而非空成功"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-073",
+      "phase": "M7",
+      "title": "实现复用 SDK 的桌面分析工作台",
+      "status": "todo",
+      "depends_on": [
+        "MDD-043",
+        "MDD-044",
+        "MDD-070",
+        "MDD-071",
+        "MDD-072"
+      ],
+      "owner_role": "桌面应用负责人",
+      "scope": [
+        "通过 ADR 选择并实际验证轻量桌面外壳",
+        "提供输入/来源检查、查询、xref、Smali、差异、取消和导出",
+        "复用通用 SDK/worker，不引入第二套核心"
+      ],
+      "outputs": [
+        "apps/desktop/",
+        "docs/adr/ADR-desktop-shell.md",
+        "conformance/desktop/user-flow-cases.json",
+        "artifacts/mdd-073/desktop-workflows.json",
+        "桌面功能预览制品及已测平台/能力清单；未获性能替代资格时显式标 preview。"
+      ],
+      "acceptance": [
+        "真实 UI 流程能打开受校验输入、查看覆盖/来源、完成查询/翻页/取消、导航引用和导出完整结果",
+        "差异展示保留来源、重复、raw 指纹与 unknown/inference 边界，不把未加载页显示成完整无结果",
+        "worker 长任务不阻塞界面；错误和预算有可理解反馈，取消后资源有界释放",
+        "默认本地运行且无隐式 APK 上传；可用能力来自同一 capability ledger",
+        "Linux/Windows 运行与打包可复验，不能只以 WebView 页面截图替代实际桌面集成"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-074",
+      "phase": "M7",
+      "title": "独立验证可选 041、特殊容器与 provider",
+      "status": "todo",
+      "depends_on": [
+        "MDD-013",
+        "MDD-014",
+        "MDD-020",
+        "MDD-023",
+        "MDD-063"
+      ],
+      "owner_role": "可选格式与 provider 负责人",
+      "scope": [
+        "单独实现并验证选择纳入的 DEX 041、CDex/OAT/VDEX 或额外平台格式",
+        "隔离可选 JADX/其他 provider，固定来源、版本和资源预算",
+        "为各扩展建立独立 capability 与兼容 ledger"
+      ],
+      "outputs": [
+        "crates/mdd-input/src/optional_formats/",
+        "crates/mdd-worker/src/providers/",
+        "conformance/manifests/optional-capabilities.json",
+        "artifacts/mdd-074/optional-format-qualification.json"
+      ],
+      "acceptance": [
+        "041 区分物理 container、逻辑 headers、共享数据和偏移规则；禁止将标准 DEX reader 直接数值放行",
+        "每种特殊格式/version/provider 独立有规范、真实/合成语料、失败边界和实际验证证据，未通过者保持 disabled",
+        "共享区间和增量缓存依赖正确，未识别内容不能静默漏掉后返回完整",
+        "JADX 等输出只作可选可读视图，不能成为 raw fingerprint 或确定调用图的事实来源",
+        "本任务不被普通 Linux/Windows 标准 DEX 发布任务依赖；仅相应 capability 在通过后可 advertise"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/01_DECISIONS_AND_DEPENDENCIES.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-075",
+      "phase": "M7",
+      "title": "实现可选 CFG、def-use 与候选分析能力",
+      "status": "todo",
+      "depends_on": [
+        "MDD-021",
+        "MDD-023",
+        "MDD-024",
+        "MDD-026",
+        "MDD-030"
+      ],
+      "owner_role": "高级静态分析负责人",
+      "scope": [
+        "按明确能力范围实现 CFG、异常边、def-use 或常量传播",
+        "提供候选结构指纹/规则所需的通用分析接口",
+        "将编码事实、推断和未知动态行为分开"
+      ],
+      "outputs": [
+        "crates/mdd-facts/src/analysis/",
+        "conformance/analysis/soundness-cases.json",
+        "artifacts/mdd-075/analysis-capability-qualification.json"
+      ],
+      "acceptance": [
+        "CFG 处理分支、switch、payload、try/catch 及不可达/无效区间，来源位置可回溯",
+        "推断结果带分析版本、假设、required scope 和精度/覆盖状态，未知目标不被写成确定调用边",
+        "反射、动态加载、invoke-custom 的不可判定部分明确 unknown，不能用空集合声称无路径",
+        "在独立手工 fixture 和变形测试中验证已声明分析性质，预算中断标为不完整",
+        "普通核心发布无需等待未广告的高级能力；若后续 HostLab 规则依赖它，必须新增对应必需 gate 后再启用规则"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-080",
+      "phase": "M8",
+      "title": "完成 Linux/Windows 运行、ABI 与桌面平台资格",
+      "status": "todo",
+      "depends_on": [
+        "MDD-044",
+        "MDD-055",
+        "MDD-070",
+        "MDD-071",
+        "MDD-072",
+        "MDD-073"
+      ],
+      "owner_role": "平台与 ABI 验证负责人",
+      "scope": [
+        "在 Linux/Windows x86_64 实际运行 CLI/MCP/SDK/C ABI/桌面",
+        "验证文件映射、路径、进程、取消、线程和关闭差异",
+        "为其他架构建立独立未准入状态"
+      ],
+      "outputs": [
+        "conformance/platform/platform-matrix.json",
+        "artifacts/mdd-080/linux-x86_64-results.json",
+        "artifacts/mdd-080/windows-x86_64-results.json",
+        "artifacts/mdd-080/abi-compatibility.json"
+      ],
+      "acceptance": [
+        "两个首发平台均实际运行必需 conformance、完整工具与生命周期用例，交叉编译不替代运行",
+        "包含 Unicode 路径、文件替换/删除、worker 崩溃、管道关闭、C buffer 释放和多会话隔离",
+        "各平台结果 schema、原始事实和 canonical hash 一致，允许的展示/平台差异有明确契约",
+        "macOS arm64 或其他架构没有真实运行证据时不 advertise",
+        "不依赖 MDD-074；标准 DEX 的普通平台资格与可选格式资格分别签发"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-081",
+      "phase": "M8",
+      "title": "完成故障注入、恢复与长时资源验证",
+      "status": "todo",
+      "depends_on": [
+        "MDD-014",
+        "MDD-034",
+        "MDD-040",
+        "MDD-053",
+        "MDD-063"
+      ],
+      "owner_role": "可靠性与独立验证负责人",
+      "scope": [
+        "联合输入、session、IPC、任务与缓存进行故障注入",
+        "验证长时运行、并发关闭、配额和取消后的资源回收",
+        "验证断点恢复身份及完整性终态"
+      ],
+      "outputs": [
+        "conformance/faults/scenario-matrix.json",
+        "conformance/faults/run-fault-suite.py",
+        "artifacts/mdd-081/fault-and-soak-results.json"
+      ],
+      "acceptance": [
+        "覆盖源变化、旧句柄、catalog 代次、半帧、断链、worker crash、hard deadline、半写 cache 和逻辑重复输入",
+        "每种故障有明确受影响 scope、错误类别、未完成请求清单与恢复规则；不将 crash/EOF 当空成功",
+        "取消和超额之后内存、文件句柄、子进程与队列回到约定有界状态，持续样本与测量方法留档",
+        "不完整结果和损坏 cache 从不成为负命中/完成缓存；恢复后重新核验身份和 required coverage",
+        "多 worker 的故障隔离与受影响集合实测，不声称强杀进程只影响一个 query"
+      ],
+      "evidence_required": true,
+      "references": [
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-082",
+      "phase": "M8",
+      "title": "签发功能、正确性与性能发布资格",
+      "status": "todo",
+      "depends_on": [
+        "MDD-060",
+        "MDD-061",
+        "MDD-063",
+        "MDD-064",
+        "MDD-065",
+        "MDD-070",
+        "MDD-071",
+        "MDD-072",
+        "MDD-073",
+        "MDD-080",
+        "MDD-081"
+      ],
+      "owner_role": "独立发布资格负责人",
+      "scope": [
+        "汇总 HostLab、完整公开关系/工具、通用消费者、平台与故障证据",
+        "对最佳合格现成路径验证新增性能收益",
+        "发布按范围限定的能力与限制清单"
+      ],
+      "outputs": [
+        "conformance/manifests/release-qualification.json",
+        "artifacts/mdd-082/final-paired-performance.json",
+        "artifacts/mdd-082/compatibility-and-limitations.json"
+      ],
+      "acceptance": [
+        "完整必需工作负载无 fallback、partial、缺页或未核验事实；全部 advertised 表/工具/profile 有逐项证据",
+        "按已校准 ADR 门槛验证关键完整审计和 bulk 对最佳 A 路径至少 10% 配对中位降时，其他必需负载无超过 5% 的可复现退化；调整阈值须有事先 ADR 与依据",
+        "对 A0 的约 37%/47% 仅按真实阶段报告达成与否；不把目标当成绩，不把上游已实现收益归为自研独占",
+        "失败、超时、缺输入或缺 runner 均单列并阻断对应资格，不能 skip 后宣布全通过",
+        "可选格式/高级分析未通过时从发布 capability 排除，普通标准 DEX/Linux/Windows 发布不依赖 MDD-074/MDD-075；若宣称其能力则必须另附相应通过证据",
+        "若本次发行启用或宣称 intake/home 门禁事实复用，MDD-062 必须有通过证据；未采用该能力时保留独立原门禁并完整计入 E，不强制重写验证链。该条件资格写入发行范围和 conformance manifest。"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/00_EVIDENCE_BASELINE.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    },
+    {
+      "id": "MDD-083",
+      "phase": "M8",
+      "title": "生成可复验发行包、启用配置与回滚交接",
+      "status": "todo",
+      "depends_on": [
+        "MDD-080",
+        "MDD-081",
+        "MDD-082"
+      ],
+      "owner_role": "发布与运维负责人",
+      "scope": [
+        "构建可审查的 Linux/Windows 发行包、SDK/ABI 和桌面产物",
+        "准备锁定依赖、许可证、SBOM、摘要、变更与迁移说明",
+        "准备 HostLab 分阶段显式启用、回滚和证据归档"
+      ],
+      "outputs": [
+        "dist/",
+        "dist/SHA256SUMS",
+        "dist/SBOM.json",
+        "docs/RELEASE_NOTES.md",
+        "docs/OPERATIONS_AND_ROLLBACK.md",
+        "artifacts/mdd-083/release-rehearsal.json"
+      ],
+      "acceptance": [
+        "发行物与已验源码、工具链、依赖、profile 和 capability ledger 身份完全对应，摘要清单可独立核验",
+        "新安装、升级、配置迁移、缓存失效/隔离与回退在真实首发平台复演，旧 backend 仍可显式选择",
+        "回滚不删除原始证据、不把新缓存伪装为旧 schema，不跨已发生副作用透明重放任务",
+        "未获得实际发布/部署授权时完成全部本地可审查产物与命令，不执行外部发布；已有授权则按范围执行",
+        "交接列明未支持能力、残余问题、复现命令、失败和验证范围；普通发行不等待未广告的可选特殊格式",
+        "本任务只签发 MDD-082 通过后的正式性能发行；此前功能预览由 MDD-055/MDD-073 输出，不能伪造上游任务状态来解锁。"
+      ],
+      "evidence_required": true,
+      "references": [
+        "ENGINEERING_PLAN.md",
+        "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
+        "docs/03_HOSTLAB_MIGRATION.md",
+        "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ]
+    }
+  ]
+}

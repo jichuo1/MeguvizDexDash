@@ -1,0 +1,1093 @@
+{
+  "schema": 1,
+  "audited_date_utc": "2026-10-26",
+  "scope": "Desktop/cloud HostLab dexq replacement; excludes Android runtime DexKit migration",
+  "repository": {
+    "full_name": "jichuo1/innocent-lab-host-analysis",
+    "default_branch": "main",
+    "visibility_at_read": "public",
+    "commit": "8782f43d537c442905123e35af325c412caa5188",
+    "commit_time_utc": "2026-10-24T11:52:28Z",
+    "local_clone": "research/desktop_v2/hostlab"
+  },
+  "evidence_limits": {
+    "private_apks_read": false,
+    "workflows_triggered": false,
+    "tests_or_benchmarks_rerun": false,
+    "workspace_connector_status": "workspace_info and scoped search_workspace returned Internal error",
+    "raw_benchmark_artifacts_read": false,
+    "actions_run_metadata_read": true,
+    "tests_or_benchmarks_rerun_scope": "HostLab audit agent did not run tests; separate DexSQL agent executed listed current_team_probe runs"
+  },
+  "production_dexsql": {
+    "version": "0.1.0",
+    "source": "tools/hostlab/install_dexsql.py:15-19",
+    "linux_amd64": {
+      "asset": "dexsql-linux-amd64",
+      "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+      "url": "https://github.com/LSPosed/dexsql-release/releases/download/v0.1.0/dexsql-linux-amd64"
+    },
+    "windows_amd64": {
+      "asset": "dexsql-windows-amd64.exe",
+      "sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448"
+    },
+    "darwin_arm64": {
+      "asset": "dexsql-darwin-arm64",
+      "sha256": "155724634d727a79015488ee15c51ec32b09e6debc96ebf7d83e0b590e485e1e"
+    },
+    "override": "HOSTLAB_DEXSQL still requires the platform-pinned SHA256",
+    "prior_probe_version": "0.1.1",
+    "prior_probe_same_as_production": false
+  },
+  "merged_branches": [
+    {
+      "name": "codex/dexsql-audit-equivalence-20261024",
+      "sha": "23f18add1ede2544c2214c81cc745ab246230f2a",
+      "is_ancestor_main": true
+    },
+    {
+      "name": "codex/dexsql-default-load-performance-20261024",
+      "sha": "f0e523738cd0bb5575ff04b96e407dd62bdaface",
+      "is_ancestor_main": true,
+      "diff_from_main": "README.md: one deletion"
+    }
+  ],
+  "interfaces": {
+    "remote_gateway": {
+      "transport": "local stdio MCP",
+      "public_http_configured": false,
+      "workflow": "host-analysis.yml",
+      "repository": "jichuo1/innocent-lab-host-analysis"
+    },
+    "legacy": {
+      "default_backend": "sqlite/androguard",
+      "python_server": "tools/hostlab/dexq/server.py",
+      "java_decompile": "JADX retained"
+    },
+    "batch": {
+      "entry": "tools/hostlab/analysis_batch.py:306-313",
+      "argv": [
+        "dexsql",
+        "--threads",
+        "N",
+        "mcp",
+        "--timeout-ms",
+        "TIMEOUT_SECONDS*1000",
+        "--max-datasets",
+        "1"
+      ],
+      "process_lifetime": "one process and one dataset per backend group per request",
+      "operations": [
+        "query",
+        "locate",
+        "refs",
+        "decode",
+        "info"
+      ],
+      "native_tools": [
+        "open_dataset",
+        "query",
+        "decode",
+        "get_manifest",
+        "close_dataset"
+      ],
+      "thread_default": 2,
+      "thread_bounds": [
+        1,
+        6
+      ],
+      "timeout_default_seconds": 180,
+      "timeout_bounds_seconds": [
+        1,
+        600
+      ],
+      "max_tasks": 16,
+      "max_request_bytes": 30000,
+      "max_result_bytes": 2097152,
+      "max_datasets": 1,
+      "raw_sql_rewritten": false
+    },
+    "audit": {
+      "entry": "tools/hostlab/native_cli.py:30-45",
+      "argv": [
+        "dexsql",
+        "--threads",
+        "N",
+        "query",
+        "--input",
+        "APK",
+        "--interactive"
+      ],
+      "process_lifetime": "one CLI process per native audit",
+      "threads": 2,
+      "timeout_default_seconds": 900,
+      "transport": "cli_hex_v1",
+      "read_chunk_bytes": 65536,
+      "queue_max_chunks": 8,
+      "max_sql_bytes": 262144,
+      "max_line_bytes": 4194304,
+      "max_transport_bytes": 536870912,
+      "default_max_rows": 500000,
+      "default_max_decoded_bytes": 134217728,
+      "method_calls_max_rows": 1000000,
+      "method_calls_max_decoded_bytes": 268435456
+    }
+  },
+  "workloads": [
+    {
+      "kind": "ad_hoc_sql",
+      "dialects": [
+        "sqlite",
+        "dexsql"
+      ],
+      "completed_auto_reuse": false,
+      "semantics": [
+        "SELECT/WITH only at wrapper",
+        "explicit dialect",
+        "outer stable ordering for continuation",
+        "typed values",
+        "duplicate rows retained"
+      ]
+    },
+    {
+      "kind": "locate",
+      "semantics": [
+        "definitions not references",
+        "full descriptors",
+        "file-qualified identities"
+      ]
+    },
+    {
+      "kind": "references",
+      "semantics": [
+        "string",
+        "method",
+        "field",
+        "type",
+        "multiplicity retained",
+        "legacy sites retains offsets/opcodes"
+      ]
+    },
+    {
+      "kind": "native_graph",
+      "semantics": [
+        "inheritance",
+        "interfaces",
+        "modifiers",
+        "generic Signature annotations",
+        "string_pool-qualified strings",
+        "duplicate-definition rejection"
+      ]
+    },
+    {
+      "kind": "surface",
+      "semantics": [
+        "family prefixes plus exact classifier",
+        "invoke edges and counts",
+        "protocol twins",
+        "unknown callers",
+        "raw method byte hashes"
+      ]
+    },
+    {
+      "kind": "manifest_and_resources",
+      "semantics": [
+        "manifest paging",
+        "resources.arsc and res/*.xml content hashes"
+      ],
+      "resource_table_query_api_in_hostlab": false
+    },
+    {
+      "kind": "decompile_and_ai",
+      "engine": "JADX and independent AI workflow",
+      "included_in_dexsql_replacement": false
+    }
+  ],
+  "additional_native_tables_from_dynamic_templates": [
+    "method_strings",
+    "method_field_accesses",
+    "method_used_types"
+  ],
+  "cache_layers": [
+    {
+      "layer": "staged_source",
+      "path": "runtime/hostlab/samples/<sha256>/base.apk",
+      "identity": "complete SHA256 + size + sample revision selection",
+      "validates_full_hash_on_hit": true
+    },
+    {
+      "layer": "sqlite_index",
+      "path": "runtime/hostlab/dexq-cache/<key>.sqlite",
+      "identity": "schema1 + absolute path + size + mtime_ns; SHA1 truncated to 16 hex",
+      "cross_session": true
+    },
+    {
+      "layer": "dexsql_dataset",
+      "lifetime": "memory per batch/audit",
+      "persistent_query_cache_configured": false,
+      "note": "No query-cache spelling or flag in tracked source; this does not assert absence of upstream internal caches"
+    },
+    {
+      "layer": "batch_memo",
+      "identity": "normalized task excluding id",
+      "scope": "complete non-query only, within one backend session"
+    },
+    {
+      "layer": "completed_schedule_reuse",
+      "path": "runtime/hostlab/analysis-schedule",
+      "ttl_seconds": 86400,
+      "identity": "request+exact APK SHA+sample revision+runner commit",
+      "arbitrary_sql_auto_reuse": false
+    },
+    {
+      "layer": "checkpoint",
+      "path": "runtime/hostlab/remote-output/checkpoint.json",
+      "schema": 2,
+      "requires_sealed_source_verified": true
+    },
+    {
+      "layer": "artifact",
+      "path": "runtime/hostlab/artifact-cache",
+      "identity": "repository/request/run/attempt/head SHA + ZIP/files integrity",
+      "max_zip_bytes": 67108864,
+      "max_unpacked_bytes": 134217728,
+      "max_file_bytes": 33554432,
+      "max_files": 4096
+    },
+    {
+      "layer": "dependency_runtime",
+      "path": "runtime/hostlab-prepared",
+      "shared_actions_cache": true,
+      "includes_private_apk_or_dex": false
+    },
+    {
+      "layer": "source_snapshot",
+      "path": "runtime/hostlab/source-snapshots",
+      "identity": "snapshot SHA + source tree SHA + immutable private revision"
+    },
+    {
+      "layer": "performance_hint",
+      "path": "runtime/hostlab/scheduling-profiles",
+      "max_entries": 256,
+      "max_bytes": 1048576,
+      "correctness_authority": false
+    }
+  ],
+  "repeated_costs": [
+    {
+      "cost": "CLI shape and hex transport",
+      "source": "tools/hostlab/native_cli.py:140-165",
+      "status": "64KiB chunk optimization already merged; typed transport remains potential"
+    },
+    {
+      "cost": "raw bytecode fingerprint DEX read",
+      "source": "tools/hostlab/native_surface.py:100-122",
+      "status": "Python rereads/decompresses DEX after native parser has loaded it"
+    },
+    {
+      "cost": "alphabet drift raw scan",
+      "source": "tools/hostlab/analysis/obfuscated_owner_drift.py:43-47",
+      "caller": "tools/hostlab/analyze.py:310-314",
+      "status": "retained after native audit"
+    },
+    {
+      "cost": "home frame raw scan",
+      "source": "tools/hostlab/analysis/home_frame_audit.py:153-155",
+      "caller": "tools/hostlab/analyze.py:321-322",
+      "status": "retained after native audit; loads all DEX list"
+    },
+    {
+      "cost": "complete source SHA",
+      "source": "tools/hostlab/analyze.py:61-67; native_audit.py:18,39",
+      "status": "integrity gate; cannot remove without immutable source contract"
+    },
+    {
+      "cost": "cumulative page copying",
+      "source": "tools/hostlab/analysis_paging.py:162-202",
+      "status": "plain and typed rows deep-copied and JSON-budgeted; distinguish from engine execution"
+    }
+  ],
+  "existing_optimizations_not_new_gains": [
+    "batch session reuse",
+    "optional native backend and explicit dialect routing",
+    "complete physical DEX inventory verification",
+    "64KiB output chunks with backpressure",
+    "code_items min/max method filtering",
+    "source copy+hash single cold stream",
+    "verified dependency runtime cache",
+    "two-way sample prefetch",
+    "four physical runner admission",
+    "fixed and adaptive grouping",
+    "content-bound source snapshots",
+    "structured result deduplication",
+    "artifact integrity cache",
+    "sealed checkpoint recovery"
+  ],
+  "historical_measurements": {
+    "evidence_level": "repository documentation, measurement-code review and matching success-run metadata; not independently replayed or raw artifact-verified",
+    "legacy_to_dexsql": {
+      "samples": [
+        {
+          "version_code": 9170100,
+          "legacy_median_seconds": 163.98,
+          "native_median_seconds": 105.87,
+          "reduction_percent": 35.4
+        },
+        {
+          "version_code": 9161100,
+          "legacy_median_seconds": 150.67,
+          "native_median_seconds": 94.44,
+          "reduction_percent": 37.3
+        }
+      ],
+      "rounds_per_sample_backend": 2,
+      "scope": "fresh serial full static gates and scans; OS file cache retained; first staging excluded"
+    },
+    "already_merged_transport": {
+      "samples": [
+        {
+          "version_code": 9170100,
+          "reference_seconds": 107.99,
+          "current_seconds": 94.63,
+          "reduction_percent": 12.4,
+          "surface_reference_seconds": 70.2,
+          "surface_current_seconds": 56.53,
+          "reference_sampled_tree_rss_mib": 1265,
+          "current_sampled_tree_rss_mib": 1282
+        },
+        {
+          "version_code": 9161100,
+          "reference_seconds": 97.37,
+          "current_seconds": 85.57,
+          "reduction_percent": 12.1,
+          "surface_reference_seconds": 62.31,
+          "surface_current_seconds": 50.8,
+          "reference_sampled_tree_rss_mib": 1194,
+          "current_sampled_tree_rss_mib": 1214
+        }
+      ],
+      "paired_rounds_per_sample": 1,
+      "scope": "one same-runner alternating-order pair per sample; no long-term distribution"
+    },
+    "runs": [
+      {
+        "id": 40061414146,
+        "head_sha": "e4ab3d1af6a13f40695f4be37bfd66f88c5b4c02",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "html_url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40061414146"
+      },
+      {
+        "id": 40067936875,
+        "head_sha": "e4e55d69a1da56535c9708ed7847f63f9f7cd8cb",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "html_url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40067936875"
+      },
+      {
+        "id": 40066020019,
+        "head_sha": "3e622a39391542d3bdf2f7ff813c0d068df0e3bf",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "html_url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40066020019"
+      },
+      {
+        "id": 40064456329,
+        "head_sha": "23f18add1ede2544c2214c81cc745ab246230f2a",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "html_url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40064456329"
+      }
+    ]
+  },
+  "workflow": {
+    "os": "ubuntu-24.04",
+    "python": "3.13",
+    "java": "17 when required",
+    "analysis_timeout_minutes": 60,
+    "publish_timeout_minutes": 15,
+    "artifact_retention_days": 14,
+    "per_group_analysis": "serial fresh backend sessions",
+    "max_input_prefetch": 2,
+    "max_physical_runners": 4,
+    "fixed_group_max": 4,
+    "adaptive_native_group_max": 12,
+    "adaptive_other_group_max": 4
+  },
+  "source_references": [
+    {
+      "id": "S01",
+      "path": "tools/hostlab/install_dexsql.py",
+      "start": 15,
+      "end": 19,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/install_dexsql.py#L15-L19"
+    },
+    {
+      "id": "S02",
+      "path": "tools/hostlab/install_dexsql.py",
+      "start": 44,
+      "end": 99,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/install_dexsql.py#L44-L99"
+    },
+    {
+      "id": "S03",
+      "path": "tools/hostlab/dexq_cli.py",
+      "start": 73,
+      "end": 143,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq_cli.py#L73-L143"
+    },
+    {
+      "id": "S04",
+      "path": "tools/hostlab/remote_job.py",
+      "start": 169,
+      "end": 312,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_job.py#L169-L312"
+    },
+    {
+      "id": "S05",
+      "path": "tools/hostlab/analysis_batch.py",
+      "start": 107,
+      "end": 258,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_batch.py#L107-L258"
+    },
+    {
+      "id": "S06",
+      "path": "tools/hostlab/analysis_batch.py",
+      "start": 262,
+      "end": 412,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_batch.py#L262-L412"
+    },
+    {
+      "id": "S07",
+      "path": "tools/hostlab/native_cli.py",
+      "start": 18,
+      "end": 195,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_cli.py#L18-L195"
+    },
+    {
+      "id": "S08",
+      "path": "tools/hostlab/native_audit.py",
+      "start": 15,
+      "end": 44,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_audit.py#L15-L44"
+    },
+    {
+      "id": "S09",
+      "path": "tools/hostlab/analyze.py",
+      "start": 220,
+      "end": 336,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analyze.py#L220-L336"
+    },
+    {
+      "id": "S10",
+      "path": "tools/hostlab/analysis_plan.py",
+      "start": 27,
+      "end": 159,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_plan.py#L27-L159"
+    },
+    {
+      "id": "S11",
+      "path": "tools/hostlab/analysis_plan.py",
+      "start": 166,
+      "end": 187,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_plan.py#L166-L187"
+    },
+    {
+      "id": "S12",
+      "path": "tools/hostlab/native_graph.py",
+      "start": 123,
+      "end": 239,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_graph.py#L123-L239"
+    },
+    {
+      "id": "S13",
+      "path": "tools/hostlab/native_surface.py",
+      "start": 42,
+      "end": 147,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_surface.py#L42-L147"
+    },
+    {
+      "id": "S14",
+      "path": "tools/hostlab/analysis/run_intake.py",
+      "start": 28,
+      "end": 57,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis/run_intake.py#L28-L57"
+    },
+    {
+      "id": "S15",
+      "path": "tools/hostlab/analysis/obfuscated_owner_drift.py",
+      "start": 32,
+      "end": 85,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis/obfuscated_owner_drift.py#L32-L85"
+    },
+    {
+      "id": "S16",
+      "path": "tools/hostlab/analysis/home_frame_audit.py",
+      "start": 153,
+      "end": 155,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis/home_frame_audit.py#L153-L155"
+    },
+    {
+      "id": "S17",
+      "path": "tools/hostlab/priority_analysis.py",
+      "start": 62,
+      "end": 133,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/priority_analysis.py#L62-L133"
+    },
+    {
+      "id": "S18",
+      "path": "tools/hostlab/audit_common.py",
+      "start": 6,
+      "end": 17,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/audit_common.py#L6-L17"
+    },
+    {
+      "id": "S19",
+      "path": "tools/hostlab/analyze.py",
+      "start": 43,
+      "end": 140,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analyze.py#L43-L140"
+    },
+    {
+      "id": "S20",
+      "path": "tools/hostlab/hostlab.py",
+      "start": 115,
+      "end": 147,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/hostlab.py#L115-L147"
+    },
+    {
+      "id": "S21",
+      "path": "tools/hostlab/dexq/server.py",
+      "start": 88,
+      "end": 239,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py#L88-L239"
+    },
+    {
+      "id": "S22",
+      "path": "tools/hostlab/remote_schedule.py",
+      "start": 101,
+      "end": 215,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_schedule.py#L101-L215"
+    },
+    {
+      "id": "S23",
+      "path": "tools/hostlab/analysis_paging.py",
+      "start": 20,
+      "end": 226,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_paging.py#L20-L226"
+    },
+    {
+      "id": "S24",
+      "path": "tools/hostlab/analysis_checkpoint.py",
+      "start": 1,
+      "end": 275,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_checkpoint.py#L1-L275"
+    },
+    {
+      "id": "S25",
+      "path": "tools/hostlab/runner_worker.py",
+      "start": 92,
+      "end": 260,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/runner_worker.py#L92-L260"
+    },
+    {
+      "id": "S26",
+      "path": "tools/hostlab/remote_mcp.py",
+      "start": 176,
+      "end": 468,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py#L176-L468"
+    },
+    {
+      "id": "S27",
+      "path": "tools/hostlab/remote_artifacts.py",
+      "start": 17,
+      "end": 241,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_artifacts.py#L17-L241"
+    },
+    {
+      "id": "S28",
+      "path": "tools/hostlab/snapshot_transport.py",
+      "start": 88,
+      "end": 192,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/snapshot_transport.py#L88-L192"
+    },
+    {
+      "id": "S29",
+      "path": ".github/workflows/host-analysis.yml",
+      "start": 41,
+      "end": 182,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/.github/workflows/host-analysis.yml#L41-L182"
+    },
+    {
+      "id": "S30",
+      "path": "tools/hostlab/plan_ci.py",
+      "start": 7,
+      "end": 27,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/plan_ci.py#L7-L27"
+    },
+    {
+      "id": "S31",
+      "path": "tools/hostlab/DEXSQL.md",
+      "start": 42,
+      "end": 88,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/DEXSQL.md#L42-L88"
+    },
+    {
+      "id": "S32",
+      "path": "tools/hostlab/verify_audits.py",
+      "start": 23,
+      "end": 99,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/verify_audits.py#L23-L99"
+    },
+    {
+      "id": "S33",
+      "path": "tools/hostlab/verify_audits.py",
+      "start": 144,
+      "end": 185,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/verify_audits.py#L144-L185"
+    },
+    {
+      "id": "S34",
+      "path": "tools/hostlab/REMOTE_README.md",
+      "start": 71,
+      "end": 91,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/REMOTE_README.md#L71-L91"
+    },
+    {
+      "id": "S35",
+      "path": "tools/hostlab/analysis_batch.py",
+      "start": 39,
+      "end": 92,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_batch.py#L39-L92"
+    },
+    {
+      "id": "S36",
+      "path": "tools/hostlab/DEXSQL.md",
+      "start": 256,
+      "end": 312,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/DEXSQL.md#L256-L312"
+    },
+    {
+      "id": "S37",
+      "path": "tools/hostlab/native_graph.py",
+      "start": 289,
+      "end": 292,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_graph.py#L289-L292"
+    },
+    {
+      "id": "S38",
+      "path": "tools/hostlab/bench_dexq.py",
+      "start": 12,
+      "end": 29,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/bench_dexq.py#L12-L29"
+    },
+    {
+      "id": "S39",
+      "path": "tools/hostlab/prepare_runtime.py",
+      "start": 1,
+      "end": 212,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/prepare_runtime.py#L1-L212"
+    },
+    {
+      "id": "S40",
+      "path": "tools/hostlab/adaptive_schedule.py",
+      "start": 19,
+      "end": 33,
+      "url": "https://github.com/jichuo1/innocent-lab-host-analysis/blob/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/adaptive_schedule.py#L19-L33"
+    }
+  ],
+  "missing_evidence": [
+    "actual deployed client revision/uncommitted workspace",
+    "current private APK inventory",
+    "0.1.0 real-workload/full-function validation beyond bounded synthetic probes",
+    "raw benchmark result artifacts",
+    "representative request/SQL trace and repeat-sample hit rate",
+    "production worker hardware/OS/cache state",
+    "live ACL and current HTTP deployment state beyond checked source"
+  ],
+  "static_inventory": {
+    "tracked_files": 122,
+    "text_files_scanned": 122,
+    "python_files": 88,
+    "tests": 31,
+    "agents_files": [],
+    "query_cache_matches": [],
+    "remote_mcp_tools": [
+      {
+        "name": "plan_version_matrix",
+        "line": 177,
+        "end_line": 186
+      },
+      {
+        "name": "submit_version_matrix",
+        "line": 190,
+        "end_line": 205
+      },
+      {
+        "name": "advance_version_matrix",
+        "line": 209,
+        "end_line": 216
+      },
+      {
+        "name": "version_matrix_status",
+        "line": 220,
+        "end_line": 227
+      },
+      {
+        "name": "version_matrix_result",
+        "line": 231,
+        "end_line": 242
+      },
+      {
+        "name": "recover_version_matrix",
+        "line": 246,
+        "end_line": 257
+      },
+      {
+        "name": "plan_analysis",
+        "line": 298,
+        "end_line": 304
+      },
+      {
+        "name": "submit_analysis",
+        "line": 308,
+        "end_line": 318
+      },
+      {
+        "name": "submit_job",
+        "line": 322,
+        "end_line": 365
+      },
+      {
+        "name": "job_status",
+        "line": 369,
+        "end_line": 394
+      },
+      {
+        "name": "list_jobs",
+        "line": 398,
+        "end_line": 400
+      },
+      {
+        "name": "job_result",
+        "line": 404,
+        "end_line": 468
+      }
+    ],
+    "legacy_dexq_tools": [
+      {
+        "name": "open_dataset",
+        "line": 196,
+        "end_line": 227
+      },
+      {
+        "name": "list_datasets",
+        "line": 231,
+        "end_line": 233
+      },
+      {
+        "name": "close_dataset",
+        "line": 237,
+        "end_line": 239
+      },
+      {
+        "name": "describe_tables",
+        "line": 243,
+        "end_line": 264
+      },
+      {
+        "name": "query",
+        "line": 268,
+        "end_line": 328
+      },
+      {
+        "name": "decode",
+        "line": 345,
+        "end_line": 387
+      },
+      {
+        "name": "find_refs",
+        "line": 391,
+        "end_line": 445
+      },
+      {
+        "name": "apk_info",
+        "line": 449,
+        "end_line": 468
+      }
+    ],
+    "feature_ids": [
+      "block_update",
+      "player_default_quality",
+      "comment_free_copy",
+      "description_free_copy",
+      "home_top_bar",
+      "mine_entry",
+      "mine_vip",
+      "dynamic_tabs",
+      "full_number",
+      "player_portrait",
+      "player_status_bar",
+      "home_recommend",
+      "video_relate",
+      "home_tabs",
+      "mine_components",
+      "story_purify",
+      "splash_ads",
+      "bottom_bar",
+      "teenagers_mode",
+      "comment_filter",
+      "comment_purify",
+      "comment_topology",
+      "comment_section",
+      "paused_ad",
+      "home_banner",
+      "merchandise",
+      "game_promotion"
+    ],
+    "feature_count": 27,
+    "sql_literal_fragment_counts": {
+      "tools/hostlab/native_graph.py": 12,
+      "tools/hostlab/native_surface.py": 6,
+      "tools/hostlab/native_audit.py": 1,
+      "tools/hostlab/native_cli.py": 4,
+      "tools/hostlab/analysis_plan.py": 7
+    },
+    "sql_tables_detected": {
+      "annotation_directory_entries": [
+        "tools/hostlab/native_graph.py"
+      ],
+      "annotation_elements": [
+        "tools/hostlab/native_graph.py"
+      ],
+      "annotation_set_entries": [
+        "tools/hostlab/native_graph.py"
+      ],
+      "annotations": [
+        "tools/hostlab/native_graph.py"
+      ],
+      "class_fields": [
+        "tools/hostlab/native_graph.py",
+        "tools/hostlab/native_surface.py"
+      ],
+      "class_interfaces": [
+        "tools/hostlab/native_graph.py"
+      ],
+      "class_methods": [
+        "tools/hostlab/native_graph.py",
+        "tools/hostlab/native_surface.py"
+      ],
+      "classes": [
+        "tools/hostlab/analysis_plan.py",
+        "tools/hostlab/native_audit.py",
+        "tools/hostlab/native_graph.py",
+        "tools/hostlab/native_surface.py"
+      ],
+      "code_items": [
+        "tools/hostlab/native_surface.py"
+      ],
+      "dex_files": [
+        "tools/hostlab/native_cli.py",
+        "tools/hostlab/native_graph.py"
+      ],
+      "method_calls": [
+        "tools/hostlab/native_surface.py"
+      ],
+      "methods": [
+        "tools/hostlab/native_graph.py"
+      ],
+      "strings": [
+        "tools/hostlab/native_graph.py"
+      ],
+      "types": [
+        "tools/hostlab/native_graph.py"
+      ]
+    }
+  },
+  "reviewed_source_files": [
+    {
+      "path": ".github/workflows/host-analysis.yml",
+      "sha256": "fbc95c3137fd42b02e7c1dc02cbae11d0aa52782003d08b1f82a8ea4a38dea0f",
+      "bytes": 7468
+    },
+    {
+      "path": "tools/hostlab/DEXSQL.md",
+      "sha256": "875020cafa1b4cd6115cad6bae11e350c8028578cac67354ad3f4a7e19cf0155",
+      "bytes": 31830
+    },
+    {
+      "path": "tools/hostlab/REMOTE_README.md",
+      "sha256": "c3b6cbb6500d08ede5c72e08334913073b426ac30bc9e0236c0d59a1854aea60",
+      "bytes": 15577
+    },
+    {
+      "path": "tools/hostlab/adaptive_schedule.py",
+      "sha256": "4e3696f0f833fc600c78e52285dc647224b02436e87c3115d400170761a38498",
+      "bytes": 14912
+    },
+    {
+      "path": "tools/hostlab/analysis/home_frame_audit.py",
+      "sha256": "85351a40067cd129284ec10cd9809a9d7497aebbc93252d0ea7442c488e2b6bc",
+      "bytes": 12894
+    },
+    {
+      "path": "tools/hostlab/analysis/obfuscated_owner_drift.py",
+      "sha256": "7a158594bcb0d02ff919d1fb87fc47631be61f4b847ab6733146d330a87a8c7c",
+      "bytes": 6116
+    },
+    {
+      "path": "tools/hostlab/analysis/run_intake.py",
+      "sha256": "36fce528921e54be5600bd37eb4b6273e97552d2a0701170130b798fcbbe0068",
+      "bytes": 14092
+    },
+    {
+      "path": "tools/hostlab/analysis_batch.py",
+      "sha256": "8f40845d1328cae8a06dd29830c5e636d962da3cc72194e16904f6fb23030a64",
+      "bytes": 23159
+    },
+    {
+      "path": "tools/hostlab/analysis_checkpoint.py",
+      "sha256": "cabc41a443fde6f9798509ec7157f0577c59beaa8aaebe6c247265c31ee58d90",
+      "bytes": 15471
+    },
+    {
+      "path": "tools/hostlab/analysis_paging.py",
+      "sha256": "91adddc501e80e8ceeaa7f55ca6f6b12bd715502589f80e7cd4d7da2e5201cb1",
+      "bytes": 11581
+    },
+    {
+      "path": "tools/hostlab/analysis_plan.py",
+      "sha256": "acc007958419d233bf0be6271e288c10588df2984701f5f6abf585a895ad07cb",
+      "bytes": 10947
+    },
+    {
+      "path": "tools/hostlab/analyze.py",
+      "sha256": "3ddb6298e74d3173bbea217d1bb5b51dd7ea138739dbd952bf4ed505716ce0ee",
+      "bytes": 17388
+    },
+    {
+      "path": "tools/hostlab/audit_common.py",
+      "sha256": "6f2468bfbaebf1cecab0fd9c5eaeb3afdc7f95fa2154aaee6e0b48613769b928",
+      "bytes": 678
+    },
+    {
+      "path": "tools/hostlab/bench_dexq.py",
+      "sha256": "298f5da3b9431f15f7b7c21d534f168b890b35a1fae0933382f8d2cb4d593184",
+      "bytes": 1547
+    },
+    {
+      "path": "tools/hostlab/dexq/server.py",
+      "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+      "bytes": 22254
+    },
+    {
+      "path": "tools/hostlab/dexq_cli.py",
+      "sha256": "9e95d7c215c54386547dd074d7016746801a17ea2e0c82af0127b89c9b2e4d93",
+      "bytes": 7232
+    },
+    {
+      "path": "tools/hostlab/hostlab.py",
+      "sha256": "111dff57cef990ac1557c1d950a2fe9bf1dfb8b787c5f9c20c126a26953c15e8",
+      "bytes": 13160
+    },
+    {
+      "path": "tools/hostlab/install_dexsql.py",
+      "sha256": "2c223b638023b325a782771e4751a6371c393cb46750d253695e4b7e7727f1ca",
+      "bytes": 4421
+    },
+    {
+      "path": "tools/hostlab/native_audit.py",
+      "sha256": "89a024d9f1b177a1b5989b623200d996e5a5013287f923579d995fee15759442",
+      "bytes": 3477
+    },
+    {
+      "path": "tools/hostlab/native_cli.py",
+      "sha256": "ca2b1cfb824c0da8f6ab00baeb6bbb24308c734b9ebc3ba4c5c7219d9503a3e3",
+      "bytes": 9276
+    },
+    {
+      "path": "tools/hostlab/native_graph.py",
+      "sha256": "bcad2ba7e9a02bff07e08291960cf25c2d8f36474d3a5295188d180ed7bdf085",
+      "bytes": 13971
+    },
+    {
+      "path": "tools/hostlab/native_surface.py",
+      "sha256": "503521fdbb694ca825a65e259981155dc5ccbbf69c4797d23e3e598d1bdaf174",
+      "bytes": 8822
+    },
+    {
+      "path": "tools/hostlab/plan_ci.py",
+      "sha256": "1a07909a309aaec8646e79a7b839f65f9c46bac0641e011f518b55f694dcaa53",
+      "bytes": 1627
+    },
+    {
+      "path": "tools/hostlab/prepare_runtime.py",
+      "sha256": "1027693ec0a465aa04ba905ec1f2f3e93bbb8ba0e2152b92f085beaa394e783d",
+      "bytes": 9750
+    },
+    {
+      "path": "tools/hostlab/priority_analysis.py",
+      "sha256": "120f8e47da1869be02adb24da12952f0705ee89a1d89c2ae0de7580dc4434631",
+      "bytes": 8720
+    },
+    {
+      "path": "tools/hostlab/remote_artifacts.py",
+      "sha256": "5ddd0e35235afc8cd3ac53b6619cfa62a826f0aa2610c459a85b55207889aa50",
+      "bytes": 12506
+    },
+    {
+      "path": "tools/hostlab/remote_job.py",
+      "sha256": "8c7e63257b418c2b64c3d3c5759728cf85eeb83f2628326629453bb8c769f236",
+      "bytes": 17935
+    },
+    {
+      "path": "tools/hostlab/remote_mcp.py",
+      "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+      "bytes": 28247
+    },
+    {
+      "path": "tools/hostlab/remote_schedule.py",
+      "sha256": "7174fae71c25670fb96e0c313180c23fe224db534729f34bf0a1f18209e6354d",
+      "bytes": 13072
+    },
+    {
+      "path": "tools/hostlab/runner_worker.py",
+      "sha256": "dae63dc34a6b27095b0040ef8e7cac6f8e09d0cb43e7b601e46c22ed2b0df665",
+      "bytes": 13428
+    },
+    {
+      "path": "tools/hostlab/snapshot_transport.py",
+      "sha256": "b75d5c1aac417c2f192da74d85f0da840aed9c7a110d4d54be2dcfb48ef28bf8",
+      "bytes": 14985
+    },
+    {
+      "path": "tools/hostlab/verify_audits.py",
+      "sha256": "9e9630a34091d4316fbe63cad8a8204c7ff9e59ce00ef126b5d594e60bcee600",
+      "bytes": 12821
+    }
+  ],
+  "current_team_probe": [
+    {
+      "path": "runs/baseline_010_final",
+      "release": "0.1.0",
+      "binary_sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+      "assertions_verified": 23,
+      "recorded_observations": 25,
+      "runner_sha256": "d8a1693facc65a1d02bb216c28cc2e15ce7ef7cdc17c6d0a4189124798e6d2f8",
+      "independent_audit_scope": "read summary/checks/manifest and hash frozen script; no engine rerun"
+    },
+    {
+      "path": "runs/candidate_011_final",
+      "release": "0.1.1",
+      "binary_sha256": "f35c57610fcee62864e68f12e51997621375c025447aa2f32a0be9eb2df464bc",
+      "assertions_verified": 23,
+      "recorded_observations": 25,
+      "runner_sha256": "d8a1693facc65a1d02bb216c28cc2e15ce7ef7cdc17c6d0a4189124798e6d2f8",
+      "independent_audit_scope": "read summary/checks/manifest and hash frozen script; no engine rerun"
+    }
+  ]
+}

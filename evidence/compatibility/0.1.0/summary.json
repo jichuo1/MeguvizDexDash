@@ -1,0 +1,9 @@
+{
+  "output": "/workspace/scratch/acc0e5058f47/research/desktop_v2/runs/baseline_010_final",
+  "checks": 23,
+  "verified": 23,
+  "unexpected": [],
+  "observations": 25,
+  "cli_calls": 12,
+  "mcp_messages": 195
+}

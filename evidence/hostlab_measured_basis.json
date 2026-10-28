@@ -1,0 +1,4156 @@
+{
+  "schema": 1,
+  "retrieval_date": "2026-10-26",
+  "repo": "jichuo1/innocent-lab-host-analysis",
+  "fixed_main_sha": "8782f43d537c442905123e35af325c412caa5188",
+  "classification": "historical measured evidence plus explicitly conditional algebra; no new APK or engine execution",
+  "measurement_scope": {
+    "E": "verify_audits.worker timer after its initial fetch_sample, through analyze.main, surface/evidence validation, final APK digest and evidence serialization; sampler.stop and metrics.json write occur after E",
+    "A": "worker elapsed through analyze.main and summary identity/completeness checks; includes surface for native but excludes the later separate legacy surface",
+    "N": "native_audit.run timer after its first APK hash through session open, Rules.run, class count, optional surface/resource fingerprints, session close, final APK hash and binary status verification",
+    "prepare": "NativeSession entry: binary verify, archive inventory, subprocess/reader creation, first dex_files query, inventory comparison; later lazy decoding is not ruled out",
+    "structural": "Rules.run plus complete FEATURE-set validation, including native SQL, CLI shape/hex transport and Python rule/graph logic",
+    "surface": "native_surface.scan plus resource_fingerprints: SQL, transport, Python grouping, DEX-byte reread/fingerprints and resource hashing",
+    "R": "E - N, a measured difference covering repeated input metadata/hash setup, TSV/report handling, Python intake/home subprocesses and outer verification; not a separately measured pure gate time",
+    "excluded_from_E": [
+      "initial sample download/staging before worker.start",
+      "Actions environment/cache restoration",
+      "workflow queue",
+      "AI review",
+      "artifact publication"
+    ]
+  },
+  "runs": [
+    {
+      "run_id": 40067936875,
+      "head_sha": "e4e55d69a1da56535c9708ed7847f63f9f7cd8cb",
+      "role": "current_native_vs_previous_native",
+      "rounds_per_sample": 1,
+      "run_url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40067936875",
+      "verification_path": "artifacts/40067936875/remote-output/verification.json",
+      "verification_sha256": "bf4ca0cd3df35dab13ed1a83dedf92e5b6dfa485e4d48611d424cf8462b01f7d",
+      "archive_path": "artifacts/host-analysis-40067936875.zip",
+      "archive_sha256": "73022fc43f840da66f7aa9f3ba847ea0a4cc8e6678ed607fb633b197032ae28e",
+      "archive_bytes": 40231,
+      "artifact_id": 12549998276,
+      "artifact_expires_at": "2026-11-07T05:59:32Z",
+      "archive_crc_and_all_receipt_hashes_verified": true,
+      "file_count": 11,
+      "samples": [
+        {
+          "package": "tv.danmaku.bili",
+          "version_code": 9170100,
+          "version_name": "9.17.0",
+          "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+          "size": 243687778,
+          "certificate_sha256": [
+            "93ba270f5521139ecafe4bb638ac5b1198bc548f62d9fd8f8580a079faf5910e"
+          ],
+          "path": "apks/tv.danmaku.bili/9170100/f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955/base.apk"
+        },
+        {
+          "package": "tv.danmaku.bili",
+          "version_code": 9161100,
+          "version_name": "9.16.1",
+          "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+          "size": 226519215,
+          "certificate_sha256": [
+            "93ba270f5521139ecafe4bb638ac5b1198bc548f62d9fd8f8580a079faf5910e"
+          ],
+          "path": "apks/tv.danmaku.bili/9161100/41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2/base.apk"
+        }
+      ],
+      "sample_revision": "1c744580ec53f13d57339e162246945e5004e577",
+      "system": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "cpu_count": 4,
+      "measurement_original": "fresh serial processes; shared fetched APK; OS cache retained; order alternates by round/sample",
+      "complete": true,
+      "tools_reverified_original": true,
+      "source_hash_checks": {
+        "run_head": {
+          "sha": "e4e55d69a1da56535c9708ed7847f63f9f7cd8cb",
+          "compared_count": 22,
+          "mismatches": []
+        },
+        "fixed_main": {
+          "sha": "8782f43d537c442905123e35af325c412caa5188",
+          "compared_count": 22,
+          "mismatches": []
+        },
+        "reference_native": {
+          "sha": "23f18add1ede2544c2214c81cc745ab246230f2a",
+          "compared_count": 94,
+          "mismatches": []
+        }
+      },
+      "paired_measurements": [
+        {
+          "round": 1,
+          "sample": "target",
+          "runs": [
+            {
+              "execution_order_in_pair": 1,
+              "implementation": "reference_native",
+              "backend": "dexsql",
+              "measured_seconds": {
+                "worker_total_E": 107.99263089100003,
+                "audit_and_shared_scan_A": 107.35226035700003,
+                "composite_native_audit_N": 85.00452642900001,
+                "native_phases": {
+                  "prepare": 1.4265745939999874,
+                  "structural": 13.126588233000005,
+                  "surface": 70.19867852300001
+                }
+              },
+              "surface_scan_execution": {
+                "backend": "dexsql",
+                "workers": 2,
+                "dex_files": 35,
+                "elapsed_ms": 70198.67395400001
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 213,
+                "samples_retained": 213,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 1326112768,
+                "sampled_cgroup_memory_peak_bytes": 3358941184,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 33.487807,
+                  "self_system_seconds": 6.181631,
+                  "children_user_seconds": 108.566228,
+                  "children_system_seconds": 3.115507
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 434176,
+                  "io_write_bytes_delta": 1031610368,
+                  "net_rx_bytes_delta": 134240,
+                  "net_tx_bytes_delta": 362670
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 107992.79730200004,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.13857980166510359,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15044575232,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2478202880,
+                  "tree_rss_bytes": 327217152,
+                  "psi_cpu_some_fraction": 7.744592478664539e-05,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90463911936,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 39.669438,
+                "children_total": 111.68173499999999
+              },
+              "native_identity": {
+                "class_count": 345907,
+                "apk_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+                "complete": true,
+                "source_sha_reverified": true,
+                "reference_sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+                "queries": 647,
+                "binary": {
+                  "version": "0.1.0",
+                  "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+                  "available": true
+                }
+              },
+              "derived_disjoint_seconds": {
+                "prepare": 1.4265745939999874,
+                "structural": 13.126588233000005,
+                "surface": 70.19867852300001,
+                "native_unphased": 0.2526850790000026,
+                "audit_outside_native": 22.347733928000025,
+                "worker_after_audit": 0.6403705339999988
+              },
+              "derived_seconds": {
+                "worker_outside_native_R": 22.988104462000024
+              },
+              "derived_share_of_worker_total": {
+                "native_N": 0.7871326564383587,
+                "worker_outside_native_R": 0.21286734356164133,
+                "prepare": 0.013209925364628526,
+                "structural": 0.12155077735117904,
+                "surface": 0.6500321174122843,
+                "native_unphased": 0.002339836310266806,
+                "audit_outside_native": 0.2069375821629553,
+                "worker_after_audit": 0.005929761398686013
+              }
+            },
+            {
+              "execution_order_in_pair": 2,
+              "implementation": "dexsql",
+              "backend": "dexsql",
+              "measured_seconds": {
+                "worker_total_E": 94.63014286600003,
+                "audit_and_shared_scan_A": 93.99344970300001,
+                "composite_native_audit_N": 71.88504964099991,
+                "native_phases": {
+                  "prepare": 1.442956307999907,
+                  "structural": 13.663421107000088,
+                  "surface": 56.52524726499996
+                }
+              },
+              "surface_scan_execution": {
+                "backend": "dexsql",
+                "workers": 2,
+                "dex_files": 35,
+                "elapsed_ms": 56525.24307700003
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 187,
+                "samples_retained": 187,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 1344622592,
+                "sampled_cgroup_memory_peak_bytes": 3483697152,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 22.809877999999998,
+                  "self_system_seconds": 2.2284289999999998,
+                  "children_user_seconds": 107.242467,
+                  "children_system_seconds": 2.888645
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 96722944,
+                  "net_rx_bytes_delta": 108459,
+                  "net_tx_bytes_delta": 214196
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 94630.33623400009,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.14494801177549507,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15030738944,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2600112128,
+                  "tree_rss_bytes": 346832896,
+                  "psi_cpu_some_fraction": 9.870144821456203e-05,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 7.896115857164962e-05,
+                  "psi_io_full_fraction": 5.922086892873722e-05,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90367193088,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 25.038306999999996,
+                "children_total": 110.131112
+              },
+              "native_identity": {
+                "class_count": 345907,
+                "apk_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+                "complete": true,
+                "source_sha_reverified": true,
+                "reference_sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+                "queries": 647,
+                "binary": {
+                  "version": "0.1.0",
+                  "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+                  "available": true
+                }
+              },
+              "derived_disjoint_seconds": {
+                "prepare": 1.442956307999907,
+                "structural": 13.663421107000088,
+                "surface": 56.52524726499996,
+                "native_unphased": 0.2534249609999506,
+                "audit_outside_native": 22.1084000620001,
+                "worker_after_audit": 0.6366931630000181
+              },
+              "derived_seconds": {
+                "worker_outside_native_R": 22.74509322500012
+              },
+              "derived_share_of_worker_total": {
+                "native_N": 0.7596421971252009,
+                "worker_outside_native_R": 0.2403578028747992,
+                "prepare": 0.015248379261597327,
+                "structural": 0.1443876199822294,
+                "surface": 0.5973281404112633,
+                "native_unphased": 0.002678057470110874,
+                "audit_outside_native": 0.23362957502142268,
+                "worker_after_audit": 0.006728227853376492
+              }
+            }
+          ],
+          "equivalence_checks_original": {
+            "class_records": {
+              "equal": true,
+              "reference": {
+                "sha256": "afdaf24369cb67433b535ec6e2a88d5d56c0687248eddc6f8571719216a94785",
+                "count": 32518
+              },
+              "native": {
+                "sha256": "afdaf24369cb67433b535ec6e2a88d5d56c0687248eddc6f8571719216a94785",
+                "count": 32518
+              }
+            },
+            "discoveries": {
+              "equal": true,
+              "reference": {
+                "sha256": "c42ebd37d32a2f9992f41d93dc32014ed5009fcfdd646aeac02b722aafd974b0",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c42ebd37d32a2f9992f41d93dc32014ed5009fcfdd646aeac02b722aafd974b0",
+                "count": 3
+              }
+            },
+            "families": {
+              "equal": true,
+              "reference": {
+                "sha256": "f2ba9ea514b9be9536e43eb35fcb2650d1eed78873db872ff70f11d8a29e4e24",
+                "count": 39
+              },
+              "native": {
+                "sha256": "f2ba9ea514b9be9536e43eb35fcb2650d1eed78873db872ff70f11d8a29e4e24",
+                "count": 39
+              }
+            },
+            "features": {
+              "equal": true,
+              "reference": {
+                "sha256": "49b7434cb13dfe27e305ea5009fdcd145c165ce51a4cc15b1c0b9cfe03a9f1a8",
+                "count": 27
+              },
+              "native": {
+                "sha256": "49b7434cb13dfe27e305ea5009fdcd145c165ce51a4cc15b1c0b9cfe03a9f1a8",
+                "count": 27
+              }
+            },
+            "gates": {
+              "equal": true,
+              "reference": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              }
+            },
+            "home_probe_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "c4c7b9e504a86c5de430b7d9d5fbdb6f9958806e529751fb2efa0ca8027b59cb",
+                "count": null
+              },
+              "native": {
+                "sha256": "c4c7b9e504a86c5de430b7d9d5fbdb6f9958806e529751fb2efa0ca8027b59cb",
+                "count": null
+              }
+            },
+            "invoke_edges": {
+              "equal": true,
+              "reference": {
+                "sha256": "929917ccf783f4559e01e9e363b158903a3ca1f1ac865949e0cc3bb0821ea452",
+                "count": 137216
+              },
+              "native": {
+                "sha256": "929917ccf783f4559e01e9e363b158903a3ca1f1ac865949e0cc3bb0821ea452",
+                "count": 137216
+              }
+            },
+            "limitations": {
+              "equal": true,
+              "reference": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              },
+              "native": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              }
+            },
+            "page_path_matrix": {
+              "equal": true,
+              "reference": {
+                "sha256": "83f859996cfff07862de2570c4119a27cab4c5f1576e1c8f5cfeae014cc9982b",
+                "count": 10
+              },
+              "native": {
+                "sha256": "83f859996cfff07862de2570c4119a27cab4c5f1576e1c8f5cfeae014cc9982b",
+                "count": 10
+              }
+            },
+            "protocol_definitions": {
+              "equal": true,
+              "reference": {
+                "sha256": "b9602fd870a5b36f299a323758bca6dd958884f1657b541a05e075e790ca8a8e",
+                "count": 5523
+              },
+              "native": {
+                "sha256": "b9602fd870a5b36f299a323758bca6dd958884f1657b541a05e075e790ca8a8e",
+                "count": 5523
+              }
+            },
+            "protocol_paths": {
+              "equal": true,
+              "reference": {
+                "sha256": "bbb68cc4d1ac573c64b62c61e3199d496632bb2afe89f931abb9edc96212d464",
+                "count": 148
+              },
+              "native": {
+                "sha256": "bbb68cc4d1ac573c64b62c61e3199d496632bb2afe89f931abb9edc96212d464",
+                "count": 148
+              }
+            },
+            "protocol_twins": {
+              "equal": true,
+              "reference": {
+                "sha256": "4ea02417fa251d55563c47034c7252773dfc698cb7a230960a157df6133b2db8",
+                "count": 47
+              },
+              "native": {
+                "sha256": "4ea02417fa251d55563c47034c7252773dfc698cb7a230960a157df6133b2db8",
+                "count": 47
+              }
+            },
+            "resource_fingerprints": {
+              "equal": true,
+              "reference": {
+                "sha256": "052fc3e4b1da8a7ab51ed7ee8c5f85b58b80dfa6426201b237e5e0e3241ffbc9",
+                "count": 17770
+              },
+              "native": {
+                "sha256": "052fc3e4b1da8a7ab51ed7ee8c5f85b58b80dfa6426201b237e5e0e3241ffbc9",
+                "count": 17770
+              }
+            },
+            "rule_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              },
+              "native": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              }
+            },
+            "rule_version": {
+              "equal": true,
+              "reference": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              },
+              "native": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              }
+            },
+            "sample": {
+              "equal": true,
+              "reference": {
+                "sha256": "f506bf4437a395d6bd74674f808e6343fbd81c1d4c5712a0d1404ba16774a963",
+                "count": 10
+              },
+              "native": {
+                "sha256": "f506bf4437a395d6bd74674f808e6343fbd81c1d4c5712a0d1404ba16774a963",
+                "count": 10
+              }
+            },
+            "scope": {
+              "equal": true,
+              "reference": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              },
+              "native": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              }
+            },
+            "unclassified_protocol_callers": {
+              "equal": true,
+              "reference": {
+                "sha256": "afcf2c936977c59f867e73efa9ebec6d079f2126ee00ea43f74fb704ff469c61",
+                "count": 1509
+              },
+              "native": {
+                "sha256": "afcf2c936977c59f867e73efa9ebec6d079f2126ee00ea43f74fb704ff469c61",
+                "count": 1509
+              }
+            },
+            "unknown_families": {
+              "equal": true,
+              "reference": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              },
+              "native": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              }
+            },
+            "unregistered_protocols": {
+              "equal": true,
+              "reference": {
+                "sha256": "849307b0d314100631a0361aa7bc34e9133277b7a1d45f077212ba6c89c3440d",
+                "count": 134
+              },
+              "native": {
+                "sha256": "849307b0d314100631a0361aa7bc34e9133277b7a1d45f077212ba6c89c3440d",
+                "count": 134
+              }
+            }
+          },
+          "all_equal": true,
+          "measured_paired_change": {
+            "reference_implementation": "reference_native",
+            "saved_wall_seconds": 13.362488025000005,
+            "time_reduction_fraction": 0.12373518373200053,
+            "speedup": 1.1412075224690488,
+            "self_cpu_seconds_reduced": 14.631131000000003,
+            "children_cpu_seconds_reduced": 1.5506229999999874
+          }
+        },
+        {
+          "round": 1,
+          "sample": "baseline",
+          "runs": [
+            {
+              "execution_order_in_pair": 1,
+              "implementation": "dexsql",
+              "backend": "dexsql",
+              "measured_seconds": {
+                "worker_total_E": 85.57221953299995,
+                "audit_and_shared_scan_A": 84.95322928399992,
+                "composite_native_audit_N": 64.2626377769999,
+                "native_phases": {
+                  "prepare": 1.3083350089999612,
+                  "structural": 11.911596121000002,
+                  "surface": 50.80152401199996
+                }
+              },
+              "surface_scan_execution": {
+                "backend": "dexsql",
+                "workers": 2,
+                "dex_files": 33,
+                "elapsed_ms": 50801.52016399995
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 169,
+                "samples_retained": 169,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 1272868864,
+                "sampled_cgroup_memory_peak_bytes": 3572383744,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 21.818428,
+                  "self_system_seconds": 2.2338459999999998,
+                  "children_user_seconds": 95.592541,
+                  "children_system_seconds": 2.444691
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 96727040,
+                  "net_rx_bytes_delta": 112902,
+                  "net_tx_bytes_delta": 232516
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 85572.37260200009,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.26606954678176614,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15002447872,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2746843136,
+                  "tree_rss_bytes": 331972608,
+                  "psi_cpu_some_fraction": 0.0001242251405097344,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90273030144,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 24.052274,
+                "children_total": 98.037232
+              },
+              "native_identity": {
+                "class_count": 310716,
+                "apk_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+                "complete": true,
+                "source_sha_reverified": true,
+                "reference_sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+                "queries": 635,
+                "binary": {
+                  "version": "0.1.0",
+                  "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+                  "available": true
+                }
+              },
+              "derived_disjoint_seconds": {
+                "prepare": 1.3083350089999612,
+                "structural": 11.911596121000002,
+                "surface": 50.80152401199996,
+                "native_unphased": 0.24118263499997283,
+                "audit_outside_native": 20.690591507000022,
+                "worker_after_audit": 0.618990249000035
+              },
+              "derived_seconds": {
+                "worker_outside_native_R": 21.309581756000057
+              },
+              "derived_share_of_worker_total": {
+                "native_N": 0.7509754699329464,
+                "worker_outside_native_R": 0.24902453006705358,
+                "prepare": 0.015289249433286193,
+                "structural": 0.139199335789186,
+                "surface": 0.5936684158625678,
+                "native_unphased": 0.0028184688479064575,
+                "audit_outside_native": 0.2417909880089172,
+                "worker_after_audit": 0.0072335420581363845
+              }
+            },
+            {
+              "execution_order_in_pair": 2,
+              "implementation": "reference_native",
+              "backend": "dexsql",
+              "measured_seconds": {
+                "worker_total_E": 97.37306483600003,
+                "audit_and_shared_scan_A": 96.755184611,
+                "composite_native_audit_N": 75.98653044899993,
+                "native_phases": {
+                  "prepare": 1.317112601999952,
+                  "structural": 12.116075639999963,
+                  "surface": 62.31162966700003
+                }
+              },
+              "surface_scan_execution": {
+                "backend": "dexsql",
+                "workers": 2,
+                "dex_files": 33,
+                "elapsed_ms": 62311.625820000016
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 192,
+                "samples_retained": 192,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 1251864576,
+                "sampled_cgroup_memory_peak_bytes": 3881680896,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 30.550239,
+                  "self_system_seconds": 5.384259,
+                  "children_user_seconds": 97.942862,
+                  "children_system_seconds": 2.928509
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 320634880,
+                  "net_rx_bytes_delta": 130278,
+                  "net_tx_bytes_delta": 229190
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 97373.23233200004,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.1396635650641528,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15017697280,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 3060183040,
+                  "tree_rss_bytes": 316637184,
+                  "psi_cpu_some_fraction": 8.332526814178705e-05,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 89952391168,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 35.934498000000005,
+                "children_total": 100.87137100000001
+              },
+              "native_identity": {
+                "class_count": 310716,
+                "apk_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+                "complete": true,
+                "source_sha_reverified": true,
+                "reference_sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+                "queries": 635,
+                "binary": {
+                  "version": "0.1.0",
+                  "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+                  "available": true
+                }
+              },
+              "derived_disjoint_seconds": {
+                "prepare": 1.317112601999952,
+                "structural": 12.116075639999963,
+                "surface": 62.31162966700003,
+                "native_unphased": 0.24171253999998044,
+                "audit_outside_native": 20.768654162000075,
+                "worker_after_audit": 0.6178802250000217
+              },
+              "derived_seconds": {
+                "worker_outside_native_R": 21.386534387000097
+              },
+              "derived_share_of_worker_total": {
+                "native_N": 0.7803649867340601,
+                "worker_outside_native_R": 0.21963501326593995,
+                "prepare": 0.013526457282804959,
+                "structural": 0.12442943703586189,
+                "surface": 0.6399267576916471,
+                "native_unphased": 0.0024823347237460714,
+                "audit_outside_native": 0.21328951899562318,
+                "worker_after_audit": 0.006345494270316772
+              }
+            }
+          ],
+          "equivalence_checks_original": {
+            "class_records": {
+              "equal": true,
+              "reference": {
+                "sha256": "983680de6c586133e68e89c9aa0589fceafe69b874a1661edbd2eedeeb1d4960",
+                "count": 31798
+              },
+              "native": {
+                "sha256": "983680de6c586133e68e89c9aa0589fceafe69b874a1661edbd2eedeeb1d4960",
+                "count": 31798
+              }
+            },
+            "discoveries": {
+              "equal": true,
+              "reference": {
+                "sha256": "0f996c7a19d24829e6297ee4f44aa8b207d25eeecdd389c69886b380a6d12f9a",
+                "count": 4
+              },
+              "native": {
+                "sha256": "0f996c7a19d24829e6297ee4f44aa8b207d25eeecdd389c69886b380a6d12f9a",
+                "count": 4
+              }
+            },
+            "families": {
+              "equal": true,
+              "reference": {
+                "sha256": "a3d3038f3cdcba3d93adb5307efde1810a3d7c435ea1bb2cbc6aaee9020d914d",
+                "count": 39
+              },
+              "native": {
+                "sha256": "a3d3038f3cdcba3d93adb5307efde1810a3d7c435ea1bb2cbc6aaee9020d914d",
+                "count": 39
+              }
+            },
+            "features": {
+              "equal": true,
+              "reference": {
+                "sha256": "d89359e7bdf0a596c0fac0790f7cca2b1a8b06e2663e1c7ca078f8ad283a0c57",
+                "count": 27
+              },
+              "native": {
+                "sha256": "d89359e7bdf0a596c0fac0790f7cca2b1a8b06e2663e1c7ca078f8ad283a0c57",
+                "count": 27
+              }
+            },
+            "gates": {
+              "equal": true,
+              "reference": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              }
+            },
+            "home_probe_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "39354397a7012e0d7b8eb0c325c6202fc23afb55fbcb57194345d1297582dd92",
+                "count": null
+              },
+              "native": {
+                "sha256": "39354397a7012e0d7b8eb0c325c6202fc23afb55fbcb57194345d1297582dd92",
+                "count": null
+              }
+            },
+            "invoke_edges": {
+              "equal": true,
+              "reference": {
+                "sha256": "a9caeb77f0dc75b0432c1e7b50e282f5d787869d3fae9b43b7e1e4e17c3fbe85",
+                "count": 133345
+              },
+              "native": {
+                "sha256": "a9caeb77f0dc75b0432c1e7b50e282f5d787869d3fae9b43b7e1e4e17c3fbe85",
+                "count": 133345
+              }
+            },
+            "limitations": {
+              "equal": true,
+              "reference": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              },
+              "native": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              }
+            },
+            "page_path_matrix": {
+              "equal": true,
+              "reference": {
+                "sha256": "8b6fe2bd72bd04ee7cc669cf43c46a21aade18252636714566ac46f6fb238cde",
+                "count": 10
+              },
+              "native": {
+                "sha256": "8b6fe2bd72bd04ee7cc669cf43c46a21aade18252636714566ac46f6fb238cde",
+                "count": 10
+              }
+            },
+            "protocol_definitions": {
+              "equal": true,
+              "reference": {
+                "sha256": "3f5b547ee911579b13a0bb179cbe261816a985affab5e715fcfae98aae466527",
+                "count": 5221
+              },
+              "native": {
+                "sha256": "3f5b547ee911579b13a0bb179cbe261816a985affab5e715fcfae98aae466527",
+                "count": 5221
+              }
+            },
+            "protocol_paths": {
+              "equal": true,
+              "reference": {
+                "sha256": "b7320a6b27d1f6059224941537151f104d130db85b0fc4bc7c1212341ba5970d",
+                "count": 141
+              },
+              "native": {
+                "sha256": "b7320a6b27d1f6059224941537151f104d130db85b0fc4bc7c1212341ba5970d",
+                "count": 141
+              }
+            },
+            "protocol_twins": {
+              "equal": true,
+              "reference": {
+                "sha256": "dda12236fc6fa06b2abc0531f53d61425d21025292e670e833be9f96582b2d5a",
+                "count": 40
+              },
+              "native": {
+                "sha256": "dda12236fc6fa06b2abc0531f53d61425d21025292e670e833be9f96582b2d5a",
+                "count": 40
+              }
+            },
+            "resource_fingerprints": {
+              "equal": true,
+              "reference": {
+                "sha256": "05e734dabb5bc7b6790ccdee01282276752da213b54d2e4052b4abb3b3e8d485",
+                "count": 17755
+              },
+              "native": {
+                "sha256": "05e734dabb5bc7b6790ccdee01282276752da213b54d2e4052b4abb3b3e8d485",
+                "count": 17755
+              }
+            },
+            "rule_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              },
+              "native": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              }
+            },
+            "rule_version": {
+              "equal": true,
+              "reference": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              },
+              "native": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              }
+            },
+            "sample": {
+              "equal": true,
+              "reference": {
+                "sha256": "771dd9b118637325298dee47589159b7a50db58e8c702bf87227a435df98c0c1",
+                "count": 10
+              },
+              "native": {
+                "sha256": "771dd9b118637325298dee47589159b7a50db58e8c702bf87227a435df98c0c1",
+                "count": 10
+              }
+            },
+            "scope": {
+              "equal": true,
+              "reference": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              },
+              "native": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              }
+            },
+            "unclassified_protocol_callers": {
+              "equal": true,
+              "reference": {
+                "sha256": "831dd3b05b75da7ab6bbf08150065f1e7080db9035b4ed87f6245c462ea7d123",
+                "count": 1388
+              },
+              "native": {
+                "sha256": "831dd3b05b75da7ab6bbf08150065f1e7080db9035b4ed87f6245c462ea7d123",
+                "count": 1388
+              }
+            },
+            "unknown_families": {
+              "equal": true,
+              "reference": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              },
+              "native": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              }
+            },
+            "unregistered_protocols": {
+              "equal": true,
+              "reference": {
+                "sha256": "c1c750963004c981039ace27903c88cb88d0b3d65af75b54c56144ec0ce376e4",
+                "count": 127
+              },
+              "native": {
+                "sha256": "c1c750963004c981039ace27903c88cb88d0b3d65af75b54c56144ec0ce376e4",
+                "count": 127
+              }
+            }
+          },
+          "all_equal": true,
+          "measured_paired_change": {
+            "reference_implementation": "reference_native",
+            "saved_wall_seconds": 11.800845303000074,
+            "time_reduction_fraction": 0.12119209067595411,
+            "speedup": 1.1379050977922713,
+            "self_cpu_seconds_reduced": 11.882224000000004,
+            "children_cpu_seconds_reduced": 2.8341390000000075
+          }
+        }
+      ],
+      "pair_checks_original": {
+        "changes": {
+          "equal": true,
+          "reference": {
+            "sha256": "729f5b9a1d8976946acc23e71784ab6d94bc8820185e40d9aebc76b92d41d940",
+            "count": 103
+          },
+          "native": {
+            "sha256": "729f5b9a1d8976946acc23e71784ab6d94bc8820185e40d9aebc76b92d41d940",
+            "count": 103
+          }
+        },
+        "resource_changes": {
+          "equal": true,
+          "reference": {
+            "sha256": "2cad678006fc55e19557dd80b77f3a277a446b4bd6ec93359551c88db5d5590d",
+            "count": 4
+          },
+          "native": {
+            "sha256": "2cad678006fc55e19557dd80b77f3a277a446b4bd6ec93359551c88db5d5590d",
+            "count": 4
+          }
+        },
+        "verdict": {
+          "equal": true,
+          "reference": {
+            "sha256": "2f8990c0025706d9470e82fb01764868369e69b49400d611faf0f8f4f4156953",
+            "count": 2
+          },
+          "native": {
+            "sha256": "2f8990c0025706d9470e82fb01764868369e69b49400d611faf0f8f4f4156953",
+            "count": 2
+          }
+        }
+      },
+      "report_gate_timing_audit": [
+        {
+          "path": "artifacts/40067936875/reports/9161100/41efb1c9acb07bad/20261024T055620997749Z/summary.json",
+          "backend": "dexsql",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "6ad2c5a9d5fd8ba9d0291d24690ebbe020e979b1eb8bebd400c212e53be2059d",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "868056c17cd341e77ef54835ea0e9f7e14229631aa7c295e0cf65f7631e734ae",
+              "timing_pattern_matches": []
+            }
+          ]
+        },
+        {
+          "path": "artifacts/40067936875/reports/9170100/f0f880e841d017db/20261024T055440338939Z/summary.json",
+          "backend": "dexsql",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "c6e6c367f9977ba40ac7c830f52ad0bdfa59b8e16dea0ce94c79245872d31ddb",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "293d7910237abaa3b11f75ce3d3af7826506e18ed0871508fdd6821b476130a0",
+              "timing_pattern_matches": []
+            }
+          ]
+        }
+      ],
+      "archive_file_timestamps": [
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T055620997749Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            5,
+            57,
+            26
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T055620997749Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            5,
+            57,
+            44
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T055620997749Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            5,
+            57,
+            42
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T055620997749Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            5,
+            57,
+            44
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T055440338939Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            5,
+            55,
+            52
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T055440338939Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            5,
+            56,
+            12
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T055440338939Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            5,
+            56,
+            10
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T055440338939Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            5,
+            56,
+            12
+          ],
+          "extra_field_hex": ""
+        }
+      ],
+      "archive_timestamp_warning": "DOS timestamps have two-second granularity and no high-resolution extra field; last-write times are only coarse sequence corroboration, not monotonic per-gate elapsed measurements",
+      "actions_job_durations": [
+        {
+          "job_id": 120795003952,
+          "url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40067936875/job/120795003952",
+          "elapsed_seconds": 445.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-24T05:52:13Z",
+              "completed_at": "2026-10-24T05:52:14Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Run actions/checkout@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-24T05:52:14Z",
+              "completed_at": "2026-10-24T05:52:15Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Run actions/setup-python@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-24T05:52:15Z",
+              "completed_at": "2026-10-24T05:52:16Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Plan dependency subset",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-24T05:52:16Z",
+              "completed_at": "2026-10-24T05:52:16Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Run actions/setup-java@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-24T05:52:16Z",
+              "completed_at": "2026-10-24T05:52:16Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Fingerprint dependency runtime",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-24T05:52:16Z",
+              "completed_at": "2026-10-24T05:52:17Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Restore verified dependency runtime",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-24T05:52:17Z",
+              "completed_at": "2026-10-24T05:52:20Z",
+              "elapsed_seconds": 3.0
+            },
+            {
+              "name": "Prepare and verify analysis dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-24T05:52:20Z",
+              "completed_at": "2026-10-24T05:52:24Z",
+              "elapsed_seconds": 4.0
+            },
+            {
+              "name": "Save verified dependency runtime",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 9,
+              "started_at": "2026-10-24T05:52:24Z",
+              "completed_at": "2026-10-24T05:52:24Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Download verified optional DexSQL",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-24T05:52:24Z",
+              "completed_at": "2026-10-24T05:52:25Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Download verified JADX",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-10-24T05:52:25Z",
+              "completed_at": "2026-10-24T05:52:26Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Backend and scheduler regression tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12,
+              "started_at": "2026-10-24T05:52:26Z",
+              "completed_at": "2026-10-24T05:52:42Z",
+              "elapsed_seconds": 16.0
+            },
+            {
+              "name": "Analyze private sample",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-24T05:52:42Z",
+              "completed_at": "2026-10-24T05:59:32Z",
+              "elapsed_seconds": 410.0
+            },
+            {
+              "name": "AI evidence review",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 14,
+              "started_at": "2026-10-24T05:59:32Z",
+              "completed_at": "2026-10-24T05:59:32Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Upload bounded analysis results",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-24T05:59:32Z",
+              "completed_at": "2026-10-24T05:59:33Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Post Run actions/setup-java@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 28,
+              "started_at": "2026-10-24T05:59:33Z",
+              "completed_at": "2026-10-24T05:59:33Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/setup-python@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 29,
+              "started_at": "2026-10-24T05:59:33Z",
+              "completed_at": "2026-10-24T05:59:33Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/checkout@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 30,
+              "started_at": "2026-10-24T05:59:33Z",
+              "completed_at": "2026-10-24T05:59:34Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 31,
+              "started_at": "2026-10-24T05:59:34Z",
+              "completed_at": "2026-10-24T05:59:34Z",
+              "elapsed_seconds": 0.0
+            }
+          ]
+        }
+      ],
+      "actions_scope_warning": "a benchmark job contains four or eight workers plus provisioning/tests; its duration is not one production audit's latency"
+    },
+    {
+      "run_id": 40061414146,
+      "head_sha": "e4ab3d1af6a13f40695f4be37bfd66f88c5b4c02",
+      "role": "historical_legacy_vs_native",
+      "rounds_per_sample": 2,
+      "run_url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40061414146",
+      "verification_path": "artifacts/40061414146/remote-output/verification.json",
+      "verification_sha256": "01f07b39856a8b0c8b019a59ff9d2f66e625d83e1a2f07e34f6f802b81c6ab10",
+      "archive_path": "artifacts/host-analysis-40061414146.zip",
+      "archive_sha256": "45e2b66140b2ca5c742c1ff19ccf4cc0aef2b57a4d9e56de239b22faecef340a",
+      "archive_bytes": 93924,
+      "artifact_id": 12547224309,
+      "artifact_expires_at": "2026-11-07T04:30:59Z",
+      "archive_crc_and_all_receipt_hashes_verified": true,
+      "file_count": 35,
+      "samples": [
+        {
+          "package": "tv.danmaku.bili",
+          "version_code": 9170100,
+          "version_name": "9.17.0",
+          "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+          "size": 243687778,
+          "certificate_sha256": [
+            "93ba270f5521139ecafe4bb638ac5b1198bc548f62d9fd8f8580a079faf5910e"
+          ],
+          "path": "apks/tv.danmaku.bili/9170100/f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955/base.apk"
+        },
+        {
+          "package": "tv.danmaku.bili",
+          "version_code": 9161100,
+          "version_name": "9.16.1",
+          "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+          "size": 226519215,
+          "certificate_sha256": [
+            "93ba270f5521139ecafe4bb638ac5b1198bc548f62d9fd8f8580a079faf5910e"
+          ],
+          "path": "apks/tv.danmaku.bili/9161100/41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2/base.apk"
+        }
+      ],
+      "sample_revision": "1c744580ec53f13d57339e162246945e5004e577",
+      "system": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "cpu_count": 4,
+      "measurement_original": "fresh serial processes; shared fetched APK; OS cache retained; order alternates by round/sample",
+      "complete": true,
+      "tools_reverified_original": true,
+      "source_hash_checks": {
+        "run_head": {
+          "sha": "e4ab3d1af6a13f40695f4be37bfd66f88c5b4c02",
+          "compared_count": 22,
+          "mismatches": []
+        },
+        "fixed_main": {
+          "sha": "8782f43d537c442905123e35af325c412caa5188",
+          "compared_count": 22,
+          "mismatches": [
+            "analyze.py",
+            "remote_job.py",
+            "native_cli.py",
+            "native_surface.py",
+            "verify_audits.py"
+          ]
+        }
+      },
+      "paired_measurements": [
+        {
+          "round": 1,
+          "sample": "target",
+          "runs": [
+            {
+              "execution_order_in_pair": 1,
+              "implementation": "legacy",
+              "backend": "legacy",
+              "measured_seconds": {
+                "worker_total_E": 166.54798282299993,
+                "audit_and_shared_scan_A": 56.10427654399996
+              },
+              "surface_scan_execution": {
+                "workers": 2,
+                "dex_files": 35,
+                "elapsed_ms": 109822.07940999996
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 332,
+                "samples_retained": 332,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 7336030208,
+                "sampled_cgroup_memory_peak_bytes": 9095114752,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 3.48862,
+                  "self_system_seconds": 0.447297,
+                  "children_user_seconds": 314.250224,
+                  "children_system_seconds": 5.068069
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 52400128,
+                  "io_write_bytes_delta": 470544384,
+                  "net_rx_bytes_delta": 202089,
+                  "net_tx_bytes_delta": 460684
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 166548.18846499996,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.14183842453376466,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15242506240,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2168061952,
+                  "tree_rss_bytes": 217788416,
+                  "psi_cpu_some_fraction": 0.0003386807137320799,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90711486464,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 3.935917,
+                "children_total": 319.318293
+              },
+              "derived_disjoint_seconds": {
+                "audit_before_separate_legacy_surface": 56.10427654399996,
+                "legacy_surface": 109.82207940999996,
+                "other_worker_overhead": 0.6216268690000106
+              }
+            },
+            {
+              "execution_order_in_pair": 2,
+              "implementation": "dexsql",
+              "backend": "dexsql",
+              "measured_seconds": {
+                "worker_total_E": 106.0051796859999,
+                "audit_and_shared_scan_A": 105.37869784099996,
+                "composite_native_audit_N": 83.21540550799999,
+                "native_phases": {
+                  "prepare": 1.391648676999921,
+                  "structural": 13.037655303000065,
+                  "surface": 68.53611973500006
+                }
+              },
+              "surface_scan_execution": {
+                "backend": "dexsql",
+                "workers": 2,
+                "dex_files": 35,
+                "elapsed_ms": 68536.1169900001
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 210,
+                "samples_retained": 210,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 1322651648,
+                "sampled_cgroup_memory_peak_bytes": 3251183616,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 32.507772,
+                  "self_system_seconds": 6.116909,
+                  "children_user_seconds": 107.049607,
+                  "children_system_seconds": 3.042948
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 96792576,
+                  "net_rx_bytes_delta": 112465,
+                  "net_tx_bytes_delta": 251426
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 106005.31992800007,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.1358670328846535,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15091257344,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2383253504,
+                  "tree_rss_bytes": 337027072,
+                  "psi_cpu_some_fraction": 6.268375219591857e-05,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90614669312,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 38.624681,
+                "children_total": 110.09255499999999
+              },
+              "native_identity": {
+                "class_count": 345907,
+                "apk_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+                "complete": true,
+                "source_sha_reverified": true,
+                "reference_sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+                "queries": 647,
+                "binary": {
+                  "version": "0.1.0",
+                  "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+                  "available": true
+                }
+              },
+              "derived_disjoint_seconds": {
+                "prepare": 1.391648676999921,
+                "structural": 13.037655303000065,
+                "surface": 68.53611973500006,
+                "native_unphased": 0.2499817929999466,
+                "audit_outside_native": 22.163292332999973,
+                "worker_after_audit": 0.6264818449999439
+              },
+              "derived_seconds": {
+                "worker_outside_native_R": 22.789774177999917
+              },
+              "derived_share_of_worker_total": {
+                "native_N": 0.7850126357456686,
+                "worker_outside_native_R": 0.21498736425433143,
+                "prepare": 0.013128119598704061,
+                "structural": 0.122990738203729,
+                "surface": 0.6465355743748776,
+                "native_unphased": 0.0023582035683579116,
+                "audit_outside_native": 0.209077446957312,
+                "worker_after_audit": 0.005909917297019433
+              }
+            }
+          ],
+          "equivalence_checks_original": {
+            "class_records": {
+              "equal": true,
+              "reference": {
+                "sha256": "afdaf24369cb67433b535ec6e2a88d5d56c0687248eddc6f8571719216a94785",
+                "count": 32518
+              },
+              "native": {
+                "sha256": "afdaf24369cb67433b535ec6e2a88d5d56c0687248eddc6f8571719216a94785",
+                "count": 32518
+              }
+            },
+            "discoveries": {
+              "equal": true,
+              "reference": {
+                "sha256": "c42ebd37d32a2f9992f41d93dc32014ed5009fcfdd646aeac02b722aafd974b0",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c42ebd37d32a2f9992f41d93dc32014ed5009fcfdd646aeac02b722aafd974b0",
+                "count": 3
+              }
+            },
+            "families": {
+              "equal": true,
+              "reference": {
+                "sha256": "f2ba9ea514b9be9536e43eb35fcb2650d1eed78873db872ff70f11d8a29e4e24",
+                "count": 39
+              },
+              "native": {
+                "sha256": "f2ba9ea514b9be9536e43eb35fcb2650d1eed78873db872ff70f11d8a29e4e24",
+                "count": 39
+              }
+            },
+            "features": {
+              "equal": true,
+              "reference": {
+                "sha256": "49b7434cb13dfe27e305ea5009fdcd145c165ce51a4cc15b1c0b9cfe03a9f1a8",
+                "count": 27
+              },
+              "native": {
+                "sha256": "49b7434cb13dfe27e305ea5009fdcd145c165ce51a4cc15b1c0b9cfe03a9f1a8",
+                "count": 27
+              }
+            },
+            "gates": {
+              "equal": true,
+              "reference": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              }
+            },
+            "home_probe_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "c4c7b9e504a86c5de430b7d9d5fbdb6f9958806e529751fb2efa0ca8027b59cb",
+                "count": null
+              },
+              "native": {
+                "sha256": "c4c7b9e504a86c5de430b7d9d5fbdb6f9958806e529751fb2efa0ca8027b59cb",
+                "count": null
+              }
+            },
+            "invoke_edges": {
+              "equal": true,
+              "reference": {
+                "sha256": "929917ccf783f4559e01e9e363b158903a3ca1f1ac865949e0cc3bb0821ea452",
+                "count": 137216
+              },
+              "native": {
+                "sha256": "929917ccf783f4559e01e9e363b158903a3ca1f1ac865949e0cc3bb0821ea452",
+                "count": 137216
+              }
+            },
+            "limitations": {
+              "equal": true,
+              "reference": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              },
+              "native": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              }
+            },
+            "page_path_matrix": {
+              "equal": true,
+              "reference": {
+                "sha256": "83f859996cfff07862de2570c4119a27cab4c5f1576e1c8f5cfeae014cc9982b",
+                "count": 10
+              },
+              "native": {
+                "sha256": "83f859996cfff07862de2570c4119a27cab4c5f1576e1c8f5cfeae014cc9982b",
+                "count": 10
+              }
+            },
+            "protocol_definitions": {
+              "equal": true,
+              "reference": {
+                "sha256": "b9602fd870a5b36f299a323758bca6dd958884f1657b541a05e075e790ca8a8e",
+                "count": 5523
+              },
+              "native": {
+                "sha256": "b9602fd870a5b36f299a323758bca6dd958884f1657b541a05e075e790ca8a8e",
+                "count": 5523
+              }
+            },
+            "protocol_paths": {
+              "equal": true,
+              "reference": {
+                "sha256": "bbb68cc4d1ac573c64b62c61e3199d496632bb2afe89f931abb9edc96212d464",
+                "count": 148
+              },
+              "native": {
+                "sha256": "bbb68cc4d1ac573c64b62c61e3199d496632bb2afe89f931abb9edc96212d464",
+                "count": 148
+              }
+            },
+            "protocol_twins": {
+              "equal": true,
+              "reference": {
+                "sha256": "4ea02417fa251d55563c47034c7252773dfc698cb7a230960a157df6133b2db8",
+                "count": 47
+              },
+              "native": {
+                "sha256": "4ea02417fa251d55563c47034c7252773dfc698cb7a230960a157df6133b2db8",
+                "count": 47
+              }
+            },
+            "resource_fingerprints": {
+              "equal": true,
+              "reference": {
+                "sha256": "052fc3e4b1da8a7ab51ed7ee8c5f85b58b80dfa6426201b237e5e0e3241ffbc9",
+                "count": 17770
+              },
+              "native": {
+                "sha256": "052fc3e4b1da8a7ab51ed7ee8c5f85b58b80dfa6426201b237e5e0e3241ffbc9",
+                "count": 17770
+              }
+            },
+            "rule_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              },
+              "native": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              }
+            },
+            "rule_version": {
+              "equal": true,
+              "reference": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              },
+              "native": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              }
+            },
+            "sample": {
+              "equal": true,
+              "reference": {
+                "sha256": "f506bf4437a395d6bd74674f808e6343fbd81c1d4c5712a0d1404ba16774a963",
+                "count": 10
+              },
+              "native": {
+                "sha256": "f506bf4437a395d6bd74674f808e6343fbd81c1d4c5712a0d1404ba16774a963",
+                "count": 10
+              }
+            },
+            "scope": {
+              "equal": true,
+              "reference": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              },
+              "native": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              }
+            },
+            "unclassified_protocol_callers": {
+              "equal": true,
+              "reference": {
+                "sha256": "afcf2c936977c59f867e73efa9ebec6d079f2126ee00ea43f74fb704ff469c61",
+                "count": 1509
+              },
+              "native": {
+                "sha256": "afcf2c936977c59f867e73efa9ebec6d079f2126ee00ea43f74fb704ff469c61",
+                "count": 1509
+              }
+            },
+            "unknown_families": {
+              "equal": true,
+              "reference": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              },
+              "native": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              }
+            },
+            "unregistered_protocols": {
+              "equal": true,
+              "reference": {
+                "sha256": "849307b0d314100631a0361aa7bc34e9133277b7a1d45f077212ba6c89c3440d",
+                "count": 134
+              },
+              "native": {
+                "sha256": "849307b0d314100631a0361aa7bc34e9133277b7a1d45f077212ba6c89c3440d",
+                "count": 134
+              }
+            }
+          },
+          "all_equal": true,
+          "measured_paired_change": {
+            "reference_implementation": "legacy",
+            "saved_wall_seconds": 60.54280313700002,
+            "time_reduction_fraction": 0.36351567945042196,
+            "speedup": 1.5711306118845805,
+            "self_cpu_seconds_reduced": -34.688764000000006,
+            "children_cpu_seconds_reduced": 209.22573799999998
+          }
+        },
+        {
+          "round": 1,
+          "sample": "baseline",
+          "runs": [
+            {
+              "execution_order_in_pair": 1,
+              "implementation": "dexsql",
+              "backend": "dexsql",
+              "measured_seconds": {
+                "worker_total_E": 94.70206501400003,
+                "audit_and_shared_scan_A": 94.09545015899994,
+                "composite_native_audit_N": 73.68470450799998,
+                "native_phases": {
+                  "prepare": 1.2777228200000081,
+                  "structural": 11.672243590999985,
+                  "surface": 60.496330629
+                }
+              },
+              "surface_scan_execution": {
+                "backend": "dexsql",
+                "workers": 2,
+                "dex_files": 33,
+                "elapsed_ms": 60496.32828400002
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 188,
+                "samples_retained": 188,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 1254424576,
+                "sampled_cgroup_memory_peak_bytes": 3356102656,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 29.754323,
+                  "self_system_seconds": 4.831566,
+                  "children_user_seconds": 96.240239,
+                  "children_system_seconds": 2.955254
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 96739328,
+                  "net_rx_bytes_delta": 107476,
+                  "net_tx_bytes_delta": 215510
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 94702.28598500001,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.1926942909502779,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15013466112,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2542055424,
+                  "tree_rss_bytes": 324485120,
+                  "psi_cpu_some_fraction": 0.0019940440752081977,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90520498176,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 34.585889,
+                "children_total": 99.195493
+              },
+              "native_identity": {
+                "class_count": 310716,
+                "apk_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+                "complete": true,
+                "source_sha_reverified": true,
+                "reference_sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+                "queries": 635,
+                "binary": {
+                  "version": "0.1.0",
+                  "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+                  "available": true
+                }
+              },
+              "derived_disjoint_seconds": {
+                "prepare": 1.2777228200000081,
+                "structural": 11.672243590999985,
+                "surface": 60.496330629,
+                "native_unphased": 0.23840746799999124,
+                "audit_outside_native": 20.410745650999957,
+                "worker_after_audit": 0.6066148550000889
+              },
+              "derived_seconds": {
+                "worker_outside_native_R": 21.017360506000045
+              },
+              "derived_share_of_worker_total": {
+                "native_N": 0.7780686144183551,
+                "worker_outside_native_R": 0.2219313855816449,
+                "prepare": 0.013492027019802783,
+                "structural": 0.12325226054230655,
+                "surface": 0.6388068794493202,
+                "native_unphased": 0.0025174474069255713,
+                "audit_outside_native": 0.21552587737112794,
+                "worker_after_audit": 0.006405508210516968
+              }
+            },
+            {
+              "execution_order_in_pair": 2,
+              "implementation": "legacy",
+              "backend": "legacy",
+              "measured_seconds": {
+                "worker_total_E": 150.192745426,
+                "audit_and_shared_scan_A": 49.92217348400004
+              },
+              "surface_scan_execution": {
+                "workers": 2,
+                "dex_files": 33,
+                "elapsed_ms": 99671.05369499995
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 299,
+                "samples_retained": 299,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 6984581120,
+                "sampled_cgroup_memory_peak_bytes": 9150590976,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 3.298025,
+                  "self_system_seconds": 0.46327700000000005,
+                  "children_user_seconds": 294.835954,
+                  "children_system_seconds": 4.787598
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 32768,
+                  "io_write_bytes_delta": 94355456,
+                  "net_rx_bytes_delta": 197240,
+                  "net_tx_bytes_delta": 364666
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 150193.01434500006,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.14241281532003436,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15092199424,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2549252096,
+                  "tree_rss_bytes": 216784896,
+                  "psi_cpu_some_fraction": 0.0026351032510508535,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90427953152,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 3.761302,
+                "children_total": 299.623552
+              },
+              "derived_disjoint_seconds": {
+                "audit_before_separate_legacy_surface": 49.92217348400004,
+                "legacy_surface": 99.67105369499996,
+                "other_worker_overhead": 0.5995182469999918
+              }
+            }
+          ],
+          "equivalence_checks_original": {
+            "class_records": {
+              "equal": true,
+              "reference": {
+                "sha256": "983680de6c586133e68e89c9aa0589fceafe69b874a1661edbd2eedeeb1d4960",
+                "count": 31798
+              },
+              "native": {
+                "sha256": "983680de6c586133e68e89c9aa0589fceafe69b874a1661edbd2eedeeb1d4960",
+                "count": 31798
+              }
+            },
+            "discoveries": {
+              "equal": true,
+              "reference": {
+                "sha256": "0f996c7a19d24829e6297ee4f44aa8b207d25eeecdd389c69886b380a6d12f9a",
+                "count": 4
+              },
+              "native": {
+                "sha256": "0f996c7a19d24829e6297ee4f44aa8b207d25eeecdd389c69886b380a6d12f9a",
+                "count": 4
+              }
+            },
+            "families": {
+              "equal": true,
+              "reference": {
+                "sha256": "a3d3038f3cdcba3d93adb5307efde1810a3d7c435ea1bb2cbc6aaee9020d914d",
+                "count": 39
+              },
+              "native": {
+                "sha256": "a3d3038f3cdcba3d93adb5307efde1810a3d7c435ea1bb2cbc6aaee9020d914d",
+                "count": 39
+              }
+            },
+            "features": {
+              "equal": true,
+              "reference": {
+                "sha256": "d89359e7bdf0a596c0fac0790f7cca2b1a8b06e2663e1c7ca078f8ad283a0c57",
+                "count": 27
+              },
+              "native": {
+                "sha256": "d89359e7bdf0a596c0fac0790f7cca2b1a8b06e2663e1c7ca078f8ad283a0c57",
+                "count": 27
+              }
+            },
+            "gates": {
+              "equal": true,
+              "reference": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              }
+            },
+            "home_probe_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "39354397a7012e0d7b8eb0c325c6202fc23afb55fbcb57194345d1297582dd92",
+                "count": null
+              },
+              "native": {
+                "sha256": "39354397a7012e0d7b8eb0c325c6202fc23afb55fbcb57194345d1297582dd92",
+                "count": null
+              }
+            },
+            "invoke_edges": {
+              "equal": true,
+              "reference": {
+                "sha256": "a9caeb77f0dc75b0432c1e7b50e282f5d787869d3fae9b43b7e1e4e17c3fbe85",
+                "count": 133345
+              },
+              "native": {
+                "sha256": "a9caeb77f0dc75b0432c1e7b50e282f5d787869d3fae9b43b7e1e4e17c3fbe85",
+                "count": 133345
+              }
+            },
+            "limitations": {
+              "equal": true,
+              "reference": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              },
+              "native": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              }
+            },
+            "page_path_matrix": {
+              "equal": true,
+              "reference": {
+                "sha256": "8b6fe2bd72bd04ee7cc669cf43c46a21aade18252636714566ac46f6fb238cde",
+                "count": 10
+              },
+              "native": {
+                "sha256": "8b6fe2bd72bd04ee7cc669cf43c46a21aade18252636714566ac46f6fb238cde",
+                "count": 10
+              }
+            },
+            "protocol_definitions": {
+              "equal": true,
+              "reference": {
+                "sha256": "3f5b547ee911579b13a0bb179cbe261816a985affab5e715fcfae98aae466527",
+                "count": 5221
+              },
+              "native": {
+                "sha256": "3f5b547ee911579b13a0bb179cbe261816a985affab5e715fcfae98aae466527",
+                "count": 5221
+              }
+            },
+            "protocol_paths": {
+              "equal": true,
+              "reference": {
+                "sha256": "b7320a6b27d1f6059224941537151f104d130db85b0fc4bc7c1212341ba5970d",
+                "count": 141
+              },
+              "native": {
+                "sha256": "b7320a6b27d1f6059224941537151f104d130db85b0fc4bc7c1212341ba5970d",
+                "count": 141
+              }
+            },
+            "protocol_twins": {
+              "equal": true,
+              "reference": {
+                "sha256": "dda12236fc6fa06b2abc0531f53d61425d21025292e670e833be9f96582b2d5a",
+                "count": 40
+              },
+              "native": {
+                "sha256": "dda12236fc6fa06b2abc0531f53d61425d21025292e670e833be9f96582b2d5a",
+                "count": 40
+              }
+            },
+            "resource_fingerprints": {
+              "equal": true,
+              "reference": {
+                "sha256": "05e734dabb5bc7b6790ccdee01282276752da213b54d2e4052b4abb3b3e8d485",
+                "count": 17755
+              },
+              "native": {
+                "sha256": "05e734dabb5bc7b6790ccdee01282276752da213b54d2e4052b4abb3b3e8d485",
+                "count": 17755
+              }
+            },
+            "rule_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              },
+              "native": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              }
+            },
+            "rule_version": {
+              "equal": true,
+              "reference": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              },
+              "native": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              }
+            },
+            "sample": {
+              "equal": true,
+              "reference": {
+                "sha256": "771dd9b118637325298dee47589159b7a50db58e8c702bf87227a435df98c0c1",
+                "count": 10
+              },
+              "native": {
+                "sha256": "771dd9b118637325298dee47589159b7a50db58e8c702bf87227a435df98c0c1",
+                "count": 10
+              }
+            },
+            "scope": {
+              "equal": true,
+              "reference": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              },
+              "native": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              }
+            },
+            "unclassified_protocol_callers": {
+              "equal": true,
+              "reference": {
+                "sha256": "831dd3b05b75da7ab6bbf08150065f1e7080db9035b4ed87f6245c462ea7d123",
+                "count": 1388
+              },
+              "native": {
+                "sha256": "831dd3b05b75da7ab6bbf08150065f1e7080db9035b4ed87f6245c462ea7d123",
+                "count": 1388
+              }
+            },
+            "unknown_families": {
+              "equal": true,
+              "reference": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              },
+              "native": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              }
+            },
+            "unregistered_protocols": {
+              "equal": true,
+              "reference": {
+                "sha256": "c1c750963004c981039ace27903c88cb88d0b3d65af75b54c56144ec0ce376e4",
+                "count": 127
+              },
+              "native": {
+                "sha256": "c1c750963004c981039ace27903c88cb88d0b3d65af75b54c56144ec0ce376e4",
+                "count": 127
+              }
+            }
+          },
+          "all_equal": true,
+          "measured_paired_change": {
+            "reference_implementation": "legacy",
+            "saved_wall_seconds": 55.49068041199996,
+            "time_reduction_fraction": 0.3694631205695633,
+            "speedup": 1.5859500572009348,
+            "self_cpu_seconds_reduced": -30.824587,
+            "children_cpu_seconds_reduced": 200.42805900000002
+          }
+        },
+        {
+          "round": 2,
+          "sample": "target",
+          "runs": [
+            {
+              "execution_order_in_pair": 1,
+              "implementation": "dexsql",
+              "backend": "dexsql",
+              "measured_seconds": {
+                "worker_total_E": 105.73196575600002,
+                "audit_and_shared_scan_A": 105.08397230799994,
+                "composite_native_audit_N": 83.12090063699999,
+                "native_phases": {
+                  "prepare": 1.393413558999896,
+                  "structural": 12.671279079999977,
+                  "surface": 68.80605625600015
+                }
+              },
+              "surface_scan_execution": {
+                "backend": "dexsql",
+                "workers": 2,
+                "dex_files": 35,
+                "elapsed_ms": 68806.05362100004
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 210,
+                "samples_retained": 210,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 1327132672,
+                "sampled_cgroup_memory_peak_bytes": 3651690496,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 33.223957000000006,
+                  "self_system_seconds": 6.0855,
+                  "children_user_seconds": 105.594709,
+                  "children_system_seconds": 3.012188
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 94191616,
+                  "net_rx_bytes_delta": 130074,
+                  "net_tx_bytes_delta": 249678
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 105732.10595599994,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.13877555822998053,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 14930186240,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2768441344,
+                  "tree_rss_bytes": 326807552,
+                  "psi_cpu_some_fraction": 8.780831777908366e-05,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90331156480,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 39.30945700000001,
+                "children_total": 108.60689699999999
+              },
+              "native_identity": {
+                "class_count": 345907,
+                "apk_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+                "complete": true,
+                "source_sha_reverified": true,
+                "reference_sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+                "queries": 647,
+                "binary": {
+                  "version": "0.1.0",
+                  "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+                  "available": true
+                }
+              },
+              "derived_disjoint_seconds": {
+                "prepare": 1.393413558999896,
+                "structural": 12.671279079999977,
+                "surface": 68.80605625600015,
+                "native_unphased": 0.2501517419999715,
+                "audit_outside_native": 21.963071670999952,
+                "worker_after_audit": 0.6479934480000793
+              },
+              "derived_seconds": {
+                "worker_outside_native_R": 22.61106511900003
+              },
+              "derived_share_of_worker_total": {
+                "native_N": 0.7861473116731785,
+                "worker_outside_native_R": 0.21385268832682144,
+                "prepare": 0.013178735012035122,
+                "structural": 0.11984340770928033,
+                "surface": 0.6507592643721899,
+                "native_unphased": 0.0023659045796732103,
+                "audit_outside_native": 0.207724045551982,
+                "worker_after_audit": 0.006128642774839427
+              }
+            },
+            {
+              "execution_order_in_pair": 2,
+              "implementation": "legacy",
+              "backend": "legacy",
+              "measured_seconds": {
+                "worker_total_E": 161.40445759299996,
+                "audit_and_shared_scan_A": 51.31678511999985
+              },
+              "surface_scan_execution": {
+                "workers": 2,
+                "dex_files": 35,
+                "elapsed_ms": 109457.6638829999
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 322,
+                "samples_retained": 322,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 7523225600,
+                "sampled_cgroup_memory_peak_bytes": 9906282496,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 3.397017,
+                  "self_system_seconds": 0.48596999999999996,
+                  "children_user_seconds": 313.802864,
+                  "children_system_seconds": 5.099595
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 97112064,
+                  "net_rx_bytes_delta": 191607,
+                  "net_tx_bytes_delta": 384046
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 161404.65466899992,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.14116729612972445,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15103930368,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2769055744,
+                  "tree_rss_bytes": 215982080,
+                  "psi_cpu_some_fraction": 8.52877973823053e-05,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90234441728,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 3.882987,
+                "children_total": 318.902459
+              },
+              "derived_disjoint_seconds": {
+                "audit_before_separate_legacy_surface": 51.31678511999985,
+                "legacy_surface": 109.4576638829999,
+                "other_worker_overhead": 0.6300085900002159
+              }
+            }
+          ],
+          "equivalence_checks_original": {
+            "class_records": {
+              "equal": true,
+              "reference": {
+                "sha256": "afdaf24369cb67433b535ec6e2a88d5d56c0687248eddc6f8571719216a94785",
+                "count": 32518
+              },
+              "native": {
+                "sha256": "afdaf24369cb67433b535ec6e2a88d5d56c0687248eddc6f8571719216a94785",
+                "count": 32518
+              }
+            },
+            "discoveries": {
+              "equal": true,
+              "reference": {
+                "sha256": "c42ebd37d32a2f9992f41d93dc32014ed5009fcfdd646aeac02b722aafd974b0",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c42ebd37d32a2f9992f41d93dc32014ed5009fcfdd646aeac02b722aafd974b0",
+                "count": 3
+              }
+            },
+            "families": {
+              "equal": true,
+              "reference": {
+                "sha256": "f2ba9ea514b9be9536e43eb35fcb2650d1eed78873db872ff70f11d8a29e4e24",
+                "count": 39
+              },
+              "native": {
+                "sha256": "f2ba9ea514b9be9536e43eb35fcb2650d1eed78873db872ff70f11d8a29e4e24",
+                "count": 39
+              }
+            },
+            "features": {
+              "equal": true,
+              "reference": {
+                "sha256": "49b7434cb13dfe27e305ea5009fdcd145c165ce51a4cc15b1c0b9cfe03a9f1a8",
+                "count": 27
+              },
+              "native": {
+                "sha256": "49b7434cb13dfe27e305ea5009fdcd145c165ce51a4cc15b1c0b9cfe03a9f1a8",
+                "count": 27
+              }
+            },
+            "gates": {
+              "equal": true,
+              "reference": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              }
+            },
+            "home_probe_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "c4c7b9e504a86c5de430b7d9d5fbdb6f9958806e529751fb2efa0ca8027b59cb",
+                "count": null
+              },
+              "native": {
+                "sha256": "c4c7b9e504a86c5de430b7d9d5fbdb6f9958806e529751fb2efa0ca8027b59cb",
+                "count": null
+              }
+            },
+            "invoke_edges": {
+              "equal": true,
+              "reference": {
+                "sha256": "929917ccf783f4559e01e9e363b158903a3ca1f1ac865949e0cc3bb0821ea452",
+                "count": 137216
+              },
+              "native": {
+                "sha256": "929917ccf783f4559e01e9e363b158903a3ca1f1ac865949e0cc3bb0821ea452",
+                "count": 137216
+              }
+            },
+            "limitations": {
+              "equal": true,
+              "reference": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              },
+              "native": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              }
+            },
+            "page_path_matrix": {
+              "equal": true,
+              "reference": {
+                "sha256": "83f859996cfff07862de2570c4119a27cab4c5f1576e1c8f5cfeae014cc9982b",
+                "count": 10
+              },
+              "native": {
+                "sha256": "83f859996cfff07862de2570c4119a27cab4c5f1576e1c8f5cfeae014cc9982b",
+                "count": 10
+              }
+            },
+            "protocol_definitions": {
+              "equal": true,
+              "reference": {
+                "sha256": "b9602fd870a5b36f299a323758bca6dd958884f1657b541a05e075e790ca8a8e",
+                "count": 5523
+              },
+              "native": {
+                "sha256": "b9602fd870a5b36f299a323758bca6dd958884f1657b541a05e075e790ca8a8e",
+                "count": 5523
+              }
+            },
+            "protocol_paths": {
+              "equal": true,
+              "reference": {
+                "sha256": "bbb68cc4d1ac573c64b62c61e3199d496632bb2afe89f931abb9edc96212d464",
+                "count": 148
+              },
+              "native": {
+                "sha256": "bbb68cc4d1ac573c64b62c61e3199d496632bb2afe89f931abb9edc96212d464",
+                "count": 148
+              }
+            },
+            "protocol_twins": {
+              "equal": true,
+              "reference": {
+                "sha256": "4ea02417fa251d55563c47034c7252773dfc698cb7a230960a157df6133b2db8",
+                "count": 47
+              },
+              "native": {
+                "sha256": "4ea02417fa251d55563c47034c7252773dfc698cb7a230960a157df6133b2db8",
+                "count": 47
+              }
+            },
+            "resource_fingerprints": {
+              "equal": true,
+              "reference": {
+                "sha256": "052fc3e4b1da8a7ab51ed7ee8c5f85b58b80dfa6426201b237e5e0e3241ffbc9",
+                "count": 17770
+              },
+              "native": {
+                "sha256": "052fc3e4b1da8a7ab51ed7ee8c5f85b58b80dfa6426201b237e5e0e3241ffbc9",
+                "count": 17770
+              }
+            },
+            "rule_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              },
+              "native": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              }
+            },
+            "rule_version": {
+              "equal": true,
+              "reference": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              },
+              "native": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              }
+            },
+            "sample": {
+              "equal": true,
+              "reference": {
+                "sha256": "f506bf4437a395d6bd74674f808e6343fbd81c1d4c5712a0d1404ba16774a963",
+                "count": 10
+              },
+              "native": {
+                "sha256": "f506bf4437a395d6bd74674f808e6343fbd81c1d4c5712a0d1404ba16774a963",
+                "count": 10
+              }
+            },
+            "scope": {
+              "equal": true,
+              "reference": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              },
+              "native": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              }
+            },
+            "unclassified_protocol_callers": {
+              "equal": true,
+              "reference": {
+                "sha256": "afcf2c936977c59f867e73efa9ebec6d079f2126ee00ea43f74fb704ff469c61",
+                "count": 1509
+              },
+              "native": {
+                "sha256": "afcf2c936977c59f867e73efa9ebec6d079f2126ee00ea43f74fb704ff469c61",
+                "count": 1509
+              }
+            },
+            "unknown_families": {
+              "equal": true,
+              "reference": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              },
+              "native": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              }
+            },
+            "unregistered_protocols": {
+              "equal": true,
+              "reference": {
+                "sha256": "849307b0d314100631a0361aa7bc34e9133277b7a1d45f077212ba6c89c3440d",
+                "count": 134
+              },
+              "native": {
+                "sha256": "849307b0d314100631a0361aa7bc34e9133277b7a1d45f077212ba6c89c3440d",
+                "count": 134
+              }
+            }
+          },
+          "all_equal": true,
+          "measured_paired_change": {
+            "reference_implementation": "legacy",
+            "saved_wall_seconds": 55.67249183699994,
+            "time_reduction_fraction": 0.34492536741075996,
+            "speedup": 1.5265436184689554,
+            "self_cpu_seconds_reduced": -35.42647000000001,
+            "children_cpu_seconds_reduced": 210.29556200000002
+          }
+        },
+        {
+          "round": 2,
+          "sample": "baseline",
+          "runs": [
+            {
+              "execution_order_in_pair": 1,
+              "implementation": "legacy",
+              "backend": "legacy",
+              "measured_seconds": {
+                "worker_total_E": 151.14824256099996,
+                "audit_and_shared_scan_A": 52.545872373000066
+              },
+              "surface_scan_execution": {
+                "workers": 2,
+                "dex_files": 33,
+                "elapsed_ms": 97982.47403400001
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 301,
+                "samples_retained": 301,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 7111208960,
+                "sampled_cgroup_memory_peak_bytes": 9612722176,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 3.3544639999999997,
+                  "self_system_seconds": 0.41409599999999996,
+                  "children_user_seconds": 289.763527,
+                  "children_system_seconds": 4.8697610000000005
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 97177600,
+                  "net_rx_bytes_delta": 184344,
+                  "net_tx_bytes_delta": 344838
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 151148.43215299994,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.13572787885181264,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 15093637120,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 2871955456,
+                  "tree_rss_bytes": 210898944,
+                  "psi_cpu_some_fraction": 8.568003083835724e-05,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 0,
+                  "disk_free_bytes": 90140180480,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 3.7685599999999995,
+                "children_total": 294.633288
+              },
+              "derived_disjoint_seconds": {
+                "audit_before_separate_legacy_surface": 52.545872373000066,
+                "legacy_surface": 97.98247403400002,
+                "other_worker_overhead": 0.6198961539998749
+              }
+            },
+            {
+              "execution_order_in_pair": 2,
+              "implementation": "dexsql",
+              "backend": "dexsql",
+              "measured_seconds": {
+                "worker_total_E": 94.1684635009999,
+                "audit_and_shared_scan_A": 93.54691192600012,
+                "composite_native_audit_N": 73.31183052300003,
+                "native_phases": {
+                  "prepare": 1.2823857530001987,
+                  "structural": 11.478801366000198,
+                  "surface": 60.31220469300001
+                }
+              },
+              "surface_scan_execution": {
+                "backend": "dexsql",
+                "workers": 2,
+                "dex_files": 33,
+                "elapsed_ms": 60312.20176800002
+              },
+              "audit_complete": true,
+              "exit_code": 1,
+              "resources_original": {
+                "schema": 1,
+                "interval_seconds": 0.5,
+                "samples_seen": 186,
+                "samples_retained": 186,
+                "samples_omitted": 0,
+                "sample_records_truncated": false,
+                "sampled_tree_rss_peak_bytes": 1244819456,
+                "sampled_cgroup_memory_peak_bytes": 3871866880,
+                "rss_scope": "sampled_self_and_readable_thread_children_not_true_peak",
+                "rusage_cpu_delta": {
+                  "self_user_seconds": 29.531879,
+                  "self_system_seconds": 5.123225000000001,
+                  "children_user_seconds": 94.996071,
+                  "children_system_seconds": 3.003128
+                },
+                "observed_counter_deltas": {
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 94277632,
+                  "net_rx_bytes_delta": 115759,
+                  "net_tx_bytes_delta": 200902
+                },
+                "network_counter_scope": "system_interfaces_excluding_loopback",
+                "latest": {
+                  "ts_ms": 94168.61797799994,
+                  "phase": "preparing",
+                  "cpu_usage_fraction": 0.14681293717783306,
+                  "cpu_iowait_fraction": 0.0,
+                  "cpu_steal_fraction": 0.0,
+                  "effective_cpus": 4,
+                  "memory_available_bytes": 14977744896,
+                  "memory_limit_bytes": 16766414848,
+                  "cgroup_memory_current_bytes": 3066888192,
+                  "tree_rss_bytes": 323833856,
+                  "psi_cpu_some_fraction": 6.296705551070433e-05,
+                  "psi_cpu_full_fraction": 0.0,
+                  "psi_memory_some_fraction": 0.0,
+                  "psi_memory_full_fraction": 0.0,
+                  "psi_io_some_fraction": 0.0,
+                  "psi_io_full_fraction": 0.0,
+                  "cgroup_cpu_throttled_usec_delta": 0,
+                  "cgroup_cpu_nr_throttled_delta": 0,
+                  "cgroup_memory_high_delta": 0,
+                  "cgroup_memory_max_delta": 0,
+                  "cgroup_memory_oom_delta": 0,
+                  "cgroup_memory_oom_kill_delta": 0,
+                  "io_read_bytes_delta": 0,
+                  "io_write_bytes_delta": 0,
+                  "net_rx_bytes_delta": 0,
+                  "net_tx_bytes_delta": 188,
+                  "disk_free_bytes": 90045960192,
+                  "cpu_counter_scope": "cgroup",
+                  "io_counter_scope": "cgroup",
+                  "network_counter_scope": "system_interfaces_excluding_loopback"
+                },
+                "available": true,
+                "telemetry_errors": []
+              },
+              "resources_scope_warning": "sampled process tree RSS is not true peak or pure engine RSS; child CPU includes all waited child processes, not only DexSQL; CPU seconds cannot be added to wall seconds",
+              "derived_cpu_seconds": {
+                "self_total": 34.655104,
+                "children_total": 97.999199
+              },
+              "native_identity": {
+                "class_count": 310716,
+                "apk_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+                "complete": true,
+                "source_sha_reverified": true,
+                "reference_sha256": "86eb72c4b6f89c60fdcc5b562d39ef11032e8d0242e9f164c0ce54899c2aedc1",
+                "queries": 635,
+                "binary": {
+                  "version": "0.1.0",
+                  "sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+                  "available": true
+                }
+              },
+              "derived_disjoint_seconds": {
+                "prepare": 1.2823857530001987,
+                "structural": 11.478801366000198,
+                "surface": 60.31220469300001,
+                "native_unphased": 0.2384387109996169,
+                "audit_outside_native": 20.235081403000095,
+                "worker_after_audit": 0.6215515749997849
+              },
+              "derived_seconds": {
+                "worker_outside_native_R": 20.85663297799988
+              },
+              "derived_share_of_worker_total": {
+                "native_N": 0.7785178582872554,
+                "worker_outside_native_R": 0.2214821417127446,
+                "prepare": 0.01361799593328378,
+                "structural": 0.12189644960999405,
+                "surface": 0.6404713685528022,
+                "native_unphased": 0.0025320441911753726,
+                "audit_outside_native": 0.21488171995909472,
+                "worker_after_audit": 0.006600421753649883
+              }
+            }
+          ],
+          "equivalence_checks_original": {
+            "class_records": {
+              "equal": true,
+              "reference": {
+                "sha256": "983680de6c586133e68e89c9aa0589fceafe69b874a1661edbd2eedeeb1d4960",
+                "count": 31798
+              },
+              "native": {
+                "sha256": "983680de6c586133e68e89c9aa0589fceafe69b874a1661edbd2eedeeb1d4960",
+                "count": 31798
+              }
+            },
+            "discoveries": {
+              "equal": true,
+              "reference": {
+                "sha256": "0f996c7a19d24829e6297ee4f44aa8b207d25eeecdd389c69886b380a6d12f9a",
+                "count": 4
+              },
+              "native": {
+                "sha256": "0f996c7a19d24829e6297ee4f44aa8b207d25eeecdd389c69886b380a6d12f9a",
+                "count": 4
+              }
+            },
+            "families": {
+              "equal": true,
+              "reference": {
+                "sha256": "a3d3038f3cdcba3d93adb5307efde1810a3d7c435ea1bb2cbc6aaee9020d914d",
+                "count": 39
+              },
+              "native": {
+                "sha256": "a3d3038f3cdcba3d93adb5307efde1810a3d7c435ea1bb2cbc6aaee9020d914d",
+                "count": 39
+              }
+            },
+            "features": {
+              "equal": true,
+              "reference": {
+                "sha256": "d89359e7bdf0a596c0fac0790f7cca2b1a8b06e2663e1c7ca078f8ad283a0c57",
+                "count": 27
+              },
+              "native": {
+                "sha256": "d89359e7bdf0a596c0fac0790f7cca2b1a8b06e2663e1c7ca078f8ad283a0c57",
+                "count": 27
+              }
+            },
+            "gates": {
+              "equal": true,
+              "reference": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              },
+              "native": {
+                "sha256": "c76ebd107182f2d1e04741c814b449881267f5dbbb74ae84f98c874dfbfd37f7",
+                "count": 3
+              }
+            },
+            "home_probe_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "39354397a7012e0d7b8eb0c325c6202fc23afb55fbcb57194345d1297582dd92",
+                "count": null
+              },
+              "native": {
+                "sha256": "39354397a7012e0d7b8eb0c325c6202fc23afb55fbcb57194345d1297582dd92",
+                "count": null
+              }
+            },
+            "invoke_edges": {
+              "equal": true,
+              "reference": {
+                "sha256": "a9caeb77f0dc75b0432c1e7b50e282f5d787869d3fae9b43b7e1e4e17c3fbe85",
+                "count": 133345
+              },
+              "native": {
+                "sha256": "a9caeb77f0dc75b0432c1e7b50e282f5d787869d3fae9b43b7e1e4e17c3fbe85",
+                "count": 133345
+              }
+            },
+            "limitations": {
+              "equal": true,
+              "reference": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              },
+              "native": {
+                "sha256": "f7f94e34f2fe73b01dff2f2b64733da7c6d1e0f862b24ddf6e6bb9f74a9ad419",
+                "count": 4
+              }
+            },
+            "page_path_matrix": {
+              "equal": true,
+              "reference": {
+                "sha256": "8b6fe2bd72bd04ee7cc669cf43c46a21aade18252636714566ac46f6fb238cde",
+                "count": 10
+              },
+              "native": {
+                "sha256": "8b6fe2bd72bd04ee7cc669cf43c46a21aade18252636714566ac46f6fb238cde",
+                "count": 10
+              }
+            },
+            "protocol_definitions": {
+              "equal": true,
+              "reference": {
+                "sha256": "3f5b547ee911579b13a0bb179cbe261816a985affab5e715fcfae98aae466527",
+                "count": 5221
+              },
+              "native": {
+                "sha256": "3f5b547ee911579b13a0bb179cbe261816a985affab5e715fcfae98aae466527",
+                "count": 5221
+              }
+            },
+            "protocol_paths": {
+              "equal": true,
+              "reference": {
+                "sha256": "b7320a6b27d1f6059224941537151f104d130db85b0fc4bc7c1212341ba5970d",
+                "count": 141
+              },
+              "native": {
+                "sha256": "b7320a6b27d1f6059224941537151f104d130db85b0fc4bc7c1212341ba5970d",
+                "count": 141
+              }
+            },
+            "protocol_twins": {
+              "equal": true,
+              "reference": {
+                "sha256": "dda12236fc6fa06b2abc0531f53d61425d21025292e670e833be9f96582b2d5a",
+                "count": 40
+              },
+              "native": {
+                "sha256": "dda12236fc6fa06b2abc0531f53d61425d21025292e670e833be9f96582b2d5a",
+                "count": 40
+              }
+            },
+            "resource_fingerprints": {
+              "equal": true,
+              "reference": {
+                "sha256": "05e734dabb5bc7b6790ccdee01282276752da213b54d2e4052b4abb3b3e8d485",
+                "count": 17755
+              },
+              "native": {
+                "sha256": "05e734dabb5bc7b6790ccdee01282276752da213b54d2e4052b4abb3b3e8d485",
+                "count": 17755
+              }
+            },
+            "rule_sha256": {
+              "equal": true,
+              "reference": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              },
+              "native": {
+                "sha256": "e062c3a18f3cdc6d215167ccefd6f98727392fa4aa7a99ec017f313114d182b4",
+                "count": null
+              }
+            },
+            "rule_version": {
+              "equal": true,
+              "reference": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              },
+              "native": {
+                "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+                "count": null
+              }
+            },
+            "sample": {
+              "equal": true,
+              "reference": {
+                "sha256": "771dd9b118637325298dee47589159b7a50db58e8c702bf87227a435df98c0c1",
+                "count": 10
+              },
+              "native": {
+                "sha256": "771dd9b118637325298dee47589159b7a50db58e8c702bf87227a435df98c0c1",
+                "count": 10
+              }
+            },
+            "scope": {
+              "equal": true,
+              "reference": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              },
+              "native": {
+                "sha256": "c2a280f7d074b3bac20f46463093b1b0f939f7b9abd50dd6798d21c26c4f64f6",
+                "count": null
+              }
+            },
+            "unclassified_protocol_callers": {
+              "equal": true,
+              "reference": {
+                "sha256": "831dd3b05b75da7ab6bbf08150065f1e7080db9035b4ed87f6245c462ea7d123",
+                "count": 1388
+              },
+              "native": {
+                "sha256": "831dd3b05b75da7ab6bbf08150065f1e7080db9035b4ed87f6245c462ea7d123",
+                "count": 1388
+              }
+            },
+            "unknown_families": {
+              "equal": true,
+              "reference": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              },
+              "native": {
+                "sha256": "fc5d7defbc961522c86a064d64ed2ade76d3325428568b10af93767de753ca01",
+                "count": 14
+              }
+            },
+            "unregistered_protocols": {
+              "equal": true,
+              "reference": {
+                "sha256": "c1c750963004c981039ace27903c88cb88d0b3d65af75b54c56144ec0ce376e4",
+                "count": 127
+              },
+              "native": {
+                "sha256": "c1c750963004c981039ace27903c88cb88d0b3d65af75b54c56144ec0ce376e4",
+                "count": 127
+              }
+            }
+          },
+          "all_equal": true,
+          "measured_paired_change": {
+            "reference_implementation": "legacy",
+            "saved_wall_seconds": 56.979779060000055,
+            "time_reduction_fraction": 0.37697943485518415,
+            "speedup": 1.6050834530117934,
+            "self_cpu_seconds_reduced": -30.886544,
+            "children_cpu_seconds_reduced": 196.634089
+          }
+        }
+      ],
+      "pair_checks_original": {
+        "changes": {
+          "equal": true,
+          "reference": {
+            "sha256": "729f5b9a1d8976946acc23e71784ab6d94bc8820185e40d9aebc76b92d41d940",
+            "count": 103
+          },
+          "native": {
+            "sha256": "729f5b9a1d8976946acc23e71784ab6d94bc8820185e40d9aebc76b92d41d940",
+            "count": 103
+          }
+        },
+        "resource_changes": {
+          "equal": true,
+          "reference": {
+            "sha256": "2cad678006fc55e19557dd80b77f3a277a446b4bd6ec93359551c88db5d5590d",
+            "count": 4
+          },
+          "native": {
+            "sha256": "2cad678006fc55e19557dd80b77f3a277a446b4bd6ec93359551c88db5d5590d",
+            "count": 4
+          }
+        },
+        "verdict": {
+          "equal": true,
+          "reference": {
+            "sha256": "2f8990c0025706d9470e82fb01764868369e69b49400d611faf0f8f4f4156953",
+            "count": 2
+          },
+          "native": {
+            "sha256": "2f8990c0025706d9470e82fb01764868369e69b49400d611faf0f8f4f4156953",
+            "count": 2
+          }
+        }
+      },
+      "report_gate_timing_audit": [
+        {
+          "path": "artifacts/40061414146/reports/9161100/41efb1c9acb07bad/20261024T041801013008Z/summary.json",
+          "backend": "dexsql",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "6ad2c5a9d5fd8ba9d0291d24690ebbe020e979b1eb8bebd400c212e53be2059d",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "868056c17cd341e77ef54835ea0e9f7e14229631aa7c295e0cf65f7631e734ae",
+              "timing_pattern_matches": []
+            }
+          ]
+        },
+        {
+          "path": "artifacts/40061414146/reports/9161100/41efb1c9acb07bad/20261024T041936385383Z/summary.json",
+          "backend": "legacy",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "dabaebf241cf84049d787dc1a3a06b344cffabd555642767b9d14c7f585801f0",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "868056c17cd341e77ef54835ea0e9f7e14229631aa7c295e0cf65f7631e734ae",
+              "timing_pattern_matches": []
+            }
+          ]
+        },
+        {
+          "path": "artifacts/40061414146/reports/9161100/41efb1c9acb07bad/20261024T042645905611Z/summary.json",
+          "backend": "legacy",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "97cac0370bcb9ab45f7e81e7e4a9a910377dbb3c1aed76de4d8c85e00135d201",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "868056c17cd341e77ef54835ea0e9f7e14229631aa7c295e0cf65f7631e734ae",
+              "timing_pattern_matches": []
+            }
+          ]
+        },
+        {
+          "path": "artifacts/40061414146/reports/9161100/41efb1c9acb07bad/20261024T042917659064Z/summary.json",
+          "backend": "dexsql",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "6ad2c5a9d5fd8ba9d0291d24690ebbe020e979b1eb8bebd400c212e53be2059d",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "868056c17cd341e77ef54835ea0e9f7e14229631aa7c295e0cf65f7631e734ae",
+              "timing_pattern_matches": []
+            }
+          ]
+        },
+        {
+          "path": "artifacts/40061414146/reports/9170100/f0f880e841d017db/20261024T041321904978Z/summary.json",
+          "backend": "legacy",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "b88f1cbe55a7da1eab61ea53aa4503ad4834a835a3d4b9b1e87e77a1e679e39c",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "293d7910237abaa3b11f75ce3d3af7826506e18ed0871508fdd6821b476130a0",
+              "timing_pattern_matches": []
+            }
+          ]
+        },
+        {
+          "path": "artifacts/40061414146/reports/9170100/f0f880e841d017db/20261024T041609048669Z/summary.json",
+          "backend": "dexsql",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "c6e6c367f9977ba40ac7c830f52ad0bdfa59b8e16dea0ce94c79245872d31ddb",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "293d7910237abaa3b11f75ce3d3af7826506e18ed0871508fdd6821b476130a0",
+              "timing_pattern_matches": []
+            }
+          ]
+        },
+        {
+          "path": "artifacts/40061414146/reports/9170100/f0f880e841d017db/20261024T042212265714Z/summary.json",
+          "backend": "dexsql",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "c6e6c367f9977ba40ac7c830f52ad0bdfa59b8e16dea0ce94c79245872d31ddb",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "293d7910237abaa3b11f75ce3d3af7826506e18ed0871508fdd6821b476130a0",
+              "timing_pattern_matches": []
+            }
+          ]
+        },
+        {
+          "path": "artifacts/40061414146/reports/9170100/f0f880e841d017db/20261024T042358718731Z/summary.json",
+          "backend": "legacy",
+          "intake_exit_code": 1,
+          "home_probe_exit_code": 0,
+          "audit_complete": true,
+          "runtime_verified": false,
+          "gate_elapsed_fields": [],
+          "logs": [
+            {
+              "name": "intake.log",
+              "sha256": "3e07b77e243a65e6cf91389dc9b31f80def7e3c4b88a4ab49d4cc60250f46c6e",
+              "timing_pattern_matches": []
+            },
+            {
+              "name": "home-frame.log",
+              "sha256": "293d7910237abaa3b11f75ce3d3af7826506e18ed0871508fdd6821b476130a0",
+              "timing_pattern_matches": []
+            }
+          ]
+        }
+      ],
+      "archive_file_timestamps": [
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T041801013008Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            19,
+            14
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T041801013008Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            19,
+            34
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T041801013008Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            19,
+            32
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T041801013008Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            19,
+            34
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T041936385383Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            20,
+            20
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T041936385383Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            20,
+            24
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T041936385383Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            20,
+            22
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T041936385383Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            20,
+            24
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T042645905611Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            27,
+            30
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T042645905611Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            27,
+            36
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T042645905611Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            27,
+            34
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T042645905611Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            27,
+            38
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T042917659064Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            30,
+            30
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T042917659064Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            30,
+            50
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T042917659064Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            30,
+            48
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9161100/41efb1c9acb07bad/20261024T042917659064Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            30,
+            50
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T041321904978Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            14,
+            12
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T041321904978Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            14,
+            16
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T041321904978Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            14,
+            14
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T041321904978Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            14,
+            16
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T041609048669Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            17,
+            32
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T041609048669Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            17,
+            52
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T041609048669Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            17,
+            50
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T041609048669Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            17,
+            52
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T042212265714Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            23,
+            36
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T042212265714Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            23,
+            56
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T042212265714Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            23,
+            54
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T042212265714Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            23,
+            56
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T042358718731Z/features.tsv",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            24,
+            44
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T042358718731Z/home-frame.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            24,
+            48
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T042358718731Z/intake.log",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            24,
+            46
+          ],
+          "extra_field_hex": ""
+        },
+        {
+          "path": "reports/9170100/f0f880e841d017db/20261024T042358718731Z/summary.json",
+          "dos_mtime": [
+            2026,
+            10,
+            24,
+            4,
+            24,
+            48
+          ],
+          "extra_field_hex": ""
+        }
+      ],
+      "archive_timestamp_warning": "DOS timestamps have two-second granularity and no high-resolution extra field; last-write times are only coarse sequence corroboration, not monotonic per-gate elapsed measurements",
+      "actions_job_durations": [
+        {
+          "job_id": 120775536533,
+          "url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40061414146/job/120775536533",
+          "elapsed_seconds": 1123.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-24T04:12:21Z",
+              "completed_at": "2026-10-24T04:12:22Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Run actions/checkout@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-24T04:12:22Z",
+              "completed_at": "2026-10-24T04:12:23Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Run actions/setup-python@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-24T04:12:23Z",
+              "completed_at": "2026-10-24T04:12:23Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Plan dependency subset",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-24T04:12:23Z",
+              "completed_at": "2026-10-24T04:12:23Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Run actions/setup-java@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-24T04:12:23Z",
+              "completed_at": "2026-10-24T04:12:23Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Fingerprint dependency runtime",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-24T04:12:23Z",
+              "completed_at": "2026-10-24T04:12:24Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Restore verified dependency runtime",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-24T04:12:24Z",
+              "completed_at": "2026-10-24T04:12:26Z",
+              "elapsed_seconds": 2.0
+            },
+            {
+              "name": "Prepare and verify analysis dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-24T04:12:26Z",
+              "completed_at": "2026-10-24T04:12:29Z",
+              "elapsed_seconds": 3.0
+            },
+            {
+              "name": "Save verified dependency runtime",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 9,
+              "started_at": "2026-10-24T04:12:29Z",
+              "completed_at": "2026-10-24T04:12:29Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Download verified optional DexSQL",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-24T04:12:29Z",
+              "completed_at": "2026-10-24T04:12:30Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Download verified JADX",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-10-24T04:12:30Z",
+              "completed_at": "2026-10-24T04:12:31Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Backend and scheduler regression tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12,
+              "started_at": "2026-10-24T04:12:31Z",
+              "completed_at": "2026-10-24T04:12:47Z",
+              "elapsed_seconds": 16.0
+            },
+            {
+              "name": "Analyze private sample",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-24T04:12:47Z",
+              "completed_at": "2026-10-24T04:30:58Z",
+              "elapsed_seconds": 1091.0
+            },
+            {
+              "name": "AI evidence review",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 14,
+              "started_at": "2026-10-24T04:30:58Z",
+              "completed_at": "2026-10-24T04:30:58Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Upload bounded analysis results",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-24T04:30:58Z",
+              "completed_at": "2026-10-24T04:31:00Z",
+              "elapsed_seconds": 2.0
+            },
+            {
+              "name": "Post Run actions/setup-java@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 28,
+              "started_at": "2026-10-24T04:31:00Z",
+              "completed_at": "2026-10-24T04:31:00Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/setup-python@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 29,
+              "started_at": "2026-10-24T04:31:00Z",
+              "completed_at": "2026-10-24T04:31:00Z",
+              "elapsed_seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/checkout@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 30,
+              "started_at": "2026-10-24T04:31:00Z",
+              "completed_at": "2026-10-24T04:31:01Z",
+              "elapsed_seconds": 1.0
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 31,
+              "started_at": "2026-10-24T04:31:01Z",
+              "completed_at": "2026-10-24T04:31:01Z",
+              "elapsed_seconds": 0.0
+            }
+          ]
+        }
+      ],
+      "actions_scope_warning": "a benchmark job contains four or eight workers plus provisioning/tests; its duration is not one production audit's latency"
+    }
+  ],
+  "current_sensitivities": [
+    {
+      "run_id": 40067936875,
+      "round": 1,
+      "sample": "target",
+      "classification": "conditional_requirement_and_sensitivity_from_measured_shares_not_new_engine_benchmark",
+      "formula": "E_new = (E - N) + N/s; N includes engine, transport, HostLab Python, fingerprints and native transaction overhead",
+      "composite_native_span_scenarios": [
+        {
+          "assumed_selected_span_speedup": 1.25,
+          "predicted_worker_seconds_if_rest_unchanged": 80.25313293780005,
+          "whole_worker_speedup": 1.1791457778893546,
+          "whole_worker_time_reduction_fraction": 0.1519284394250402
+        },
+        {
+          "assumed_selected_span_speedup": 1.5,
+          "predicted_worker_seconds_if_rest_unchanged": 70.66845965233338,
+          "whole_worker_speedup": 1.3390718197559506,
+          "whole_worker_time_reduction_fraction": 0.2532140657084003
+        },
+        {
+          "assumed_selected_span_speedup": 2,
+          "predicted_worker_seconds_if_rest_unchanged": 58.68761804550007,
+          "whole_worker_speedup": 1.6124379556967874,
+          "whole_worker_time_reduction_fraction": 0.3798210985626004
+        },
+        {
+          "assumed_selected_span_speedup": 3,
+          "predicted_worker_seconds_if_rest_unchanged": 46.70677643866675,
+          "whole_worker_speedup": 2.026047397860225,
+          "whole_worker_time_reduction_fraction": 0.5064281314168007
+        },
+        {
+          "assumed_selected_span_speedup": 5,
+          "predicted_worker_seconds_if_rest_unchanged": 37.1221031532001,
+          "whole_worker_speedup": 2.549158986910537,
+          "whole_worker_time_reduction_fraction": 0.6077137577001607
+        }
+      ],
+      "required_composite_native_speedup_for_whole_time_reduction": [
+        {
+          "requested_whole_time_reduction_fraction": 0.25,
+          "required_native_span_speedup": 1.4905402288315306
+        },
+        {
+          "requested_whole_time_reduction_fraction": 0.4,
+          "required_native_span_speedup": 2.1122165396535757
+        },
+        {
+          "requested_whole_time_reduction_fraction": 0.5,
+          "required_native_span_speedup": 2.9257270410437077
+        }
+      ],
+      "native_zero_time_algebraic_limit": {
+        "remaining_worker_seconds": 22.74509322500012,
+        "whole_worker_speedup": 4.160464058330961,
+        "warning": "ideal bound only under fixed positive R; not an achievable engine prediction"
+      },
+      "only_surface_twice_as_fast": {
+        "assumed_selected_span_speedup": 2,
+        "predicted_worker_seconds_if_rest_unchanged": 66.36751923350005,
+        "whole_worker_speedup": 1.4258502345562132,
+        "whole_worker_time_reduction_fraction": 0.29866407020563157
+      },
+      "explicit_prepare_zero_time_savings_fraction": 0.015248379261597327,
+      "prepare_warning": "only explicit session-opening interval, not all archive/decode/parse work; lazy work can occur later"
+    },
+    {
+      "run_id": 40067936875,
+      "round": 1,
+      "sample": "baseline",
+      "classification": "conditional_requirement_and_sensitivity_from_measured_shares_not_new_engine_benchmark",
+      "formula": "E_new = (E - N) + N/s; N includes engine, transport, HostLab Python, fingerprints and native transaction overhead",
+      "composite_native_span_scenarios": [
+        {
+          "assumed_selected_span_speedup": 1.25,
+          "predicted_worker_seconds_if_rest_unchanged": 72.71969197759998,
+          "whole_worker_speedup": 1.1767406765056014,
+          "whole_worker_time_reduction_fraction": 0.15019509398658926
+        },
+        {
+          "assumed_selected_span_speedup": 1.5,
+          "predicted_worker_seconds_if_rest_unchanged": 64.15134027399998,
+          "whole_worker_speedup": 1.333911640310369,
+          "whole_worker_time_reduction_fraction": 0.25032515664431554
+        },
+        {
+          "assumed_selected_span_speedup": 2,
+          "predicted_worker_seconds_if_rest_unchanged": 53.440900644500005,
+          "whole_worker_speedup": 1.6012495766537351,
+          "whole_worker_time_reduction_fraction": 0.37548773496647325
+        },
+        {
+          "assumed_selected_span_speedup": 3,
+          "predicted_worker_seconds_if_rest_unchanged": 42.73046101500002,
+          "whole_worker_speedup": 2.002604640819598,
+          "whole_worker_time_reduction_fraction": 0.5006503132886311
+        },
+        {
+          "assumed_selected_span_speedup": 5,
+          "predicted_worker_seconds_if_rest_unchanged": 34.16210931140004,
+          "whole_worker_speedup": 2.5048868836809253,
+          "whole_worker_time_reduction_fraction": 0.6007803759463571
+        }
+      ],
+      "required_composite_native_speedup_for_whole_time_reduction": [
+        {
+          "requested_whole_time_reduction_fraction": 0.25,
+          "required_native_span_speedup": 1.4990264294446622
+        },
+        {
+          "requested_whole_time_reduction_fraction": 0.4,
+          "required_native_span_speedup": 2.139680787595839
+        },
+        {
+          "requested_whole_time_reduction_fraction": 0.5,
+          "required_native_span_speedup": 2.9922265715194634
+        }
+      ],
+      "native_zero_time_algebraic_limit": {
+        "remaining_worker_seconds": 21.309581756000057,
+        "whole_worker_speedup": 4.015668656138955,
+        "warning": "ideal bound only under fixed positive R; not an achievable engine prediction"
+      },
+      "only_surface_twice_as_fast": {
+        "assumed_selected_span_speedup": 2,
+        "predicted_worker_seconds_if_rest_unchanged": 60.17145752699997,
+        "whole_worker_speedup": 1.4221397162367593,
+        "whole_worker_time_reduction_fraction": 0.2968342079312839
+      },
+      "explicit_prepare_zero_time_savings_fraction": 0.015289249433286193,
+      "prepare_warning": "only explicit session-opening interval, not all archive/decode/parse work; lazy work can occur later"
+    }
+  ],
+  "current_run_to_main_changed_paths": [
+    "README.md",
+    "tools/hostlab/DEXSQL.md"
+  ],
+  "limitations": [
+    "current run has one paired round for each of two distinct samples; no reliable p95, variance or confidence interval",
+    "no exact pure-DexSQL execution/parse/index/serialization decomposition",
+    "no separately instrumented intake/home elapsed duration; R is not automatically all removable gate cost",
+    "legacy A excludes separate surface while native A includes it; use common E for end-to-end comparisons",
+    "647/635 are logical rows() completions; shape, data and marker SQL statements are additional",
+    "input staged and OS cache retained; not a fresh-machine cold disk/download benchmark",
+    "no APK downloaded and no private workflow or engine triggered during this extraction",
+    "already merged legacy-to-native and read-chunk/range-transport gains cannot be credited again to a future engine",
+    "complete static evidence with exit_code 1 is valid here; runtime_verified remains false and FEATURE coverage gaps persist",
+    "sensitivity scenarios require accelerating the named composite span, not merely showing the same factor on one synthetic query"
+  ]
+}

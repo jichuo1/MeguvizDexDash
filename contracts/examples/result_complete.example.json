@@ -1,0 +1,40 @@
+{
+  "schema_version": "mdd.result.v1",
+  "request_id": "example-request-1",
+  "operation": "query",
+  "profile": "mdd-native-v1",
+  "sql_dialect": null,
+  "session_id": "example-session",
+  "snapshot_id": "example-snapshot",
+  "catalog_epoch": "0",
+  "query_id": "example-query",
+  "operation_status": "ok",
+  "coverage": {
+    "scope_id": "example-complete-scope",
+    "input": "complete",
+    "facts": "complete",
+    "required_layers": [
+      "inventory",
+      "structure"
+    ],
+    "issues": []
+  },
+  "execution": {
+    "complete": true
+  },
+  "response": {
+    "schema_id": "example-rows-v1",
+    "emitted_rows": "0",
+    "total_rows": "0",
+    "total_rows_exact": true,
+    "more_available": false,
+    "truncated": false,
+    "next_cursor": null
+  },
+  "data": {
+    "columns": [],
+    "rows": []
+  },
+  "error": null,
+  "warnings": []
+}

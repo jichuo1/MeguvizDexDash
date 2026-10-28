@@ -1,0 +1,192 @@
+{
+  "schema_version": "mdd.evidence-index.v1",
+  "generated_local_date": "2026-10-26",
+  "timezone": "Asia/Shanghai",
+  "engine_implemented": false,
+  "files": [
+    {
+      "id": "E001",
+      "path": "evidence/hostlab_verification.json",
+      "classification": "historical_measured",
+      "bytes": 45538,
+      "sha256": "bf4ca0cd3df35dab13ed1a83dedf92e5b6dfa485e4d48611d424cf8462b01f7d",
+      "origin_workspace_path": "research/quant_v3/artifacts/40067936875/remote-output/verification.json"
+    },
+    {
+      "id": "E002",
+      "path": "evidence/measured_phase_model.json",
+      "classification": "conditional_model",
+      "bytes": 22471,
+      "sha256": "d445e05fef739960d913f67e29f7439b0abb21aa2aebdcbb06888d13d69ce6e8",
+      "origin_workspace_path": "research/quant_v3/measured_phase_model.json"
+    },
+    {
+      "id": "E003",
+      "path": "evidence/public_apk_profile.json",
+      "classification": "local_measured",
+      "bytes": 23515,
+      "sha256": "540805a535d3498eaedc29342666294a586e09c87ea89c9e2bc84bbc32549836",
+      "origin_workspace_path": "research/quant_v3/public_apk_profile.json"
+    },
+    {
+      "id": "E004",
+      "path": "evidence/hostlab_public_pipeline.json",
+      "classification": "local_measured",
+      "bytes": 22620,
+      "sha256": "9f58b19438a5a120c457b72f1b850c9faf54df128be5120fd6a315ccfd915df2",
+      "origin_workspace_path": "research/quant_v3/hostlab_public_pipeline.json"
+    },
+    {
+      "id": "E005",
+      "path": "evidence/decoder_public_apk_results.json",
+      "classification": "component_measured",
+      "bytes": 9424,
+      "sha256": "46189117a05e61c46275a235cc00f3d23cebbd69051fe1e930095e2cd77abe50",
+      "origin_workspace_path": "research/quant_v3/decoder_public_apk_results.json"
+    },
+    {
+      "id": "E006",
+      "path": "evidence/decoder_microbenchmark_results.json",
+      "classification": "component_measured",
+      "bytes": 32669,
+      "sha256": "e46e0ae0ff33b410bd6152089c3b9f565f8c9926a18eae8eb8ef5062189bf167",
+      "origin_workspace_path": "research/quant_v3/decoder_microbenchmark_results.json"
+    },
+    {
+      "id": "E007",
+      "path": "evidence/hostlab_measured_basis.json",
+      "classification": "derived_verified",
+      "bytes": 162435,
+      "sha256": "3613aa76fe69455d7590df04df38eb8363b247180cca1a99b0756cc8d2f06dcb",
+      "origin_workspace_path": "research/quant_v3/hostlab_measured_basis.json"
+    },
+    {
+      "id": "E008",
+      "path": "evidence/public_apk_timing_review.json",
+      "classification": "independent_review",
+      "bytes": 18840,
+      "sha256": "be7ccb003d06f114bfd7f469102dd0e764f80db6dfdff8f8fabcf299f6c57860",
+      "origin_workspace_path": "research/quant_v3/public_apk_timing_review.json"
+    },
+    {
+      "id": "E009",
+      "path": "evidence/hostlab_integration_inventory.json",
+      "classification": "fixed_source_inventory",
+      "bytes": 35341,
+      "sha256": "788ccd3e5be84b7f653db98fd30887658923a8b50295b26a141c285f0770d5d5",
+      "origin_workspace_path": "research/desktop_v2/HostLab_Integration_Inventory.json"
+    },
+    {
+      "id": "E010",
+      "path": "evidence/aosp_source_manifest.json",
+      "classification": "fixed_source_inventory",
+      "bytes": 11864,
+      "sha256": "4d4f31a945f62f8e775eed8e24836e0df3b4f9bef7fb98d2f396a2f1165961ad",
+      "origin_workspace_path": "research/desktop_v2/aosp_sources/manifest.json"
+    },
+    {
+      "id": "E011",
+      "path": "evidence/aosp_additional_manifest.json",
+      "classification": "fixed_source_inventory",
+      "bytes": 10818,
+      "sha256": "0648433514f4eaa45cb63bab902003abb37bbeccb0e33c7a190b152eb88222d3",
+      "origin_workspace_path": "research/desktop_v2/aosp_sources/additional_manifest.json"
+    },
+    {
+      "id": "E012",
+      "path": "evidence/compatibility/0.1.0/manifest.json",
+      "classification": "observed_blackbox",
+      "bytes": 719,
+      "sha256": "4ac3773edfa2a32286c188b866b189fa7f33518f2f3346e30b51bf9b97cef884",
+      "origin_workspace_path": "research/desktop_v2/runs/baseline_010_final/manifest.json"
+    },
+    {
+      "id": "E013",
+      "path": "evidence/compatibility/0.1.0/checks.json",
+      "classification": "observed_blackbox",
+      "bytes": 5002,
+      "sha256": "d9fd9edb227d0c09836407ebdd683674e905a7c82524a5de06fe162400cdaa96",
+      "origin_workspace_path": "research/desktop_v2/runs/baseline_010_final/checks.json"
+    },
+    {
+      "id": "E014",
+      "path": "evidence/compatibility/0.1.0/observations.json",
+      "classification": "observed_blackbox",
+      "bytes": 29721,
+      "sha256": "011447f2dc065c17c89798e3036e0c21321e0bf421ea9ff8a3490afc0c93c4c6",
+      "origin_workspace_path": "research/desktop_v2/runs/baseline_010_final/observations.json"
+    },
+    {
+      "id": "E015",
+      "path": "evidence/compatibility/0.1.0/cli-records.json",
+      "classification": "observed_blackbox",
+      "bytes": 8747,
+      "sha256": "c79873ac316caed2e1d7b5c493faf5a6e92195fe0277e4d75cfce7d87c09ddc5",
+      "origin_workspace_path": "research/desktop_v2/runs/baseline_010_final/cli-records.json"
+    },
+    {
+      "id": "E016",
+      "path": "evidence/compatibility/0.1.0/mcp-records.json",
+      "classification": "observed_blackbox",
+      "bytes": 419243,
+      "sha256": "79244ec529db739dfa2a087a5926f43f7ce83712e5b13b94a953fb8d48ff2c0e",
+      "origin_workspace_path": "research/desktop_v2/runs/baseline_010_final/mcp-records.json"
+    },
+    {
+      "id": "E017",
+      "path": "evidence/compatibility/0.1.0/summary.json",
+      "classification": "observed_blackbox",
+      "bytes": 212,
+      "sha256": "c1a920a048177f96773271af37b9007c11b1b447c9c1caa9f06bee9dabf3ab18",
+      "origin_workspace_path": "research/desktop_v2/runs/baseline_010_final/summary.json"
+    },
+    {
+      "id": "E018",
+      "path": "evidence/compatibility/0.1.1/manifest.json",
+      "classification": "observed_blackbox",
+      "bytes": 742,
+      "sha256": "5deef404ed8020f396dc4ddb637775982f8cec4c7f891b93bf455b8fe049e748",
+      "origin_workspace_path": "research/desktop_v2/runs/candidate_011_final/manifest.json"
+    },
+    {
+      "id": "E019",
+      "path": "evidence/compatibility/0.1.1/checks.json",
+      "classification": "observed_blackbox",
+      "bytes": 5002,
+      "sha256": "637385e80b35c92ae89f9b8994ba30c8fc1749a91a35d5b61d58da68e44369a9",
+      "origin_workspace_path": "research/desktop_v2/runs/candidate_011_final/checks.json"
+    },
+    {
+      "id": "E020",
+      "path": "evidence/compatibility/0.1.1/observations.json",
+      "classification": "observed_blackbox",
+      "bytes": 28656,
+      "sha256": "0a95331675e2e3e0b40de4d0baa07f556b51b5f5c7a7efc3c61a27046ca714c7",
+      "origin_workspace_path": "research/desktop_v2/runs/candidate_011_final/observations.json"
+    },
+    {
+      "id": "E021",
+      "path": "evidence/compatibility/0.1.1/cli-records.json",
+      "classification": "observed_blackbox",
+      "bytes": 8553,
+      "sha256": "5326689398b9078d737b9c22b20695c62c37bbc84c080cc979406470c24b5d56",
+      "origin_workspace_path": "research/desktop_v2/runs/candidate_011_final/cli-records.json"
+    },
+    {
+      "id": "E022",
+      "path": "evidence/compatibility/0.1.1/mcp-records.json",
+      "classification": "observed_blackbox",
+      "bytes": 423673,
+      "sha256": "3d2d06412e6f090276ff7f93a4741ef346b19a32b64d52e749903a614ed86907",
+      "origin_workspace_path": "research/desktop_v2/runs/candidate_011_final/mcp-records.json"
+    },
+    {
+      "id": "E023",
+      "path": "evidence/compatibility/0.1.1/summary.json",
+      "classification": "observed_blackbox",
+      "bytes": 213,
+      "sha256": "dcac5eb5863ec658da69e7900427339124eb480a100c1f669703a13c05fa11cd",
+      "origin_workspace_path": "research/desktop_v2/runs/candidate_011_final/summary.json"
+    }
+  ]
+}

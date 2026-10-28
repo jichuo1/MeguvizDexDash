@@ -1,0 +1,59 @@
+{
+  "schema_version": "mdd.capabilities.v1",
+  "product": "MeguvizDexDash",
+  "engine_version": "0.0.0-example",
+  "build_id": "example-not-a-build",
+  "fact_schema_id": "example-facts-v1",
+  "relation_schema_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "profiles": [
+    {
+      "name": "mdd-native-v1",
+      "admitted": false,
+      "conformance_manifest_sha256": null
+    }
+  ],
+  "sql_dialects": [],
+  "capabilities": [
+    {
+      "name": "query.typed",
+      "version": "1",
+      "available": false
+    }
+  ],
+  "input_formats": [
+    {
+      "kind": "dex",
+      "versions": [
+        "035",
+        "037",
+        "038",
+        "039",
+        "040"
+      ],
+      "available": false
+    }
+  ],
+  "transports": [
+    {
+      "name": "mcp-stdio",
+      "version": "example",
+      "result_encodings": [
+        "json"
+      ]
+    }
+  ],
+  "semantics": {
+    "pagination_modes": [],
+    "native_cancel_scope": "query",
+    "compat_cancel_closes_dataset": false
+  },
+  "effective_limits": {
+    "max_threads": {
+      "value": null,
+      "unit": "threads",
+      "scope": "worker",
+      "enforcement": "unavailable"
+    }
+  },
+  "providers": []
+}
