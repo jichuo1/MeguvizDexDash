@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\annotation-order-audit\\20261028T165221569757Z\\annotation_order_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+  ],
+  "started_utc": "2026-10-28T16:52:25.764636+00:00",
+  "finished_utc": "2026-10-28T16:52:27.479552+00:00",
+  "elapsed_seconds": 1.7029999999999745,
+  "exit_code": 0,
+  "stdout_sha256": "aef3123270c3cc97df37204dfae3558bde5d6bd8d98ab8fe16d96d9f6d68768d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

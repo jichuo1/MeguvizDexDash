@@ -99,8 +99,8 @@ fn same_snapshot_other_session_is_rejected_without_claiming_either_query() {
     assert!(token_b.status().unwrap().error.is_none());
     let good = SqlControl::new(SqlLimits::default(), None).with_runtime(runtime_a);
     let result = bound.execute(good).unwrap();
-    assert!(!result.rows.is_empty());
-    assert!(result.calculation_complete);
+    assert!(!result.rows().is_empty());
+    assert!(result.calculation_complete());
     assert!(token_a.status().unwrap().execution_complete);
     assert!(!token_a.status().unwrap().delivery_complete);
     token_b.claim_execution().unwrap();
@@ -111,9 +111,9 @@ fn shared_work_budget_stops_real_metadata_before_owned_result_and_is_sticky() {
     let (lifecycle, session, _, bridge) = setup();
     let prepared = bridge.prepare("SELECT value FROM native_strings").unwrap();
     let limits = BudgetLimits::default().with(Resource::QueryWorkBytes, 0);
-    let (runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
-    let bound = prepared.bind_runtime(&runtime).unwrap();
-    let control = SqlControl::new(SqlLimits::default(), None).with_runtime(runtime);
+    let (limited_runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
+    let bound = prepared.bind_runtime(&limited_runtime).unwrap();
+    let control = SqlControl::new(SqlLimits::default(), None).with_runtime(limited_runtime);
     assert_eq!(
         bound.execute(control).unwrap_err().code,
         ErrorCode::QuotaExceeded
@@ -132,7 +132,7 @@ fn typed_numeric_truth_preserves_sql_three_valued_conditions() {
     use mdd_query::ir::Signed64;
     let int = |n| SqlValue::I64(Signed64(n));
     assert_eq!(
-        output.rows[0],
+        output.rows()[0],
         vec![
             int(1),
             int(1),
@@ -147,7 +147,7 @@ fn typed_numeric_truth_preserves_sql_three_valued_conditions() {
         bridge
             .query("SELECT 1 WHERE CAST(1 AS UNSIGNED)")
             .unwrap()
-            .rows
+            .rows()
             .len(),
         1
     );
@@ -155,8 +155,101 @@ fn typed_numeric_truth_preserves_sql_three_valued_conditions() {
         bridge
             .query("SELECT 1 WHERE CAST(0 AS UNSIGNED)")
             .unwrap()
-            .rows
+            .rows()
             .len(),
+        0
+    );
+}
+
+#[test]
+fn result_workspace_is_admitted_before_delivery_and_retained_until_drop() {
+    let (lifecycle, session, _, bridge) = setup();
+    let prepared = bridge.prepare("SELECT value FROM native_strings").unwrap();
+    let limits = BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 1);
+    let (limited_runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
+    let limited_pool = limited_runtime.pool().clone();
+    let bound = prepared.bind_runtime(&limited_runtime).unwrap();
+    let control = SqlControl::new(SqlLimits::default(), None).with_runtime(limited_runtime);
+    assert_eq!(
+        bound.execute(control).unwrap_err().code,
+        ErrorCode::QuotaExceeded
+    );
+    assert!(!token.status().unwrap().execution_complete);
+    assert_eq!(
+        limited_pool
+            .usage()
+            .unwrap()
+            .used
+            .get(&Resource::QueryWorkspaceBytes)
+            .map_or(0, |value| value.0),
+        0
+    );
+
+    let prepared = bridge.prepare("SELECT value FROM native_strings").unwrap();
+    let (runtime, token) = runtime(&lifecycle, &session, &prepared, BudgetLimits::default());
+    let pool = runtime.pool().clone();
+    let bound = prepared.bind_runtime(&runtime).unwrap();
+    let control = SqlControl::new(SqlLimits::default(), None).with_runtime(runtime);
+    let result = bound.execute(control).unwrap();
+    assert!(!result.rows().is_empty());
+    let serialized = serde_json::to_value(&result).unwrap();
+    assert!(serialized.get("rows").unwrap().is_array());
+    assert!(serialized.get("_result_memory").is_none());
+    assert!(pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0 > 0);
+    assert!(token.status().unwrap().execution_complete);
+    assert!(!token.status().unwrap().delivery_complete);
+    drop(result);
+    assert_eq!(
+        pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0,
+        0
+    );
+}
+
+#[test]
+fn small_exact_workspace_does_not_require_a_full_reservation_chunk() {
+    let (lifecycle, session, _, bridge) = setup();
+    let prepared = bridge.prepare("SELECT 'a'").unwrap();
+    let limits = BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 3000);
+    let (runtime, _) = runtime(&lifecycle, &session, &prepared, limits);
+    let pool = runtime.pool().clone();
+    let bound = prepared.bind_runtime(&runtime).unwrap();
+    let result = bound
+        .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        .unwrap();
+    assert_eq!(result.rows().len(), 1);
+    let used = pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0;
+    assert!((1..=3000).contains(&used));
+    drop(result);
+    assert_eq!(
+        pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0,
+        0
+    );
+}
+
+#[test]
+fn zero_rows_still_reserve_result_schema_and_identity() {
+    let (lifecycle, session, _, bridge) = setup();
+    let prepared = bridge.prepare("SELECT 1 AS long_alias WHERE 0").unwrap();
+    let limits = BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 0);
+    let (limited, token) = runtime(&lifecycle, &session, &prepared, limits);
+    let bound = prepared.bind_runtime(&limited).unwrap();
+    let result = bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(limited));
+    assert_eq!(result.unwrap_err().code, ErrorCode::QuotaExceeded);
+    assert!(!token.status().unwrap().execution_complete);
+
+    let prepared = bridge.prepare("SELECT 1 AS long_alias WHERE 0").unwrap();
+    let (runtime, _) = runtime(&lifecycle, &session, &prepared, BudgetLimits::default());
+    let pool = runtime.pool().clone();
+    let bound = prepared.bind_runtime(&runtime).unwrap();
+    let result = bound
+        .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        .unwrap();
+    assert!(result.rows().is_empty());
+    assert_eq!(result.columns(), &["long_alias"]);
+    assert!(pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0 > 0);
+    drop(result);
+    assert_eq!(
+        pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0,
         0
     );
 }

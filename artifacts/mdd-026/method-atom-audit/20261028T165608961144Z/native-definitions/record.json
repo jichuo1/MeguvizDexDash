@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\method-atom-audit\\20261028T165608961144Z\\method_atoms_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex"
+  ],
+  "started_utc": "2026-10-28T16:56:13.186577+00:00",
+  "finished_utc": "2026-10-28T16:56:13.301373+00:00",
+  "elapsed_seconds": 0.1089999999999236,
+  "exit_code": 0,
+  "stdout_sha256": "170785f03e3714fd62ef8fe9deffa2c2f2212239f04bc4aa49bbc3b19b445847",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

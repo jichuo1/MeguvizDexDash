@@ -1,0 +1,11 @@
+{
+  "command": "mdd-independent-result-memory-probe.exe",
+  "exit_code": 101,
+  "stdout": "",
+  "stderr": "\nthread 'main' (4392) panicked at src\\main.rs:21:58:\nno entry found for key\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
+  "binary_sha256": "17fcbf0f3aeab07524ab2d7002c5c6ae23c22dec6fe85ee8d010edcfdcd1befe",
+  "probe_source_sha256": "bc86aa2c1f2e9c769655aa8d7a97e25c446df96306545d64c2922fe9a3ef400c",
+  "probe_lock_sha256": "588c4abb11f78b019adf215ba2160ebda4065f808a70dceda0e659a296a7ff9e",
+  "root_lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "tested_scope": "candidate before schema fix; no transport admission implemented"
+}

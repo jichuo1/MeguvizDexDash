@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex",
+    "--sql",
+    "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"annotation_set_off\" IS NULL THEN 'N' ELSE hex(CAST(\"annotation_set_off\" AS TEXT)) END AS \"annotation_set_off\",CASE WHEN \"ordinal\" IS NULL THEN 'N' ELSE hex(CAST(\"ordinal\" AS TEXT)) END AS \"ordinal\",CASE WHEN \"annotation_off\" IS NULL THEN 'N' ELSE hex(CAST(\"annotation_off\" AS TEXT)) END AS \"annotation_off\" FROM annotation_set_entries ORDER BY file_id,annotation_set_off,ordinal,annotation_off"
+  ],
+  "started_utc": "2026-10-28T16:52:29.448882+00:00",
+  "finished_utc": "2026-10-28T16:52:29.758403+00:00",
+  "elapsed_seconds": 0.31300000000010186,
+  "exit_code": 0,
+  "stdout_sha256": "29087753cd85f75989a4cd96b2be14a6a604e05a2f2ca615ec2f51b3fa99b289",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

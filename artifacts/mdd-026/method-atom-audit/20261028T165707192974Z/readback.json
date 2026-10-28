@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "result_sha256": "80a68f5dde8693a79bd67e9754f83e45315dd31c80a95ce7611a91a06568b86e",
+  "readback_source_sha256": "6cd85e248f90373d0e2b218c138e0feef478aae80903617f271f8efd4d748e98",
+  "cases": 3,
+  "rows": 24,
+  "source_files_checked": 52,
+  "task_complete_proven": false,
+  "scope": "three small fixtures; method rows assembled by conformance driver, not production"
+}

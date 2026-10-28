@@ -1,0 +1,109 @@
+{
+  "schema_version": "mdd.local-checks.v1",
+  "scope": "SQL result-owned logical workspace only; SQLite internal allocations and transport copies are not accounted",
+  "pre_fix_observation": {
+    "basis": "tool-returned output; raw output and failure-source hash were not separately persisted",
+    "exit_code": 1,
+    "result": "one-byte result workspace budget returned fourteen rows with calculation_complete=true"
+  },
+  "intermediate_test_failure": {
+    "basis": "tool-returned output; raw output and failure-source hash were not separately persisted",
+    "exit_code": 1,
+    "result": "test indexed absent zero-usage map entry; corrected assertion uses get with zero default"
+  },
+  "source_and_lock_sha256_before": {
+    "crates/mdd-sql/examples/sql_bridge_probe.rs": "2584d27c0c13b1dcba7a00a3c0e22d34b8489b892acb808e5e0bfe7d10cda2f4",
+    "crates/mdd-sql/src/bridge.rs": "625c0dca5d275d2f893dc73fb3fd1f18f584de036452f12c36c7dac265aa7252",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/dialects/ast.rs": "c3b393a77ed01a0bf96bc6c6531f204614cde14b681555da7c38a38254869e4e",
+    "crates/mdd-sql/src/dialects/functions.rs": "27cb06cd3873ae4fa6427aabdd0251695bf5a7190d1b75b0ebd84c50e63b3e31",
+    "crates/mdd-sql/src/dialects/mod.rs": "b86349330e76a79a7049897ca50eddb5f3bed16cf8a6bde17ff1c471e98d57f4",
+    "crates/mdd-sql/src/lib.rs": "8f6fba6ae5691adf53df693815c6964e53728e22021f8cd97d8f526a35749973",
+    "crates/mdd-sql/src/provider/metadata.rs": "197c6e25a1d6f1ed249e0102c1c0f90f0bb65c8371d8a30be07f544fe1688fbe",
+    "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+    "crates/mdd-sql/src/runtime.rs": "b842c26d3a534e948970f0181e46c2089cdadfbc345f803a0c0f01313f9b814b",
+    "crates/mdd-sql/src/runtime_tests.rs": "aa52d3d534c751f4aacaff9575ec88125bd8816d09ce2bdab7ebc97204e59183",
+    "crates/mdd-sql/src/values.rs": "4ae2d0398b29c5f4f6a693eee5ffa37fe9a764e3013ccf42d9b417940b011b32",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "crates/mdd-sql/Cargo.toml": "44701b578f006ff5ec3e509c218c278cdff39a321d1b583bec533e942e8fb6c6",
+    "Cargo.toml": "02880b4608d3dd392f2ef67d7bbb165c0f1ffa715409902c8d127e698472354a",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+  },
+  "source_and_lock_sha256_after": {
+    "crates/mdd-sql/examples/sql_bridge_probe.rs": "2584d27c0c13b1dcba7a00a3c0e22d34b8489b892acb808e5e0bfe7d10cda2f4",
+    "crates/mdd-sql/src/bridge.rs": "625c0dca5d275d2f893dc73fb3fd1f18f584de036452f12c36c7dac265aa7252",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/dialects/ast.rs": "c3b393a77ed01a0bf96bc6c6531f204614cde14b681555da7c38a38254869e4e",
+    "crates/mdd-sql/src/dialects/functions.rs": "27cb06cd3873ae4fa6427aabdd0251695bf5a7190d1b75b0ebd84c50e63b3e31",
+    "crates/mdd-sql/src/dialects/mod.rs": "b86349330e76a79a7049897ca50eddb5f3bed16cf8a6bde17ff1c471e98d57f4",
+    "crates/mdd-sql/src/lib.rs": "8f6fba6ae5691adf53df693815c6964e53728e22021f8cd97d8f526a35749973",
+    "crates/mdd-sql/src/provider/metadata.rs": "197c6e25a1d6f1ed249e0102c1c0f90f0bb65c8371d8a30be07f544fe1688fbe",
+    "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+    "crates/mdd-sql/src/runtime.rs": "b842c26d3a534e948970f0181e46c2089cdadfbc345f803a0c0f01313f9b814b",
+    "crates/mdd-sql/src/runtime_tests.rs": "aa52d3d534c751f4aacaff9575ec88125bd8816d09ce2bdab7ebc97204e59183",
+    "crates/mdd-sql/src/values.rs": "4ae2d0398b29c5f4f6a693eee5ffa37fe9a764e3013ccf42d9b417940b011b32",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "crates/mdd-sql/Cargo.toml": "44701b578f006ff5ec3e509c218c278cdff39a321d1b583bec533e942e8fb6c6",
+    "Cargo.toml": "02880b4608d3dd392f2ef67d7bbb165c0f1ffa715409902c8d127e698472354a",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+  },
+  "identities_unchanged": true,
+  "checks": [
+    {
+      "name": "fmt",
+      "argv": [
+        "cargo",
+        "fmt",
+        "-p",
+        "mdd-sql",
+        "--",
+        "--check"
+      ],
+      "started_utc": "2026-10-28T16:53:05.967469+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "test",
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "mdd-sql",
+        "--locked",
+        "--offline",
+        "--jobs",
+        "1",
+        "--",
+        "--test-threads",
+        "1"
+      ],
+      "started_utc": "2026-10-28T16:53:09.680552+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "2096f8b562d3ad6119cfdb86e38997c0157fe76db89eb32132501e86c9caa04f",
+      "stderr_sha256": "0e6ac637ab54590e100409a838c308be5218f60422b3bed0c182eb0370efa80f"
+    },
+    {
+      "name": "clippy",
+      "argv": [
+        "cargo",
+        "clippy",
+        "-p",
+        "mdd-sql",
+        "--all-targets",
+        "--locked",
+        "--offline",
+        "--jobs",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "started_utc": "2026-10-28T16:53:13.519019+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b8b5e3ef34b836b5445d6b25e7705156096f63965fc62af22d3273196eec060a"
+    }
+  ]
+}

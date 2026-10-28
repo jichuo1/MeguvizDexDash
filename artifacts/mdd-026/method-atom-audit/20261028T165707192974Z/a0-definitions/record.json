@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+    "--sql",
+    "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"method_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"method_idx\" AS TEXT)) END AS \"method_idx\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"class_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"class_descriptor\" AS TEXT)) END AS \"class_descriptor\",CASE WHEN \"proto_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"proto_idx\" AS TEXT)) END AS \"proto_idx\",CASE WHEN \"name\" IS NULL THEN 'N' ELSE hex(CAST(\"name\" AS TEXT)) END AS \"name\",CASE WHEN \"descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"descriptor\" AS TEXT)) END AS \"descriptor\",CASE WHEN \"return_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"return_descriptor\" AS TEXT)) END AS \"return_descriptor\",CASE WHEN \"param_count\" IS NULL THEN 'N' ELSE hex(CAST(\"param_count\" AS TEXT)) END AS \"param_count\",CASE WHEN \"param_descriptors\" IS NULL THEN 'N' ELSE hex(CAST(\"param_descriptors\" AS TEXT)) END AS \"param_descriptors\",CASE WHEN \"access_flags\" IS NULL THEN 'N' ELSE hex(CAST(\"access_flags\" AS TEXT)) END AS \"access_flags\",CASE WHEN \"opcode_count\" IS NULL THEN 'N' ELSE hex(CAST(\"opcode_count\" AS TEXT)) END AS \"opcode_count\",CASE WHEN \"opcode_hex\" IS NULL THEN 'N' ELSE hex(CAST(\"opcode_hex\" AS TEXT)) END AS \"opcode_hex\",CASE WHEN \"method_kind\" IS NULL THEN 'N' ELSE hex(CAST(\"method_kind\" AS TEXT)) END AS \"method_kind\" FROM methods AS m ORDER BY m.method_idx"
+  ],
+  "started_utc": "2026-10-28T16:57:12.442764+00:00",
+  "finished_utc": "2026-10-28T16:57:12.535583+00:00",
+  "elapsed_seconds": 0.09400000000005093,
+  "exit_code": 0,
+  "stdout_sha256": "eedd5fd9929af81b06fbae0024c63e95acf0bcc552c9019cee0793a17b0fb9b8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

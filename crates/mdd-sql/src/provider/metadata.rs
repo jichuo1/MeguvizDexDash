@@ -194,12 +194,12 @@ mod tests {
         drop(snapshot);
         let bridge = SqlBridge::new(provider, SqlDialect::NativeV1, SqlLimits::default()).unwrap();
         let result=bridge.query("SELECT dex_occurrence_id,string_idx,value,raw_mutf8 FROM native_strings ORDER BY dex_occurrence_id,string_idx").unwrap();
-        assert_eq!(result.binding.snapshot_id, source_id);
-        assert_eq!(result.rows.len(), strings * 2);
-        assert_ne!(result.rows[0][0], result.rows[strings][0]);
+        assert_eq!(result.binding().snapshot_id, source_id);
+        assert_eq!(result.rows().len(), strings * 2);
+        assert_ne!(result.rows()[0][0], result.rows()[strings][0]);
         assert!(
             result
-                .rows
+                .rows()
                 .iter()
                 .any(|row| matches!(&row[2],SqlValue::Text(text) if text.strict_utf8().is_err()))
         );

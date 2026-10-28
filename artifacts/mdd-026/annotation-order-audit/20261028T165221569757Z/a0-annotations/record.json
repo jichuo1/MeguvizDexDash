@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex",
+    "--sql",
+    "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"annotation_off\" IS NULL THEN 'N' ELSE hex(CAST(\"annotation_off\" AS TEXT)) END AS \"annotation_off\",CASE WHEN \"visibility\" IS NULL THEN 'N' ELSE hex(CAST(\"visibility\" AS TEXT)) END AS \"visibility\",CASE WHEN \"type_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"type_idx\" AS TEXT)) END AS \"type_idx\",CASE WHEN \"element_count\" IS NULL THEN 'N' ELSE hex(CAST(\"element_count\" AS TEXT)) END AS \"element_count\" FROM annotations ORDER BY file_id,annotation_off"
+  ],
+  "started_utc": "2026-10-28T16:52:29.760924+00:00",
+  "finished_utc": "2026-10-28T16:52:30.590070+00:00",
+  "elapsed_seconds": 0.8429999999998472,
+  "exit_code": 0,
+  "stdout_sha256": "55a2f3d94407829d15fb52221e2b912814c1180edaad67260524be10f754b320",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

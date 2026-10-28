@@ -1,0 +1,10 @@
+{
+  "status": "failed-comparison",
+  "failure": "A0 ORDER BY unqualified method_idx selected the hex-text output alias, giving lexical 0,1,10,11,12,2 instead of numeric ordering",
+  "evidence": {
+    "a0_definitions_stdout_sha256": "b47bc12f4579d8fa02faae167e8281cb046c15e7589a1a7e501a484a0e8c8a82",
+    "a0_command_record": "a0-definitions/record.json"
+  },
+  "resolution": "qualify ORDER BY m.method_idx to reference the numeric source column; rerun is a separate directory",
+  "not_engine_equivalence_failure_proven": true
+}

@@ -48,6 +48,16 @@ MDD-026 已重新打开：独立复核发现资格脚本对17关系156列主要�
 
 随后真实 A0 多输入合成实验完整消费三组79行，验证原生六个来源出现及字符串坐标。相同内容两次输入在 A0 有两个兼容池编号，而原生物理池身份共享；兼容层必须显式映射，不能直接将物理池 ID 作为旧编号。证据 artifacts/mdd-026/cross-dex-audit/20261028T164250980578Z/readback.json；生产兼容映射和完整 HostLab 尚未完成。
 
+方法代码项补充对照：classic/shared 合成 DEX 的12列与原始字节 oracle 和 A0 有序结果相等，共享物理方法体仍保留多个方法行；无体为 NULL。非空 try/handler 只在无方法所有者的物理项上验证，不能算 A0 非空兼容行。证据 artifacts/mdd-026/code-item-audit/20261028T164825508666Z/readback.json。
+
+四类注解关系在双来源合成样本中验证行序、NULL和来源；A0 的116行在数值零符号归一化后匹配，其中两处原生 -0.0 被 A0 文本 CAST 显示为 0.0，不能称逐位相等。参数位置 Unknown 继续阻断。证据 artifacts/mdd-026/annotation-order-audit/20261028T165221569757Z/readback.json。
+
+三份合成DEX的24个方法、14个字段由独立字节 oracle、原生事实组合和A0数值顺序逐行对照，覆盖纯引用NULL、无体定义、三参数及共享体多所有者；生产 methods 关系仍未装配。首轮因测试查询文本别名排序失败的记录已保留，修正数值排序后通过。证据 artifacts/mdd-026/method-atom-audit/20261028T165707192974Z/readback.json。
+
 MDD-034 已根验收 done，范围是预算、取消和终态机制：Windows 本机 27 query、10 session、7 types 及2 compile-fail 测试通过，相关包严格 Clippy 通过；SQLite 双连接中断和独立子进程 deadline 探针通过。结果及源码身份见 artifacts/mdd-034/budget-and-terminal-states.json。生产 worker、MCP、FFI 和当前源码的 Linux CI 尚未验证；进程树隔离未由该探针证明。
 
-MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。当前冻结工作区 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/；当前源码Linux CI尚待该检查点验证。
+MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
+
+后续 SQL 结果驻留预算修复在 Windows 工作区重新运行165项测试、0失败/跳过及严格Clippy；零行 schema 的零预算错误、结果持有与释放独立复现。该计量是保守逻辑额度，SQLite内部分配、provider/调用方副本、传输缓冲及租约自身元数据仍需单独准入，不能称 RSS 硬上限。证据 artifacts/mdd-031-audit/result-memory-probe/after-fix.json、artifacts/integration/20261029/workspace-tests-result-budget/record.json。
+
+检查点862b3dd的 Windows 和 Linux CI 均通过，各161项测试、10条构建/检查/Clippy/探针命令原始记录已核验；有限 Linux ASan/fuzz workflow 通过，但本次执行次数尚未回读。见 artifacts/integration/20261029/ci-862b3dd.json。后续源码修改须另行验证，不能继承此检查点的CI结论。

@@ -38,20 +38,150 @@ pub struct PreparedSql {
     display_overrides: std::collections::BTreeMap<String, String>,
     execution_binding: Option<crate::runtime::SqlExecutionBinding>,
 }
+/// An immutable calculated result. The query's logical result-workspace
+/// reservation stays live until this object is dropped. Transport copies and
+/// SQLite's own internal allocations need separate admission.
+/// ```compile_fail
+/// fn remove_rows(mut result: mdd_sql::SqlResult) { result.rows.clear(); }
+/// ```
 #[derive(Debug, Serialize)]
 pub struct SqlResult {
-    pub binding: SqlBinding,
-    pub dialect: SqlDialect,
-    pub columns: Vec<String>,
-    pub rows: Vec<Vec<SqlValue>>,
-    pub calculation_complete: bool,
-    pub profiles_admitted: Vec<String>,
-    pub sqlite_version: String,
-    pub optimizer: OptimizerPolicy,
-    pub required_relations: Vec<String>,
-    pub required_layers: Vec<FactLayer>,
-    pub ast_nodes: usize,
-    pub execution_binding: Option<crate::runtime::SqlExecutionBinding>,
+    binding: SqlBinding,
+    dialect: SqlDialect,
+    columns: Vec<String>,
+    rows: Vec<Vec<SqlValue>>,
+    calculation_complete: bool,
+    profiles_admitted: Vec<String>,
+    sqlite_version: String,
+    optimizer: OptimizerPolicy,
+    required_relations: Vec<String>,
+    required_layers: Vec<FactLayer>,
+    ast_nodes: usize,
+    execution_binding: Option<crate::runtime::SqlExecutionBinding>,
+    #[serde(skip)]
+    _result_memory: ResultMemory,
+}
+impl SqlResult {
+    pub fn binding(&self) -> &SqlBinding {
+        &self.binding
+    }
+    pub fn columns(&self) -> &[String] {
+        &self.columns
+    }
+    pub fn rows(&self) -> &[Vec<SqlValue>] {
+        &self.rows
+    }
+    pub fn calculation_complete(&self) -> bool {
+        self.calculation_complete
+    }
+    pub fn execution_binding(&self) -> Option<&crate::runtime::SqlExecutionBinding> {
+        self.execution_binding.as_ref()
+    }
+}
+#[derive(Default)]
+struct ResultMemory {
+    reservations: Vec<mdd_query::budget::Reservation>,
+    unused: u64,
+}
+impl std::fmt::Debug for ResultMemory {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("ResultMemory")
+            .field("reservations", &self.reservations.len())
+            .field("unused", &self.unused)
+            .finish()
+    }
+}
+impl ResultMemory {
+    fn admit(&mut self, control: &SqlControl, bytes: u64) -> MddResult<()> {
+        let Some(runtime) = control.runtime() else {
+            return Ok(());
+        };
+        if bytes <= self.unused {
+            self.unused -= bytes;
+            return Ok(());
+        }
+        let needed = bytes - self.unused;
+        let preferred = needed.max(4096);
+        runtime.checkpoint()?;
+        let pool = runtime.pool();
+        let reserve = pool
+            .reserve(mdd_query::budget::Resource::QueryWorkspaceBytes, preferred)
+            .or_else(|error| {
+                if error.code == ErrorCode::QuotaExceeded && preferred != needed {
+                    pool.reserve(mdd_query::budget::Resource::QueryWorkspaceBytes, needed)
+                } else {
+                    Err(error)
+                }
+            })
+            .map_err(|error| control.fail(error))?;
+        self.unused = reserve.amount() - needed;
+        self.reservations.push(reserve);
+        Ok(())
+    }
+}
+fn result_metadata_bytes(
+    prepared: &PreparedSql,
+    statement: &rusqlite::Statement<'_>,
+) -> MddResult<u64> {
+    let count = statement.column_count();
+    let entries = count
+        .checked_add(prepared.required_relations.len())
+        .ok_or_else(|| quota("SQL_RESULT_METADATA_OVERFLOW"))?;
+    let layer_bytes = prepared
+        .required_layers
+        .len()
+        .checked_mul(std::mem::size_of::<FactLayer>())
+        .and_then(|v| v.checked_mul(2))
+        .ok_or_else(|| quota("SQL_RESULT_METADATA_OVERFLOW"))?;
+    let mut bytes = (std::mem::size_of::<SqlResult>() as u64)
+        .checked_add(
+            (entries as u64)
+                .checked_mul((std::mem::size_of::<String>() * 2) as u64)
+                .ok_or_else(|| quota("SQL_RESULT_METADATA_OVERFLOW"))?,
+        )
+        .and_then(|v| v.checked_add(layer_bytes as u64))
+        .ok_or_else(|| quota("SQL_RESULT_METADATA_OVERFLOW"))?;
+    let mut add_text = |text: &str| -> MddResult<()> {
+        let cost = (text.len() as u64)
+            .checked_mul(2)
+            .ok_or_else(|| quota("SQL_RESULT_METADATA_OVERFLOW"))?;
+        bytes = bytes
+            .checked_add(cost)
+            .ok_or_else(|| quota("SQL_RESULT_METADATA_OVERFLOW"))?;
+        Ok(())
+    };
+    add_text(&prepared.binding.provider_identity)?;
+    add_text(&prepared.binding.snapshot_id)?;
+    add_text(rusqlite::version())?;
+    for name in &prepared.required_relations {
+        add_text(name)?;
+    }
+    if let Some(binding) = &prepared.execution_binding {
+        for value in [
+            &binding.schema_version,
+            &binding.worker_owner_id,
+            &binding.session_id,
+            &binding.query_id,
+            &binding.snapshot_id,
+            &binding.provider_identity,
+            &binding.request_key,
+            &binding.schema_id,
+            &binding.semantic_version,
+        ] {
+            add_text(value)?;
+        }
+    }
+    for ordinal in 0..count {
+        let name = statement.column_name(ordinal).map_err(sqlite_error)?;
+        add_text(
+            prepared
+                .display_overrides
+                .get(name)
+                .map_or(name, String::as_str),
+        )?;
+    }
+    Ok(bytes)
 }
 #[derive(Debug, Serialize)]
 pub struct OptimizerPolicy {
@@ -368,30 +498,60 @@ impl SqlBridge {
             if !statement.readonly() {
                 return Err(invalid("SQLITE_STATEMENT_NOT_READONLY"));
             }
-            let columns = statement
-                .column_names()
-                .iter()
-                .map(|name| {
+            let mut result_memory = ResultMemory::default();
+            result_memory.admit(&control, result_metadata_bytes(prepared, &statement)?)?;
+            let count = statement.column_count();
+            let mut columns = Vec::new();
+            columns
+                .try_reserve_exact(count)
+                .map_err(|_| quota("SQL_RESULT_ALLOCATION"))?;
+            for ordinal in 0..count {
+                let name = statement.column_name(ordinal).map_err(sqlite_error)?;
+                columns.push(
                     prepared
                         .display_overrides
-                        .get(*name)
-                        .cloned()
-                        .unwrap_or_else(|| (*name).to_owned())
-                })
-                .collect::<Vec<_>>();
+                        .get(name)
+                        .map_or_else(|| name.to_owned(), Clone::clone),
+                );
+            }
             let parameters = prepared
                 .parameters
                 .iter()
                 .map(|v| v.sqlite(control.inner.limits.max_cell_bytes))
                 .collect::<MddResult<Vec<_>>>()?;
-            let count = columns.len();
             let mut cursor = statement
                 .query(rusqlite::params_from_iter(parameters))
                 .map_err(sqlite_error)?;
             let mut rows = Vec::new();
             while let Some(row) = cursor.next().map_err(sqlite_error)? {
                 control.checkpoint(1, false)?;
-                let mut values = Vec::with_capacity(count);
+                // Admit a conservative logical bound before any owned output
+                // allocation. SQLite's internal buffers are explicitly outside
+                // this result-only reservation.
+                let mut reserved_bytes = (count as u64)
+                    .checked_mul(std::mem::size_of::<SqlValue>() as u64)
+                    .and_then(|v| v.checked_mul(2))
+                    .and_then(|v| v.checked_add((std::mem::size_of::<Vec<SqlValue>>() * 2) as u64))
+                    .ok_or_else(|| quota("SQL_RESULT_WORKSPACE_OVERFLOW"))?;
+                for ordinal in 0..count {
+                    let value = row.get_ref(ordinal).map_err(sqlite_error)?;
+                    let extra = match value {
+                        rusqlite::types::ValueRef::Text(v) => (v.len() as u64).checked_mul(2),
+                        rusqlite::types::ValueRef::Blob(v) => Some(v.len() as u64),
+                        _ => Some(0),
+                    }
+                    .ok_or_else(|| quota("SQL_RESULT_WORKSPACE_OVERFLOW"))?;
+                    reserved_bytes = reserved_bytes
+                        .checked_add(extra)
+                        .ok_or_else(|| quota("SQL_RESULT_WORKSPACE_OVERFLOW"))?;
+                }
+                result_memory.admit(&control, reserved_bytes)?;
+                rows.try_reserve(1)
+                    .map_err(|_| quota("SQL_RESULT_ALLOCATION"))?;
+                let mut values = Vec::new();
+                values
+                    .try_reserve_exact(count)
+                    .map_err(|_| quota("SQL_RESULT_ALLOCATION"))?;
                 let mut bytes = 0u64;
                 for ordinal in 0..count {
                     let value_ref = row.get_ref(ordinal).map_err(sqlite_error)?;
@@ -439,6 +599,7 @@ impl SqlBridge {
                 required_layers: prepared.required_layers.clone(),
                 ast_nodes: prepared.ast_nodes,
                 execution_binding: prepared.execution_binding.clone(),
+                _result_memory: result_memory,
             })
         })();
         result.map_err(|error| control.error().unwrap_or(error))
