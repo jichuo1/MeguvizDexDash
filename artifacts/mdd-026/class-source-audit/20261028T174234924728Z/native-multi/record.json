@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\class-source-audit\\20261028T174234924728Z\\class_source_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\class_source_boundary\\generated\\null-source.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\class_source_boundary\\generated\\empty-source.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\class_source_boundary\\generated\\surrogate-source.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\class_source_boundary\\generated\\root-empty-source.dex"
+  ],
+  "started_utc": "2026-10-28T17:42:35.925150+00:00",
+  "finished_utc": "2026-10-28T17:42:36.630927+00:00",
+  "elapsed_seconds": 0.7039999999997235,
+  "exit_code": 0,
+  "stdout_sha256": "145976702e442c8e0c67e65469687eeca51eebac02cb843ef3cc4af5aa8ae85c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

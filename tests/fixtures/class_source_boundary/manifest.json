@@ -1,0 +1,71 @@
+{
+  "schema_version": "mdd.class-source-boundaries.v1",
+  "files": [
+    {
+      "id": "null-source",
+      "path": "generated/null-source.dex",
+      "bytes": 288,
+      "sha256": "5e4198d669ae1bca0d620f255d85c4d5e8688811e716641fdc71a93f4df24603",
+      "hand_layout": {
+        "class_idx": 0,
+        "superclass_idx": 1,
+        "source_file_idx": 4294967295,
+        "string_count": 4
+      },
+      "expectation": "valid_structural_fixture"
+    },
+    {
+      "id": "empty-source",
+      "path": "generated/empty-source.dex",
+      "bytes": 288,
+      "sha256": "2a25adbe587475853fa544789113dffea5c885cdb9bab37ed21422d0a2e02b40",
+      "hand_layout": {
+        "class_idx": 0,
+        "superclass_idx": 1,
+        "source_file_idx": 0,
+        "string_count": 4
+      },
+      "expectation": "valid_structural_fixture"
+    },
+    {
+      "id": "surrogate-source",
+      "path": "generated/surrogate-source.dex",
+      "bytes": 288,
+      "sha256": "daf037df44bfa95b2cd0b3b3237bcc704fc83fc54eb1d994f8a4d6c7ff84fe2a",
+      "hand_layout": {
+        "class_idx": 0,
+        "superclass_idx": 1,
+        "source_file_idx": 3,
+        "string_count": 4
+      },
+      "expectation": "valid_structural_fixture"
+    },
+    {
+      "id": "root-empty-source",
+      "path": "generated/root-empty-source.dex",
+      "bytes": 288,
+      "sha256": "68409be64333a8b5737faab6219f0d48f3b998e4a02a60bb09d9728a4fdd4ab7",
+      "hand_layout": {
+        "class_idx": 1,
+        "superclass_idx": 4294967295,
+        "source_file_idx": 0,
+        "string_count": 4
+      },
+      "expectation": "valid_structural_fixture"
+    },
+    {
+      "id": "bad-source-index",
+      "path": "generated/bad-source-index.dex",
+      "bytes": 288,
+      "sha256": "ecb023f62d43ee1f13eed5ce7e20cb2dccf79bbd0736f516001ebbf131a67b1c",
+      "hand_layout": {
+        "class_idx": 0,
+        "superclass_idx": 1,
+        "source_file_idx": 4,
+        "string_count": 4
+      },
+      "expectation": "invalid_source_index"
+    }
+  ],
+  "scope": "synthetic DEX; no device installation or full ART verification"
+}

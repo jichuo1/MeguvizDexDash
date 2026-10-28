@@ -1,0 +1,16 @@
+{
+  "crates/mdd-sql/src/bridge.rs": "e19c683e30c1f084774750e9026ff5760b6a3cf3c21d65c3e2d7c63fad7a2565",
+  "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+  "crates/mdd-sql/src/dialects/ast.rs": "bda8e1fb735eae97324f8a945a9467db147ba0061e37ac87fc77eba2bc5f2292",
+  "crates/mdd-sql/src/dialects/functions.rs": "ce6705609a6eec17e1f3123f3430b360043b5c90d404900d383f5e6d8cd4b97a",
+  "crates/mdd-sql/src/dialects/mod.rs": "b86349330e76a79a7049897ca50eddb5f3bed16cf8a6bde17ff1c471e98d57f4",
+  "crates/mdd-sql/src/join_tests.rs": "2e06417c7300d2e48404a8e72c7879810151f4beb33846839db1bd772ed79cbf",
+  "crates/mdd-sql/src/lib.rs": "4045b5a1c1cbc2cae32b601bac11e9509365a42d3b6835bca6e0e0fb9ca9f15a",
+  "crates/mdd-sql/src/provider/metadata.rs": "197c6e25a1d6f1ed249e0102c1c0f90f0bb65c8371d8a30be07f544fe1688fbe",
+  "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+  "crates/mdd-sql/src/runtime.rs": "b842c26d3a534e948970f0181e46c2089cdadfbc345f803a0c0f01313f9b814b",
+  "crates/mdd-sql/src/runtime_tests.rs": "ed03279079eee70051383a3434cf42c1a389f6e6b7d55d267aec7b47d2ae2c21",
+  "crates/mdd-sql/src/values.rs": "4ae2d0398b29c5f4f6a693eee5ffa37fe9a764e3013ccf42d9b417940b011b32",
+  "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+  "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+}

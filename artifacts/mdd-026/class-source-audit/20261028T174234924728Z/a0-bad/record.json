@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\class_source_boundary\\generated\\bad-source-index.dex",
+    "--sql",
+    "SELECT CASE WHEN c.\"file_id\" IS NULL THEN 'N' ELSE hex(CAST(c.\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN c.\"class_def_idx\" IS NULL THEN 'N' ELSE hex(CAST(c.\"class_def_idx\" AS TEXT)) END AS \"class_def_idx\",CASE WHEN c.\"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(c.\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN c.\"descriptor\" IS NULL THEN 'N' ELSE hex(CAST(c.\"descriptor\" AS TEXT)) END AS \"descriptor\",CASE WHEN c.\"access_flags\" IS NULL THEN 'N' ELSE hex(CAST(c.\"access_flags\" AS TEXT)) END AS \"access_flags\",CASE WHEN c.\"superclass_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(c.\"superclass_descriptor\" AS TEXT)) END AS \"superclass_descriptor\",CASE WHEN c.\"interface_count\" IS NULL THEN 'N' ELSE hex(CAST(c.\"interface_count\" AS TEXT)) END AS \"interface_count\",CASE WHEN c.\"source_file\" IS NULL THEN 'N' ELSE hex(CAST(c.\"source_file\" AS TEXT)) END AS \"source_file\" FROM classes AS c ORDER BY c.file_id,c.class_def_idx"
+  ],
+  "started_utc": "2026-10-28T17:42:37.794818+00:00",
+  "finished_utc": "2026-10-28T17:42:37.875730+00:00",
+  "elapsed_seconds": 0.07899999999972351,
+  "exit_code": 0,
+  "stdout_sha256": "e3a60b6c7214a5e14c1688dbe2af129541c77ae57eede941fa4384c9541361f4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "small synthetic development conformance"
+}

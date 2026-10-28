@@ -857,20 +857,116 @@ mod tests {
                     ErrorCode::UnsupportedQuery
                 }
             );
-            for sql in [
-                "SELECT CAST('bad' AS INTEGER)",
-                "SELECT CAST('123tail' AS INTEGER)",
-            ] {
+            if dialect == SqlDialect::NativeV1 {
                 assert_eq!(
-                    bridge.query(sql).unwrap_err().code,
-                    if dialect == SqlDialect::NativeV1 {
-                        ErrorCode::InvalidArgument
-                    } else {
-                        ErrorCode::UnsupportedQuery
-                    }
+                    bridge
+                        .query("SELECT CAST('bad' AS INTEGER)")
+                        .unwrap_err()
+                        .code,
+                    ErrorCode::InvalidArgument
                 );
             }
         }
+    }
+    #[test]
+    fn legacy_integer_cast_matches_sqlite_prefix_and_saturation_without_lossy_text() {
+        let (provider, _) = bridge();
+        let sqlite = rusqlite::Connection::open_in_memory().unwrap();
+        let inputs: &[&[u8]] = &[
+            b"",
+            b"bad",
+            b"123tail",
+            b"  +00012tail",
+            b"-5.9",
+            b"1e5",
+            b".5",
+            b"0x10",
+            b"++1",
+            b"  -12 ",
+            b"12\0tail",
+            b"\0-8",
+            b"9223372036854775807",
+            b"9223372036854775808",
+            b"-9223372036854775808",
+            b"-9223372036854775809",
+            b"9999999999999999999999999999999999",
+            b"-9999999999999999999999999999999999",
+            b"000000000000000000000000000000012",
+            b"\x09\x0a\x0b\x0c\x0d +7x",
+            b"12\xff3",
+            b"\xff1",
+        ];
+        for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {
+            let bridge = SqlBridge::new(provider.clone(), dialect, SqlLimits::default()).unwrap();
+            for input in inputs {
+                let expected: i64 = sqlite
+                    .query_row("SELECT CAST(?1 AS INTEGER)", [*input], |row| row.get(0))
+                    .unwrap();
+                let mut values = vec![SqlValue::Bytes(input.to_vec())];
+                if let Ok(text) = std::str::from_utf8(input) {
+                    values.push(SqlValue::text(text));
+                }
+                for value in values {
+                    let prepared = bridge
+                        .prepare_with_parameters("SELECT CAST(? AS INTEGER)", &[value])
+                        .unwrap();
+                    let result = prepared
+                        .execute(SqlControl::new(SqlLimits::default(), None))
+                        .unwrap();
+                    assert_eq!(
+                        result.rows()[0][0],
+                        SqlValue::I64(mdd_query::ir::Signed64(expected)),
+                        "{dialect:?}: {input:?}"
+                    );
+                }
+            }
+            for (units, expected) in [
+                (vec![0xd800], 0),
+                (vec![0x31, 0xd800, 0x39], 1),
+                (vec![0xdc00], 0),
+            ] {
+                let value = SqlValue::Text(crate::values::SqlText {
+                    utf16: units,
+                    original_mutf8: None,
+                });
+                let prepared = bridge
+                    .prepare_with_parameters("SELECT CAST(? AS INTEGER)", &[value])
+                    .unwrap();
+                let result = prepared
+                    .execute(SqlControl::new(SqlLimits::default(), None))
+                    .unwrap();
+                assert_eq!(
+                    result.rows()[0][0],
+                    SqlValue::I64(mdd_query::ir::Signed64(expected))
+                );
+            }
+            assert_eq!(
+                bridge.query("SELECT CAST(NULL AS INTEGER)").unwrap().rows()[0][0],
+                SqlValue::Null
+            );
+        }
+    }
+    #[test]
+    fn legacy_integer_cast_long_prefix_respects_query_budget() {
+        let (provider, _) = bridge();
+        let bridge = SqlBridge::new(provider, SqlDialect::DexSql010, SqlLimits::default()).unwrap();
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT CAST(? AS INTEGER)",
+                &[SqlValue::text(&"0".repeat(50_000))],
+            )
+            .unwrap();
+        let limits = SqlLimits {
+            max_steps: 64,
+            ..SqlLimits::default()
+        };
+        assert_eq!(
+            prepared
+                .execute(SqlControl::new(limits, None))
+                .unwrap_err()
+                .code,
+            ErrorCode::QuotaExceeded
+        );
     }
     #[test]
     fn substring_retains_policy_units_and_bounded_negative_indices() {

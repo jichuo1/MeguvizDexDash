@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\class-source-audit\\20261028T174234924728Z\\class_source_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\class_source_boundary\\generated\\bad-source-index.dex"
+  ],
+  "started_utc": "2026-10-28T17:42:37.188552+00:00",
+  "finished_utc": "2026-10-28T17:42:37.732687+00:00",
+  "elapsed_seconds": 0.5470000000004802,
+  "exit_code": 1,
+  "stdout_sha256": "4a3eb9942dd2b3c60b89c7f09fe8bb81f631d6a4b6b938714cd4d4740a75ee19",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "small synthetic development conformance"
+}

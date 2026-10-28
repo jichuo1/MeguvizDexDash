@@ -1,0 +1,3192 @@
+{
+  "variant": "A1",
+  "engine_path": "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+  "engine_sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6",
+  "engine_bytes": 26808832,
+  "command": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "mcp",
+    "--timeout-ms",
+    "1500",
+    "--max-datasets",
+    "1"
+  ],
+  "cases": [
+    {
+      "id": "empty",
+      "dataset_id": "dataset-1",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-1",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 2.0506
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-1\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":2.0506}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-1",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 2.0506
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-1",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"}]],\"sql\":\"SELECT CAST('' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-1",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-1"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-1\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-1"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "invalid",
+      "dataset_id": "dataset-2",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-2",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.6543
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-2\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.6543}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-2",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.6543
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('bad' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-2",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('bad' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-2\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"}]],\"sql\":\"SELECT CAST('bad' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-2",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('bad' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-2"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-2\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-2"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "prefix",
+      "dataset_id": "dataset-3",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-3",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.716
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-3\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.716}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-3",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.716
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('  +00012tail' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-3",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "12"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('  +00012tail' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-3\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"12\"}]],\"sql\":\"SELECT CAST('  +00012tail' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-3",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "12"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('  +00012tail' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-3"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-3\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-3"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "negative_decimal",
+      "dataset_id": "dataset-4",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-4",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.8594
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-4\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.8594}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-4",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.8594
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('-5.9' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-4",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "int64",
+                        "value": "-5"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('-5.9' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-4\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"int64\",\"value\":\"-5\"}]],\"sql\":\"SELECT CAST('-5.9' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-4",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "int64",
+                          "value": "-5"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('-5.9' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-4"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-4\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-4"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "leading_decimal",
+      "dataset_id": "dataset-5",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-5",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.6199
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-5\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.6199}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-5",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.6199
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('.5' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-5",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('.5' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-5\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"}]],\"sql\":\"SELECT CAST('.5' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-5",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('.5' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-5"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-5\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-5"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "exponent",
+      "dataset_id": "dataset-6",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-6",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.5637
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-6\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.5637}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-6",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.5637
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('1e5' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-6",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "1"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('1e5' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-6\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"1\"}]],\"sql\":\"SELECT CAST('1e5' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-6",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "1"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('1e5' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-6"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-6\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-6"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "hex_text",
+      "dataset_id": "dataset-7",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-7",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.8221
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-7\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.8221}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-7",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.8221
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('0x10' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-7",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('0x10' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-7\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"}]],\"sql\":\"SELECT CAST('0x10' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-7",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('0x10' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-7"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-7\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-7"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "double_sign",
+      "dataset_id": "dataset-8",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-8",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.7071
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-8\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.7071}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-8",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.7071
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('++1' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-8",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('++1' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-8\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"}]],\"sql\":\"SELECT CAST('++1' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-8",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('++1' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-8"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-8\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-8"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "whitespace",
+      "dataset_id": "dataset-9",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-9",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.7206
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-9\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.7206}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-9",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.7206
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('\t-12\n' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-9",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "int64",
+                        "value": "-12"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('\t-12\n' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-9\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"int64\",\"value\":\"-12\"}]],\"sql\":\"SELECT CAST('\\t-12\\n' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-9",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "int64",
+                          "value": "-12"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('\t-12\n' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-9"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-9\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-9"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "nul_after_digits",
+      "dataset_id": "dataset-10",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-10",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.6924
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-10\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.6924}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-10",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.6924
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('+12\u0000Z' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-10",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "12"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('+12\u0000Z' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-10\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"12\"}]],\"sql\":\"SELECT CAST('+12\\u0000Z' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-10",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "12"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('+12\u0000Z' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-10"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-10\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-10"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "nul_before_digits",
+      "dataset_id": "dataset-11",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-11",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.667
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-11\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.667}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-11",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.667
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('\u0000-12' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-11",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('\u0000-12' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-11\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"}]],\"sql\":\"SELECT CAST('\\u0000-12' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-11",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('\u0000-12' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-11"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-11\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-11"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "max",
+      "dataset_id": "dataset-12",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-12",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.6813
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-12\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.6813}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-12",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.6813
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('9223372036854775807' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-12",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "9223372036854775807"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('9223372036854775807' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-12\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"9223372036854775807\"}]],\"sql\":\"SELECT CAST('9223372036854775807' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-12",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "9223372036854775807"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('9223372036854775807' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-12"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-12\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-12"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "above_max",
+      "dataset_id": "dataset-13",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-13",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.6738
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-13\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.6738}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-13",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.6738
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('9223372036854775808' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-13",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "9223372036854775807"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('9223372036854775808' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-13\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"9223372036854775807\"}]],\"sql\":\"SELECT CAST('9223372036854775808' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-13",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "9223372036854775807"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('9223372036854775808' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-13"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-13\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-13"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "below_min",
+      "dataset_id": "dataset-14",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-14",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.5917
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-14\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.5917}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-14",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.5917
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('-9223372036854775809' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-14",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "int64",
+                        "value": "-9223372036854775808"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('-9223372036854775809' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-14\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"int64\",\"value\":\"-9223372036854775808\"}]],\"sql\":\"SELECT CAST('-9223372036854775809' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-14",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "int64",
+                          "value": "-9223372036854775808"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('-9223372036854775809' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-14"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-14\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-14"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "oversized",
+      "dataset_id": "dataset-15",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-15",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 3.04
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-15\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":3.04}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-15",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 3.04
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('999999999999999999999999999999999999' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-15",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "9223372036854775807"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('999999999999999999999999999999999999' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-15\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"9223372036854775807\"}]],\"sql\":\"SELECT CAST('999999999999999999999999999999999999' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-15",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "9223372036854775807"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('999999999999999999999999999999999999' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-15"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-15\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-15"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "min",
+      "dataset_id": "dataset-16",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-16",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.7113
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-16\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.7113}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-16",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.7113
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('-9223372036854775808' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-16",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "int64",
+                        "value": "-9223372036854775808"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('-9223372036854775808' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-16\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"int64\",\"value\":\"-9223372036854775808\"}]],\"sql\":\"SELECT CAST('-9223372036854775808' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-16",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "int64",
+                          "value": "-9223372036854775808"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('-9223372036854775808' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-16"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-16\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-16"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "blob_prefix",
+      "dataset_id": "dataset-17",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-17",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.7432999999999998
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-17\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.7432999999999998}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-17",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.7432999999999998
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST(X'31327461696C' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-17",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "12"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST(X'31327461696C' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-17\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"12\"}]],\"sql\":\"SELECT CAST(X'31327461696C' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-17",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "12"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST(X'31327461696C' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-17"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-17\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-17"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "blob_nul",
+      "dataset_id": "dataset-18",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-18",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.6687
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-18\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.6687}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-18",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.6687
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST(X'31320039' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-18",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "12"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST(X'31320039' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-18\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"12\"}]],\"sql\":\"SELECT CAST(X'31320039' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-18",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "12"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST(X'31320039' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-18"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-18\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-18"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "blob_invalid",
+      "dataset_id": "dataset-19",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-19",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.5847
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-19\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.5847}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-19",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.5847
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST(X'FF3132' AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-19",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=1"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST(X'FF3132' AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-19\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"}]],\"sql\":\"SELECT CAST(X'FF3132' AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-19",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=1"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST(X'FF3132' AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-19"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-19\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-19"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "null",
+      "dataset_id": "dataset-20",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-20",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.8116
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-20\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.8116}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-20",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.8116
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST(NULL AS INTEGER) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-20",
+              "diagnostics": [],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "null",
+                        "value": null
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST(NULL AS INTEGER) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-20\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"null\",\"value\":null}]],\"sql\":\"SELECT CAST(NULL AS INTEGER) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-20",
+                "diagnostics": [],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "null",
+                          "value": null
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST(NULL AS INTEGER) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-20"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-20\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-20"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    }
+  ],
+  "active_dataset_after_all_cases": {
+    "is_error": false,
+    "body": {
+      "admitted_requests": 0,
+      "datasets": [],
+      "limits": {
+        "max_datasets": 1,
+        "max_dex_bytes": 1073741824,
+        "max_input_bytes": 1073741824,
+        "max_output_bytes": 131072,
+        "max_pending": 16,
+        "max_resource_bytes": 67108864,
+        "max_total_input_bytes": 2147483648,
+        "timeout_ms": 1500
+      },
+      "running_requests": 0,
+      "usage": {
+        "datasets": 0,
+        "input_bytes": 0
+      }
+    },
+    "mcp_result": {
+      "_meta": null,
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"admitted_requests\":0,\"datasets\":[],\"limits\":{\"max_datasets\":1,\"max_dex_bytes\":1073741824,\"max_input_bytes\":1073741824,\"max_output_bytes\":131072,\"max_pending\":16,\"max_resource_bytes\":67108864,\"max_total_input_bytes\":2147483648,\"timeout_ms\":1500},\"running_requests\":0,\"usage\":{\"datasets\":0,\"input_bytes\":0}}",
+          "annotations": null,
+          "_meta": null
+        }
+      ],
+      "structuredContent": {
+        "admitted_requests": 0,
+        "datasets": [],
+        "limits": {
+          "max_datasets": 1,
+          "max_dex_bytes": 1073741824,
+          "max_input_bytes": 1073741824,
+          "max_output_bytes": 131072,
+          "max_pending": 16,
+          "max_resource_bytes": 67108864,
+          "max_total_input_bytes": 2147483648,
+          "timeout_ms": 1500
+        },
+        "running_requests": 0,
+        "usage": {
+          "datasets": 0,
+          "input_bytes": 0
+        }
+      },
+      "isError": false,
+      "resultType": "complete"
+    }
+  },
+  "server_info": {
+    "name": "dexsql",
+    "title": null,
+    "version": "0.1.1+6ac7870875a519ec471e41c93fc86d80e8e2bce7",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "client_context_exited": true,
+  "transcript_sha256": "d1654fd77984cb08caf11cadaec86e9cac6a5952b8ed27db58e4e1c1ca17620a"
+}

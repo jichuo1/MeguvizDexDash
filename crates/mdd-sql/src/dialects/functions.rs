@@ -350,9 +350,80 @@ fn numeric(left: &SqlValue, right: &SqlValue, operation: &str) -> MddResult<SqlV
         matches!(left, SqlValue::U64(_)) || matches!(right, SqlValue::U64(_)),
     )
 }
-fn cast(value: SqlValue, target: &str, dialect: SqlDialect) -> MddResult<SqlValue> {
+/// SQLite's integer CAST consumes an ASCII decimal prefix and saturates at
+/// signed 64-bit bounds. Inspect units directly: no surrogate replacement or
+/// UTF-8 display conversion can enter this numeric operation.
+fn sqlite_integer_prefix(units: impl Iterator<Item = u16>, control: &SqlControl) -> MddResult<i64> {
+    let mut units = units.peekable();
+    let mut consumed = 0usize;
+    let mut tick = || -> MddResult<()> {
+        consumed += 1;
+        if consumed.is_multiple_of(128) {
+            control.checkpoint(1, false)?;
+        }
+        Ok(())
+    };
+    while units
+        .peek()
+        .is_some_and(|unit| matches!(*unit, 9..=13 | 32))
+    {
+        units.next();
+        tick()?;
+    }
+    let negative = match units.peek() {
+        Some(45) => {
+            units.next();
+            tick()?;
+            true
+        }
+        Some(43) => {
+            units.next();
+            tick()?;
+            false
+        }
+        _ => false,
+    };
+    let limit = (i64::MAX as u64) + u64::from(negative);
+    let mut magnitude = 0u64;
+    while let Some(unit @ 48..=57) = units.peek().copied() {
+        units.next();
+        tick()?;
+        let digit = u64::from(unit - 48);
+        if magnitude > (limit - digit) / 10 {
+            return Ok(if negative { i64::MIN } else { i64::MAX });
+        }
+        magnitude = magnitude * 10 + digit;
+    }
+    Ok(if negative && magnitude == (i64::MAX as u64) + 1 {
+        i64::MIN
+    } else if negative {
+        -(magnitude as i64)
+    } else {
+        magnitude as i64
+    })
+}
+fn cast(
+    value: SqlValue,
+    target: &str,
+    dialect: SqlDialect,
+    control: &SqlControl,
+) -> MddResult<SqlValue> {
     if value == SqlValue::Null {
         return Ok(value);
+    }
+    if target == "i64" && dialect != SqlDialect::NativeV1 {
+        let parsed = match &value {
+            SqlValue::Text(text) => {
+                Some(sqlite_integer_prefix(text.utf16.iter().copied(), control)?)
+            }
+            SqlValue::Bytes(bytes) | SqlValue::DexMutf8 { bytes, .. } => Some(
+                sqlite_integer_prefix(bytes.iter().copied().map(u16::from), control)?,
+            ),
+            _ => None,
+        };
+        if let Some(parsed) = parsed {
+            return Ok(SqlValue::I64(Signed64(parsed)));
+        }
     }
     Ok(match target {
         "text" => SqlValue::Text(if let SqlValue::Bytes(bytes) = value {
@@ -374,45 +445,16 @@ fn cast(value: SqlValue, target: &str, dialect: SqlDialect) -> MddResult<SqlValu
             value => SqlValue::Bytes(encoded_text(&scalar_text(&value)?, dialect)),
         },
         "i64" => {
-            let from_text = matches!(&value, SqlValue::Text(_));
             let value = if let SqlValue::Text(text) = &value {
-                let parsed = text.strict_utf8().and_then(|value| {
-                    value
-                        .parse::<i128>()
-                        .map_err(|_| invalid("INVALID_INTEGER_CAST"))
-                });
-                match parsed {
-                    Ok(value) => value,
-                    Err(error)
-                        if dialect != SqlDialect::NativeV1
-                            && error.code == mdd_types::ErrorCode::InvalidArgument
-                            && matches!(
-                                error.message.as_str(),
-                                "TEXT_HAS_NONSCALAR_UTF16" | "INVALID_INTEGER_CAST"
-                            ) =>
-                    {
-                        return Err(MddError::new(
-                            mdd_types::ErrorCode::UnsupportedQuery,
-                            "sql.cast",
-                            "LEGACY_TEXT_INTEGER_COERCION_NOT_IMPLEMENTED",
-                        ));
-                    }
-                    Err(error) => return Err(error),
-                }
+                text.strict_utf8()?
+                    .parse::<i128>()
+                    .map_err(|_| invalid("INVALID_INTEGER_CAST"))?
             } else {
                 integer(&value)?
             };
-            SqlValue::I64(Signed64(i64::try_from(value).map_err(|_| {
-                if from_text && dialect != SqlDialect::NativeV1 {
-                    MddError::new(
-                        mdd_types::ErrorCode::UnsupportedQuery,
-                        "sql.cast",
-                        "LEGACY_TEXT_INTEGER_RANGE_NOT_IMPLEMENTED",
-                    )
-                } else {
-                    invalid("INTEGER_CAST_OVERFLOW")
-                }
-            })?))
+            SqlValue::I64(Signed64(
+                i64::try_from(value).map_err(|_| invalid("INTEGER_CAST_OVERFLOW"))?,
+            ))
         }
         "u64" => {
             let value = if let SqlValue::Text(text) = &value {
@@ -661,6 +703,7 @@ fn scalar(
             args[0].clone(),
             &scalar_text(&args[1])?.strict_utf8()?,
             dialect,
+            control,
         ),
         "mdd_like" => {
             let has_escape = integer(&args[3])? != 0;

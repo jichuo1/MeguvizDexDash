@@ -1,0 +1,20 @@
+{
+  "scope": "Q04 dynamic offsets on synthetic annotation DEX; not full HostLab qualification",
+  "fixture_sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+  "corpus_sha256": "e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4",
+  "driver_sha256": "546cdc2a63095ca45a82985a807ca6ca7dfedff9c64a6a3f5030d22d5bb3e7ae",
+  "helper_sha256": "590ecb8914bfe1477330ba7860463f3063c58aca3828cc05daba9e24ef8fffc1",
+  "profiles_admitted": false,
+  "records": [
+    {
+      "variant": "A0",
+      "cases": 2,
+      "sha256": "a11516dd8476e4fe9393e8e8f166e0a6c3de13bf13924ccc76d7fbce7b256091"
+    },
+    {
+      "variant": "A1",
+      "cases": 2,
+      "sha256": "ebbe2ccac6f0d681c602c0e92d79c4fc9c4698cf98472831e8717b5fbf657367"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031\\integer-cast-20261029\\runs\\20261028T174502714475Z\\probe.exe",
+    "D:\\MeguvisDexDash"
+  ],
+  "started_utc": "2026-10-28T17:45:16.239552+00:00",
+  "elapsed_seconds": 1.6898449000000255,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "8770d4b62eed0c1a142ee606478e1118fcfc60282994a4c9c29580583aa8a7dc",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic development corpus; not performance"
+}

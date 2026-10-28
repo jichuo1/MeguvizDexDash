@@ -1,0 +1,13 @@
+Processing 'D:\MeguvisDexDash\tests\fixtures\class_source_boundary\generated\null-source.dex'...
+Opened 'D:\MeguvisDexDash\tests\fixtures\class_source_boundary\generated\null-source.dex', DEX version '035'
+Class #0            -
+  Class descriptor  : 'Lfixture/Empty;'
+  Access flags      : 0x0001 (PUBLIC)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+  Direct methods    -
+  Virtual methods   -
+  source_file_idx   : -1 (unknown)
+

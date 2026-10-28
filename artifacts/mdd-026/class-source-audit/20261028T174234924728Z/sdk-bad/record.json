@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "-d",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\class_source_boundary\\generated\\bad-source-index.dex"
+  ],
+  "started_utc": "2026-10-28T17:42:37.733723+00:00",
+  "finished_utc": "2026-10-28T17:42:37.793818+00:00",
+  "elapsed_seconds": 0.06199999999989814,
+  "exit_code": 1,
+  "stdout_sha256": "4e317238d90c5b803211564a86014f421419eae47b0cebf2eb2fe6b3d523547d",
+  "stderr_sha256": "9f9b4665dc517f632124885837da04e40b76458be3c015d7702eb69e3dd67915",
+  "scope": "small synthetic development conformance"
+}
