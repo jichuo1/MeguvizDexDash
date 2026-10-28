@@ -1,0 +1,134 @@
+{
+  "task": "MDD-010",
+  "build_record": "artifacts/mdd-010/build/record.json",
+  "contract_check": "artifacts/mdd-010/cli-schema/record.json",
+  "binary_sha256": "ac5b29ab6d888dc308f06ee7211888cc1edb9fd36507d79caaf78cc241b1ede4",
+  "binary_bytes": 456192,
+  "platform": "windows-x86_64",
+  "capabilities": {
+    "build_id": "source-sha256:966194b5e1123f6c8b968bf63d9870d13c1b2fe1aef03f474604538c98d6cb7a",
+    "capabilities": [
+      {
+        "available": true,
+        "name": "result-contract",
+        "version": "1"
+      }
+    ],
+    "effective_limits": {
+      "deadline_ms": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "milliseconds",
+        "value": null
+      },
+      "max_archive_members": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "count",
+        "value": null
+      },
+      "max_buffered_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      },
+      "max_build_memory_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      },
+      "max_cursors": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "count",
+        "value": null
+      },
+      "max_fact_rows": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "count",
+        "value": null
+      },
+      "max_input_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      },
+      "max_member_uncompressed_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      },
+      "max_query_workspace_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      },
+      "max_resident_facts_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      },
+      "max_result_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      },
+      "max_spool_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      },
+      "max_threads": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "threads",
+        "value": null
+      },
+      "max_total_uncompressed_bytes": {
+        "enforcement": "unavailable",
+        "scope": "worker",
+        "unit": "bytes",
+        "value": null
+      }
+    },
+    "engine_version": "0.1.0-dev",
+    "fact_schema_id": "mdd.facts.unimplemented.v1",
+    "input_formats": [],
+    "product": "MeguvizDexDash",
+    "profiles": [
+      {
+        "admitted": false,
+        "conformance_manifest_sha256": null,
+        "name": "mdd-native-v1"
+      }
+    ],
+    "providers": [],
+    "relation_schema_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "schema_version": "mdd.capabilities.v1",
+    "semantics": {
+      "compat_cancel_closes_dataset": false,
+      "native_cancel_scope": "query",
+      "pagination_modes": []
+    },
+    "sql_dialects": [],
+    "transports": [
+      {
+        "name": "cli-json",
+        "result_encodings": [
+          "json"
+        ],
+        "version": "1"
+      }
+    ]
+  },
+  "qualified_profiles": []
+}

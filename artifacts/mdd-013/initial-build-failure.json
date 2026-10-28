@@ -1,0 +1,17 @@
+{
+  "schema_version": "mdd.command-failure.v1",
+  "commands": ["cargo test --locked --offline -p mdd-dex","cargo clippy --locked --offline -p mdd-dex --all-targets -- -D warnings"],
+  "date": "2026-10-28",
+  "observed_result": "both exited non-success before running tests",
+  "errors": [
+    {"location":"crates/mdd-dex/src/checked_reader.rs:77","code":"E0282/E0283","reason":"assert_eq on empty slice had ambiguous u8 PartialEq due serde_json comparison implementations","fix":"Use slice.is_empty assertion."},
+    {"location":"crates/mdd-dex/src/header.rs:157","code":"clippy::manual_is_multiple_of","reason":"Rust 1.99 Clippy requires integer is_multiple_of","fix":"Use !offset.is_multiple_of(4)."}
+  ],
+  "subsequent_test_failure": {
+    "observed":"9 tests passed, 1 failed; Clippy passed",
+    "case":"bad-map-offset.dex",
+    "reason":"The fixture map offset 0xffffffff is both unaligned and out of bounds. Validator rejects alignment before range read, while the new test initially expected the later TRUNCATED_RANGE reason.",
+    "resolution":"Reviewed fixture 0xffffffff and established first-failure ordering; test now expects OVERLAPPING_OR_UNALIGNED_MAP_ITEM. The independent fixture golden INVALID_MAP classification and production reader were unchanged."
+  },
+  "status": "preserved_initial_failures; subsequent successful evidence separate"
+}

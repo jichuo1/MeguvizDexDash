@@ -1,0 +1,55 @@
+{
+  "checks": [
+    {
+      "input": "minimal-035.dex",
+      "rows": 1,
+      "status": "passed"
+    },
+    {
+      "input": "structured-035.dex",
+      "rows": 1,
+      "status": "passed"
+    },
+    {
+      "input": "multidex-stored.apk",
+      "rows": 2,
+      "status": "passed"
+    },
+    {
+      "input": "multidex-deflated.apk",
+      "rows": 2,
+      "status": "passed"
+    },
+    {
+      "input": "duplicate-content.apk",
+      "rows": 2,
+      "status": "passed"
+    },
+    {
+      "input": "bad-map-offset.dex",
+      "expected_error": "INVALID_INPUT",
+      "status": "passed"
+    },
+    {
+      "input": "unsupported-036.dex",
+      "expected_error": "UNSUPPORTED_CAPABILITY",
+      "status": "passed"
+    },
+    {
+      "input": "unsupported-041.dex",
+      "expected_error": "UNSUPPORTED_CAPABILITY",
+      "status": "passed"
+    },
+    {
+      "input": "bad-crc.apk",
+      "expected_error": "INVALID_INPUT",
+      "status": "passed"
+    },
+    {
+      "input": "duplicate-name.apk",
+      "expected_error": "AMBIGUOUS_ENTITY",
+      "status": "passed"
+    }
+  ],
+  "scope": "header/inventory vertical slice only; no audit qualification"
+}

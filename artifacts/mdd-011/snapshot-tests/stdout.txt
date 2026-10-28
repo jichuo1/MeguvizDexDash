@@ -1,0 +1,12 @@
+
+running 2 tests
+test snapshot::tests::source_expected_hash_and_zero_budget_fail_closed ... ok
+test snapshot::tests::capture_retains_generation_and_occurrences ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

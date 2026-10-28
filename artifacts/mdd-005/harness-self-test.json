@@ -1,0 +1,16 @@
+{
+  "schema_version": "mdd.harness-test.v1",
+  "record_kind": "validation_tool_tests_not_engine_benchmark",
+  "command_argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "benchmarks/run-existing-baselines.py",
+    "--self-test"
+  ],
+  "exit_code": 0,
+  "tests": 10,
+  "engine_executed": false,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_sha256": "43db6f58baf1c27db7b075fa9838880b16812ff414a1b5e519423bcf913a9d94",
+  "log": "artifacts/mdd-005/harness-self-test.log",
+  "scope": "strict JSON, complete axes, source/request binding, bag multiplicity; POSIX execution primitive not run"
+}

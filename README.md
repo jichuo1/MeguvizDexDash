@@ -1,10 +1,29 @@
-# MeguvizDexDash 工程执行包
+# MeguvizDexDash
 
 MeguvizDexDash 是面向桌面与云端、可嵌入且可服务化的 DEX 静态分析引擎。首个业务接入点是 `jichuo1/innocent-lab-host-analysis` 中 DexSQL 承担的职能。Android 进程内 DexKit 替换属于独立的 DexMeguviz 项目。
 
-本包包含可交给编码 AI 的执行提示词、完整工程计划、接口契约、任务依赖、迁移与验证方案，以及此前真实研究的证据快照。**它是已经检查的工程规格与交接材料，不是已经实现的新引擎，也不包含可以投入生产的 MeguvizDexDash 可执行文件。**
+本仓库基于 2026-10-26 工程包开始实现，保留完整规格、契约和历史研究证据。当前已有 Rust workspace、结果类型、CLI 能力入口、自有输入快照、保留物理成员身份的 APK 清点及有限 DEX header/map 校验；会话与 worker 生命周期正在验收。当前为未取得产品资格的开发版本，尚不能替代 HostLab DexSQL。
 
-## 开始使用
+任务与具体限制见 [STATE.md](STATE.md)、[唯一任务图](tasks/backlog.json)、[兼容账本](compatibility/ledger.json) 和 [实际证据索引](artifacts/index.json)。全部 profile 仍未准入，约 37%/47% 是历史条件预算，没有新引擎性能成绩。
+
+## 当前开发版本
+
+Rust 工具链固定为 1.99.0。先使用 Python 3.12 环境安装 `requirements-dev.lock` 并生成测试输入，再运行：
+
+```text
+python conformance/oracles/reproduce.py
+cargo build --locked -p mdd-cli
+cargo test --locked --workspace
+cargo run --locked -p mdd-cli -- capabilities
+cargo run --locked -p mdd-cli -- inspect-dex tests/fixtures/generated/structured-035.dex
+cargo run --locked -p mdd-cli -- inspect-apk tests/fixtures/generated/multidex-deflated.apk
+```
+
+`inspect-dex` / `inspect-apk` 可以接收多个路径，结果只覆盖成员清单和标准 little-endian DEX 035/037/038/039/040 的 header/map/固定引用范围。返回来源内容摘要、独立 occurrence、物理成员与逻辑 DEX 标识，明确 `full_dex_validation_complete=false`、`signature_verified=false`。036、041、ZIP64、多卷、加密等未获资格能力明确拒绝，损坏输入以真实错误拒绝。SQL、Smali、完整资源、MCP、FFI 和桌面尚未交付。
+
+Windows x86_64 本机已实际运行；Linux x86_64 由 CI 验收，状态以真实 CI 结果为准。`.github/workflows/ci.yml` 对两个原生平台执行独立语料、构建、lint、测试和真实 CLI 检查，不执行或冒称生产性能基准。
+
+## 原始工程包与实施入口
 
 1. 将本包解压到编码 AI 可读取的工作区，保留相对目录结构。
 2. 将 [AI_EXECUTION_PROMPT.md](AI_EXECUTION_PROMPT.md) 的完整内容交给 AI，并让它读取同目录的 [ENGINEERING_PLAN.md](ENGINEERING_PLAN.md)。若只有聊天输入权限，可先粘贴提示词，再上传本包。
@@ -24,14 +43,14 @@ MeguvizDexDash 是面向桌面与云端、可嵌入且可服务化的 DEX 静态
 | [HostLab 迁移](docs/03_HOSTLAB_MIGRATION.md) | 真实入口、SQL、工具分层、适配、回退与切换 |
 | [验证与性能](docs/04_VALIDATION_AND_PERFORMANCE.md) | 格式语料、独立验证、完整性、性能与发布门槛 |
 | [执行与交接](docs/05_EXECUTION_AND_HANDOFF.md) | 多代理分工、开发循环、CI、证据与恢复 |
-| [任务图](tasks/backlog.json) | 有依赖的机器可读任务；交付时工程任务均为 todo |
+| [任务图](tasks/backlog.json) | 唯一任务依赖和当前实施状态；原始交付时均为 todo |
 | [契约索引](contracts/README.md) | 拟定 JSON Schema 与语义约束 |
 | [证据索引](evidence/index.json) | 原始附件、逐轮测量、行为观察及其 SHA256 |
 | [交付包验证记录](VALIDATION_REPORT.md) | 本次实际执行的材料校验及其严格边界 |
 
 ## 先验证本包
 
-在本包根目录执行：
+对原始交接快照执行以下命令；开发后的源码应使用 `python tools/verify_original_handoff.py` 从初始提交重建并验证原包，不能对已更新任务图强套原 manifest：
 
 ```bash
 python3 tools/verify_kit.py

@@ -1,0 +1,29 @@
+{
+  "schema_version": "mdd.baseline-qualification.v1",
+  "task": "MDD-005",
+  "status": "blocked",
+  "measured_runs": 0,
+  "performance_qualified": false,
+  "best_existing_baseline": null,
+  "blockers": [
+    "plan has not been qualified ready",
+    "native Windows process-tree supervisor not implemented; Linux runner required",
+    "total CPU/memory budget and exclusive measurement window not verified",
+    "input missing: hostlab-9170100",
+    "input missing: hostlab-9161100",
+    "A0/A1 qualified drivers are not both configured"
+  ],
+  "historical_evidence_reused_as_new_measurement": false,
+  "helper_tests": "artifacts/mdd-005/harness-self-test.json",
+  "linux_runner": {
+    "wsl_executable_present": true,
+    "wsl_distribution_available": false,
+    "observed_command": "wsl.exe --list --quiet",
+    "exit_code": 1,
+    "reason": "Windows Subsystem for Linux is not installed"
+  },
+  "native_windows_supervisor": "not_implemented",
+  "preflight_exit_code": 2,
+  "environment_metadata": "artifacts/bootstrap/20261028/environment.json",
+  "available_reference_binary": "A0 Windows0.1.0 version/help/schema only"
+}

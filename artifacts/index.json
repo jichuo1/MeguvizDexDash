@@ -1,12 +1,571 @@
 {
   "schema_version": "mdd.artifacts-index.v1",
   "product": "MeguvizDexDash",
-  "implementation_state": "not_started",
+  "implementation_state": "in_progress",
   "historical_evidence_index": "evidence/index.json",
-  "engine_builds": [],
-  "engine_runs": [],
-  "conformance_manifests": [],
+  "engine_builds": [
+    {
+      "task": "MDD-010",
+      "path": "artifacts/mdd-010/build-and-capabilities.json",
+      "scope": "unqualified Windows development CLI"
+    }
+  ],
+  "engine_runs": [
+    {
+      "task": "MDD-011",
+      "path": "artifacts/mdd-011/snapshot-isolation.json",
+      "scope": "source capture tests only"
+    }
+  ],
+  "conformance_manifests": [
+    {
+      "path": "artifacts/mdd-004/acceptance.json",
+      "scope": "fixture preparation, not product format qualification"
+    }
+  ],
   "benchmark_runs": [],
   "qualifications": [],
-  "note": "Empty by design: the delivered engineering plan is not an implemented engine. Add actual implementation evidence here; never copy historical DexSQL checks as MeguvizDexDash passes."
+  "note": "Actual development records; no HostLab, full-format or performance qualification is implied.",
+  "development_records": [
+    {
+      "path": "artifacts/bootstrap/20261028/environment.json",
+      "bytes": 2365,
+      "sha256": "f5a766353f61af455e8509bd0cd8e4107b3b0533c0bb6b9c37fa1d5b8aedd67e"
+    },
+    {
+      "path": "artifacts/bootstrap/20261028/recompute-targets/record.json",
+      "bytes": 739,
+      "sha256": "c426671e561dfe99790a540db577292c7ea696ce5dcdd2c9799c720286f09717"
+    },
+    {
+      "path": "artifacts/bootstrap/20261028/recompute-targets/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/bootstrap/20261028/recompute-targets/stdout.txt",
+      "bytes": 3457,
+      "sha256": "41654deee561d52bd46af843a3196735ca82c926d95bc019c84697efbec42392"
+    },
+    {
+      "path": "artifacts/bootstrap/20261028/verify-kit/record.json",
+      "bytes": 726,
+      "sha256": "ebd2f427d28355b9113acf20c6b5223cdf67e474fb5d693225cb5f9c6472ff6f"
+    },
+    {
+      "path": "artifacts/bootstrap/20261028/verify-kit/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/bootstrap/20261028/verify-kit/stdout.txt",
+      "bytes": 334,
+      "sha256": "20d440ff0caa75ff69a6be704632632bcad1a6a99913b875eecc0f5562bc1426"
+    },
+    {
+      "path": "artifacts/integration/20261028/final-format/record.json",
+      "bytes": 636,
+      "sha256": "90468490cd03249165ea5ba35eb3109926811a58687d82a1b6b00d393cbe7419"
+    },
+    {
+      "path": "artifacts/integration/20261028/final-format/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/integration/20261028/final-format/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/integration/20261028/lifecycle-final/record.json",
+      "bytes": 694,
+      "sha256": "8308586589100cc5092f95598eb08f5d637719ebc4db00f3b919577d4cc9ab9e"
+    },
+    {
+      "path": "artifacts/integration/20261028/lifecycle-final/stderr.txt",
+      "bytes": 295,
+      "sha256": "f976dcce3dc48ac3b76d88de1a3ef7656419813a0c76ee3456198d1d2bccaea2"
+    },
+    {
+      "path": "artifacts/integration/20261028/lifecycle-final/stdout.txt",
+      "bytes": 1196,
+      "sha256": "adcb7c0af86ad056e860573d783a9a340a38aced6ea8b3e3115f618e992a5d81"
+    },
+    {
+      "path": "artifacts/integration/20261028/optimized-gate-regression.json",
+      "bytes": 198,
+      "sha256": "235bce571ce13fc7a45f4181a204f33ba0d1ed11482c6117c6280f946a5b0416"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-check/record.json",
+      "bytes": 687,
+      "sha256": "3486288b298af54a0ef447f782179ec5dbb1c3627c96ec17d56996c67ee5270a"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-check/stderr.txt",
+      "bytes": 849,
+      "sha256": "4b8aed34b196b1895269658de074682e73823c285c9b1d1b5d88318ae6d5edd5"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-check/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-clippy/record.json",
+      "bytes": 741,
+      "sha256": "f53d839d029d344d50bc8d32b1dc06fd221c2865810ea101c04be3487f0caa98"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-clippy/stderr.txt",
+      "bytes": 574,
+      "sha256": "91cb515d089f1477da3c81e21e9943c10e8e95beff8a23732194a2d0dce282f9"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-clippy/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-test/record.json",
+      "bytes": 671,
+      "sha256": "1afe54ee2a857e326a5c01caa23f0ea4c251b3ca327bb2fd14a96009349b3f96"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-test/stderr.txt",
+      "bytes": 1222,
+      "sha256": "f645a2f8dfeb322b07ee0b5b8793b91affb4800321aa0518b8bd65fe40624e9b"
+    },
+    {
+      "path": "artifacts/integration/20261028/windows-test/stdout.txt",
+      "bytes": 3901,
+      "sha256": "d540280a536c02cc198cb4292f8d7cdaf5a55cb282704612bd228442fd150403"
+    },
+    {
+      "path": "artifacts/mdd-001/acceptance-review.json",
+      "bytes": 1373,
+      "sha256": "8dde9caace779aab784401f880746dbcf93c80079ba22bab7f4e60d4776408d3"
+    },
+    {
+      "path": "artifacts/mdd-001/provenance-verification.json",
+      "bytes": 942,
+      "sha256": "a58dc2ec98917b6b9b1f9dd9b0382f3b0bbbe4cdc7fa01747fa6d46857667db5"
+    },
+    {
+      "path": "artifacts/mdd-002/build-probes.json",
+      "bytes": 559,
+      "sha256": "0b5af99b9f48db5cf9bdf15b5835d7f2614d92862c672aa0576ba6f3d8afdbde"
+    },
+    {
+      "path": "artifacts/mdd-002/dependency-probe/record.json",
+      "bytes": 696,
+      "sha256": "80ee3222217768d4b15dcecc8bcad98470001c1cca3fefb6ad3a017caefac7db"
+    },
+    {
+      "path": "artifacts/mdd-002/dependency-probe/stderr.txt",
+      "bytes": 198,
+      "sha256": "21e9751bcb348bb246b92d3779c8408af709305c43a515f0aef34b4a56a438b0"
+    },
+    {
+      "path": "artifacts/mdd-002/dependency-probe/stdout.txt",
+      "bytes": 1896,
+      "sha256": "db080b90156b2994865d27e490b62577de2092ef81a55ebce5303389e94a6414"
+    },
+    {
+      "path": "artifacts/mdd-002/windows-build-initial/record.json",
+      "bytes": 681,
+      "sha256": "6b792a551a6d02decfe336443500ee538787c84a0e5a21438c31627cc8de496a"
+    },
+    {
+      "path": "artifacts/mdd-002/windows-build-initial/stderr.txt",
+      "bytes": 243,
+      "sha256": "42b95283271d5dfdd5193778005af4996e7a7918c362fd550892cbe979f90f06"
+    },
+    {
+      "path": "artifacts/mdd-002/windows-build-initial/stdout.txt",
+      "bytes": 158,
+      "sha256": "60ece79927a07637e98150758ce1142e050d852da4ed640cfac2aba6091accdf"
+    },
+    {
+      "path": "artifacts/mdd-002/windows-clippy/record.json",
+      "bytes": 742,
+      "sha256": "4b31743bafc7cd7cb447f3842a728b1dc851f46855e7f84c8382c688e0b7a29f"
+    },
+    {
+      "path": "artifacts/mdd-002/windows-clippy/stderr.txt",
+      "bytes": 1075,
+      "sha256": "0870c5a8af86d02b9acf6dd0053aef0c16c402e505f3512921722e846c43a085"
+    },
+    {
+      "path": "artifacts/mdd-002/windows-clippy/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-003/acceptance-review.json",
+      "bytes": 2098,
+      "sha256": "ce63ebcb109bb1539bffef5ce54df0614ff0820648f308b1adfdeb6c3c3aa8e8"
+    },
+    {
+      "path": "artifacts/mdd-003/corpus-freeze.json",
+      "bytes": 517,
+      "sha256": "f4dc12627b9695eaba7ad0202ef1c98aa382edf1bc96aa2af16a612e7e8865c1"
+    },
+    {
+      "path": "artifacts/mdd-003/dexsql-0.1.0-windows-tables.txt",
+      "bytes": 16046,
+      "sha256": "aa990e6a7bbfc0565b67e7774fefed5427dbb71e7fe97b7053a1aec6b466b234"
+    },
+    {
+      "path": "artifacts/mdd-003/freeze-run.json",
+      "bytes": 781,
+      "sha256": "b2124b7e83c63a5ebadbe699814ed2da5c76b473d1c1ad27d6a450d5f8f21b6d"
+    },
+    {
+      "path": "artifacts/mdd-003/schema-capture.json",
+      "bytes": 514,
+      "sha256": "032f8123cc8d3f701080c20163d053765431d4629475ca670836e35f88d2e03c"
+    },
+    {
+      "path": "artifacts/mdd-003/static-validation.json",
+      "bytes": 418,
+      "sha256": "c31311a6e0e896489dc6d42507288b223342248b58a86bae77bb0d49aeae17ff"
+    },
+    {
+      "path": "artifacts/mdd-004/acceptance.json",
+      "bytes": 4531,
+      "sha256": "4c83518fe1bcfcec8d5640ed6d8c55eff452e533f8401d2c65ad52f092a8ddd6"
+    },
+    {
+      "path": "artifacts/mdd-004/encoding-independent-review.json",
+      "bytes": 167628,
+      "sha256": "e2ac8baf830cd2e64ee294c556b575567e89c2fa2913611000647f97a01d26f7"
+    },
+    {
+      "path": "artifacts/mdd-004/fixture-reproducibility.json",
+      "bytes": 10356,
+      "sha256": "597b9a9f1766da3b6450b0bbe827975505a4252b56a771a128b3eb07bb02cb99"
+    },
+    {
+      "path": "artifacts/mdd-004/oracle-checks.json",
+      "bytes": 18934,
+      "sha256": "c51426dcac9d07a589c03e339a3a208395cabcbf9070acd9a163a4367d2068d0"
+    },
+    {
+      "path": "artifacts/mdd-005/baseline-qualification.json",
+      "bytes": 1155,
+      "sha256": "b98d5c8f7886c00e6da6a92fa11691e760980adc7b14186acf72922e769e09d0"
+    },
+    {
+      "path": "artifacts/mdd-005/baseline-runs.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-005/harness-self-test.json",
+      "bytes": 686,
+      "sha256": "6df3f12b66e4f256db92a3e907803be28acccb86f2367a8b80c5a607816a9509"
+    },
+    {
+      "path": "artifacts/mdd-005/harness-self-test.log",
+      "bytes": 894,
+      "sha256": "6ca11287768bd921fe4145636abb94be1840c64fc693ccdb63f14540878a2ecd"
+    },
+    {
+      "path": "artifacts/mdd-005/preflight.json",
+      "bytes": 537,
+      "sha256": "48a708f9b9232f71efc18aa98006e1728e4b602cee4cbe0812dd7b53501247fd"
+    },
+    {
+      "path": "artifacts/mdd-006/acceptance-review.json",
+      "bytes": 2101,
+      "sha256": "7ad3bb170fec7fb37f6a7a2179ec858f5fe4b893fa9695ec3cd7d88d6b1d1373"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-final/0-stderr.txt",
+      "bytes": 243,
+      "sha256": "87a7acf492181f2d694d33578bd4802e2101e706daa9bebfe776b74aaf21d3f6"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-final/0-stdout.txt",
+      "bytes": 235,
+      "sha256": "0eb3dc6db2f6d509f90ac3859e7ba85d21c0c8a0b568f42077cc26ef0b066ed5"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-final/1-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-final/1-stdout.txt",
+      "bytes": 17077,
+      "sha256": "db215b295f5fed01624f5a61d7a90d347f314f17f7d795e573afcc46cd5dea5b"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-final/queries.jsonl",
+      "bytes": 117836,
+      "sha256": "e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-final/record.json",
+      "bytes": 1745,
+      "sha256": "0810f72728eb7893600114a1433283b5266c59c809747748f27dd457f3a3d5d4"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-initial/queries.jsonl",
+      "bytes": 158469,
+      "sha256": "6626e5f8b8774c44be78d2ebcd871a5722001b4f4a3cf2fe90596f4a19f969aa"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-initial/record.json",
+      "bytes": 977,
+      "sha256": "50f4340a83cb66e6596d03000172d38bab192d9d8e65635f434edc36142cebac"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-initial/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-006/frozen-corpus-initial/stdout.json",
+      "bytes": 17077,
+      "sha256": "db215b295f5fed01624f5a61d7a90d347f314f17f7d795e573afcc46cd5dea5b"
+    },
+    {
+      "path": "artifacts/mdd-006/rust-sql-probe/record.json",
+      "bytes": 697,
+      "sha256": "fbbd86a80d261c2c15b3a0c119149bd5c6477e056605599811bcc99a760eed75"
+    },
+    {
+      "path": "artifacts/mdd-006/rust-sql-probe/stderr.txt",
+      "bytes": 198,
+      "sha256": "f035301f533972ff64e2724859df60e341691fa171d816da91b5c383d47c06ae"
+    },
+    {
+      "path": "artifacts/mdd-006/rust-sql-probe/stdout.txt",
+      "bytes": 11787,
+      "sha256": "4861ccda358937c688652f1fd98647f4d458d83ed0624d31a849d9019aa5aa0d"
+    },
+    {
+      "path": "artifacts/mdd-006/sql-bridge-probes.json",
+      "bytes": 15412,
+      "sha256": "7ac66f63a929d34a611008506db1f2d700c0d788fee5ead9dfb70a41a27e3f78"
+    },
+    {
+      "path": "artifacts/mdd-010/build/record.json",
+      "bytes": 686,
+      "sha256": "36960c6569fa7e0b8a12a1040588bb11a3ba280bc9d765c2d32b4dfd4e6f6a30"
+    },
+    {
+      "path": "artifacts/mdd-010/build/stderr.txt",
+      "bytes": 210,
+      "sha256": "6e717cdaa8d38143afffe51575ebb0219dff66ef905638f3af67dea338f0e33b"
+    },
+    {
+      "path": "artifacts/mdd-010/build/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-010/build-and-capabilities.json",
+      "bytes": 3630,
+      "sha256": "3ad410a23d7a5f2a0ae81952100087e00c2e004809dab4cd1482402a4eab5634"
+    },
+    {
+      "path": "artifacts/mdd-010/cli-schema/record.json",
+      "bytes": 726,
+      "sha256": "e7cfa208694f2cd782a8eb2923998b24e83aee987be865a64bf60a919c304ed6"
+    },
+    {
+      "path": "artifacts/mdd-010/cli-schema/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-010/cli-schema/stdout.txt",
+      "bytes": 91,
+      "sha256": "82ff794eaab447db25206c34fc9a31aff2c71881c519afbf3f6ded431cb96860"
+    },
+    {
+      "path": "artifacts/mdd-010/inspect-fixtures/record.json",
+      "bytes": 1789,
+      "sha256": "0fb7e2ed9bc273b079664e4d2fb597f3430d4167b310cb3bbac9f950d7a1cec5"
+    },
+    {
+      "path": "artifacts/mdd-010/inspect-fixtures/stderr.txt",
+      "bytes": 1570,
+      "sha256": "67b7b0e03140f23077ca5d61fe1f0feac4d45fcd2dc9f74c110197c09d16429f"
+    },
+    {
+      "path": "artifacts/mdd-010/inspect-fixtures/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-010/inspect-fixtures-final/record.json",
+      "bytes": 727,
+      "sha256": "08d31f548ada04789490c2fe2d83bc5bb33f05f275c71612bf6089500f0cf252"
+    },
+    {
+      "path": "artifacts/mdd-010/inspect-fixtures-final/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-010/inspect-fixtures-final/stdout.txt",
+      "bytes": 1211,
+      "sha256": "f5ee48ff057e8650146cadaed509b05eaee0cbf31acc4db1454eb42d18b79d95"
+    },
+    {
+      "path": "artifacts/mdd-010/types-contract/record.json",
+      "bytes": 689,
+      "sha256": "590cedf0c37a1b75cca426d2e5d2fb286bb663bab7240405cb8052b86022c975"
+    },
+    {
+      "path": "artifacts/mdd-010/types-contract/stderr.txt",
+      "bytes": 312,
+      "sha256": "073404aebb16a84895fb85a0ad69113d864f82f31b8f93f8b614243c8b9a8705"
+    },
+    {
+      "path": "artifacts/mdd-010/types-contract/stdout.txt",
+      "bytes": 358,
+      "sha256": "72f6499e3c15df1d553588141846beddc3e65f435140dfe8ff1c213f85d9b18b"
+    },
+    {
+      "path": "artifacts/mdd-010/vertical-build/record.json",
+      "bytes": 686,
+      "sha256": "da40b42dbf26ae89ecc7eda6e86da46ab004ac1643ee60bb01c6f1beff3c091e"
+    },
+    {
+      "path": "artifacts/mdd-010/vertical-build/stderr.txt",
+      "bytes": 277,
+      "sha256": "a913928682aff0c9fbceefd5905fc0389f7128af289609467be24f729cafc654"
+    },
+    {
+      "path": "artifacts/mdd-010/vertical-build/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-010/vertical-build-final/record.json",
+      "bytes": 685,
+      "sha256": "b3d94051f25ce746592dee1292ce17a632bf72a9ff4fc9b6368dadd87e5cfce0"
+    },
+    {
+      "path": "artifacts/mdd-010/vertical-build-final/stderr.txt",
+      "bytes": 210,
+      "sha256": "372a8e9073ebdff80563f4176e5a24c63e264d807628d505aec5d6ba425d59cb"
+    },
+    {
+      "path": "artifacts/mdd-010/vertical-build-final/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-011/snapshot-isolation.json",
+      "bytes": 725,
+      "sha256": "c0d95f2d4aec0d075ead99abf1a5440e8b7c5089812e6465dc03ad6b89a45ce1"
+    },
+    {
+      "path": "artifacts/mdd-011/snapshot-tests/record.json",
+      "bytes": 690,
+      "sha256": "bc140363e1e705f54c53d361ddedfc03b317f07dc867f7f7f6f7489cad71d33b"
+    },
+    {
+      "path": "artifacts/mdd-011/snapshot-tests/stderr.txt",
+      "bytes": 323,
+      "sha256": "951bb84acc38067e8e69cfd9383f3487fc1c0487a6bf6989e55dc55afda52009"
+    },
+    {
+      "path": "artifacts/mdd-011/snapshot-tests/stdout.txt",
+      "bytes": 376,
+      "sha256": "e11c8507969d1683384cc6e2a34afaeff7fef84487e9f02d318217f8cee6d8e0"
+    },
+    {
+      "path": "artifacts/mdd-011/source-mutation-final/record.json",
+      "bytes": 689,
+      "sha256": "abc4b27192c63b605bd1c5c477b3c8311f5ec766037f6eac994f532b13243a52"
+    },
+    {
+      "path": "artifacts/mdd-011/source-mutation-final/stderr.txt",
+      "bytes": 252,
+      "sha256": "30c7a8f95de6b9419a208342d695bd5e480ce4932c20bd60a0d4726ee2ec1e80"
+    },
+    {
+      "path": "artifacts/mdd-011/source-mutation-final/stdout.txt",
+      "bytes": 376,
+      "sha256": "e11c8507969d1683384cc6e2a34afaeff7fef84487e9f02d318217f8cee6d8e0"
+    },
+    {
+      "path": "artifacts/mdd-012/command-1-stderr.txt",
+      "bytes": 232,
+      "sha256": "7950f5c04555019226f517daf6544710d502c3886b0d0f8c3b57a08ce36fa4c5"
+    },
+    {
+      "path": "artifacts/mdd-012/command-1-stdout.txt",
+      "bytes": 28974,
+      "sha256": "8d36f2480b6abf39a8bc835dc02e7c185da87a9a7edf91f59c693a09b5d6e0b5"
+    },
+    {
+      "path": "artifacts/mdd-012/command-2-stderr.txt",
+      "bytes": 145,
+      "sha256": "034382ded6344438774589afeb5b2b72276d4066b229f5243071fa1db5b08889"
+    },
+    {
+      "path": "artifacts/mdd-012/command-2-stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-012/inventory-and-extraction.json",
+      "bytes": 48890,
+      "sha256": "7ba9dd432b704328cabea0e755532dd02c575b729de235635e93ec9981e70492"
+    },
+    {
+      "path": "artifacts/mdd-013/format-validation.json",
+      "bytes": 11548,
+      "sha256": "b9e9daf3ba9e9e8d23b1a39c03a903aad2c4587b066f331fef1d71cdd030fd5b"
+    },
+    {
+      "path": "artifacts/mdd-013/initial-build-failure.json",
+      "bytes": 1360,
+      "sha256": "a4b67d24ccd6ebd4b0c1d586ae9e4c4dc384948dd5ec4587bdda7c2a6894ee2d"
+    },
+    {
+      "path": "artifacts/mdd-013/reproduce.py",
+      "bytes": 5452,
+      "sha256": "6580d18cd0c6658df09b81640a45e28ff2cf2ddfda7e277b3943a47bfb45adaf"
+    },
+    {
+      "path": "artifacts/mdd-014/lifecycle-checks.json",
+      "bytes": 4389,
+      "sha256": "24aa840eb48cd007a213533be422132d148149ae58f087c6dc1bc4c687e2f3d0"
+    },
+    {
+      "path": "artifacts/mdd-014/validation-20261028/0-stderr.txt",
+      "bytes": 875,
+      "sha256": "3f23a269b5c6c82af852228f210ebb61426ca2143dc07c398977930a4d70ac5f"
+    },
+    {
+      "path": "artifacts/mdd-014/validation-20261028/0-stdout.txt",
+      "bytes": 1196,
+      "sha256": "2df2a08004d21b200a0a2e8d9c18f024f597dc2aa3d74440f3726f448163b37c"
+    },
+    {
+      "path": "artifacts/mdd-014/validation-20261028/1-stderr.txt",
+      "bytes": 72,
+      "sha256": "679bbf598b003582aefd56c2d7833df83b237a0ebcf2ec32587d909bba66f785"
+    },
+    {
+      "path": "artifacts/mdd-014/validation-20261028/1-stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-014/validation-20261028/record.json",
+      "bytes": 4389,
+      "sha256": "24aa840eb48cd007a213533be422132d148149ae58f087c6dc1bc4c687e2f3d0"
+    }
+  ]
 }

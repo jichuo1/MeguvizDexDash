@@ -1,0 +1,41 @@
+{
+  "task": "MDD-001",
+  "recommend_status": "done",
+  "acceptance": [
+    {
+      "item": 1,
+      "satisfied": true,
+      "evidence": [
+        "conformance/manifests/source-baseline.json",
+        "conformance/manifests/engine-binaries.json",
+        "conformance/manifests/input-corpus.json"
+      ],
+      "detail": "固定提交原始文件、二进制和输入expected/actual摘要分开；各来源与获取URL/授权入口已登记，私有输入仅引用。"
+    },
+    {
+      "item": 2,
+      "satisfied": true,
+      "evidence": [
+        "artifacts/mdd-001/provenance-verification.json"
+      ],
+      "detail": "23历史证据摘要实际重验；历史结果不当作新引擎运行。"
+    },
+    {
+      "item": 3,
+      "satisfied": true,
+      "evidence": [
+        "conformance/manifests/input-corpus.json"
+      ],
+      "detail": "缺APK、Linux A0/A1和runner的具体后续gate明列；未用公开样本冒充完整HostLab。"
+    },
+    {
+      "item": 4,
+      "satisfied": true,
+      "evidence": [
+        "conformance/manifests/source-baseline.json"
+      ],
+      "detail": "当前core构建无DexMeguviz/DexKit/DexSQL前置依赖；通用core与HostLab边界固定。"
+    }
+  ],
+  "limits": "Identity registry task done; input acquisition and performance/product qualification remain unpassed."
+}

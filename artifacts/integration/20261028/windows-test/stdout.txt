@@ -1,0 +1,92 @@
+
+running 2 tests
+test sql::tests::sqlite_vtable_probe_records_successes_and_real_gaps ... ok
+test tests::dependency_apis_are_usable ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 10 tests
+test checked_reader::tests::arithmetic_and_ranges_reject_before_reading ... ok
+test header::tests::exact_unsupported_formats_do_not_admit_numeric_ranges ... ok
+test header::tests::checksum_and_sha1_validation_scopes_remain_distinct ... ok
+test header::tests::header_empty_ranges_and_large_counts_fail_explicitly ... ok
+test header::tests::malformed_fixtures_have_distinct_errors_and_ranges ... ok
+test header::tests::map_overlap_duplicate_and_header_disagreement_are_errors ... ok
+test header::tests::structured_sources_and_reordered_data_keep_valid_reference_ranges ... ok
+test header::tests::each_standard_version_has_real_fixture ... ok
+test header::tests::forward_backwards_and_out_of_range_references_are_rejected ... ok
+test header::tests::all_prefix_truncations_fail_without_panic ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 10 tests
+test snapshot::tests::source_expected_hash_and_zero_budget_fail_closed ... ok
+test archive::tests::duplicate_names_and_contents_retain_distinct_occurrences ... ok
+test archive::tests::partially_overlapping_physical_members_are_rejected ... ok
+test archive::tests::selection_scope_resource_only_and_raw_dex_are_explicit ... ok
+test archive::tests::fixtures_match_independent_physical_inventory_and_raw_content ... ok
+test archive::tests::budgets_corrupt_ranges_crc_and_unsupported_formats_fail_closed ... ok
+test archive::tests::all_reads_use_owned_capture_and_member_identity ... ok
+test archive::tests::raw_member_names_and_malformed_declared_sizes_are_not_normalized ... ok
+test snapshot::tests::capture_retains_generation_and_occurrences ... ok
+test archive::tests::data_descriptor_and_lazy_resource_crc_are_checked ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 7 tests
+test tests::handles_reject_wrong_owner_parent_generation_and_released_identity ... ok
+test tests::computation_delivery_and_catalog_generations_remain_distinct ... ok
+test tests::snapshot_close_and_release_preserve_existing_owned_leases ... ok
+test tests::shared_budget_reservations_and_releases_are_enforced_across_sessions ... ok
+test tests::concurrent_close_and_computation_never_reopen_a_cancelled_query ... ok
+test tests::worker_loss_fails_every_unfinished_request_but_keeps_completed_terminal ... ok
+test tests::deadlines_cover_queue_time_and_zero_is_not_unlimited ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 2 tests
+test tests::decimal_u64_is_lossless_and_strict ... ok
+test tests::contract_examples_roundtrip_and_partial_states_do_not_pass ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test lifecycle::tests::supervisor_observes_real_process_exit_pipe_close_and_limits ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.57s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

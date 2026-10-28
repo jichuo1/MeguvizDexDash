@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.lifecycle-cases.v1",
+  "task": "MDD-014",
+  "scope": "M1 ownership, handle registry, budget reservations and direct-worker supervision; no query execution qualification",
+  "session_cases": [
+    {"test": "snapshot_close_and_release_preserve_existing_owned_leases", "expected": "new sessions rejected; existing source and query leases retain captured bytes; other session unaffected"},
+    {"test": "handles_reject_wrong_owner_parent_generation_and_released_identity", "expected": "wrong owner, cross-session use, stale generation and released handles rejected"},
+    {"test": "computation_delivery_and_catalog_generations_remain_distinct", "expected": "unconsumed cursor blocks delivery completion; catalog changes do not rebind existing query; cancel after computation retains computation flag"},
+    {"test": "worker_loss_fails_every_unfinished_request_but_keeps_completed_terminal", "expected": "prepared/queued/active-delivery requests fail with WORKER_LOST; completed and other worker remain unchanged"},
+    {"test": "shared_budget_reservations_and_releases_are_enforced_across_sessions", "expected": "shared thread/buffer/cursor limits enforced; explicit release restores capacity; zero is not unlimited"},
+    {"test": "deadlines_cover_queue_time_and_zero_is_not_unlimited", "expected": "queue time included; timeout is DEADLINE_EXCEEDED, never empty success"},
+    {"test": "abandoned_cursors_cannot_be_released_into_delivery_success", "expected": "closing/releasing an unconsumed cursor permanently blocks delivery success; explicit consumption permits completion"},
+    {"test": "concurrent_close_and_computation_never_reopen_a_cancelled_query", "expected": "session cancellation terminal is monotone across competing completion"}
+  ],
+  "worker_cases": [
+    {"mode": "nonzero", "expected": "actual child exit23; every unfinished request WORKER_LOST"},
+    {"mode": "zero-eof", "expected": "actual child exit0 without result terminal still WORKER_LOST"},
+    {"mode": "pipe-close", "expected": "stdout EOF while actual child still alive; child reaped and every unfinished request WORKER_LOST"},
+    {"mode": "output-budget", "expected": "actual stdout exceeds hard cumulative byte budget; QUOTA_EXCEEDED retained"},
+    {"mode": "deadline", "expected": "actual live child terminated at worker deadline; DEADLINE_EXCEEDED retained"}
+  ],
+  "not_qualified": ["full wire framing", "actual DEX query results", "MCP", "process tree isolation", "kernel CPU/memory limits", "Linux native runtime"]
+}

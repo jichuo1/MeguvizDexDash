@@ -1,0 +1,21 @@
+{
+  "command_argv": [
+    "cargo",
+    "run",
+    "--offline",
+    "--locked",
+    "-p",
+    "mdd-build-probe",
+    "--quiet"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-28T07:08:11.509628+00:00",
+  "finished_utc": "2026-10-28T07:08:35.394048+00:00",
+  "measurement_scope": "development validation, not performance measurement",
+  "corpus_sha256": "6626e5f8b8774c44be78d2ebcd871a5722001b4f4a3cf2fe90596f4a19f969aa",
+  "sql_rs_sha256": "50abb2647f8b0de0101d496ff68268a1d701098375a330f918e422daa70f6059",
+  "stdout_sha256": "db215b295f5fed01624f5a61d7a90d347f314f17f7d795e573afcc46cd5dea5b",
+  "provenance_status": "intermediate_not_used_for_qualification",
+  "corpus_snapshot_sha256": "6626e5f8b8774c44be78d2ebcd871a5722001b4f4a3cf2fe90596f4a19f969aa",
+  "note": "Corpus changed while Rust include_str compilation was pending. Captured output has all six corpus queries passing; no actual ESCAPE failure was observed. Do not infer old-query errors."
+}

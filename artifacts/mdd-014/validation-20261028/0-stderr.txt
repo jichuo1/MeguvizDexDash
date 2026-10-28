@@ -1,0 +1,10 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s
+     Running unittests src\lib.rs (target\debug\deps\mdd_session-c3c93d1716dbec56.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_worker-48ac20dfd6d49189.exe)
+lifecycle-child mode=nonzero cause=process_exit_without_terminal exit=Some(23) affected=2 bytes=16 direct_child_reaped=true
+lifecycle-child mode=zero-eof cause=process_exit_without_terminal exit=Some(0) affected=2 bytes=16 direct_child_reaped=true
+lifecycle-child mode=pipe-close cause=stdout_eof exit=Some(1) affected=2 bytes=16 direct_child_reaped=true
+lifecycle-child mode=output-budget cause=stdout_budget exit=Some(1) affected=2 bytes=4096 direct_child_reaped=true
+lifecycle-child mode=deadline cause=worker_deadline exit=Some(1) affected=2 bytes=16 direct_child_reaped=true
+   Doc-tests mdd_session
+   Doc-tests mdd_worker

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:meguvizdexdash:measurement-entry:v1",
+  "title": "实际单轮测量沿用统一契约",
+  "$ref": "../contracts/benchmark_result.schema.json",
+  "description": "仅 observed_run，计划/preflight/条件预算不写入baseline-runs.jsonl。运行时继续检查完整消费、来源绑定、certificate和完整输入。"
+}

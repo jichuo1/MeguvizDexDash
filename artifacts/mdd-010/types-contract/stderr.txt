@@ -1,0 +1,6 @@
+   Compiling memchr v2.8.3
+   Compiling serde_json v1.0.151
+   Compiling mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.29s
+     Running unittests src\lib.rs (target\debug\deps\mdd_types-674dda7073209242.exe)
+   Doc-tests mdd_types

@@ -1,0 +1,25 @@
+{
+  "task": "MDD-001",
+  "status": "passed_identity_registry",
+  "command": "python conformance/corpus/hostlab/freeze_corpus.py",
+  "source_files_verified": 13,
+  "historical_evidence_files_verified": 23,
+  "binary_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "input_bytes_verified": 0,
+  "not_qualified": [
+    "Any full HostLab engine result",
+    "Performance",
+    "Runtime Hook/UI"
+  ],
+  "missing_inputs": [
+    "newpipe-0.28.6",
+    "hostlab-9170100",
+    "hostlab-9161100"
+  ],
+  "notes": [
+    "Fixed source retrieved as exact-commit public raw files, not represented as a local checkout",
+    "Existing external worktrees left unchanged",
+    "Default local process helper failed; read-only checks rerun through approved process escalation",
+    "Schema discovery failures retained in handoff notes; tables requires a compatibility --input path but does not read it"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": "mdd.lifecycle-validation.v1",
+  "task": "MDD-014",
+  "record_kind": "observed_development_validation",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "commands": [
+    {
+      "command_argv": [
+        "cargo",
+        "test",
+        "--offline",
+        "--locked",
+        "-p",
+        "mdd-session",
+        "-p",
+        "mdd-worker",
+        "--",
+        "--nocapture"
+      ],
+      "cwd": "D:\\MeguvisDexDash",
+      "started_utc": "2026-10-28T07:36:04.416547+00:00",
+      "finished_utc": "2026-10-28T07:36:12.168812+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "artifacts\\mdd-014\\validation-20261028\\0-stdout.txt",
+        "bytes": 1196,
+        "sha256": "2df2a08004d21b200a0a2e8d9c18f024f597dc2aa3d74440f3726f448163b37c"
+      },
+      "stderr": {
+        "path": "artifacts\\mdd-014\\validation-20261028\\0-stderr.txt",
+        "bytes": 875,
+        "sha256": "3f23a269b5c6c82af852228f210ebb61426ca2143dc07c398977930a4d70ac5f"
+      }
+    },
+    {
+      "command_argv": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--locked",
+        "-p",
+        "mdd-session",
+        "-p",
+        "mdd-worker",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "D:\\MeguvisDexDash",
+      "started_utc": "2026-10-28T07:36:12.168812+00:00",
+      "finished_utc": "2026-10-28T07:36:17.781433+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "artifacts\\mdd-014\\validation-20261028\\1-stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "artifacts\\mdd-014\\validation-20261028\\1-stderr.txt",
+        "bytes": 72,
+        "sha256": "679bbf598b003582aefd56c2d7833df83b237a0ebcf2ec32587d909bba66f785"
+      }
+    }
+  ],
+  "source_identities_before": {
+    "crates/mdd-session/Cargo.toml": "567a80a7446067885639ac10d2c2326d7128b3ae536374a385e3ee1072051965",
+    "crates/mdd-session/src/lib.rs": "f1ecec41f661d85f699e4b2e4c3a15a24ed04576dc2228d427e36b48da7043c0",
+    "crates/mdd-worker/Cargo.toml": "202c45851e219a977516bc817a97ebacad7dcb988073c0af897404a24011b4ef",
+    "crates/mdd-worker/src/lib.rs": "fc63495566f650d00950bed6ce4869ba871d2efe8a3917dbc3cddbf4fe8e3fae",
+    "crates/mdd-worker/src/lifecycle/mod.rs": "64ecc389ed84ea8bf92cbbd4b015df3781e642d5d637ba424412125fa61d925b",
+    "Cargo.lock": "7551adda1d3723e7c67add01b8fe12c2ee84e39c9c0329936b1193d856bcad00",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "tests/fixtures/generated/minimal-035.dex": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae"
+  },
+  "source_identities_after": {
+    "crates/mdd-session/Cargo.toml": "567a80a7446067885639ac10d2c2326d7128b3ae536374a385e3ee1072051965",
+    "crates/mdd-session/src/lib.rs": "f1ecec41f661d85f699e4b2e4c3a15a24ed04576dc2228d427e36b48da7043c0",
+    "crates/mdd-worker/Cargo.toml": "202c45851e219a977516bc817a97ebacad7dcb988073c0af897404a24011b4ef",
+    "crates/mdd-worker/src/lib.rs": "fc63495566f650d00950bed6ce4869ba871d2efe8a3917dbc3cddbf4fe8e3fae",
+    "crates/mdd-worker/src/lifecycle/mod.rs": "64ecc389ed84ea8bf92cbbd4b015df3781e642d5d637ba424412125fa61d925b",
+    "Cargo.lock": "7551adda1d3723e7c67add01b8fe12c2ee84e39c9c0329936b1193d856bcad00",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "tests/fixtures/generated/minimal-035.dex": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae"
+  },
+  "source_stable_during_validation": true,
+  "all_commands_passed": true,
+  "scope": "M1 lifecycle skeleton only; no query/wire/MCP/HostLab/performance qualification",
+  "session_test_count": 8,
+  "worker_test_count": 1,
+  "actual_worker_process_modes": [
+    "nonzero exit23",
+    "zero exit0 without terminal",
+    "stdout closed while child alive",
+    "stdout budget exceeded",
+    "worker deadline exceeded"
+  ],
+  "known_limits": [
+    "direct-child supervision only; no process-tree isolation",
+    "resource reservations and cooperative checkpoints, no kernel CPU/memory hard limits",
+    "Linux implementation not natively executed",
+    "query execution and wire frames not implemented"
+  ]
+}

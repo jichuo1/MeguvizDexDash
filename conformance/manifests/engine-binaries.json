@@ -1,0 +1,46 @@
+{
+  "schema_version": "mdd.reference-binaries.v1",
+  "binaries": [
+    {
+      "group": "A0",
+      "version": "0.1.0",
+      "platform": "windows_amd64",
+      "actual_path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+      "expected_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+      "actual_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+      "bytes": 21365760,
+      "status": "verified_available",
+      "version_observed": "dexsql 0.1.0",
+      "executed_scope": "version/help/schema only",
+      "origin_url": "https://github.com/LSPosed/dexsql-release/releases/download/v0.1.0/dexsql-windows-amd64.exe"
+    },
+    {
+      "group": "A0",
+      "version": "0.1.0",
+      "platform": "linux_amd64",
+      "expected_sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+      "actual_sha256": null,
+      "status": "not_acquired",
+      "origin_url": "https://github.com/LSPosed/dexsql-release/releases/download/v0.1.0/dexsql-linux-amd64"
+    },
+    {
+      "group": "A1",
+      "version": "0.1.1",
+      "platform": "linux_amd64",
+      "expected_sha256": "f35c57610fcee62864e68f12e51997621375c025447aa2f32a0be9eb2df464bc",
+      "actual_sha256": null,
+      "status": "not_acquired",
+      "origin_url": "https://github.com/LSPosed/dexsql-release/releases/download/v0.1.1/dexsql-linux-amd64"
+    }
+  ],
+  "A2": {
+    "status": "not_qualified",
+    "reason": "requires same-workload full-result comparison; compact and existing consumer optimization remain separate"
+  },
+  "B0": {
+    "status": "not_implemented"
+  },
+  "B1": {
+    "status": "not_implemented"
+  }
+}

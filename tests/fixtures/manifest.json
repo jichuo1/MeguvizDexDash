@@ -1,0 +1,613 @@
+{
+  "schema_version": "mdd.fixture-manifest.v1",
+  "generator": "tests/fixtures/generate.py",
+  "source_reference": "https://source.android.com/docs/core/runtime/dex-format",
+  "source_revision_anchor": "platform/art@6484611fd45e69db9f33f98bfd6864014b030ecf",
+  "license": "project-authored test data; no third-party APK redistribution",
+  "installability_verified": false,
+  "files": [
+    {
+      "id": "minimal-035",
+      "path": "tests/fixtures/generated/minimal-035.dex",
+      "bytes": 140,
+      "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_header_and_map",
+      "version": "035"
+    },
+    {
+      "id": "minimal-037",
+      "path": "tests/fixtures/generated/minimal-037.dex",
+      "bytes": 140,
+      "sha256": "45b6d94b81a498ff626152716c43fa3f37ae84cb347808954cdc11f2f6db5b7a",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_header_and_map",
+      "version": "037"
+    },
+    {
+      "id": "minimal-038",
+      "path": "tests/fixtures/generated/minimal-038.dex",
+      "bytes": 140,
+      "sha256": "7e0f156611de3f393809abb6b2f355a4973b4632b877b6217d916069e811f59a",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_header_and_map",
+      "version": "038"
+    },
+    {
+      "id": "minimal-039",
+      "path": "tests/fixtures/generated/minimal-039.dex",
+      "bytes": 140,
+      "sha256": "2133d3fb663cfceadea61c1a15963a6deb69ef9cb82c1e0b7d5583a238b6e0a6",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_header_and_map",
+      "version": "039"
+    },
+    {
+      "id": "minimal-040",
+      "path": "tests/fixtures/generated/minimal-040.dex",
+      "bytes": 140,
+      "sha256": "2ceacba2863f6acbaf5014ff304492665a30f299d1dde0113fbb7de913253f38",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_header_and_map",
+      "version": "040"
+    },
+    {
+      "id": "unsupported-036",
+      "path": "tests/fixtures/generated/unsupported-036.dex",
+      "bytes": 140,
+      "sha256": "38ec39a44c9c076bc34c61a6fe2280d8c56d97bb40d5edcbd88e26b72859cd30",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "UNSUPPORTED_CAPABILITY",
+      "version": "036",
+      "note": "magic discrimination vector, not a valid implementation of the unsupported format"
+    },
+    {
+      "id": "unsupported-041",
+      "path": "tests/fixtures/generated/unsupported-041.dex",
+      "bytes": 140,
+      "sha256": "cefcbe1475083b6aa3380d447ff875ec35c7ac05574ca51403b5e2ae0d38a552",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "UNSUPPORTED_CAPABILITY",
+      "version": "041",
+      "note": "magic discrimination vector, not a valid implementation of the unsupported format"
+    },
+    {
+      "id": "structured-035",
+      "path": "tests/fixtures/generated/structured-035.dex",
+      "bytes": 536,
+      "sha256": "108cf907d330b823c6e32d38eaab8f23709fe493f52537688bbd09ba3e271605",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_synthetic_structure",
+      "version": "035",
+      "facts": {
+        "strings_utf16": [
+          [
+            76,
+            102,
+            105,
+            120,
+            116,
+            117,
+            114,
+            101,
+            47,
+            65,
+            59
+          ],
+          [
+            76,
+            106,
+            97,
+            118,
+            97,
+            47,
+            108,
+            97,
+            110,
+            103,
+            47,
+            79,
+            98,
+            106,
+            101,
+            99,
+            116,
+            59
+          ],
+          [
+            86
+          ],
+          [
+            99,
+            97,
+            108,
+            108,
+            101,
+            114
+          ],
+          [
+            110,
+            97,
+            116,
+            105,
+            118,
+            101,
+            78,
+            111,
+            66,
+            111,
+            100,
+            121
+          ],
+          [
+            116,
+            97,
+            114,
+            103,
+            101,
+            116
+          ],
+          [
+            119,
+            105,
+            116,
+            104,
+            84,
+            114,
+            121
+          ]
+        ],
+        "type_descriptor_string_indices": [
+          0,
+          1,
+          2
+        ],
+        "proto": {
+          "shorty_string_idx": 2,
+          "return_type_idx": 2,
+          "parameters_off": 0
+        },
+        "method_refs": [
+          {
+            "method_idx": 0,
+            "owner_type_idx": 0,
+            "proto_idx": 0,
+            "name_string_idx": 3
+          },
+          {
+            "method_idx": 1,
+            "owner_type_idx": 0,
+            "proto_idx": 0,
+            "name_string_idx": 4
+          },
+          {
+            "method_idx": 2,
+            "owner_type_idx": 0,
+            "proto_idx": 0,
+            "name_string_idx": 5
+          },
+          {
+            "method_idx": 3,
+            "owner_type_idx": 0,
+            "proto_idx": 0,
+            "name_string_idx": 6
+          }
+        ],
+        "method_definitions": [
+          {
+            "method_idx": 0,
+            "access_flags": 9,
+            "code_off": 304
+          },
+          {
+            "method_idx": 1,
+            "access_flags": 265,
+            "code_off": 0
+          },
+          {
+            "method_idx": 2,
+            "access_flags": 9,
+            "code_off": 336
+          },
+          {
+            "method_idx": 3,
+            "access_flags": 9,
+            "code_off": 356
+          }
+        ],
+        "call_sites": [
+          {
+            "caller_method_idx": 0,
+            "code_unit_pc": 0,
+            "target_method_idx": 2,
+            "opcode": "invoke-static"
+          },
+          {
+            "caller_method_idx": 0,
+            "code_unit_pc": 3,
+            "target_method_idx": 2,
+            "opcode": "invoke-static"
+          }
+        ],
+        "code_items": [
+          {
+            "name": "caller",
+            "offset": 304,
+            "insns_hex": "7100020000007100020000000e00",
+            "insns_size_code_units": 7
+          },
+          {
+            "name": "target",
+            "offset": 336,
+            "insns_hex": "0e00",
+            "insns_size_code_units": 1
+          },
+          {
+            "name": "withTry",
+            "offset": 356,
+            "insns_hex": "120027000d000e00",
+            "insns_size_code_units": 4
+          }
+        ],
+        "try_catch": {
+          "method_idx": 3,
+          "try_start_pc": 0,
+          "try_length": 2,
+          "handler_off": 1,
+          "catch_all_pc": 2,
+          "handler_list_hex": "010002"
+        },
+        "claim": "synthetic structural DEX fixture; not externally ART-verified or an installable application"
+      }
+    },
+    {
+      "id": "strings-mutf8-035",
+      "path": "tests/fixtures/generated/strings-mutf8-035.dex",
+      "bytes": 224,
+      "sha256": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_header_and_strings",
+      "version": "035",
+      "strings_utf16": [
+        [],
+        [
+          0
+        ],
+        [
+          65
+        ],
+        [
+          20013
+        ],
+        [
+          55296
+        ],
+        [
+          55357,
+          56832
+        ],
+        [
+          56320
+        ]
+      ]
+    },
+    {
+      "id": "class-reorder-before",
+      "path": "tests/fixtures/generated/class-reorder-before.dex",
+      "bytes": 428,
+      "sha256": "f41794ab3a1778f69fbb005f598c614be473189d89ddd2f9e7730d75f5dcb921",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_reordered_structure",
+      "version": "035",
+      "class_type_indices_by_definition_ordinal": [
+        0,
+        1
+      ],
+      "semantic_equivalence_group": "two-independent-native-classes-v1",
+      "note": "class_def table order, string_data order and class_data order differ; all references and offsets must preserve class/method semantics"
+    },
+    {
+      "id": "class-reorder-after",
+      "path": "tests/fixtures/generated/class-reorder-after.dex",
+      "bytes": 428,
+      "sha256": "24f35f625f4501fdef365a7e3ba8685c609fdec6c2955aaa1900c1e0501ee9b2",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_reordered_structure",
+      "version": "035",
+      "class_type_indices_by_definition_ordinal": [
+        1,
+        0
+      ],
+      "semantic_equivalence_group": "two-independent-native-classes-v1",
+      "note": "class_def table order, string_data order and class_data order differ; all references and offsets must preserve class/method semantics"
+    },
+    {
+      "id": "structured-035-same-size-changed",
+      "path": "tests/fixtures/generated/structured-035-same-size-changed.dex",
+      "bytes": 536,
+      "sha256": "12dc21ec8975294592eb4994c57e148ab99d26f973b435697b97cb6ab58faa11",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "valid_synthetic_structure",
+      "version": "035",
+      "source_mutation_of": "structured-035.dex",
+      "same_length": true
+    },
+    {
+      "id": "bad-magic",
+      "path": "tests/fixtures/generated/bad-magic.dex",
+      "bytes": 140,
+      "sha256": "b4d2ed6864170624455d06c9cf6436052bc26d0ac0482008c9b088b4f363942c",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "INVALID_MAGIC"
+    },
+    {
+      "id": "truncated-header",
+      "path": "tests/fixtures/generated/truncated-header.dex",
+      "bytes": 80,
+      "sha256": "348c14b585035f8e3afd91525198630fe5b05b881044bc887bb0f22717f8d6dc",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "TRUNCATED"
+    },
+    {
+      "id": "bad-checksum",
+      "path": "tests/fixtures/generated/bad-checksum.dex",
+      "bytes": 140,
+      "sha256": "cc90d70fe322f17950015d5f3bd536c666a8ebadfc2e6c0d0773ebca1fd916b2",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "CHECKSUM_MISMATCH"
+    },
+    {
+      "id": "bad-signature",
+      "path": "tests/fixtures/generated/bad-signature.dex",
+      "bytes": 140,
+      "sha256": "914032948790b185d306c3425c6b830783a8c895bab247481712373cc0b28bee",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "SIGNATURE_MISMATCH"
+    },
+    {
+      "id": "bad-map-offset",
+      "path": "tests/fixtures/generated/bad-map-offset.dex",
+      "bytes": 140,
+      "sha256": "07245312d7d77766e11af0409c35c00895c1dccda7fe932d0a7654ee7efe0b1f",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "INVALID_MAP"
+    },
+    {
+      "id": "table-count-overflow",
+      "path": "tests/fixtures/generated/table-count-overflow.dex",
+      "bytes": 140,
+      "sha256": "6e9c4e42737e914a17686958fb11a1e816d1bd4a869f3d176e6d85a8885550e3",
+      "origin": "hand-authored synthetic generator",
+      "kind": "dex",
+      "expected": "TABLE_RANGE"
+    },
+    {
+      "id": "manifest-minimal",
+      "path": "tests/fixtures/generated/manifest-minimal.axml",
+      "bytes": 112,
+      "sha256": "b0651901e1484afae644f62a3b2527ea77ae72b3ea68f4f6d9253ca35b1fe1f7",
+      "origin": "hand-authored synthetic generator",
+      "kind": "axml",
+      "expected": "valid_chunk_layout",
+      "root_element": "manifest",
+      "string_count": 1
+    },
+    {
+      "id": "manifest-bad-chunk",
+      "path": "tests/fixtures/generated/manifest-bad-chunk.axml",
+      "bytes": 112,
+      "sha256": "590a8a0dc286918187b751fbe8cb51fc798a884f10999c09dfbb23fd90d814d8",
+      "origin": "hand-authored synthetic generator",
+      "kind": "axml",
+      "expected": "INVALID_CHUNK"
+    },
+    {
+      "id": "multidex-stored",
+      "path": "tests/fixtures/generated/multidex-stored.apk",
+      "bytes": 1236,
+      "sha256": "6b88277747a49dfddcc91900c171ae6420449cc424d57ffd46f896891ad26098",
+      "origin": "hand-authored synthetic generator",
+      "kind": "zip",
+      "expected": "valid_inventory",
+      "member_names": [
+        "classes.dex",
+        "classes2.dex",
+        "AndroidManifest.xml",
+        "assets/raw.bin"
+      ],
+      "dex_member_ordinals": [
+        0,
+        1
+      ],
+      "installable_claim": false
+    },
+    {
+      "id": "multidex-deflated",
+      "path": "tests/fixtures/generated/multidex-deflated.apk",
+      "bytes": 870,
+      "sha256": "d063e89802d9cc0445c547f91b22deeeda3574ee17be8bcd3190ee6ae3113697",
+      "origin": "hand-authored synthetic generator",
+      "kind": "zip",
+      "expected": "valid_inventory",
+      "member_names": [
+        "classes.dex",
+        "classes2.dex",
+        "AndroidManifest.xml",
+        "assets/raw.bin"
+      ],
+      "dex_member_ordinals": [
+        0,
+        1
+      ],
+      "installable_claim": false
+    },
+    {
+      "id": "renamed-member",
+      "path": "tests/fixtures/generated/renamed-member.apk",
+      "bytes": 1236,
+      "sha256": "c8c3efa07421cd00a293d4c431f1ee2e014e1182ddf301fdea2c3c6c2cca8c27",
+      "origin": "hand-authored synthetic generator",
+      "kind": "zip",
+      "expected": "explicit_selection_required",
+      "member_names": [
+        "renamed.dex",
+        "classes2.dex",
+        "AndroidManifest.xml",
+        "assets/raw.bin"
+      ],
+      "must_preserve_dex_bytes": true
+    },
+    {
+      "id": "duplicate-content",
+      "path": "tests/fixtures/generated/duplicate-content.apk",
+      "bytes": 1292,
+      "sha256": "2f8ff0d537beb8d331c40e76e153c37bf2ae5a1c9cb69c2808aa6f4324433529",
+      "origin": "hand-authored synthetic generator",
+      "kind": "zip",
+      "expected": "valid_inventory",
+      "member_names": [
+        "classes.dex",
+        "classes2.dex"
+      ],
+      "same_local_type_idx_in_distinct_dex": 0,
+      "dex_occurrences": 2,
+      "distinct_dex_content_ids": 1
+    },
+    {
+      "id": "duplicate-name",
+      "path": "tests/fixtures/generated/duplicate-name.apk",
+      "bytes": 894,
+      "sha256": "46d7f5af4b29dfebe4a75bff5a93a11fedaa638fc1cc9a53cf9501deb9af7eb5",
+      "origin": "hand-authored synthetic generator",
+      "kind": "zip",
+      "expected": "ambiguous_hostlab_inventory",
+      "member_names": [
+        "classes.dex",
+        "classes.dex"
+      ],
+      "physical_member_count": 2
+    },
+    {
+      "id": "member-policy",
+      "path": "tests/fixtures/generated/member-policy.apk",
+      "bytes": 998,
+      "sha256": "78c3264f1aa9ffad0096b8b69e8127ac1898dd6a24a878fad7cc11eb2ac5655d",
+      "origin": "hand-authored synthetic generator",
+      "kind": "zip",
+      "expected": "policy_dependent_inventory",
+      "member_names": [
+        "classes10.dex",
+        "classes2.dex",
+        "nested/classes.dex",
+        "../escape.dex"
+      ],
+      "hostlab_selected_member_ordinals": [
+        0,
+        1
+      ],
+      "must_not_extract_member_names_as_paths": true
+    },
+    {
+      "id": "invalid-dex-member",
+      "path": "tests/fixtures/generated/invalid-dex-member.apk",
+      "bytes": 129,
+      "sha256": "3e7335469f72a71a4e85f17037e63c85ab32e7fffc9bf443905908e4ddd66c89",
+      "origin": "hand-authored synthetic generator",
+      "kind": "zip",
+      "expected": "invalid_selected_dex_magic",
+      "member_names": [
+        "classes.dex"
+      ]
+    },
+    {
+      "id": "bad-crc",
+      "path": "tests/fixtures/generated/bad-crc.apk",
+      "bytes": 260,
+      "sha256": "603dbaa843394e744b3e3d7ea96652e3e003d9de97eb2a5df63b81399c817d3f",
+      "origin": "hand-authored synthetic generator",
+      "kind": "zip",
+      "expected": "CRC_MISMATCH",
+      "member_names": [
+        "classes.dex"
+      ]
+    },
+    {
+      "id": "component-vectors",
+      "path": "tests/fixtures/generated/component-vectors.json",
+      "kind": "component_vectors",
+      "bytes": 5843,
+      "sha256": "3fb7d06b38ad9f90e4d2411e3df3f049e0db68816b2a6083fe415a3fa8758f0f",
+      "expected": "per-vector-status"
+    }
+  ],
+  "fuzz_seed_plan": [
+    {
+      "target": "dex_header_and_checked_tables",
+      "seeds": [
+        "minimal-035.dex",
+        "structured-035.dex",
+        "bad-map-offset.dex",
+        "table-count-overflow.dex"
+      ],
+      "status": "seeded_not_fuzzed"
+    },
+    {
+      "target": "mutf8_and_leb32",
+      "seeds": [
+        "strings-mutf8-035.dex",
+        "component-vectors.json"
+      ],
+      "status": "seeded_not_fuzzed"
+    },
+    {
+      "target": "code_payload_handlers",
+      "seeds": [
+        "structured-035.dex",
+        "component-vectors.json"
+      ],
+      "status": "seeded_not_fuzzed"
+    },
+    {
+      "target": "archive_inventory_crc_and_selection",
+      "seeds": [
+        "multidex-stored.apk",
+        "multidex-deflated.apk",
+        "duplicate-name.apk",
+        "bad-crc.apk",
+        "member-policy.apk"
+      ],
+      "status": "seeded_not_fuzzed"
+    },
+    {
+      "target": "axml_chunk_bounds",
+      "seeds": [
+        "manifest-minimal.axml",
+        "manifest-bad-chunk.axml"
+      ],
+      "status": "seeded_not_fuzzed"
+    }
+  ],
+  "not_run": [
+    "fixed AOSP verifier/dexdump",
+    "dexlib2 independent full DEX parser",
+    "AAPT2 resource semantic dump",
+    "production engine differential"
+  ]
+}

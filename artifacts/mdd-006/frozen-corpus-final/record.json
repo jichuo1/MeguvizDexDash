@@ -1,0 +1,45 @@
+{
+  "schema_version": "mdd.command-block.v1",
+  "measurement_scope": "development validation, no performance qualification",
+  "identity": {
+    "corpus_sha256_before": "e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4",
+    "corpus_sha256_after": "e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4",
+    "source_sql_sha256": "c670c61ac62d78a268b06d2f4be830bc887b20368544de50070d6f7159c9bd0d",
+    "source_main_sha256": "ad7cb9bee693564b0c82b6aecc41ed96dc265e9f45ea6479261477209f5c3580",
+    "cargo_lock_sha256": "b996aff40dccc5fdb593effbe22d0c1463c040118dedcd7c0a886b74b3b02212",
+    "binary_sha256": "60913a20f5f29083c6270252cd5b365cb5b36077923816fa375b01d238ccbe08"
+  },
+  "commands": [
+    {
+      "command_argv": [
+        "cargo",
+        "test",
+        "--offline",
+        "--locked",
+        "-p",
+        "mdd-build-probe"
+      ],
+      "started_utc": "2026-10-28T07:13:48.203395+00:00",
+      "finished_utc": "2026-10-28T07:13:54.189613+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "0eb3dc6db2f6d509f90ac3859e7ba85d21c0c8a0b568f42077cc26ef0b066ed5",
+      "stderr_sha256": "87a7acf492181f2d694d33578bd4802e2101e706daa9bebfe776b74aaf21d3f6"
+    },
+    {
+      "command_argv": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "mdd-build-probe",
+        "--quiet"
+      ],
+      "started_utc": "2026-10-28T07:13:54.189613+00:00",
+      "finished_utc": "2026-10-28T07:13:58.216417+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "db215b295f5fed01624f5a61d7a90d347f314f17f7d795e573afcc46cd5dea5b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

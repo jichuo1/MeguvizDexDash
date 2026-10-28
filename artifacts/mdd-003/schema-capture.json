@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "tables",
+    "--input",
+    "schema-only-not-opened.dex"
+  ],
+  "exit_code": 0,
+  "stderr": "",
+  "binary_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "stdout_sha256": "85e5fcab7363ca89b1773b96a59d8be49f66aa048742abc6fdc59f57f1c41fdb",
+  "scope": "schema only; --input compatibility path is not opened per actual CLI help; not a DEX parse test"
+}

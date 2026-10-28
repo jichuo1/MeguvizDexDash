@@ -1,0 +1,17 @@
+{
+  "task": "MDD-011",
+  "test_record": "artifacts/mdd-011/source-mutation-final/record.json",
+  "implementation": "crates/mdd-input/src/snapshot/mod.rs",
+  "checks": [
+    "owned bytes unchanged after same-size/same-mtime rewrite, rename, delete and replacement",
+    "duplicate content shares storage but occurrence identities remain distinct",
+    "lease remains valid after Snapshot owner drop",
+    "expected content SHA fails closed",
+    "zero budget and empty input fail closed"
+  ],
+  "limitations": [
+    "source capture scope only; DEX validity/member facts are separate",
+    "no prior content identity guarantee without expected hash",
+    "sessions and query lifecycle belong to MDD-014"
+  ]
+}

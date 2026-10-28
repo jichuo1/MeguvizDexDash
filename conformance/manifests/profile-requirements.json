@@ -1,0 +1,145 @@
+{
+  "schema_version": "mdd.profile-requirements.v1",
+  "profiles": [
+    {
+      "id": "hostlab-audit-v1",
+      "admitted": false,
+      "status": "blocked",
+      "required_query_families": [
+        "Q01",
+        "Q02",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q06",
+        "Q07",
+        "Q08",
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14"
+      ],
+      "required_native_tools": [
+        "open_dataset",
+        "query",
+        "decode",
+        "get_manifest",
+        "close_dataset"
+      ],
+      "required_input_coverage": "complete",
+      "required_fact_coverage": "complete within declared required scope",
+      "required_execution": {
+        "complete": true,
+        "truncated": false,
+        "has_more": false,
+        "next_cursor": null
+      },
+      "full_process_fallback_allowed_for_qualification": false
+    },
+    {
+      "id": "dexsql-0.1.0-compat-v1",
+      "admitted": false,
+      "status": "blocked",
+      "required_query_families": [
+        "Q01",
+        "Q02",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q06",
+        "Q07",
+        "Q08",
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q15",
+        "Q16"
+      ],
+      "required_native_tools": [
+        "close_dataset",
+        "decode",
+        "describe_table",
+        "get_manifest",
+        "get_manifest_components",
+        "list_datasets",
+        "list_resource_files",
+        "list_tables",
+        "open_dataset",
+        "query",
+        "query_resources",
+        "read_resource"
+      ],
+      "required_input_coverage": "complete",
+      "required_fact_coverage": "complete within declared required scope",
+      "required_execution": {
+        "complete": true,
+        "truncated": false,
+        "has_more": false,
+        "next_cursor": null
+      },
+      "full_process_fallback_allowed_for_qualification": false
+    },
+    {
+      "id": "dexsql-0.1.1-compat-v1",
+      "admitted": false,
+      "status": "blocked",
+      "required_query_families": [
+        "Q01",
+        "Q02",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q06",
+        "Q07",
+        "Q08",
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q15",
+        "Q16"
+      ],
+      "required_native_tools": [
+        "close_dataset",
+        "decode",
+        "describe_table",
+        "get_manifest",
+        "get_manifest_components",
+        "list_datasets",
+        "list_resource_files",
+        "list_tables",
+        "open_dataset",
+        "query",
+        "query_resources",
+        "read_resource"
+      ],
+      "required_input_coverage": "complete",
+      "required_fact_coverage": "complete within declared required scope",
+      "required_execution": {
+        "complete": true,
+        "truncated": false,
+        "has_more": false,
+        "next_cursor": null
+      },
+      "full_process_fallback_allowed_for_qualification": false
+    }
+  ],
+  "distinguish": [
+    "implementation",
+    "sql_dialect",
+    "compatibility_profile"
+  ],
+  "blocking_gates": [
+    "Fresh fully consumed query goldens and errors",
+    "Full HostLab FEATURE/fingerprint/report equivalence",
+    "SQLite virtual-table semantic qualification",
+    "Linux and Windows native validation"
+  ]
+}

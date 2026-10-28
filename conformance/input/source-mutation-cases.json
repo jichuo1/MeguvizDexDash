@@ -1,0 +1,17 @@
+{
+  "schema_version": "mdd.source-mutation-cases.v1",
+  "implementation": "crates/mdd-input/src/snapshot/mod.rs",
+  "policy": "owned captured bytes; source paths are never reopened by consumers",
+  "cases": [
+    "same size and restored mtime rewrite",
+    "source rename and removal",
+    "replacement at the original path",
+    "same content supplied twice retains distinct source occurrences",
+    "byte lease outlives Snapshot owner",
+    "expected SHA mismatch returns SOURCE_CHANGED",
+    "zero byte quota returns QUOTA_EXCEEDED",
+    "empty input list returns INVALID_ARGUMENT"
+  ],
+  "evidence": "artifacts/mdd-011/source-mutation-final/record.json",
+  "not_claimed": ["full DEX validity", "member inventory", "query/session lifecycle"]
+}

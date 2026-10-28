@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-c",
+    "import json,subprocess; from pathlib import Path; from jsonschema import Draft202012Validator; binary=str(Path('target/debug/meguvizdexdash.exe').resolve()); validator=Draft202012Validator(json.load(open('contracts/result.schema.json',encoding='utf8'))); count=0; cases=[('inspect-dex','minimal-035.dex',1),('inspect-dex','structured-035.dex',1),('inspect-apk','stored.apk',2),('inspect-apk','deflated.apk',2),('inspect-apk','duplicate-content.apk',2)]; existing=list(Path('tests/fixtures/generated').glob('*')); print([x.name for x in existing]); cases=[(op,name,n) for op,name,n in cases if Path('tests/fixtures/generated',name).exists()]; assert len(cases)>=3; [None for _ in []]; results=[]; exec('for op,name,n in cases:\\n p=subprocess.run([binary,op,str(Path(\\",
+    "tests/fixtures/generated\\)/name)],capture_output=True,check=True); value=json.loads(p.stdout); validator.validate(value); assert len(value[\\data\\][\\rows\\])==n; assert all(not r[\\header\\][\\full_dex_validation_complete\\] for r in value[\\data\\][\\rows\\]); results.append({\\input\\:name,\\rows\\:n,\\status\\:\\passed\\})'); print(json.dumps(results))"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T07:28:17.731026+00:00",
+  "finished_utc": "2026-10-28T07:28:17.826705+00:00",
+  "elapsed_seconds": 0.09400000000096043,
+  "exit_code": 1,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "bytes": 1570,
+    "sha256": "67b7b0e03140f23077ca5d61fe1f0feac4d45fcd2dc9f74c110197c09d16429f"
+  }
+}

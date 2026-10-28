@@ -1,0 +1,486 @@
+dex_files
+  file_id                  UInt32
+  string_pool_id           UInt32
+  source_path              Utf8
+  entry_name               Utf8
+  byte_len                 UInt64
+  dex_version              Utf8
+  checksum                 UInt32
+  signature_hex            Utf8
+  file_size                UInt32
+  header_size              UInt32
+  endian_tag               UInt32
+  link_size                UInt32
+  link_off                 UInt32
+  map_off                  UInt32
+  string_count             UInt32
+  string_ids_off           UInt32
+  type_count               UInt32
+  type_ids_off             UInt32
+  proto_count              UInt32
+  proto_ids_off            UInt32
+  field_count              UInt32
+  field_ids_off            UInt32
+  method_count             UInt32
+  method_ids_off           UInt32
+  class_count              UInt32
+  class_defs_off           UInt32
+  data_size                UInt32
+  data_off                 UInt32
+map_items
+  file_id                  UInt32
+  ordinal                  UInt32
+  type_code                UInt32
+  size                     UInt32
+  offset                   UInt32
+id_items
+  file_id                  UInt32
+  item_type_code           UInt32
+  idx                      UInt32
+  item_off                 UInt32
+  item_end_off             UInt32
+  data_off                 UInt32?
+strings
+  string_pool_id           UInt32
+  string_idx               UInt32
+  value                    Utf8View
+type_ids
+  file_id                  UInt32
+  type_idx                 UInt32
+  descriptor_idx           UInt32
+types
+  file_id                  UInt32
+  type_idx                 UInt32
+  descriptor               Utf8
+  java_name                Utf8
+type_lists
+  file_id                  UInt32
+  type_list_off            UInt32
+  type_list_end_off        UInt32
+  size                     UInt32
+type_list_entries
+  file_id                  UInt32
+  type_list_off            UInt32
+  ordinal                  UInt32
+  type_idx                 UInt32
+proto_ids
+  file_id                  UInt32
+  proto_idx                UInt32
+  shorty_idx               UInt32
+  return_type_idx          UInt32
+  parameters_off           UInt32
+protos
+  file_id                  UInt32
+  proto_idx                UInt32
+  shorty_idx               UInt32
+  shorty                   Utf8
+  return_type_idx          UInt32
+  return_descriptor        Utf8
+  parameters_off           UInt32
+  param_count              UInt32
+  param_descriptors        Utf8
+proto_params
+  file_id                  UInt32
+  proto_idx                UInt32
+  ordinal                  UInt32
+  type_idx                 UInt32
+  descriptor               Utf8
+field_ids
+  file_id                  UInt32
+  field_idx                UInt32
+  class_idx                UInt32
+  type_idx                 UInt32
+  name_idx                 UInt32
+fields
+  file_id                  UInt32
+  field_idx                UInt32
+  class_idx                UInt32
+  class_descriptor         Utf8
+  type_idx                 UInt32
+  type_descriptor          Utf8
+  name                     Utf8
+  descriptor               Utf8
+method_ids
+  file_id                  UInt32
+  method_idx               UInt32
+  class_idx                UInt32
+  proto_idx                UInt32
+  name_idx                 UInt32
+method_opcodes
+  file_id                  UInt32
+  method_idx               UInt32
+  opcode_count             UInt32?
+  opcode_hex               Utf8View?
+class_data_methods
+  file_id                  UInt32
+  class_idx                UInt32
+  method_idx               UInt32
+  access_flags             UInt32?
+  kind                     Utf8?
+methods
+  file_id                  UInt32
+  method_idx               UInt32
+  class_idx                UInt32
+  class_descriptor         Utf8View
+  proto_idx                UInt32
+  name                     Utf8View
+  descriptor               Utf8View
+  return_descriptor        Utf8View
+  param_count              UInt32
+  param_descriptors        Utf8View
+  access_flags             UInt32?
+  opcode_count             UInt32?
+  opcode_hex               Utf8View?
+  method_kind              Utf8?
+method_handles
+  file_id                  UInt32
+  method_handle_idx        UInt32
+  method_handle_type       UInt32
+  member_idx               UInt32
+call_sites
+  file_id                  UInt32
+  call_site_idx            UInt32
+  call_site_off            UInt32
+  value_count              UInt32
+  method_handle_idx        UInt32?
+  method_name_idx          UInt32?
+  proto_idx                UInt32?
+call_site_args
+  file_id                  UInt32
+  call_site_idx            UInt32
+  call_site_off            UInt32
+  ordinal                  UInt32
+  value_kind               Utf8
+  value_index              UInt32?
+  value_i64                Int64?
+  value_f64                Float64?
+encoded_arrays
+  file_id                  UInt32
+  encoded_array_idx        UInt32
+  encoded_array_off        UInt32
+  encoded_array_end_off    UInt32
+  value_count              UInt32
+encoded_array_values
+  file_id                  UInt32
+  encoded_array_off        UInt32
+  depth                    UInt32
+  ordinal                  UInt32
+  name_idx                 UInt32?
+  value_off                UInt32
+  value_end_off            UInt32
+  value_kind               Utf8
+  value_index              UInt32?
+  value_i64                Int64?
+  value_f64                Float64?
+encoded_array_owners
+  file_id                  UInt32
+  encoded_array_off        UInt32
+  owner_kind               Utf8
+  owner_idx                UInt32
+class_defs
+  file_id                  UInt32
+  class_def_idx            UInt32
+  class_idx                UInt32
+  access_flags             UInt32
+  superclass_idx           UInt32?
+  interfaces_off           UInt32
+  source_file_idx          UInt32?
+  annotations_off          UInt32
+  class_data_off           UInt32
+  static_values_off        UInt32
+classes
+  file_id                  UInt32
+  class_def_idx            UInt32
+  class_idx                UInt32
+  descriptor               Utf8
+  access_flags             UInt32
+  superclass_descriptor    Utf8?
+  interface_count          UInt32
+  source_file              Utf8?
+class_interfaces
+  file_id                  UInt32
+  class_idx                UInt32
+  ordinal                  UInt32
+  interface_type_idx       UInt32
+  interface_descriptor     Utf8
+class_data_items
+  file_id                  UInt32
+  class_idx                UInt32
+  class_data_off           UInt32
+  class_data_end_off       UInt32
+  static_fields_size       UInt32
+  instance_fields_size     UInt32
+  direct_methods_size      UInt32
+  virtual_methods_size     UInt32
+class_fields
+  file_id                  UInt32
+  class_idx                UInt32
+  class_descriptor         Utf8
+  field_idx                UInt32
+  field_name               Utf8
+  field_descriptor         Utf8
+  kind                     Utf8
+  access_flags             UInt32
+class_static_values
+  file_id                  UInt32
+  class_idx                UInt32
+  static_values_off        UInt32
+  ordinal                  UInt32
+  field_idx                UInt32?
+  value_kind               Utf8
+  value_index              UInt32?
+  value_i64                Int64?
+  value_f64                Float64?
+class_methods
+  file_id                  UInt32
+  class_idx                UInt32
+  class_descriptor         Utf8
+  method_idx               UInt32
+  method_name              Utf8
+  method_descriptor        Utf8
+  kind                     Utf8
+  access_flags             UInt32
+hiddenapi_flags
+  file_id                  UInt32
+  class_idx                UInt32
+  ordinal                  UInt32
+  member_kind              Utf8
+  member_idx               UInt32
+  flag                     UInt32
+code_items
+  file_id                  UInt32
+  method_idx               UInt32
+  code_off                 UInt32
+  registers_size           UInt32
+  ins_size                 UInt32
+  outs_size                UInt32
+  tries_size               UInt32
+  debug_info_off           UInt32
+  insns_size               UInt32
+  insns_off                UInt32
+  tries_off                UInt32?
+  handlers_off             UInt32?
+try_items
+  file_id                  UInt32
+  method_idx               UInt32
+  try_idx                  UInt32
+  start_addr               UInt32
+  insn_count               UInt32
+  handler_off              UInt32
+catch_handlers
+  file_id                  UInt32
+  method_idx               UInt32
+  handler_idx              UInt32
+  handler_off              UInt32
+  ordinal                  UInt32
+  type_idx                 UInt32?
+  addr                     UInt32
+  is_catch_all             Boolean
+debug_info
+  file_id                  UInt32
+  method_idx               UInt32
+  debug_info_off           UInt32
+  line_start               UInt32
+  parameters_size          UInt32
+debug_parameters
+  file_id                  UInt32
+  method_idx               UInt32
+  debug_info_off           UInt32
+  ordinal                  UInt32
+  name_idx                 UInt32?
+debug_positions
+  file_id                  UInt32
+  method_idx               UInt32
+  debug_info_off           UInt32
+  ordinal                  UInt32
+  address                  UInt32
+  line                     Int32
+  source_file_idx          UInt32?
+  prologue_end             Boolean
+  epilogue_begin           Boolean
+debug_locals
+  file_id                  UInt32
+  method_idx               UInt32
+  debug_info_off           UInt32
+  ordinal                  UInt32
+  address                  UInt32
+  event                    Utf8
+  register_num             UInt32
+  name_idx                 UInt32?
+  type_idx                 UInt32?
+  signature_idx            UInt32?
+debug_opcodes
+  file_id                  UInt32
+  method_idx               UInt32
+  debug_info_off           UInt32
+  ordinal                  UInt32
+  opcode_off               UInt32
+  opcode_end_off           UInt32
+  opcode                   UInt32
+  address                  UInt32
+  line                     Int32
+  address_diff             UInt32?
+  line_diff                Int32?
+  register_num             UInt32?
+  name_idx                 UInt32?
+  type_idx                 UInt32?
+  signature_idx            UInt32?
+  source_file_idx          UInt32?
+  emits_position           Boolean
+  emits_local              Boolean
+annotation_directories
+  file_id                  UInt32
+  class_idx                UInt32
+  annotations_off          UInt32
+  class_annotations_off    UInt32?
+  fields_size              UInt32
+  methods_size             UInt32
+  parameters_size          UInt32
+annotation_directory_entries
+  file_id                  UInt32
+  class_idx                UInt32
+  annotations_off          UInt32
+  entry_kind               Utf8
+  entry_idx                UInt32
+  annotation_set_off       UInt32?
+  annotation_set_ref_list_off UInt32?
+annotation_sets
+  file_id                  UInt32
+  annotation_set_off       UInt32
+  size                     UInt32
+annotation_set_entries
+  file_id                  UInt32
+  annotation_set_off       UInt32
+  ordinal                  UInt32
+  annotation_off           UInt32
+annotation_set_ref_lists
+  file_id                  UInt32
+  annotation_set_ref_list_off UInt32
+  size                     UInt32
+annotation_set_refs
+  file_id                  UInt32
+  annotation_set_ref_list_off UInt32
+  ordinal                  UInt32
+  annotation_set_off       UInt32?
+annotations
+  file_id                  UInt32
+  annotation_off           UInt32
+  visibility               UInt32
+  type_idx                 UInt32
+  element_count            UInt32
+annotation_elements
+  file_id                  UInt32
+  annotation_off           UInt32
+  depth                    UInt32
+  ordinal                  UInt32
+  name_idx                 UInt32?
+  value_off                UInt32
+  value_end_off            UInt32
+  value_kind               Utf8
+  value_index              UInt32?
+  value_i64                Int64?
+  value_f64                Float64?
+method_refs
+  file_id                  UInt32
+  class_idx                UInt32
+  method_idx               UInt32
+  index_kind               Dictionary(Int8, Utf8)
+  index                    UInt32
+  using_type               Utf8?
+method_numbers
+  file_id                  UInt32
+  class_idx                UInt32
+  method_idx               UInt32
+  opcode                   UInt32
+  number_type              Dictionary(Int8, Utf8)
+  long_value               Int64
+  double_value             Float64?
+method_using_numbers
+  method                   Utf8View
+  method_class             Utf8View
+  method_name              Utf8View
+  number_type              Dictionary(Int8, Utf8)
+  long_value               Int64
+  double_value             Float64?
+  opcode                   UInt32
+  file_id                  UInt32
+  class_idx                UInt32
+  method_idx               UInt32
+method_strings
+  method                   Utf8View
+  method_class             Utf8View
+  method_name              Utf8View
+  value                    Utf8View
+  file_id                  UInt32
+  class_idx                UInt32
+  method_idx               UInt32
+  string_idx               UInt32
+method_calls
+  method                   Utf8View
+  method_class             Utf8View
+  method_name              Utf8View
+  callee                   Utf8View
+  callee_class             Utf8View
+  callee_name              Utf8View
+  file_id                  UInt32
+  class_idx                UInt32
+  method_idx               UInt32
+  callee_method_idx        UInt32
+method_field_accesses
+  method                   Utf8View
+  method_class             Utf8View
+  method_name              Utf8View
+  field                    Utf8View
+  field_class              Utf8View
+  field_name               Utf8View
+  field_type               Utf8View
+  using_type               Utf8?
+  file_id                  UInt32
+  class_idx                UInt32
+  method_idx               UInt32
+  field_idx                UInt32
+method_used_types
+  method                   Utf8View
+  method_class             Utf8View
+  method_name              Utf8View
+  type_descriptor          Utf8View
+  type_name                Utf8View
+  file_id                  UInt32
+  class_idx                UInt32
+  method_idx               UInt32
+  type_idx                 UInt32
+annotation_values
+  file_id                  UInt32
+  class_idx                UInt32
+  owner_kind               Dynamic
+  owner_idx                UInt32
+  owner_descriptor         Utf8?
+  parameter_idx            Dynamic?
+  annotation_off           UInt32
+  annotation_type_idx      UInt32
+  annotation_descriptor    Utf8
+  depth                    UInt32
+  ordinal                  UInt32
+  name_idx                 UInt32?
+  name                     Utf8?
+  value_kind               Utf8
+  value_i64                Int64?
+  value_f64                Float64?
+annotation_elements_resolved
+  file_id                  UInt32
+  class_idx                UInt32
+  owner_kind               Dynamic
+  owner_idx                UInt32
+  owner                    Utf8?
+  parameter_idx            Dynamic?
+  annotation               Utf8
+  visibility               UInt32
+  element_count            UInt32
+  annotation_off           UInt32
+  element_ordinal          UInt32?
+  element_name             Utf8?
+  value_kind               Utf8?
+  value_index              UInt32?
+  value_i64                Int64?
+  value_f64                Float64?
+  retention_policy         Dynamic?

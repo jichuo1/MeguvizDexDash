@@ -1,0 +1,93 @@
+{
+  "record_kind": "conditional_projection_from_historical_observations",
+  "engine_implemented": false,
+  "source_sha256": "bf4ca0cd3df35dab13ed1a83dedf92e5b6dfa485e4d48611d424cf8462b01f7d",
+  "source_run_url": "https://github.com/jichuo1/innocent-lab-host-analysis/actions/runs/40067936875",
+  "formula": "E_new = P + R + O + S / s_S + F / s_F",
+  "assumptions": [
+    "Only the complete S and F composite phases change.",
+    "Identical work and correctness, no additional overhead.",
+    "One historical A0 observation per sample; not p95 or a B result.",
+    "S/F include engine, transport and consumer work; not pure parsing."
+  ],
+  "samples": [
+    {
+      "version_code": 9170100,
+      "input_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "historical_observations": 1,
+      "measured_seconds": {
+        "E": 94.63014286600003,
+        "P": 1.442956307999907,
+        "S": 13.663421107000088,
+        "F": 56.52524726499996,
+        "R": 0.2534249609999506,
+        "O": 22.74509322500012
+      },
+      "scenarios": [
+        {
+          "name": "structural_surface_1_5x",
+          "assumed_structural_speedup": 1.5,
+          "assumed_surface_speedup": 1.5,
+          "projected_seconds": 71.23392007533334,
+          "time_reduction_percent": 24.723858679783085,
+          "whole_task_speedup": 1.3284421630302534
+        },
+        {
+          "name": "structural_surface_2x",
+          "assumed_structural_speedup": 2.0,
+          "assumed_surface_speedup": 2.0,
+          "projected_seconds": 59.53580868,
+          "time_reduction_percent": 37.085788019674624,
+          "whole_task_speedup": 1.5894659863382246
+        },
+        {
+          "name": "structural_2x_surface_3x",
+          "assumed_structural_speedup": 2.0,
+          "assumed_surface_speedup": 3.0,
+          "projected_seconds": 50.11493413583334,
+          "time_reduction_percent": 47.041257026529024,
+          "whole_task_speedup": 1.8882623413114952
+        }
+      ]
+    },
+    {
+      "version_code": 9161100,
+      "input_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "historical_observations": 1,
+      "measured_seconds": {
+        "E": 85.57221953299995,
+        "P": 1.3083350089999612,
+        "S": 11.911596121000002,
+        "F": 50.80152401199996,
+        "R": 0.24118263499997283,
+        "O": 21.309581756000057
+      },
+      "scenarios": [
+        {
+          "name": "structural_surface_1_5x",
+          "assumed_structural_speedup": 1.5,
+          "assumed_surface_speedup": 1.5,
+          "projected_seconds": 64.6678461553333,
+          "time_reduction_percent": 24.42892505505846,
+          "whole_task_speedup": 1.323257609778034
+        },
+        {
+          "name": "structural_surface_2x",
+          "assumed_structural_speedup": 2.0,
+          "assumed_surface_speedup": 2.0,
+          "projected_seconds": 54.21565946649997,
+          "time_reduction_percent": 36.643387582587685,
+          "whole_task_speedup": 1.5783672166871878
+        },
+        {
+          "name": "structural_2x_surface_3x",
+          "assumed_structural_speedup": 2.0,
+          "assumed_surface_speedup": 3.0,
+          "projected_seconds": 45.74873879783331,
+          "time_reduction_percent": 46.53786118029715,
+          "whole_task_speedup": 1.870482592124544
+        }
+      ]
+    }
+  ]
+}

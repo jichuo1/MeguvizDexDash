@@ -1,0 +1,564 @@
+{
+  "schema_version": "mdd.dependencies.v1",
+  "rust": "1.99.0",
+  "msrv": "1.99",
+  "lock_sha256": "7551adda1d3723e7c67add01b8fe12c2ee84e39c9c0329936b1193d856bcad00",
+  "approved_direct_dependencies": [
+    "serde",
+    "serde_json",
+    "sha2",
+    "zip",
+    "rusqlite",
+    "getrandom"
+  ],
+  "platform_validation": {
+    "windows_x86_64": "native build probe passed",
+    "linux_x86_64": "pending native CI"
+  },
+  "sqlite_profile": "bundled; no load_extension; vtab/functions/collation/hooks/limits",
+  "zip_profile": "no default features; DEFLATE zlib-rs only",
+  "packages": [
+    {
+      "name": "bitflags",
+      "version": "2.13.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/bitflags/bitflags",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "562e660adbb084de042fc9ecc5ac7ba32b5f565d53188823bab9159a027b2b44",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "block-buffer",
+      "version": "0.12.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/RustCrypto/utils",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "f21191120ab1d04327657b7125f25b0e3f2bce34af5e921d3c66d24de11d5e60",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "cc",
+      "version": "1.5.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "d801205e81384fbbffddd0440ef29b034f4f03c2752e0ca5e68a13568801eaaf",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "cfg-if",
+      "version": "1.0.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-lang/cfg-if",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "d646663ec1bd4e8e795bd6a386cff9c374880d6237bbfa36bbac08b7f26ce65c",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "const-oid",
+      "version": "0.10.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/RustCrypto/formats",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "591ac78fc8cd99d8a31110e8cb572534bb9d04af23bc48db855a34d4a6c78569",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "cpufeatures",
+      "version": "0.3.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/RustCrypto/utils",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "2e82ee61a94e8ef99197ca59723e9794d0f08363f28bacab680292af6ccdde61",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "crc32fast",
+      "version": "1.5.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/srijs/rust-crc32fast",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "default",
+        "std"
+      ],
+      "cached_manifest_sha256": "30261035ec5967fb1560c961b2d5205dd1e54d2b2a2e07151e40b0749ca9d080",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "crypto-common",
+      "version": "0.2.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/RustCrypto/traits",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "1b47561054dd2fe13246f2f6e19c29eac256269e02c96162fd6efed28247e78a",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "digest",
+      "version": "0.11.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/RustCrypto/traits",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "alloc",
+        "block-api",
+        "default",
+        "oid"
+      ],
+      "cached_manifest_sha256": "59c4f2cba7e34831c87e8f4844718d91d0f276af7bd192de76fda7d5a8978eb9",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "equivalent",
+      "version": "1.0.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/indexmap-rs/equivalent",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "92fcf6d8b32d99f40a5053b9026e417c958d6f5f19581c632d675211b7eeb9f9",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "fallible-iterator",
+      "version": "0.3.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/sfackler/rust-fallible-iterator",
+      "license": "MIT/Apache-2.0",
+      "license_file": null,
+      "features": [
+        "alloc",
+        "default"
+      ],
+      "cached_manifest_sha256": "1eefc77c1092c098db3822fd01220a0015a1e3851320a953665823fb9b46b4c1",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "fallible-streaming-iterator",
+      "version": "0.1.9",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/sfackler/fallible-streaming-iterator",
+      "license": "MIT/Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "9af8cd50237f6a32a46ae7d0f3d39555dc7cdb97b247535c191582a4a299d58c",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "find-msvc-tools",
+      "version": "0.1.14",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "93c75555b239de87c5869944510eb5ceff973a9bf85ddcd3113d2833d5137431",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "flate2",
+      "version": "1.1.10",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-lang/flate2-rs",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "any_impl",
+        "any_zlib",
+        "zlib-rs"
+      ],
+      "cached_manifest_sha256": "1365f28dd7ad9f83ebcc9afd545d7cdcedb284bf6e059081b0e1d1847ce6a94e",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "getrandom",
+      "version": "0.4.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-random/getrandom",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "4f107fe4ceacee71d0068cfbbc69554b3d8523a1fcbb99b17e9fa0d008961ff9",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-lang/hashbrown",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "afcb0e62d498f756bd4ddf69785c8282d01ee4fa40016158c7eac12ceb302f8c",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "hybrid-array",
+      "version": "0.4.15",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/RustCrypto/hybrid-array",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "0f4ca21a2707a25425c1b7f8977a7534bd350c0c650cdea4c49497397a5a8aa8",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "indexmap",
+      "version": "2.14.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/indexmap-rs/indexmap",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "features": [
+        "default",
+        "std"
+      ],
+      "cached_manifest_sha256": "7b2aec83d5afb43fa5788bda468ce1d65df9dd8f406058e2eada3546ef906ea1",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "itoa",
+      "version": "1.0.18",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/dtolnay/itoa",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "894c215e4e7e973b556b0e9627bf9b6a719a043fac9b5af9838660816392a09f",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "libc",
+      "version": "0.2.189",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-lang/libc",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "95159789ef9c9aaee8230b13be5c89594833a7bf2db299e61eb23b512cb67144",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "libsqlite3-sys",
+      "version": "0.38.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rusqlite/rusqlite",
+      "license": "MIT",
+      "license_file": null,
+      "features": [
+        "bundled",
+        "bundled_bindings",
+        "cc",
+        "default",
+        "min_sqlite_version_3_34_1",
+        "pkg-config",
+        "vcpkg"
+      ],
+      "cached_manifest_sha256": "ce2c66104c29834e8c5e875f765e2ddfc577b9366b1ccef80f3680c2039948b3",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "memchr",
+      "version": "2.8.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/BurntSushi/memchr",
+      "license": "Unlicense OR MIT",
+      "license_file": null,
+      "features": [
+        "alloc",
+        "default",
+        "std"
+      ],
+      "cached_manifest_sha256": "a14f68b8fa55f15fd03b15dced37bcf66a0a628f568eedc82817cdb7f9281951",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "pkg-config",
+      "version": "0.3.34",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rust-lang/pkg-config-rs",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "26612dc6bbb8c045f4c91f95fc026b926e9adb942655dddfd21ffecf2595b70b",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/dtolnay/proc-macro2",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "proc-macro"
+      ],
+      "cached_manifest_sha256": "6bdbe54a7f052e552dcfca90351764476e2767237ec3f954df8bd9f602861056",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "quote",
+      "version": "1.0.47",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/dtolnay/quote",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "proc-macro"
+      ],
+      "cached_manifest_sha256": "13d8c50837f14aff48cd622349f98fb2c46350b7a0c08fd574cf7de4def27d06",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "r-efi",
+      "version": "6.0.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/r-efi/r-efi",
+      "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "a021f9fb0645cc5de5770cf7f41594c1deff4b388eca933b289752aa52666829",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "rusqlite",
+      "version": "0.40.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/rusqlite/rusqlite",
+      "license": "MIT",
+      "license_file": null,
+      "features": [
+        "bundled",
+        "collation",
+        "functions",
+        "hooks",
+        "limits",
+        "modern_sqlite",
+        "vtab"
+      ],
+      "cached_manifest_sha256": "e8213c0b968070c507f57ea6d87db4bd92c5453886981525c400a6eba8565dc7",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "serde",
+      "version": "1.0.229",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/serde-rs/serde",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "default",
+        "derive",
+        "serde_derive",
+        "std"
+      ],
+      "cached_manifest_sha256": "6883caefd46e86eb15d22d3a6d274ad304c5e7934ab70eb58d81b7c4a29ef9db",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "serde_core",
+      "version": "1.0.229",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/serde-rs/serde",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "result",
+        "std"
+      ],
+      "cached_manifest_sha256": "c6049e170e4f7c2b48749fefab59db583bfac4e466cde6d0c53e4f49bc5044f7",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "serde_derive",
+      "version": "1.0.229",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/serde-rs/serde",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "default"
+      ],
+      "cached_manifest_sha256": "d2581160ffa61baa386f882e08b0db20051dc3c782a82268d6473998b61c926e",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "serde_json",
+      "version": "1.0.151",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/serde-rs/json",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "default",
+        "std"
+      ],
+      "cached_manifest_sha256": "00b920255c320a278bf25b962b491263a19d8c90e12e4a91c1d823db71eabb2f",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "sha2",
+      "version": "0.11.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/RustCrypto/hashes",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "alloc",
+        "default",
+        "oid"
+      ],
+      "cached_manifest_sha256": "bb187fe9b788b66dc91c717ace2a41b5da5518672a302696ab79bf4619d510a9",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "shlex",
+      "version": "2.0.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/comex/rust-shlex",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "default",
+        "std"
+      ],
+      "cached_manifest_sha256": "b6ead6cf404555ced33f7574c6c11413e29e7bcd5eb0ceeb59452830a46675ed",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "smallvec",
+      "version": "1.16.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/servo/rust-smallvec",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "d9bc8a6b4b295048bc0dbc0c0cae4916095d3cef4870fb93cb0587e00eb8ca72",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "syn",
+      "version": "3.0.6",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/dtolnay/syn",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "clone-impls",
+        "derive",
+        "parsing",
+        "printing",
+        "proc-macro"
+      ],
+      "cached_manifest_sha256": "69b7b5a4f75d37bac9745ced65bf9b715ddc4ecb32308df7d796c55e9cbae40f",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "typed-path",
+      "version": "0.12.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/chipsenkbeil/typed-path",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "default",
+        "std"
+      ],
+      "cached_manifest_sha256": "dc7acd82bde402178e6dadb77c67a5cb9345baf644b364876c884f21dac2019b",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "typenum",
+      "version": "1.20.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/paholg/typenum",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "features": [
+        "const-generics"
+      ],
+      "cached_manifest_sha256": "00785a81eae34b3298dfdde78a6bd96fe3ec000de46edd509bd13b7cab7a9870",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.26",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/dtolnay/unicode-ident",
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "f70dabc0fe831788a202762e62cc76c19941680960e2e2710d1ee9e79877d9af",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "vcpkg",
+      "version": "0.2.15",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/mcgoo/vcpkg-rs",
+      "license": "MIT/Apache-2.0",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "033f71986b9ec8b8d1fcef7fa8c2c02abafb5655e10b1bbe405b9465e80108b4",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "zip",
+      "version": "8.6.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/zip-rs/zip2",
+      "license": "MIT",
+      "license_file": null,
+      "features": [
+        "_deflate-any",
+        "deflate-flate2",
+        "deflate-flate2-zlib-rs"
+      ],
+      "cached_manifest_sha256": "bd9c1fe5aac7f8cf9864121f159a829ba298cb4037e7abe3e8f41efba236dc71",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "zlib-rs",
+      "version": "0.6.8",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/trifectatechfoundation/zlib-rs",
+      "license": "Zlib",
+      "license_file": null,
+      "features": [
+        "rust-allocator"
+      ],
+      "cached_manifest_sha256": "85e89ef7d52508403f921caba72bb16545815e928083b6ab4ffecb8bf65c96b6",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    },
+    {
+      "name": "zmij",
+      "version": "1.0.23",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "repository": "https://github.com/dtolnay/zmij",
+      "license": "MIT",
+      "license_file": null,
+      "features": [],
+      "cached_manifest_sha256": "b31420c7a806fae5b9ea2438dd4cbb99dcb3a22da67697fdf2776cc44a69527e",
+      "license_review": "declared SPDX expression recorded; distribution notices must accompany a release"
+    }
+  ],
+  "project_distribution_license": "not selected; private development repository only"
+}

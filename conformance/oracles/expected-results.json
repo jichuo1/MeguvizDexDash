@@ -1,0 +1,41 @@
+{
+  "schema_version": "mdd.handwritten-expectations.v1",
+  "provenance": "Manually reviewed table layout and instruction operands; this file is not written by generate.py.",
+  "structured-035": {
+    "strings_utf16": [
+      [76,102,105,120,116,117,114,101,47,65,59],
+      [76,106,97,118,97,47,108,97,110,103,47,79,98,106,101,99,116,59],
+      [86], [99,97,108,108,101,114], [110,97,116,105,118,101,78,111,66,111,100,121],
+      [116,97,114,103,101,116], [119,105,116,104,84,114,121]
+    ],
+    "method_definitions": [
+      {"method_idx":0,"access_flags":9,"code_off":304},
+      {"method_idx":1,"access_flags":265,"code_off":0},
+      {"method_idx":2,"access_flags":9,"code_off":336},
+      {"method_idx":3,"access_flags":9,"code_off":356}
+    ],
+    "call_sites": [
+      {"caller_method_idx":0,"code_unit_pc":0,"target_method_idx":2,"opcode":"invoke-static"},
+      {"caller_method_idx":0,"code_unit_pc":3,"target_method_idx":2,"opcode":"invoke-static"}
+    ],
+    "code_items": [
+      {"name":"caller","offset":304,"insns_hex":"7100020000007100020000000e00","insns_size_code_units":7},
+      {"name":"target","offset":336,"insns_hex":"0e00","insns_size_code_units":1},
+      {"name":"withTry","offset":356,"insns_hex":"120027000d000e00","insns_size_code_units":4}
+    ],
+    "derivation": "Fixed tables occupy bytes 112..227. Seven length-prefixed strings end at 303; code items align to 304,336,356. invoke-static format 35c has three code units, so repeated sites are PCs 0 and 3. Native static method flags 0x109 require code_off=0. Catch-all handler list is 01 00 02 and try handler_off=1."
+  },
+  "strings-mutf8-035": {"strings_utf16":[[],[0],[65],[20013],[55296],[55357,56832],[56320]]},
+  "class-reorder": {
+    "semantic_classes": [
+      {"descriptor":"Lfixture/A;","flags":1,"superclass":"Ljava/lang/Object;","methods":[{"owner":"Lfixture/A;","name":"a","proto":"()V","flags":265,"body":null}]},
+      {"descriptor":"Lfixture/B;","flags":1,"superclass":"Ljava/lang/Object;","methods":[{"owner":"Lfixture/B;","name":"b","proto":"()V","flags":265,"body":null}]}
+    ],
+    "before_class_def_order":["Lfixture/A;","Lfixture/B;"],
+    "after_class_def_order":["Lfixture/B;","Lfixture/A;"],
+    "derivation":"A and B independently extend external Object, so either class_def order respects superclass topology. Sorted string/type/proto/method ID arrays retain mandated ordering. string_data and class_data physical order reverses; string_id offsets and each class_data_off are rewritten. method_id.class_idx always indexes type_ids, never class_def_idx; each native method retains its owner, name, proto, flags and absent body."
+  },
+  "cross_dex_identity": {"source":"duplicate-content.apk","occurrences":2,"physical_member_ordinals":[0,1],"type_idx_zero_per_occurrence":2,"content_dedup_must_not_remove_occurrences":true},
+  "resource": {"manifest-minimal.axml":{"root_chunk_type":3,"child_chunk_types":[1,258,259],"root_element":"manifest","attributes":0,"resource_semantics_external_oracle":"not_run"}},
+  "outcomes": {"zero_tables":"complete only for requested header/map scope, never a full audit", "unsupported_magic":"unsupported capability; not malformed input fallback", "bad_member":"input coverage cannot be complete", "unbuilt_facts":"incomplete facts; not zero-row absence proof"}
+}

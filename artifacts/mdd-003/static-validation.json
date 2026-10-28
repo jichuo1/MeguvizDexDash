@@ -1,0 +1,13 @@
+{
+  "static_contract_checks": "passed",
+  "query_families": 16,
+  "reference_relations": 56,
+  "required_relations": 17,
+  "all_queries_explicitly_not_run": true,
+  "fresh_result_goldens": 0,
+  "precise_source_expressions": 38,
+  "projection_columns_include_ordinals_types_nullability": true,
+  "Q03_exact_projection_columns": 2,
+  "dynamic_Q14_Q16_sources_preserved": true,
+  "profile_admitted": false
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "mdd.dex-header-cases.v1",
+  "implementation": "crates/mdd-dex/src/header.rs",
+  "entry_point": "mdd_dex::validate_header(&[u8]) -> MddResult<DexHeader>",
+  "input_ownership": "Caller-held immutable slice; reader never opens a source path. Upper snapshot layer binds source/dex occurrence to diagnostics.",
+  "admitted_header_versions": ["035","037","038","039","040"],
+  "endian": {"little":"validated in this scope","reverse":"UNSUPPORTED_CAPABILITY/REVERSE_ENDIAN_UNSUPPORTED","invalid_tag":"INVALID_INPUT/INVALID_ENDIAN_TAG"},
+  "validated_scope": "standard-le-header-map-fixed-references-v1",
+  "cases": [
+    {"group":"positive-versions","fixtures":["minimal-035.dex","minimal-037.dex","minimal-038.dex","minimal-039.dex","minimal-040.dex"],"expected":"Header/map validation returns exact version; not full DEX validation."},
+    {"group":"structured-and-relocated","fixtures":["structured-035.dex","strings-mutf8-035.dex","class-reorder-before.dex","class-reorder-after.dex"],"expected":"Fixed table references and offsets are in declared map sections. MUTF-8 contents remain outside this header API's claim."},
+    {"group":"unsupported","fixtures":["unsupported-036.dex","unsupported-041.dex"],"additional_magic":["cdex001","vdex019","oat170"],"expected":"UNSUPPORTED_CAPABILITY with exact reason; not invalid-input fallback."},
+    {"group":"malformed","fixtures":["bad-magic.dex","truncated-header.dex","bad-checksum.dex","bad-map-offset.dex","table-count-overflow.dex"],"expected":"INVALID_INPUT with reason, failure layer, byte range and incomplete validation state."},
+    {"group":"checked-arithmetic","cases":["u64 offset+length overflow","u64 count*stride overflow","end-of-buffer empty range","read crossing end","all structured DEX prefix truncations"],"expected":"No panic, no unchecked read, explicit InvalidInput."},
+    {"group":"map","cases":["duplicate kind","zero/huge count","unaligned/backward/overlap offset","header/map mismatch","unknown map kind","map missing"],"expected":"Concrete INVALID_INPUT reason; unknown map structure is not reclassified as unsupported."},
+    {"group":"fixed-references","cases":["string_data offset to header","string_data offset beyond file","type descriptor index","proto shorty/return index","method owner/proto/name index","class type/super/source index","class_data offset to wrong section"],"expected":"Fixed index and pointed-region boundary errors are rejected before exposure."},
+    {"group":"signature-scope","fixtures":["bad-signature.dex"],"expected":"Adler32 can pass after SHA1 mutation; signature_verified=false and full_dex_validation_complete=false remain explicit. This API grants no strict full-input qualification."}
+  ],
+  "implemented_reference_checks": ["string_ids -> string_data section","type_ids -> string_ids","proto shorty/return/type_list indices","field owner/type/name indices","method owner/proto/name indices","class type/super/source/interface indices","class annotations/class_data/static_values pointed-section ranges","call_site -> encoded_array pointed-section range","method_handle kind/reserved/field-or-method indices"],
+  "deferred_validation": ["SHA1 signature","MUTF-8 decoding and ordering","descriptor/name semantics","full class_data delta streams","annotations/encoded values","full code/instruction/payload/try/debug facts","ART verifier semantics","complete 036/041/CDex/VDEX/OAT formats"],
+  "qualification": "M1 header/map/fixed-reference scope only; no complete facts, HostLab profile or full-file validity qualification.",
+  "source_reference": "https://source.android.com/docs/core/runtime/dex-format",
+  "fixed_source_anchor": "platform/art@6484611fd45e69db9f33f98bfd6864014b030ecf"
+}

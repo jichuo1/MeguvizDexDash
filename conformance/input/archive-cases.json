@@ -1,0 +1,118 @@
+{
+  "schema_version": "mdd.archive-cases.v1",
+  "task": "MDD-012",
+  "implementation": "crates/mdd-input/src/archive/",
+  "input_requirement": "CapturedSource owned bytes only; source paths are never reopened by archive module",
+  "policies": {
+    "top_level_classes": {
+      "selection": "ASCII classes followed by zero or more decimal digits and .dex, no slash",
+      "duplicate_selected_names": "reject by default; caller may explicitly preserve",
+      "order": "source occurrence then physical central directory ordinal, not filename sorting"
+    },
+    "all_dex_members": {
+      "selection": "raw member name ends in .dex, including nested and unsafe path-like names read only as archive identities",
+      "duplicates": "preserve when reject_duplicate_selected_names=false"
+    },
+    "resources_only": {
+      "selection": "no DEX required",
+      "require_dex": false,
+      "raw_dex_input": "INVALID_ARGUMENT"
+    }
+  },
+  "budget_limits": [
+    "max_members",
+    "max_directory_bytes",
+    "max_member_bytes",
+    "max_total_uncompressed_bytes"
+  ],
+  "source_identity": {
+    "member": "source occurrence + physical central ordinal; raw DEX has no archive ordinal",
+    "physical_dex": "content identity + physical container offset zero for qualified standard-layout candidate",
+    "dex_occurrence": "source/member identity + logical header offset zero",
+    "same_content": "may share physical ID; logical occurrence IDs remain distinct"
+  },
+  "cases": [
+    {
+      "fixture": "multidex-stored.apk",
+      "expected": "4 physical members, 2 selected DEXes, exact raw resources and independent DEX hashes"
+    },
+    {
+      "fixture": "multidex-deflated.apk",
+      "expected": "same logical inventory and bytes as stored; decompressor and CRC complete before result publication"
+    },
+    {
+      "fixture": "renamed-member.apk",
+      "expected": "all-dex selection retains renamed.dex; top-level selection scope differs explicitly"
+    },
+    {
+      "fixture": "duplicate-content.apk",
+      "expected": "2 selected occurrences, same content and physical ID, distinct dex occurrence IDs"
+    },
+    {
+      "fixture": "duplicate-name.apk",
+      "expected": "2 physical members via explicit generic preserve policy; default duplicate selection rejected AMBIGUOUS_ENTITY"
+    },
+    {
+      "fixture": "member-policy.apk",
+      "expected": "top-level selects central ordinals 0/1; generic selects all four, never writes ../escape.dex"
+    },
+    {
+      "fixture": "invalid-dex-member.apk",
+      "expected": "INVALID_INPUT, selected_dex_magic; no successful inventory result"
+    },
+    {
+      "fixture": "bad-crc.apk",
+      "expected": "INVALID_INPUT at archive.member_bytes, partial input coverage"
+    },
+    {
+      "generated_in_test": "resource-only archive",
+      "expected": "zero selected DEX with explicit resources-only scope; original resource bytes available by member ID"
+    },
+    {
+      "generated_in_test": "same-size preserved-mtime source rewrite + rename",
+      "expected": "inventory, raw resources and selected DEXes continue reading captured generation"
+    },
+    {
+      "generated_in_test": "zero member/directory/member-byte/total budgets",
+      "expected": "QUOTA_EXCEEDED before unbounded metadata/output allocation"
+    },
+    {
+      "generated_in_test": "data descriptor",
+      "expected": "valid descriptor accepted; corrupted descriptor invalid; descriptor offsets checked"
+    },
+    {
+      "generated_in_test": "invalid UTF-8 raw member name",
+      "expected": "raw bytes preserved; name_utf8=None; no replacement string used for identity"
+    },
+    {
+      "generated_in_test": "declared uncompressed size mismatch",
+      "expected": "INVALID_INPUT before exposing bytes"
+    },
+    {
+      "generated_in_test": "partially overlapping physical ranges",
+      "expected": "INVALID_INPUT before member decode"
+    },
+    {
+      "fixtures": [
+        "unsupported-036.dex",
+        "unsupported-041.dex"
+      ],
+      "expected": "UNSUPPORTED_CAPABILITY; no unsupported container represented as a complete single logical DEX"
+    }
+  ],
+  "completion_boundaries": {
+    "directory_complete": "all selected-scope archive metadata enumerated and range-checked",
+    "selected_dex_bytes_complete": "selected bytes fully decoded/CRC checked and magic recognized; not DEX facts qualification",
+    "resource_bytes": "lazy validation per read; unread resources are not called validated",
+    "dex_facts": "MDD-013 and later required"
+  },
+  "unqualified": [
+    "ZIP64",
+    "multi-volume archives",
+    "encrypted members",
+    "non-STORE/DEFLATE codecs",
+    "Linux native runtime",
+    "full HostLab compatibility",
+    "performance"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": "mdd.baseline-plan.v1",
+  "date": "2026-10-28",
+  "readiness": "blocked",
+  "record_kind": "preregistered_plan_not_a_measurement",
+  "reference_hostlab_commit": "8782f43d537c442905123e35af325c412caa5188",
+  "environment": {
+    "path": "artifacts/bootstrap/20261028/environment.json",
+    "sha256": "d336a75eb089bfe202206daff55f027df41bed4f103fcb32c044df91750a185f",
+    "resource_budget_verified": false,
+    "scope": "development environment metadata; not a dedicated performance reservation"
+  },
+  "inputs": [
+    {
+      "occurrence_id": "hostlab-9170100",
+      "path": null,
+      "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "bytes": "243687778",
+      "availability": "not_bound_to_this_harness"
+    },
+    {
+      "occurrence_id": "hostlab-9161100",
+      "path": null,
+      "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "bytes": "226519215",
+      "availability": "not_bound_to_this_harness"
+    }
+  ],
+  "variants": [
+    {
+      "id": "A0",
+      "included": false,
+      "product": "DexSQL",
+      "version": "0.1.0",
+      "expected_linux_x64_sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
+      "status": "driver_not_configured",
+      "observed_windows_binary": {
+        "group": "A0",
+        "version": "0.1.0",
+        "platform": "windows_amd64",
+        "actual_path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "expected_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+        "actual_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+        "bytes": 21365760,
+        "status": "verified_available",
+        "version_observed": "dexsql 0.1.0",
+        "executed_scope": "version/help/schema only",
+        "origin_url": "https://github.com/LSPosed/dexsql-release/releases/download/v0.1.0/dexsql-windows-amd64.exe"
+      },
+      "note": "Windows version/help/schema verified only; complete workload driver and performance qualification missing. Linux hash is a separate historical identity."
+    },
+    {
+      "id": "A1",
+      "included": false,
+      "product": "DexSQL",
+      "version": "0.1.1",
+      "expected_linux_x64_sha256": "f35c57610fcee62864e68f12e51997621375c025447aa2f32a0be9eb2df464bc",
+      "status": "driver_not_configured"
+    },
+    {
+      "id": "A2",
+      "included": false,
+      "product": "existing deployable optimized path",
+      "version": null,
+      "status": "not_evaluated",
+      "exclusion_is_not_qualified": true
+    },
+    {
+      "id": "B0",
+      "included": false,
+      "product": "MeguvizDexDash",
+      "status": "not_implemented",
+      "fixed_contract": "same query scheduling, final complete DTO, rule consumer, timing window; wire need not copy old table/hex"
+    },
+    {
+      "id": "B1",
+      "included": false,
+      "product": "MeguvizDexDash",
+      "status": "not_implemented",
+      "fixed_contract": "typed batch plus HostLab adapter; producer/transport attribution separate"
+    }
+  ],
+  "workload_catalog": "benchmarks/workloads/initial.json",
+  "required_workloads": [
+    "W01",
+    "W02",
+    "W03",
+    "W04",
+    "W05",
+    "W06",
+    "W07",
+    "W08",
+    "W09",
+    "W10",
+    "W11",
+    "W12"
+  ],
+  "timing_windows": {
+    "primary": "complete producer-to-consumer final DTO, including validation",
+    "hostlab": "E/P/S/F/R/O actual scopes; R and O residuals retained",
+    "not_additive": [
+      "producer and consumer overlap",
+      "CPU seconds and wall seconds"
+    ]
+  },
+  "performance_policy": {
+    "status": "proposed_uncalibrated",
+    "minimum_pairs_per_workload": 10,
+    "independent_time_blocks": 2,
+    "run_order": "alternating paired blocks",
+    "warmups_per_variant": 1,
+    "audit_and_bulk_minimum_paired_median_reduction": 0.1,
+    "other_required_maximum_reproducible_regression": 0.05,
+    "p95_minimum_independent_requests": 100,
+    "best_baseline": "strongest semantically qualified deployable A0/A1/A2 per workload",
+    "historical_37_47_percent": "conditional A0 targets only"
+  },
+  "cache_policy": {
+    "scenario": "process-cold / OS-warm",
+    "cold_disk_claim": false,
+    "persistent_and_resident_cases": "separate workloads; no prebuilt sidecar costs omitted"
+  },
+  "measurement_constraints": {
+    "exclusive_machine_window_required": true,
+    "same_total_cpu_budget": true,
+    "same_input_occurrences": true,
+    "same_rules_and_final_dto": true,
+    "complete_consumption_and_certificate_required": true,
+    "failed_and_contaminated_trials_retained": true,
+    "no_production_default_switch": true
+  },
+  "remaining": [
+    "bind actual executable/driver/input/environment hashes",
+    "implement audited workload-specific full DTO drivers and paired scheduler",
+    "verify POSIX supervisor on native Linux or implement native Windows job supervisor",
+    "obtain full equivalence before any speed claim"
+  ],
+  "observed_runs": [],
+  "actual_binary_registry": "conformance/manifests/engine-binaries.json",
+  "input_registry": "conformance/manifests/input-corpus.json"
+}

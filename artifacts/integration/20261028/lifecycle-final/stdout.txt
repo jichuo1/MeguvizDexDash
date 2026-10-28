@@ -1,0 +1,29 @@
+
+running 8 tests
+test tests::computation_delivery_and_catalog_generations_remain_distinct ... ok
+test tests::handles_reject_wrong_owner_parent_generation_and_released_identity ... ok
+test tests::abandoned_cursors_cannot_be_released_into_delivery_success ... ok
+test tests::snapshot_close_and_release_preserve_existing_owned_leases ... ok
+test tests::concurrent_close_and_computation_never_reopen_a_cancelled_query ... ok
+test tests::shared_budget_reservations_and_releases_are_enforced_across_sessions ... ok
+test tests::worker_loss_fails_every_unfinished_request_but_keeps_completed_terminal ... ok
+test tests::deadlines_cover_queue_time_and_zero_is_not_unlimited ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 1 test
+test lifecycle::tests::supervisor_observes_real_process_exit_pipe_close_and_limits ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.48s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

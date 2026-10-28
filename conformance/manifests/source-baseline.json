@@ -1,0 +1,193 @@
+{
+  "schema_version": "mdd.source-baseline.v1",
+  "project": "MeguvizDexDash",
+  "workspace": "D:\\MeguvisDexDash",
+  "reference_hostlab_commit": "8782f43d537c442905123e35af325c412caa5188",
+  "reference_sources": [
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_graph.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_graph.py",
+      "sha256": "bcad2ba7e9a02bff07e08291960cf25c2d8f36474d3a5295188d180ed7bdf085",
+      "bytes": 13971,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_rules.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_rules.py",
+      "sha256": "00487b4d0e2ccf16b8437cc528e354f973f99c6a2baf4a4cc9c45f71fbd2d940",
+      "bytes": 22417,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_surface.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_surface.py",
+      "sha256": "503521fdbb694ca825a65e259981155dc5ccbbf69c4797d23e3e598d1bdaf174",
+      "bytes": 8822,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_audit.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_audit.py",
+      "sha256": "89a024d9f1b177a1b5989b623200d996e5a5013287f923579d995fee15759442",
+      "bytes": 3477,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_cli.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_cli.py",
+      "sha256": "ca2b1cfb824c0da8f6ab00baeb6bbb24308c734b9ebc3ba4c5c7219d9503a3e3",
+      "bytes": 9276,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_session.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_session.py",
+      "sha256": "a30457b7ebf011b5a451e008eb99f5e78ee412cbeba85e5a5658714116145920",
+      "bytes": 415,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/analysis_plan.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_plan.py",
+      "sha256": "acc007958419d233bf0be6271e288c10588df2984701f5f6abf585a895ad07cb",
+      "bytes": 10947,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/analysis_paging.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_paging.py",
+      "sha256": "91adddc501e80e8ceeaa7f55ca6f6b12bd715502589f80e7cd4d7da2e5201cb1",
+      "bytes": 11581,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/analysis_batch.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_batch.py",
+      "sha256": "8f40845d1328cae8a06dd29830c5e636d962da3cc72194e16904f6fb23030a64",
+      "bytes": 23159,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py",
+      "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+      "bytes": 22254,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/dexq_cli.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq_cli.py",
+      "sha256": "9e95d7c215c54386547dd074d7016746801a17ea2e0c82af0127b89c9b2e4d93",
+      "bytes": 7232,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py",
+      "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+      "bytes": 28247,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/install_dexsql.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/install_dexsql.py",
+      "sha256": "2c223b638023b325a782771e4751a6371c393cb46750d253695e4b7e7727f1ca",
+      "bytes": 4421,
+      "status": "obtained"
+    }
+  ],
+  "actual_hostlab_checkout": {
+    "path": "D:\\Bilibili_Innocent_Lab\\runtime\\audit-memory-stability-20261023",
+    "head": "f0e523738cd0bb5575ff04b96e407dd62bdaface",
+    "dirty": [],
+    "fixed_commit_object_locally_available": false,
+    "comparison_to_fixed_sources": [
+      {
+        "path": "native_graph.py",
+        "fixed_sha256": "bcad2ba7e9a02bff07e08291960cf25c2d8f36474d3a5295188d180ed7bdf085",
+        "actual_checkout_sha256": "bcad2ba7e9a02bff07e08291960cf25c2d8f36474d3a5295188d180ed7bdf085",
+        "equal": true
+      },
+      {
+        "path": "native_rules.py",
+        "fixed_sha256": "00487b4d0e2ccf16b8437cc528e354f973f99c6a2baf4a4cc9c45f71fbd2d940",
+        "actual_checkout_sha256": "00487b4d0e2ccf16b8437cc528e354f973f99c6a2baf4a4cc9c45f71fbd2d940",
+        "equal": true
+      },
+      {
+        "path": "native_surface.py",
+        "fixed_sha256": "503521fdbb694ca825a65e259981155dc5ccbbf69c4797d23e3e598d1bdaf174",
+        "actual_checkout_sha256": "503521fdbb694ca825a65e259981155dc5ccbbf69c4797d23e3e598d1bdaf174",
+        "equal": true
+      },
+      {
+        "path": "native_audit.py",
+        "fixed_sha256": "89a024d9f1b177a1b5989b623200d996e5a5013287f923579d995fee15759442",
+        "actual_checkout_sha256": "89a024d9f1b177a1b5989b623200d996e5a5013287f923579d995fee15759442",
+        "equal": true
+      },
+      {
+        "path": "native_cli.py",
+        "fixed_sha256": "ca2b1cfb824c0da8f6ab00baeb6bbb24308c734b9ebc3ba4c5c7219d9503a3e3",
+        "actual_checkout_sha256": "ca2b1cfb824c0da8f6ab00baeb6bbb24308c734b9ebc3ba4c5c7219d9503a3e3",
+        "equal": true
+      },
+      {
+        "path": "native_session.py",
+        "fixed_sha256": "a30457b7ebf011b5a451e008eb99f5e78ee412cbeba85e5a5658714116145920",
+        "actual_checkout_sha256": "66f2c941d59abb699b3cb10cb1d8ae4af34ad34127532609dfc3ac8c49371974",
+        "equal": false
+      },
+      {
+        "path": "analysis_plan.py",
+        "fixed_sha256": "acc007958419d233bf0be6271e288c10588df2984701f5f6abf585a895ad07cb",
+        "actual_checkout_sha256": "56727eb4d2b2d5e2ae522fd6bfea0d379532b98aa18fd54e8e52d74e8e315ee9",
+        "equal": false
+      },
+      {
+        "path": "analysis_paging.py",
+        "fixed_sha256": "91adddc501e80e8ceeaa7f55ca6f6b12bd715502589f80e7cd4d7da2e5201cb1",
+        "actual_checkout_sha256": "565df6bf5e91a86b13a26ed85bcf03fefdbb0653b485252b2f7fe56fe73e590d",
+        "equal": false
+      },
+      {
+        "path": "analysis_batch.py",
+        "fixed_sha256": "8f40845d1328cae8a06dd29830c5e636d962da3cc72194e16904f6fb23030a64",
+        "actual_checkout_sha256": "79c9eb8f0271f7a6d869e86cf356b711349ca2384f309a938f832e20a7740446",
+        "equal": false
+      },
+      {
+        "path": "dexq/server.py",
+        "fixed_sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "actual_checkout_sha256": "42912f8fbe8dc648faab5025f503148b920e28e37b0ea931cd755aa57a393ecd",
+        "equal": false
+      },
+      {
+        "path": "dexq_cli.py",
+        "fixed_sha256": "9e95d7c215c54386547dd074d7016746801a17ea2e0c82af0127b89c9b2e4d93",
+        "actual_checkout_sha256": "ccae638429baeeb5ffc90945edae46bca29e44a4f4466ce973391e90c38295a8",
+        "equal": false
+      },
+      {
+        "path": "remote_mcp.py",
+        "fixed_sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "actual_checkout_sha256": "e48f87b2a932bd69772017addb618eb7343d93db7e2ffa055a6e46772f017dcb",
+        "equal": false
+      },
+      {
+        "path": "install_dexsql.py",
+        "fixed_sha256": "2c223b638023b325a782771e4751a6371c393cb46750d253695e4b7e7727f1ca",
+        "actual_checkout_sha256": "35fedc34e909d287b55ce74394fae4b7a79044f1400d83f1dc9f99147df0246e",
+        "equal": false
+      }
+    ]
+  },
+  "scope_boundary": {
+    "DexMeguviz_required": false,
+    "DexSQL_required_to_build_core": false,
+    "DexKit_replacement": false,
+    "HostLab_business_in_core": false
+  },
+  "historical_evidence_index_sha256": "450bee2af1e2552507222f0cf82e754ae8b74d4e636e8a035a15f38cc07946a0",
+  "historical_files_verified": 23
+}

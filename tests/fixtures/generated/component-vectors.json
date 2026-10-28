@@ -1,0 +1,301 @@
+{
+  "mutf8": [
+    {
+      "id": "empty",
+      "hex": "00",
+      "utf16_size": 0,
+      "expected_units": []
+    },
+    {
+      "id": "nul",
+      "hex": "c08000",
+      "utf16_size": 1,
+      "expected_units": [
+        0
+      ]
+    },
+    {
+      "id": "bmp",
+      "hex": "e4b8ad00",
+      "utf16_size": 1,
+      "expected_units": [
+        20013
+      ]
+    },
+    {
+      "id": "surrogate-pair",
+      "hex": "eda0bdedb88000",
+      "utf16_size": 2,
+      "expected_units": [
+        55357,
+        56832
+      ]
+    },
+    {
+      "id": "isolated-high",
+      "hex": "eda08000",
+      "utf16_size": 1,
+      "expected_units": [
+        55296
+      ]
+    },
+    {
+      "id": "isolated-low",
+      "hex": "edb08000",
+      "utf16_size": 1,
+      "expected_units": [
+        56320
+      ]
+    },
+    {
+      "id": "bad-continuation",
+      "hex": "c04100",
+      "utf16_size": 1,
+      "error": "INVALID_MUTF8"
+    },
+    {
+      "id": "four-byte-utf8",
+      "hex": "f09f988000",
+      "utf16_size": 2,
+      "error": "INVALID_MUTF8"
+    },
+    {
+      "id": "length-mismatch",
+      "hex": "4100",
+      "utf16_size": 2,
+      "error": "STRING_LENGTH_MISMATCH"
+    },
+    {
+      "id": "missing-terminator",
+      "hex": "41",
+      "utf16_size": 1,
+      "error": "TRUNCATED"
+    },
+    {
+      "id": "overlong-non-nul",
+      "hex": "c18100",
+      "utf16_size": 1,
+      "error": "INVALID_MUTF8"
+    },
+    {
+      "id": "three-byte-overlong",
+      "hex": "e0808000",
+      "utf16_size": 1,
+      "error": "INVALID_MUTF8"
+    },
+    {
+      "id": "continuation-as-leading",
+      "hex": "8000",
+      "utf16_size": 1,
+      "error": "INVALID_MUTF8"
+    },
+    {
+      "id": "truncated-three-byte",
+      "hex": "e4b8",
+      "utf16_size": 1,
+      "error": "TRUNCATED"
+    },
+    {
+      "id": "raw-nul-is-terminator",
+      "hex": "00",
+      "utf16_size": 1,
+      "error": "STRING_LENGTH_MISMATCH"
+    }
+  ],
+  "leb32": [
+    {
+      "id": "uleb-zero",
+      "kind": "uleb",
+      "hex": "00",
+      "value": 0
+    },
+    {
+      "id": "uleb-max",
+      "kind": "uleb",
+      "hex": "ffffffff0f",
+      "value": 4294967295
+    },
+    {
+      "id": "uleb-overflow",
+      "kind": "uleb",
+      "hex": "ffffffff10",
+      "error": "LEB_OVERFLOW"
+    },
+    {
+      "id": "uleb-truncated",
+      "kind": "uleb",
+      "hex": "80",
+      "error": "TRUNCATED"
+    },
+    {
+      "id": "uleb-unterminated",
+      "kind": "uleb",
+      "hex": "8080808080",
+      "error": "LEB_OVERFLOW"
+    },
+    {
+      "id": "sleb-minus-one",
+      "kind": "sleb",
+      "hex": "7f",
+      "value": -1
+    },
+    {
+      "id": "sleb-minus-128",
+      "kind": "sleb",
+      "hex": "807f",
+      "value": -128
+    },
+    {
+      "id": "sleb-minus-64",
+      "kind": "sleb",
+      "hex": "40",
+      "value": -64
+    },
+    {
+      "id": "sleb-minus-65",
+      "kind": "sleb",
+      "hex": "bf7f",
+      "value": -65
+    },
+    {
+      "id": "sleb-63",
+      "kind": "sleb",
+      "hex": "3f",
+      "value": 63
+    },
+    {
+      "id": "sleb-64",
+      "kind": "sleb",
+      "hex": "c000",
+      "value": 64
+    },
+    {
+      "id": "sleb-min",
+      "kind": "sleb",
+      "hex": "8080808078",
+      "value": -2147483648
+    },
+    {
+      "id": "sleb-max",
+      "kind": "sleb",
+      "hex": "ffffffff07",
+      "value": 2147483647
+    },
+    {
+      "id": "sleb-min-plus-one",
+      "kind": "sleb",
+      "hex": "8180808078",
+      "value": -2147483647
+    },
+    {
+      "id": "sleb-max-minus-one",
+      "kind": "sleb",
+      "hex": "feffffff07",
+      "value": 2147483646
+    },
+    {
+      "id": "sleb-positive-overflow",
+      "kind": "sleb",
+      "hex": "8080808008",
+      "error": "LEB_OVERFLOW"
+    },
+    {
+      "id": "sleb-negative-overflow",
+      "kind": "sleb",
+      "hex": "ffffffff77",
+      "error": "LEB_OVERFLOW"
+    },
+    {
+      "id": "sleb-unsigned-max-is-overflow",
+      "kind": "sleb",
+      "hex": "ffffffff0f",
+      "error": "LEB_OVERFLOW"
+    },
+    {
+      "id": "sleb-truncated",
+      "kind": "sleb",
+      "hex": "ff",
+      "error": "TRUNCATED"
+    },
+    {
+      "id": "sleb-nonshortest-negative",
+      "kind": "sleb",
+      "hex": "ff7f",
+      "value": -1
+    },
+    {
+      "id": "sleb-five-byte-sign-extension",
+      "kind": "sleb",
+      "hex": "ffffffff7f",
+      "value": -1
+    },
+    {
+      "id": "uleb-six-bytes",
+      "kind": "uleb",
+      "hex": "808080808000",
+      "error": "LEB_OVERFLOW"
+    },
+    {
+      "id": "uleb-nonshortest",
+      "kind": "uleb",
+      "hex": "8000",
+      "value": 0,
+      "profile": "bounded-permissive-leb32-v1; non-shortest encodings retained"
+    }
+  ],
+  "code_layout": [
+    {
+      "id": "packed-switch",
+      "kind": "packed-switch-payload",
+      "hex": "000101000000000003000000",
+      "expected": {
+        "size": 1,
+        "first_key": 0,
+        "relative_targets": [
+          3
+        ]
+      },
+      "alignment_code_units": 2
+    },
+    {
+      "id": "packed-switch-truncated",
+      "kind": "packed-switch-payload",
+      "hex": "0001010000000000",
+      "error": "TRUNCATED"
+    },
+    {
+      "id": "sparse-switch",
+      "kind": "sparse-switch-payload",
+      "hex": "00020200ffffffff050000000300000004000000",
+      "expected": {
+        "size": 2,
+        "keys": [
+          -1,
+          5
+        ],
+        "relative_targets": [
+          3,
+          4
+        ]
+      },
+      "alignment_code_units": 2
+    },
+    {
+      "id": "array-data",
+      "kind": "array-data-payload",
+      "hex": "000301000300000041424300",
+      "expected": {
+        "element_width": 1,
+        "element_count": 3,
+        "data_hex": "414243"
+      },
+      "alignment_code_units": 2
+    },
+    {
+      "id": "array-data-count-overflow",
+      "kind": "array-data-payload",
+      "hex": "00030800ffffffff",
+      "error": "TRUNCATED"
+    }
+  ]
+}

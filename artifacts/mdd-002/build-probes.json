@@ -1,0 +1,15 @@
+{
+  "scope": "M0 dependency build/API experiments",
+  "platform": "x86_64-pc-windows-msvc",
+  "toolchain": "1.99.0",
+  "checks": [
+    "artifacts/mdd-002/windows-build-initial/record.json",
+    "artifacts/mdd-002/windows-clippy/record.json",
+    "artifacts/mdd-006/frozen-corpus-final/record.json"
+  ],
+  "linux_native": "pending CI",
+  "known_initial_failures": [
+    "sha2 0.11 digest LowerHex API incompatible; corrected bytewise formatting",
+    "all-target offline cargo metadata required uncached r-efi; fetched exact locked crate"
+  ]
+}

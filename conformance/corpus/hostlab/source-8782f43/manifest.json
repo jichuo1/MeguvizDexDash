@@ -1,0 +1,101 @@
+{
+  "commit": "8782f43d537c442905123e35af325c412caa5188",
+  "files": [
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_graph.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_graph.py",
+      "sha256": "bcad2ba7e9a02bff07e08291960cf25c2d8f36474d3a5295188d180ed7bdf085",
+      "bytes": 13971,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_rules.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_rules.py",
+      "sha256": "00487b4d0e2ccf16b8437cc528e354f973f99c6a2baf4a4cc9c45f71fbd2d940",
+      "bytes": 22417,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_surface.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_surface.py",
+      "sha256": "503521fdbb694ca825a65e259981155dc5ccbbf69c4797d23e3e598d1bdaf174",
+      "bytes": 8822,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_audit.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_audit.py",
+      "sha256": "89a024d9f1b177a1b5989b623200d996e5a5013287f923579d995fee15759442",
+      "bytes": 3477,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_cli.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_cli.py",
+      "sha256": "ca2b1cfb824c0da8f6ab00baeb6bbb24308c734b9ebc3ba4c5c7219d9503a3e3",
+      "bytes": 9276,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/native_session.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/native_session.py",
+      "sha256": "a30457b7ebf011b5a451e008eb99f5e78ee412cbeba85e5a5658714116145920",
+      "bytes": 415,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/analysis_plan.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_plan.py",
+      "sha256": "acc007958419d233bf0be6271e288c10588df2984701f5f6abf585a895ad07cb",
+      "bytes": 10947,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/analysis_paging.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_paging.py",
+      "sha256": "91adddc501e80e8ceeaa7f55ca6f6b12bd715502589f80e7cd4d7da2e5201cb1",
+      "bytes": 11581,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/analysis_batch.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/analysis_batch.py",
+      "sha256": "8f40845d1328cae8a06dd29830c5e636d962da3cc72194e16904f6fb23030a64",
+      "bytes": 23159,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py",
+      "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+      "bytes": 22254,
+      "status": "obtained"
+    },
+    {
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/index.py",
+      "status": "unavailable",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/dexq_cli.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq_cli.py",
+      "sha256": "9e95d7c215c54386547dd074d7016746801a17ea2e0c82af0127b89c9b2e4d93",
+      "bytes": 7232,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py",
+      "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+      "bytes": 28247,
+      "status": "obtained"
+    },
+    {
+      "path": "conformance/corpus/hostlab/source-8782f43/install_dexsql.py",
+      "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/install_dexsql.py",
+      "sha256": "2c223b638023b325a782771e4751a6371c393cb46750d253695e4b7e7727f1ca",
+      "bytes": 4421,
+      "status": "obtained"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "mdd.baseline-preflight.v1",
+  "status": "blocked",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "blockers": [
+    "plan has not been qualified ready",
+    "native Windows process-tree supervisor not implemented; Linux runner required",
+    "total CPU/memory budget and exclusive measurement window not verified",
+    "input missing: hostlab-9170100",
+    "input missing: hostlab-9161100",
+    "A0/A1 qualified drivers are not both configured"
+  ],
+  "measured_runs": 0,
+  "engine_executed": false
+}

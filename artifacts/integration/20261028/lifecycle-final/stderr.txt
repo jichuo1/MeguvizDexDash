@@ -1,0 +1,5 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.35s
+     Running unittests src\lib.rs (target\debug\deps\mdd_session-c3c93d1716dbec56.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_worker-48ac20dfd6d49189.exe)
+   Doc-tests mdd_session
+   Doc-tests mdd_worker

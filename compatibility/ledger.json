@@ -1,8 +1,8 @@
 {
   "schema_version": "mdd.compatibility-ledger.v1",
   "product": "MeguvizDexDash",
-  "implementation_state": "not_started",
-  "updated_date": "2026-10-26",
+  "implementation_state": "in_progress",
+  "updated_date": "2026-10-28",
   "timezone": "Asia/Shanghai",
   "authority": "Qualification for the new implementation only; historical DexSQL checks do not admit MeguvizDexDash.",
   "profiles": [
@@ -155,5 +155,16 @@
     "blocked",
     "superseded"
   ],
-  "evidence_policy": "Each qualified entry must reference actual new-engine artifacts, profile/build/platform/input coverage, canonical checks and a conformance manifest."
+  "evidence_policy": "Each qualified entry must reference actual new-engine artifacts, profile/build/platform/input coverage, canonical checks and a conformance manifest.",
+  "development_scope": {
+    "windows_x86_64": [
+      "result contract types",
+      "version/capabilities CLI",
+      "owned source capture"
+    ],
+    "all_profiles_admitted": false,
+    "sql_probe": "artifacts/mdd-006/sql-bridge-probes.json",
+    "linux_native": "CI pending",
+    "format_qualification": "not granted"
+  }
 }

@@ -1,0 +1,4 @@
+   Compiling mdd-cli v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-cli)
+   Compiling mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.50s

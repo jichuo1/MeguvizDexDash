@@ -1,0 +1,14 @@
+[
+  {
+    "optimization": 0,
+    "invalid_status": "rejected"
+  },
+  {
+    "optimization": 1,
+    "invalid_status": "rejected"
+  },
+  {
+    "optimization": 2,
+    "invalid_status": "rejected"
+  }
+]

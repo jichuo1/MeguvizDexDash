@@ -1,0 +1,584 @@
+{
+  "cases": [
+    {
+      "actual": {
+        "columns": [
+          "file_id",
+          "entry_name"
+        ],
+        "rows": [
+          [
+            0,
+            "classes.dex"
+          ],
+          [
+            1,
+            "classes2.dex"
+          ]
+        ]
+      },
+      "basis": "真实Q01 SQL；合成不可变事实",
+      "expected_rows": [
+        [
+          0,
+          "classes.dex"
+        ],
+        [
+          1,
+          "classes2.dex"
+        ]
+      ],
+      "id": "Q01",
+      "passed": true,
+      "sql": "SELECT file_id,entry_name FROM dex_files ORDER BY file_id"
+    },
+    {
+      "actual": {
+        "columns": [
+          "descriptor",
+          "interface_descriptor"
+        ],
+        "rows": [
+          [
+            "Lfixture/A;",
+            "Lsample/I;"
+          ],
+          [
+            "Lfixture/B;",
+            "Lsample/J;"
+          ]
+        ]
+      },
+      "basis": "Q03 双局部键JOIN形状；不冒充实际HostLab完整展开语句",
+      "expected_rows": [
+        [
+          "Lfixture/A;",
+          "Lsample/I;"
+        ],
+        [
+          "Lfixture/B;",
+          "Lsample/J;"
+        ]
+      ],
+      "id": "Q03-shape",
+      "passed": true,
+      "sql": "SELECT c.descriptor,ci.interface_descriptor FROM class_interfaces ci JOIN classes c ON c.file_id=ci.file_id AND c.class_idx=ci.class_idx ORDER BY c.file_id"
+    },
+    {
+      "actual": {
+        "columns": [
+          "file_id",
+          "method_idx",
+          "return_descriptor"
+        ],
+        "rows": [
+          [
+            0,
+            3,
+            "Lfixture/Result;"
+          ],
+          [
+            1,
+            3,
+            "I"
+          ]
+        ]
+      },
+      "basis": "Q05 JOIN+DISTINCT；相同局部method_idx跨DEX",
+      "expected_rows": [
+        [
+          0,
+          3,
+          "Lfixture/Result;"
+        ],
+        [
+          1,
+          3,
+          "I"
+        ]
+      ],
+      "id": "Q05-shape",
+      "passed": true,
+      "sql": "SELECT DISTINCT cm.file_id,cm.method_idx,m.return_descriptor FROM class_methods cm JOIN methods m ON cm.file_id=m.file_id AND cm.method_idx=m.method_idx ORDER BY cm.file_id"
+    },
+    {
+      "actual": {
+        "columns": [
+          "n"
+        ],
+        "rows": [
+          [
+            2
+          ]
+        ]
+      },
+      "basis": "真实Q07 SQL；合成事实",
+      "expected_rows": [
+        [
+          2
+        ]
+      ],
+      "id": "Q07",
+      "passed": true,
+      "sql": "SELECT COUNT(*) AS n FROM classes ORDER BY n"
+    },
+    {
+      "actual": {
+        "columns": [
+          "file_id",
+          "method_idx",
+          "callee",
+          "n"
+        ],
+        "rows": [
+          [
+            0,
+            3,
+            "Lfixture/T;->f()V",
+            2
+          ],
+          [
+            1,
+            3,
+            "Lfixture/T;->f()V",
+            1
+          ]
+        ]
+      },
+      "basis": "Q10 GROUP BY/COUNT形状，重复调用点保留",
+      "expected_rows": [
+        [
+          0,
+          3,
+          "Lfixture/T;->f()V",
+          2
+        ],
+        [
+          1,
+          3,
+          "Lfixture/T;->f()V",
+          1
+        ]
+      ],
+      "id": "Q10-shape",
+      "passed": true,
+      "sql": "SELECT file_id,method_idx,callee,COUNT(*) AS n FROM method_calls GROUP BY file_id,method_idx,callee ORDER BY file_id,method_idx,callee"
+    },
+    {
+      "actual": {
+        "columns": [
+          "COUNT(*)",
+          "COUNT(text)",
+          "hex(CAST(NULL AS TEXT))",
+          "CAST(9223372036854775807 AS TEXT)"
+        ],
+        "rows": [
+          [
+            5,
+            4,
+            "",
+            "9223372036854775807"
+          ]
+        ]
+      },
+      "basis": "SQLite NULL/CAST/i64探针；不是DexSQL差分资格",
+      "expected_rows": [
+        [
+          5,
+          4,
+          "",
+          "9223372036854775807"
+        ]
+      ],
+      "id": "null-cast",
+      "passed": true,
+      "sql": "SELECT COUNT(*),COUNT(text),hex(CAST(NULL AS TEXT)),CAST(9223372036854775807 AS TEXT) FROM strings"
+    },
+    {
+      "actual": {
+        "columns": [
+          "file_id"
+        ],
+        "rows": [
+          [
+            0
+          ]
+        ]
+      },
+      "basis": "CTE/IN/BETWEEN/ORDER/LIMIT/OFFSET",
+      "expected_rows": [
+        [
+          0
+        ]
+      ],
+      "id": "cte-in-between",
+      "passed": true,
+      "sql": "WITH ids AS (SELECT file_id FROM classes WHERE file_id BETWEEN 0 AND 1) SELECT file_id FROM ids WHERE file_id IN (0,1) ORDER BY file_id DESC LIMIT 1 OFFSET 1"
+    },
+    {
+      "actual": {
+        "columns": [
+          "text"
+        ],
+        "rows": [
+          [
+            "a_b"
+          ]
+        ]
+      },
+      "basis": "显式ESCAPE必须精确保留",
+      "expected_rows": [
+        [
+          "a_b"
+        ]
+      ],
+      "id": "like-escape",
+      "passed": true,
+      "sql": "SELECT text FROM strings WHERE text LIKE 'a\\_b' ESCAPE '\\' ORDER BY string_idx"
+    },
+    {
+      "actual": {
+        "columns": [
+          "x",
+          "x"
+        ],
+        "rows": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "basis": "ordinal列避免dictionary覆盖重复列名",
+      "expected_rows": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "id": "duplicate-column-names",
+      "passed": true,
+      "sql": "SELECT file_id AS x,class_idx AS x FROM classes ORDER BY file_id"
+    },
+    {
+      "actual": {
+        "columns": [
+          "length(text)",
+          "hex(CAST(text AS BLOB))"
+        ],
+        "rows": [
+          [
+            1,
+            "410042"
+          ]
+        ]
+      },
+      "basis": "mdd-text-v1 UTF16 code units预期3；SQLite默认length在NUL截止，是已验证反例",
+      "expected_rows": [
+        [
+          3,
+          "410042"
+        ]
+      ],
+      "id": "nul-length-native-gap",
+      "passed": false,
+      "sql": "SELECT length(text),hex(CAST(text AS BLOB)) FROM strings WHERE string_idx=2"
+    },
+    {
+      "actual": {
+        "columns": [
+          "text"
+        ],
+        "rows": [
+          [
+            "a_b"
+          ],
+          [
+            "axb"
+          ]
+        ]
+      },
+      "basis": "工程包记录DexSQL0.1.1 '_'字面值例外；SQLite默认 '_'通配符，兼容需适配",
+      "expected_rows": [
+        [
+          "a_b"
+        ]
+      ],
+      "id": "like-underscore-compat-gap",
+      "passed": false,
+      "sql": "SELECT text FROM strings WHERE text LIKE 'a_b' ORDER BY string_idx"
+    },
+    {
+      "actual": {
+        "columns": [
+          "v"
+        ],
+        "rows": [
+          [
+            ""
+          ],
+          [
+            "𐀀"
+          ]
+        ]
+      },
+      "basis": "mdd-text-v1按UTF16 units排序；SQLite默认UTF8 BINARY顺序不同",
+      "expected_rows": [
+        [
+          "𐀀"
+        ],
+        [
+          ""
+        ]
+      ],
+      "id": "utf16-order-native-gap",
+      "passed": false,
+      "sql": "SELECT v FROM (SELECT char(65536) AS v UNION ALL SELECT char(57344)) ORDER BY v"
+    },
+    {
+      "actual_error": "table classes may not be modified",
+      "id": "read-only-facts",
+      "passed": true,
+      "sql": "DELETE FROM classes"
+    },
+    {
+      "actual": {
+        "columns": [
+          "lone_surrogate"
+        ],
+        "rows": [
+          [
+            {
+              "invalid_utf8_sqlite_text_bytes": [
+                237,
+                160,
+                128
+              ]
+            }
+          ]
+        ]
+      },
+      "id": "lone-surrogate-representation-gap",
+      "passed": false,
+      "reason": "SQLite TEXT permits invalid UTF8 byte sequences; strict JSON needs tagged raw MUTF8/UTF16 and explicit CAST semantics",
+      "sql": "SELECT CAST(x'EDA080' AS TEXT)"
+    },
+    {
+      "actual_sqlite_object_type": "table",
+      "id": "temp-definition-gap",
+      "passed": false,
+      "reason": "SQLite CTAS materializes a table; project contract requires parsed query definition plus versioned session catalog, not implemented"
+    },
+    {
+      "actual": {
+        "columns": [
+          "file_id",
+          "entry_name"
+        ],
+        "rows": [
+          [
+            0,
+            "classes.dex"
+          ],
+          [
+            1,
+            "classes2.dex"
+          ]
+        ]
+      },
+      "basis": "冻结源码corpus原样执行，参数为该corpus登记的合成fixture值；不是生产golden",
+      "corpus_path": "conformance/corpus/hostlab/queries.jsonl",
+      "expected_rows": [
+        [
+          0,
+          "classes.dex"
+        ],
+        [
+          1,
+          "classes2.dex"
+        ]
+      ],
+      "id": "Q01-frozen-corpus",
+      "passed": true,
+      "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "sql": "SELECT file_id,entry_name FROM dex_files ORDER BY file_id"
+    },
+    {
+      "actual": {
+        "columns": [
+          "interface_descriptor",
+          "descriptor"
+        ],
+        "rows": [
+          [
+            "Lsample/I;",
+            "Lfixture/A;"
+          ]
+        ]
+      },
+      "basis": "冻结源码corpus原样执行，参数为该corpus登记的合成fixture值；不是生产golden",
+      "corpus_path": "conformance/corpus/hostlab/queries.jsonl",
+      "expected_rows": [
+        [
+          "Lsample/I;",
+          "Lfixture/A;"
+        ]
+      ],
+      "id": "Q03-frozen-corpus",
+      "passed": true,
+      "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "sql": "SELECT ci.interface_descriptor,c.descriptor FROM class_interfaces ci JOIN classes c ON c.file_id=ci.file_id AND c.class_idx=ci.class_idx WHERE c.descriptor IN ('Lfixture/A;') ORDER BY ci.file_id,ci.class_idx,ci.ordinal"
+    },
+    {
+      "actual": {
+        "columns": [
+          "class_descriptor"
+        ],
+        "rows": [
+          [
+            "Lfixture/A;"
+          ]
+        ]
+      },
+      "basis": "冻结源码corpus原样执行，参数为该corpus登记的合成fixture值；不是生产golden",
+      "corpus_path": "conformance/corpus/hostlab/queries.jsonl",
+      "expected_rows": [
+        [
+          "Lfixture/A;"
+        ]
+      ],
+      "id": "Q05-frozen-corpus",
+      "passed": true,
+      "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "sql": "SELECT DISTINCT m.class_descriptor FROM class_methods c JOIN methods m ON m.file_id=c.file_id AND m.method_idx=c.method_idx WHERE m.return_descriptor='Lfixture/Result;' ORDER BY m.class_descriptor"
+    },
+    {
+      "actual": {
+        "columns": [
+          "file_id",
+          "method_idx",
+          "value"
+        ],
+        "rows": [
+          [
+            0,
+            3,
+            "quality settings: fixture"
+          ]
+        ]
+      },
+      "basis": "冻结源码corpus原样执行，参数为该corpus登记的合成fixture值；不是生产golden",
+      "corpus_path": "conformance/corpus/hostlab/queries.jsonl",
+      "expected_rows": [
+        [
+          0,
+          3,
+          "quality settings: fixture"
+        ]
+      ],
+      "id": "Q06-frozen-corpus",
+      "passed": true,
+      "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "sql": "SELECT DISTINCT file_id,method_idx,value FROM method_strings WHERE method_class IN ('Lfixture/A;') AND (value LIKE '%quality settings:%' OR value LIKE '%pref\\_player\\_mediaSource\\_quality\\_wifi\\_key%' ESCAPE '\\') ORDER BY file_id,method_idx,value"
+    },
+    {
+      "actual": {
+        "columns": [
+          "n"
+        ],
+        "rows": [
+          [
+            2
+          ]
+        ]
+      },
+      "basis": "冻结源码corpus原样执行，参数为该corpus登记的合成fixture值；不是生产golden",
+      "corpus_path": "conformance/corpus/hostlab/queries.jsonl",
+      "expected_rows": [
+        [
+          2
+        ]
+      ],
+      "id": "Q07-frozen-corpus",
+      "passed": true,
+      "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "sql": "SELECT COUNT(*) AS n FROM classes ORDER BY n"
+    },
+    {
+      "actual": {
+        "columns": [
+          "file_id",
+          "method",
+          "callee",
+          "n"
+        ],
+        "rows": [
+          [
+            0,
+            "Lfixture/A;->run()V",
+            "Lfixture/T;->f()V",
+            2
+          ]
+        ]
+      },
+      "basis": "冻结源码corpus原样执行，参数为该corpus登记的合成fixture值；不是生产golden",
+      "corpus_path": "conformance/corpus/hostlab/queries.jsonl",
+      "expected_rows": [
+        [
+          0,
+          "Lfixture/A;->run()V",
+          "Lfixture/T;->f()V",
+          2
+        ]
+      ],
+      "id": "Q10-frozen-corpus",
+      "passed": true,
+      "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "sql": "SELECT file_id,method,callee,COUNT(*) AS n FROM method_calls WHERE file_id=0 AND (callee_class LIKE 'Lfixture/%' ESCAPE '\\') GROUP BY file_id,method,callee ORDER BY file_id,method,callee"
+    }
+  ],
+  "fact_source": "manually specified synthetic rows, not a DEX parser",
+  "hostlab_qualification": false,
+  "implementation": "Rust eponymous-only read-only virtual tables over Arc-owned rows",
+  "optimizer": {
+    "limit_offset_pushdown": false,
+    "omit": false,
+    "order_by_consumed": false
+  },
+  "passed_cases": 16,
+  "platform": {
+    "arch": "x86_64",
+    "os": "windows"
+  },
+  "profiles_admitted": [],
+  "record_kind": "observed_dependency_probe",
+  "remaining": [
+    "complete actual HostLab corpus and production inputs",
+    "lossless DexText SQL value/CAST/LIKE/length/collation adaptation",
+    "versioned TEMP catalog and cursor lifecycle",
+    "budget/cancellation/snapshot facts integration"
+  ],
+  "rusqlite_version": "0.40.2",
+  "schema_version": "mdd.sql-bridge-probes.v1",
+  "sqlite_version": "3.53.2",
+  "total_cases": 21,
+  "identity": {
+    "corpus_sha256_before": "e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4",
+    "corpus_sha256_after": "e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4",
+    "source_sql_sha256": "c670c61ac62d78a268b06d2f4be830bc887b20368544de50070d6f7159c9bd0d",
+    "source_main_sha256": "ad7cb9bee693564b0c82b6aecc41ed96dc265e9f45ea6479261477209f5c3580",
+    "cargo_lock_sha256": "b996aff40dccc5fdb593effbe22d0c1463c040118dedcd7c0a886b74b3b02212",
+    "binary_sha256": "60913a20f5f29083c6270252cd5b365cb5b36077923816fa375b01d238ccbe08"
+  },
+  "run_evidence": "artifacts/mdd-006/frozen-corpus-final/record.json",
+  "full_output": "artifacts/mdd-006/frozen-corpus-final/1-stdout.txt",
+  "qualification_scope": "M0 finite bridge-route experiment only; all profiles unadmitted"
+}

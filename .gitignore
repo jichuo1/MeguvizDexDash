@@ -6,4 +6,5 @@
 .env
 .env.*
 *.apk
+!tests/fixtures/generated/*.apk
 /artifacts/local/

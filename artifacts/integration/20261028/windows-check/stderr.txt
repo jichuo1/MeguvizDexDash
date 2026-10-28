@@ -1,0 +1,17 @@
+   Compiling typenum v1.20.1
+   Compiling const-oid v0.10.2
+   Compiling cpufeatures v0.3.1
+   Compiling cfg-if v1.0.5
+    Checking mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+    Checking mdd-build-probe v0.1.0-dev (D:\MeguvisDexDash\tools\build-probe)
+    Checking mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+    Checking mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+    Checking mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+   Compiling hybrid-array v0.4.15
+    Checking mdd-worker v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-worker)
+   Compiling crypto-common v0.2.2
+   Compiling block-buffer v0.12.1
+   Compiling digest v0.11.3
+   Compiling sha2 v0.11.0
+   Compiling mdd-cli v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-cli)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.30s

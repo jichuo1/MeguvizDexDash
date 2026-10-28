@@ -1,0 +1,14 @@
+[package]
+name = "mdd-session"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+mdd-types.workspace = true
+mdd-input.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

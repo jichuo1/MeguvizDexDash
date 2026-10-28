@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "conformance/check-cli-contract.py",
+    "--binary",
+    "target/debug/meguvizdexdash.exe"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T07:17:29.788354+00:00",
+  "finished_utc": "2026-10-28T07:17:35.567852+00:00",
+  "elapsed_seconds": 5.78099999999904,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 91,
+    "sha256": "82ff794eaab447db25206c34fc9a31aff2c71881c519afbf3f6ded431cb96860"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

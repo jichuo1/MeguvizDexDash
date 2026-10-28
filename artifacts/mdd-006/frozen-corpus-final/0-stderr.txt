@@ -1,0 +1,3 @@
+   Compiling mdd-build-probe v0.1.0-dev (D:\MeguvisDexDash\tools\build-probe)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.17s
+     Running unittests src\main.rs (target\debug\deps\mdd_build_probe-0e449183d36c2b77.exe)

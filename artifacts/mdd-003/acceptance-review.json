@@ -1,0 +1,59 @@
+{
+  "task": "MDD-003",
+  "recommend_status": "done",
+  "acceptance": [
+    {
+      "item": 1,
+      "satisfied": true,
+      "evidence": [
+        "conformance/corpus/hostlab/queries.jsonl"
+      ],
+      "detail": "16族保留最小SQL构造根表达式、精确source行、动态参数类别/范围、代表SQL和完整投影ordinal/type/NULL及变体契约；Q14调用者任意SELECT/WITH与Q16TEMP为显式动态schema，实际元数据校验源码和原始工具schema/请求亦已冻结。"
+    },
+    {
+      "item": 2,
+      "satisfied": true,
+      "evidence": [
+        "conformance/manifests/tools-and-options.json"
+      ],
+      "detail": "两版原生12完整inputSchema、legacy8与remote12实际签名/文档；Smali/Manifest UTF-8字节、方法列表与原始资源字节分页区别已记录。"
+    },
+    {
+      "item": 3,
+      "satisfied": true,
+      "evidence": [
+        "conformance/manifests/tools-and-options.json"
+      ],
+      "detail": "明确当前HostLab直接调用open_dataset/query/decode/get_manifest/close_dataset五工具与完整12工具范围。"
+    },
+    {
+      "item": 4,
+      "satisfied": true,
+      "evidence": [
+        "conformance/manifests/relations.json",
+        "artifacts/mdd-003/schema-capture.json"
+      ],
+      "detail": "实际验证Windows0.1.0 tables入口保存56关系全schema；cf.*/cm.*各8列完整保留且按ordinal映射。"
+    },
+    {
+      "item": 5,
+      "satisfied": true,
+      "evidence": [
+        "conformance/manifests/profile-requirements.json"
+      ],
+      "detail": "implementation/dialect/profile分开；必需Q01-Q14与legacy/public Q15-Q16分开，所有profile仍admitted=false，真实语义和完整HostLab gate均未通过。"
+    }
+  ],
+  "production_goldens": {
+    "status": "not_run",
+    "count": 0,
+    "blocks_static_task": false,
+    "blocks_later_qualification": true
+  },
+  "not_claimed": [
+    "New engine SQL compatibility",
+    "HostLab complete audit",
+    "M5 feature equivalence",
+    "M8 performance replacement"
+  ]
+}

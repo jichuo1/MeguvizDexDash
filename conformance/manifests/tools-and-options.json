@@ -1,0 +1,2928 @@
+{
+  "schema_version": "mdd.reference-tools.v1",
+  "native_mcp": {
+    "0.1.0": [
+      {
+        "name": "close_dataset",
+        "description": "Close a dataset and release its worker. New requests fail; already accepted requests may finish, with deadlines still enforced.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "decode",
+        "description": "Inspect a method or class. Exactly one method descriptor, method_idx (with file_id), or class descriptor is required. Classes default to paginated summaries; methods default to paginated smali. Follow next_offset for exact text continuation; context mode lists original line numbers for labels and catch directives. Query SQL tables for annotations and debug metadata.",
+        "inputSchema": {
+          "$defs": {
+            "DecodeMode": {
+              "description": "Which `decode` view a request asks for. A class selection defaults to [`Self::Summary`] and a\nmethod selection to [`Self::Smali`] (see [`run`]).\n\n`JsonSchema` is derived here for the same reason as `apk::manifest::ManifestMode`: the MCP tool's\nparameter schema is generated from this type (it is re-exported as\n`cli::mcp::protocol::DecodeMode`), so the published schema and the implemented behaviour cannot\ndisagree.",
+              "oneOf": [
+                {
+                  "const": "summary",
+                  "description": "Method METADATA only: descriptor, access flags, code units, registers, try count.",
+                  "type": "string"
+                },
+                {
+                  "const": "smali",
+                  "description": "The complete smali text of each selected method, paged by UTF-8 byte offset.",
+                  "type": "string"
+                },
+                {
+                  "const": "context",
+                  "description": "The smali text with every original label/catch/method line prefixed by its zero-based line\nnumber — the view a caller uses to talk about a line it saw somewhere else.",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "file_id": {
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_lines": {
+              "description": "Maximum lines in one text page, default 200, maximum 1000.",
+              "format": "uint",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "method": {
+              "description": "Exact DEX descriptor. Supply exactly one of method, method_idx, or class.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "method_idx": {
+              "description": "DEX-local method index; requires file_id.",
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "method_limit": {
+              "description": "Methods per class page, default 20, maximum 50.",
+              "format": "uint",
+              "maximum": 50,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "method_offset": {
+              "default": 0,
+              "description": "Class method-list offset, ordered by method_idx.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "mode": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/DecodeMode"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defaults to summary for a class, smali for a method. Context lists original label/catch lines."
+            },
+            "offset": {
+              "default": 0,
+              "description": "UTF-8 byte offset into one method's smali/context text; continue with next_offset.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "DecodeMode": {
+              "description": "Which `decode` view a request asks for. A class selection defaults to [`Self::Summary`] and a\nmethod selection to [`Self::Smali`] (see [`run`]).\n\n`JsonSchema` is derived here for the same reason as `apk::manifest::ManifestMode`: the MCP tool's\nparameter schema is generated from this type (it is re-exported as\n`cli::mcp::protocol::DecodeMode`), so the published schema and the implemented behaviour cannot\ndisagree.",
+              "oneOf": [
+                {
+                  "const": "summary",
+                  "description": "Method METADATA only: descriptor, access flags, code units, registers, try count.",
+                  "type": "string"
+                },
+                {
+                  "const": "smali",
+                  "description": "The complete smali text of each selected method, paged by UTF-8 byte offset.",
+                  "type": "string"
+                },
+                {
+                  "const": "context",
+                  "description": "The smali text with every original label/catch/method line prefixed by its zero-based line\nnumber — the view a caller uses to talk about a line it saw somewhere else.",
+                  "type": "string"
+                }
+              ]
+            },
+            "MethodOutput": {
+              "properties": {
+                "access_flags": {
+                  "format": "uint32",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "code_units": {
+                  "format": "uint64",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "declaration": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "descriptor": {
+                  "type": "string"
+                },
+                "end_line": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "ends_mid_line": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "file_id": {
+                  "format": "uint32",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "method_idx": {
+                  "format": "uint32",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "next_offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "registers": {
+                  "format": "uint64",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "smali": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "start_line": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "starts_mid_line": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "total_bytes": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "total_lines": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "try_count": {
+                  "format": "uint64",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "file_id",
+                "method_idx",
+                "descriptor"
+              ],
+              "type": "object"
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "method_offset": {
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "methods": {
+              "items": {
+                "$ref": "#/$defs/MethodOutput"
+              },
+              "type": "array"
+            },
+            "mode": {
+              "$ref": "#/$defs/DecodeMode"
+            },
+            "next_method_offset": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "total_methods": {
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "dataset_id",
+            "mode",
+            "total_methods",
+            "method_offset",
+            "methods"
+          ],
+          "title": "DecodeOutput",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "describe_table",
+        "description": "Describe a built-in SQL table or view; no dataset is needed.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "get_manifest",
+        "description": "Read an APK Manifest as a summary (including paged permissions) or paged decoded XML. input_index refers to open_dataset.inputs; choose it when several archives are open. Does not require DEX or Java decompilation.",
+        "inputSchema": {
+          "$defs": {
+            "ManifestMode": {
+              "description": "Which `AndroidManifest.xml` view a `get_manifest` request asks for.\n\n`JsonSchema` is derived here because the MCP tool definition is generated from this type (it is\nre-exported as `cli::mcp::protocol::ManifestMode`), so the published parameter schema and the\nimplemented behaviour cannot disagree.",
+              "oneOf": [
+                {
+                  "const": "summary",
+                  "description": "Structured summary: manifest/application/uses-sdk attributes, target SDK, component counts,\nand a paged `permissions` list.",
+                  "type": "string"
+                },
+                {
+                  "const": "xml",
+                  "description": "The complete decoded XML, paged by UTF-8 byte offset.",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "input_index": {
+              "description": "Index in open_dataset.inputs; required when several archive inputs are present.",
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "limit": {
+              "format": "uint",
+              "maximum": 200,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "mode": {
+              "$ref": "#/$defs/ManifestMode",
+              "default": "summary"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Permission-row offset in summary mode, UTF-8 byte offset in XML mode.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "get_manifest_components",
+        "description": "Page Manifest components, names/descriptors, launcher intent filters, aliases and exported configuration. Exported state is manifest-derived and is not a claim of runtime accessibility. Includes explicit and SDK-dependent default states.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "input_index": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "kind": {
+              "description": "Optional activity, activity-alias, service, receiver, or provider filter.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "limit": {
+              "format": "uint",
+              "maximum": 200,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "only_exported": {
+              "default": false,
+              "description": "Filter by manifest-derived exported state; does not imply runtime accessibility.",
+              "type": "boolean"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "list_datasets",
+        "description": "List open datasets and server quotas/usage. Counts include opening datasets and accepted work still holding a closed dataset.",
+        "inputSchema": {
+          "properties": {},
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "list_resource_files",
+        "description": "Page archive entry names and sizes, optionally filtered by prefix (res/, assets/, lib/). Names identify entries for read_resource; files are never extracted.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "input_index": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "limit": {
+              "format": "uint",
+              "maximum": 200,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "prefix": {
+              "description": "Case-sensitive archive-entry prefix, for example res/layout/ or assets/.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "list_tables",
+        "description": "List all built-in SQL tables and views; no dataset is needed.",
+        "inputSchema": {
+          "properties": {},
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "open_dataset",
+        "description": "Open local DEX/APK/JAR/ZIP paths as an isolated reusable dataset. Resource-only archives are supported. Input/session quotas and operation deadlines apply. Close unused datasets to release memory.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "inputs": {
+              "description": "Local DEX/APK/JAR/ZIP paths, resolved relative to the server working directory.",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 64,
+              "minItems": 1,
+              "type": "array"
+            },
+            "timeout_ms": {
+              "description": "Optional shorter operation deadline; cannot exceed the server's timeout.",
+              "format": "uint64",
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "inputs"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "query",
+        "description": "Run a read-only SQL batch with exact typed cells, byte/row budgets and per-statement next_offset. Use stable ORDER BY when paging; SQL is re-executed against the current lazy session definitions on each page; CREATE definitions persist until DROP, replacement or dataset close. Running timeout/cancellation closes only this dataset. Use resources/list to discover the documentation.",
+        "inputSchema": {
+          "$defs": {
+            "NamedTempQuery": {
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "sql": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "sql"
+              ],
+              "type": "object"
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "limit": {
+              "description": "Returned rows per statement, default 200; use a deterministic ORDER BY when paging.",
+              "format": "uint",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "description": "Optional lower serialized result-byte budget; rows are never silently clipped.",
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "named_temp_queries": {
+              "default": [],
+              "description": "Lazy named SELECT definitions, retained in this dataset with the same lifetime as TEMP tables.",
+              "items": {
+                "$ref": "#/$defs/NamedTempQuery"
+              },
+              "type": "array"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Rows to skip in each statement's result, default 0. offset + limit is at most 100000.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "sql": {
+              "description": "Read-only SQL statements. VIEW and TEMP definitions are lazy and persist in this dataset\nuntil DROP, redefinition, or close_dataset; results are not cached across calls.",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 16,
+              "minItems": 1,
+              "type": "array"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "timing": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "dataset_id",
+            "sql"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "Cell": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "type": {
+                      "const": "null",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "int64",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "uint64",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "float64",
+                      "type": "string"
+                    },
+                    "value": {
+                      "$ref": "#/$defs/FloatValue"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "utf8",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "binary",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "Column": {
+              "properties": {
+                "data_type": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "nullable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name",
+                "data_type",
+                "nullable"
+              ],
+              "type": "object"
+            },
+            "Diagnostic": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object"
+            },
+            "FloatValue": {
+              "anyOf": [
+                {
+                  "format": "double",
+                  "type": "number"
+                },
+                {
+                  "$ref": "#/$defs/SpecialFloat"
+                }
+              ]
+            },
+            "SpecialFloat": {
+              "enum": [
+                "NaN",
+                "Infinity",
+                "-Infinity"
+              ],
+              "type": "string"
+            },
+            "Statement": {
+              "properties": {
+                "columns": {
+                  "items": {
+                    "$ref": "#/$defs/Column"
+                  },
+                  "type": "array"
+                },
+                "execute_ms": {
+                  "format": "double",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "next_offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "rows": {
+                  "items": {
+                    "items": {
+                      "$ref": "#/$defs/Cell"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "sql": {
+                  "type": "string"
+                },
+                "sql_truncated": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "statement_index": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "total_rows": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "truncated": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "statement_index",
+                "sql",
+                "kind",
+                "columns",
+                "rows",
+                "total_rows",
+                "truncated",
+                "offset"
+              ],
+              "type": "object"
+            },
+            "Timing": {
+              "properties": {
+                "cache_total_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "load_inputs_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "parse_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "sql_wall_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "table_build_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "total_ms": {
+                  "format": "double",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "total_ms",
+                "load_inputs_ms",
+                "parse_ms",
+                "table_build_ms",
+                "cache_total_ms",
+                "sql_wall_ms"
+              ],
+              "type": "object"
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "diagnostics": {
+              "items": {
+                "$ref": "#/$defs/Diagnostic"
+              },
+              "type": "array"
+            },
+            "statements": {
+              "items": {
+                "$ref": "#/$defs/Statement"
+              },
+              "type": "array"
+            },
+            "timing": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Timing"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "dataset_id",
+            "statements",
+            "diagnostics"
+          ],
+          "title": "QueryOutput",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "query_resources",
+        "description": "Query resources.arsc by numeric ID, exact type/name, type, name substring or configuration. Returns matching configurations with raw values and named references; complex resources are flattened into ordered map items. Separate from DEX strings.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "configuration": {
+              "description": "Exact qualifier string from a previous result. Empty string selects the default config.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "contains": {
+              "description": "Case-sensitive substring of the resource name.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "input_index": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "limit": {
+              "format": "uint",
+              "maximum": 200,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Exact type/name or package:type/name, for example string/app_name.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "resource_id": {
+              "description": "Resource ID, for example 2130771968 (0x7f010000).",
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "resource_type": {
+              "description": "Resource type, for example string, layout, id, style, or array.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "read_resource",
+        "description": "Read one exact APK archive entry in bounded pages. Binary Android XML is decoded; UTF-8 text is preserved; other bytes use hex. Follow next_offset in page (text) or the result (hex). The resource-entry size quota applies before decompression.",
+        "inputSchema": {
+          "$defs": {
+            "ResourceFormat": {
+              "description": "The `read_resource` output format: decide from the bytes, or force hex.\n\n`JsonSchema` is derived here for the same reason as `manifest::ManifestMode`: the MCP tool's\nparameter schema is generated from this type, which is re-exported as\n`cli::mcp::protocol::ResourceFormat`.",
+              "enum": [
+                "auto",
+                "hex"
+              ],
+              "type": "string"
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "format": {
+              "$ref": "#/$defs/ResourceFormat",
+              "default": "auto"
+            },
+            "input_index": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Exact archive entry name. No files are extracted to the filesystem.",
+              "type": "string"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Byte offset in decoded UTF-8 text, or original bytes when encoding is hex.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id",
+            "name"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      }
+    ],
+    "0.1.1": [
+      {
+        "name": "close_dataset",
+        "description": "Close a dataset and release its worker. New requests fail; already accepted requests may finish, with deadlines still enforced.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "decode",
+        "description": "Inspect a method or class. Exactly one method descriptor, method_idx (with file_id), or class descriptor is required. Classes default to paginated summaries; methods default to paginated smali. Follow next_offset for exact text continuation; context mode lists original line numbers for labels and catch directives. Query SQL tables for annotations and debug metadata.",
+        "inputSchema": {
+          "$defs": {
+            "DecodeMode": {
+              "description": "Which `decode` view a request asks for. A class selection defaults to [`Self::Summary`] and a\nmethod selection to [`Self::Smali`] (see [`run`]).\n\n`JsonSchema` is derived here for the same reason as `apk::manifest::ManifestMode`: the MCP tool's\nparameter schema is generated from this type (it is re-exported as\n`cli::mcp::protocol::DecodeMode`), so the published schema and the implemented behaviour cannot\ndisagree.",
+              "oneOf": [
+                {
+                  "const": "summary",
+                  "description": "Method METADATA only: descriptor, access flags, code units, registers, try count.",
+                  "type": "string"
+                },
+                {
+                  "const": "smali",
+                  "description": "The complete smali text of each selected method, paged by UTF-8 byte offset.",
+                  "type": "string"
+                },
+                {
+                  "const": "context",
+                  "description": "The smali text with every original label/catch/method line prefixed by its zero-based line\nnumber — the view a caller uses to talk about a line it saw somewhere else.",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "compact": {
+              "description": "Opt in to one structuredContent representation (content is empty). Query columns become\nnames and cells use null/string/number or [i|u|b|f, string]; SQL is omitted. Default false.",
+              "type": "boolean"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "file_id": {
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_lines": {
+              "description": "Maximum lines in one text page, default 200, maximum 1000.",
+              "format": "uint",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "method": {
+              "description": "Exact DEX descriptor. Supply exactly one of method, method_idx, or class.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "method_idx": {
+              "description": "DEX-local method index; requires file_id.",
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "method_limit": {
+              "description": "Methods per class page, default 20, maximum 50.",
+              "format": "uint",
+              "maximum": 50,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "method_offset": {
+              "default": 0,
+              "description": "Class method-list offset, ordered by method_idx.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "mode": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/DecodeMode"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defaults to summary for a class, smali for a method. Context lists original label/catch lines."
+            },
+            "offset": {
+              "default": 0,
+              "description": "UTF-8 byte offset into one method's smali/context text; continue with next_offset.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "DecodeMode": {
+              "description": "Which `decode` view a request asks for. A class selection defaults to [`Self::Summary`] and a\nmethod selection to [`Self::Smali`] (see [`run`]).\n\n`JsonSchema` is derived here for the same reason as `apk::manifest::ManifestMode`: the MCP tool's\nparameter schema is generated from this type (it is re-exported as\n`cli::mcp::protocol::DecodeMode`), so the published schema and the implemented behaviour cannot\ndisagree.",
+              "oneOf": [
+                {
+                  "const": "summary",
+                  "description": "Method METADATA only: descriptor, access flags, code units, registers, try count.",
+                  "type": "string"
+                },
+                {
+                  "const": "smali",
+                  "description": "The complete smali text of each selected method, paged by UTF-8 byte offset.",
+                  "type": "string"
+                },
+                {
+                  "const": "context",
+                  "description": "The smali text with every original label/catch/method line prefixed by its zero-based line\nnumber — the view a caller uses to talk about a line it saw somewhere else.",
+                  "type": "string"
+                }
+              ]
+            },
+            "MethodOutput": {
+              "properties": {
+                "access_flags": {
+                  "format": "uint32",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "code_units": {
+                  "format": "uint64",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "declaration": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "descriptor": {
+                  "type": "string"
+                },
+                "end_line": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "ends_mid_line": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "file_id": {
+                  "format": "uint32",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "method_idx": {
+                  "format": "uint32",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "next_offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "registers": {
+                  "format": "uint64",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "smali": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "start_line": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "starts_mid_line": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "total_bytes": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "total_lines": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "try_count": {
+                  "format": "uint64",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "file_id",
+                "method_idx",
+                "descriptor"
+              ],
+              "type": "object"
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "method_offset": {
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "methods": {
+              "items": {
+                "$ref": "#/$defs/MethodOutput"
+              },
+              "type": "array"
+            },
+            "mode": {
+              "$ref": "#/$defs/DecodeMode"
+            },
+            "next_method_offset": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "total_methods": {
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "dataset_id",
+            "mode",
+            "total_methods",
+            "method_offset",
+            "methods"
+          ],
+          "title": "DecodeOutput",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "describe_table",
+        "description": "Describe a built-in SQL table or view; no dataset is needed.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "get_manifest",
+        "description": "Read an APK Manifest as a summary (including paged permissions) or paged decoded XML. input_index refers to open_dataset.inputs; choose it when several archives are open. Does not require DEX or Java decompilation.",
+        "inputSchema": {
+          "$defs": {
+            "ManifestMode": {
+              "description": "Which `AndroidManifest.xml` view a `get_manifest` request asks for.\n\n`JsonSchema` is derived here because the MCP tool definition is generated from this type (it is\nre-exported as `cli::mcp::protocol::ManifestMode`), so the published parameter schema and the\nimplemented behaviour cannot disagree.",
+              "oneOf": [
+                {
+                  "const": "summary",
+                  "description": "Structured summary: manifest/application/uses-sdk attributes, target SDK, component counts,\nand a paged `permissions` list.",
+                  "type": "string"
+                },
+                {
+                  "const": "xml",
+                  "description": "The complete decoded XML, paged by UTF-8 byte offset.",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "compact": {
+              "description": "Opt in to one structuredContent representation (content is empty). Query columns become\nnames and cells use null/string/number or [i|u|b|f, string]; SQL is omitted. Default false.",
+              "type": "boolean"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "input_index": {
+              "description": "Index in open_dataset.inputs; required when several archive inputs are present.",
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "limit": {
+              "format": "uint",
+              "maximum": 200,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "mode": {
+              "$ref": "#/$defs/ManifestMode",
+              "default": "summary"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Permission-row offset in summary mode, UTF-8 byte offset in XML mode.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "get_manifest_components",
+        "description": "Page Manifest components, names/descriptors, launcher intent filters, aliases and exported configuration. Exported state is manifest-derived and is not a claim of runtime accessibility. Includes explicit and SDK-dependent default states.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "compact": {
+              "description": "Opt in to one structuredContent representation (content is empty). Query columns become\nnames and cells use null/string/number or [i|u|b|f, string]; SQL is omitted. Default false.",
+              "type": "boolean"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "input_index": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "kind": {
+              "description": "Optional activity, activity-alias, service, receiver, or provider filter.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "limit": {
+              "format": "uint",
+              "maximum": 200,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "only_exported": {
+              "default": false,
+              "description": "Filter by manifest-derived exported state; does not imply runtime accessibility.",
+              "type": "boolean"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "list_datasets",
+        "description": "List open datasets and server quotas/usage. Counts include opening datasets and accepted work still holding a closed dataset.",
+        "inputSchema": {
+          "properties": {},
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "list_resource_files",
+        "description": "Page archive entry names and sizes, optionally filtered by prefix (res/, assets/, lib/). Names identify entries for read_resource; files are never extracted.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "compact": {
+              "description": "Opt in to one structuredContent representation (content is empty). Query columns become\nnames and cells use null/string/number or [i|u|b|f, string]; SQL is omitted. Default false.",
+              "type": "boolean"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "input_index": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "limit": {
+              "format": "uint",
+              "maximum": 200,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "prefix": {
+              "description": "Case-sensitive archive-entry prefix, for example res/layout/ or assets/.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "list_tables",
+        "description": "List all built-in SQL tables and views; no dataset is needed.",
+        "inputSchema": {
+          "properties": {},
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "open_dataset",
+        "description": "Open local DEX/APK/JAR/ZIP paths as an isolated reusable dataset. Resource-only archives are supported. Input/session quotas and operation deadlines apply. Close unused datasets to release memory.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "inputs": {
+              "description": "Local DEX/APK/JAR/ZIP paths, resolved relative to the server working directory.",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 64,
+              "minItems": 1,
+              "type": "array"
+            },
+            "timeout_ms": {
+              "description": "Optional shorter operation deadline; cannot exceed the server's timeout.",
+              "format": "uint64",
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "inputs"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "query",
+        "description": "Run a read-only SQL batch with exact typed cells, byte/row budgets and per-statement next_offset. Use stable ORDER BY when paging; SQL is re-executed against the current lazy session definitions on each page; CREATE definitions persist until DROP, replacement or dataset close. Running timeout/cancellation closes only this dataset. Use resources/list to discover the documentation.",
+        "inputSchema": {
+          "$defs": {
+            "NamedTempQuery": {
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "sql": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "sql"
+              ],
+              "type": "object"
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "compact": {
+              "description": "Opt in to one structuredContent representation (content is empty). Query columns become\nnames and cells use null/string/number or [i|u|b|f, string]; SQL is omitted. Default false.",
+              "type": "boolean"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "limit": {
+              "description": "Returned rows per statement, default 200; use a deterministic ORDER BY when paging.",
+              "format": "uint",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "description": "Optional lower serialized result-byte budget; rows are never silently clipped.",
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "named_temp_queries": {
+              "default": [],
+              "description": "Lazy named SELECT definitions, retained in this dataset with the same lifetime as TEMP tables.",
+              "items": {
+                "$ref": "#/$defs/NamedTempQuery"
+              },
+              "type": "array"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Rows to skip in each statement's result, default 0. offset + limit is at most 100000.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "sql": {
+              "description": "Read-only SQL statements. VIEW and TEMP definitions are lazy and persist in this dataset\nuntil DROP, redefinition, or close_dataset; results are not cached across calls.",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 16,
+              "minItems": 1,
+              "type": "array"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "timing": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "dataset_id",
+            "sql"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "Cell": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "type": {
+                      "const": "null",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "int64",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "uint64",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "float64",
+                      "type": "string"
+                    },
+                    "value": {
+                      "$ref": "#/$defs/FloatValue"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "utf8",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "binary",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "Column": {
+              "properties": {
+                "data_type": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "nullable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name",
+                "data_type",
+                "nullable"
+              ],
+              "type": "object"
+            },
+            "CompactStatement": {
+              "properties": {
+                "columns": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "execute_ms": {
+                  "format": "double",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "next_offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "rows": {
+                  "items": {
+                    "items": {
+                      "description": "null = SQL NULL; string = UTF-8; number = finite float64; tagged pairs preserve other runtime types, including mixed columns",
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "maxItems": 2,
+                          "minItems": 2,
+                          "prefixItems": [
+                            {
+                              "const": "i"
+                            },
+                            {
+                              "pattern": "^-?[0-9]+$",
+                              "type": "string"
+                            }
+                          ],
+                          "type": "array"
+                        },
+                        {
+                          "maxItems": 2,
+                          "minItems": 2,
+                          "prefixItems": [
+                            {
+                              "const": "u"
+                            },
+                            {
+                              "pattern": "^[0-9]+$",
+                              "type": "string"
+                            }
+                          ],
+                          "type": "array"
+                        },
+                        {
+                          "maxItems": 2,
+                          "minItems": 2,
+                          "prefixItems": [
+                            {
+                              "const": "b"
+                            },
+                            {
+                              "pattern": "^([0-9a-f]{2})*$",
+                              "type": "string"
+                            }
+                          ],
+                          "type": "array"
+                        },
+                        {
+                          "maxItems": 2,
+                          "minItems": 2,
+                          "prefixItems": [
+                            {
+                              "const": "f"
+                            },
+                            {
+                              "enum": [
+                                "NaN",
+                                "Infinity",
+                                "-Infinity"
+                              ]
+                            }
+                          ],
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "statement_index": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "total_rows": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "truncated": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "statement_index",
+                "kind",
+                "columns",
+                "rows",
+                "total_rows",
+                "truncated",
+                "offset"
+              ],
+              "type": "object"
+            },
+            "Diagnostic": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object"
+            },
+            "FloatValue": {
+              "anyOf": [
+                {
+                  "format": "double",
+                  "type": "number"
+                },
+                {
+                  "$ref": "#/$defs/SpecialFloat"
+                }
+              ]
+            },
+            "SpecialFloat": {
+              "enum": [
+                "NaN",
+                "Infinity",
+                "-Infinity"
+              ],
+              "type": "string"
+            },
+            "Statement": {
+              "properties": {
+                "columns": {
+                  "items": {
+                    "$ref": "#/$defs/Column"
+                  },
+                  "type": "array"
+                },
+                "execute_ms": {
+                  "format": "double",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "next_offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "offset": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "rows": {
+                  "items": {
+                    "items": {
+                      "$ref": "#/$defs/Cell"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "sql": {
+                  "type": "string"
+                },
+                "sql_truncated": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "statement_index": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "total_rows": {
+                  "format": "uint",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "truncated": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "statement_index",
+                "sql",
+                "kind",
+                "columns",
+                "rows",
+                "total_rows",
+                "truncated",
+                "offset"
+              ],
+              "type": "object"
+            },
+            "Timing": {
+              "properties": {
+                "cache_total_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "load_inputs_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "parse_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "sql_wall_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "table_build_ms": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "total_ms": {
+                  "format": "double",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "total_ms",
+                "load_inputs_ms",
+                "parse_ms",
+                "table_build_ms",
+                "cache_total_ms",
+                "sql_wall_ms"
+              ],
+              "type": "object"
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "dataset_id": {
+              "type": "string"
+            },
+            "diagnostics": {
+              "items": {
+                "$ref": "#/$defs/Diagnostic"
+              },
+              "type": "array"
+            },
+            "statements": {
+              "anyOf": [
+                {
+                  "items": {
+                    "$ref": "#/$defs/Statement"
+                  },
+                  "type": "array"
+                },
+                {
+                  "items": {
+                    "$ref": "#/$defs/CompactStatement"
+                  },
+                  "type": "array"
+                }
+              ]
+            },
+            "timing": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Timing"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "dataset_id",
+            "statements",
+            "diagnostics"
+          ],
+          "title": "QueryOutput",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "query_resources",
+        "description": "Query resources.arsc by numeric ID, exact type/name, type, name substring or configuration. Returns matching configurations with raw values and named references; complex resources are flattened into ordered map items. Separate from DEX strings.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "compact": {
+              "description": "Opt in to one structuredContent representation (content is empty). Query columns become\nnames and cells use null/string/number or [i|u|b|f, string]; SQL is omitted. Default false.",
+              "type": "boolean"
+            },
+            "configuration": {
+              "description": "Exact qualifier string from a previous result. Empty string selects the default config.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "contains": {
+              "description": "Case-sensitive substring of the resource name.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "input_index": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "limit": {
+              "format": "uint",
+              "maximum": 200,
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Exact type/name or package:type/name, for example string/app_name.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "resource_id": {
+              "description": "Resource ID, for example 2130771968 (0x7f010000).",
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "resource_type": {
+              "description": "Resource type, for example string, layout, id, style, or array.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      },
+      {
+        "name": "read_resource",
+        "description": "Read one exact APK archive entry in bounded pages. Binary Android XML is decoded; UTF-8 text is preserved; other bytes use hex. Follow next_offset in page (text) or the result (hex). The resource-entry size quota applies before decompression.",
+        "inputSchema": {
+          "$defs": {
+            "ResourceFormat": {
+              "description": "The `read_resource` output format: decide from the bytes, or force hex.\n\n`JsonSchema` is derived here for the same reason as `manifest::ManifestMode`: the MCP tool's\nparameter schema is generated from this type, which is re-exported as\n`cli::mcp::protocol::ResourceFormat`.",
+              "enum": [
+                "auto",
+                "hex"
+              ],
+              "type": "string"
+            }
+          },
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "compact": {
+              "description": "Opt in to one structuredContent representation (content is empty). Query columns become\nnames and cells use null/string/number or [i|u|b|f, string]; SQL is omitted. Default false.",
+              "type": "boolean"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "format": {
+              "$ref": "#/$defs/ResourceFormat",
+              "default": "auto"
+            },
+            "input_index": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_bytes": {
+              "format": "uint",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Exact archive entry name. No files are extracted to the filesystem.",
+              "type": "string"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Byte offset in decoded UTF-8 text, or original bytes when encoding is hex.",
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timeout_ms": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "dataset_id",
+            "name"
+          ],
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        }
+      }
+    ]
+  },
+  "hostlab_direct_native_tools": [
+    "open_dataset",
+    "query",
+    "decode",
+    "get_manifest",
+    "close_dataset"
+  ],
+  "legacy_dexq": [
+    {
+      "name": "open_dataset",
+      "arguments_source": null,
+      "signature": "inputs: list[str], rebuild: bool=False",
+      "docstring": "Open one or more local .apk/.dex/.zip/.jar files (absolute paths) as one dataset.\n\nThe first open of a file builds an on-disk SQLite index (a ~30-dex host APK takes minutes;\nsmall APKs seconds). Later opens of the same unchanged file are instant. Several inputs form one\ndataset; file_id identifies each dex across them. rebuild=true forces a fresh index.",
+      "line": 196,
+      "end_line": 227,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+        "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py"
+      }
+    },
+    {
+      "name": "list_datasets",
+      "arguments_source": null,
+      "signature": "",
+      "docstring": "List datasets opened in this server session.",
+      "line": 231,
+      "end_line": 233,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+        "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py"
+      }
+    },
+    {
+      "name": "close_dataset",
+      "arguments_source": null,
+      "signature": "dataset_id: str",
+      "docstring": "Forget a dataset id. The on-disk index is kept for the next open.",
+      "line": 237,
+      "end_line": 239,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+        "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py"
+      }
+    },
+    {
+      "name": "describe_tables",
+      "arguments_source": null,
+      "signature": "",
+      "docstring": "Schema of the index plus example queries. Call this before writing SQL.",
+      "line": 243,
+      "end_line": 264,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+        "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py"
+      }
+    },
+    {
+      "name": "query",
+      "arguments_source": null,
+      "signature": "dataset_id: str, sql: str, limit: int=100, max_cell_chars: int=MAX_CELL",
+      "docstring": "Run ONE read-only SELECT/WITH statement against the index. Output is a tab-separated table.\n\nlimit caps the returned rows (max 1000). max_cell_chars is 1..16000 (default 300).\nTruncation is reported; for longer values SELECT length(value), substr(value,1,8000),\nthen substr(value,8001,8000) with the same stable key and max_cell_chars=16000.\nPreview lengths count escaped characters; SQLite retains the full value.\nOutput is bounded to 64000 chars at complete row boundaries. Times out after 60 s.",
+      "line": 268,
+      "end_line": 328,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+        "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py"
+      }
+    },
+    {
+      "name": "decode",
+      "arguments_source": null,
+      "signature": "dataset_id: str, method: str, max_chars: int=12000",
+      "docstring": "Disassemble one method to smali-like text. method = 'Lcom/x/Y;->name(I)V'.\n\nIf the class exists in several dex files, all definitions are printed (each with its file_id).\nOffsets are in 16-bit code units (hex), the same as smali/dexdump.",
+      "line": 345,
+      "end_line": 387,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+        "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py"
+      }
+    },
+    {
+      "name": "find_refs",
+      "arguments_source": null,
+      "signature": "dataset_id: str, kind: str, target: str, limit: int=100",
+      "docstring": "Find where something is used. Scans instructions of the dex files that can contain a hit.\n\nkind='method'  target='Lcom/x/Y;->name(I)V'  -> invoke-* call sites (callers)\nkind='field'   target='Lcom/x/Y;->name:I'    -> iget/iput/sget/sput sites\nkind='string'  target='exact string text'    -> const-string users\nkind='type'    target='Lcom/x/Y;'            -> const-class/new-instance/check-cast/... sites\nOutput columns: file_id, class, method, proto, offset(hex code units), op.\nSubclass overrides / interface dispatch are NOT resolved: an invoke names the static receiver type.",
+      "line": 391,
+      "end_line": 445,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+        "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py"
+      }
+    },
+    {
+      "name": "apk_info",
+      "arguments_source": null,
+      "signature": "path: str",
+      "docstring": "Package name, version, SDK levels, permissions and component names of an APK (from its manifest).",
+      "line": 449,
+      "end_line": 468,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/dexq/server.py",
+        "sha256": "6e7f76b590bae267a699d24fe1a726a10342d86384983e4728fcee52a8461a6b",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/dexq/server.py"
+      }
+    }
+  ],
+  "remote_orchestration": [
+    {
+      "name": "plan_version_matrix",
+      "arguments_source": null,
+      "signature": "samples: list[dict], request: dict, max_parallel: int=4, reuse_completed: bool=True, deadline_seconds: int=1800, runner_batch_size: int=1, execution_policy: str='fixed'",
+      "docstring": "Plan 1..40 exact APKs over at most 4 runners. Default fixed preserves runner_batch_size=1..4 and old identities. execution_policy=adaptive uses balanced groups (native up to 12, otherwise 4); leave runner_batch_size=1. Its cold projection performs no network/profile reads; exact verified profiles bind at submission. Every sample requires inventory version_code/apk_sha256/sample_revision. No dispatch here.",
+      "line": 177,
+      "end_line": 186,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "submit_version_matrix",
+      "arguments_source": null,
+      "signature": "samples: list[dict], request: dict, max_parallel: int=4, reuse_completed: bool=True, deadline_seconds: int=1800, idempotency_key: str='', runner_batch_size: int=1, execution_policy: str='fixed'",
+      "docstring": "Create a durable exact-version queue. Fixed mode keeps runner_batch_size=1..4 and dispatches up to two jobs per call. Adaptive mode snapshots verified performance hints, balances bounded groups and fills up to four physical slots; leave runner_batch_size=1. Stable keys resume the original frozen topology even when profiles/main change. Unknown dispatches and failures never replay automatically.",
+      "line": 190,
+      "end_line": 205,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "advance_version_matrix",
+      "arguments_source": null,
+      "signature": "matrix_id: str",
+      "docstring": "Refresh accepted jobs under the captured revision and at most 4 physical slots. Fixed queues dispatch at most two jobs per call; adaptive queues fill up to four. Call only while you intend progress. Capacity pressure keeps local entries; a deadline stops new dispatches without cancelling accepted jobs.",
+      "line": 209,
+      "end_line": 216,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "version_matrix_status",
+      "arguments_source": null,
+      "signature": "matrix_id: str",
+      "docstring": "Refresh matrix job states without submitting additional work.",
+      "line": 220,
+      "end_line": 227,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "version_matrix_result",
+      "arguments_source": null,
+      "signature": "matrix_id: str, offset: int=0, limit: int=8, download_parallel: int=4, prefetch_only: bool=False",
+      "docstring": "Collect with 1..4 download workers and verified reuse. While later versions run, prefetch_only=true downloads only completed entries on this page, without candidate comparison or dispatch. For final comparisons use prefetch_only=false after the matrix finishes. collection_errors can be retried on the same matrix/page without new Actions. Large comparisons have immutable local snapshots. Static results do not prove working runtime hooks.",
+      "line": 231,
+      "end_line": 242,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "recover_version_matrix",
+      "arguments_source": null,
+      "signature": "matrix_id: str, idempotency_key: str='', include_unverified_results: bool=False",
+      "docstring": "Retry confirmed failed/skipped versions under the original tool commit and execution policy. Explicit include_unverified_results=true may repeat completed jobs whose member results remain unverified, including earlier successful work. Running/unknown dispatches stay excluded. The same key/opt-in resumes its queue; a new key authorizes another attempt. Uses Actions minutes; fixed/adaptive dispatch at most two/four initial jobs.",
+      "line": 246,
+      "end_line": 257,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "plan_analysis",
+      "arguments_source": null,
+      "signature": "request: dict",
+      "docstring": "Plan up to 16 related tasks without dispatching. Request: {backend:auto|sqlite|dexsql,tasks:[{id,operation,...}]}. query requires sql and dialect. DexSQL query.limit is page size; automatic continuation is bounded by pagination={max_pages:1..32,max_rows:1..10000,max_bytes:1024..1048576}, default 8/1000/1048576 and the shared batch deadline/byte budget. max_pages=1 preserves a single page. SQLite SQL is unchanged. locate requires kind/name; refs requires kind/target and methods|sites detail; decode requires a full method descriptor. This is a plan, not execution evidence.",
+      "line": 298,
+      "end_line": 304,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "submit_analysis",
+      "arguments_source": null,
+      "signature": "version_code: int, request: dict, apk_sha256: str='', sample_revision: str='', idempotency_key: str=''",
+      "docstring": "Schedule one bounded analysis batch. Related tasks share one APK fetch and one session per backend. DexSQL queries automatically continue under row/page/byte/deadline budgets. request.resume={run_id,attempt,request_id} explicitly imports a verified checkpoint from this repository; exact APK SHA and sample revision are required. Completed task payloads are retained and partial SQL continues at its admitted cursor, never by replaying its prefix. Resume defaults to a stable idempotency key; a new key explicitly authorizes another attempt. Ordinary arbitrary SQL is not completion-cached. Unknown dispatch is never replayed. Uses Actions minutes.",
+      "line": 308,
+      "end_line": 318,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "submit_job",
+      "arguments_source": null,
+      "signature": "version_code: int, operation: str, argument: str='', max_cell_chars: int=300, source_mode: str='auto'",
+      "docstring": "Submit multipath_audit, audit, decompile (class), query (SELECT SQL), decode (method), string_refs (string), or info. Uses Actions minutes; returns immediately.\n\nquery supports max_cell_chars=1..16000 (default 300). Larger cells remain in the index;\nuse length()/substr() with file_id and a stable row key for longer values.",
+      "line": 322,
+      "end_line": 365,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "job_status",
+      "arguments_source": null,
+      "signature": "request_id: str",
+      "docstring": "Get queue/running/completion state for a submitted request. Does not wait.",
+      "line": 369,
+      "end_line": 394,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "list_jobs",
+      "arguments_source": null,
+      "signature": "",
+      "docstring": "List the latest ten analysis runs.",
+      "line": 398,
+      "end_line": 400,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    },
+    {
+      "name": "job_result",
+      "arguments_source": null,
+      "signature": "request_id: str, result_offset: int=0, sample_index: int=-1, page_chars: int=RESULT_PAGE_CHARS, result_file: str=''",
+      "docstring": "Download result artifacts and return bounded text plus local file paths. No APK or DEX.\n\nPages default to 32000 Unicode characters; page_chars accepts 1024..128000.\nCombined previews are capped at three pages. result.txt (durable report: report.md)\nis selected by default. Set result_file to job.json, summary.json, or another\nreturned text file's exact relative path to page metadata. file_pages lists cursors.\nPass result_page.next_offset back as result_offset, retaining result_file, until null. Reading pages\nreuses the downloaded artifact; it does not submit another Actions analysis job.\nGrouped jobs return a bounded group receipt and all file paths by default.\nSet sample_index=0..11 to inspect/page a specific member, including failed members.",
+      "line": 404,
+      "end_line": 468,
+      "source": {
+        "path": "conformance/corpus/hostlab/source-8782f43/remote_mcp.py",
+        "sha256": "dc196d75a2edb41b37057fa94b9a608d6fdf674d0962f0856198cfb710ee3787",
+        "source_commit": "8782f43d537c442905123e35af325c412caa5188",
+        "origin_url": "https://raw.githubusercontent.com/jichuo1/innocent-lab-host-analysis/8782f43d537c442905123e35af325c412caa5188/tools/hostlab/remote_mcp.py"
+      }
+    }
+  ],
+  "paging_units": {
+    "query": "rows; offset re-executes SQL",
+    "decode_smali": "display UTF-8 bytes",
+    "decode_method_list": "method_offset",
+    "manifest_xml": "display UTF-8 bytes",
+    "manifest_summary": "permission rows",
+    "read_resource_hex": "raw bytes",
+    "read_resource_auto_text_xml": "display UTF-8 bytes"
+  },
+  "implementation": "not_implemented",
+  "source_commit": "8782f43d537c442905123e35af325c412caa5188"
+}

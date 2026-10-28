@@ -1,0 +1,271 @@
+{
+  "schema_version": "mdd.format-validation.v1",
+  "task_id": "MDD-013",
+  "started_utc": "2026-10-28T07:26:15.011056+00:00",
+  "completed_utc": "2026-10-28T07:26:23.260853+00:00",
+  "environment": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "tools": [
+      {
+        "argv": [
+          "rustc",
+          "-Vv"
+        ],
+        "exit_code": 0,
+        "stdout": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "cargo",
+          "-V"
+        ],
+        "exit_code": 0,
+        "stdout": "cargo 1.99.0 (5f94df478 2026-08-27)\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "checkout": {
+    "argv": [
+      "git",
+      "-c",
+      "safe.directory=D:/MeguvisDexDash",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "stdout": "3bbf1088137e70c5d3d722534a5eeab8b69a596c\n",
+    "stderr": ""
+  },
+  "scoped_git_status": {
+    "argv": [
+      "git",
+      "-c",
+      "safe.directory=D:/MeguvisDexDash",
+      "status",
+      "--short",
+      "--",
+      "crates/mdd-dex",
+      "conformance/dex",
+      "artifacts/mdd-013"
+    ],
+    "exit_code": 0,
+    "stdout": "?? artifacts/mdd-013/\n?? conformance/dex/\n?? crates/mdd-dex/\n",
+    "stderr": ""
+  },
+  "commands": [
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "mdd-dex"
+      ],
+      "exit_code": 0,
+      "stdout": "\nrunning 10 tests\ntest checked_reader::tests::arithmetic_and_ranges_reject_before_reading ... ok\ntest header::tests::exact_unsupported_formats_do_not_admit_numeric_ranges ... ok\ntest header::tests::header_empty_ranges_and_large_counts_fail_explicitly ... ok\ntest header::tests::each_standard_version_has_real_fixture ... ok\ntest header::tests::forward_backwards_and_out_of_range_references_are_rejected ... ok\ntest header::tests::malformed_fixtures_have_distinct_errors_and_ranges ... ok\ntest header::tests::checksum_and_sha1_validation_scopes_remain_distinct ... ok\ntest header::tests::map_overlap_duplicate_and_header_disagreement_are_errors ... ok\ntest header::tests::structured_sources_and_reordered_data_keep_valid_reference_ranges ... ok\ntest header::tests::all_prefix_truncations_fail_without_panic ... ok\n\ntest result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "    Blocking waiting for file lock on build directory\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.25s\n     Running unittests src\\lib.rs (target\\debug\\deps\\mdd_dex-d39197772abfbd9a.exe)\n   Doc-tests mdd_dex\n"
+    },
+    {
+      "argv": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--offline",
+        "-p",
+        "mdd-dex",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Blocking waiting for file lock on build directory\n    Checking mdd-dex v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-dex)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.76s\n"
+    },
+    {
+      "argv": [
+        "rustfmt",
+        "--check",
+        "--edition",
+        "2024",
+        "crates/mdd-dex/src/lib.rs",
+        "crates/mdd-dex/src/header.rs",
+        "crates/mdd-dex/src/checked_reader.rs"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "crates/mdd-dex/Cargo.toml": "8b7f52f060cf395a8395952dfc1d71afd5bae3271a5daffeedff17ef448e32e6",
+    "crates/mdd-dex/src/checked_reader.rs": "58c14936ccd64e63a0a8930468cec210a331c5beb77bec3ba0684bb2b6631a3a",
+    "crates/mdd-dex/src/header.rs": "e881df2b84eef4fb709d6dfcdf2f601e4a22d44dfd30c233992b99d860e6386c",
+    "crates/mdd-dex/src/lib.rs": "65d44e8d75876b0044236f8676dff875d194f2f2f2aa409ba599e6e38a42394c",
+    "Cargo.lock": "ffcd1c8257769fd8a602a252171ee749a9ed665a164d62daeb6ca73c4d6f64cf",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "conformance/dex/header-and-version-cases.json": "3778f682e2ad47fe2edb5f359901646bc46555f9b2b3735b07f010cebec1e8c6"
+  },
+  "fixture_manifest_sha256": "ab65793bd4940229a3df3e5da14604e2bb9540bb98c341ff8eb2c7e3affc0b1b",
+  "fixture_inputs": [
+    {
+      "path": "tests/fixtures/generated/minimal-035.dex",
+      "bytes": 140,
+      "sha256": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+      "fixture_expectation": "valid_header_and_map"
+    },
+    {
+      "path": "tests/fixtures/generated/minimal-037.dex",
+      "bytes": 140,
+      "sha256": "45b6d94b81a498ff626152716c43fa3f37ae84cb347808954cdc11f2f6db5b7a",
+      "fixture_expectation": "valid_header_and_map"
+    },
+    {
+      "path": "tests/fixtures/generated/minimal-038.dex",
+      "bytes": 140,
+      "sha256": "7e0f156611de3f393809abb6b2f355a4973b4632b877b6217d916069e811f59a",
+      "fixture_expectation": "valid_header_and_map"
+    },
+    {
+      "path": "tests/fixtures/generated/minimal-039.dex",
+      "bytes": 140,
+      "sha256": "2133d3fb663cfceadea61c1a15963a6deb69ef9cb82c1e0b7d5583a238b6e0a6",
+      "fixture_expectation": "valid_header_and_map"
+    },
+    {
+      "path": "tests/fixtures/generated/minimal-040.dex",
+      "bytes": 140,
+      "sha256": "2ceacba2863f6acbaf5014ff304492665a30f299d1dde0113fbb7de913253f38",
+      "fixture_expectation": "valid_header_and_map"
+    },
+    {
+      "path": "tests/fixtures/generated/unsupported-036.dex",
+      "bytes": 140,
+      "sha256": "38ec39a44c9c076bc34c61a6fe2280d8c56d97bb40d5edcbd88e26b72859cd30",
+      "fixture_expectation": "UNSUPPORTED_CAPABILITY"
+    },
+    {
+      "path": "tests/fixtures/generated/unsupported-041.dex",
+      "bytes": 140,
+      "sha256": "cefcbe1475083b6aa3380d447ff875ec35c7ac05574ca51403b5e2ae0d38a552",
+      "fixture_expectation": "UNSUPPORTED_CAPABILITY"
+    },
+    {
+      "path": "tests/fixtures/generated/structured-035.dex",
+      "bytes": 536,
+      "sha256": "108cf907d330b823c6e32d38eaab8f23709fe493f52537688bbd09ba3e271605",
+      "fixture_expectation": "valid_synthetic_structure"
+    },
+    {
+      "path": "tests/fixtures/generated/strings-mutf8-035.dex",
+      "bytes": 224,
+      "sha256": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+      "fixture_expectation": "valid_header_and_strings"
+    },
+    {
+      "path": "tests/fixtures/generated/class-reorder-before.dex",
+      "bytes": 428,
+      "sha256": "f41794ab3a1778f69fbb005f598c614be473189d89ddd2f9e7730d75f5dcb921",
+      "fixture_expectation": "valid_reordered_structure"
+    },
+    {
+      "path": "tests/fixtures/generated/class-reorder-after.dex",
+      "bytes": 428,
+      "sha256": "24f35f625f4501fdef365a7e3ba8685c609fdec6c2955aaa1900c1e0501ee9b2",
+      "fixture_expectation": "valid_reordered_structure"
+    },
+    {
+      "path": "tests/fixtures/generated/structured-035-same-size-changed.dex",
+      "bytes": 536,
+      "sha256": "12dc21ec8975294592eb4994c57e148ab99d26f973b435697b97cb6ab58faa11",
+      "fixture_expectation": "valid_synthetic_structure"
+    },
+    {
+      "path": "tests/fixtures/generated/bad-magic.dex",
+      "bytes": 140,
+      "sha256": "b4d2ed6864170624455d06c9cf6436052bc26d0ac0482008c9b088b4f363942c",
+      "fixture_expectation": "INVALID_MAGIC"
+    },
+    {
+      "path": "tests/fixtures/generated/truncated-header.dex",
+      "bytes": 80,
+      "sha256": "348c14b585035f8e3afd91525198630fe5b05b881044bc887bb0f22717f8d6dc",
+      "fixture_expectation": "TRUNCATED"
+    },
+    {
+      "path": "tests/fixtures/generated/bad-checksum.dex",
+      "bytes": 140,
+      "sha256": "cc90d70fe322f17950015d5f3bd536c666a8ebadfc2e6c0d0773ebca1fd916b2",
+      "fixture_expectation": "CHECKSUM_MISMATCH"
+    },
+    {
+      "path": "tests/fixtures/generated/bad-signature.dex",
+      "bytes": 140,
+      "sha256": "914032948790b185d306c3425c6b830783a8c895bab247481712373cc0b28bee",
+      "fixture_expectation": "SIGNATURE_MISMATCH"
+    },
+    {
+      "path": "tests/fixtures/generated/bad-map-offset.dex",
+      "bytes": 140,
+      "sha256": "07245312d7d77766e11af0409c35c00895c1dccda7fe932d0a7654ee7efe0b1f",
+      "fixture_expectation": "INVALID_MAP"
+    },
+    {
+      "path": "tests/fixtures/generated/table-count-overflow.dex",
+      "bytes": 140,
+      "sha256": "6e9c4e42737e914a17686958fb11a1e816d1bd4a869f3d176e6d85a8885550e3",
+      "fixture_expectation": "TABLE_RANGE"
+    }
+  ],
+  "success": true,
+  "unit_tests_passed": 10,
+  "scope": "standard-le-header-map-fixed-references-v1",
+  "full_dex_validation_complete": false,
+  "signature_verified": false,
+  "adler32_verified_for_accepted_inputs": true,
+  "source_identity": "Caller snapshot owns bytes and binds ContentId/DexOccurrence to returned errors. Leaf reader never opens a path.",
+  "diagnostics": "ErrorCode plus stable reason, failure stage, byte_offset/byte_length and partial-input/unknown-facts labels; no zero-row success for malformed inputs.",
+  "acceptance": [
+    {
+      "ordinal": 1,
+      "status": "done",
+      "evidence": "Each of 035/037/038/039/040 validated with a separate real fixture; 036/041/special magic/reverse endian explicitly unsupported."
+    },
+    {
+      "ordinal": 2,
+      "status": "done",
+      "evidence": "CheckedReader verifies u64 addition/multiplication and range before slicing. Direct overflow tests and every prefix of 536-byte structured fixture reject without reader panic."
+    },
+    {
+      "ordinal": 3,
+      "status": "done",
+      "evidence": "Actual malformed magic, truncation, checksum, map, count and fixed-index/pointer counterexamples distinguish reason/code/stage and incomplete scope."
+    },
+    {
+      "ordinal": 4,
+      "status": "done",
+      "evidence": "Self-contained reader consumes generated valid minimal and structured bytes directly. No DexSQL executable, provider or parser dependency."
+    },
+    {
+      "ordinal": 5,
+      "status": "done",
+      "evidence": "Leaf diagnostics include byte range/failure layer and require caller snapshot binding. Serialized success explicitly names scope and full_dex_validation_complete=false; declared SHA1 remains unverified."
+    }
+  ],
+  "limits": [
+    "Little endian only",
+    "SHA1 signature not verified",
+    "MUTF/name/order/descriptor semantics deferred",
+    "Full class_data/code/annotations/encoded-values/debug validation deferred",
+    "Variable data references check section boundary and minimum size, not complete item parsing",
+    "AOSP/dexlib2 full differential and Linux native execution not run by this task",
+    "field/type-list/call-site/method-handle branches exist but current fixture positives do not exercise all of these optional paths"
+  ],
+  "retained_failure_record": "artifacts/mdd-013/initial-build-failure.json",
+  "qualification": "M1 reader task scope only, not complete DEX input/facts/profile/HostLab/performance release qualification"
+}

@@ -1,0 +1,2556 @@
+{
+  "schema_version": "mdd.reference-relations.v1",
+  "reference_release": "0.1.0",
+  "reference_platform": "windows_amd64",
+  "schema_capture": "artifacts/mdd-003/schema-capture.json",
+  "schema_sha256": "aa990e6a7bbfc0565b67e7774fefed5427dbb71e7fe97b7053a1aec6b466b234",
+  "required_count": 17,
+  "relations": [
+    {
+      "name": "dex_files",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "string_pool_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "source_path",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "entry_name",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "byte_len",
+          "data_type": "UInt64",
+          "nullable": false
+        },
+        {
+          "name": "dex_version",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "checksum",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "signature_hex",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "file_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "header_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "endian_tag",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "link_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "link_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "map_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "string_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "string_ids_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_ids_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "proto_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "proto_ids_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "field_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "field_ids_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_ids_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_defs_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "data_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "data_off",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "map_items",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_code",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "offset",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "id_items",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "item_type_code",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "item_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "item_end_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "data_off",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "strings",
+      "columns": [
+        {
+          "name": "string_pool_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "string_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value",
+          "data_type": "Utf8View",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "type_ids",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "descriptor_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "types",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "java_name",
+          "data_type": "Utf8",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "type_lists",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_list_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_list_end_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "size",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "type_list_entries",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_list_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "proto_ids",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "proto_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "shorty_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "return_type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "parameters_off",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "protos",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "proto_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "shorty_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "shorty",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "return_type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "return_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "parameters_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "param_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "param_descriptors",
+          "data_type": "Utf8",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "proto_params",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "proto_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "field_ids",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "fields",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_ids",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "proto_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_opcodes",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "opcode_count",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "opcode_hex",
+          "data_type": "Utf8View",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "class_data_methods",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "kind",
+          "data_type": "Utf8",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "methods",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "proto_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "descriptor",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "return_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "param_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "param_descriptors",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "opcode_count",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "opcode_hex",
+          "data_type": "Utf8View",
+          "nullable": true
+        },
+        {
+          "name": "method_kind",
+          "data_type": "Utf8",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_handles",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_handle_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_handle_type",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "member_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "call_sites",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "call_site_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "call_site_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_handle_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "method_name_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "proto_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "call_site_args",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "call_site_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "call_site_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "value_index",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_i64",
+          "data_type": "Int64",
+          "nullable": true
+        },
+        {
+          "name": "value_f64",
+          "data_type": "Float64",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "encoded_arrays",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "encoded_array_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "encoded_array_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "encoded_array_end_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_count",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "encoded_array_values",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "encoded_array_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "depth",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_end_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "value_index",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_i64",
+          "data_type": "Int64",
+          "nullable": true
+        },
+        {
+          "name": "value_f64",
+          "data_type": "Float64",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "encoded_array_owners",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "encoded_array_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "owner_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "owner_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "class_defs",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_def_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "superclass_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "interfaces_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "source_file_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "annotations_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_data_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "static_values_off",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "classes",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_def_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "superclass_descriptor",
+          "data_type": "Utf8",
+          "nullable": true
+        },
+        {
+          "name": "interface_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "source_file",
+          "data_type": "Utf8",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "class_interfaces",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "interface_type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "interface_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "class_data_items",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_data_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_data_end_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "static_fields_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "instance_fields_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "direct_methods_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "virtual_methods_size",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "class_fields",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "field_name",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "field_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "class_static_values",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "static_values_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "value_index",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_i64",
+          "data_type": "Int64",
+          "nullable": true
+        },
+        {
+          "name": "value_f64",
+          "data_type": "Float64",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "class_methods",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "method_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "hiddenapi_flags",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "member_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "member_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "flag",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "code_items",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "code_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "registers_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ins_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "outs_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "tries_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "debug_info_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "insns_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "insns_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "tries_off",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "handlers_off",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "try_items",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "try_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "start_addr",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "insn_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "handler_off",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "catch_handlers",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "handler_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "handler_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "addr",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "is_catch_all",
+          "data_type": "Boolean",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "debug_info",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "debug_info_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "line_start",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "parameters_size",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "debug_parameters",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "debug_info_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "debug_positions",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "debug_info_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "address",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "line",
+          "data_type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "source_file_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "prologue_end",
+          "data_type": "Boolean",
+          "nullable": false
+        },
+        {
+          "name": "epilogue_begin",
+          "data_type": "Boolean",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "debug_locals",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "debug_info_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "address",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "event",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "register_num",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "signature_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "debug_opcodes",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "debug_info_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "opcode_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "opcode_end_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "opcode",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "address",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "line",
+          "data_type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "address_diff",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "line_diff",
+          "data_type": "Int32",
+          "nullable": true
+        },
+        {
+          "name": "register_num",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "signature_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "source_file_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "emits_position",
+          "data_type": "Boolean",
+          "nullable": false
+        },
+        {
+          "name": "emits_local",
+          "data_type": "Boolean",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_directories",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotations_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_annotations_off",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "fields_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "methods_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "parameters_size",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_directory_entries",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotations_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "entry_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "entry_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "annotation_set_ref_list_off",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_sets",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "size",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_set_entries",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_set_ref_lists",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_ref_list_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "size",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_set_refs",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_ref_list_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotations",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "visibility",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "element_count",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_elements",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "depth",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_end_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "value_index",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_i64",
+          "data_type": "Int64",
+          "nullable": true
+        },
+        {
+          "name": "value_f64",
+          "data_type": "Float64",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_refs",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "index_kind",
+          "data_type": "Dictionary(Int8, Utf8)",
+          "nullable": false
+        },
+        {
+          "name": "index",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "using_type",
+          "data_type": "Utf8",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_numbers",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "opcode",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "number_type",
+          "data_type": "Dictionary(Int8, Utf8)",
+          "nullable": false
+        },
+        {
+          "name": "long_value",
+          "data_type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "double_value",
+          "data_type": "Float64",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_using_numbers",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "number_type",
+          "data_type": "Dictionary(Int8, Utf8)",
+          "nullable": false
+        },
+        {
+          "name": "long_value",
+          "data_type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "double_value",
+          "data_type": "Float64",
+          "nullable": true
+        },
+        {
+          "name": "opcode",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_strings",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "value",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "string_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_calls",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "callee",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "callee_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "callee_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "callee_method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_field_accesses",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "field",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "field_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "field_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "field_type",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "using_type",
+          "data_type": "Utf8",
+          "nullable": true
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "method_used_types",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "type_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "type_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_values",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "owner_kind",
+          "data_type": "Dynamic",
+          "nullable": false
+        },
+        {
+          "name": "owner_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "owner_descriptor",
+          "data_type": "Utf8",
+          "nullable": true
+        },
+        {
+          "name": "parameter_idx",
+          "data_type": "Dynamic",
+          "nullable": true
+        },
+        {
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_descriptor",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "depth",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "name",
+          "data_type": "Utf8",
+          "nullable": true
+        },
+        {
+          "name": "value_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "value_i64",
+          "data_type": "Int64",
+          "nullable": true
+        },
+        {
+          "name": "value_f64",
+          "data_type": "Float64",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    },
+    {
+      "name": "annotation_elements_resolved",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "owner_kind",
+          "data_type": "Dynamic",
+          "nullable": false
+        },
+        {
+          "name": "owner_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "owner",
+          "data_type": "Utf8",
+          "nullable": true
+        },
+        {
+          "name": "parameter_idx",
+          "data_type": "Dynamic",
+          "nullable": true
+        },
+        {
+          "name": "annotation",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "visibility",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "element_count",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "element_ordinal",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "element_name",
+          "data_type": "Utf8",
+          "nullable": true
+        },
+        {
+          "name": "value_kind",
+          "data_type": "Utf8",
+          "nullable": true
+        },
+        {
+          "name": "value_index",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_i64",
+          "data_type": "Int64",
+          "nullable": true
+        },
+        {
+          "name": "value_f64",
+          "data_type": "Float64",
+          "nullable": true
+        },
+        {
+          "name": "retention_policy",
+          "data_type": "Dynamic",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only"
+    }
+  ],
+  "limits": [
+    "Not an implemented mdd relation",
+    "0.1.1 schema has not been recaptured in this environment"
+  ]
+}

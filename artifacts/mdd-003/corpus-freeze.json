@@ -1,0 +1,18 @@
+{
+  "task": "MDD-003",
+  "status": "static_contract_freeze_complete",
+  "query_families": 16,
+  "source_expression_references": 38,
+  "reference_relations": 56,
+  "required_relations": 17,
+  "native_tools_each_version": 12,
+  "legacy_tools": 8,
+  "remote_tools": 12,
+  "wildcard_full_schema_saved": [
+    "class_fields",
+    "class_methods"
+  ],
+  "queries_jsonl_sha256": "e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4",
+  "fresh_result_goldens": 0,
+  "profile_admitted": false
+}

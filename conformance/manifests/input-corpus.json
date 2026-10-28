@@ -1,0 +1,57 @@
+{
+  "schema_version": "mdd.input-corpus.v1",
+  "inputs": [
+    {
+      "visibility": "public",
+      "id": "newpipe-0.28.6",
+      "expected_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+      "expected_bytes": 10885562,
+      "origin_url": "https://github.com/TeamNewPipe/NewPipe/releases/download/v0.28.6/NewPipe_v0.28.6.apk",
+      "status": "not_acquired",
+      "actual_sha256": null
+    },
+    {
+      "visibility": "restricted",
+      "id": "hostlab-9170100",
+      "version_code": 9170100,
+      "expected_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "expected_bytes": 243687778,
+      "status": "not_acquired",
+      "actual_sha256": null,
+      "observed_directory": "D:\\Bilibili_Innocent_Lab\\runtime\\hostlab\\samples\\f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "observed_files": [
+        {
+          "name": "prepare.lock",
+          "bytes": 1
+        }
+      ],
+      "acquisition": "explicit authorized HostLab private sample intake; no token or private APK copied",
+      "historical_reference_path": "apks/tv.danmaku.bili/9170100/f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955/base.apk"
+    },
+    {
+      "visibility": "restricted",
+      "id": "hostlab-9161100",
+      "version_code": 9161100,
+      "expected_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "expected_bytes": 226519215,
+      "status": "not_acquired",
+      "actual_sha256": null,
+      "observed_directory": "D:\\Bilibili_Innocent_Lab\\runtime\\hostlab\\samples\\41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "observed_files": [
+        {
+          "name": "prepare.lock",
+          "bytes": 1
+        }
+      ],
+      "acquisition": "explicit authorized HostLab private sample intake; no token or private APK copied",
+      "historical_reference_path": "apks/tv.danmaku.bili/9161100/41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2/base.apk"
+    }
+  ],
+  "scope": "Input identity registry only; historical hashes do not prove present bytes",
+  "blocked_gates": [
+    "MDD-005 same-environment A0/A1/A2 baseline",
+    "MDD-003 fully consumed required query goldens",
+    "MDD-054 full HostLab shadow equivalence",
+    "MDD-082 performance qualification"
+  ]
+}

@@ -1,0 +1,5 @@
+   Compiling mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+   Compiling mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.36s
+     Running unittests src\lib.rs (target\debug\deps\mdd_input-3b50ad186c53aaec.exe)
+   Doc-tests mdd_input

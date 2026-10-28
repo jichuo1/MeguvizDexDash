@@ -1,0 +1,70 @@
+{
+  "schema_version": "mdd.environment.v1",
+  "captured_utc": "2026-10-28T07:35:22.944322+00:00",
+  "user_timezone": "Asia/Shanghai",
+  "os": "Windows-11-10.0.26300-SP0",
+  "machine": "AMD64",
+  "cpu_logical_count": 24,
+  "memory_limits": null,
+  "memory_limits_reason": "not measured; logical CPU count is not an assigned CPU quota",
+  "python": {
+    "executable": "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "tools": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "stdout": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "-V"
+      ],
+      "exit_code": 0,
+      "stdout": "cargo 1.99.0 (5f94df478 2026-08-27)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "rustup",
+        "show"
+      ],
+      "exit_code": 0,
+      "stdout": "Default host: x86_64-pc-windows-msvc\nrustup home:  C:\\Users\\Administrator\\.rustup\n\ninstalled toolchains\n--------------------\nstable-x86_64-pc-windows-msvc (default)\n1.99.0-x86_64-pc-windows-msvc (active)\n\nactive toolchain\n----------------\nname: 1.99.0-x86_64-pc-windows-msvc\nactive because: overridden by 'D:\\MeguvisDexDash\\rust-toolchain.toml'\ninstalled targets:\n  x86_64-pc-windows-msvc\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "git version 2.55.0.windows.3\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "safe.directory=D:\\MeguvisDexDash",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "3bbf1088137e70c5d3d722534a5eeab8b69a596c\n",
+      "stderr": ""
+    }
+  ],
+  "build_scope": "Windows x86_64 native only; Linux runtime pending",
+  "historical_input_archive": {
+    "name": "MeguvizDexDash_Engineering_Kit_20261026.zip",
+    "sha256": "b5f2f3859a5a7753f83f8edc24c73ce15781075afb899e4e63b274fdcc161844"
+  },
+  "execution_issue": "Windows isolated helper failed to start; authorized local commands ran with reviewed execution override"
+}

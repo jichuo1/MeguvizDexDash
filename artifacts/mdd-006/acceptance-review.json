@@ -1,0 +1,46 @@
+{
+  "schema_version": "mdd.task-acceptance-review.v1",
+  "task": "MDD-006",
+  "recommendation": "done_for_M0_route_and_contract_decision",
+  "review_date": "2026-10-28",
+  "evidence": "artifacts/mdd-006/sql-bridge-probes.json",
+  "profile_admitted": false,
+  "complete_sql_bridge_implemented": false,
+  "acceptance": [
+    {
+      "ordinal": 1,
+      "status": "met_for_finite_M0_experiment",
+      "evidence": "21 real Rust read-only vtable probes; six frozen-source representative queries plus NULL/CAST/LIKE/ESCAPE/JOIN/aggregation/CTE/order/TEMP; all success/failure expressions preserved",
+      "limitations": "Synthetic immutable rows; not production results or full SQL conformance"
+    },
+    {
+      "ordinal": 2,
+      "status": "met_as_design_decision",
+      "evidence": "ADR-002 fixes raw MUTF8+UTF16 values, tagged lossless JSON, separate display values; records required AST/UDF/collation/literal/CAST adaptation and rejects regex rewriting",
+      "next_implementation_gate": "MDD-031 must implement and prove adapters; rejecting required production input blocks profile qualification"
+    },
+    {
+      "ordinal": 3,
+      "status": "met_and_observed",
+      "evidence": "Rust best_index claims no constraints, omit=false, order_by_consumed=false, no LIMIT/OFFSET pushdown"
+    },
+    {
+      "ordinal": 4,
+      "status": "met_as_exit_policy",
+      "evidence": "Five observed semantic gaps retained; MDD-031 adapters must pass full required corpus or choose alternative compatibility executor through ADR while retaining facts/IR; whole-process fallback never admits HostLab"
+    },
+    {
+      "ordinal": 5,
+      "status": "met_as_contract_lock",
+      "evidence": "ADR-003 retains result/capabilities schemas, independent operation/coverage/execution/delivery axes, decimal-u64 runtime bounds; every profile admitted=false"
+    }
+  ],
+  "remaining_platform_gates": [
+    "Native Linux execution not performed"
+  ],
+  "not_claimed": [
+    "MDD-031 complete",
+    "HostLab replacement",
+    "MDD-082 performance qualification"
+  ]
+}

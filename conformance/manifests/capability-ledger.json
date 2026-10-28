@@ -1,0 +1,46 @@
+{
+  "schema_version": "mdd.capability-review.v1",
+  "date": "2026-10-28",
+  "authority": "前置审查清单；compatibility/ledger.json 仍是唯一资格账本",
+  "task": "MDD-006",
+  "review_status": "M0_route_decision_accepted_not_profile_admission",
+  "profiles": [
+    {
+      "name": "mdd-native-v1",
+      "admitted": false,
+      "reason": "核心与运行接口未完成"
+    },
+    {
+      "name": "hostlab-audit-v1",
+      "admitted": false,
+      "reason": "真实corpus、虚表桥和完整HostLab结果未验证"
+    },
+    {
+      "name": "dexsql-0.1.0-compat-v1",
+      "admitted": false,
+      "reason": "新实现尚无兼容差分"
+    },
+    {
+      "name": "dexsql-0.1.1-compat-v1",
+      "admitted": false,
+      "reason": "新实现尚无兼容差分"
+    }
+  ],
+  "sql_bridge": {
+    "implemented": true,
+    "tested": true,
+    "sqlite_version": "3.53.2",
+    "default_omit": false,
+    "default_order_by_consumed": false,
+    "limit_offset_pushdown": false,
+    "implementation_scope": "development probe over synthetic rows only"
+  },
+  "mcp_result_encodings": [
+    "json"
+  ],
+  "binary_transport_admitted": false,
+  "qualification_evidence": [],
+  "development_probe_evidence": [
+    "artifacts/mdd-006/sql-bridge-probes.json"
+  ]
+}

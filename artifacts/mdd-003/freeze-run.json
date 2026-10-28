@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "conformance\\corpus\\hostlab\\freeze_corpus.py"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"task_001\": \"identity_registry_verified\", \"task_003\": \"static_contracts_frozen_runtime_unqualified\", \"query_families\": 16, \"relations\": 56, \"required_relations\": 17, \"sources_verified\": 13, \"historical_files_verified\": 23}\n",
+  "stderr": "",
+  "source_sha256": "a5a8689defc71ab0a571d0033b42cf623ef91388faf214f94a948b89a056ad0c",
+  "static_contracts_helper_sha256": "79ea46b94db69f708527d8232cb5d8a61232ea40d7948db66de6d01fed6ae180",
+  "scope": "M0 static identity/contract freeze; no engine result or performance qualification"
+}

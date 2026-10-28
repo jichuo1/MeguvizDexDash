@@ -1,13 +1,13 @@
 {
   "schema_version": "mdd.backlog.v1",
   "product": "MeguvizDexDash",
-  "implementation_state": "not_started",
+  "implementation_state": "in_progress",
   "tasks": [
     {
       "id": "MDD-001",
       "phase": "M0",
       "title": "冻结源码、输入、二进制与历史证据身份",
-      "status": "todo",
+      "status": "done",
       "depends_on": [],
       "owner_role": "证据与集成负责人",
       "scope": [
@@ -32,13 +32,17 @@
         "ENGINEERING_PLAN.md",
         "docs/00_EVIDENCE_BASELINE.md",
         "docs/03_HOSTLAB_MIGRATION.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-001/acceptance-review.json"
+      ],
+      "completion_scope": "Task acceptance only; no implicit profile or release qualification"
     },
     {
       "id": "MDD-002",
       "phase": "M0",
       "title": "验证并锁定 Rust 工具链、依赖与许可",
-      "status": "todo",
+      "status": "done",
       "depends_on": [],
       "owner_role": "构建与架构负责人",
       "scope": [
@@ -64,13 +68,18 @@
         "ENGINEERING_PLAN.md",
         "docs/01_DECISIONS_AND_DEPENDENCIES.md",
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-002/build-probes.json",
+        "conformance/manifests/dependencies.json"
+      ],
+      "completion_scope": "Task acceptance only; no implicit profile or release qualification"
     },
     {
       "id": "MDD-003",
       "phase": "M0",
       "title": "冻结真实查询、公开关系与三层工具契约",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-001"
       ],
@@ -98,13 +107,17 @@
         "docs/00_EVIDENCE_BASELINE.md",
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-003/acceptance-review.json"
+      ],
+      "completion_scope": "Task acceptance only; no implicit profile or release qualification"
     },
     {
       "id": "MDD-004",
       "phase": "M0",
       "title": "建立独立 oracle、边界语料与变形验证方案",
-      "status": "todo",
+      "status": "done",
       "depends_on": [],
       "owner_role": "独立验证负责人",
       "scope": [
@@ -131,13 +144,17 @@
         "docs/00_EVIDENCE_BASELINE.md",
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-004/acceptance.json"
+      ],
+      "completion_scope": "Task acceptance only; no implicit profile or release qualification"
     },
     {
       "id": "MDD-005",
       "phase": "M0",
       "title": "建立 A0/A1/A2 配对基线与阶段计时方案",
-      "status": "todo",
+      "status": "blocked",
       "depends_on": [
         "MDD-001",
         "MDD-003",
@@ -169,13 +186,21 @@
         "docs/00_EVIDENCE_BASELINE.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
+      ],
+      "blocking_reasons": [
+        "No validated private 9170100/9161100 APKs",
+        "No same-environment complete A0/A1/A2 drivers/trials or qualified best-existing denominator",
+        "Dedicated measurement window not entered; no performance claim"
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-005/baseline-qualification.json"
       ]
     },
     {
       "id": "MDD-006",
       "phase": "M0",
       "title": "通过 SQL 桥、结果契约与能力准入 ADR",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-002",
         "MDD-003",
@@ -207,13 +232,17 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-006/acceptance-review.json"
+      ],
+      "completion_scope": "Task acceptance only; no implicit profile or release qualification"
     },
     {
       "id": "MDD-010",
       "phase": "M1",
       "title": "创建可构建 workspace 与版本能力入口",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-002",
         "MDD-006"
@@ -242,13 +271,17 @@
         "ENGINEERING_PLAN.md",
         "docs/01_DECISIONS_AND_DEPENDENCIES.md",
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-010/build-and-capabilities.json"
+      ],
+      "completion_scope": "Task acceptance only; no implicit profile or release qualification"
     },
     {
       "id": "MDD-011",
       "phase": "M1",
       "title": "实现受校验的自有输入快照与来源身份",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-001",
         "MDD-004",
@@ -276,13 +309,17 @@
       "references": [
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-011/snapshot-isolation.json"
+      ],
+      "completion_scope": "Task acceptance only; no implicit profile or release qualification"
     },
     {
       "id": "MDD-012",
       "phase": "M1",
       "title": "实现 ZIP/APK 多成员清点与有界解压",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-011"
       ],
@@ -309,13 +346,17 @@
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-012/inventory-and-extraction.json"
+      ],
+      "completion_scope": "M1 task scope only; no full-format, HostLab or performance qualification"
     },
     {
       "id": "MDD-013",
       "phase": "M1",
       "title": "实现标准 DEX header、版本与边界校验",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-004",
         "MDD-011"
@@ -343,13 +384,17 @@
       "references": [
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-013/format-validation.json"
+      ],
+      "completion_scope": "M1 task scope only; no full-format, HostLab or performance qualification"
     },
     {
       "id": "MDD-014",
       "phase": "M1",
       "title": "实现快照、会话、句柄和 worker 生命周期骨架",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "MDD-010",
         "MDD-011"
@@ -376,7 +421,11 @@
       "references": [
         "docs/02_ARCHITECTURE_AND_CONTRACTS.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
-      ]
+      ],
+      "implementation_evidence": [
+        "artifacts/mdd-014/lifecycle-checks.json"
+      ],
+      "completion_scope": "M1 task scope only; no full-format, HostLab or performance qualification"
     },
     {
       "id": "MDD-020",
