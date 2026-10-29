@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\concat-independent-20261029-target\\debug\\mdd-concat-independent.exe"
+  ],
+  "started_utc": "2026-10-29T06:18:35.799683+00:00",
+  "finished_utc": "2026-10-29T06:18:39.308540+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "88a63431e8ce2c19c3b9a3a512cfdf686934718513c38d0c11a4872b3b2d9e94",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "b8aad6674bab36a66a366a1293aa5b26975a5182b89d070b7e7f6380e4c131cf",
+  "scope": "independent synthetic validation; not performance qualification"
+}

@@ -1,0 +1,7 @@
+
+running 2 tests
+test executor::runtime_tests::queued_row_lease_stays_while_cancelled_consumer_still_holds_packet ... ok
+test executor::runtime_tests::queued_row_wire_and_resident_leases_are_distinct_and_release_on_ack ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.01s
+

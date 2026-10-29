@@ -18,11 +18,21 @@ struct Fixture {
     prepared: PreparedQuery,
     cancel: QueryCancellation,
     runtime: RuntimeBudget,
+    global_budget: BudgetPool,
+    worker_budget: BudgetPool,
+    session_budget: BudgetPool,
 }
 fn setup(limits: BudgetLimits) -> Fixture {
     setup_with_rows(limits, 4)
 }
 fn setup_with_rows(limits: BudgetLimits, rows: u64) -> Fixture {
+    setup_with_schema(
+        limits,
+        DataType::U64,
+        (0..rows).map(|n| vec![Value::U64(DecimalU64(n))]).collect(),
+    )
+}
+fn setup_with_schema(limits: BudgetLimits, data_type: DataType, rows: Vec<Row>) -> Fixture {
     let snapshot = Arc::new(
         Snapshot::capture(
             &[InputSpec {
@@ -50,11 +60,11 @@ fn setup_with_rows(limits: BudgetLimits, rows: u64) -> Fixture {
                 columns: vec![Column {
                     id: "n".into(),
                     display_name: "n".into(),
-                    data_type: DataType::U64,
+                    data_type,
                     nullable: false,
                 }],
                 required_layers: vec![FactLayer::Structure],
-                rows: (0..rows).map(|n| vec![Value::U64(DecimalU64(n))]).collect(),
+                rows,
             },
         )]),
         BTreeSet::from([FactLayer::Structure]),
@@ -105,6 +115,9 @@ fn setup_with_rows(limits: BudgetLimits, rows: u64) -> Fixture {
         prepared,
         cancel,
         runtime,
+        global_budget: global,
+        worker_budget: worker,
+        session_budget,
     }
 }
 
@@ -258,6 +271,334 @@ fn queue_consumer_receives_original_required_facts_failure_end() {
     let mut receipt = receiver.into_delivery_receipt().unwrap();
     let terminal = receipt.finish(&mut pending).unwrap();
     assert_eq!(terminal.error.unwrap().code, ErrorCode::InvalidInput);
+    assert!(!f.cancel.status().unwrap().delivery_complete);
+}
+
+#[test]
+fn queue_accounts_owned_row_capacity_separately_from_wire_length() {
+    struct SparseCapacity<'a>(&'a MemoryCatalog);
+    impl FactSource for SparseCapacity<'_> {
+        fn identity(&self) -> &str {
+            self.0.identity()
+        }
+        fn snapshot_id(&self) -> &str {
+            self.0.snapshot_id()
+        }
+        fn catalog_epoch(&self) -> DecimalU64 {
+            self.0.catalog_epoch()
+        }
+        fn relation_schema(&self, relation: &str) -> MddResult<RelationSchema> {
+            self.0.relation_schema(relation)
+        }
+        fn require_layers(&self, layers: &BTreeSet<FactLayer>) -> MddResult<()> {
+            self.0.require_layers(layers)
+        }
+        fn validate_entity(&self, entity: &mdd_facts::EntityRef) -> MddResult<()> {
+            self.0.validate_entity(entity)
+        }
+        fn scan<'a>(&'a self, _: &str) -> MddResult<Box<dyn Iterator<Item = MddResult<Row>> + 'a>> {
+            let mut row = Vec::with_capacity(4096);
+            row.push(Value::U64(DecimalU64(1)));
+            Ok(Box::new(std::iter::once(Ok(row))))
+        }
+        fn read_code_bytes(&self, entity: &mdd_facts::EntityRef) -> MddResult<Option<&[u8]>> {
+            self.0.read_code_bytes(entity)
+        }
+    }
+    let f = setup(BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192));
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let mut pending = execute_into(
+        &f.prepared,
+        &SparseCapacity(&f.source),
+        ExecutionMode::Streaming,
+        &mut Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()),
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    let QueueEvent::End(end) = receiver.receive().unwrap() else {
+        panic!("oversized live Row was admitted by tiny wire length")
+    };
+    assert_eq!(end.unwrap_err().code, ErrorCode::QuotaExceeded);
+    let mut receipt = receiver.into_delivery_receipt().unwrap();
+    let terminal = receipt.finish(&mut pending).unwrap();
+    assert_eq!(terminal.error.unwrap().code, ErrorCode::QuotaExceeded);
+    assert!(!f.cancel.status().unwrap().delivery_complete);
+}
+
+#[derive(Clone, Copy)]
+enum SparseInnerKind {
+    Utf16,
+    Bytes,
+    Entity,
+}
+struct SparseInner<'a> {
+    source: &'a MemoryCatalog,
+    kind: SparseInnerKind,
+    capacity: usize,
+}
+impl FactSource for SparseInner<'_> {
+    fn identity(&self) -> &str {
+        self.source.identity()
+    }
+    fn snapshot_id(&self) -> &str {
+        self.source.snapshot_id()
+    }
+    fn catalog_epoch(&self) -> DecimalU64 {
+        self.source.catalog_epoch()
+    }
+    fn relation_schema(&self, relation: &str) -> MddResult<RelationSchema> {
+        self.source.relation_schema(relation)
+    }
+    fn require_layers(&self, layers: &BTreeSet<FactLayer>) -> MddResult<()> {
+        self.source.require_layers(layers)
+    }
+    fn validate_entity(&self, entity: &mdd_facts::EntityRef) -> MddResult<()> {
+        self.source.validate_entity(entity)
+    }
+    fn scan<'a>(&'a self, _: &str) -> MddResult<Box<dyn Iterator<Item = MddResult<Row>> + 'a>> {
+        let value = match self.kind {
+            SparseInnerKind::Utf16 => {
+                let mut v = Vec::with_capacity(self.capacity);
+                v.push(65);
+                Value::Utf16(v)
+            }
+            SparseInnerKind::Bytes => {
+                let mut v = Vec::with_capacity(self.capacity);
+                v.push(65);
+                Value::Bytes(Bytes(v))
+            }
+            SparseInnerKind::Entity => {
+                let mut snapshot_id = String::with_capacity(self.capacity);
+                snapshot_id.push_str(self.source.snapshot_id());
+                let mut dex_occurrence_id = String::with_capacity(self.capacity);
+                dex_occurrence_id.push_str("source");
+                Value::Entity(mdd_facts::EntityRef {
+                    snapshot_id,
+                    dex_occurrence_id,
+                    kind: mdd_facts::EntityKind::String,
+                    local_index: 0,
+                })
+            }
+        };
+        Ok(Box::new(std::iter::once(Ok(vec![value]))))
+    }
+    fn read_code_bytes(&self, entity: &mdd_facts::EntityRef) -> MddResult<Option<&[u8]>> {
+        self.source.read_code_bytes(entity)
+    }
+}
+
+#[test]
+fn queue_counts_owned_text_bytes_and_entity_capacities_on_real_rows() {
+    for (kind, data_type) in [
+        (SparseInnerKind::Utf16, DataType::Utf16),
+        (SparseInnerKind::Bytes, DataType::Bytes),
+        (SparseInnerKind::Entity, DataType::Entity),
+    ] {
+        let f = setup_with_schema(
+            BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192),
+            data_type,
+            vec![],
+        );
+        let source = SparseInner {
+            source: &f.source,
+            kind,
+            capacity: 10_000,
+        };
+        let (sender, mut receiver) =
+            bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+        let mut pending = execute_into(
+            &f.prepared,
+            &source,
+            ExecutionMode::Streaming,
+            &mut Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()),
+            terminal(&f),
+            &sender,
+        )
+        .unwrap();
+        let QueueEvent::End(end) = receiver.receive().unwrap() else {
+            panic!("oversized inner owner was admitted")
+        };
+        assert_eq!(end.unwrap_err().code, ErrorCode::QuotaExceeded);
+        let mut receipt = receiver.into_delivery_receipt().unwrap();
+        assert_eq!(
+            receipt.finish(&mut pending).unwrap().error.unwrap().code,
+            ErrorCode::QuotaExceeded
+        );
+        assert_eq!(
+            f.runtime
+                .pool()
+                .usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0),
+            0
+        );
+        assert!(!f.cancel.status().unwrap().delivery_complete);
+    }
+}
+
+#[test]
+fn queued_row_wire_and_resident_leases_are_distinct_and_release_on_ack() {
+    let f = setup_with_schema(BudgetLimits::default(), DataType::Utf16, vec![]);
+    let source = SparseInner {
+        source: &f.source,
+        kind: SparseInnerKind::Utf16,
+        capacity: 32,
+    };
+    let expected_wire = serde_json::to_vec(&vec![Value::Utf16(vec![65])])
+        .unwrap()
+        .len() as u64;
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let mut pending = execute_into(
+        &f.prepared,
+        &source,
+        ExecutionMode::Streaming,
+        &mut Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()),
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    for pool in [
+        &f.global_budget,
+        &f.worker_budget,
+        &f.session_budget,
+        f.runtime.pool(),
+    ] {
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueueBytes)
+                .unwrap()
+                .0,
+            expected_wire
+        );
+    }
+    let QueueEvent::Data(packet) = receiver.receive().unwrap() else {
+        panic!("missing row")
+    };
+    let Value::Utf16(text) = &packet.payload()[0] else {
+        panic!("wrong value")
+    };
+    let resident = std::mem::size_of::<Row>()
+        + packet.payload().capacity() * std::mem::size_of::<Value>()
+        + text.capacity() * std::mem::size_of::<u16>();
+    for pool in [
+        &f.global_budget,
+        &f.worker_budget,
+        &f.session_budget,
+        f.runtime.pool(),
+    ] {
+        let usage = pool.usage().unwrap();
+        assert_eq!(usage.used.get(&Resource::QueueBytes).unwrap().0, 0);
+        assert_eq!(
+            usage.used.get(&Resource::QueryWorkspaceBytes).unwrap().0,
+            resident as u64
+        );
+        assert_eq!(
+            usage.used.get(&Resource::ResidentBytes).unwrap().0,
+            resident as u64
+        );
+    }
+    packet.acknowledge().unwrap();
+    for pool in [
+        &f.global_budget,
+        &f.worker_budget,
+        &f.session_budget,
+        f.runtime.pool(),
+    ] {
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .unwrap()
+                .0,
+            0
+        );
+    }
+    assert!(matches!(
+        receiver.receive().unwrap(),
+        QueueEvent::End(Ok(()))
+    ));
+    let mut receipt = receiver.into_delivery_receipt().unwrap();
+    assert!(receipt.finish(&mut pending).unwrap().is_complete_result());
+}
+
+#[test]
+fn queued_row_lease_stays_while_cancelled_consumer_still_holds_packet() {
+    let f = setup_with_schema(BudgetLimits::default(), DataType::Utf16, vec![]);
+    let source = SparseInner {
+        source: &f.source,
+        kind: SparseInnerKind::Utf16,
+        capacity: 32,
+    };
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let _pending = execute_into(
+        &f.prepared,
+        &source,
+        ExecutionMode::Streaming,
+        &mut Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()),
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    let QueueEvent::Data(packet) = receiver.receive().unwrap() else {
+        panic!("missing row")
+    };
+    let held = f
+        .runtime
+        .pool()
+        .usage()
+        .unwrap()
+        .used
+        .get(&Resource::QueryWorkspaceBytes)
+        .unwrap()
+        .0;
+    assert!(held > 0);
+    f.cancel.cancel().unwrap();
+    for pool in [
+        &f.global_budget,
+        &f.worker_budget,
+        &f.session_budget,
+        f.runtime.pool(),
+    ] {
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .unwrap()
+                .0,
+            held
+        );
+    }
+    drop(packet);
+    for pool in [
+        &f.global_budget,
+        &f.worker_budget,
+        &f.session_budget,
+        f.runtime.pool(),
+    ] {
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .unwrap()
+                .0,
+            0
+        );
+    }
+    assert_eq!(
+        f.cancel.status().unwrap().error.unwrap().code,
+        ErrorCode::Cancelled
+    );
     assert!(!f.cancel.status().unwrap().delivery_complete);
 }
 

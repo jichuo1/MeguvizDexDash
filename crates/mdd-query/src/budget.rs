@@ -887,12 +887,26 @@ impl<T> BoundedSender<T> {
         Ok(Self(Arc::clone(&self.0)))
     }
     pub fn send(&self, payload: T, bytes: u64) -> MddResult<()> {
-        self.0.pool.check_individual(Resource::QueueBytes, bytes)?;
+        self.send_with_resident_bytes(payload, bytes, bytes)
+    }
+    /// Queue occupancy and the owned payload's logical resident estimate are distinct.
+    pub(crate) fn send_with_resident_bytes(
+        &self,
+        payload: T,
+        wire_bytes: u64,
+        resident_bytes: u64,
+    ) -> MddResult<()> {
         self.0
             .pool
-            .check_individual(Resource::QueryWorkspaceBytes, bytes)?;
+            .check_individual(Resource::QueueBytes, wire_bytes)?;
+        self.0
+            .pool
+            .check_individual(Resource::QueryWorkspaceBytes, resident_bytes)?;
         // Pending senders own live payload memory even while there is no queue slot.
-        let memory = self.0.pool.reserve(Resource::QueryWorkspaceBytes, bytes)?;
+        let memory = self
+            .0
+            .pool
+            .reserve(Resource::QueryWorkspaceBytes, resident_bytes)?;
         let mut payload = Some(Budgeted {
             payload,
             _memory: memory,
@@ -918,7 +932,7 @@ impl<T> BoundedSender<T> {
             }
             if state.entries.len() < self.0.capacity {
                 let reservations = (|| {
-                    let queued = self.0.pool.reserve(Resource::QueueBytes, bytes)?;
+                    let queued = self.0.pool.reserve(Resource::QueueBytes, wire_bytes)?;
                     let item = self.0.pool.reserve(Resource::QueueItems, 1)?;
                     Ok::<_, MddError>((queued, item))
                 })();

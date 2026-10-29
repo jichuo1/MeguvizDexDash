@@ -1,0 +1,10 @@
+
+running 5 tests
+test dialects::functions::like_budget_tests::concat_capacity_checks_addition_multiplication_and_cell_limit ... ok
+test runtime_tests::concat_cancelled_after_copy_starts_stays_failed ... ok
+test runtime_tests::concat_long_bytes_respects_session_step_budget ... ok
+test runtime_tests::concat_long_text_respects_session_step_budget ... ok
+test runtime_tests::concat_preserves_null_non_scalar_nul_and_bytes ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 68 filtered out; finished in 1.45s
+

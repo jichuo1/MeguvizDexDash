@@ -1,0 +1,25 @@
+
+running 2 tests
+test runtime_tests::concat_long_bytes_respects_session_step_budget ... FAILED
+test runtime_tests::concat_long_text_respects_session_step_budget ... FAILED
+
+failures:
+
+---- runtime_tests::concat_long_bytes_respects_session_step_budget stdout ----
+
+thread 'runtime_tests::concat_long_bytes_respects_session_step_budget' (26092) panicked at crates\mdd-sql\src\runtime_tests.rs:71:14:
+called `Result::unwrap_err()` on an `Ok` value: SqlResult { binding: SqlBinding { provider_identity: "sql-metadata-provider-77092a834b284d6ac57e303f4756ae02ed9b44d2a682a9c36e4995a5f6219178", snapshot_id: "snapshot-101e11be0ae890c93b4553e0c6d6d21511792cbf1e6f4d67f98f4a1bae69bbfd", catalog_epoch: DecimalU64(0) }, dialect: NativeV1, columns: ["n"], rows: [[I64(Signed64(0))]], calculation_complete: true, profiles_admitted: [], sqlite_version: "3.53.2", optimizer: OptimizerPolicy { omit: false, order_by_consumed: false, limit_offset_pushdown: false, in_pushdown: false }, required_relations: [], required_layers: [], ast_nodes: 10, execution_binding: Some(SqlExecutionBinding { schema_version: "mdd.sql.execution-binding.v1", worker_owner_id: "runtime-8b15c88452ef647d3b9080296b89d43c15763eb8c2a723559571ba8a48f88750", session_id: "session-baf350885affd7e54b0daedd2e875ea69ab7448e7bd2de37949799c52f773187", query_id: "query-b1c62666071451817ec066d054bd87c89fc958389021c392fdbbecf1f37389da", snapshot_id: "snapshot-101e11be0ae890c93b4553e0c6d6d21511792cbf1e6f4d67f98f4a1bae69bbfd", catalog_epoch: DecimalU64(0), provider_identity: "sql-metadata-provider-77092a834b284d6ac57e303f4756ae02ed9b44d2a682a9c36e4995a5f6219178", request_key: "2ef3b504d361ea4f111c2c8e5c67679912ed3240c9ab0de7f9c756e1ba12410a", schema_id: "mdd.sql.dynamic-rows.v1:bf5672dff37d598309048c031d4e2495f00360fa5d36b0f78b4a2c03a9dd3222", semantic_version: "mdd.sql.ast.v2;mdd.sql.values.v1;NativeV1" }), _result_memory: ResultMemory { reservations: 1, unused: 1912 } }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- runtime_tests::concat_long_text_respects_session_step_budget stdout ----
+
+thread 'runtime_tests::concat_long_text_respects_session_step_budget' (8864) panicked at crates\mdd-sql\src\runtime_tests.rs:71:14:
+called `Result::unwrap_err()` on an `Ok` value: SqlResult { binding: SqlBinding { provider_identity: "sql-metadata-provider-31614caa577eacc53d2684ebc3339ee620df082651ffd728384d6e7b6b3312af", snapshot_id: "snapshot-6e1b06aaa45397d50555509ec4caaa2b563006ea2cb696d2f1c330cc2ffd9671", catalog_epoch: DecimalU64(0) }, dialect: NativeV1, columns: ["n"], rows: [[I64(Signed64(0))]], calculation_complete: true, profiles_admitted: [], sqlite_version: "3.53.2", optimizer: OptimizerPolicy { omit: false, order_by_consumed: false, limit_offset_pushdown: false, in_pushdown: false }, required_relations: [], required_layers: [], ast_nodes: 10, execution_binding: Some(SqlExecutionBinding { schema_version: "mdd.sql.execution-binding.v1", worker_owner_id: "runtime-52f2fda1fc5f572043bac0891ce2ec15ca81e6a95689e5acd543d694b86183d1", session_id: "session-a7909ad80ba9498a353622464a695e73e10eef7bfb0c2876c6f13244309d49b9", query_id: "query-df7bf213764c8c099ecfda3fac77d3e9c8d6f973f5036a4bc97a7c821570e35a", snapshot_id: "snapshot-6e1b06aaa45397d50555509ec4caaa2b563006ea2cb696d2f1c330cc2ffd9671", catalog_epoch: DecimalU64(0), provider_identity: "sql-metadata-provider-31614caa577eacc53d2684ebc3339ee620df082651ffd728384d6e7b6b3312af", request_key: "960c79256e913fd29d05656c5947a50b1533d49973e4b774ed205094d17a8cd8", schema_id: "mdd.sql.dynamic-rows.v1:bf5672dff37d598309048c031d4e2495f00360fa5d36b0f78b4a2c03a9dd3222", semantic_version: "mdd.sql.ast.v2;mdd.sql.values.v1;NativeV1" }), _result_memory: ResultMemory { reservations: 1, unused: 1912 } }
+
+
+failures:
+    runtime_tests::concat_long_bytes_respects_session_step_budget
+    runtime_tests::concat_long_text_respects_session_step_budget
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 68 filtered out; finished in 0.11s
+

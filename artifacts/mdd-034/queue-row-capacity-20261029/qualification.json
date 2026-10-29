@@ -1,0 +1,89 @@
+{
+  "schema_version": "mdd.queue-row-capacity.v1",
+  "task": "MDD-034",
+  "created_utc": "2026-10-29T06:16:25.296530+00:00",
+  "status": "passed-scoped-row-ownership-accounting",
+  "source_identity_observed_at_readback": true,
+  "sources": [
+    {
+      "path": "crates/mdd-query/src/budget.rs",
+      "bytes": 40282,
+      "sha256": "e6ca2679eeba08f144fbf9c4a082a9594656d772d809ab914f66ff093d70b766"
+    },
+    {
+      "path": "crates/mdd-query/src/executor.rs",
+      "bytes": 55785,
+      "sha256": "70a822365b41d7ad1edf926aea609437c0e13df9d1d8ff0b556cfd83b59f37ca"
+    },
+    {
+      "path": "crates/mdd-query/src/executor/runtime_tests.rs",
+      "bytes": 46385,
+      "sha256": "0f87bf7cb69608153f2d7f1e41416afb6bd648e9b89d8f9e08668e0540468d32"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 11609,
+      "sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/mdd-034/queue-row-capacity-20261029/red-sparse/record.json",
+      "bytes": 799,
+      "sha256": "5770d745dca44951868ca44f5fdc0e80b1e90e9f8a19535772d6a11397db2c31"
+    },
+    {
+      "path": "artifacts/mdd-034/queue-row-capacity-20261029/green-sparse/record.json",
+      "bytes": 796,
+      "sha256": "a3563252afbf2811974eba971cbb65aca517d9e185418939e1c28c0d6642db52"
+    },
+    {
+      "path": "artifacts/mdd-034/queue-row-capacity-20261029/capacity-runtime/record.json",
+      "bytes": 743,
+      "sha256": "91b7bc8e510c592c8369305c590c14363331fc354008b31fba2ffbbc1cabeaec"
+    },
+    {
+      "path": "artifacts/mdd-034/queue-row-capacity-20261029/held-packet/record.json",
+      "bytes": 748,
+      "sha256": "75b19b1d58f4fc294fe8d7ae5b33755cd3c3863d6e302226257323833e69cd54"
+    },
+    {
+      "path": "artifacts/mdd-034/queue-row-capacity-20261029/query-final/record.json",
+      "bytes": 729,
+      "sha256": "681ca62d75fcc88780dc23a35ea795713a2f2f9ea407c9e79a1b73e42e4270d5"
+    },
+    {
+      "path": "artifacts/mdd-034/queue-row-capacity-20261029/clippy-final/record.json",
+      "bytes": 744,
+      "sha256": "95cffdd6b3004dd4eb193041fb27a5af6d477470bc6052df491e76be37185de5"
+    }
+  ],
+  "validation": {
+    "query_tests": 46,
+    "compile_fail_tests": 3,
+    "strict_clippy": true,
+    "sparse_row_red_retained": true,
+    "inner_capacity_types": [
+      "utf16",
+      "bytes",
+      "entity_strings"
+    ],
+    "hierarchy": [
+      "global",
+      "worker",
+      "session",
+      "query"
+    ],
+    "ack_and_cancel_holding_release_verified": true
+  },
+  "scope": "checked logical owned Row capacity admitted at queue handoff; wire byte count independent",
+  "limits": [
+    "provider allocated or cloned Row before queue admission",
+    "transient serde encoding allocation is not reserved by this change",
+    "caller-created clones and transfer buffers require separate owner accounting",
+    "Vec allocator overhead and actual RSS are not measured or bounded here",
+    "production worker, MCP, FFI and full task/profile are not qualified"
+  ],
+  "task_complete_proven": false,
+  "profile_admitted": false
+}

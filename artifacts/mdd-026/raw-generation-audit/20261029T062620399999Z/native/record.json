@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\raw-generation-audit\\20261029T062620399999Z\\raw_generation_probe.exe",
+    "D:\\MeguvisDexDash\\artifacts\\local\\raw-generation-boundary\\20261029T062620399999Z\\mutable.dex",
+    "D:\\MeguvisDexDash\\artifacts\\local\\raw-generation-boundary\\20261029T062620399999Z\\new.dex"
+  ],
+  "started_utc": "2026-10-29T06:26:23.424565+00:00",
+  "finished_utc": "2026-10-29T06:26:23.788526+00:00",
+  "elapsed_seconds": 0.35900000000037835,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "cee8447bc484af6f54f6bf953009cf758b7c46777ecb72e31125d4a02e3f9608",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic static reference test; no performance claim"
+}

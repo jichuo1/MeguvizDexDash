@@ -1,0 +1,27 @@
+{
+  "schema_version": "mdd.windows-job-run.v1",
+  "command_argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\concat-independent-20261029-target\\debug\\mdd-concat-independent.exe"
+  ],
+  "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+  "limits": {
+    "memory_commit_bytes": "2147483648",
+    "affinity_mask": "15",
+    "max_processes": 16,
+    "timeout_seconds": 60,
+    "max_log_bytes": 16777216
+  },
+  "assigned_before_resume": true,
+  "tree_empty_verified": true,
+  "status": "completed",
+  "job_name": "mdd-baseline-6e856c6aa9a44782b2645e05890d93e4",
+  "process_id": 44896,
+  "reason": null,
+  "exit_code": 0,
+  "cpu_user_seconds": 3.109375,
+  "cpu_kernel_seconds": 0.25,
+  "total_processes": 2,
+  "peak_job_commit_bytes": "13692928",
+  "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+  "wall_seconds": 3.4898188000006485
+}

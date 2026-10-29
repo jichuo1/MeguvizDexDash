@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-034/row-capacity-independent-20261029/test_identity.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:25:08.371992+00:00",
+  "finished_utc": "2026-10-29T06:25:08.558792+00:00",
+  "elapsed_seconds": 0.18700000000171713,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 192,
+    "sha256": "ba14c165dd91765cc31c760a2537d9c2a0136d94cb284553e44add74e1ca339a"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

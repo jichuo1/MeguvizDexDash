@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/raw_generation_boundary/readback.py",
+    "artifacts/mdd-026/raw-generation-audit/20261029T062620399999Z"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:27:02.920351+00:00",
+  "finished_utc": "2026-10-29T06:27:03.362174+00:00",
+  "elapsed_seconds": 0.43699999999807915,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 398,
+    "sha256": "5cbc077879573ed49e89eda8d40d2195827bf7f7ae6a0d5eecbfcc5a7ad52042"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

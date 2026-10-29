@@ -635,6 +635,38 @@ fn key(row: &Row, ordinals: &[usize]) -> Vec<Value> {
 fn null_key(key: &[Value]) -> bool {
     key.contains(&Value::Null)
 }
+
+/// Logical bytes owned by a queued Row, including spare capacity. This is not allocator
+/// overhead or an operating-system RSS measurement; the provider has already produced it.
+fn queued_row_resident_bytes(row: &Row) -> MddResult<u64> {
+    fn count(value: usize) -> MddResult<u64> {
+        u64::try_from(value).map_err(|_| quota("QUEUE_ROW_SIZE_OVERFLOW"))
+    }
+    fn add(total: u64, value: u64) -> MddResult<u64> {
+        total
+            .checked_add(value)
+            .ok_or_else(|| quota("QUEUE_ROW_SIZE_OVERFLOW"))
+    }
+    let slots = count(row.capacity())?
+        .checked_mul(count(std::mem::size_of::<Value>())?)
+        .ok_or_else(|| quota("QUEUE_ROW_SIZE_OVERFLOW"))?;
+    let mut total = add(count(std::mem::size_of::<Row>())?, slots)?;
+    for value in row {
+        let inner = match value {
+            Value::Utf16(text) => count(text.capacity())?
+                .checked_mul(count(std::mem::size_of::<u16>())?)
+                .ok_or_else(|| quota("QUEUE_ROW_SIZE_OVERFLOW"))?,
+            Value::Bytes(bytes) => count(bytes.0.capacity())?,
+            Value::Entity(entity) => add(
+                count(entity.snapshot_id.capacity())?,
+                count(entity.dex_occurrence_id.capacity())?,
+            )?,
+            Value::Null | Value::Bool(_) | Value::I64(_) | Value::U64(_) => 0,
+        };
+        total = add(total, inner)?;
+    }
+    Ok(total)
+}
 impl Cursor<'_> {
     fn next(
         &mut self,
@@ -1466,13 +1498,17 @@ pub fn execute_into(
                     .detail("budget", "output_rows")
                     .detail("limit", control.limits.max_output_rows.to_string()));
             }
+            let resident_bytes = queued_row_resident_bytes(&row)?;
             let encoded = serde_json::to_vec(&row).map_err(|_| invalid("ROW_ENCODING"))?;
-            if let Err(error) = runtime.charge(Resource::OutputBytes, encoded.len() as u64) {
+            let wire_bytes =
+                u64::try_from(encoded.len()).map_err(|_| quota("OUTPUT_SIZE_OVERFLOW"))?;
+            drop(encoded);
+            if let Err(error) = runtime.charge(Resource::OutputBytes, wire_bytes) {
                 dropped = true;
                 return Err(error);
             }
             control.step("output_row", 1)?;
-            if let Err(error) = sender.send(row, encoded.len() as u64) {
+            if let Err(error) = sender.send_with_resident_bytes(row, wire_bytes, resident_bytes) {
                 dropped = true;
                 return Err(error);
             }

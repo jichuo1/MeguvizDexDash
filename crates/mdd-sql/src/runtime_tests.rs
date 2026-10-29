@@ -53,6 +53,169 @@ fn setup_with_dialect(dialect: SqlDialect) -> (Lifecycle, SessionHandle, Session
     (lifecycle, a, b, bridge)
 }
 
+fn assert_concat_obeys_step_budget(values: Vec<crate::values::SqlValue>) {
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT CASE WHEN ? || ? IS NULL THEN 1 ELSE 0 END AS n",
+                &values,
+            )
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QuerySteps, 64),
+        );
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}");
+        assert!(!token.status().unwrap().execution_complete);
+    }
+}
+
+#[test]
+fn concat_long_text_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    assert_concat_obeys_step_budget(vec![
+        SqlValue::text(&"A".repeat(50_000)),
+        SqlValue::text("z"),
+    ]);
+}
+
+#[test]
+fn concat_long_bytes_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    assert_concat_obeys_step_budget(vec![
+        SqlValue::Bytes(vec![0x41; 50_000]),
+        SqlValue::Bytes(vec![0xff]),
+    ]);
+}
+
+#[test]
+fn concat_preserves_null_non_scalar_nul_and_bytes() {
+    use crate::values::{SqlText, SqlValue};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (_, _, _, bridge) = setup_with_dialect(dialect);
+        let left = SqlValue::Text(SqlText {
+            utf16: vec![0xd800, 0],
+            original_mutf8: None,
+        });
+        let right = SqlValue::Text(SqlText {
+            utf16: vec![0xd83d, 0xde00],
+            original_mutf8: None,
+        });
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT ? || ?, NULL || ?, ? || NULL, ? || ?",
+                &[
+                    left,
+                    right,
+                    SqlValue::text("x"),
+                    SqlValue::text("y"),
+                    SqlValue::Bytes(vec![0, 0xff]),
+                    SqlValue::Bytes(vec![0x41]),
+                ],
+            )
+            .unwrap();
+        let result = prepared
+            .execute(SqlControl::new(SqlLimits::default(), None))
+            .unwrap();
+        assert_eq!(
+            result.rows()[0],
+            vec![
+                SqlValue::Text(SqlText {
+                    utf16: vec![0xd800, 0, 0xd83d, 0xde00],
+                    original_mutf8: None
+                }),
+                SqlValue::Null,
+                SqlValue::Null,
+                SqlValue::Bytes(vec![0, 0xff, 0x41]),
+            ],
+            "{dialect:?}"
+        );
+        let error = bridge
+            .query("SELECT missing || 'x' FROM native_strings")
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::InvalidArgument, "{dialect:?}");
+    }
+}
+
+#[test]
+fn concat_cancelled_after_copy_starts_stays_failed() {
+    use crate::values::SqlValue;
+    use std::time::{Duration, Instant};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        for (kind, left, right) in [
+            (
+                "text",
+                SqlValue::text(&"A".repeat(200_000)),
+                SqlValue::text("z"),
+            ),
+            (
+                "bytes",
+                SqlValue::Bytes(vec![0x41; 200_000]),
+                SqlValue::Bytes(vec![0xff]),
+            ),
+        ] {
+            let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+            let prepared = bridge
+                .prepare_with_parameters(
+                    "SELECT CASE WHEN ? || ? IS NULL THEN 1 ELSE 0 END AS n",
+                    &[left, right],
+                )
+                .unwrap();
+            let (runtime, token) =
+                runtime(&lifecycle, &session, &prepared, BudgetLimits::default());
+            let pool = runtime.pool().clone();
+            let bound = prepared.bind_runtime(&runtime).unwrap();
+            let handle = std::thread::spawn(move || {
+                bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            });
+            let deadline = Instant::now() + Duration::from_secs(10);
+            loop {
+                let steps = pool
+                    .usage()
+                    .unwrap()
+                    .used
+                    .get(&Resource::QuerySteps)
+                    .map_or(0, |v| v.0);
+                if steps > 5_000 {
+                    break;
+                }
+                if handle.is_finished() || Instant::now() >= deadline {
+                    let _ = token.cancel();
+                    let _ = handle.join();
+                    panic!("concat copy was not observed before completion: {dialect:?} {kind}");
+                }
+                std::thread::yield_now();
+            }
+            token.cancel().unwrap();
+            assert_eq!(
+                handle.join().unwrap().unwrap_err().code,
+                ErrorCode::Cancelled,
+                "{dialect:?} {kind}"
+            );
+            assert!(!token.status().unwrap().execution_complete);
+        }
+    }
+}
+
 fn assert_key_obeys_workspace_budget(sql: &str, values: Vec<crate::values::SqlValue>) {
     for dialect in [
         SqlDialect::NativeV1,

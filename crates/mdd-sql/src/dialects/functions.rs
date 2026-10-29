@@ -46,6 +46,12 @@ fn scalar_text(value: &SqlValue) -> MddResult<SqlText> {
         _ => return Err(invalid("TEXT_CONVERSION_TYPE")),
     })
 }
+fn scalar_text_cow(value: &SqlValue) -> MddResult<Cow<'_, SqlText>> {
+    match value {
+        SqlValue::Text(text) => Ok(Cow::Borrowed(text)),
+        value => Ok(Cow::Owned(scalar_text(value)?)),
+    }
+}
 fn encoded_text(text: &SqlText, dialect: SqlDialect, control: &SqlControl) -> MddResult<Vec<u8>> {
     fn emit(code: u32, out: &mut Vec<u8>) {
         if code < 0x80 {
@@ -702,6 +708,25 @@ fn substring_range(length: usize, start: i128, count: Option<i128>) -> (usize, u
     };
     (begin.clamp(0, len) as usize, end.clamp(0, len) as usize)
 }
+
+fn concat_capacity(
+    left: usize,
+    right: usize,
+    unit_bytes: u64,
+    max: u64,
+    reason: &str,
+) -> MddResult<usize> {
+    let units = left.checked_add(right).ok_or_else(|| quota(reason))?;
+    let bytes = u64::try_from(units)
+        .ok()
+        .and_then(|n| n.checked_mul(unit_bytes))
+        .ok_or_else(|| quota(reason))?;
+    if bytes > max {
+        return Err(quota(reason));
+    }
+    Ok(units)
+}
+
 fn scalar(
     name: &str,
     args: &[SqlValue],
@@ -885,23 +910,46 @@ fn scalar(
         }
         "mdd_concat" => {
             if let (Some(left), Some(right)) = (args[0].bytes(), args[1].bytes()) {
-                if left.len() as u64 + right.len() as u64 > control.inner.limits.max_cell_bytes {
-                    return Err(quota("BLOB_CONCAT_CELL_BYTES"));
+                let capacity = concat_capacity(
+                    left.len(),
+                    right.len(),
+                    1,
+                    control.inner.limits.max_cell_bytes,
+                    "BLOB_CONCAT_CELL_BYTES",
+                )?;
+                let mut bytes = Vec::new();
+                bytes
+                    .try_reserve_exact(capacity)
+                    .map_err(|_| control.fail(quota("BLOB_CONCAT_ALLOCATION")))?;
+                for &byte in left.iter().chain(right) {
+                    control.checkpoint(1, false)?;
+                    bytes.push(byte);
                 }
-                let mut bytes = left.to_vec();
-                bytes.extend(right);
                 return Ok(SqlValue::Bytes(bytes));
             }
-            let mut left = scalar_text(&args[0])?;
-            let right = scalar_text(&args[1])?;
-            if (left.utf16.len() as u64 + right.utf16.len() as u64) * 2
-                > control.inner.limits.max_cell_bytes
-            {
-                return Err(quota("CONCAT_CELL_BYTES"));
+            let left = scalar_text_cow(&args[0])?;
+            let right = scalar_text_cow(&args[1])?;
+            let capacity = concat_capacity(
+                left.utf16.len(),
+                right.utf16.len(),
+                2,
+                control.inner.limits.max_cell_bytes,
+                "CONCAT_CELL_BYTES",
+            )?;
+            let mut units = Vec::new();
+            units
+                .try_reserve_exact(capacity)
+                .map_err(|_| control.fail(quota("CONCAT_ALLOCATION")))?;
+            for &unit in left.utf16.iter().chain(&right.utf16) {
+                control.checkpoint(1, false)?;
+                units.push(unit);
             }
-            left.utf16.extend(right.utf16);
-            left.original_mutf8 = None;
-            Ok(SqlValue::Text(left))
+            // Argument decoding, the result carrier and SQLite buffers are not
+            // covered by a workspace lease here.
+            Ok(SqlValue::Text(SqlText {
+                utf16: units,
+                original_mutf8: None,
+            }))
         }
         "mdd_lower" | "mdd_upper" => {
             let mut text = scalar_text(&args[0])?;
@@ -1134,6 +1182,19 @@ mod like_budget_tests {
     use super::*;
     use crate::control::SqlLimits;
     use mdd_types::ErrorCode;
+
+    #[test]
+    fn concat_capacity_checks_addition_multiplication_and_cell_limit() {
+        assert_eq!(concat_capacity(2, 2, 2, 8, "CONCAT_CELL_BYTES").unwrap(), 4);
+        for (left, right, unit, max) in [
+            (usize::MAX, 1, 1, u64::MAX),
+            (usize::MAX, 0, u64::MAX, u64::MAX),
+            (2, 3, 2, 9),
+        ] {
+            let error = concat_capacity(left, right, unit, max, "CONCAT_CELL_BYTES").unwrap_err();
+            assert_eq!(error.code, ErrorCode::QuotaExceeded);
+        }
+    }
 
     #[test]
     fn key_workspace_checked_amount_rejects_overflow() {

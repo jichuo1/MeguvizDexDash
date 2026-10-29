@@ -1,0 +1,18 @@
+
+running 1 test
+test executor::runtime_tests::queue_accounts_owned_row_capacity_separately_from_wire_length ... FAILED
+
+failures:
+
+---- executor::runtime_tests::queue_accounts_owned_row_capacity_separately_from_wire_length stdout ----
+
+thread 'executor::runtime_tests::queue_accounts_owned_row_capacity_separately_from_wire_length' (45084) panicked at crates\mdd-query\src\executor\runtime_tests.rs:285:67:
+oversized live Row was admitted by tiny wire length
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    executor::runtime_tests::queue_accounts_owned_row_capacity_separately_from_wire_length
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 42 filtered out; finished in 0.00s
+

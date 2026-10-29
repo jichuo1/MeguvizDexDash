@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/hostlab-consumer-contract-20261029/readback.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:12:32.319779+00:00",
+  "finished_utc": "2026-10-29T06:12:33.702905+00:00",
+  "elapsed_seconds": 1.3909999999996217,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 554,
+    "sha256": "4044457f7f807bbc68e1f97b146886accea5412d38af50eebc9c89ec769f6e2c"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

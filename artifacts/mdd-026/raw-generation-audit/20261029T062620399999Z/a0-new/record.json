@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\artifacts\\local\\raw-generation-boundary\\20261029T062620399999Z\\new.dex",
+    "--sql",
+    "SELECT hex(CAST(\"method_idx\" AS TEXT)) AS \"method_idx\",hex(CAST(\"code_off\" AS TEXT)) AS \"code_off\",hex(CAST(\"insns_size\" AS TEXT)) AS \"insns_size\",hex(CAST(\"insns_off\" AS TEXT)) AS \"insns_off\" FROM code_items ORDER BY method_idx"
+  ],
+  "started_utc": "2026-10-29T06:26:23.941838+00:00",
+  "finished_utc": "2026-10-29T06:26:24.110604+00:00",
+  "elapsed_seconds": 0.17199999999866122,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "589f6e5c1fc774c23640c4bbcfe525421dd8e21723a8fe0d740f56f0a1f072a3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic static reference test; no performance claim"
+}
