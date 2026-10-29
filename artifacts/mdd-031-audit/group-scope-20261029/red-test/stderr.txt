@@ -1,0 +1,10 @@
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.62s
+     Running unittests src\lib.rs (target\debug\deps\mdd_sql-46977fcd4387e316.exe)
+
+thread 'bridge::tests::grouped_parenthesized_position_preserves_nulls_and_multiplicity' (13196) panicked at crates\mdd-sql\src\bridge.rs:790:13:
+assertion `left == right` failed: SELECT id%2 AS parity,COUNT(*) AS n FROM facts GROUP BY ((1)) ORDER BY parity
+  left: [[Some(1), Some(3)]]
+ right: [[Some(0), Some(1)], [Some(1), Some(2)]]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-sql --lib`

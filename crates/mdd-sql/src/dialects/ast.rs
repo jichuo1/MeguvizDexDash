@@ -433,7 +433,7 @@ impl Rewrite<'_> {
                     return Err(unsupported("ORDER_WITH_FILL"));
                 }
                 if !matches!(*query.body, SetExpr::SetOperation { .. }) {
-                    if let Some(ordinal) = order_ordinal(&order.expr)? {
+                    if let Some(ordinal) = positional_ordinal(&order.expr)? {
                         order.expr = self.projection_at(&query.body, ordinal)?;
                     } else if let Some(id) = order_identifier(&order.expr)
                         && let Some(index) = self
@@ -450,7 +450,7 @@ impl Rewrite<'_> {
                         self.expr(&mut order.expr, depth + 1)?;
                     }
                     order.expr = call("mdd_sort_key", vec![take(&mut order.expr)]);
-                } else if order_ordinal(&order.expr)?.is_none() {
+                } else if positional_ordinal(&order.expr)?.is_none() {
                     self.expr(&mut order.expr, depth + 1)?;
                 }
             }
@@ -604,7 +604,7 @@ impl Rewrite<'_> {
                     GroupByExpr::All(_) => return Err(unsupported("GROUP_BY_ALL")),
                 };
                 for expr in &mut grouping {
-                    if let Some(ordinal) = ordinal(expr)? {
+                    if let Some(ordinal) = positional_ordinal(expr)? {
                         *expr = self.select_projection_at(select, ordinal)?;
                     } else {
                         self.expr(expr, depth + 1)?;
@@ -1426,7 +1426,7 @@ impl Rewrite<'_> {
             && let OrderByKind::Expressions(values) = &mut order.kind
         {
             for value in values {
-                let position = if let Some(index) = order_ordinal(&value.expr)? {
+                let position = if let Some(index) = positional_ordinal(&value.expr)? {
                     Some(index)
                 } else if let Some(id) = order_identifier(&value.expr) {
                     names
@@ -1484,21 +1484,49 @@ fn order_identifier(mut expression: &Expr) -> Option<&Ident> {
         _ => None,
     }
 }
-fn order_ordinal(mut expression: &Expr) -> MddResult<Option<usize>> {
-    while let Expr::Nested(inner) = expression {
-        expression = inner;
+fn positional_ordinal(mut expression: &Expr) -> MddResult<Option<usize>> {
+    let mut negative = false;
+    loop {
+        match expression {
+            Expr::Nested(inner) => expression = inner,
+            Expr::UnaryOp {
+                op: UnaryOperator::Plus,
+                expr,
+            } => expression = expr,
+            Expr::UnaryOp {
+                op: UnaryOperator::Minus,
+                expr,
+            } => {
+                negative = !negative;
+                expression = expr;
+            }
+            _ => break,
+        }
     }
-    ordinal(expression)
-}
-fn ordinal(expr: &Expr) -> MddResult<Option<usize>> {
     if let Expr::Value(ValueWithSpan {
         value: Value::Number(number, _),
         ..
-    }) = expr
+    }) = expression
     {
-        let number = number
-            .parse::<usize>()
-            .map_err(|_| invalid("ORDER_OR_GROUP_ORDINAL"))?;
+        // SQLite treats integer literals (including unary signs and grouping
+        // parentheses) as positions. Real literals such as 1.0 or 1e0 are
+        // constant expressions instead, and must not be parsed as ordinals.
+        if !number.bytes().all(|byte| byte.is_ascii_digit()) {
+            return Ok(None);
+        }
+        // SQLite only interprets integer literals that fit in signed 32-bit
+        // magnitude as positional references. Larger literals remain constant
+        // expressions, even if their text is numerically integral.
+        let Ok(number) = number.parse::<u32>() else {
+            return Ok(None);
+        };
+        if number > i32::MAX as u32 {
+            return Ok(None);
+        }
+        let number = number as usize;
+        if negative {
+            return Err(invalid("ORDER_OR_GROUP_ORDINAL_NEGATIVE"));
+        }
         if number == 0 {
             return Err(invalid("ORDER_OR_GROUP_ORDINAL_ZERO"));
         }

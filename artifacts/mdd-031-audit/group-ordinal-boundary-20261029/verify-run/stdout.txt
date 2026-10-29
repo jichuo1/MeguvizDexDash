@@ -1,0 +1,1 @@
+{"status": "passed-scoped", "candidate_cases": 90, "sqlite_comparisons": 78, "controls": 12, "integer_boundary_cases": 36, "a0_a1_started": false, "profile_admitted": false}

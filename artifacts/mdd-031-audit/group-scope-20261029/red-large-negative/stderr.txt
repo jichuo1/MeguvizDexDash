@@ -1,0 +1,8 @@
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.39s
+     Running unittests src\lib.rs (target\debug\deps\mdd_sql-46977fcd4387e316.exe)
+
+thread 'bridge::tests::large_negative_group_constant_is_not_position' (49724) panicked at crates\mdd-sql\src\bridge.rs:775:93:
+called `Result::unwrap()` on an `Err` value: MddError { code: InvalidArgument, stage: "sql", message: "ORDER_OR_GROUP_ORDINAL_NEGATIVE", retryable: false, details: {} }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-sql --lib`

@@ -1,0 +1,12 @@
+{
+  "crates/mdd-sql/src/bridge.rs": "b598793f84e56b0fe64d5ca329f4830ce00370d17916c447332e94cb5e39b6d0",
+  "crates/mdd-sql/src/dialects/ast.rs": "3f81e495693d3057cf98daae969b385991127f8389ecf6e1dddca3eff69d091a",
+  "crates/mdd-sql/src/dialects/functions.rs": "062dac4d1fe72eaa4b4d71aa9672380d6ddad0d04122e86c5ca185a0523f9654",
+  "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+  "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+  "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "artifacts/mdd-031-audit/group-ordinal-independent-20261029/Cargo.lock": "f7845e9a5309eaa2446cd3a3eebe14d0904aeb75356ddec207e1b114c3d3b946",
+  "artifacts/mdd-031-audit/group-ordinal-independent-20261029/Cargo.toml": "fc722a6891307eea8c905012a2ca08457c3ff6d9fe75d4ad2a28a32cb8578947",
+  "artifacts/mdd-031-audit/group-ordinal-independent-20261029/src/main.rs": "e19b6b3348ce0b3c6e032de9c9a8569dfe76802fcba03532690189d4a18a96ca",
+  "artifacts/mdd-031-audit/group-ordinal-independent-20261029/run_bounded.py": "597162635a42c86932168528734db27a4b2b60eea49a55e8c7ea1dfd4f0fb41f"
+}

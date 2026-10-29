@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\like-independent-20261029-target\\debug\\mdd-group-ordinal-boundary.exe"
+  ],
+  "started_utc": "2026-10-29T01:46:32.966361+00:00",
+  "finished_utc": "2026-10-29T01:46:34.015327+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 30,
+  "stdout_sha256": "6aea89c016c19a919578a412e504664139d90fc4723bb93722f1773def67cd5e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "5003067229770fb923b8b3739ad64d976dc20ace5aa2b38b7743856c64347a06",
+  "scope": "local independent test, no formal performance"
+}

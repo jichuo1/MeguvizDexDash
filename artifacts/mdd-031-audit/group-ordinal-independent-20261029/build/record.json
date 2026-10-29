@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\group-ordinal-independent-20261029\\Cargo.toml"
+  ],
+  "started_utc": "2026-10-29T01:40:55.279400+00:00",
+  "finished_utc": "2026-10-29T01:41:00.359310+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 180,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "ecd39fcda672f82fe29a0930d6af2fab502abc4e73844c34b0ea1ffdadddb216",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "9cad27bfa9841a3376528c29d24781ee9cefad90ba462b8b42908ff282f795dd",
+  "scope": "local independent test, no formal performance"
+}

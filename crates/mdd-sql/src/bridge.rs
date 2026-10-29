@@ -770,6 +770,87 @@ mod tests {
         (provider, bridge)
     }
     #[test]
+    fn large_negative_group_constant_is_not_position() {
+        let (_, bridge) = bridge();
+        let result = bridge
+            .query("SELECT COUNT(*) AS n FROM facts GROUP BY (-2147483648)")
+            .unwrap();
+        assert_eq!(
+            result.rows()[0][0],
+            SqlValue::I64(mdd_query::ir::Signed64(3))
+        );
+    }
+    #[test]
+    fn grouped_parenthesized_position_preserves_nulls_and_multiplicity() {
+        let (_, bridge) = bridge();
+        let numeric = |value: &SqlValue| match value {
+            SqlValue::Null => None,
+            SqlValue::I64(value) => Some(i128::from(value.0)),
+            SqlValue::U64(value) => Some(i128::from(value.0)),
+            other => panic!("unexpected value: {other:?}"),
+        };
+        let queries = [
+            (
+                "SELECT id%2 AS parity,COUNT(*) AS n FROM facts GROUP BY ((1)) ORDER BY parity",
+                vec![vec![Some(0), Some(1)], vec![Some(1), Some(2)]],
+            ),
+            (
+                "SELECT id%2 AS parity,COUNT(*) AS n FROM facts GROUP BY (+1) ORDER BY parity",
+                vec![vec![Some(0), Some(1)], vec![Some(1), Some(2)]],
+            ),
+            (
+                "SELECT COUNT(*) AS n FROM facts GROUP BY (1.0)",
+                vec![vec![Some(3)]],
+            ),
+            (
+                "SELECT COUNT(*) AS n FROM facts GROUP BY (2147483648)",
+                vec![vec![Some(3)]],
+            ),
+            (
+                "SELECT COUNT(*) AS n FROM facts GROUP BY (-2147483648)",
+                vec![vec![Some(3)]],
+            ),
+            (
+                "SELECT id%2 AS parity,COUNT(*) AS n FROM facts GROUP BY (1) HAVING n>1 ORDER BY parity",
+                vec![vec![Some(1), Some(2)]],
+            ),
+            (
+                "SELECT CASE WHEN id=1 THEN NULL ELSE 1 END AS k,COUNT(*) AS n FROM facts GROUP BY (1) ORDER BY k",
+                vec![vec![None, Some(1)], vec![Some(1), Some(2)]],
+            ),
+            (
+                "SELECT id%2 AS id,COUNT(*) AS n FROM facts GROUP BY id ORDER BY id",
+                vec![
+                    vec![Some(0), Some(1)],
+                    vec![Some(1), Some(1)],
+                    vec![Some(1), Some(1)],
+                ],
+            ),
+        ];
+        for (sql, expected) in queries {
+            let result = bridge.query(sql).unwrap();
+            let rows: Vec<Vec<_>> = result
+                .rows()
+                .iter()
+                .map(|r| r.iter().map(numeric).collect())
+                .collect();
+            assert_eq!(rows, expected, "{sql}");
+        }
+        for sql in [
+            "SELECT id FROM facts GROUP BY (0)",
+            "SELECT id FROM facts GROUP BY ((2))",
+            "SELECT id FROM facts GROUP BY (-1)",
+            "SELECT id FROM facts GROUP BY (2147483647)",
+            "SELECT id FROM facts ORDER BY (-1)",
+        ] {
+            assert_eq!(
+                bridge.query(sql).unwrap_err().code,
+                ErrorCode::InvalidArgument,
+                "{sql}"
+            );
+        }
+    }
+    #[test]
     fn order_by_projection_alias_beats_same_named_source_column() {
         let (_, bridge) = bridge();
         let numeric = |value: &SqlValue| match value {
@@ -793,6 +874,10 @@ mod tests {
             ),
             (
                 "SELECT 4-id AS id FROM facts ORDER BY (1)",
+                vec![vec![Some(1)], vec![Some(2)], vec![Some(3)]],
+            ),
+            (
+                "SELECT 4-id AS id FROM facts ORDER BY (+1)",
                 vec![vec![Some(1)], vec![Some(2)], vec![Some(3)]],
             ),
             (

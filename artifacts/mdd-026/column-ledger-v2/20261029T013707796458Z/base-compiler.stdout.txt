@@ -1,0 +1,1 @@
+{"path": "artifacts\\mdd-026\\column-ledger\\20261029T013707838868Z", "relations": 17, "columns": 156, "unassembled_columns": 69, "source_drift_slices": [], "task_complete_proven": false}

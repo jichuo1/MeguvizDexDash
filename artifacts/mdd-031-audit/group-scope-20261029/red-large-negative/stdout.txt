@@ -1,0 +1,11 @@
+
+running 1 test
+test bridge::tests::large_negative_group_constant_is_not_position ... FAILED
+
+failures:
+
+failures:
+    bridge::tests::large_negative_group_constant_is_not_position
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s
+

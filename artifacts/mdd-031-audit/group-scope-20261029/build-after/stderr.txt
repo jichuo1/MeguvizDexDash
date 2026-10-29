@@ -1,0 +1,2 @@
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.49s
