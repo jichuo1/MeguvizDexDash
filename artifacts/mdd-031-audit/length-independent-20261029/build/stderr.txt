@@ -1,0 +1,53 @@
+   Compiling typenum v1.20.1
+   Compiling proc-macro2 v1.0.107
+   Compiling hybrid-array v0.4.15
+   Compiling cfg-if v1.0.5
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.229
+   Compiling crypto-common v0.2.2
+   Compiling block-buffer v0.12.1
+   Compiling zmij v1.0.23
+   Compiling memchr v2.8.3
+   Compiling const-oid v0.10.2
+   Compiling digest v0.11.3
+   Compiling syn v3.0.6
+   Compiling serde_json v1.0.151
+   Compiling getrandom v0.4.3
+   Compiling cpufeatures v0.3.1
+   Compiling serde v1.0.229
+   Compiling serde_derive v1.0.229
+   Compiling crc32fast v1.5.2
+   Compiling itoa v1.0.18
+   Compiling sha2 v0.11.0
+   Compiling equivalent v1.0.2
+   Compiling hashbrown v0.17.1
+   Compiling zlib-rs v0.6.8
+   Compiling flate2 v1.1.10
+   Compiling indexmap v2.14.2
+   Compiling mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling typed-path v0.12.3
+   Compiling zip v8.6.0
+   Compiling cc v1.5.1
+   Compiling quick-xml v0.42.0
+   Compiling pkg-config v0.3.34
+   Compiling vcpkg v0.2.15
+   Compiling libsqlite3-sys v0.38.2
+   Compiling mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+   Compiling sha1 v0.11.0
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+   Compiling mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+   Compiling fallible-streaming-iterator v0.1.9
+   Compiling bitflags v2.13.2
+   Compiling smallvec v1.16.2
+   Compiling log v0.4.34
+   Compiling fallible-iterator v0.3.0
+   Compiling rusqlite v0.40.2
+   Compiling sqlparser v0.63.0
+   Compiling mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+   Compiling mdd-length-independent v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-031-audit\length-independent-20261029)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1m 38s

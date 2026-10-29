@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "result_sha256": "00e567f77bade0b5d20729d2e76423d85f3d91794a1db7bba448f0a1b1ee7c43",
+  "readback_source_sha256": "5688d2199153282bbf1d8d5b3454667d5b216694c710842a0be8cea963fae99e",
+  "source_occurrences": 2,
+  "physical_resource_occurrences": 6,
+  "negative_controls": 7,
+  "task_complete_proven": false,
+  "scope": "synthetic duplicate ZIP names and immutable resource snapshots only; no profile qualification"
+}

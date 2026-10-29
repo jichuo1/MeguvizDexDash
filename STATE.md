@@ -4,7 +4,7 @@
 
 ## Checkout 与交付
 
-工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 9d50885 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 500960d 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
 
 大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
@@ -74,6 +74,8 @@ MDD-026 已重新打开：独立复核发现资格脚本对17关系156列主要�
 
 非空partial引用反例中，不完整来源仍有10个真实位点和2个匹配，但严格关系及全范围索引/标量查询保持INCOMPLETE_FACTS；完整兄弟子范围明确covers_all_captured_sources=false。A0的8行仅对照完整来源，不能证明partial完整。证据 artifacts/mdd-026/partial-reference-audit/20261029T021708996807Z/result.json。
 
+合成资源身份验证：同一APK两次输入中保留6个物理资源出现，包括同名不同字节成员；捕获后源文件改写不改变快照读取。缺成员时facts为unknown，完整子来源不宣称覆盖全部输入，外源注册返回INVALID_ARGUMENT。证据 artifacts/mdd-026/resource-scope-audit/20261029T043749212277Z/result.json，仅覆盖合成资源身份与coverage。
+
 逐列总表 artifacts/mdd-026/column-ledger/20261028T170548736531Z/column-ledger.json 固定17关系156列，逐项列出已有证据与剩余边界；追加式独立重算和4项负例通过，但所有列的完整资格均为false，不据汇总签发MDD-026或产品profile。
 
 v2总表 artifacts/mdd-026/column-ledger-v2/20261028T171808763956Z/column-ledger.json 增量关联方法持有 try/handler 的12列证据，并保留损坏输入在A0与原生之间的真实差异；追加式回读和负例通过，全部字段完整资格仍为false。
@@ -111,6 +113,8 @@ GROUP BY括号位置被误认常量的错分组已修复：同一13行样本从(
 Q08使用的lower及对应upper现逐UTF-16单元计步骤并检查取消，真实会话长参数低额度反例由成功变为QUOTA；Windows工作区184项测试与严格Clippy通过。独立三方言60例涵盖SQLite可表示文本、孤立代理、长结果、配额和取消，证据 artifacts/mdd-031-audit/case-budget-independent-20261029/qualification.json。旧A0/A1对应完整语义未找到可比较记录，仍为not_run；参数复制、SQLite及传输内存不在该计步证明内。
 
 `substr` 文本偏移表在分配前按 UTF-16 单元数量预留逻辑工作区并逐单元计步，配额失败和取消后释放；Windows工作区189项测试、严格Clippy通过，独立真实会话36例及固定A0/A1各5个已有参考对照通过，见 artifacts/mdd-031-audit/substring-independent-20261029/verify-run/record.json。SQLite截取含NUL文本返回空串，旧版与候选旧方言保留NUL及后续字符；Native按UTF-16单元、旧方言按有效代理对截取。旧版NULL DTO仍不同，参数/结果副本、SQLite、分配器实际容量、RSS和传输未由此额度覆盖；旧版其余3项已有样本未在该轮比较。
+
+旧方言 `length` 对UTF-16的实际扫描现逐单元计步并检查取消；Native直接长度仍为常数时间。冻结源码的Windows工作区193项测试和严格Clippy通过，独立真实会话33例回读见 artifacts/mdd-031-audit/length-independent-20261029/verify-run/record.json。既有A0对补充字符和含NUL样本分别为1和3，SQLite为1和1，Native对补充字符按两个UTF-16单元计数；A1参考本轮未运行。额度仅为逻辑步骤，不覆盖参数副本、SQLite内存、分配器、RSS或传输。
 
 旧版 NULL 单元包含 `value: null`，当前原生 SQL 单元仅含 `type: null`，固定 HostLab 消费者会读取 `value`；适配层必须明确补齐并验证。字面 CAST 的非负结果与DEX列 CAST 的类型不同，不能仅按数值正负推断旧类型。扩展旧版类型采样两次在打开样本时超时，未执行查询；错误保留于 artifacts/mdd-031-audit/dto-type-observations/，不能由此推断规则。
 

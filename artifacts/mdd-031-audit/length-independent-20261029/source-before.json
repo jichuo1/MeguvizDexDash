@@ -1,0 +1,12 @@
+{
+  "captured_utc": "2026-10-29T04:37:51.028399+00:00",
+  "sha256": {
+    "crates/mdd-sql/src/dialects/functions.rs": "2ca90363dd53ad055c3234865a5d9cd1f6b6c0b91967ee598b3a8dd216b9032c",
+    "crates/mdd-sql/src/runtime_tests.rs": "5be52a15d23a7abb3ed9687f02c930c5431ceba439f2f1173a6b156c3aebeabe",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "tests/fixtures/references/generated/classic-035.dex": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+    "artifacts/mdd-031-audit/length-independent-20261029/src/main.rs": "567140c5d8f63c4878b3aec856b36f31b5b9443d7b6156affd42a0ded612e405",
+    "artifacts/mdd-031-audit/length-independent-20261029/Cargo.lock": "d85e9908074a821ed381e69d3b224ce35b5df1c79e7bf1fe3093732af103aec0",
+    "artifacts/mdd-031-audit/length-independent-20261029/run_bounded.py": "8dc4bc711c40e520c69fd659e1dd1aabf6ce6dfecee9746b9fcddd833a17c81a"
+  }
+}

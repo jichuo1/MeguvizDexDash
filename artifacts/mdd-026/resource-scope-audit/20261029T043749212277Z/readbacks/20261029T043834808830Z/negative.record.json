@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/resource_scope_boundary/test_failures.py",
+    "artifacts/mdd-026/resource-scope-audit/20261029T043749212277Z"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "314faad80ec477125f3563cf41ad5320c033c2502c945346fa010173f64d896a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

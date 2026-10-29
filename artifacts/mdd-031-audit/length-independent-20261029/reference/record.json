@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/length-independent-20261029/reference.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T04:35:23.991717+00:00",
+  "finished_utc": "2026-10-29T04:35:24.337798+00:00",
+  "elapsed_seconds": 0.3440000000009604,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 415,
+    "sha256": "6b6c2d65cadf868c3d877bf3213ef3a873d2a8212d0ce54dee199b7b9d0dac64"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

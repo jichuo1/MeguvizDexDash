@@ -758,12 +758,16 @@ fn scalar(
             let units = &text.utf16;
             let mut length = units.len();
             if dialect != SqlDialect::NativeV1 {
-                length -= units
-                    .windows(2)
-                    .filter(|w| {
-                        (0xd800..=0xdbff).contains(&w[0]) && (0xdc00..=0xdfff).contains(&w[1])
-                    })
-                    .count();
+                for pair in units.windows(2) {
+                    control.checkpoint(1, false)?;
+                    if (0xd800..=0xdbff).contains(&pair[0]) && (0xdc00..=0xdfff).contains(&pair[1])
+                    {
+                        length -= 1;
+                    }
+                }
+                if !units.is_empty() {
+                    control.checkpoint(1, false)?;
+                }
             }
             Ok(SqlValue::I64(Signed64(length as i64)))
         }

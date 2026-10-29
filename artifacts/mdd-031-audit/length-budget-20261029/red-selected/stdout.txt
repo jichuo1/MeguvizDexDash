@@ -1,0 +1,18 @@
+
+running 1 test
+test runtime_tests::length_legacy_scan_respects_session_step_budget ... FAILED
+
+failures:
+
+---- runtime_tests::length_legacy_scan_respects_session_step_budget stdout ----
+
+thread 'runtime_tests::length_legacy_scan_respects_session_step_budget' (6056) panicked at crates\mdd-sql\src\runtime_tests.rs:76:14:
+called `Result::unwrap_err()` on an `Ok` value: SqlResult { binding: SqlBinding { provider_identity: "sql-metadata-provider-de4ace7d0680138bc5703b7c351b636adeed4c54d5a04ebd3e3fb710ba855efc", snapshot_id: "snapshot-0679f8b9df1633b51398e4998d0db7d82442cd4cb07af7192395c6c5cbf035a1", catalog_epoch: DecimalU64(0) }, dialect: DexSql010, columns: ["n"], rows: [[I64(Signed64(50000))]], calculation_complete: true, profiles_admitted: [], sqlite_version: "3.53.2", optimizer: OptimizerPolicy { omit: false, order_by_consumed: false, limit_offset_pushdown: false, in_pushdown: false }, required_relations: [], required_layers: [], ast_nodes: 4, execution_binding: Some(SqlExecutionBinding { schema_version: "mdd.sql.execution-binding.v1", worker_owner_id: "runtime-35192fe52e2cb5538918e0ee1663f9d061c04e61f9af404b3d55a1f246f2c45f", session_id: "session-2a59bf2e233e0e2a80250435523d2d3ec770d401c618993668313c2b83cc95a4", query_id: "query-b3b1b4f82b8febece937b735da052b65f8e0ec5af925a91c7e4cc730f39bde50", snapshot_id: "snapshot-0679f8b9df1633b51398e4998d0db7d82442cd4cb07af7192395c6c5cbf035a1", catalog_epoch: DecimalU64(0), provider_identity: "sql-metadata-provider-de4ace7d0680138bc5703b7c351b636adeed4c54d5a04ebd3e3fb710ba855efc", request_key: "1846dc4b8ea0dafba757e0f8e792fbc536b60522f2d45ac42408d1268c611dad", schema_id: "mdd.sql.dynamic-rows.v1:27a431eac9a4c76af85c25e09a921e1567100fef074155dc35cb9ade8e4363ed", semantic_version: "mdd.sql.ast.v2;mdd.sql.values.v1;DexSql010" }), _result_memory: ResultMemory { reservations: 1, unused: 1910 } }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    runtime_tests::length_legacy_scan_respects_session_step_budget
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 42 filtered out; finished in 0.04s
+

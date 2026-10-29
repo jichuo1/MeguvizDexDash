@@ -54,6 +54,140 @@ fn setup_with_dialect(dialect: SqlDialect) -> (Lifecycle, SessionHandle, Session
 }
 
 #[test]
+fn length_legacy_scan_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT length(?) AS n",
+                &[SqlValue::text(&"A".repeat(50_000))],
+            )
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QuerySteps, 64),
+        );
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}");
+        assert!(!token.status().unwrap().execution_complete);
+    }
+}
+
+#[test]
+fn length_preserves_code_unit_and_legacy_scalar_semantics() {
+    use crate::values::{SqlText, SqlValue};
+    use mdd_query::ir::Signed64;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (_, _, _, bridge) = setup_with_dialect(dialect);
+        for (units, native_count, legacy_count) in [
+            (vec![], 0, 0),
+            (vec![0x41, 0, 0x42], 3, 3),
+            (vec![0xd83d, 0xde00], 2, 1),
+            (vec![0xd800], 1, 1),
+            (vec![0xdc00], 1, 1),
+            (vec![0xd800, 0xd800, 0xdc00], 3, 2),
+        ] {
+            let value = SqlValue::Text(SqlText {
+                utf16: units,
+                original_mutf8: None,
+            });
+            let prepared = bridge
+                .prepare_with_parameters("SELECT length(?) AS n", &[value])
+                .unwrap();
+            let result = prepared
+                .execute(SqlControl::new(SqlLimits::default(), None))
+                .unwrap();
+            let expected = if dialect == SqlDialect::NativeV1 {
+                native_count
+            } else {
+                legacy_count
+            };
+            assert_eq!(result.rows()[0][0], SqlValue::I64(Signed64(expected)));
+        }
+    }
+}
+
+#[test]
+fn length_native_constant_time_length_keeps_step_budget() {
+    use crate::values::SqlValue;
+    use mdd_query::ir::Signed64;
+    let (lifecycle, session, _, bridge) = setup_with_dialect(SqlDialect::NativeV1);
+    let prepared = bridge
+        .prepare_with_parameters(
+            "SELECT length(?) AS n",
+            &[SqlValue::text(&"A".repeat(50_000))],
+        )
+        .unwrap();
+    let (runtime, token) = runtime(
+        &lifecycle,
+        &session,
+        &prepared,
+        BudgetLimits::default().with(Resource::QuerySteps, 64),
+    );
+    let bound = prepared.bind_runtime(&runtime).unwrap();
+    let result = bound
+        .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        .unwrap();
+    assert_eq!(result.rows()[0][0], SqlValue::I64(Signed64(50_000)));
+    assert!(token.status().unwrap().execution_complete);
+}
+
+#[test]
+fn length_legacy_cancelled_after_scan_starts_stays_failed() {
+    use crate::values::SqlValue;
+    use std::time::{Duration, Instant};
+    for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT length(?) AS n",
+                &[SqlValue::text(&"A".repeat(300_000))],
+            )
+            .unwrap();
+        let (runtime, token) = runtime(&lifecycle, &session, &prepared, BudgetLimits::default());
+        let pool = runtime.pool().clone();
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let handle = std::thread::spawn(move || {
+            bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        });
+        let deadline = Instant::now() + Duration::from_secs(10);
+        loop {
+            let steps = pool
+                .usage()
+                .unwrap()
+                .used
+                .get(&Resource::QuerySteps)
+                .map_or(0, |value| value.0);
+            if steps > 5_000 {
+                break;
+            }
+            if handle.is_finished() || Instant::now() >= deadline {
+                let _ = token.cancel();
+                let _ = handle.join();
+                panic!("length scan was not observed before completion: {dialect:?}");
+            }
+            std::thread::yield_now();
+        }
+        token.cancel().unwrap();
+        assert_eq!(
+            handle.join().unwrap().unwrap_err().code,
+            ErrorCode::Cancelled
+        );
+        assert!(!token.status().unwrap().execution_complete);
+    }
+}
+
+#[test]
 fn substring_long_text_respects_session_step_budget() {
     use crate::values::SqlValue;
     for dialect in [

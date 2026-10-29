@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\resource-scope-audit\\20261029T043749212277Z\\resource_scope_probe.exe",
+    "D:\\MeguvisDexDash\\artifacts\\local\\resource-scope-boundary\\20261029T043749212277Z\\mutating-copy.apk"
+  ],
+  "started_utc": "2026-10-29T04:37:50.949068+00:00",
+  "finished_utc": "2026-10-29T04:37:51.145448+00:00",
+  "elapsed_seconds": 0.18699999999989814,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "1a15d38bf1f71ae9a6e1dc1dcd07fa569958d1d405c073bc9ae5f5bdae00eff4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic static reference test; no performance claim"
+}
