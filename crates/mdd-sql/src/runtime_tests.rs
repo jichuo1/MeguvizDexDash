@@ -54,6 +54,218 @@ fn setup_with_dialect(dialect: SqlDialect) -> (Lifecycle, SessionHandle, Session
 }
 
 #[test]
+fn substring_long_text_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT substr(?,1,1) AS v",
+                &[SqlValue::text(&"A".repeat(50_000))],
+            )
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QuerySteps, 64),
+        );
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}");
+        assert!(!token.status().unwrap().execution_complete);
+    }
+}
+
+#[test]
+fn substring_offsets_require_session_workspace_budget() {
+    use crate::values::SqlValue;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT substr(?,1,1) AS v",
+                &[SqlValue::text(&"A".repeat(10_000))],
+            )
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192),
+        );
+        let pool = runtime.pool().clone();
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}");
+        assert!(!token.status().unwrap().execution_complete);
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0),
+            0
+        );
+    }
+}
+
+#[test]
+fn substring_units_and_null_are_unchanged_by_budgeting() {
+    use crate::values::{SqlText, SqlValue};
+    let value = SqlValue::Text(SqlText {
+        utf16: vec![0x41, 0, 0xd83d, 0xde00, 0xd800, 0x42],
+        original_mutf8: None,
+    });
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (_, _, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT substr(?,3,1),substr(?,4,1),substr('',1,1),substr(NULL,1,1)",
+                &[value.clone(), value.clone()],
+            )
+            .unwrap();
+        let result = prepared
+            .execute(SqlControl::new(SqlLimits::default(), None))
+            .unwrap();
+        let text = |utf16| {
+            SqlValue::Text(SqlText {
+                utf16,
+                original_mutf8: None,
+            })
+        };
+        let (third, fourth) = if dialect == SqlDialect::NativeV1 {
+            (vec![0xd83d], vec![0xde00])
+        } else {
+            (vec![0xd83d, 0xde00], vec![0xd800])
+        };
+        assert_eq!(
+            result.rows()[0],
+            vec![text(third), text(fourth), text(vec![]), SqlValue::Null],
+            "{dialect:?}"
+        );
+    }
+}
+
+#[test]
+fn substring_offsets_are_released_after_success() {
+    use crate::values::SqlValue;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT substr(?,1,1) AS v",
+                &[SqlValue::text(&"A".repeat(10_000))],
+            )
+            .unwrap();
+        let limits = BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 200_000);
+        let (runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
+        let pool = runtime.pool().clone();
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let result = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap();
+        assert_eq!(result.rows()[0][0], SqlValue::text("A"));
+        assert!(token.status().unwrap().execution_complete);
+        let retained = pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0;
+        assert!(
+            (1..=8192).contains(&retained),
+            "offset lease retained: {retained}"
+        );
+        drop(result);
+        assert_eq!(
+            pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0,
+            0
+        );
+    }
+}
+
+#[test]
+fn substring_cancellation_during_scan_releases_offsets() {
+    use crate::values::SqlValue;
+    use std::time::{Duration, Instant};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT substr(?,1,1) AS v",
+                &[SqlValue::text(&"A".repeat(300_000))],
+            )
+            .unwrap();
+        let limits = BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 4 * 1024 * 1024);
+        let (runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
+        let pool = runtime.pool().clone();
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let handle = std::thread::spawn(move || {
+            bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        });
+        let deadline = Instant::now() + Duration::from_secs(10);
+        loop {
+            let used = pool
+                .usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0);
+            let steps = pool
+                .usage()
+                .unwrap()
+                .used
+                .get(&Resource::QuerySteps)
+                .map_or(0, |v| v.0);
+            if used > 100_000 && steps > 5_000 {
+                break;
+            }
+            if handle.is_finished() || Instant::now() >= deadline {
+                let _ = token.cancel();
+                let _ = handle.join();
+                panic!("substring scan was not observed before completion: {dialect:?}");
+            }
+            std::thread::yield_now();
+        }
+        token.cancel().unwrap();
+        assert_eq!(
+            handle.join().unwrap().unwrap_err().code,
+            ErrorCode::Cancelled,
+            "{dialect:?}"
+        );
+        assert!(!token.status().unwrap().execution_complete);
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0),
+            0
+        );
+    }
+}
+
+#[test]
 fn case_conversion_long_text_respects_session_step_budget() {
     use crate::values::SqlValue;
     for dialect in [

@@ -72,6 +72,8 @@ MDD-026 已重新打开：独立复核发现资格脚本对17关系156列主要�
 
 有效与坏索引DEX以两种顺序同快照验证：联合范围保留原始INVALID_INPUT、input complete/facts partial；只选有效来源时虽complete但covers_all_captured_sources=false。SDK和A0对该坏索引均退出0，不能当完整成功。证据 artifacts/mdd-026/mixed-failure-audit/20261029T015522772300Z/result.json。
 
+非空partial引用反例中，不完整来源仍有10个真实位点和2个匹配，但严格关系及全范围索引/标量查询保持INCOMPLETE_FACTS；完整兄弟子范围明确covers_all_captured_sources=false。A0的8行仅对照完整来源，不能证明partial完整。证据 artifacts/mdd-026/partial-reference-audit/20261029T021708996807Z/result.json。
+
 逐列总表 artifacts/mdd-026/column-ledger/20261028T170548736531Z/column-ledger.json 固定17关系156列，逐项列出已有证据与剩余边界；追加式独立重算和4项负例通过，但所有列的完整资格均为false，不据汇总签发MDD-026或产品profile。
 
 v2总表 artifacts/mdd-026/column-ledger-v2/20261028T171808763956Z/column-ledger.json 增量关联方法持有 try/handler 的12列证据，并保留损坏输入在A0与原生之间的真实差异；追加式回读和负例通过，全部字段完整资格仍为false。
@@ -83,6 +85,8 @@ v4总表 artifacts/mdd-026/column-ledger-v4/20261029T005209769816Z/column-ledger
 v5总表 artifacts/mdd-026/column-ledger-v5/20261029T013609946354Z/column-ledger.json 再关联字段、类型及动态/孤立代码来源证据，独立重算和9项篡改负例通过；156列完整资格仍均为false，69个兼容投影未装配。
 
 v6总表 artifacts/mdd-026/column-ledger-v6/20261029T020323493739Z/column-ledger.json 增量关联混合损坏来源的引用层传播证据，独立重算和11项篡改负例通过；关联39列仅表示该层传播证据，不证明其字段值全部验收。任务、profile及156列完整资格仍为false。
+
+v7总表 artifacts/mdd-026/column-ledger-v7/20261029T021940078907Z/column-ledger.json 增量关联非空partial引用与兄弟来源覆盖证据；独立追加重算及11项篡改负例通过，关联39列仅证明所列引用层边界，不代表字段值完整验收。原分母17关系156列、69个未装配兼容投影及所有字段完整资格false保持不变，MDD-026和profile仍未完成。
 
 MDD-034 已根验收 done，范围是预算、取消和终态机制：Windows 本机 27 query、10 session、7 types 及2 compile-fail 测试通过，相关包严格 Clippy 通过；SQLite 双连接中断和独立子进程 deadline 探针通过。结果及源码身份见 artifacts/mdd-034/budget-and-terminal-states.json。生产 worker、MCP、FFI 和当前源码的 Linux CI 尚未验证；进程树隔离未由该探针证明。
 
@@ -105,6 +109,8 @@ GROUP BY括号位置被误认常量的错分组已修复：同一13行样本从(
 多参数 min/max 已与单参数聚合分开，Windows工作区181项测试和严格Clippy通过。独立合成provider三方言69例中，45项默认BINARY结果与SQLite一致，6项零参数返回真实INVALID_ARGUMENT，18项显式COLLATE保持UNSUPPORTED_QUERY；provider尚无逐列collation元数据，不称NOCASE schema等价。未重启A0/A1，DTO/profile仍未准入。证据 artifacts/mdd-031-audit/multi-minmax-independent-20261029/qualification.json。
 
 Q08使用的lower及对应upper现逐UTF-16单元计步骤并检查取消，真实会话长参数低额度反例由成功变为QUOTA；Windows工作区184项测试与严格Clippy通过。独立三方言60例涵盖SQLite可表示文本、孤立代理、长结果、配额和取消，证据 artifacts/mdd-031-audit/case-budget-independent-20261029/qualification.json。旧A0/A1对应完整语义未找到可比较记录，仍为not_run；参数复制、SQLite及传输内存不在该计步证明内。
+
+`substr` 文本偏移表在分配前按 UTF-16 单元数量预留逻辑工作区并逐单元计步，配额失败和取消后释放；Windows工作区189项测试、严格Clippy通过，独立真实会话36例及固定A0/A1各5个已有参考对照通过，见 artifacts/mdd-031-audit/substring-independent-20261029/verify-run/record.json。SQLite截取含NUL文本返回空串，旧版与候选旧方言保留NUL及后续字符；Native按UTF-16单元、旧方言按有效代理对截取。旧版NULL DTO仍不同，参数/结果副本、SQLite、分配器实际容量、RSS和传输未由此额度覆盖；旧版其余3项已有样本未在该轮比较。
 
 旧版 NULL 单元包含 `value: null`，当前原生 SQL 单元仅含 `type: null`，固定 HostLab 消费者会读取 `value`；适配层必须明确补齐并验证。字面 CAST 的非负结果与DEX列 CAST 的类型不同，不能仅按数值正负推断旧类型。扩展旧版类型采样两次在打开样本时超时，未执行查询；错误保留于 artifacts/mdd-031-audit/dto-type-observations/，不能由此推断规则。
 

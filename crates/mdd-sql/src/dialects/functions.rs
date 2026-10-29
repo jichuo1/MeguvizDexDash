@@ -701,9 +701,36 @@ fn scalar(
                 SqlValue::Bytes(bytes) => decoded_text(bytes, dialect)?,
                 value => scalar_text(value)?,
             };
-            let mut offsets = Vec::with_capacity(text.utf16.len() + 1);
+            // The offset table holds at most one index per UTF-16 unit plus
+            // the final boundary. Charge its logical capacity before it is
+            // allocated and release it after the result slice is formed.
+            // Decoded arguments, the result copy and SQLite buffers are not
+            // covered by this reservation.
+            let capacity = text
+                .utf16
+                .len()
+                .checked_add(1)
+                .ok_or_else(|| control.fail(quota("SUBSTR_OFFSETS_CAPACITY_OVERFLOW")))?;
+            let bytes = u64::try_from(capacity)
+                .ok()
+                .and_then(|length| length.checked_mul(std::mem::size_of::<usize>() as u64))
+                .ok_or_else(|| control.fail(quota("SUBSTR_OFFSETS_WORKSPACE_OVERFLOW")))?;
+            let _reservation = control
+                .runtime()
+                .map(|runtime| {
+                    runtime
+                        .pool()
+                        .reserve(mdd_query::budget::Resource::QueryWorkspaceBytes, bytes)
+                        .map_err(|error| control.fail(error))
+                })
+                .transpose()?;
+            let mut offsets = Vec::new();
+            offsets
+                .try_reserve_exact(capacity)
+                .map_err(|_| control.fail(quota("SUBSTR_OFFSETS_ALLOCATION")))?;
             let mut at = 0;
             while at < text.utf16.len() {
+                control.checkpoint(1, false)?;
                 offsets.push(at);
                 if dialect != SqlDialect::NativeV1
                     && (0xd800..=0xdbff).contains(&text.utf16[at])
@@ -712,11 +739,13 @@ fn scalar(
                         .get(at + 1)
                         .is_some_and(|v| (0xdc00..=0xdfff).contains(v))
                 {
+                    control.checkpoint(1, false)?;
                     at += 2;
                 } else {
                     at += 1;
                 }
             }
+            control.checkpoint(1, false)?;
             offsets.push(at);
             let (begin, end) = substring_range(offsets.len() - 1, start, count);
             Ok(SqlValue::Text(SqlText {

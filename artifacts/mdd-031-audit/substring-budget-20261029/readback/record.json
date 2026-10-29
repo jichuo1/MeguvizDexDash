@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/substring-budget-20261029/readback.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T02:19:39.186697+00:00",
+  "finished_utc": "2026-10-29T02:19:39.255437+00:00",
+  "elapsed_seconds": 0.06300000000010186,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 1489,
+    "sha256": "1683d1da7f5b6de1402bb622e1470d82623684e87be2355f2471273fcb90be22"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

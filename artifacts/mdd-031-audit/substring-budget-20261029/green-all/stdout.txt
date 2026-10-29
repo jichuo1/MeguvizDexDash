@@ -1,0 +1,11 @@
+
+running 6 tests
+test bridge::tests::substring_retains_policy_units_and_bounded_negative_indices ... ok
+test runtime_tests::substring_cancellation_during_scan_releases_offsets ... ok
+test runtime_tests::substring_long_text_respects_session_step_budget ... ok
+test runtime_tests::substring_offsets_are_released_after_success ... ok
+test runtime_tests::substring_offsets_require_session_workspace_budget ... ok
+test runtime_tests::substring_units_and_null_are_unchanged_by_budgeting ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 36 filtered out; finished in 1.29s
+

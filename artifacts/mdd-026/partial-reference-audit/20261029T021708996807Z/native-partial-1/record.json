@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\partial-reference-audit\\20261029T021708996807Z\\partial_reference_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "1"
+  ],
+  "started_utc": "2026-10-29T02:17:11.365427+00:00",
+  "finished_utc": "2026-10-29T02:17:11.906056+00:00",
+  "elapsed_seconds": 0.5469999999995707,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "4425d5351d74b5babcb4a7fdb0ee749ccda8f9e98426174acbc10a8015c13fb4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic static reference test; no performance claim"
+}

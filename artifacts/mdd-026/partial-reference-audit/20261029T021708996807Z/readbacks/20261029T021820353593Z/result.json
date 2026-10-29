@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "result_sha256": "1b3fbbb83bbebff0378c3e3845a9fe142d6b3e004c64bf54d5565e94c77bf84b",
+  "readback_source_sha256": "8ce9c898c83dc1b7b7776ef975997d2a3eb2555aacd70690d25f996fa7fee995",
+  "source_files_checked": 52,
+  "command_records_checked": 5,
+  "partial_orders": 2,
+  "nonempty_partial_sites_each": 10,
+  "local_partial_matches_each": 2,
+  "a0_complete_rows": 8,
+  "negative_controls": 8,
+  "task_complete_proven": false,
+  "scope": "synthetic nonempty partial references and A0 full source rows; not full profile"
+}
