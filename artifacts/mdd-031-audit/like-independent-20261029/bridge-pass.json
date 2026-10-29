@@ -1,0 +1,7 @@
+{
+  "source_sha256": "13bd1fd5330f69377ed62d17ae2b13af0fea05c45e9e09a326c270f786997d5e",
+  "binary_sha256": "bf7667fccae569ed56d0eadb9fb4a017f827e37a5103fd0401d45e712c543da3",
+  "stdout_sha256": "3a1100187cb1bc69f9106224ff228e131542707acf718a22908a3834b7769fed",
+  "case_count": 27,
+  "scope": "first successful public bridge probe"
+}

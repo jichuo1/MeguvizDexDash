@@ -1,0 +1,11 @@
+
+running 1 test
+test dialects::functions::like_budget_tests::empty_input_does_not_skip_long_pattern_step_budget ... FAILED
+
+failures:
+
+failures:
+    dialects::functions::like_budget_tests::empty_input_does_not_skip_long_pattern_step_budget
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 23 filtered out; finished in 0.00s
+

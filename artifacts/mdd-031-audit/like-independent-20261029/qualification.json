@@ -1,0 +1,26 @@
+{
+  "status": "passed-scoped",
+  "cases": 39,
+  "dialects": [
+    "native",
+    "010",
+    "011"
+  ],
+  "probe_sha256": "a7a51115f0a7a2819c4ce70dbf2e6382d3815b33fa471b34851ce06b583d9d18",
+  "cargo_lock_sha256": "f7845e9a5309eaa2446cd3a3eebe14d0904aeb75356ddec207e1b114c3d3b946",
+  "functions_sha256": "8263141e9d3bf3d48bfc564983091b49055e7186ecbc10ffa861a381097a0986",
+  "binary_sha256": "83d4fcc29aea77c4538483199a7284c7b592fb78bcfcdb21c62c27e8fd17dba1",
+  "stdout_sha256": "a6348f2f18de3299e1ce05ba200c9adf1da84d53cc59efa919f5493ba45a19fb",
+  "sqlite_version": "3.53.1",
+  "sqlite_observed": {
+    "dangling_escape": 0,
+    "escaped_percent": 1,
+    "null_input": null,
+    "short_match": 1
+  },
+  "trailing_escape_difference": "bridge INVALID_ARGUMENT; SQLite returns 0",
+  "old_engine_trailing_escape": "not verified in this run",
+  "async_cancellation_boundary": "thread requested cancellation after 1 ms; exact checkpoint phase not observed",
+  "profiles_admitted": false,
+  "scope": "standalone bridge with synthetic parameters; no worker or full dialect qualification"
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "mdd.sql-like-budget-evidence.v1",
+  "status": "local-tests-passed",
+  "source_path": "crates/mdd-sql/src/dialects/functions.rs",
+  "source_sha256": "8263141e9d3bf3d48bfc564983091b49055e7186ecbc10ffa861a381097a0986",
+  "lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "records": {
+    "before": {
+      "record_sha256": "3b83d601bf2f1fd2849242df21bf3581d2c7a14428c8e2912ea574d8d52bee6e",
+      "exit_code": 0
+    },
+    "before-selected": {
+      "record_sha256": "4720709eecc4310da683f910c72e2ac7a9868d7a05293467593805e828676733",
+      "exit_code": 101
+    },
+    "after": {
+      "record_sha256": "745607747cb53a4495da90d73cfe953b133dedfd0a84b50869bafe9ed527ba83",
+      "exit_code": 0
+    },
+    "full": {
+      "record_sha256": "d0dacb82f129882fc5eeb8864f32da33dd31458521ef53606954429aca72826e",
+      "exit_code": 0
+    },
+    "clippy": {
+      "record_sha256": "d8aaf9e43a97f13bad4d6161d6d574c778e924673a83b5e8713bfd35a8311e38",
+      "exit_code": 0
+    },
+    "sqlite-oracle": {
+      "record_sha256": "fbbf17e5f9103f0e79f4003c24abe8e8d4cc178f6c24246c665093f17c119f65",
+      "exit_code": 0
+    }
+  },
+  "tests": "empty input and long percent pattern triggers quota; cancelled empty matches fail; existing trailing escape error retained",
+  "sqlite_boundary": "SQLite trailing ESCAPE returns false; current bridge returns INVALID_ARGUMENT; A0/A1 not measured for this boundary",
+  "limitations": [
+    "LIKE token memory not accounted as resident workspace",
+    "SQL bridge end-to-end independent recheck pending",
+    "no full SQL or compatibility profile qualification"
+  ],
+  "profiles_admitted": false
+}

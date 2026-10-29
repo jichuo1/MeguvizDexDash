@@ -532,12 +532,15 @@ fn like(
         One,
         Many,
     }
+    control.checkpoint(1, false)?;
     let mut tokens = Vec::new();
     let mut at = 0;
     while at < pattern.utf16.len() {
+        control.checkpoint(1, false)?;
         let unit = pattern.utf16[at];
         if Some(unit) == escape {
             at += 1;
+            control.checkpoint(1, false)?;
             tokens.push(Token::Literal(
                 *pattern
                     .utf16
@@ -585,6 +588,7 @@ fn like(
         }
     }
     while token < tokens.len() && matches!(tokens[token], Token::Many) {
+        control.checkpoint(1, false)?;
         token += 1;
     }
     Ok(token == tokens.len())
@@ -956,5 +960,66 @@ impl Aggregate<Option<SqlValue>, Cell> for AggregateValue {
             .unwrap_or(SqlValue::Null)
             .sqlite(self.control.inner.limits.max_cell_bytes)
             .map_err(|e| failure(&self.control, e))
+    }
+}
+
+#[cfg(test)]
+mod like_budget_tests {
+    use super::*;
+    use crate::control::SqlLimits;
+    use mdd_types::ErrorCode;
+
+    #[test]
+    fn empty_input_does_not_skip_long_pattern_step_budget() {
+        let limits = SqlLimits {
+            max_steps: 8,
+            ..SqlLimits::default()
+        };
+        let control = SqlControl::new(limits, None);
+        let value = SqlText {
+            utf16: vec![],
+            original_mutf8: None,
+        };
+        let pattern = SqlText {
+            utf16: vec![u16::from(b'%'); 128],
+            original_mutf8: None,
+        };
+        let error = like(&value, &pattern, None, SqlDialect::NativeV1, &control).unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded);
+    }
+
+    #[test]
+    fn cancelled_empty_like_is_not_a_success() {
+        let control = SqlControl::new(SqlLimits::default(), None);
+        control.cancel().unwrap();
+        let empty = SqlText {
+            utf16: vec![],
+            original_mutf8: None,
+        };
+        let error = like(&empty, &empty, None, SqlDialect::NativeV1, &control).unwrap_err();
+        assert_eq!(error.code, ErrorCode::Cancelled);
+    }
+
+    #[test]
+    fn trailing_escape_preserves_existing_error_when_budget_sufficient() {
+        let control = SqlControl::new(SqlLimits::default(), None);
+        let empty = SqlText {
+            utf16: vec![],
+            original_mutf8: None,
+        };
+        let pattern = SqlText {
+            utf16: vec![u16::from(b'!')],
+            original_mutf8: None,
+        };
+        let error = like(
+            &empty,
+            &pattern,
+            Some(u16::from(b'!')),
+            SqlDialect::DexSql010,
+            &control,
+        )
+        .unwrap_err();
+        assert_eq!(error.code, ErrorCode::InvalidArgument);
+        assert_eq!(error.message, "LIKE_DANGLING_ESCAPE");
     }
 }

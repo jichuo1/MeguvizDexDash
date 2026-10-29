@@ -72,6 +72,8 @@ v2总表 artifacts/mdd-026/column-ledger-v2/20261028T171808763956Z/column-ledger
 
 v3总表 artifacts/mdd-026/column-ledger-v3/20261028T174511331094Z/column-ledger.json 增量关联8个 classes 字段的多来源边界，追加式回读和5项篡改负例通过；仍不签发 MDD-026。
 
+v4总表 artifacts/mdd-026/column-ledger-v4/20261029T005209769816Z/column-ledger.json 增量关联10个 method_calls 和4个类身份字段的多来源引用证据，独立重算和7项篡改负例通过；156列完整资格仍均为false。
+
 MDD-034 已根验收 done，范围是预算、取消和终态机制：Windows 本机 27 query、10 session、7 types 及2 compile-fail 测试通过，相关包严格 Clippy 通过；SQLite 双连接中断和独立子进程 deadline 探针通过。结果及源码身份见 artifacts/mdd-034/budget-and-terminal-states.json。生产 worker、MCP、FFI 和当前源码的 Linux CI 尚未验证；进程树隔离未由该探针证明。
 
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
@@ -83,6 +85,8 @@ SQL 附加对照：真实合成DEX和无损参数两条路径覆盖空字符串�
 SQL 比较路径已修复派生表同名遮蔽造成的 IN/NOT IN 静默错行，并支持可证明直接基础表 JOIN 的列作用域；Q03 合成provider与独立SQLite的重复行/别名反例通过，A0/A1固定小DEX另实际返回完整零行。未证明的亲和性返回明确未实现；旧版文本算术与部分文本转整数仍不兼容。该版 Windows 工作区168项测试及严格Clippy通过，见 artifacts/integration/20261029/workspace-tests-join-scope/record.json；本版Linux CI需对应提交后验证。
 
 后续文本/bytes→INTEGER 转换在固定A0/A1的54项小样本上数值一致，但30项有 signed/unsigned DTO 类型差异，完整兼容仍受阻；Windows工作区170项测试和严格Clippy通过，见 artifacts/mdd-031/integer-cast-20261029/runs/20261028T174502714475Z/readback.json。Q04非零注解查询与A0/A1/SQLite的数值和顺序对照通过，但候选类型标签与旧wire不同，未签传输或profile资格。
+
+LIKE模式预处理与尾部扫描现按单元计步并检查取消。工作区173项测试和严格Clippy通过，独立桥探针的三方言39条查询确认低预算、取消、deadline、NULL和基本匹配的限定行为，证据 artifacts/mdd-031-audit/like-independent-20261029/qualification.json。token驻留内存未计入额度；尾部ESCAPE目前为INVALID_ARGUMENT而SQLite返回false，A0/A1该边界尚未验证。异步取消具体发生阶段未观测，不推成函数中途取消已证。
 
 旧版 NULL 单元包含 `value: null`，当前原生 SQL 单元仅含 `type: null`，固定 HostLab 消费者会读取 `value`；适配层必须明确补齐并验证。字面 CAST 的非负结果与DEX列 CAST 的类型不同，不能仅按数值正负推断旧类型。扩展旧版类型采样两次在打开样本时超时，未执行查询；错误保留于 artifacts/mdd-031-audit/dto-type-observations/，不能由此推断规则。
 
