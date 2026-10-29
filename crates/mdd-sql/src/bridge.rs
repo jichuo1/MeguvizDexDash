@@ -770,6 +770,96 @@ mod tests {
         (provider, bridge)
     }
     #[test]
+    fn order_by_projection_alias_beats_same_named_source_column() {
+        let (_, bridge) = bridge();
+        let numeric = |value: &SqlValue| match value {
+            SqlValue::Null => None,
+            SqlValue::I64(value) => Some(i128::from(value.0)),
+            SqlValue::U64(value) => Some(i128::from(value.0)),
+            other => panic!("unexpected value: {other:?}"),
+        };
+        let queries = [
+            (
+                "SELECT 4-id AS id FROM facts ORDER BY id",
+                vec![vec![Some(1)], vec![Some(2)], vec![Some(3)]],
+            ),
+            (
+                "SELECT 4-id AS id FROM facts ORDER BY ((id))",
+                vec![vec![Some(1)], vec![Some(2)], vec![Some(3)]],
+            ),
+            (
+                "SELECT 4-id AS id FROM facts ORDER BY 1",
+                vec![vec![Some(1)], vec![Some(2)], vec![Some(3)]],
+            ),
+            (
+                "SELECT 4-id AS id FROM facts ORDER BY (1)",
+                vec![vec![Some(1)], vec![Some(2)], vec![Some(3)]],
+            ),
+            (
+                "SELECT id AS x,4-id AS x FROM facts ORDER BY x",
+                vec![
+                    vec![Some(1), Some(3)],
+                    vec![Some(2), Some(2)],
+                    vec![Some(3), Some(1)],
+                ],
+            ),
+            (
+                "SELECT CASE WHEN id=2 THEN NULL ELSE 4-id END AS id FROM facts ORDER BY id",
+                vec![vec![None], vec![Some(1)], vec![Some(3)]],
+            ),
+            (
+                "SELECT 4-id AS id, id AS x FROM facts ORDER BY id, x",
+                vec![
+                    vec![Some(1), Some(3)],
+                    vec![Some(2), Some(2)],
+                    vec![Some(3), Some(1)],
+                ],
+            ),
+            (
+                "SELECT CASE WHEN id=2 THEN NULL ELSE 4-id END AS id FROM facts ORDER BY id DESC NULLS LAST",
+                vec![vec![Some(3)], vec![Some(1)], vec![None]],
+            ),
+        ];
+        for (sql, expected) in queries {
+            let output = bridge.query(sql).unwrap();
+            let rows: Vec<Vec<_>> = output
+                .rows()
+                .iter()
+                .map(|row| row.iter().map(numeric).collect())
+                .collect();
+            assert_eq!(rows, expected, "{sql}");
+        }
+        let wildcard_first = bridge
+            .query("SELECT *,4-id AS id FROM facts ORDER BY id")
+            .unwrap();
+        assert_eq!(
+            wildcard_first
+                .rows()
+                .iter()
+                .map(|r| numeric(&r[0]))
+                .collect::<Vec<_>>(),
+            vec![Some(1), Some(2), Some(3)]
+        );
+        let explicit_first = bridge
+            .query("SELECT 4-id AS id,* FROM facts ORDER BY id")
+            .unwrap();
+        assert_eq!(
+            explicit_first
+                .rows()
+                .iter()
+                .map(|r| numeric(&r[1]))
+                .collect::<Vec<_>>(),
+            vec![Some(3), Some(2), Some(1)]
+        );
+        assert_eq!(
+            bridge
+                .query("SELECT id FROM facts ORDER BY absent")
+                .unwrap_err()
+                .code,
+            ErrorCode::InvalidArgument
+        );
+    }
+    #[test]
     fn owned_cursor_is_lazy_and_preserves_multiplicity_and_nul() {
         let (provider, bridge) = bridge();
         let prepared = bridge

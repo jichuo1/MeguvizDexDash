@@ -1,0 +1,173 @@
+{
+  "status": "sqlite-reference-complete",
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "case": "shadow_input",
+      "sql": "SELECT v AS alt FROM facts ORDER BY alt",
+      "status": "ok",
+      "columns": [
+        "alt"
+      ],
+      "rows": [
+        [
+          null
+        ],
+        [
+          -1
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "case": "expression_shadow",
+      "sql": "SELECT -v AS v FROM facts ORDER BY v",
+      "status": "ok",
+      "columns": [
+        "v"
+      ],
+      "rows": [
+        [
+          null
+        ],
+        [
+          -2
+        ],
+        [
+          -2
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "case": "duplicate_alias",
+      "sql": "SELECT alt AS z,v AS z FROM facts ORDER BY z",
+      "status": "ok",
+      "columns": [
+        "z",
+        "z"
+      ],
+      "rows": [
+        [
+          -9,
+          2
+        ],
+        [
+          2,
+          -1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          null
+        ]
+      ]
+    },
+    {
+      "case": "multiple_keys",
+      "sql": "SELECT v AS value,alt FROM facts ORDER BY value,alt DESC",
+      "status": "ok",
+      "columns": [
+        "value",
+        "alt"
+      ],
+      "rows": [
+        [
+          null,
+          7
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          -9
+        ]
+      ]
+    },
+    {
+      "case": "wildcard_order",
+      "sql": "SELECT * FROM facts ORDER BY v DESC,alt ASC",
+      "status": "ok",
+      "columns": [
+        "v",
+        "alt"
+      ],
+      "rows": [
+        [
+          2,
+          -9
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          null,
+          7
+        ]
+      ]
+    },
+    {
+      "case": "positional",
+      "sql": "SELECT * FROM facts ORDER BY 1,2 DESC",
+      "status": "ok",
+      "columns": [
+        "v",
+        "alt"
+      ],
+      "rows": [
+        [
+          null,
+          7
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          -9
+        ]
+      ]
+    },
+    {
+      "case": "unknown_order",
+      "sql": "SELECT v FROM facts ORDER BY missing",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "no such column: missing"
+    },
+    {
+      "case": "ordinal_out_of_range",
+      "sql": "SELECT v FROM facts ORDER BY 3",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st ORDER BY term out of range - should be between 1 and 1"
+    }
+  ],
+  "scope": "independent SQLite synthetic rows only; no new A0/A1 run or DTO/profile qualification"
+}

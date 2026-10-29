@@ -1,0 +1,1 @@
+{"status": "passed-scoped", "candidate_cases": 72, "sqlite_comparisons": 57, "control_terminals": 15, "a0_exact_query_value_order_equal": true, "a0_exact_query_dto_equal": false, "profile_admitted": false}

@@ -1,0 +1,164 @@
+{
+  "status": "sqlite-reference-complete",
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "case": "a0_null_order",
+      "sql": "SELECT 0 AS v UNION ALL SELECT NULL AS v ORDER BY v",
+      "columns": [
+        "v"
+      ],
+      "rows": [
+        [
+          null
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "case": "ascending",
+      "sql": "SELECT v FROM facts ORDER BY v ASC",
+      "columns": [
+        "v"
+      ],
+      "rows": [
+        [
+          null
+        ],
+        [
+          -1
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "case": "descending",
+      "sql": "SELECT v FROM facts ORDER BY v DESC",
+      "columns": [
+        "v"
+      ],
+      "rows": [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          -1
+        ],
+        [
+          null
+        ]
+      ]
+    },
+    {
+      "case": "distinct",
+      "sql": "SELECT DISTINCT v FROM facts ORDER BY v",
+      "columns": [
+        "v"
+      ],
+      "rows": [
+        [
+          null
+        ],
+        [
+          -1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "case": "groups",
+      "sql": "SELECT v,COUNT(*) AS n FROM facts GROUP BY v ORDER BY v",
+      "columns": [
+        "v",
+        "n"
+      ],
+      "rows": [
+        [
+          null,
+          1
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "case": "aggregate",
+      "sql": "SELECT COUNT(*) AS n,COUNT(v) AS nonnull,COUNT(DISTINCT v) AS distinct_n,MIN(v) AS lo,MAX(v) AS hi,SUM(v) AS total FROM facts",
+      "columns": [
+        "n",
+        "nonnull",
+        "distinct_n",
+        "lo",
+        "hi",
+        "total"
+      ],
+      "rows": [
+        [
+          4,
+          3,
+          2,
+          -1,
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "case": "empty_aggregate",
+      "sql": "SELECT COUNT(*) AS n,COUNT(v) AS nonnull,MIN(v) AS lo,MAX(v) AS hi,SUM(v) AS total FROM facts",
+      "columns": [
+        "n",
+        "nonnull",
+        "lo",
+        "hi",
+        "total"
+      ],
+      "rows": [
+        [
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      ]
+    }
+  ],
+  "a0_exact_query": {
+    "sql": "SELECT 0 AS v UNION ALL SELECT NULL AS v ORDER BY v",
+    "rows": [
+      [
+        {
+          "type": "null",
+          "value": null
+        }
+      ],
+      [
+        {
+          "type": "uint64",
+          "value": "0"
+        }
+      ]
+    ],
+    "observation_sha256": "0b018b3db34e36dbd68fbee4b402cd8d7c182f9bff73a851b68c73108a42e32e"
+  },
+  "scope": "SQLite seven synthetic value queries; A0 only exact null-order query; no DTO/profile qualification"
+}

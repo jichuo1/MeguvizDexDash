@@ -1,0 +1,11 @@
+
+running 1 test
+test bridge::tests::order_by_projection_alias_beats_same_named_source_column ... FAILED
+
+failures:
+
+failures:
+    bridge::tests::order_by_projection_alias_beats_same_named_source_column
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 29 filtered out; finished in 0.00s
+

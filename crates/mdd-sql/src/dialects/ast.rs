@@ -433,13 +433,24 @@ impl Rewrite<'_> {
                     return Err(unsupported("ORDER_WITH_FILL"));
                 }
                 if !matches!(*query.body, SetExpr::SetOperation { .. }) {
-                    if let Some(ordinal) = ordinal(&order.expr)? {
+                    if let Some(ordinal) = order_ordinal(&order.expr)? {
                         order.expr = self.projection_at(&query.body, ordinal)?;
+                    } else if let Some(id) = order_identifier(&order.expr)
+                        && let Some(index) = self
+                            .output_names(&query.body)?
+                            .iter()
+                            .position(|name| name.eq_ignore_ascii_case(&id.value))
+                    {
+                        // SQLite resolves a bare ORDER BY name against the
+                        // projection before input columns. Once wrapped inside
+                        // mdd_sort_key, SQLite would instead bind a conflicting
+                        // input column; substitute the bound projection here.
+                        order.expr = self.projection_at(&query.body, index)?;
                     } else {
                         self.expr(&mut order.expr, depth + 1)?;
                     }
                     order.expr = call("mdd_sort_key", vec![take(&mut order.expr)]);
-                } else if ordinal(&order.expr)?.is_none() {
+                } else if order_ordinal(&order.expr)?.is_none() {
                     self.expr(&mut order.expr, depth + 1)?;
                 }
             }
@@ -1415,9 +1426,9 @@ impl Rewrite<'_> {
             && let OrderByKind::Expressions(values) = &mut order.kind
         {
             for value in values {
-                let position = if let Some(index) = ordinal(&value.expr)? {
+                let position = if let Some(index) = order_ordinal(&value.expr)? {
                     Some(index)
-                } else if let Expr::Identifier(id) = &value.expr {
+                } else if let Some(id) = order_identifier(&value.expr) {
                     names
                         .iter()
                         .position(|name| name.eq_ignore_ascii_case(&id.value))
@@ -1463,6 +1474,21 @@ impl Rewrite<'_> {
         *query = *wrapper;
         Ok(())
     }
+}
+fn order_identifier(mut expression: &Expr) -> Option<&Ident> {
+    while let Expr::Nested(inner) = expression {
+        expression = inner;
+    }
+    match expression {
+        Expr::Identifier(id) => Some(id),
+        _ => None,
+    }
+}
+fn order_ordinal(mut expression: &Expr) -> MddResult<Option<usize>> {
+    while let Expr::Nested(inner) = expression {
+        expression = inner;
+    }
+    ordinal(expression)
 }
 fn ordinal(expr: &Expr) -> MddResult<Option<usize>> {
     if let Expr::Value(ValueWithSpan {
