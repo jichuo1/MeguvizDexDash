@@ -1,0 +1,1 @@
+{"candidate_cases": 60, "sqlite_compared": 30, "surrogate_compared": 6, "long_results_compared": 6, "quotas": 6, "cancelled": 12, "profile_admitted": false, "status": "passed-readback-only"}

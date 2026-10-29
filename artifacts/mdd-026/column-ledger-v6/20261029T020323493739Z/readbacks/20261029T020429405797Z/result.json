@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "result_sha256": "1948be10f753119d1db85bdf8539ad08db22deea25954e2e0da4781497322db9",
+  "readback_source_sha256": "6ee4ed9966db9f621e36552179fcec5509632ab9714676da397ead8a92a0ef10",
+  "recomputed_result": "artifacts/mdd-026/column-ledger-v6/20261029T020429490073Z/column-ledger.json",
+  "recomputed_sha256": "36dd562521ecf328f7e17180bb48ea34eced9c2e574336328e1ffc06c348b9e8",
+  "relations": 17,
+  "columns": 156,
+  "reference_layer_columns": 39,
+  "negative_controls": 11,
+  "task_complete_proven": false,
+  "scope": "append-only evidence inventory readback, not fact or profile qualification"
+}

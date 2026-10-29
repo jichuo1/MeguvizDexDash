@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/case-budget-independent-20261029/verify.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T02:12:16.629120+00:00",
+  "finished_utc": "2026-10-29T02:12:16.766511+00:00",
+  "elapsed_seconds": 0.14000000000032742,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 185,
+    "sha256": "68cf2c257f47d226e258c1b78d71f56a9c0b9550273519e5bab27c90174fc53a"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

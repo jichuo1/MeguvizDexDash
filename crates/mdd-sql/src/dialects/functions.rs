@@ -787,6 +787,7 @@ fn scalar(
         "mdd_lower" | "mdd_upper" => {
             let mut text = scalar_text(&args[0])?;
             for value in &mut text.utf16 {
+                control.checkpoint(1, false)?;
                 if name == "mdd_lower" && (65..=90).contains(value) {
                     *value += 32;
                 } else if name == "mdd_upper" && (97..=122).contains(value) {

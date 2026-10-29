@@ -1,0 +1,17 @@
+[workspace]
+[package]
+name="mdd-like-workspace-independent"
+version="0.0.0"
+edition="2024"
+[[bin]]
+name="mdd-case-budget-independent"
+path="src/main.rs"
+[dependencies]
+mdd-sql={path="../../../crates/mdd-sql"}
+mdd-types={path="../../../crates/mdd-types"}
+mdd-input={path="../../../crates/mdd-input"}
+mdd-dex={path="../../../crates/mdd-dex"}
+mdd-facts={path="../../../crates/mdd-facts"}
+mdd-session={path="../../../crates/mdd-session"}
+mdd-query={path="../../../crates/mdd-query"}
+serde_json="=1.0.151"

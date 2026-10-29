@@ -1,0 +1,2 @@
+   Compiling mdd-like-workspace-independent v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-031-audit\case-budget-independent-20261029)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.87s

@@ -4,7 +4,7 @@
 
 ## Checkout 与交付
 
-工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 9df63b4 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 9d50885 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
 
 大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
@@ -82,6 +82,8 @@ v4总表 artifacts/mdd-026/column-ledger-v4/20261029T005209769816Z/column-ledger
 
 v5总表 artifacts/mdd-026/column-ledger-v5/20261029T013609946354Z/column-ledger.json 再关联字段、类型及动态/孤立代码来源证据，独立重算和9项篡改负例通过；156列完整资格仍均为false，69个兼容投影未装配。
 
+v6总表 artifacts/mdd-026/column-ledger-v6/20261029T020323493739Z/column-ledger.json 增量关联混合损坏来源的引用层传播证据，独立重算和11项篡改负例通过；关联39列仅表示该层传播证据，不证明其字段值全部验收。任务、profile及156列完整资格仍为false。
+
 MDD-034 已根验收 done，范围是预算、取消和终态机制：Windows 本机 27 query、10 session、7 types 及2 compile-fail 测试通过，相关包严格 Clippy 通过；SQLite 双连接中断和独立子进程 deadline 探针通过。结果及源码身份见 artifacts/mdd-034/budget-and-terminal-states.json。生产 worker、MCP、FFI 和当前源码的 Linux CI 尚未验证；进程树隔离未由该探针证明。
 
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
@@ -101,6 +103,8 @@ ORDER BY投影别名遮蔽输入列的静默错行已修复，含括号、位置
 GROUP BY括号位置被误认常量的错分组已修复：同一13行样本从(0,13)改为SQLite的(0,7)/(1,6)；涵盖嵌套括号、符号、超32位位置范围常量、NULL/HAVING和真实绑定错误。最终源码Windows工作区179项测试、严格Clippy通过，独立桥90项含78项SQLite对照；未重启A0/A1，注入的源变化不等于真实磁盘变化。证据 artifacts/mdd-031-audit/group-ordinal-boundary-20261029/qualification.json。
 
 多参数 min/max 已与单参数聚合分开，Windows工作区181项测试和严格Clippy通过。独立合成provider三方言69例中，45项默认BINARY结果与SQLite一致，6项零参数返回真实INVALID_ARGUMENT，18项显式COLLATE保持UNSUPPORTED_QUERY；provider尚无逐列collation元数据，不称NOCASE schema等价。未重启A0/A1，DTO/profile仍未准入。证据 artifacts/mdd-031-audit/multi-minmax-independent-20261029/qualification.json。
+
+Q08使用的lower及对应upper现逐UTF-16单元计步骤并检查取消，真实会话长参数低额度反例由成功变为QUOTA；Windows工作区184项测试与严格Clippy通过。独立三方言60例涵盖SQLite可表示文本、孤立代理、长结果、配额和取消，证据 artifacts/mdd-031-audit/case-budget-independent-20261029/qualification.json。旧A0/A1对应完整语义未找到可比较记录，仍为not_run；参数复制、SQLite及传输内存不在该计步证明内。
 
 旧版 NULL 单元包含 `value: null`，当前原生 SQL 单元仅含 `type: null`，固定 HostLab 消费者会读取 `value`；适配层必须明确补齐并验证。字面 CAST 的非负结果与DEX列 CAST 的类型不同，不能仅按数值正负推断旧类型。扩展旧版类型采样两次在打开样本时超时，未执行查询；错误保留于 artifacts/mdd-031-audit/dto-type-observations/，不能由此推断规则。
 

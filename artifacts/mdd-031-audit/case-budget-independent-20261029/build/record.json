@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\case-budget-independent-20261029\\Cargo.toml"
+  ],
+  "started_utc": "2026-10-29T02:09:41.385339+00:00",
+  "finished_utc": "2026-10-29T02:09:47.043819+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 180,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "df3cee41c75ab52ed392f4be616e413a6bcd6df725c7c4e07c7904bcdcf381bc",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "15b390fc5c02efd2dc40e58ee9c9b1433c15991da234eb7389181534f17afa27",
+  "scope": "local independent test, no formal performance"
+}

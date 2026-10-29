@@ -1,0 +1,34 @@
+{
+  "schema_version": "mdd.windows-job-run.v1",
+  "command_argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\case-budget-independent-20261029\\Cargo.toml"
+  ],
+  "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+  "limits": {
+    "memory_commit_bytes": "2147483648",
+    "affinity_mask": "15",
+    "max_processes": 16,
+    "timeout_seconds": 180,
+    "max_log_bytes": 16777216
+  },
+  "assigned_before_resume": true,
+  "tree_empty_verified": true,
+  "status": "completed",
+  "job_name": "mdd-baseline-721461e6940a43caaf20f105a7948e24",
+  "process_id": 51000,
+  "reason": null,
+  "exit_code": 0,
+  "cpu_user_seconds": 1.5625,
+  "cpu_kernel_seconds": 1.65625,
+  "total_processes": 5,
+  "peak_job_commit_bytes": "650768384",
+  "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+  "wall_seconds": 5.744826099999955
+}

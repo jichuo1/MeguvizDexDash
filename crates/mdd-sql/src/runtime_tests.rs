@@ -16,6 +16,10 @@ use mdd_types::{DecimalU64, ErrorCode};
 use std::{path::PathBuf, sync::Arc};
 
 fn setup() -> (Lifecycle, SessionHandle, SessionHandle, SqlBridge) {
+    setup_with_dialect(SqlDialect::NativeV1)
+}
+
+fn setup_with_dialect(dialect: SqlDialect) -> (Lifecycle, SessionHandle, SessionHandle, SqlBridge) {
     let snapshot = Arc::new(
         Snapshot::capture(
             &[InputSpec {
@@ -37,7 +41,7 @@ fn setup() -> (Lifecycle, SessionHandle, SessionHandle, SqlBridge) {
     let facts =
         Arc::new(MetadataFacts::build(&snapshot, &inventory, 0, StringLimits::default()).unwrap());
     let provider = Arc::new(MetadataSqlProvider::new(vec![facts], DecimalU64(0)).unwrap());
-    let bridge = SqlBridge::new(provider, SqlDialect::NativeV1, SqlLimits::default()).unwrap();
+    let bridge = SqlBridge::new(provider, dialect, SqlLimits::default()).unwrap();
     let lifecycle = Lifecycle::new(ResourceLimits::default()).unwrap();
     let snapshot_handle = lifecycle.register_snapshot(snapshot).unwrap();
     let a = lifecycle
@@ -47,6 +51,132 @@ fn setup() -> (Lifecycle, SessionHandle, SessionHandle, SqlBridge) {
         .open_session(&snapshot_handle, ResourceLimits::default())
         .unwrap();
     (lifecycle, a, b, bridge)
+}
+
+#[test]
+fn case_conversion_long_text_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        for name in ["lower", "upper"] {
+            let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+            let prepared = bridge
+                .prepare_with_parameters(
+                    &format!("SELECT {name}(?) AS v"),
+                    &[SqlValue::text(&"A".repeat(50_000))],
+                )
+                .unwrap();
+            let limits = BudgetLimits::default().with(Resource::QuerySteps, 64);
+            let (runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
+            let bound = prepared.bind_runtime(&runtime).unwrap();
+            let error = bound
+                .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+                .unwrap_err();
+            assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?} {name}");
+            assert!(!token.status().unwrap().execution_complete);
+        }
+    }
+}
+
+#[test]
+fn case_conversion_preserves_empty_nul_and_unpaired_units() {
+    use crate::values::{SqlText, SqlValue};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (_, _, _, bridge) = setup_with_dialect(dialect);
+        for (units, lower, upper) in [
+            (vec![], vec![], vec![]),
+            (
+                vec![0x41, 0, 0xd800, 0x61, 0xdc00],
+                vec![0x61, 0, 0xd800, 0x61, 0xdc00],
+                vec![0x41, 0, 0xd800, 0x41, 0xdc00],
+            ),
+        ] {
+            let value = SqlValue::Text(SqlText {
+                utf16: units,
+                original_mutf8: None,
+            });
+            let prepared = bridge
+                .prepare_with_parameters(
+                    "SELECT lower(?) AS lo,upper(?) AS hi",
+                    &[value.clone(), value],
+                )
+                .unwrap();
+            let result = prepared
+                .execute(SqlControl::new(SqlLimits::default(), None))
+                .unwrap();
+            let expected = |utf16| {
+                SqlValue::Text(SqlText {
+                    utf16,
+                    original_mutf8: None,
+                })
+            };
+            assert_eq!(
+                result.rows()[0],
+                vec![expected(lower), expected(upper)],
+                "{dialect:?}"
+            );
+        }
+    }
+}
+
+#[test]
+fn case_conversion_cancelled_during_scan_stays_failed() {
+    use crate::values::SqlValue;
+    use std::time::{Duration, Instant};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        for name in ["lower", "upper"] {
+            let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+            let prepared = bridge
+                .prepare_with_parameters(
+                    &format!("SELECT {name}(?) AS v"),
+                    &[SqlValue::text(&"A".repeat(300_000))],
+                )
+                .unwrap();
+            let (runtime, token) =
+                runtime(&lifecycle, &session, &prepared, BudgetLimits::default());
+            let pool = runtime.pool().clone();
+            let bound = prepared.bind_runtime(&runtime).unwrap();
+            let handle = std::thread::spawn(move || {
+                bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            });
+            let deadline = Instant::now() + Duration::from_secs(10);
+            loop {
+                let steps = pool
+                    .usage()
+                    .unwrap()
+                    .used
+                    .get(&Resource::QuerySteps)
+                    .map_or(0, |v| v.0);
+                if steps > 5_000 {
+                    break;
+                }
+                if handle.is_finished() || Instant::now() >= deadline {
+                    let _ = token.cancel();
+                    let _ = handle.join();
+                    panic!("case scan was not observed before completion: {dialect:?} {name}");
+                }
+                std::thread::yield_now();
+            }
+            token.cancel().unwrap();
+            assert_eq!(
+                handle.join().unwrap().unwrap_err().code,
+                ErrorCode::Cancelled,
+                "{dialect:?} {name}"
+            );
+            assert!(!token.status().unwrap().execution_complete);
+        }
+    }
 }
 
 fn runtime(

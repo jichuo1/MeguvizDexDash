@@ -1,0 +1,27 @@
+{
+  "schema_version": "mdd.windows-job-run.v1",
+  "command_argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\like-independent-20261029-target\\debug\\mdd-case-budget-independent.exe"
+  ],
+  "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+  "limits": {
+    "memory_commit_bytes": "2147483648",
+    "affinity_mask": "15",
+    "max_processes": 16,
+    "timeout_seconds": 60,
+    "max_log_bytes": 16777216
+  },
+  "assigned_before_resume": true,
+  "tree_empty_verified": true,
+  "status": "completed",
+  "job_name": "mdd-baseline-6742c39c009c44c4b93634678369c6c8",
+  "process_id": 29124,
+  "reason": null,
+  "exit_code": 0,
+  "cpu_user_seconds": 2.15625,
+  "cpu_kernel_seconds": 0.34375,
+  "total_processes": 2,
+  "peak_job_commit_bytes": "17678336",
+  "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+  "wall_seconds": 3.325234300000375
+}

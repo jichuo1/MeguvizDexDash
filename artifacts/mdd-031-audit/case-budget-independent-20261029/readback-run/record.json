@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/case-budget-independent-20261029/readback.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T02:12:56.167092+00:00",
+  "finished_utc": "2026-10-29T02:12:56.296827+00:00",
+  "elapsed_seconds": 0.125,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 192,
+    "sha256": "44ade2720fe1cec90ba0efd5e180281976ba36db99118023fa56324c5d4b7ff2"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

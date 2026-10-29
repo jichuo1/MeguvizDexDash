@@ -1,0 +1,42 @@
+{
+  "status": "sqlite-reference-complete",
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "case": "ascii",
+      "input": "AbC",
+      "lower": "abc",
+      "upper": "ABC"
+    },
+    {
+      "case": "empty",
+      "input": "",
+      "lower": "",
+      "upper": ""
+    },
+    {
+      "case": "null",
+      "input": null,
+      "lower": null,
+      "upper": null
+    },
+    {
+      "case": "nul",
+      "input": "A\u0000a",
+      "lower": "a\u0000a",
+      "upper": "A\u0000A"
+    },
+    {
+      "case": "non_ascii",
+      "input": "Az\u00c4\u00df",
+      "lower": "az\u00c4\u00df",
+      "upper": "AZ\u00c4\u00df"
+    }
+  ],
+  "limits": [
+    "isolated UTF-16 surrogates cannot be bound through Python sqlite3",
+    "SQLite reference does not prove A0/A1 lower or upper behavior"
+  ],
+  "a0_a1_started": false,
+  "profile_admitted": false
+}
