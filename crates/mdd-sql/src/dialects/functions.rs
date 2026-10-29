@@ -533,7 +533,26 @@ fn like(
         Many,
     }
     control.checkpoint(1, false)?;
+    // Each pattern unit produces at most one token. Hold the conservative
+    // logical allocation bound until matching ends, including error paths.
+    // This does not account for SQLite or the decoded argument buffers.
+    let bytes = u64::try_from(pattern.utf16.len())
+        .ok()
+        .and_then(|length| length.checked_mul(std::mem::size_of::<Token>() as u64))
+        .ok_or_else(|| control.fail(quota("LIKE_TOKEN_WORKSPACE_OVERFLOW")))?;
+    let _reservation = control
+        .runtime()
+        .map(|runtime| {
+            runtime
+                .pool()
+                .reserve(mdd_query::budget::Resource::QueryWorkspaceBytes, bytes)
+                .map_err(|error| control.fail(error))
+        })
+        .transpose()?;
     let mut tokens = Vec::new();
+    tokens
+        .try_reserve_exact(pattern.utf16.len())
+        .map_err(|_| control.fail(quota("LIKE_TOKEN_ALLOCATION")))?;
     let mut at = 0;
     while at < pattern.utf16.len() {
         control.checkpoint(1, false)?;

@@ -255,6 +255,116 @@ fn zero_rows_still_reserve_result_schema_and_identity() {
 }
 
 #[test]
+fn like_token_allocation_requires_real_session_workspace_budget() {
+    use crate::values::SqlValue;
+    let (lifecycle, session, _, bridge) = setup();
+    let pattern = SqlValue::text(&"%".repeat(10_000));
+    let prepared = bridge
+        .prepare_with_parameters("SELECT '' LIKE ? AS value", &[pattern])
+        .unwrap();
+    let limits = BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192);
+    let (runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
+    let pool = runtime.pool().clone();
+    let bound = prepared.bind_runtime(&runtime).unwrap();
+    let error = bound
+        .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        .unwrap_err();
+    assert_eq!(error.code, ErrorCode::QuotaExceeded);
+    assert!(!token.status().unwrap().execution_complete);
+    assert_eq!(
+        pool.usage()
+            .unwrap()
+            .used
+            .get(&Resource::QueryWorkspaceBytes)
+            .map_or(0, |v| v.0),
+        0
+    );
+}
+
+#[test]
+fn like_token_workspace_is_released_after_success() {
+    use crate::values::SqlValue;
+    let (lifecycle, session, _, bridge) = setup();
+    let prepared = bridge
+        .prepare_with_parameters(
+            "SELECT '' LIKE ? AS value",
+            &[SqlValue::text(&"%".repeat(10_000))],
+        )
+        .unwrap();
+    let limits = BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 65_536);
+    let (runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
+    let pool = runtime.pool().clone();
+    let bound = prepared.bind_runtime(&runtime).unwrap();
+    let result = bound
+        .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        .unwrap();
+    assert!(token.status().unwrap().execution_complete);
+    assert_eq!(result.rows().len(), 1);
+    let retained = pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0;
+    assert!(
+        (1..=8192).contains(&retained),
+        "temporary token lease was not released: {retained}"
+    );
+    drop(result);
+    assert_eq!(
+        pool.usage().unwrap().used[&Resource::QueryWorkspaceBytes].0,
+        0
+    );
+}
+
+#[test]
+fn cancelling_during_like_pattern_scan_releases_token_workspace() {
+    use crate::values::SqlValue;
+    use std::time::{Duration, Instant};
+    let (lifecycle, session, _, bridge) = setup();
+    let prepared = bridge
+        .prepare_with_parameters(
+            "SELECT '' LIKE ? AS value",
+            &[SqlValue::text(&"%".repeat(300_000))],
+        )
+        .unwrap();
+    let limits = BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 4 * 1024 * 1024);
+    let (runtime, token) = runtime(&lifecycle, &session, &prepared, limits);
+    let pool = runtime.pool().clone();
+    let bound = prepared.bind_runtime(&runtime).unwrap();
+    let handle = std::thread::spawn(move || {
+        bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+    });
+    let deadline = Instant::now() + Duration::from_secs(10);
+    loop {
+        let used = pool
+            .usage()
+            .unwrap()
+            .used
+            .get(&Resource::QueryWorkspaceBytes)
+            .map_or(0, |v| v.0);
+        if used > 100_000 {
+            break;
+        }
+        if handle.is_finished() || Instant::now() >= deadline {
+            let _ = token.cancel();
+            let _ = handle.join();
+            panic!("LIKE token reservation was not observed before completion");
+        }
+        std::thread::yield_now();
+    }
+    token.cancel().unwrap();
+    assert_eq!(
+        handle.join().unwrap().unwrap_err().code,
+        ErrorCode::Cancelled
+    );
+    assert!(!token.status().unwrap().execution_complete);
+    assert_eq!(
+        pool.usage()
+            .unwrap()
+            .used
+            .get(&Resource::QueryWorkspaceBytes)
+            .map_or(0, |v| v.0),
+        0
+    );
+}
+
+#[test]
 fn in_list_never_silently_guesses_column_or_cast_affinity() {
     let (_, _, _, bridge) = setup();
     for sql in [

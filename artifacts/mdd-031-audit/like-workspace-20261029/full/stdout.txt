@@ -1,0 +1,40 @@
+
+running 29 tests
+test bridge::tests::blob_magic_is_never_an_internal_text_and_controls_cannot_be_rebound ... ok
+test bridge::tests::f64_sort_group_distinct_and_aggregates_do_not_use_blob_bit_order ... ok
+test bridge::tests::legacy_integer_cast_long_prefix_respects_query_budget ... ok
+test bridge::tests::legacy_integer_cast_matches_sqlite_prefix_and_saturation_without_lossy_text ... ok
+test bridge::tests::like_policies_and_escaped_patterns_are_distinct ... ok
+test bridge::tests::literal_mixed_class_comparisons_preserve_sqlite_rank_without_guessing_affinity ... ok
+test bridge::tests::lossless_text_adapters_close_nul_surrogate_and_utf16_order_cases ... ok
+test bridge::tests::native_u64_direct_case_union_and_numeric_edges_remain_lossless ... ok
+test bridge::tests::owned_cursor_is_lazy_and_preserves_multiplicity_and_nul ... ok
+test bridge::tests::short_circuit_cannot_skip_required_layers_and_unused_cte_does_not_build_them ... ok
+test bridge::tests::sql_authority_and_real_errors_are_not_success_or_unsupported ... ok
+test bridge::tests::substring_retains_policy_units_and_bounded_negative_indices ... ok
+test bridge::tests::using_join_same_carrier_retains_sqlite_merged_wildcard_shape ... ok
+test bridge::tests::work_cancel_deadline_and_zero_result_budget_are_real_errors ... ok
+test dialects::functions::like_budget_tests::cancelled_empty_like_is_not_a_success ... ok
+test dialects::functions::like_budget_tests::empty_input_does_not_skip_long_pattern_step_budget ... ok
+test dialects::functions::like_budget_tests::trailing_escape_preserves_existing_error_when_budget_sufficient ... ok
+test join_tests::q03_join_resolves_qualified_source_and_preserves_duplicate_rows ... ok
+test provider::metadata::tests::real_metadata_same_snapshot_duplicates_and_lossless_values ... ok
+test runtime_tests::cancelling_during_like_pattern_scan_releases_token_workspace ... ok
+test runtime_tests::in_list_never_silently_guesses_column_or_cast_affinity ... ok
+test runtime_tests::like_token_allocation_requires_real_session_workspace_budget ... ok
+test runtime_tests::like_token_workspace_is_released_after_success ... ok
+test runtime_tests::result_workspace_is_admitted_before_delivery_and_retained_until_drop ... ok
+test runtime_tests::same_snapshot_other_session_is_rejected_without_claiming_either_query ... ok
+test runtime_tests::shared_work_budget_stops_real_metadata_before_owned_result_and_is_sticky ... ok
+test runtime_tests::small_exact_workspace_does_not_require_a_full_reservation_chunk ... ok
+test runtime_tests::typed_numeric_truth_preserves_sql_three_valued_conditions ... ok
+test runtime_tests::zero_rows_still_reserve_result_schema_and_identity ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.46s
+
+
+running 1 test
+test crates\mdd-sql\src\bridge.rs - bridge::SqlResult (line 44) - compile fail ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+

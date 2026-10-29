@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\field-type-audit\\20261029T010629766313Z\\field_type_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\poly-custom-038.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+  ],
+  "started_utc": "2026-10-29T01:06:31.731908+00:00",
+  "finished_utc": "2026-10-29T01:06:32.562301+00:00",
+  "elapsed_seconds": 0.8279999999999745,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "d2f2595a44254c2da910082f37804b3e6c7aaacb105fc5d3ccf2ca2e3ba531b0",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic static reference test; no performance claim"
+}

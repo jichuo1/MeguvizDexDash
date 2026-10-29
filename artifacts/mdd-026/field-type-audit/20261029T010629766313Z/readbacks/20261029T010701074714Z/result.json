@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "result_sha256": "2953051743e1e9a8d9012a2ef42d2242c807e78aa63b0e5fef9ca7c6913f895a",
+  "readback_source_sha256": "e4d64e67202adb6e4009faaeadac33b8ad65edd77d136598790f2ee799b2aa7f",
+  "source_files_checked": 51,
+  "command_records_checked": 5,
+  "source_occurrences": 3,
+  "field_target_sites": 6,
+  "type_target_sites": 6,
+  "a0_field_rows": 7,
+  "a0_type_rows": 6,
+  "task_complete_proven": false,
+  "scope": "synthetic field/type sites and A0 multisets; no full profile or runtime resolution"
+}

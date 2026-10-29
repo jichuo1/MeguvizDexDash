@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\like-independent-20261029-target\\debug\\mdd-like-workspace-independent.exe"
+  ],
+  "started_utc": "2026-10-29T01:13:42.156649+00:00",
+  "finished_utc": "2026-10-29T01:13:49.936674+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 30,
+  "stdout_sha256": "b6d70ad258fc11e1f9480769b71d58a937ab67d001172c4aae6eda1f903fbfee",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "d22bdd2d79047092a36611b6d22bfce5e239880bf433d12055621ef07416220c",
+  "scope": "local independent test, no formal performance"
+}
