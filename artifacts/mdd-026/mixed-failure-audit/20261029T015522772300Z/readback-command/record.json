@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/mixed_failure_boundary/readback.py",
+    "artifacts/mdd-026/mixed-failure-audit/20261029T015522772300Z"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:56:54.717437+00:00",
+  "finished_utc": "2026-10-29T01:56:55.347271+00:00",
+  "elapsed_seconds": 0.625,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 1314,
+    "sha256": "435815acc7ef6599d89932eeafd46f59b1e63e03fc6e4d0f670d99f4110672ff"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

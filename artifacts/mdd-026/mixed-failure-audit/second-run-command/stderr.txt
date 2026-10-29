@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "D:\MeguvisDexDash\tests\fixtures\mixed_failure_boundary\verify.py", line 129, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "D:\MeguvisDexDash\tests\fixtures\mixed_failure_boundary\verify.py", line 74, in main
+    common.require(struct.unpack_from('<H',raw,460)[0]==65535 and struct.unpack_from('<I',raw,88)[0]==4,
+  File "D:\MeguvisDexDash\conformance\facts\verify_definition_projections.py", line 21, in require
+    raise RuntimeError(message)
+RuntimeError: byte-level index evidence differs

@@ -671,6 +671,22 @@ fn scalar(
     {
         return Ok(SqlValue::Null);
     }
+    if name == "mdd_min_scalar" || name == "mdd_max_scalar" {
+        if args.len() < 2 {
+            return Err(invalid("MINMAX_SCALAR_ARITY"));
+        }
+        let mut chosen = &args[0];
+        for value in &args[1..] {
+            control.checkpoint(1, false)?;
+            let order = compare_literal(value, chosen)?;
+            if (name == "mdd_min_scalar" && order == Ordering::Less)
+                || (name == "mdd_max_scalar" && order == Ordering::Greater)
+            {
+                chosen = value;
+            }
+        }
+        return Ok(chosen.clone());
+    }
     match name {
         "mdd_substr" => {
             let start = integer(&args[1])?;
@@ -887,6 +903,8 @@ pub(crate) fn register(
         ("mdd_key", 1),
         ("mdd_sort_key", 1),
         ("mdd_nullif", 2),
+        ("mdd_min_scalar", -1),
+        ("mdd_max_scalar", -1),
         ("mdd_eq", 2),
         ("mdd_ne", 2),
         ("mdd_gt", 2),
@@ -987,6 +1005,21 @@ mod like_budget_tests {
     use super::*;
     use crate::control::SqlLimits;
     use mdd_types::ErrorCode;
+
+    #[test]
+    fn scalar_minmax_comparisons_consume_step_budget() {
+        let control = SqlControl::new(
+            SqlLimits {
+                max_steps: 2,
+                ..SqlLimits::default()
+            },
+            None,
+        );
+        let arguments = vec![SqlValue::I64(Signed64(1)); 8];
+        let error =
+            scalar("mdd_min_scalar", &arguments, SqlDialect::NativeV1, &control).unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded);
+    }
 
     #[test]
     fn empty_input_does_not_skip_long_pattern_step_budget() {

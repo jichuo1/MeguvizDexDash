@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/mixed_failure_boundary/verify.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:55:22.618270+00:00",
+  "finished_utc": "2026-10-29T01:55:27.703297+00:00",
+  "elapsed_seconds": 5.094000000000051,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 306,
+    "sha256": "01e47bd35e3690196e3f3fa49a4b5e0c6e0c8ca2ae0e68b67f6d0b0d70ff0a08"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

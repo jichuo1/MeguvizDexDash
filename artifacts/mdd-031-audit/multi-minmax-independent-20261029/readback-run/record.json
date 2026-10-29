@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/multi-minmax-independent-20261029/readback.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:59:54.061191+00:00",
+  "finished_utc": "2026-10-29T01:59:54.301648+00:00",
+  "elapsed_seconds": 0.23500000000058208,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 325,
+    "sha256": "3fdd73898220415334735b36cf2964f14a9daee0b60ed52ccb318a4ba6529a59"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "D:\MeguvisDexDash\tests\fixtures\mixed_failure_boundary\verify.py", line 128, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "D:\MeguvisDexDash\tests\fixtures\mixed_failure_boundary\verify.py", line 73, in main
+    raw=bad.read_bytes();Oracle=helper.oracle_type();oracle=Oracle(raw)
+                                                            ^^^^^^^^^^^
+  File "D:\MeguvisDexDash\tests\fixtures\references\oracle.py", line 45, in __init__
+    words=list(self.unpack("<"+"H"*n,at+16));self.code[start]={"offset":start,"registers":registers,"ins":ins,"outs":outs,"words":words,"instructions":self.instructions(words,start+16)};at+=16+n*2
+                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\MeguvisDexDash\tests\fixtures\references\oracle.py", line 77, in instructions
+    require(index<limits[kind],"invalid_code_operand")
+  File "D:\MeguvisDexDash\tests\fixtures\references\oracle.py", line 11, in require
+    if not condition:raise ValueError(message)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid_code_operand

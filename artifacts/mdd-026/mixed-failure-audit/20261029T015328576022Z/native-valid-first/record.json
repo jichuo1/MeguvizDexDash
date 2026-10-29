@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\mixed-failure-audit\\20261029T015328576022Z\\mixed_failure_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\bad-reference-index.dex"
+  ],
+  "started_utc": "2026-10-29T01:53:30.784260+00:00",
+  "finished_utc": "2026-10-29T01:53:31.615595+00:00",
+  "elapsed_seconds": 0.8280000000004293,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "431571bf100248a2f63a68a9e14b1f07679e1e9c495a98dac49cd889f81a8365",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic static reference test; no performance claim"
+}

@@ -1,0 +1,78 @@
+{
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "case": "column_binding",
+      "sql": "SELECT min(c,d) AS cd_lo,max(c,d) AS cd_hi,min(d,c) AS dc_lo,max(d,c) AS dc_hi FROM facts WHERE id=1",
+      "columns": [
+        "cd_lo",
+        "cd_hi",
+        "dc_lo",
+        "dc_hi"
+      ],
+      "rows": [
+        [
+          "B",
+          "a",
+          "B",
+          "a"
+        ]
+      ]
+    },
+    {
+      "case": "column_explicit",
+      "sql": "SELECT min(c,d COLLATE BINARY) AS cd_lo,min(d,c COLLATE NOCASE) AS dc_lo FROM facts WHERE id=1",
+      "columns": [
+        "cd_lo",
+        "dc_lo"
+      ],
+      "rows": [
+        [
+          "B",
+          "B"
+        ]
+      ]
+    },
+    {
+      "case": "column_null",
+      "sql": "SELECT min(v,5) AS lo,max(v,5) AS hi FROM facts WHERE id=2",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          null,
+          null
+        ]
+      ]
+    },
+    {
+      "case": "column_multirow",
+      "sql": "SELECT id,min(c,d) AS lo,max(c,d) AS hi FROM facts ORDER BY id",
+      "columns": [
+        "id",
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          1,
+          "B",
+          "a"
+        ],
+        [
+          2,
+          "B",
+          "a"
+        ],
+        [
+          3,
+          "A",
+          "z"
+        ]
+      ]
+    }
+  ],
+  "scope": "ordinary TEXT columns with default BINARY; not a proof of SQLite virtual-table collation behavior"
+}

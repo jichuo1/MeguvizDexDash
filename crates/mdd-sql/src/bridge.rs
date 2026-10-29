@@ -457,6 +457,8 @@ impl SqlBridge {
                     "mdd_sum",
                     "mdd_min",
                     "mdd_max",
+                    "mdd_min_scalar",
+                    "mdd_max_scalar",
                     "mdd_length",
                     "mdd_substr",
                     "mdd_hex",
@@ -768,6 +770,73 @@ mod tests {
         let bridge =
             SqlBridge::new(provider.clone(), SqlDialect::NativeV1, SqlLimits::default()).unwrap();
         (provider, bridge)
+    }
+    #[test]
+    fn min_max_multi_argument_scalar_does_not_become_aggregate() {
+        let (_, bridge) = bridge();
+        let value = bridge
+            .query("SELECT min(1,2) AS lo,max(1,2) AS hi")
+            .unwrap();
+        assert_eq!(value.columns(), &["lo", "hi"]);
+        assert_eq!(
+            value.rows()[0],
+            vec![
+                SqlValue::I64(mdd_query::ir::Signed64(1)),
+                SqlValue::I64(mdd_query::ir::Signed64(2))
+            ]
+        );
+        let aggregate = bridge.query("SELECT min(id),max(id) FROM facts").unwrap();
+        assert_eq!(aggregate.rows().len(), 1);
+        assert_eq!(
+            aggregate.rows()[0],
+            vec![SqlValue::U64(DecimalU64(1)), SqlValue::U64(DecimalU64(3))]
+        );
+        let result = bridge
+            .query("SELECT min(NULL,1),max('x',NULL,'y'),min(1,'0'),max(1,'0'),min('z',X'00'),max('z',X'00'),min('a','B'),max('a','B')")
+            .unwrap();
+        assert_eq!(
+            result.rows()[0],
+            vec![
+                SqlValue::Null,
+                SqlValue::Null,
+                SqlValue::I64(mdd_query::ir::Signed64(1)),
+                SqlValue::text("0"),
+                SqlValue::text("z"),
+                SqlValue::Bytes(vec![0]),
+                SqlValue::text("B"),
+                SqlValue::text("a"),
+            ]
+        );
+        let result = bridge
+            .query("SELECT min(id,2),max(id,2) FROM facts ORDER BY id")
+            .unwrap();
+        let numeric = |v: &SqlValue| match v {
+            SqlValue::I64(n) => i128::from(n.0),
+            SqlValue::U64(n) => i128::from(n.0),
+            other => panic!("unexpected min/max value: {other:?}"),
+        };
+        let rows: Vec<Vec<_>> = result
+            .rows()
+            .iter()
+            .map(|r| r.iter().map(numeric).collect())
+            .collect();
+        assert_eq!(rows, vec![vec![1, 2], vec![2, 2], vec![2, 3]]);
+        assert_eq!(
+            bridge.query("SELECT min()").unwrap_err().code,
+            ErrorCode::InvalidArgument
+        );
+        for sql in [
+            "SELECT min('a' COLLATE NOCASE,'B')",
+            "SELECT min('a','B' COLLATE NOCASE)",
+            "SELECT max('a' COLLATE BINARY,'B' COLLATE NOCASE)",
+            "WITH t AS (SELECT 'a' COLLATE NOCASE AS c) SELECT min(c,'B') FROM t",
+        ] {
+            assert_eq!(
+                bridge.query(sql).unwrap_err().code,
+                ErrorCode::UnsupportedQuery,
+                "{sql}"
+            );
+        }
     }
     #[test]
     fn large_negative_group_constant_is_not_position() {

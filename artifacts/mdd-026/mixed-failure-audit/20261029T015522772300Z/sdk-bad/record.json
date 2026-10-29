@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "-d",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\bad-reference-index.dex"
+  ],
+  "started_utc": "2026-10-29T01:55:27.356184+00:00",
+  "finished_utc": "2026-10-29T01:55:27.432351+00:00",
+  "elapsed_seconds": 0.07799999999951979,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "78a0c8e39fa3037111dd60ef8dc06ee27fce21e512154fb9baea14761b0bbf54",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "observed invalid synthetic input; no equivalence inferred"
+}

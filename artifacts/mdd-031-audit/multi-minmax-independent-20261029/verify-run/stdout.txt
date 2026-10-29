@@ -1,0 +1,1 @@
+{"status": "passed-supported-subset", "candidate_cases": 69, "value_matches": 45, "invalid_arity": 6, "explicit_collation_unsupported": 18, "a0_a1_started": false, "profile_admitted": false}

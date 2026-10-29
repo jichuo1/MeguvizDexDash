@@ -1044,7 +1044,7 @@ impl Rewrite<'_> {
                 if name == "load_extension" {
                     return Err(invalid("FUNCTION_NOT_AUTHORIZED"));
                 }
-                let replacement = match name.as_str() {
+                let mut replacement = match name.as_str() {
                     "length" => Some("mdd_length"),
                     "hex" => Some("mdd_hex"),
                     "lower" => Some("mdd_lower"),
@@ -1062,6 +1062,13 @@ impl Rewrite<'_> {
                 let FunctionArguments::List(arguments) = &mut function.args else {
                     return Err(unsupported("FUNCTION_ARGUMENT_FORM"));
                 };
+                if arguments.args.len() >= 2 {
+                    replacement = match name.as_str() {
+                        "min" => Some("mdd_min_scalar"),
+                        "max" => Some("mdd_max_scalar"),
+                        _ => replacement,
+                    };
+                }
                 if !arguments.clauses.is_empty() {
                     return Err(unsupported("FUNCTION_ARGUMENT_CLAUSE"));
                 }

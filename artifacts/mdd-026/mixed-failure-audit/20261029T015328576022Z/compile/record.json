@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "rustc",
+    "--edition=2024",
+    "--crate-name",
+    "mdd_mixed_failure_probe",
+    "tests/fixtures/mixed_failure_boundary/probe.rs",
+    "-L",
+    "dependency=target/debug/deps",
+    "-o",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\mixed-failure-audit\\20261029T015328576022Z\\mixed_failure_probe.exe",
+    "--extern",
+    "mdd_dex=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_dex-b7b2b3c56f072191.rlib",
+    "--extern",
+    "mdd_facts=D:\\MeguvisDexDash\\target\\debug\\libmdd_facts.rlib",
+    "--extern",
+    "mdd_input=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_input-0f932aaa5b1b1947.rlib",
+    "--extern",
+    "mdd_types=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_types-fd5a2447fe224bff.rlib",
+    "--extern",
+    "serde_json=D:\\MeguvisDexDash\\target\\debug\\deps\\libserde_json-cd74aa69794f938b.rlib"
+  ],
+  "started_utc": "2026-10-29T01:53:29.052388+00:00",
+  "finished_utc": "2026-10-29T01:53:30.782386+00:00",
+  "elapsed_seconds": 1.7339999999994689,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic static reference test; no performance claim"
+}

@@ -4,7 +4,7 @@
 
 ## Checkout 与交付
 
-工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 dcf18b4 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 9df63b4 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
 
 大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
@@ -70,6 +70,8 @@ MDD-026 已重新打开：独立复核发现资格脚本对17关系156列主要�
 
 动态引用及孤立代码以四个合成来源对照57个编码位点，4个invoke-custom目标保持未知，未归属物理代码不生成调用者；A0方法调用20行的多重集合一致。位点PC来自原生与独立字节oracle，不推断运行时分派。证据 artifacts/mdd-026/dynamic-source-audit/20261029T012418079194Z/result.json。
 
+有效与坏索引DEX以两种顺序同快照验证：联合范围保留原始INVALID_INPUT、input complete/facts partial；只选有效来源时虽complete但covers_all_captured_sources=false。SDK和A0对该坏索引均退出0，不能当完整成功。证据 artifacts/mdd-026/mixed-failure-audit/20261029T015522772300Z/result.json。
+
 逐列总表 artifacts/mdd-026/column-ledger/20261028T170548736531Z/column-ledger.json 固定17关系156列，逐项列出已有证据与剩余边界；追加式独立重算和4项负例通过，但所有列的完整资格均为false，不据汇总签发MDD-026或产品profile。
 
 v2总表 artifacts/mdd-026/column-ledger-v2/20261028T171808763956Z/column-ledger.json 增量关联方法持有 try/handler 的12列证据，并保留损坏输入在A0与原生之间的真实差异；追加式回读和负例通过，全部字段完整资格仍为false。
@@ -97,6 +99,8 @@ LIKE模式预处理与尾部扫描现按单元计步并检查取消，token逻�
 ORDER BY投影别名遮蔽输入列的静默错行已修复，含括号、位置编号、wildcard和NULL等限定反例；同一合成DEX的排序从10/9/8纠正为SQLite的-2/-1/0。独立桥探针72项覆盖排序、NULL、聚合及注入错误终态；SQLite限定对照通过，但已有A0 NULL结果的DTO包装仍不同，其他旧版方言未重新采样。Windows工作区177项测试和严格Clippy通过；见 artifacts/mdd-031-audit/null-aggregate-independent-20261029/qualification.json。
 
 GROUP BY括号位置被误认常量的错分组已修复：同一13行样本从(0,13)改为SQLite的(0,7)/(1,6)；涵盖嵌套括号、符号、超32位位置范围常量、NULL/HAVING和真实绑定错误。最终源码Windows工作区179项测试、严格Clippy通过，独立桥90项含78项SQLite对照；未重启A0/A1，注入的源变化不等于真实磁盘变化。证据 artifacts/mdd-031-audit/group-ordinal-boundary-20261029/qualification.json。
+
+多参数 min/max 已与单参数聚合分开，Windows工作区181项测试和严格Clippy通过。独立合成provider三方言69例中，45项默认BINARY结果与SQLite一致，6项零参数返回真实INVALID_ARGUMENT，18项显式COLLATE保持UNSUPPORTED_QUERY；provider尚无逐列collation元数据，不称NOCASE schema等价。未重启A0/A1，DTO/profile仍未准入。证据 artifacts/mdd-031-audit/multi-minmax-independent-20261029/qualification.json。
 
 旧版 NULL 单元包含 `value: null`，当前原生 SQL 单元仅含 `type: null`，固定 HostLab 消费者会读取 `value`；适配层必须明确补齐并验证。字面 CAST 的非负结果与DEX列 CAST 的类型不同，不能仅按数值正负推断旧类型。扩展旧版类型采样两次在打开样本时超时，未执行查询；错误保留于 artifacts/mdd-031-audit/dto-type-observations/，不能由此推断规则。
 
