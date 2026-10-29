@@ -674,6 +674,13 @@ impl Lifecycle {
                 "an unconsumed cursor was closed or released",
             ));
         }
+        if state.query(query)?.buffered_bytes != 0 {
+            return Err(MddError::new(
+                ErrorCode::InvalidCursor,
+                "lifecycle",
+                "unconsumed buffered output remains",
+            ));
+        }
         if state
             .cursors
             .values()
@@ -688,7 +695,6 @@ impl Lifecycle {
         let entry = state.queries.get_mut(query.id()).unwrap();
         entry.status.delivery_complete = true;
         entry.status.phase = QueryPhase::Completed;
-        entry.buffered_bytes = 0;
         Ok(())
     }
 
@@ -1048,6 +1054,24 @@ mod tests {
             QueryPhase::Prepared
         );
         assert!(runtime.finish_delivery(&old).is_err());
+    }
+
+    #[test]
+    fn buffered_output_must_be_released_before_delivery_completion() {
+        let (runtime, _, session) = runtime(ResourceLimits::default());
+        let query = prepare(&runtime, &session);
+        runtime.start_query(&session, &query, 1).unwrap();
+        runtime.reserve_buffered_bytes(&query, 16).unwrap();
+        runtime.complete_execution(&query).unwrap();
+
+        assert!(runtime.finish_delivery(&query).is_err());
+        let pending = runtime.query_status(&query).unwrap();
+        assert!(pending.execution_complete);
+        assert!(!pending.delivery_complete);
+        assert_eq!(pending.phase, QueryPhase::Active);
+        runtime.release_buffered_bytes(&query, 16).unwrap();
+        runtime.finish_delivery(&query).unwrap();
+        assert!(runtime.query_status(&query).unwrap().delivery_complete);
     }
 
     #[test]

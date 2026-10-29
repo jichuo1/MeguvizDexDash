@@ -1,5 +1,5 @@
 //! Immutable-provider execution with typed prepare, explicit work checkpoints and bag semantics.
-use crate::budget::{Resource, RuntimeBudget};
+use crate::budget::{BoundedSender, QueueDeliveryReceipt, Resource, RuntimeBudget};
 use crate::ir::*;
 use crate::operators::{self, Truth};
 use mdd_types::{DecimalU64, ErrorCode, MddError, MddResult};
@@ -1204,9 +1204,10 @@ pub fn execute(
     Ok(result)
 }
 
-/// The sink acknowledges accepted rows. Operational failures return an error envelope,
-/// never ordinary EOF; API/binding misuse before computation remains a Result error.
-pub fn execute_into(
+/// Test-only synchronous consumer for existing internal coverage. Production callers use the
+/// query-bound queue and a receiver-issued delivery receipt.
+#[cfg(test)]
+fn execute_trusted_into(
     prepared: &PreparedQuery,
     source: &dyn FactSource,
     mode: ExecutionMode,
@@ -1312,5 +1313,204 @@ pub fn execute_into(
     match result {
         Ok(()) => terminal.succeed(None),
         Err(error) => terminal.fail(control.stop(error), dropped, None),
+    }
+}
+
+/// Producer result: success is provisional until a bound receiver consumes every packet and End.
+pub struct PendingDelivery {
+    terminal: Option<mdd_types::result::TerminalBuilder>,
+    runtime: RuntimeBudget,
+    sender: BoundedSender<Row>,
+    produced: u64,
+    error: Option<MddError>,
+    dropped: bool,
+    completed: bool,
+}
+
+impl Drop for PendingDelivery {
+    fn drop(&mut self) {
+        if !self.completed {
+            let _ = self.runtime.stop(MddError::new(
+                ErrorCode::WorkerLost,
+                "query.delivery",
+                "producer dropped pending delivery before consumer confirmation",
+            ));
+        }
+    }
+}
+
+impl QueueDeliveryReceipt {
+    /// The consumer receives the final envelope only after all packets, explicit End, and the
+    /// lifecycle cursor have been confirmed for this exact queue and query.
+    pub fn finish(
+        &mut self,
+        pending: &mut PendingDelivery,
+    ) -> MddResult<mdd_types::ResultEnvelope> {
+        if !self.matches(
+            &pending.sender,
+            &pending.runtime,
+            pending.produced,
+            pending.error.as_ref(),
+        )? {
+            return Err(invalid("DELIVERY_RECEIPT_QUEUE_OR_QUERY_MISMATCH"));
+        }
+        let mut terminal = pending
+            .terminal
+            .take()
+            .ok_or_else(|| invalid("DELIVERY_ALREADY_FINALIZED"))?;
+        if pending.produced != 0 {
+            terminal.record_batch(0, pending.produced)?;
+        }
+        if let Some(error) = pending.error.take() {
+            self.finish_failed()?;
+            let envelope = terminal.fail(error, pending.dropped, None)?;
+            pending.completed = true;
+            return Ok(envelope);
+        }
+        let envelope = terminal.succeed(None)?;
+        if let Err(error) = self.finish_cursor() {
+            return Err(pending.runtime.stop(error));
+        }
+        if let Err(error) = pending.runtime.cancellation().finish_delivery() {
+            return Err(pending.runtime.stop(error));
+        }
+        pending.completed = true;
+        Ok(envelope)
+    }
+}
+
+/// Queue production does not assert response delivery. The bound receiver must explicitly
+/// acknowledge every row, consume End and exchange its receipt for the final envelope.
+///
+/// The former unverified callback is not part of the production API:
+/// ```compile_fail
+/// use mdd_query::executor::execute_trusted_into;
+/// ```
+pub fn execute_into(
+    prepared: &PreparedQuery,
+    source: &dyn FactSource,
+    mode: ExecutionMode,
+    control: &mut Control<'_>,
+    mut terminal: mdd_types::result::TerminalBuilder,
+    sender: &BoundedSender<Row>,
+) -> MddResult<PendingDelivery> {
+    let runtime = control
+        .runtime
+        .clone()
+        .ok_or_else(|| invalid("DELIVERY_REQUIRES_QUERY_RUNTIME"))?;
+    if !sender.matches_runtime(&runtime) {
+        return Err(invalid("DELIVERY_QUEUE_RUNTIME_MISMATCH"));
+    }
+    let binding = prepared.runtime_binding()?;
+    let identity = terminal.identity();
+    let mut expected: Vec<String> = prepared
+        .required_layers
+        .iter()
+        .map(|layer| {
+            serde_json::to_value(layer)
+                .expect("enum serializes")
+                .as_str()
+                .unwrap()
+                .to_owned()
+        })
+        .collect();
+    expected.sort();
+    let mut actual = terminal.coverage().required_layers.clone();
+    actual.sort();
+    if identity.snapshot_id.as_deref() != Some(prepared.snapshot_id())
+        || identity.catalog_epoch != Some(prepared.catalog_epoch())
+        || identity.schema_id.as_deref() != Some(binding.schema_id.as_str())
+        || identity.query_id.as_deref() != Some(runtime.cancellation().query_handle().id())
+        || identity.session_id.as_deref() != Some(runtime.cancellation().session_id()?.as_str())
+        || actual != expected
+    {
+        return Err(invalid("TERMINAL_PLAN_OR_QUERY_BINDING"));
+    }
+    if prepared.source_identity != source.identity() {
+        return Err(invalid("PREPARED_SOURCE_OR_GENERATION_CHANGED"));
+    }
+    // Keep the caller's sender alive on preflight/claim failure; otherwise dropping the last
+    // sender would overwrite a binding error with a synthetic worker-loss terminal.
+    let sender = sender.try_clone()?;
+    if let Err(error) = runtime_begin(prepared, control) {
+        // API misuse must not poison a running query; an already-terminal query, however,
+        // must expose its original cancellation/deadline/error as an explicit queue End.
+        if let Ok(status) = runtime.cancellation().status()
+            && let Some(original) = status.error
+        {
+            let _ = sender.finish(Err(original.clone()));
+            return Err(original);
+        }
+        return Err(error);
+    }
+    let mut dropped = false;
+    let mut produced = 0u64;
+    let result = (|| {
+        source.require_layers(&prepared.required_layers)?;
+        control.step("execute_start", 1)?;
+        let mut input = match mode {
+            ExecutionMode::Streaming => cursor(&prepared.query.root, source, control)?,
+            ExecutionMode::MaterializedReference => {
+                Cursor::Rows(reference(&prepared.query.root, source, control)?.into_iter())
+            }
+        };
+        if let Cursor::Rows(rows) = &input {
+            terminal.computation_complete(rows.len() as u64)?;
+            runtime.cancellation().mark_computed()?;
+        }
+        while let Some(row) = input.next(source, control)? {
+            validate_row(&row, &prepared.output_schema, source.snapshot_id())?;
+            if produced >= control.limits.max_output_rows {
+                dropped = true;
+                return Err(quota("MAX_OUTPUT_ROWS")
+                    .detail("budget", "output_rows")
+                    .detail("limit", control.limits.max_output_rows.to_string()));
+            }
+            let encoded = serde_json::to_vec(&row).map_err(|_| invalid("ROW_ENCODING"))?;
+            if let Err(error) = runtime.charge(Resource::OutputBytes, encoded.len() as u64) {
+                dropped = true;
+                return Err(error);
+            }
+            control.step("output_row", 1)?;
+            if let Err(error) = sender.send(row, encoded.len() as u64) {
+                dropped = true;
+                return Err(error);
+            }
+            produced = produced
+                .checked_add(1)
+                .ok_or_else(|| quota("OUTPUT_ROW_OVERFLOW"))?;
+        }
+        if !terminal.execution_complete() {
+            terminal.computation_complete(produced)?;
+            runtime.cancellation().mark_computed()?;
+        }
+        sender.finish(Ok(()))?;
+        Ok::<(), MddError>(())
+    })();
+    match result {
+        Ok(()) => Ok(PendingDelivery {
+            terminal: Some(terminal),
+            runtime,
+            sender,
+            produced,
+            error: None,
+            dropped: false,
+            completed: false,
+        }),
+        Err(error) => {
+            let error = control.stop(error);
+            if sender.finish(Err(error.clone())).is_err() {
+                return Err(error);
+            }
+            Ok(PendingDelivery {
+                terminal: Some(terminal),
+                runtime,
+                sender,
+                produced,
+                error: Some(error),
+                dropped,
+                completed: false,
+            })
+        }
     }
 }

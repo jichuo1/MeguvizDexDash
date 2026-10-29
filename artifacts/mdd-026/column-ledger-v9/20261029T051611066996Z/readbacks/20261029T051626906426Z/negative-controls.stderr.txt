@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "D:\MeguvisDexDash\conformance\facts\test_column_ledger_v9.py", line 35, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "D:\MeguvisDexDash\conformance\facts\test_column_ledger_v9.py", line 31, in main
+    reject(audit.SOURCE+'/native/record.json',lambda x:x.__setitem__('exit_code',1))
+  File "D:\MeguvisDexDash\conformance\facts\test_column_ledger_v9.py", line 16, in reject
+    raise RuntimeError('tampered generation evidence accepted: '+path)
+RuntimeError: tampered generation evidence accepted: artifacts/mdd-026/resource-generation-audit/20261029T050623250919Z/native/record.json

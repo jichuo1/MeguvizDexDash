@@ -1,0 +1,11 @@
+
+running 1 test
+test tests::buffered_output_must_be_released_before_delivery_completion ... FAILED
+
+failures:
+
+failures:
+    tests::buffered_output_must_be_released_before_delivery_completion
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s
+

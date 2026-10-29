@@ -1,0 +1,23 @@
+    Checking mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+    Checking mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+error: large size difference between variants
+    --> crates\mdd-query\src\executor.rs:1320:1
+     |
+1320 | / pub enum DeliveryExecution {
+1321 | |     Pending(PendingDelivery),
+     | |     ------------------------ the largest variant contains at least 1040 bytes
+1322 | |     Failed(mdd_types::ResultEnvelope),
+     | |     --------------------------------- the second-largest variant contains at least 512 bytes
+1323 | | }
+     | |_^ the entire enum is at least 1040 bytes
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#large_enum_variant
+     = note: `-D clippy::large-enum-variant` implied by `-D warnings`
+     = help: to override `-D warnings` add `#[allow(clippy::large_enum_variant)]`
+help: consider boxing the large fields or introducing indirection in some other way to reduce the total size of the enum
+     |
+1321 -     Pending(PendingDelivery),
+1321 +     Pending(Box<PendingDelivery>),
+     |
+
+error: could not compile `mdd-query` (lib test) due to 1 previous error

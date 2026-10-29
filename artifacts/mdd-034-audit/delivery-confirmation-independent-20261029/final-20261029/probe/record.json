@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\delivery-confirmation-final-20261029-target\\debug\\delivery-probe.exe"
+  ],
+  "started_utc": "2026-10-29T05:58:48.192876+00:00",
+  "finished_utc": "2026-10-29T05:58:49.179008+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "bc00d4480ebb59992d8a5918b151f4838ea7b9d40b396a444edfd03da7499d21",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "d537005f13aa4065b40f66189324283ef1143f5d0c876eeb5a5091c008de6284",
+  "scope": "independent synthetic validation; not performance qualification"
+}

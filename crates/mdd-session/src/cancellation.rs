@@ -1,5 +1,5 @@
 //! Query-owned cancellation views over the existing lifecycle registry; no second registry.
-use crate::{Lifecycle, QueryHandle, QueryPhase, QueryStatus, SessionHandle};
+use crate::{CursorHandle, Lifecycle, QueryHandle, QueryPhase, QueryStatus, SessionHandle};
 use mdd_types::{ErrorCode, MddError, MddResult};
 use serde::Serialize;
 
@@ -174,6 +174,30 @@ impl QueryCancellation {
     }
     pub fn finish_delivery(&self) -> MddResult<()> {
         self.lifecycle.finish_delivery(&self.query)
+    }
+    fn owning_session(&self) -> MddResult<SessionHandle> {
+        let state = self.lifecycle.lock()?;
+        let query = state.query(&self.query)?;
+        let session = state.sessions.get(&query.session_id).ok_or_else(|| {
+            MddError::new(
+                ErrorCode::InvalidArgument,
+                "cancel.delivery",
+                "owning session is absent",
+            )
+        })?;
+        Ok(SessionHandle(session.token.clone()))
+    }
+    /// A query-bound queue remains an unconsumed cursor until its receiver confirms delivery.
+    pub fn open_delivery_cursor(&self) -> MddResult<CursorHandle> {
+        self.lifecycle
+            .open_cursor(&self.owning_session()?, &self.query)
+    }
+    pub fn finish_delivery_cursor(&self, cursor: &CursorHandle) -> MddResult<()> {
+        self.lifecycle
+            .finish_cursor(&self.owning_session()?, &self.query, cursor)
+    }
+    pub fn abandon_delivery_cursor(&self, cursor: &CursorHandle) -> MddResult<()> {
+        self.lifecycle.close_cursor(cursor)
     }
     pub fn delivery_abandoned(&self) -> MddResult<bool> {
         self.lifecycle.delivery_abandoned(&self.query)

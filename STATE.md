@@ -4,7 +4,7 @@
 
 ## Checkout 与交付
 
-工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 f134aa6 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 cebb3a7 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
 
 大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
@@ -94,7 +94,11 @@ v7总表 artifacts/mdd-026/column-ledger-v7/20261029T021940078907Z/column-ledger
 
 v8总表 artifacts/mdd-026/column-ledger-v8/20261029T044457978884Z/column-ledger.json 追加合成资源物理成员及覆盖证据，独立重算和9项篡改负例通过；资源切片独立于DEX字段，156列完整资格、MDD-026及profile仍为false。
 
-MDD-034 已根验收 done，范围是预算、取消和终态机制：Windows 本机 27 query、10 session、7 types 及2 compile-fail 测试通过，相关包严格 Clippy 通过；SQLite 双连接中断和独立子进程 deadline 探针通过。结果及源码身份见 artifacts/mdd-034/budget-and-terminal-states.json。生产 worker、MCP、FFI 和当前源码的 Linux CI 尚未验证；进程树隔离未由该探针证明。
+v9总表 artifacts/mdd-026/column-ledger-v9/20261029T051611066996Z/column-ledger.json 追加同一路径实际改写前后两代快照的资源证据，独立重算和10项负例通过；初次负例因未拦截旧版读取入口失败并保留。该切片不证明SQL/Smali/分页跨代绑定，不提升字段或profile资格。
+
+MDD-034 已重新打开：独立真实组合反例中，executor向有界队列发送4行后消费者尚未读取，查询却报告成功且delivery_complete；随后消费者因查询已结束被拒绝。原始输出 artifacts/mdd-034-audit/delivery-boundary-independent-20261029/probe/stdout.txt。先前27 query、10 session、7 types、2 compile-fail、SQLite双连接及子进程deadline的限定机制证据仍保留，但不能代替未消费数据的交付验收。生产worker/MCP/FFI尚未接线，不推断生产已发生；进程树隔离未由先前探针证明。
+
+消费者确认候选现以绑定队列逐包ack和显式End换取对应收据，再取得最终envelope；零行也需End，旧受信回调限制为测试私有入口。独立真实会话16场景、20次并发（完成先胜2、取消先胜18）、伪造收据及旧入口编译负例通过；未释放生命周期缓冲另有真实红绿修复。证据 artifacts/mdd-034-audit/delivery-confirmation-independent-20261029/final-20261029/verify-run/record.json。Windows工作区232项测试、严格Clippy通过；生产worker/IPC、完整分页和各兼容profile尚未验证，MDD-034保持in_progress。
 
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
 
@@ -125,6 +129,8 @@ HEX的字节输出和共享文本转字节扫描现计步骤并检查取消；�
 Q09的NOT BETWEEN因生成SQL缺少括号而静默漏行，现使用显式嵌套修复；同一合成provider由空行恢复为SQLite的9、12。独立三方言27例中21项与SQLite一致、6项混合类型亲和性明确未支持，见 artifacts/mdd-031-audit/between-independent-20261029/after-readback/record.json；未重新运行A0/A1。最终源码Windows工作区200项测试、严格Clippy通过，完整SQL profile仍未准入。
 
 DISTINCT/GROUP/ORDER文本或字节键构造现逐单元计步骤并检查取消，四个真实低步骤红例由错误完整成功改为QUOTA。冻结源码Windows工作区206项测试、严格Clippy通过；独立合成provider的三方言9个长键请求均返回QUOTA，见 artifacts/mdd-031-audit/hostlab-case-hex-independent-20261029/verify-run/record.json。键Vec、SQLite TRANSIENT及排序器副本、输入和RSS尚未受该步骤计量约束。
+
+后续键Vec和带类型标记的Rust载体在分配前按检查过的上界预留逻辑工作区，租约持续至rusqlite设置结果调用返回；隔离快照48项真实会话、实际ToSql回调和低额度/取消释放独立验证，见 artifacts/mdd-031-audit/key-lease-independent-20261029/verify-run/record.json。SQLite TRANSIENT副本及排序器后续内存、参数/输入复制、分配器额外开销与RSS仍未覆盖。
 
 固定HostLab CASE/HEX包装的合成对照发现：对旧方言输出的MUTF-8 NUL、代理对及孤立代理字节，现有CLI严格UTF-8解码步骤会抛UnicodeDecodeError；只直接复现了解码步骤，未运行完整HostLab。该适配边界、旧版NULL DTO和signed/unsigned差异仍阻断完整兼容。
 

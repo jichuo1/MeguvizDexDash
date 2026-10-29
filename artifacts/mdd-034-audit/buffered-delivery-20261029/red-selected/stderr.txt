@@ -1,0 +1,7 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.22s
+     Running unittests src\lib.rs (target\debug\deps\mdd_session-34588e5d55bf44f1.exe)
+
+thread 'tests::buffered_output_must_be_released_before_delivery_completion' (31876) panicked at crates\mdd-session\src\lib.rs:1061:9:
+assertion failed: runtime.finish_delivery(&query).is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-session --lib`

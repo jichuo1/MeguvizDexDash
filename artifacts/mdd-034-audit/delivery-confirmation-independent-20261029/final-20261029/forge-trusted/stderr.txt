@@ -1,0 +1,20 @@
+    Blocking waiting for file lock on build directory
+    Checking mdd-delivery-confirmation-independent v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-034-audit\delivery-confirmation-independent-20261029\final-20261029)
+error[E0432]: unresolved import `mdd_query::executor::execute_trusted_into`
+    --> src\forge_trusted.rs:1:5
+     |
+   1 | use mdd_query::executor::execute_trusted_into;
+     |     ^^^^^^^^^^^^^^^^^^^^^--------------------
+     |                          |
+     |                          no `execute_trusted_into` in `executor`
+     |
+note: found an item that was configured out
+    --> D:\MeguvisDexDash\crates\mdd-query\src\executor.rs:1210:4
+     |
+1209 | #[cfg(test)]
+     |       ---- the item is gated here
+1210 | fn execute_trusted_into(
+     |    ^^^^^^^^^^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `mdd-delivery-confirmation-independent` (bin "forge-trusted") due to 1 previous error

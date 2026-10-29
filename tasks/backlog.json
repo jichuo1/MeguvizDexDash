@@ -910,7 +910,7 @@
       "id": "MDD-034",
       "phase": "M3",
       "title": "实现预算、取消、背压与完整结果终态",
-      "status": "done",
+      "status": "in_progress",
       "depends_on": [
         "MDD-014",
         "MDD-030"
@@ -940,13 +940,17 @@
         "docs/03_HOSTLAB_MIGRATION.md",
         "docs/04_VALIDATION_AND_PERFORMANCE.md"
       ],
-      "implementation_notes": "Scoped unified budget/cancellation/terminal mechanisms accepted:19 resource dimensions,preallocation input/archive adapters,real backpressure,identity/claim/fault retention;46 relevant unit/doc tests+strict Clippy+actual2conn interrupt/250ms owned child. Wire/MCP/FFI enforcement and process-tree isolation not granted.",
+      "implementation_notes": "Reopened after real unconsumed-queue false completion. Candidate query-bound packet and End acknowledgment, private legacy callback, buffered-output guard and independent 16-scenario/20-race proof now exist. Original acceptance unchanged; production worker/IPC, complete paging and per-profile compatibility remain unqualified.",
       "implementation_evidence": [
         "artifacts/mdd-034/budget-and-terminal-states.json",
         "artifacts/mdd-034/root-final-units/record.json",
         "artifacts/mdd-034/root-final-clippy/record.json",
         "artifacts/mdd-034/root-final-sqlite/record.json",
-        "artifacts/mdd-034/root-final-supervisor/record.json"
+        "artifacts/mdd-034/root-final-supervisor/record.json",
+        "artifacts/mdd-034-audit/delivery-boundary-independent-20261029/probe/stdout.txt",
+        "artifacts/mdd-034-audit/buffered-delivery-20261029/red-selected/record.json",
+        "artifacts/mdd-034-audit/buffered-delivery-20261029/green/record.json",
+        "artifacts/mdd-034-audit/delivery-confirmation-independent-20261029/final-20261029/verify-run/record.json"
       ]
     },
     {

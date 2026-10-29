@@ -1,0 +1,28 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "rustc",
+    "--edition=2024",
+    "artifacts/mdd-034/delivery-confirmation-20261029/external-new-entry.rs",
+    "--extern",
+    "mdd_query=target/debug/libmdd_query.rlib",
+    "-L",
+    "dependency=target/debug/deps",
+    "-o",
+    "artifacts/local/mdd-034-new-entry-positive.exe"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T05:56:05.700944+00:00",
+  "finished_utc": "2026-10-29T05:56:06.102750+00:00",
+  "elapsed_seconds": 0.39099999999962165,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

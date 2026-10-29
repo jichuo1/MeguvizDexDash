@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "check",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-034-audit\\delivery-confirmation-independent-20261029\\Cargo.toml",
+    "--bin",
+    "forge-receipt"
+  ],
+  "started_utc": "2026-10-29T05:53:41.382249+00:00",
+  "finished_utc": "2026-10-29T05:53:58.308919+00:00",
+  "exit_code": 101,
+  "job_status": "failed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "35263ef38bf53aa35053cd361fe62816b35d90feba915379d333794811c61c35",
+  "supervisor_sha256": "fb4d139062e4bcd66c317b3f1628f148ab0e02c0b380be4e2703db04bd665e6d",
+  "scope": "independent synthetic validation; not performance qualification"
+}

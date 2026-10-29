@@ -1,0 +1,17 @@
+   Compiling mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+error[E0282]: type annotations needed
+   --> crates\mdd-query\src\executor\runtime_tests.rs:574:9
+    |
+574 |         bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    |         ^^^^^^^^^^^^^^^ cannot infer type of the type parameter `T` declared on the function `bounded_channel`
+...
+579 |         receiver.receive().unwrap(),
+    |         ------------------ type must be known at this point
+    |
+help: consider specifying a concrete type for the type parameter `T`
+    |
+574 |         bounded_channel::</* Type */>(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    |                        ++++++++++++++
+
+For more information about this error, try `rustc --explain E0282`.
+error: could not compile `mdd-query` (lib test) due to 1 previous error

@@ -1,0 +1,11 @@
+{
+  "captured_utc": "2026-10-29T05:37:15.955278+00:00",
+  "all_snapshot_files_equal": true,
+  "all_probe_files_equal": true,
+  "snapshot_file_count": 91,
+  "probe_file_count": 4,
+  "snapshot_before_sha256": "de0cdc796f643f9be6ec80138f91b39b39216d3c37eea06a83a72b4357917a6a",
+  "probe_before_sha256": "3ea2e6a696457a5677fd1f99ced9543a341069058781c5ee360aa2b743dc548f",
+  "binary_sha256": "fb0ece73edacd77fc1b95033c8ccf10f41204721be45cc000ebb7298732080bd",
+  "tosql_runner_sha256": "bf4490628a8f2bc3419fbbf193f9f440b38177acc0dc660b4b2729b8709b7fab"
+}

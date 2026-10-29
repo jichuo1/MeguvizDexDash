@@ -1,0 +1,26 @@
+    Checking mdd-delivery-confirmation-independent v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-034-audit\delivery-confirmation-independent-20261029\final-20261029)
+warning: unreachable expression
+ --> src\forge.rs:4:78
+  |
+4 |     let _forged = QueueDeliveryReceipt { tracker: panic!("never"), consumed: true };
+  |                                                   ---------------            ^^^^ unreachable expression
+  |                                                   |
+  |                                                   any code following this expression is unreachable
+  |
+  = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+error[E0451]: fields `tracker` and `consumed` of struct `QueueDeliveryReceipt` are private
+ --> src\forge.rs:4:42
+  |
+4 |     let _forged = QueueDeliveryReceipt { tracker: panic!("never"), consumed: true };
+  |                                          ^^^^^^^ private field     ^^^^^^^^ private field
+
+error: type `budget::DeliveryTracker` is private
+ --> src\forge.rs:4:51
+  |
+4 |     let _forged = QueueDeliveryReceipt { tracker: panic!("never"), consumed: true };
+  |                                                   ^^^^^^^^^^^^^^^ private type
+
+For more information about this error, try `rustc --explain E0451`.
+warning: `mdd-delivery-confirmation-independent` (bin "forge-receipt") generated 1 warning
+error: could not compile `mdd-delivery-confirmation-independent` (bin "forge-receipt") due to 2 previous errors; 1 warning emitted

@@ -53,6 +53,219 @@ fn setup_with_dialect(dialect: SqlDialect) -> (Lifecycle, SessionHandle, Session
     (lifecycle, a, b, bridge)
 }
 
+fn assert_key_obeys_workspace_budget(sql: &str, values: Vec<crate::values::SqlValue>) {
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge.prepare_with_parameters(sql, &values).unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192),
+        );
+        let pool = runtime.pool().clone();
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}: {sql}");
+        assert!(!token.status().unwrap().execution_complete);
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0),
+            0
+        );
+    }
+}
+
+#[test]
+fn key_workspace_distinct_text_respects_budget() {
+    use crate::values::SqlValue;
+    assert_key_obeys_workspace_budget(
+        "SELECT COUNT(*) FROM (SELECT DISTINCT ? AS v)",
+        vec![SqlValue::text(&"A".repeat(10_000))],
+    );
+}
+
+#[test]
+fn key_workspace_distinct_bytes_respects_budget() {
+    use crate::values::SqlValue;
+    assert_key_obeys_workspace_budget(
+        "SELECT COUNT(*) FROM (SELECT DISTINCT ? AS v)",
+        vec![SqlValue::Bytes(vec![0x41; 10_000])],
+    );
+}
+
+#[test]
+fn key_workspace_group_text_respects_budget() {
+    use crate::values::SqlValue;
+    let value = SqlValue::text(&"A".repeat(10_000));
+    assert_key_obeys_workspace_budget(
+        "SELECT COUNT(*) FROM (SELECT ? AS v GROUP BY ?)",
+        vec![value.clone(), value],
+    );
+}
+
+#[test]
+fn key_workspace_order_text_respects_budget() {
+    use crate::values::SqlValue;
+    let value = SqlValue::text(&"A".repeat(10_000));
+    assert_key_obeys_workspace_budget(
+        "SELECT 1 FROM (SELECT ? AS v UNION ALL SELECT ? AS v ORDER BY v LIMIT 1)",
+        vec![value.clone(), value],
+    );
+}
+
+#[test]
+fn key_workspace_releases_temporary_lease_after_success_and_result_drop() {
+    use crate::values::SqlValue;
+    use mdd_query::ir::Signed64;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT COUNT(*) FROM (SELECT DISTINCT ? AS v)",
+                &[SqlValue::text(&"A".repeat(10_000))],
+            )
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 128 * 1024),
+        );
+        let pool = runtime.pool().clone();
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let result = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap();
+        assert_eq!(
+            result.rows(),
+            &[vec![SqlValue::I64(Signed64(1))]],
+            "{dialect:?}"
+        );
+        assert!(token.status().unwrap().execution_complete);
+        let used = pool
+            .usage()
+            .unwrap()
+            .used
+            .get(&Resource::QueryWorkspaceBytes)
+            .map_or(0, |v| v.0);
+        assert!(
+            (1..=8192).contains(&used),
+            "temporary key lease retained: {dialect:?}: {used}"
+        );
+        drop(result);
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0),
+            0
+        );
+    }
+}
+
+#[test]
+fn key_workspace_cancellation_releases_temporary_lease() {
+    use crate::values::SqlValue;
+    use std::time::{Duration, Instant};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT COUNT(*) FROM (SELECT DISTINCT ? AS v)",
+                &[SqlValue::text(&"A".repeat(200_000))],
+            )
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 1024 * 1024),
+        );
+        let pool = runtime.pool().clone();
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let handle = std::thread::spawn(move || {
+            bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        });
+        let deadline = Instant::now() + Duration::from_secs(10);
+        loop {
+            let usage = pool.usage().unwrap();
+            let used = usage
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0);
+            let steps = usage.used.get(&Resource::QuerySteps).map_or(0, |v| v.0);
+            if used > 700_000 && steps > 5_000 {
+                break;
+            }
+            if handle.is_finished() || Instant::now() >= deadline {
+                let _ = token.cancel();
+                let _ = handle.join();
+                panic!("key lease and scan were not observed before completion: {dialect:?}");
+            }
+            std::thread::yield_now();
+        }
+        token.cancel().unwrap();
+        assert_eq!(
+            handle.join().unwrap().unwrap_err().code,
+            ErrorCode::Cancelled,
+            "{dialect:?}"
+        );
+        assert!(!token.status().unwrap().execution_complete);
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0),
+            0
+        );
+    }
+}
+
+#[test]
+fn key_workspace_precancel_remains_cancelled_before_quota() {
+    use crate::values::SqlValue;
+    let (lifecycle, session, _, bridge) = setup_with_dialect(SqlDialect::NativeV1);
+    let prepared = bridge
+        .prepare_with_parameters(
+            "SELECT COUNT(*) FROM (SELECT DISTINCT ? AS v)",
+            &[SqlValue::text(&"A".repeat(10_000))],
+        )
+        .unwrap();
+    let (runtime, token) = runtime(
+        &lifecycle,
+        &session,
+        &prepared,
+        BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192),
+    );
+    let bound = prepared.bind_runtime(&runtime).unwrap();
+    token.cancel().unwrap();
+    let error = bound
+        .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+        .unwrap_err();
+    assert_eq!(error.code, ErrorCode::Cancelled);
+    assert!(!token.status().unwrap().execution_complete);
+}
+
 fn assert_key_scan_obeys_step_budget(sql: &str, values: Vec<crate::values::SqlValue>) {
     for dialect in [
         SqlDialect::NativeV1,

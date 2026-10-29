@@ -1,0 +1,18 @@
+
+running 1 test
+test executor::runtime_tests::cancelled_before_claim_sends_explicit_cancelled_end ... FAILED
+
+failures:
+
+---- executor::runtime_tests::cancelled_before_claim_sends_explicit_cancelled_end stdout ----
+
+thread 'executor::runtime_tests::cancelled_before_claim_sends_explicit_cancelled_end' (28308) panicked at crates\mdd-query\src\executor\runtime_tests.rs:240:5:
+cancelled query left queue without its error End
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    executor::runtime_tests::cancelled_before_claim_sends_explicit_cancelled_end
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 40 filtered out; finished in 0.00s
+

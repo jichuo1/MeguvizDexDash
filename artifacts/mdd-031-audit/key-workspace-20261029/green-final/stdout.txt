@@ -1,0 +1,20 @@
+
+running 15 tests
+test dialects::functions::like_budget_tests::key_lease_survives_actual_rusqlite_to_sql_callback ... ok
+test dialects::functions::like_budget_tests::key_workspace_checked_amount_rejects_overflow ... ok
+test runtime_tests::key_distinct_long_bytes_respects_session_step_budget ... ok
+test runtime_tests::key_distinct_long_text_respects_session_step_budget ... ok
+test runtime_tests::key_group_long_text_respects_session_step_budget ... ok
+test runtime_tests::key_order_long_text_respects_session_step_budget ... ok
+test runtime_tests::key_scan_cancelled_after_steps_stays_failed ... ok
+test runtime_tests::key_scan_preserves_null_numeric_utf16_bytes_and_duplicates ... ok
+test runtime_tests::key_workspace_cancellation_releases_temporary_lease ... ok
+test runtime_tests::key_workspace_distinct_bytes_respects_budget ... ok
+test runtime_tests::key_workspace_distinct_text_respects_budget ... ok
+test runtime_tests::key_workspace_group_text_respects_budget ... ok
+test runtime_tests::key_workspace_order_text_respects_budget ... ok
+test runtime_tests::key_workspace_precancel_remains_cancelled_before_quota ... ok
+test runtime_tests::key_workspace_releases_temporary_lease_after_success_and_result_drop ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 53 filtered out; finished in 1.92s
+

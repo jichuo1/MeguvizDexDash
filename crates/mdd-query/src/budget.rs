@@ -705,10 +705,71 @@ impl RuntimeBudget {
 pub struct Budgeted<T> {
     payload: T,
     _memory: Reservation,
+    acknowledgement: Option<PacketAcknowledgement>,
 }
 impl<T> Budgeted<T> {
     pub fn payload(&self) -> &T {
         &self.payload
+    }
+    /// Confirm this packet only after the consumer has processed its payload.
+    pub fn acknowledge(mut self) -> MddResult<()> {
+        let mut ack = self
+            .acknowledgement
+            .take()
+            .ok_or_else(|| invalid("queue has no query-bound delivery tracking"))?;
+        let mut state = ack
+            .tracker
+            .state
+            .lock()
+            .map_err(|_| fault("delivery tracking mutex poisoned"))?;
+        if state.abandoned || ack.sequence != state.acknowledged {
+            state.abandoned = true;
+            drop(state);
+            let error = invalid("delivery acknowledgement out of order or abandoned");
+            let _ = ack.tracker.cancel.fail(error.clone());
+            return Err(error);
+        }
+        state.acknowledged = state
+            .acknowledged
+            .checked_add(1)
+            .ok_or_else(|| fault("delivery acknowledgement overflow"))?;
+        ack.confirmed = true;
+        Ok(())
+    }
+}
+struct DeliveryState {
+    sent: u64,
+    acknowledged: u64,
+    end_seen: bool,
+    end_error: Option<MddError>,
+    abandoned: bool,
+}
+pub(crate) struct DeliveryTracker {
+    state: Mutex<DeliveryState>,
+    cancel: QueryCancellation,
+    cursor: mdd_session::CursorHandle,
+}
+struct PacketAcknowledgement {
+    tracker: Arc<DeliveryTracker>,
+    sequence: u64,
+    confirmed: bool,
+}
+impl Drop for PacketAcknowledgement {
+    fn drop(&mut self) {
+        if !self.confirmed {
+            if let Ok(mut state) = self.tracker.state.lock() {
+                state.abandoned = true;
+            }
+            let _ = self
+                .tracker
+                .cancel
+                .abandon_delivery_cursor(&self.tracker.cursor);
+            let _ = self.tracker.cancel.fail(MddError::new(
+                ErrorCode::Cancelled,
+                "queue.delivery",
+                "consumer dropped an unacknowledged packet",
+            ));
+        }
     }
 }
 struct Entry<T> {
@@ -722,6 +783,7 @@ struct QueueState<T> {
     senders: usize,
     receiver_closed: bool,
     end_delivered: bool,
+    receipt_issued: bool,
 }
 struct Channel<T> {
     state: Mutex<QueueState<T>>,
@@ -729,6 +791,7 @@ struct Channel<T> {
     pool: BudgetPool,
     cancel: Option<QueryCancellation>,
     capacity: usize,
+    delivery: Option<Arc<DeliveryTracker>>,
 }
 pub struct BoundedSender<T>(Arc<Channel<T>>);
 pub struct BoundedReceiver<T>(Arc<Channel<T>>);
@@ -748,6 +811,23 @@ pub fn bounded_channel<T>(
     if capacity as u64 > max {
         return Err(exceeded(Resource::QueueItems, max, capacity, &pool.owner));
     }
+    let delivery = if let Some(token) = &cancel {
+        RuntimeBudget::new(pool.clone(), token.clone())?;
+        let cursor = token.open_delivery_cursor()?;
+        Some(Arc::new(DeliveryTracker {
+            state: Mutex::new(DeliveryState {
+                sent: 0,
+                acknowledged: 0,
+                end_seen: false,
+                end_error: None,
+                abandoned: false,
+            }),
+            cancel: token.clone(),
+            cursor,
+        }))
+    } else {
+        None
+    };
     let channel = Arc::new(Channel {
         state: Mutex::new(QueueState {
             entries: VecDeque::new(),
@@ -755,11 +835,13 @@ pub fn bounded_channel<T>(
             senders: 1,
             receiver_closed: false,
             end_delivered: false,
+            receipt_issued: false,
         }),
         changed: Condvar::new(),
         pool,
         cancel,
         capacity,
+        delivery,
     });
     Ok((
         BoundedSender(Arc::clone(&channel)),
@@ -774,8 +856,24 @@ impl<T> Channel<T> {
         }
         Ok(())
     }
+    fn protocol_fault(&self, error: MddError) -> MddError {
+        if let Some(tracker) = &self.delivery {
+            if let Ok(mut state) = tracker.state.lock() {
+                state.abandoned = true;
+            }
+            let _ = tracker.cancel.fail(error.clone());
+        }
+        error
+    }
 }
 impl<T> BoundedSender<T> {
+    pub(crate) fn matches_runtime(&self, runtime: &RuntimeBudget) -> bool {
+        self.0.delivery.as_ref().is_some_and(|tracker| {
+            Arc::ptr_eq(&self.0.pool.state, &runtime.pool.state)
+                && self.0.pool.owner == runtime.pool.owner
+                && tracker.cancel.query_handle() == runtime.cancel.query_handle()
+        })
+    }
     pub fn try_clone(&self) -> MddResult<Self> {
         let mut state = self
             .0
@@ -798,6 +896,7 @@ impl<T> BoundedSender<T> {
         let mut payload = Some(Budgeted {
             payload,
             _memory: memory,
+            acknowledgement: None,
         });
         loop {
             self.0.checkpoint()?;
@@ -814,7 +913,8 @@ impl<T> BoundedSender<T> {
                 ));
             }
             if state.terminal.is_some() || state.end_delivered {
-                return Err(invalid("send after terminal"));
+                drop(state);
+                return Err(self.0.protocol_fault(invalid("send after terminal")));
             }
             if state.entries.len() < self.0.capacity {
                 let reservations = (|| {
@@ -824,6 +924,26 @@ impl<T> BoundedSender<T> {
                 })();
                 match reservations {
                     Ok((queued, item)) => {
+                        if let Some(tracker) = &self.0.delivery {
+                            let mut delivery = tracker
+                                .state
+                                .lock()
+                                .map_err(|_| fault("delivery tracking mutex poisoned"))?;
+                            if delivery.abandoned {
+                                return Err(invalid("delivery is abandoned"));
+                            }
+                            let sequence = delivery.sent;
+                            delivery.sent = delivery
+                                .sent
+                                .checked_add(1)
+                                .ok_or_else(|| fault("delivery packet count overflow"))?;
+                            payload.as_mut().unwrap().acknowledgement =
+                                Some(PacketAcknowledgement {
+                                    tracker: Arc::clone(tracker),
+                                    sequence,
+                                    confirmed: false,
+                                });
+                        }
                         state.entries.push_back(Entry {
                             packet: payload.take().unwrap(),
                             _queued: queued,
@@ -851,7 +971,8 @@ impl<T> BoundedSender<T> {
             .lock()
             .map_err(|_| fault("queue mutex poisoned"))?;
         if state.terminal.is_some() || state.end_delivered {
-            return Err(invalid("duplicate queue terminal"));
+            drop(state);
+            return Err(self.0.protocol_fault(invalid("duplicate queue terminal")));
         }
         if state.receiver_closed {
             return Err(MddError::new(
@@ -867,23 +988,28 @@ impl<T> BoundedSender<T> {
 }
 impl<T> Drop for BoundedSender<T> {
     fn drop(&mut self) {
+        let mut lost = None;
         if let Ok(mut state) = self.0.state.lock() {
             state.senders -= 1;
             if state.senders == 0 && state.terminal.is_none() && !state.end_delivered {
-                state.terminal = Some(Err(MddError::new(
+                let error = MddError::new(
                     ErrorCode::WorkerLost,
                     "queue",
                     "producer dropped without terminal",
-                )));
+                );
+                state.terminal = Some(Err(error.clone()));
+                lost = Some(error);
             }
             self.0.changed.notify_all();
+        }
+        if let (Some(cancel), Some(error)) = (&self.0.cancel, lost) {
+            let _ = cancel.fail(error);
         }
     }
 }
 impl<T> BoundedReceiver<T> {
     pub fn receive(&mut self) -> MddResult<QueueEvent<T>> {
         loop {
-            self.0.checkpoint()?;
             let mut state = self
                 .0
                 .state
@@ -894,12 +1020,28 @@ impl<T> BoundedReceiver<T> {
                 return Ok(QueueEvent::Data(entry.packet));
             }
             if state.end_delivered {
-                return Err(invalid("read after queue terminal"));
+                drop(state);
+                return Err(self.0.protocol_fault(invalid("read after queue terminal")));
             }
             if let Some(end) = state.terminal.take() {
                 state.end_delivered = true;
+                if let Some(tracker) = &self.0.delivery {
+                    let mut delivery = tracker
+                        .state
+                        .lock()
+                        .map_err(|_| fault("delivery tracking mutex poisoned"))?;
+                    delivery.end_seen = true;
+                    delivery.end_error = end.as_ref().err().cloned();
+                }
                 return Ok(QueueEvent::End(end));
             }
+            drop(state);
+            self.0.checkpoint()?;
+            let state = self
+                .0
+                .state
+                .lock()
+                .map_err(|_| fault("queue mutex poisoned"))?;
             drop(
                 self.0
                     .changed
@@ -911,15 +1053,130 @@ impl<T> BoundedReceiver<T> {
 }
 impl<T> Drop for BoundedReceiver<T> {
     fn drop(&mut self) {
+        let mut receipt_issued = false;
         if let Ok(mut state) = self.0.state.lock() {
             state.receiver_closed = true;
             state.entries.clear();
+            receipt_issued = state.receipt_issued;
             self.0.changed.notify_all();
         }
-        if let Some(cancel) = &self.0.cancel
+        if !receipt_issued
+            && let Some(cancel) = &self.0.cancel
             && !cancel.status().is_ok_and(|s| s.delivery_complete)
         {
+            if let Some(tracker) = &self.0.delivery {
+                if let Ok(mut state) = tracker.state.lock() {
+                    state.abandoned = true;
+                }
+                let _ = cancel.abandon_delivery_cursor(&tracker.cursor);
+            }
             let _ = cancel.cancel();
+        }
+    }
+}
+
+/// Proof can only be obtained from the bound receiver after explicit End and every packet ack.
+pub struct QueueDeliveryReceipt {
+    pub(crate) tracker: Arc<DeliveryTracker>,
+    consumed: bool,
+}
+impl<T> BoundedReceiver<T> {
+    pub fn into_delivery_receipt(self) -> MddResult<QueueDeliveryReceipt> {
+        let tracker = self
+            .0
+            .delivery
+            .as_ref()
+            .ok_or_else(|| invalid("unbound queue cannot confirm query delivery"))?
+            .clone();
+        {
+            let mut queue = self
+                .0
+                .state
+                .lock()
+                .map_err(|_| fault("queue mutex poisoned"))?;
+            let state = tracker
+                .state
+                .lock()
+                .map_err(|_| fault("delivery tracking mutex poisoned"))?;
+            if !state.end_seen
+                || state.abandoned
+                || state.sent != state.acknowledged
+                || !queue.entries.is_empty()
+                || queue.receipt_issued
+            {
+                return Err(invalid(
+                    "queue delivery requires acknowledged packets and explicit End",
+                ));
+            }
+            queue.receipt_issued = true;
+        }
+        Ok(QueueDeliveryReceipt {
+            tracker,
+            consumed: false,
+        })
+    }
+}
+impl QueueDeliveryReceipt {
+    pub(crate) fn matches<T>(
+        &self,
+        sender: &BoundedSender<T>,
+        runtime: &RuntimeBudget,
+        expected: u64,
+        error: Option<&MddError>,
+    ) -> MddResult<bool> {
+        let Some(other) = &sender.0.delivery else {
+            return Ok(false);
+        };
+        let state = self
+            .tracker
+            .state
+            .lock()
+            .map_err(|_| fault("delivery tracking mutex poisoned"))?;
+        let same_error = match (state.end_error.as_ref(), error) {
+            (None, None) => true,
+            (Some(actual), Some(expected)) => {
+                actual.code == expected.code
+                    && actual.stage == expected.stage
+                    && actual.message == expected.message
+                    && actual.retryable == expected.retryable
+                    && actual.details == expected.details
+            }
+            _ => false,
+        };
+        Ok(!self.consumed
+            && Arc::ptr_eq(&self.tracker, other)
+            && Arc::ptr_eq(&sender.0.pool.state, &runtime.pool.state)
+            && sender.0.pool.owner == runtime.pool.owner
+            && self.tracker.cancel.query_handle() == runtime.cancel.query_handle()
+            && state.end_seen
+            && !state.abandoned
+            && state.sent == expected
+            && state.acknowledged == expected
+            && same_error)
+    }
+    pub(crate) fn finish_cursor(&mut self) -> MddResult<()> {
+        self.tracker
+            .cancel
+            .finish_delivery_cursor(&self.tracker.cursor)?;
+        self.consumed = true;
+        Ok(())
+    }
+    pub(crate) fn finish_failed(&mut self) -> MddResult<()> {
+        self.tracker
+            .cancel
+            .abandon_delivery_cursor(&self.tracker.cursor)?;
+        self.consumed = true;
+        Ok(())
+    }
+}
+impl Drop for QueueDeliveryReceipt {
+    fn drop(&mut self) {
+        if !self.consumed {
+            let _ = self
+                .tracker
+                .cancel
+                .abandon_delivery_cursor(&self.tracker.cursor);
+            let _ = self.tracker.cancel.cancel();
         }
     }
 }

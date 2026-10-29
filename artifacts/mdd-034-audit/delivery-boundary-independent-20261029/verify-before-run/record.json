@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-034-audit/delivery-boundary-independent-20261029/verify_before.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T05:21:17.340395+00:00",
+  "finished_utc": "2026-10-29T05:21:17.438544+00:00",
+  "elapsed_seconds": 0.0930000000007567,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 858,
+    "sha256": "121403644d5dceac226e91a5fa7164257c75a9ccb94a7ffac15435c31926233c"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

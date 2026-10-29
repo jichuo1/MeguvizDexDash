@@ -2,14 +2,14 @@ use crate::{
     control::SqlControl,
     dialects::SqlDialect,
     invalid, quota,
-    values::{SqlText, SqlValue},
+    values::{BYTES, SqlText, SqlValue},
 };
-use mdd_query::ir::Signed64;
+use mdd_query::{budget::Reservation, ir::Signed64};
 use mdd_types::{DecimalU64, MddError, MddResult};
 use rusqlite::{
     Connection,
     functions::{Aggregate, Context, FunctionFlags},
-    types::Value as Cell,
+    types::{ToSql, ToSqlOutput, Value as Cell},
 };
 use std::{borrow::Cow, cmp::Ordering};
 
@@ -217,11 +217,78 @@ fn compare_literal(left: &SqlValue, right: &SqlValue) -> MddResult<Ordering> {
         Ok(order)
     }
 }
+
+const KEY_HEADER: &[u8] = b"\0MDDKEY1";
+
+fn key_capacity(value: &SqlValue) -> MddResult<usize> {
+    let content = match value {
+        SqlValue::Text(text) => text
+            .utf16
+            .len()
+            .checked_mul(2)
+            .and_then(|n| n.checked_add(1)),
+        SqlValue::Bytes(bytes) | SqlValue::DexMutf8 { bytes, .. } => bytes.len().checked_add(1),
+        // Numeric keys have a tag, discriminator and at most 10 payload bytes.
+        _ => Some(12),
+    }
+    .ok_or_else(|| quota("SQL_KEY_CAPACITY_OVERFLOW"))?;
+    KEY_HEADER
+        .len()
+        .checked_add(content)
+        .ok_or_else(|| quota("SQL_KEY_CAPACITY_OVERFLOW"))
+}
+
+fn key_workspace_amount(capacity: u64) -> MddResult<u64> {
+    capacity
+        .checked_mul(2)
+        .and_then(|n| n.checked_add(BYTES.len() as u64))
+        .ok_or_else(|| quota("SQL_KEY_WORKSPACE_OVERFLOW"))
+}
+
+fn reserve_key_workspace(value: &SqlValue, control: &SqlControl) -> MddResult<Option<Reservation>> {
+    if value == &SqlValue::Null {
+        return Ok(None);
+    }
+    let capacity =
+        u64::try_from(key_capacity(value)?).map_err(|_| quota("SQL_KEY_WORKSPACE_OVERFLOW"))?;
+    // Both the key Vec and the BYTES-tagged rusqlite carrier coexist while
+    // preparing the callback result. SQLite's own TRANSIENT copy and sorter
+    // memory are separate and are not covered by this logical reservation.
+    let amount = key_workspace_amount(capacity)?;
+    control
+        .runtime()
+        .map(|runtime| {
+            runtime.checkpoint()?;
+            runtime
+                .pool()
+                .reserve(mdd_query::budget::Resource::QueryWorkspaceBytes, amount)
+                .map_err(|error| control.fail(error))
+        })
+        .transpose()
+}
+
+// rusqlite's sql_result keeps the returned object alive across ToSql and
+// sqlite3_result_blob64(..., SQLITE_TRANSIENT()).  The lease therefore remains
+// live until the copy call returns; it does not account for SQLite's copy.
+struct SqlCellWithKeyLease {
+    value: Cell,
+    _key_workspace: Option<Reservation>,
+}
+impl ToSql for SqlCellWithKeyLease {
+    fn to_sql(&self) -> rusqlite::Result<ToSqlOutput<'_>> {
+        self.value.to_sql()
+    }
+}
+
 fn equality_key(value: &SqlValue, control: &SqlControl) -> MddResult<Vec<u8>> {
     // Canonical mathematical numeric keys: u64/i64 boundaries and exactly
     // represented float integers compare equally. IEEE payloads remain on the
     // value carrier; signed zero has one SQL equality/sort key.
-    let mut out = b"\0MDDKEY1".to_vec();
+    let capacity = key_capacity(value).map_err(|error| control.fail(error))?;
+    let mut out = Vec::new();
+    out.try_reserve_exact(capacity)
+        .map_err(|_| control.fail(quota("SQL_KEY_ALLOCATION")))?;
+    out.extend(KEY_HEADER);
     match value {
         SqlValue::Text(text) => {
             out.push(1);
@@ -982,11 +1049,20 @@ pub(crate) fn register(
         let control = control.clone();
         db.create_scalar_function(name, count, flags, move |context| {
             let values = args(context).map_err(|e| failure(&control, e))?;
+            let key_workspace = if name == "mdd_key" || name == "mdd_sort_key" {
+                reserve_key_workspace(&values[0], &control).map_err(|e| failure(&control, e))?
+            } else {
+                None
+            };
             let value =
                 scalar(name, &values, dialect, &control).map_err(|e| failure(&control, e))?;
-            value
+            let value = value
                 .sqlite(control.inner.limits.max_cell_bytes)
-                .map_err(|e| failure(&control, e))
+                .map_err(|e| failure(&control, e))?;
+            Ok(SqlCellWithKeyLease {
+                value,
+                _key_workspace: key_workspace,
+            })
         })?;
     }
     for name in ["mdd_min", "mdd_max", "mdd_sum"] {
@@ -1058,6 +1134,86 @@ mod like_budget_tests {
     use super::*;
     use crate::control::SqlLimits;
     use mdd_types::ErrorCode;
+
+    #[test]
+    fn key_workspace_checked_amount_rejects_overflow() {
+        let error = key_workspace_amount(u64::MAX).unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded);
+        assert_eq!(key_workspace_amount(1).unwrap(), 2 + BYTES.len() as u64);
+    }
+
+    #[test]
+    fn key_lease_survives_actual_rusqlite_to_sql_callback() {
+        use mdd_query::budget::{BudgetLimits, BudgetPool, Resource};
+        use std::sync::{
+            Arc,
+            atomic::{AtomicU64, Ordering},
+        };
+
+        struct ObservedCell {
+            inner: SqlCellWithKeyLease,
+            pool: BudgetPool,
+            observed: Arc<AtomicU64>,
+        }
+        impl ToSql for ObservedCell {
+            fn to_sql(&self) -> rusqlite::Result<ToSqlOutput<'_>> {
+                let used = self
+                    .pool
+                    .usage()
+                    .unwrap()
+                    .used
+                    .get(&Resource::QueryWorkspaceBytes)
+                    .map_or(0, |v| v.0);
+                self.observed.store(used, Ordering::Release);
+                self.inner.to_sql()
+            }
+        }
+
+        let pool = BudgetPool::global(
+            "key-to-sql-test".into(),
+            BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192),
+        )
+        .unwrap();
+        let observed = Arc::new(AtomicU64::new(0));
+        let callback_pool = pool.clone();
+        let callback_observed = Arc::clone(&observed);
+        let db = Connection::open_in_memory().unwrap();
+        db.create_scalar_function(
+            "key_lease_probe",
+            0,
+            FunctionFlags::SQLITE_UTF8,
+            move |_| {
+                let lease = callback_pool
+                    .reserve(Resource::QueryWorkspaceBytes, 64)
+                    .unwrap();
+                Ok(ObservedCell {
+                    inner: SqlCellWithKeyLease {
+                        value: Cell::Blob(vec![0, 1, 0xff]),
+                        _key_workspace: Some(lease),
+                    },
+                    pool: callback_pool.clone(),
+                    observed: Arc::clone(&callback_observed),
+                })
+            },
+        )
+        .unwrap();
+        let copied: Vec<u8> = db
+            .query_row("SELECT key_lease_probe()", [], |row| row.get(0))
+            .unwrap();
+        assert_eq!(copied, vec![0, 1, 0xff]);
+        assert_eq!(observed.load(Ordering::Acquire), 64);
+        assert_eq!(
+            pool.usage()
+                .unwrap()
+                .used
+                .get(&Resource::QueryWorkspaceBytes)
+                .map_or(0, |v| v.0),
+            0
+        );
+        // The SQLite/client copy can remain alive after the Rust lease drops;
+        // this test does not claim that copy is covered by the reservation.
+        assert_eq!(copied, vec![0, 1, 0xff]);
+    }
 
     #[test]
     fn scalar_minmax_comparisons_consume_step_budget() {

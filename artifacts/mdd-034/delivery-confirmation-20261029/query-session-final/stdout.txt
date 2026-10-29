@@ -1,0 +1,72 @@
+
+running 39 tests
+test budget::imports::tests::capture_reserves_before_read_and_duplicates_share_retained_owner ... ok
+test budget::imports::tests::decoded_member_cache_and_published_facts_retain_source_budget_without_double_charge ... ok
+test budget::imports::tests::facts_admission_failure_does_not_call_builder ... ok
+test budget::imports::tests::import_preserves_source_and_crc_failures_and_rejects_expand_before_materialization ... ok
+test budget::imports::tests::nonempty_fact_work_and_retained_memory_have_different_lifetimes ... ok
+test budget::imports::tests::source_leases_require_same_tree_and_leaf_admission_before_build ... ok
+test budget::tests::absolute_soft_hard_deadlines_and_large_json_limits_are_explicit ... ok
+test budget::tests::all_budget_dimensions_restrict_atomically_and_resident_leases_release ... ok
+test budget::tests::owner_and_zero_byte_reservation_metadata_caps_are_actual_quota_errors ... ok
+test budget::tests::pending_senders_hold_resident_admission_before_a_queue_slot ... ok
+test budget::tests::producer_drop_after_prefix_is_worker_lost_and_explicit_failure_stays_failure ... ok
+test budget::tests::queue_backpressure_and_dequeued_payload_keep_memory_until_consumer_drop ... ok
+test budget::tests::shared_ready_objects_have_one_owner_and_per_object_borrow_admission ... ok
+test executor::runtime_tests::all_rows_dequeued_but_one_unacknowledged_still_cannot_complete ... ok
+test executor::runtime_tests::computation_claim_is_atomic_and_later_attempt_cannot_fail_original ... ok
+test executor::runtime_tests::concurrent_execution_claims_have_exactly_one_winner ... ok
+test executor::runtime_tests::dropped_unacknowledged_rows_and_unread_end_never_complete ... ok
+test executor::runtime_tests::duplicate_end_and_out_of_order_ack_are_sticky_failures ... ok
+test executor::runtime_tests::empty_queue_needs_explicit_end_and_unbound_queue_cannot_prove_delivery ... ok
+test executor::runtime_tests::native_cancel_after_prefix_isolated_from_sibling_and_computed_spool_retained ... ok
+test executor::runtime_tests::queue_deadline_has_explicit_error_end_and_no_complete_success ... ok
+test executor::runtime_tests::queue_quota_delivers_only_acknowledged_prefix_with_failure_end ... ok
+test executor::runtime_tests::queue_with_real_backpressure_completes_only_after_consumer_end ... ok
+test executor::runtime_tests::queued_rows_are_not_delivery_without_consumer_acknowledgement ... ok
+test executor::runtime_tests::quota_after_rows_has_failure_terminal_and_preserves_real_compute_axis ... ok
+test executor::runtime_tests::receipt_cannot_confirm_another_query ... ok
+test executor::runtime_tests::runtime_budget_rejects_different_session_or_worker_ancestry ... ok
+test executor::runtime_tests::runtime_owner_and_prepared_binding_are_verified_before_execution_claim ... ok
+test executor::runtime_tests::trusted_callback_cannot_complete_a_query_bound_unread_queue ... ok
+test executor::runtime_tests::worker_loss_and_cancel_before_final_receipt_are_not_success ... ok
+test executor::runtime_tests::wrong_terminal_binding_does_not_poison_or_claim_the_original_queue ... ok
+test executor::runtime_tests::zero_deadline_and_unconsumed_cursor_do_not_become_empty_success ... ok
+test executor::tests::empty_right_join_keeps_schema_and_empty_grouped_aggregate_has_no_row ... ok
+test executor::tests::exact_cell_codec_preserves_large_integers_bytes_and_surrogates ... ok
+test executor::tests::independent_small_table_oracle_both_execution_paths ... ok
+test executor::tests::native_facts_duplicate_occurrences_and_bound_raw_code ... ok
+test executor::tests::native_utf16_like_escape_matches_hand_and_independent_python_oracles ... ok
+test executor::tests::prepared_source_generation_cancel_and_budget_are_real_failures ... ok
+test executor::tests::present_empty_body_is_distinct_from_no_body_and_invalid_entity_is_not_empty_success ... ok
+
+test result: ok. 39 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s
+
+
+running 11 tests
+test cancellation::tests::computed_spool_and_abandoned_cursor_never_become_delivery_success ... ok
+test cancellation::tests::native_query_cancel_and_explicit_dataset_profile_have_distinct_ownership ... ok
+test tests::abandoned_cursors_cannot_be_released_into_delivery_success ... ok
+test tests::buffered_output_must_be_released_before_delivery_completion ... ok
+test tests::computation_delivery_and_catalog_generations_remain_distinct ... ok
+test tests::concurrent_close_and_computation_never_reopen_a_cancelled_query ... ok
+test tests::deadlines_cover_queue_time_and_zero_is_not_unlimited ... ok
+test tests::handles_reject_wrong_owner_parent_generation_and_released_identity ... ok
+test tests::shared_budget_reservations_and_releases_are_enforced_across_sessions ... ok
+test tests::snapshot_close_and_release_preserve_existing_owned_leases ... ok
+test tests::worker_loss_fails_every_unfinished_request_but_keeps_completed_terminal ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 2 tests
+test crates\mdd-query\src\executor.rs - executor::PreparedQuery (line 182) - compile fail ... ok
+test crates\mdd-query\src\executor.rs - executor::QueryOutput (line 571) - compile fail ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.37s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
