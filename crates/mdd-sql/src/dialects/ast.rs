@@ -959,7 +959,7 @@ impl Rewrite<'_> {
                 *expr = if *negated {
                     Expr::UnaryOp {
                         op: UnaryOperator::Not,
-                        expr: Box::new(both),
+                        expr: Box::new(Expr::Nested(Box::new(both))),
                     }
                 } else {
                     both

@@ -1,0 +1,2 @@
+   Compiling mdd-hex-independent v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-031-audit\hex-independent-20261029)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.96s

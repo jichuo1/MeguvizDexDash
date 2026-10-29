@@ -11,7 +11,7 @@ use rusqlite::{
     functions::{Aggregate, Context, FunctionFlags},
     types::Value as Cell,
 };
-use std::cmp::Ordering;
+use std::{borrow::Cow, cmp::Ordering};
 
 fn integer(value: &SqlValue) -> MddResult<i128> {
     match value {
@@ -46,7 +46,7 @@ fn scalar_text(value: &SqlValue) -> MddResult<SqlText> {
         _ => return Err(invalid("TEXT_CONVERSION_TYPE")),
     })
 }
-fn encoded_text(text: &SqlText, dialect: SqlDialect) -> Vec<u8> {
+fn encoded_text(text: &SqlText, dialect: SqlDialect, control: &SqlControl) -> MddResult<Vec<u8>> {
     fn emit(code: u32, out: &mut Vec<u8>) {
         if code < 0x80 {
             out.push(code as u8);
@@ -70,6 +70,7 @@ fn encoded_text(text: &SqlText, dialect: SqlDialect) -> Vec<u8> {
     let mut out = Vec::new();
     let mut at = 0;
     while at < text.utf16.len() {
+        control.checkpoint(1, false)?;
         let value = text.utf16[at];
         if dialect != SqlDialect::NativeV1 && value == 0 {
             out.extend([0xc0, 0x80]);
@@ -80,6 +81,7 @@ fn encoded_text(text: &SqlText, dialect: SqlDialect) -> Vec<u8> {
                 .get(at + 1)
                 .is_some_and(|v| (0xdc00..=0xdfff).contains(v))
         {
+            control.checkpoint(1, false)?;
             let low = text.utf16[at + 1];
             emit(
                 0x10000 + ((u32::from(value) - 0xd800) << 10) + (u32::from(low) - 0xdc00),
@@ -91,7 +93,7 @@ fn encoded_text(text: &SqlText, dialect: SqlDialect) -> Vec<u8> {
         }
         at += 1;
     }
-    out
+    Ok(out)
 }
 fn decoded_text(bytes: &[u8], dialect: SqlDialect) -> MddResult<SqlText> {
     let mut units = Vec::new();
@@ -442,7 +444,7 @@ fn cast(
         "bytes" => match value {
             SqlValue::Bytes(_) => value,
             SqlValue::DexMutf8 { bytes, .. } => SqlValue::Bytes(bytes),
-            value => SqlValue::Bytes(encoded_text(&scalar_text(&value)?, dialect)),
+            value => SqlValue::Bytes(encoded_text(&scalar_text(&value)?, dialect, control)?),
         },
         "i64" => {
             let value = if let SqlValue::Text(text) = &value {
@@ -637,17 +639,30 @@ fn scalar(
 ) -> MddResult<SqlValue> {
     control.checkpoint(1, false)?;
     if name == "mdd_hex" {
-        let bytes = match &args[0] {
-            SqlValue::Null => Vec::new(),
-            SqlValue::Bytes(bytes) | SqlValue::DexMutf8 { bytes, .. } => bytes.clone(),
-            value => encoded_text(&scalar_text(value)?, dialect),
+        let bytes: Cow<'_, [u8]> = match &args[0] {
+            SqlValue::Null => Cow::Borrowed(&[]),
+            SqlValue::Bytes(bytes) | SqlValue::DexMutf8 { bytes, .. } => Cow::Borrowed(bytes),
+            value => Cow::Owned(encoded_text(&scalar_text(value)?, dialect, control)?),
         };
         if bytes.len() as u64 > control.inner.limits.max_cell_bytes / 4 {
             return Err(quota("HEX_RESULT_CELL_BYTES"));
         }
-        return Ok(SqlValue::text(
-            &bytes.iter().map(|b| format!("{b:02X}")).collect::<String>(),
-        ));
+        let capacity = bytes
+            .len()
+            .checked_mul(2)
+            .ok_or_else(|| control.fail(quota("HEX_RESULT_CAPACITY_OVERFLOW")))?;
+        let mut output = String::new();
+        output
+            .try_reserve_exact(capacity)
+            .map_err(|_| control.fail(quota("HEX_RESULT_ALLOCATION")))?;
+        const DIGITS: &[u8; 16] = b"0123456789ABCDEF";
+        for &byte in bytes.iter() {
+            control.checkpoint(1, false)?;
+            output.push(char::from(DIGITS[usize::from(byte >> 4)]));
+            output.push(char::from(DIGITS[usize::from(byte & 0x0f)]));
+        }
+        // The result and argument buffers are not covered by a workspace lease.
+        return Ok(SqlValue::text(&output));
     }
     if name == "mdd_key" || name == "mdd_sort_key" {
         if args[0] == SqlValue::Null {

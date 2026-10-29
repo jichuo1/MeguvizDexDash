@@ -772,6 +772,89 @@ mod tests {
         (provider, bridge)
     }
     #[test]
+    fn not_between_keeps_both_comparisons_inside_not() {
+        let (provider, _) = bridge();
+        for dialect in [
+            SqlDialect::NativeV1,
+            SqlDialect::DexSql010,
+            SqlDialect::DexSql011,
+        ] {
+            let bridge = SqlBridge::new(provider.clone(), dialect, SqlLimits::default()).unwrap();
+            let prepared = bridge
+                .prepare("SELECT id FROM facts WHERE id NOT BETWEEN 1 AND 2 ORDER BY id")
+                .unwrap();
+            let result = prepared
+                .execute(SqlControl::new(SqlLimits::default(), None))
+                .unwrap();
+            assert_eq!(
+                result.rows(),
+                &[vec![SqlValue::U64(DecimalU64(3))]],
+                "{dialect:?}: {}",
+                prepared.adapted_sql
+            );
+        }
+    }
+
+    #[test]
+    fn not_between_preserves_null_boundaries_and_duplicate_rows() {
+        use mdd_query::ir::Signed64;
+        let provider = Arc::new(RowsProvider {
+            binding: SqlBinding {
+                provider_identity: "not-between-boundaries".into(),
+                snapshot_id: "not-between-snapshot".into(),
+                catalog_epoch: DecimalU64(0),
+            },
+            rows: [None, Some(-1), Some(0), Some(1), Some(8), Some(9), Some(9)]
+                .into_iter()
+                .map(|value| vec![value.map_or(SqlValue::Null, |n| SqlValue::I64(Signed64(n)))])
+                .collect(),
+            columns: vec![SqlColumn {
+                id: "id".into(),
+                name: "id".into(),
+                data_type: SqlType::I64,
+                nullable: true,
+            }],
+        });
+        for dialect in [
+            SqlDialect::NativeV1,
+            SqlDialect::DexSql010,
+            SqlDialect::DexSql011,
+        ] {
+            let bridge = SqlBridge::new(provider.clone(), dialect, SqlLimits::default()).unwrap();
+            let result = bridge
+                .query("SELECT id FROM vals WHERE id NOT BETWEEN 0 AND 8 ORDER BY id")
+                .unwrap();
+            assert_eq!(
+                result.rows(),
+                &[
+                    vec![SqlValue::I64(Signed64(-1))],
+                    vec![SqlValue::I64(Signed64(9))],
+                    vec![SqlValue::I64(Signed64(9))],
+                ],
+                "{dialect:?}"
+            );
+            let result = bridge.query("SELECT 3 NOT BETWEEN NULL AND 2,1 NOT BETWEEN NULL AND 2,0 NOT BETWEEN 1 AND NULL,1 NOT BETWEEN 0 AND NULL,NULL NOT BETWEEN 0 AND 2,1 NOT BETWEEN 1 AND 2,3 NOT BETWEEN 1 AND 2").unwrap();
+            assert_eq!(
+                result.rows()[0],
+                vec![
+                    SqlValue::I64(Signed64(1)),
+                    SqlValue::Null,
+                    SqlValue::I64(Signed64(1)),
+                    SqlValue::Null,
+                    SqlValue::Null,
+                    SqlValue::I64(Signed64(0)),
+                    SqlValue::I64(Signed64(1)),
+                ],
+                "{dialect:?}"
+            );
+            let error = bridge
+                .query("SELECT missing NOT BETWEEN 0 AND 8 FROM vals")
+                .unwrap_err();
+            assert_eq!(error.code, ErrorCode::InvalidArgument, "{dialect:?}");
+        }
+    }
+
+    #[test]
     fn min_max_multi_argument_scalar_does_not_become_aggregate() {
         let (_, bridge) = bridge();
         let value = bridge

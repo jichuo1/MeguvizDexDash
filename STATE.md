@@ -4,7 +4,7 @@
 
 ## Checkout 与交付
 
-工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 500960d 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 f559b16 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
 
 大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
@@ -90,6 +90,8 @@ v6总表 artifacts/mdd-026/column-ledger-v6/20261029T020323493739Z/column-ledger
 
 v7总表 artifacts/mdd-026/column-ledger-v7/20261029T021940078907Z/column-ledger.json 增量关联非空partial引用与兄弟来源覆盖证据；独立追加重算及11项篡改负例通过，关联39列仅证明所列引用层边界，不代表字段值完整验收。原分母17关系156列、69个未装配兼容投影及所有字段完整资格false保持不变，MDD-026和profile仍未完成。
 
+v8总表 artifacts/mdd-026/column-ledger-v8/20261029T044457978884Z/column-ledger.json 追加合成资源物理成员及覆盖证据，独立重算和9项篡改负例通过；资源切片独立于DEX字段，156列完整资格、MDD-026及profile仍为false。
+
 MDD-034 已根验收 done，范围是预算、取消和终态机制：Windows 本机 27 query、10 session、7 types 及2 compile-fail 测试通过，相关包严格 Clippy 通过；SQLite 双连接中断和独立子进程 deadline 探针通过。结果及源码身份见 artifacts/mdd-034/budget-and-terminal-states.json。生产 worker、MCP、FFI 和当前源码的 Linux CI 尚未验证；进程树隔离未由该探针证明。
 
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
@@ -115,6 +117,10 @@ Q08使用的lower及对应upper现逐UTF-16单元计步骤并检查取消，真�
 `substr` 文本偏移表在分配前按 UTF-16 单元数量预留逻辑工作区并逐单元计步，配额失败和取消后释放；Windows工作区189项测试、严格Clippy通过，独立真实会话36例及固定A0/A1各5个已有参考对照通过，见 artifacts/mdd-031-audit/substring-independent-20261029/verify-run/record.json。SQLite截取含NUL文本返回空串，旧版与候选旧方言保留NUL及后续字符；Native按UTF-16单元、旧方言按有效代理对截取。旧版NULL DTO仍不同，参数/结果副本、SQLite、分配器实际容量、RSS和传输未由此额度覆盖；旧版其余3项已有样本未在该轮比较。
 
 旧方言 `length` 对UTF-16的实际扫描现逐单元计步并检查取消；Native直接长度仍为常数时间。冻结源码的Windows工作区193项测试和严格Clippy通过，独立真实会话33例回读见 artifacts/mdd-031-audit/length-independent-20261029/verify-run/record.json。既有A0对补充字符和含NUL样本分别为1和3，SQLite为1和1，Native对补充字符按两个UTF-16单元计数；A1参考本轮未运行。额度仅为逻辑步骤，不覆盖参数副本、SQLite内存、分配器、RSS或传输。
+
+HEX的字节输出和共享文本转字节扫描现计步骤并检查取消；独立真实会话45例保留 SQLite UTF-8 与 A0/A1 已存 MUTF-8 的不同字节，见 artifacts/mdd-031-audit/hex-independent-final-20261029/verify-run/record.json。前次因源码漂移导致独立回读失败的记录保留；参数和输出缓冲、SQLite、分配器及RSS/传输未由此计步覆盖。
+
+Q09的NOT BETWEEN因生成SQL缺少括号而静默漏行，现使用显式嵌套修复；同一合成provider由空行恢复为SQLite的9、12。独立三方言27例中21项与SQLite一致、6项混合类型亲和性明确未支持，见 artifacts/mdd-031-audit/between-independent-20261029/after-readback/record.json；未重新运行A0/A1。最终源码Windows工作区200项测试、严格Clippy通过，完整SQL profile仍未准入。
 
 旧版 NULL 单元包含 `value: null`，当前原生 SQL 单元仅含 `type: null`，固定 HostLab 消费者会读取 `value`；适配层必须明确补齐并验证。字面 CAST 的非负结果与DEX列 CAST 的类型不同，不能仅按数值正负推断旧类型。扩展旧版类型采样两次在打开样本时超时，未执行查询；错误保留于 artifacts/mdd-031-audit/dto-type-observations/，不能由此推断规则。
 

@@ -1,0 +1,9 @@
+
+running 4 tests
+test runtime_tests::hex_cancelled_after_scan_starts_stays_failed ... ok
+test runtime_tests::hex_long_bytes_respects_session_step_budget ... ok
+test runtime_tests::hex_long_text_respects_session_step_budget ... ok
+test runtime_tests::hex_preserves_null_bytes_nul_and_surrogate_encoding ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 47 filtered out; finished in 1.28s
+

@@ -54,6 +54,181 @@ fn setup_with_dialect(dialect: SqlDialect) -> (Lifecycle, SessionHandle, Session
 }
 
 #[test]
+fn hex_long_text_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters("SELECT hex(?) AS h", &[SqlValue::text(&"A".repeat(50_000))])
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QuerySteps, 64),
+        );
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}");
+        assert!(!token.status().unwrap().execution_complete);
+    }
+}
+
+#[test]
+fn hex_long_bytes_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters("SELECT hex(?) AS h", &[SqlValue::Bytes(vec![0x41; 50_000])])
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QuerySteps, 64),
+        );
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}");
+        assert!(!token.status().unwrap().execution_complete);
+    }
+}
+
+#[test]
+fn cast_text_to_blob_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT CAST(? AS BLOB) AS b",
+                &[SqlValue::text(&"A".repeat(50_000))],
+            )
+            .unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QuerySteps, 64),
+        );
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}");
+        assert!(!token.status().unwrap().execution_complete);
+    }
+}
+
+#[test]
+fn hex_preserves_null_bytes_nul_and_surrogate_encoding() {
+    use crate::values::{SqlText, SqlValue};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (_, _, _, bridge) = setup_with_dialect(dialect);
+        let value = SqlValue::Text(SqlText {
+            utf16: vec![0xd800, 0, 0xd83d, 0xde00],
+            original_mutf8: None,
+        });
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT hex(NULL),hex(?),hex(?)",
+                &[SqlValue::Bytes(vec![0, 0xff]), value],
+            )
+            .unwrap();
+        let result = prepared
+            .execute(SqlControl::new(SqlLimits::default(), None))
+            .unwrap();
+        let encoded = if dialect == SqlDialect::NativeV1 {
+            "EDA08000F09F9880"
+        } else {
+            "EDA080C080EDA0BDEDB880"
+        };
+        assert_eq!(
+            result.rows()[0],
+            vec![
+                SqlValue::text(""),
+                SqlValue::text("00FF"),
+                SqlValue::text(encoded)
+            ],
+            "{dialect:?}"
+        );
+    }
+}
+
+#[test]
+fn hex_cancelled_after_scan_starts_stays_failed() {
+    use crate::values::SqlValue;
+    use std::time::{Duration, Instant};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        for (kind, value) in [
+            ("bytes", SqlValue::Bytes(vec![0x41; 200_000])),
+            ("text", SqlValue::text(&"A".repeat(200_000))),
+        ] {
+            let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+            let prepared = bridge
+                .prepare_with_parameters("SELECT hex(?) AS h", &[value])
+                .unwrap();
+            let (runtime, token) =
+                runtime(&lifecycle, &session, &prepared, BudgetLimits::default());
+            let pool = runtime.pool().clone();
+            let bound = prepared.bind_runtime(&runtime).unwrap();
+            let handle = std::thread::spawn(move || {
+                bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            });
+            let deadline = Instant::now() + Duration::from_secs(10);
+            loop {
+                let steps = pool
+                    .usage()
+                    .unwrap()
+                    .used
+                    .get(&Resource::QuerySteps)
+                    .map_or(0, |value| value.0);
+                if steps > 5_000 {
+                    break;
+                }
+                if handle.is_finished() || Instant::now() >= deadline {
+                    let _ = token.cancel();
+                    let _ = handle.join();
+                    panic!("HEX scan was not observed before completion: {dialect:?} {kind}");
+                }
+                std::thread::yield_now();
+            }
+            token.cancel().unwrap();
+            assert_eq!(
+                handle.join().unwrap().unwrap_err().code,
+                ErrorCode::Cancelled
+            );
+            assert!(!token.status().unwrap().execution_complete);
+        }
+    }
+}
+
+#[test]
 fn length_legacy_scan_respects_session_step_budget() {
     use crate::values::SqlValue;
     for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {

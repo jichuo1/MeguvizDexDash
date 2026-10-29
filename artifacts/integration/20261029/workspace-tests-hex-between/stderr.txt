@@ -1,0 +1,20 @@
+   Compiling mdd-cli v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-cli)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.02s
+     Running unittests src\main.rs (target\debug\deps\mdd_build_probe-0e449183d36c2b77.exe)
+     Running unittests src\main.rs (target\debug\deps\meguvizdexdash-3590111200da07a9.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_dex-9a3bd310c7bdcff1.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_facts-f5fcaccb54dddfd1.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_input-0a1c288e488331b6.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_query-82579f4092cfd058.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_session-34588e5d55bf44f1.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_sql-46977fcd4387e316.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_types-22644c537d602cc8.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_worker-25526dc00653ff5e.exe)
+   Doc-tests mdd_dex
+   Doc-tests mdd_facts
+   Doc-tests mdd_input
+   Doc-tests mdd_query
+   Doc-tests mdd_session
+   Doc-tests mdd_sql
+   Doc-tests mdd_types
+   Doc-tests mdd_worker

@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\hex-independent-20261029\\Cargo.toml"
+  ],
+  "started_utc": "2026-10-29T04:50:27.201191+00:00",
+  "finished_utc": "2026-10-29T04:52:49.658294+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "0f7526683ad378cd4b6447a647f52f6b57ba02b93a9b9954bcd0a5ffe73a64d3",
+  "supervisor_sha256": "878d52a08314e3f7d1bb8d818b0365390bb5a21cd048d2e167f278802aca7299",
+  "scope": "independent synthetic validation; not performance qualification"
+}

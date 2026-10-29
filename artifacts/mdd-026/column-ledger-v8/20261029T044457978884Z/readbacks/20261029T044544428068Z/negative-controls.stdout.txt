@@ -1,0 +1,1 @@
+9 resource-scope evidence mutations rejected; no task gate issued
