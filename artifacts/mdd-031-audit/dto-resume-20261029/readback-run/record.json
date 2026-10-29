@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/dto-resume-20261029/readback.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T00:46:13.929425+00:00",
+  "finished_utc": "2026-10-29T00:46:14.435719+00:00",
+  "elapsed_seconds": 0.5150000000001,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 243,
+    "sha256": "95c94610d2ea9541cc47f1a6a4eb3ab90f815c3e2a80572ab6e03ea0aa005eee"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--workspace"
+  ],
+  "cwd": "/home/runner/work/MeguvizDexDash/MeguvizDexDash",
+  "started_utc": "2026-10-28T17:54:21.324851+00:00",
+  "finished_utc": "2026-10-28T17:55:15.461063+00:00",
+  "elapsed_seconds": 54.13621319399999,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 17656,
+    "sha256": "eeba67531868ccc54ef943079d7139401e28e72a62e8bacef3c23f5679704949"
+  },
+  "stderr": {
+    "bytes": 3154,
+    "sha256": "19182863e6a9e4b91176661e76a17c7dc7c25a2c43afd3c4f4108f11ec9dd8f8"
+  }
+}

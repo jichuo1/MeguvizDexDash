@@ -1,0 +1,11 @@
+    Checking mdd-types v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-types)
+   Compiling mdd-cli v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-cli)
+    Checking mdd-build-probe v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\tools\build-probe)
+    Checking mdd-input v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-input)
+    Checking mdd-dex v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-dex)
+    Checking mdd-session v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-session)
+    Checking mdd-worker v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-worker)
+    Checking mdd-facts v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-facts)
+    Checking mdd-query v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-query)
+    Checking mdd-sql v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-sql)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 12.89s

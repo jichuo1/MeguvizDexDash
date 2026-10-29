@@ -1,0 +1,85 @@
+{
+  "schema_version": "mdd.ci-readback.v1",
+  "head": "a8fb9a6e6c9347ef3334f39032fe5c58188e7747",
+  "native_run": 40739878613,
+  "native_conclusion": "success",
+  "asan_run": 40739878585,
+  "asan_conclusion": "success",
+  "asan_scope": "workflow success; raw execution counts not read back for this run",
+  "captured_utc": "2026-10-29T00:43:56.831088+00:00",
+  "records": [
+    {
+      "platform": "conformance-ubuntu-latest",
+      "command": "build",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-ubuntu-latest/ci/build/record.json",
+      "record_sha256": "83bd63c96494b64d44e91be65b639b3afc51282e911d02768c5acda61aabd9f4",
+      "exit_code": 0
+    },
+    {
+      "platform": "conformance-ubuntu-latest",
+      "command": "check",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-ubuntu-latest/ci/check/record.json",
+      "record_sha256": "f781c9d168acc272a518b93c568e4ea261c126c2f6824b092ea92f7a482f9f67",
+      "exit_code": 0
+    },
+    {
+      "platform": "conformance-ubuntu-latest",
+      "command": "clippy",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-ubuntu-latest/ci/clippy/record.json",
+      "record_sha256": "698e5f46a0c5a96362baa2b838544964ff5e76b7bd50540bf4dc99dd506eabb9",
+      "exit_code": 0
+    },
+    {
+      "platform": "conformance-ubuntu-latest",
+      "command": "probe",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-ubuntu-latest/ci/probe/record.json",
+      "record_sha256": "ebaf375e674309dbf3618507800e8b5aede6ec0c90713948099058fec128b810",
+      "exit_code": 0
+    },
+    {
+      "platform": "conformance-ubuntu-latest",
+      "command": "test",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-ubuntu-latest/ci/test/record.json",
+      "record_sha256": "ae7eed45633717629d08f63c9022b48ef29b89e62591591991d4b32c5fd3e8c6",
+      "exit_code": 0,
+      "passed_tests": 170
+    },
+    {
+      "platform": "conformance-windows-latest",
+      "command": "build",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-windows-latest/ci/build/record.json",
+      "record_sha256": "b7d5e7cd7346bbc2ceed64d802e52e4a5e6dce3cbf171607f44c19aa873ee85d",
+      "exit_code": 0
+    },
+    {
+      "platform": "conformance-windows-latest",
+      "command": "check",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-windows-latest/ci/check/record.json",
+      "record_sha256": "9c06cfb9fb99fd23e279e94c9f4300202a4ff139d4e8999c316a216dba67a559",
+      "exit_code": 0
+    },
+    {
+      "platform": "conformance-windows-latest",
+      "command": "clippy",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-windows-latest/ci/clippy/record.json",
+      "record_sha256": "416121ff136d3fa629f4bac011b08eb77e5e4efc239953a5e06d9a510f32835f",
+      "exit_code": 0
+    },
+    {
+      "platform": "conformance-windows-latest",
+      "command": "probe",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-windows-latest/ci/probe/record.json",
+      "record_sha256": "f1403c92f383cbd5b1159336551103d4975244b819cf2e47c5fd0399711ebfb8",
+      "exit_code": 0
+    },
+    {
+      "platform": "conformance-windows-latest",
+      "command": "test",
+      "record_path": "artifacts/integration/20261029/ci-a8fb9a6/conformance-windows-latest/ci/test/record.json",
+      "record_sha256": "39a74f094f19bca5ed91e853ea51415ac632ef561b2a4b49639be7d5ec24b5c2",
+      "exit_code": 0,
+      "passed_tests": 170
+    }
+  ],
+  "product_profiles_admitted": false
+}

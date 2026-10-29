@@ -1,0 +1,28 @@
+{
+  "schema_version": "mdd.mixed-reference-fixtures.v1",
+  "source_generator_sha256": "bb5cb523306020b3ca3f36d93cc5aaab88eca1097bb38008e045a70b776b6d94",
+  "scenario": [
+    "classic",
+    "shared",
+    "classic"
+  ],
+  "files": [
+    {
+      "id": "classic",
+      "path": "generated/classic.dex",
+      "sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+      "bytes": 660,
+      "source_recipe": "classic-035",
+      "target_method_index": 2
+    },
+    {
+      "id": "shared",
+      "path": "generated/shared.dex",
+      "sha256": "22eb2d4020f172334a99f5c75538af5f2b3e80673adb11803b368cc68aaec0ab",
+      "bytes": 692,
+      "source_recipe": "shared-code-035",
+      "target_method_index": 3
+    }
+  ],
+  "scope": "previous independently generated DEX recipes in a new mixed and repeated source scope; no ART/device claim"
+}

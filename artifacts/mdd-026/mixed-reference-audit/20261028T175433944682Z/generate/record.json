@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/mixed_reference_boundary/generate.py"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "40fa5557d45540930e6046e24f51e676d7dccd69ebfb85a1aad415759df88919",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

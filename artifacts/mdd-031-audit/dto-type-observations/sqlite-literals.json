@@ -1,0 +1,148 @@
+{
+  "sqlite_version": "3.53.1",
+  "driver_sha256": "6cde3680f959c324cbd30a1c3a56d4d8ee8cec7faf3f90a43f8b4d222b0d065c",
+  "records": [
+    {
+      "id": "integers",
+      "sql": "SELECT 0 AS zero,1 AS one,-1 AS negative,9223372036854775807 AS signed_max,9223372036854775808 AS above_signed,NULL AS nothing",
+      "status": "error",
+      "error": "OperationalError",
+      "message": "near \"nothing\": syntax error"
+    },
+    {
+      "id": "cast",
+      "sql": "SELECT CAST('12' AS INTEGER) AS positive,CAST('-12' AS INTEGER) AS negative,CAST('bad' AS INTEGER) AS invalid,CAST(NULL AS INTEGER) AS nothing,CAST(12 AS INTEGER) AS numeric",
+      "status": "error",
+      "error": "OperationalError",
+      "message": "near \"nothing\": syntax error"
+    },
+    {
+      "id": "arithmetic",
+      "sql": "SELECT 1+2 AS plus,1-2 AS minus,0+0 AS zero,1*2 AS product,1/2 AS quotient",
+      "status": "ok",
+      "columns": [
+        "plus",
+        "minus",
+        "zero",
+        "product",
+        "quotient"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "3"
+          },
+          {
+            "type": "integer",
+            "value": "-1"
+          },
+          {
+            "type": "integer",
+            "value": "0"
+          },
+          {
+            "type": "integer",
+            "value": "2"
+          },
+          {
+            "type": "integer",
+            "value": "0"
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer",
+          "integer",
+          "integer",
+          "integer"
+        ]
+      ]
+    },
+    {
+      "id": "case",
+      "sql": "SELECT CASE WHEN 1 THEN 1 ELSE -1 END AS positive,CASE WHEN 0 THEN 1 ELSE -1 END AS negative,CASE WHEN 1 THEN NULL ELSE 1 END AS nothing",
+      "status": "error",
+      "error": "OperationalError",
+      "message": "near \"nothing\": syntax error"
+    },
+    {
+      "id": "comparison",
+      "sql": "SELECT 1=1 AS yes,1=2 AS no,NULL=1 AS unknown",
+      "status": "ok",
+      "columns": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "0"
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer",
+          "null"
+        ]
+      ]
+    },
+    {
+      "id": "cte",
+      "sql": "WITH x AS (SELECT 1 AS n UNION ALL SELECT -1 AS n) SELECT n,n+0 AS plus_zero FROM x ORDER BY n",
+      "status": "ok",
+      "columns": [
+        "n",
+        "plus_zero"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "-1"
+          },
+          {
+            "type": "integer",
+            "value": "-1"
+          }
+        ],
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "1"
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer"
+        ],
+        [
+          "integer",
+          "integer"
+        ]
+      ]
+    }
+  ],
+  "scope": "literal expressions and CTE; no A0/A1 or DEX result typing claim",
+  "profiles_admitted": false
+}

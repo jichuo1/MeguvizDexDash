@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\mixed-reference-audit\\20261029T004516063510Z\\mixed_reference_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\mixed_reference_boundary\\generated\\classic.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\mixed_reference_boundary\\generated\\shared.dex",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\mixed_reference_boundary\\generated\\classic.dex"
+  ],
+  "started_utc": "2026-10-29T00:45:19.623691+00:00",
+  "finished_utc": "2026-10-29T00:45:20.604569+00:00",
+  "elapsed_seconds": 0.984000000000151,
+  "exit_code": 0,
+  "stdout_sha256": "c979fa02d5e317c2f3ef85eda02abff531366474034f0954279894dbc639f566",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}
