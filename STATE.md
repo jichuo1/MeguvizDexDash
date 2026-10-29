@@ -4,7 +4,7 @@
 
 ## Checkout 与交付
 
-工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 f559b16 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
+工程目录 D:\MeguvisDexDash（保留目录原拼写）。私有远端 https://github.com/jichuo1/MeguvizDexDash；当前审查分支 codex/m2-facts-20261028，草稿 PR #1。main 当前 abdcdf4；检查点 f134aa6 的 Windows/Linux 原生 CI 和有限 Linux ASan/fuzz 均通过。此前 a8fb9a6 两平台各170项测试及10条实际命令原始记录已核验，见 artifacts/integration/20261029/ci-a8fb9a6.json。更晚的工作区变更须另行验证。
 
 大范围 push main 曾被自动审批以缺少本次默认分支推送明确授权为由拒绝；后续采用独立分支和草稿 PR。没有合并、默认后端切换、部署或正式发布。
 
@@ -76,6 +76,8 @@ MDD-026 已重新打开：独立复核发现资格脚本对17关系156列主要�
 
 合成资源身份验证：同一APK两次输入中保留6个物理资源出现，包括同名不同字节成员；捕获后源文件改写不改变快照读取。缺成员时facts为unknown，完整子来源不宣称覆盖全部输入，外源注册返回INVALID_ARGUMENT。证据 artifacts/mdd-026/resource-scope-audit/20261029T043749212277Z/result.json，仅覆盖合成资源身份与coverage。
 
+同一路径合成APK真实改写前后分别捕获两代快照，独立ZIP字节oracle核对6个物理资源出现：旧代保留旧字节，新代读取新字节；跨代登记返回INVALID_ARGUMENT且缺失覆盖仍unknown，本代登记后才complete。证据 artifacts/mdd-026/resource-generation-audit/20261029T050623250919Z/result.json，仅覆盖资源事实，不证明SQL/Smali/分页跨代绑定。
+
 逐列总表 artifacts/mdd-026/column-ledger/20261028T170548736531Z/column-ledger.json 固定17关系156列，逐项列出已有证据与剩余边界；追加式独立重算和4项负例通过，但所有列的完整资格均为false，不据汇总签发MDD-026或产品profile。
 
 v2总表 artifacts/mdd-026/column-ledger-v2/20261028T171808763956Z/column-ledger.json 增量关联方法持有 try/handler 的12列证据，并保留损坏输入在A0与原生之间的真实差异；追加式回读和负例通过，全部字段完整资格仍为false。
@@ -121,6 +123,10 @@ Q08使用的lower及对应upper现逐UTF-16单元计步骤并检查取消，真�
 HEX的字节输出和共享文本转字节扫描现计步骤并检查取消；独立真实会话45例保留 SQLite UTF-8 与 A0/A1 已存 MUTF-8 的不同字节，见 artifacts/mdd-031-audit/hex-independent-final-20261029/verify-run/record.json。前次因源码漂移导致独立回读失败的记录保留；参数和输出缓冲、SQLite、分配器及RSS/传输未由此计步覆盖。
 
 Q09的NOT BETWEEN因生成SQL缺少括号而静默漏行，现使用显式嵌套修复；同一合成provider由空行恢复为SQLite的9、12。独立三方言27例中21项与SQLite一致、6项混合类型亲和性明确未支持，见 artifacts/mdd-031-audit/between-independent-20261029/after-readback/record.json；未重新运行A0/A1。最终源码Windows工作区200项测试、严格Clippy通过，完整SQL profile仍未准入。
+
+DISTINCT/GROUP/ORDER文本或字节键构造现逐单元计步骤并检查取消，四个真实低步骤红例由错误完整成功改为QUOTA。冻结源码Windows工作区206项测试、严格Clippy通过；独立合成provider的三方言9个长键请求均返回QUOTA，见 artifacts/mdd-031-audit/hostlab-case-hex-independent-20261029/verify-run/record.json。键Vec、SQLite TRANSIENT及排序器副本、输入和RSS尚未受该步骤计量约束。
+
+固定HostLab CASE/HEX包装的合成对照发现：对旧方言输出的MUTF-8 NUL、代理对及孤立代理字节，现有CLI严格UTF-8解码步骤会抛UnicodeDecodeError；只直接复现了解码步骤，未运行完整HostLab。该适配边界、旧版NULL DTO和signed/unsigned差异仍阻断完整兼容。
 
 旧版 NULL 单元包含 `value: null`，当前原生 SQL 单元仅含 `type: null`，固定 HostLab 消费者会读取 `value`；适配层必须明确补齐并验证。字面 CAST 的非负结果与DEX列 CAST 的类型不同，不能仅按数值正负推断旧类型。扩展旧版类型采样两次在打开样本时超时，未执行查询；错误保留于 artifacts/mdd-031-audit/dto-type-observations/，不能由此推断规则。
 

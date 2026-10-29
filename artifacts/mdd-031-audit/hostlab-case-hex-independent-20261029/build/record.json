@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\hostlab-case-hex-independent-20261029\\Cargo.toml"
+  ],
+  "started_utc": "2026-10-29T05:10:04.262070+00:00",
+  "finished_utc": "2026-10-29T05:10:07.635601+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "7ae791446cb9b75f43f6ab3dd21b61b9aadc499708e5c6c681a5b2da5adbfef6",
+  "supervisor_sha256": "0f519bca6cda1d577945bc267819328d3b84f059775da578329c2cff3a56a9a4",
+  "scope": "independent synthetic validation; not performance qualification"
+}

@@ -189,16 +189,17 @@
     ],
     "all_profiles_admitted": false,
     "sql_probe": "artifacts/mdd-006/sql-bridge-probes.json",
-    "linux_native": "b29933d Windows/Linux native CI40692557253 passed; actual 10 command records exit0; current026/030 changes pending own CI",
+    "linux_native": "f134aa6 Windows/Linux native CI40821223289 and finite Linux ASan/fuzz CI40821223278 succeeded; later working-tree changes require their own CI; full profile not admitted",
     "format_qualification": "not granted",
     "metadata": "MDD-020/021/022/023 accepted within task scope, including physical item-start requalification; not full format/profile qualification",
     "raw_and_manifest": "MDD-025 required scope accepted, 55763 methods, 8540 class recipes, 792 resources, 76 Manifest vectors; artifacts/mdd-025/raw-evidence-conformance.json",
     "parser_safety": "10400 local mutations plus b29933d Linux ASan positive control and 2426570 actual libFuzzer executions; artifacts/conformance/parser-safety/ci-readback.json; full G1 not granted",
-    "private_baseline": "Exact two APK inputs verified; complete driver prepared; resource window denied below preregistered available RAM; full private run absent",
+    "private_baseline": "Two exact APKs have complete A0/A1 static consumer runs with all20 same-input groups equal and business exit1; A2, new-engine shadow and formal paired performance remain unqualified; artifacts/mdd-005/static-qualification-20261029.json",
     "private_header_inspection": "User-fixed 9161100/9170100:33/35 DEX037 header/inventory complete in bounded owned jobs; artifacts/integration/20261028/private-headers-20261028T130804307935Z.json; no complete facts/workflow/performance claim",
     "typed_query": "MDD030 e56db3e Windows/Linux CI40696463963 passed,108 workspace tests each; scoped typed IR only, no SQL/profile admission",
     "private_manifest": "Both authorized inputs full AAPT2 tree plus independent raw-attribute comparison passed:2115/2119 nodes,5275/5291 attrs; artifacts/integration/20261028/private-manifest-captured-conformance.json; initial failed deliveries retained",
     "fact_indexes_and_coverage": "MDD026 reopened after independent review: indexes and scoped coverage have recorded tests, but native atom declarations do not prove all 156 required columns; 69 compatibility projections remain gated. Historical scoped report: conformance/manifests/hostlab-fact-qualification.json; column evidence audit: artifacts/mdd-026/new-audit/column-evidence.json",
-    "existing_static_baselines": "Four complete fixed HostLab A0/A1 static qualifications on two authorized inputs, with all20 groups equal per input and business exit code 1 each; private raw outputs remain local. Not a performance trial or MeguvizDexDash replacement qualification: artifacts/mdd-005/static-qualification-20261029.json"
+    "existing_static_baselines": "Four complete fixed HostLab A0/A1 static qualifications on two authorized inputs, with all20 groups equal per input and business exit code 1 each; private raw outputs remain local. Not a performance trial or MeguvizDexDash replacement qualification: artifacts/mdd-005/static-qualification-20261029.json",
+    "legacy_case_hex_utf8": "Fixed HostLab CLI strict UTF-8 decoder rejects saved legacy MUTF-8 bytes for NUL, surrogate pair and isolated surrogate; direct decoder-step observation only, full HostLab integration not run. Adapter policy and all profiles remain unqualified: artifacts/mdd-031-audit/hostlab-case-hex-independent-20261029/verify-run/record.json"
   }
 }

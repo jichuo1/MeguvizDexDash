@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/resource_generation_boundary/readback.py",
+    "artifacts/mdd-026/resource-generation-audit/20261029T050623250919Z"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T05:06:55.146966+00:00",
+  "finished_utc": "2026-10-29T05:06:55.693301+00:00",
+  "elapsed_seconds": 0.5470000000022992,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 403,
+    "sha256": "0175bc320894c3e31bba80b1e85433f5be0927573864725d29bbe160081f2853"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

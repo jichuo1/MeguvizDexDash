@@ -53,6 +53,200 @@ fn setup_with_dialect(dialect: SqlDialect) -> (Lifecycle, SessionHandle, Session
     (lifecycle, a, b, bridge)
 }
 
+fn assert_key_scan_obeys_step_budget(sql: &str, values: Vec<crate::values::SqlValue>) {
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+        let prepared = bridge.prepare_with_parameters(sql, &values).unwrap();
+        let (runtime, token) = runtime(
+            &lifecycle,
+            &session,
+            &prepared,
+            BudgetLimits::default().with(Resource::QuerySteps, 64),
+        );
+        let bound = prepared.bind_runtime(&runtime).unwrap();
+        let error = bound
+            .execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::QuotaExceeded, "{dialect:?}: {sql}");
+        assert!(!token.status().unwrap().execution_complete);
+    }
+}
+
+#[test]
+fn key_distinct_long_text_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    assert_key_scan_obeys_step_budget(
+        "SELECT COUNT(*) FROM (SELECT DISTINCT ? AS v)",
+        vec![SqlValue::text(&"A".repeat(50_000))],
+    );
+}
+
+#[test]
+fn key_distinct_long_bytes_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    assert_key_scan_obeys_step_budget(
+        "SELECT COUNT(*) FROM (SELECT DISTINCT ? AS v)",
+        vec![SqlValue::Bytes(vec![0x41; 50_000])],
+    );
+}
+
+#[test]
+fn key_group_long_text_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    let value = SqlValue::text(&"A".repeat(50_000));
+    assert_key_scan_obeys_step_budget(
+        "SELECT COUNT(*) FROM (SELECT ? AS v GROUP BY ?)",
+        vec![value.clone(), value],
+    );
+}
+
+#[test]
+fn key_order_long_text_respects_session_step_budget() {
+    use crate::values::SqlValue;
+    let value = SqlValue::text(&"A".repeat(50_000));
+    assert_key_scan_obeys_step_budget(
+        "SELECT 1 FROM (SELECT ? AS v UNION ALL SELECT ? AS v ORDER BY v LIMIT 1)",
+        vec![value.clone(), value],
+    );
+}
+
+#[test]
+fn key_scan_preserves_null_numeric_utf16_bytes_and_duplicates() {
+    use crate::values::{SqlText, SqlValue};
+    use mdd_query::ir::Signed64;
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        let (_, _, _, bridge) = setup_with_dialect(dialect);
+        let lone = SqlValue::Text(SqlText {
+            utf16: vec![0xd800],
+            original_mutf8: None,
+        });
+        let query = "SELECT v FROM (SELECT ? AS v UNION ALL SELECT ? AS v UNION ALL SELECT ? AS v UNION ALL SELECT ? AS v) GROUP BY v ORDER BY v";
+        let prepared = bridge
+            .prepare_with_parameters(
+                query,
+                &[
+                    SqlValue::Null,
+                    lone.clone(),
+                    SqlValue::text("A"),
+                    SqlValue::text("A"),
+                ],
+            )
+            .unwrap();
+        let result = prepared
+            .execute(SqlControl::new(SqlLimits::default(), None))
+            .unwrap();
+        assert_eq!(
+            result.rows(),
+            &[vec![SqlValue::Null], vec![SqlValue::text("A")], vec![lone]],
+            "{dialect:?}"
+        );
+
+        let prepared = bridge
+            .prepare_with_parameters(
+                query,
+                &[
+                    SqlValue::Bytes(vec![0xff]),
+                    SqlValue::Bytes(vec![0]),
+                    SqlValue::Bytes(vec![0]),
+                    SqlValue::Null,
+                ],
+            )
+            .unwrap();
+        let result = prepared
+            .execute(SqlControl::new(SqlLimits::default(), None))
+            .unwrap();
+        assert_eq!(
+            result.rows(),
+            &[
+                vec![SqlValue::Null],
+                vec![SqlValue::Bytes(vec![0])],
+                vec![SqlValue::Bytes(vec![0xff])]
+            ],
+            "{dialect:?}"
+        );
+
+        let prepared = bridge
+            .prepare_with_parameters(
+                "SELECT COUNT(*) FROM (SELECT ? AS v UNION ALL SELECT ? AS v UNION ALL SELECT ? AS v) GROUP BY v",
+                &[SqlValue::I64(Signed64(1)), SqlValue::U64(DecimalU64(1)), SqlValue::F64(DecimalU64(1.0f64.to_bits()))],
+            )
+            .unwrap();
+        let result = prepared
+            .execute(SqlControl::new(SqlLimits::default(), None))
+            .unwrap();
+        assert_eq!(
+            result.rows(),
+            &[vec![SqlValue::I64(Signed64(3))]],
+            "{dialect:?}"
+        );
+        let error = bridge
+            .query("SELECT missing FROM native_strings ORDER BY missing")
+            .unwrap_err();
+        assert_eq!(error.code, ErrorCode::InvalidArgument, "{dialect:?}");
+    }
+}
+
+#[test]
+fn key_scan_cancelled_after_steps_stays_failed() {
+    use crate::values::SqlValue;
+    use std::time::{Duration, Instant};
+    for dialect in [
+        SqlDialect::NativeV1,
+        SqlDialect::DexSql010,
+        SqlDialect::DexSql011,
+    ] {
+        for (kind, value) in [
+            ("text", SqlValue::text(&"A".repeat(200_000))),
+            ("bytes", SqlValue::Bytes(vec![0x41; 200_000])),
+        ] {
+            let (lifecycle, session, _, bridge) = setup_with_dialect(dialect);
+            let prepared = bridge
+                .prepare_with_parameters("SELECT COUNT(*) FROM (SELECT DISTINCT ? AS v)", &[value])
+                .unwrap();
+            let (runtime, token) =
+                runtime(&lifecycle, &session, &prepared, BudgetLimits::default());
+            let pool = runtime.pool().clone();
+            let bound = prepared.bind_runtime(&runtime).unwrap();
+            let handle = std::thread::spawn(move || {
+                bound.execute(SqlControl::new(SqlLimits::default(), None).with_runtime(runtime))
+            });
+            let deadline = Instant::now() + Duration::from_secs(10);
+            loop {
+                let steps = pool
+                    .usage()
+                    .unwrap()
+                    .used
+                    .get(&Resource::QuerySteps)
+                    .map_or(0, |v| v.0);
+                if steps > 5_000 {
+                    break;
+                }
+                if handle.is_finished() || Instant::now() >= deadline {
+                    let _ = token.cancel();
+                    let _ = handle.join();
+                    panic!("key scan was not observed before completion: {dialect:?} {kind}");
+                }
+                std::thread::yield_now();
+            }
+            token.cancel().unwrap();
+            assert_eq!(
+                handle.join().unwrap().unwrap_err().code,
+                ErrorCode::Cancelled,
+                "{dialect:?} {kind}"
+            );
+            assert!(!token.status().unwrap().execution_complete);
+        }
+    }
+}
+
 #[test]
 fn hex_long_text_respects_session_step_budget() {
     use crate::values::SqlValue;

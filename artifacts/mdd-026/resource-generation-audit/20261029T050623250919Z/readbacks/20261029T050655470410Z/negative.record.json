@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/resource_generation_boundary/test_failures.py",
+    "artifacts/mdd-026/resource-generation-audit/20261029T050623250919Z"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "1564ed743ce969ce95a6087c8bdb66221d5baa4440c3884b1dba51ef6e277e2e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

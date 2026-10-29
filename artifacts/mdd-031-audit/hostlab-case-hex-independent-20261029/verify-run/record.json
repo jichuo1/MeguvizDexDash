@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/hostlab-case-hex-independent-20261029/verify.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T05:11:23.159865+00:00",
+  "finished_utc": "2026-10-29T05:11:23.332161+00:00",
+  "elapsed_seconds": 0.17199999999866122,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 2088,
+    "sha256": "53201a7f32159bd7ae79f08204f22cb7990e6863f83c7cca30459c93e44c028d"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

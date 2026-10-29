@@ -1,0 +1,1 @@
+{"sqlite_version": "3.53.1", "sql": "SELECT CASE WHEN val IS NULL THEN 'N' ELSE hex(CAST(val AS TEXT)) END AS val FROM (SELECT id,val FROM sample ORDER BY id) AS hostlab_rows", "columns": ["val"], "rows": [["N"], [""], ["616C706861"], ["410042"], ["F09F9880"], ["4E"]], "scope": "ordinary SQLite TEXT reference; no old engine or candidate", "profile_admitted": false}

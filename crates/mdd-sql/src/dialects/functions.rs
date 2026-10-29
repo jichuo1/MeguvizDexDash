@@ -217,7 +217,7 @@ fn compare_literal(left: &SqlValue, right: &SqlValue) -> MddResult<Ordering> {
         Ok(order)
     }
 }
-fn equality_key(value: &SqlValue) -> MddResult<Vec<u8>> {
+fn equality_key(value: &SqlValue, control: &SqlControl) -> MddResult<Vec<u8>> {
     // Canonical mathematical numeric keys: u64/i64 boundaries and exactly
     // represented float integers compare equally. IEEE payloads remain on the
     // value carrier; signed zero has one SQL equality/sort key.
@@ -226,12 +226,16 @@ fn equality_key(value: &SqlValue) -> MddResult<Vec<u8>> {
         SqlValue::Text(text) => {
             out.push(1);
             for unit in &text.utf16 {
+                control.checkpoint(1, false)?;
                 out.extend(unit.to_be_bytes());
             }
         }
         SqlValue::Bytes(bytes) | SqlValue::DexMutf8 { bytes, .. } => {
             out.push(2);
-            out.extend(bytes);
+            for byte in bytes {
+                control.checkpoint(1, false)?;
+                out.push(*byte);
+            }
         }
         value => {
             out.push(0);
@@ -668,7 +672,7 @@ fn scalar(
         if args[0] == SqlValue::Null {
             return Ok(SqlValue::Null);
         }
-        return Ok(SqlValue::Bytes(equality_key(&args[0])?));
+        return Ok(SqlValue::Bytes(equality_key(&args[0], control)?));
     }
     if name == "mdd_nullif" {
         if args[0] == SqlValue::Null {

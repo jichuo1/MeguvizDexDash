@@ -1,0 +1,13 @@
+{
+  "captured_utc": "2026-10-29T05:09:52.621723+00:00",
+  "sha256": {
+    "crates/mdd-sql/src/dialects/functions.rs": "065312c7c69e1d3a70e2a6ca8e80b5bf275a479c743befb1b92e3462c9e2b634",
+    "crates/mdd-sql/src/dialects/ast.rs": "ed72f8637f44d0ceb1982c4f54e7ada43a63ea9fdb652892fbfc22e4ac7cbb9e",
+    "crates/mdd-sql/src/bridge.rs": "da5f562c40fcea5dc34fe0a9626ea1e2ce7f921d19cbedb7b20750be42790fee",
+    "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "artifacts/mdd-031-audit/hostlab-case-hex-independent-20261029/src/main.rs": "1af965f173a17432f8466c180a36161ee5f2fd7e0d866ae73dc1244b7da967d3",
+    "artifacts/mdd-031-audit/hostlab-case-hex-independent-20261029/Cargo.lock": "8f3ecacd26fee5fe4bde82b1dabf69d0367c261597e8993fa271502b9d4c66f3",
+    "artifacts/mdd-031-audit/hostlab-case-hex-independent-20261029/run_bounded.py": "f8e2e043d0b4506cf41e95cab87a171574fe53d65ce910479d8607176daa7b63"
+  }
+}

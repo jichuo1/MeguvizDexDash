@@ -1,0 +1,11 @@
+
+running 6 tests
+test runtime_tests::key_distinct_long_bytes_respects_session_step_budget ... ok
+test runtime_tests::key_distinct_long_text_respects_session_step_budget ... ok
+test runtime_tests::key_group_long_text_respects_session_step_budget ... ok
+test runtime_tests::key_order_long_text_respects_session_step_budget ... ok
+test runtime_tests::key_scan_cancelled_after_steps_stays_failed ... ok
+test runtime_tests::key_scan_preserves_null_numeric_utf16_bytes_and_duplicates ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 53 filtered out; finished in 1.49s
+
