@@ -1,0 +1,10 @@
+{
+  "command": ".venv/Scripts/python.exe -O verify-probe4.py",
+  "started_utc": "2026-10-30T01:47:28.8578311+00:00",
+  "finished_utc": "2026-10-30T01:47:29.0649424+00:00",
+  "exit_code": 0,
+  "script_sha256": "3d6a903b8bd62ba17d3f04f50269003ec952f83090a78bfb9ab6c4d57ab359bb",
+  "stdout_sha256": "ec1f38ffd30618e21eed2ffcc88920ccc80f84b278b1a488a07f2f47c7298a5a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "independent synthetic queue; not release or performance qualification"
+}

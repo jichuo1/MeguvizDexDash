@@ -26343,6 +26343,121 @@
       "sha256": "2f93325d5703627c64bbcbeb75d2ce54f208c824da0eb2b84e33b17845022794"
     },
     {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/probe.rs",
+      "bytes": 5658,
+      "sha256": "9ec0948bca71736f7d4d2dc7f2bccfd60546aac7cd7b36a0324a0997e92d539c"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/run_bounded.py",
+      "bytes": 5709,
+      "sha256": "379c6a2031cee61e2643b30cf33b609b9294e8600aa8951c5937e3bed36ac8cb"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261029T070019624154Z/admission.json",
+      "bytes": 2440,
+      "sha256": "6ca6f3ed8e2ac7b5d2102859bbb0795c44d01a593dd34d04fecc7354dd9f9a8c"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261029T070019624154Z/build/stderr.txt",
+      "bytes": 72,
+      "sha256": "23fd7102a65add042d4711ff1f86a439459e776252e1ac206705d6d6de5c2b19"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261029T070019624154Z/build/stdout.txt",
+      "bytes": 38886,
+      "sha256": "61d7842ccd7823fb2aeb35071a06a40340e0f186bb30c8e573923df9e9d45db2"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261029T070019624154Z/build/supervisor.json",
+      "bytes": 993,
+      "sha256": "84019b31a684ea4ca6ddec766986b5e640fa63a4e2ac5367a0db19b806e0bfc2"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014747352478Z/admission.json",
+      "bytes": 4441,
+      "sha256": "a43497511f1d8888e58b2616687986f724919354c8025ae930b09b65b84a8ac8"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014747352478Z/build/stderr.txt",
+      "bytes": 72,
+      "sha256": "54d32f1312e9ec321c58af432997bfe3bae5b14322fc06e68fd35a1f2f0e6519"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014747352478Z/build/stdout.txt",
+      "bytes": 38886,
+      "sha256": "69f59fc8853654b24fb5b7ccbbdd8bd4c8398bd10a20937f75db45fe8f03833e"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014747352478Z/build/supervisor.json",
+      "bytes": 994,
+      "sha256": "aab3cfbc55ca3902ed8ade6871114c0f3f158725b4b17f0fa1f42e762474bcbf"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014747352478Z/compile/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014747352478Z/compile/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014747352478Z/compile/supervisor.json",
+      "bytes": 1933,
+      "sha256": "1bac0647a0d0f72fe795ef4c694b61cfcc9dababbbe867dde4327078093cbae0"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/admission.json",
+      "bytes": 6284,
+      "sha256": "3fbb45efb87cfa6650f9c66088dfab02eba8cd79985a3e9d690f85b593232cec"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/build/stderr.txt",
+      "bytes": 72,
+      "sha256": "fecede7c2157efe2f16c8c8b9dce94b0fb4dd384dca8207046c8bf7636eb0ffe"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/build/stdout.txt",
+      "bytes": 38886,
+      "sha256": "afeec9238f8659584cc870af8923c9ed18f124c8ae87c576537443dfb3019f5c"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/build/supervisor.json",
+      "bytes": 993,
+      "sha256": "b577f396d377b01c6c9bede7c2c436178bf9110d7b1c50d2ab0718f3c0aee352"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/compile/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/compile/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/compile/supervisor.json",
+      "bytes": 1913,
+      "sha256": "ea14d7ff53b9c1e9134e8e5e227f200017aec9b48e88af8301ad86b67af63c26"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/probe/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/probe/stdout.txt",
+      "bytes": 619,
+      "sha256": "cab36d03d45c7461b097cbf9b18fe751ede0a1f905bee984261bbfc77656c88d"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/probe/supervisor.json",
+      "bytes": 893,
+      "sha256": "17fcfa21749942cde2b3e2cdb9569cd18cccfff49b8affc82ed6fdc4cb28a20b"
+    },
+    {
       "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/Cargo.lock",
       "bytes": 8362,
       "sha256": "269d9982be1a02df399add0da75fedce3dd4776b678988d5c21f2fa68944556f"
@@ -26383,6 +26498,66 @@
       "sha256": "ee21df6865446cca9884ac3a7b025c632c431fbfb1bdf9f8fec5c5474c9866a5"
     },
     {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/build3-admission.json",
+      "bytes": 236,
+      "sha256": "4eb284637cc2cf70541b7f1ccc74a77a9710966b2a47105b5d7ee9b4003fc67b"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/build3-launch-failure.json",
+      "bytes": 258,
+      "sha256": "55d0692ab475d0965da8db42505e3d62967a29525f5fff8e1be1bb59668ee46b"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/build4-admission.json",
+      "bytes": 236,
+      "sha256": "8120357c2d75f148bb9494ed5c3054c8818b422d9441ee2c2776161fbfb18ff6"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/build4/record.json",
+      "bytes": 908,
+      "sha256": "0ad750a813cfabf2c136c07886debc8eee738fe7a0c1cfc457b94d53a8743780"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/build4/stderr.txt",
+      "bytes": 965,
+      "sha256": "551b73a59a956befa9415de1179380dca93b1b4895fd117acb9d135c0d742923"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/build4/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/build4/supervisor.json",
+      "bytes": 1071,
+      "sha256": "5099d37ea223069b3b9d5788b8c2e0c1e13e10ad68c66394dd6889005d49ad46"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/probe4-admission.json",
+      "bytes": 236,
+      "sha256": "99b72367f170df19fadbe817cf1be819c8dbda1d74e42e7a66be96b6f65953b1"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/probe4/record.json",
+      "bytes": 793,
+      "sha256": "05dcf76d6448df9eb0cfa73742b27463c10b1fbdef1bd6ce677a868ba5927100"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/probe4/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/probe4/stdout.txt",
+      "bytes": 1413875,
+      "sha256": "7f85d10ee82d0eb555cd30ce2ce1ebdc0b685d543303a823e330bfc1208e0397"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/probe4/supervisor.json",
+      "bytes": 924,
+      "sha256": "8c66daf84a62106d6d436cca2be1aa6d9d3f3a00fddb138e59b98412882778cc"
+    },
+    {
       "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/readback-blocked.py",
       "bytes": 1564,
       "sha256": "60ca88b272a4bf0b52d1554a0acb5db75bcf505a072e2567c335bee3e917f213"
@@ -26391,6 +26566,16 @@
       "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/retry_build.py",
       "bytes": 3498,
       "sha256": "6e2370ceaf5f8bc0ac292d984112324cef44a9e5ae0d01a3306e231924961c8f"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/retry_build3.py",
+      "bytes": 3516,
+      "sha256": "3d5bc32b956bacb660f9983023f2ca52b0bf354fea3db9c42c6f447dea34f6d4"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/retry_build4.py",
+      "bytes": 3516,
+      "sha256": "1b97712c080ef201c30af50d21c3e221dc6e18735138aabe62335e503a71c6be"
     },
     {
       "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/run_bounded.py",
@@ -26406,6 +26591,26 @@
       "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/src/main.rs",
       "bytes": 8592,
       "sha256": "d43b75197203176783a6a163785cef06955c5c6ee9e39e22b5b68855c6cd8a83"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/verify-probe4-run/record.json",
+      "bytes": 546,
+      "sha256": "42b0ac78a90162465faf6eb48e21065af508dd7e0932a9deae9b271d885220ab"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/verify-probe4-run/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/verify-probe4-run/stdout.txt",
+      "bytes": 1327,
+      "sha256": "ec1f38ffd30618e21eed2ffcc88920ccc80f84b278b1a488a07f2f47c7298a5a"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/verify-probe4.py",
+      "bytes": 5371,
+      "sha256": "3d6a903b8bd62ba17d3f04f50269003ec952f83090a78bfb9ab6c4d57ab359bb"
     },
     {
       "path": "artifacts/mdd-034/README.md",

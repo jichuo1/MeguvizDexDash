@@ -1,0 +1,36 @@
+{
+  "schema_version": "mdd.windows-job-run.v1",
+  "command_argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "-p",
+    "mdd-query",
+    "--lib",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--message-format=json"
+  ],
+  "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+  "limits": {
+    "memory_commit_bytes": "2147483648",
+    "affinity_mask": "15",
+    "max_processes": 16,
+    "timeout_seconds": 180,
+    "max_log_bytes": 8388608
+  },
+  "assigned_before_resume": true,
+  "tree_empty_verified": true,
+  "status": "completed",
+  "job_name": "mdd-baseline-6ddee68867914b35b95715bc41f34cff",
+  "process_id": 42604,
+  "reason": null,
+  "exit_code": 0,
+  "cpu_user_seconds": 0.078125,
+  "cpu_kernel_seconds": 0.359375,
+  "total_processes": 3,
+  "peak_job_commit_bytes": "26529792",
+  "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+  "wall_seconds": 0.6279015000000072
+}
