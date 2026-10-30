@@ -579,6 +579,57 @@ fn low_output_fails_on_observed_prefix_and_exact_limit_delivers() {
 }
 
 #[test]
+fn queued_and_current_row_reserve_before_second_json_count() {
+    let row = vec![Value::Bytes(Bytes(vec![7; 1024]))];
+    let resident = queued_row_resident_bytes(&row).unwrap();
+    let f = setup_with_schema(
+        BudgetLimits::default().with(Resource::QueryWorkspaceBytes, resident + resident / 2),
+        DataType::Bytes,
+        vec![row.clone(), row],
+    );
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let second_count = Arc::new(std::sync::atomic::AtomicBool::new(false));
+    let observed = Arc::clone(&second_count);
+    let pool = f.runtime.pool().clone();
+    let mut control = Control::new(ExecutionLimits::default())
+        .with_runtime(f.runtime.clone())
+        .with_hook(move |point| {
+            if point.phase == "json_count"
+                && pool
+                    .usage()?
+                    .used
+                    .get(&Resource::OutputBytes)
+                    .map_or(0, |v| v.0)
+                    > 0
+            {
+                observed.store(true, std::sync::atomic::Ordering::SeqCst);
+            }
+            Ok(())
+        });
+    let mut pending = execute_into(
+        &f.prepared,
+        &f.source,
+        ExecutionMode::Streaming,
+        &mut control,
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    assert!(!second_count.load(std::sync::atomic::Ordering::SeqCst));
+    let QueueEvent::Data(first) = receiver.receive().unwrap() else {
+        panic!("first row must remain available");
+    };
+    first.acknowledge().unwrap();
+    let QueueEvent::End(end) = receiver.receive().unwrap() else {
+        panic!("quota failure must terminate the queue");
+    };
+    assert_eq!(end.unwrap_err().code, ErrorCode::QuotaExceeded);
+    let mut receipt = receiver.into_delivery_receipt().unwrap();
+    assert!(!receipt.finish(&mut pending).unwrap().is_complete_result());
+}
+
+#[test]
 fn oversized_owned_row_is_rejected_before_json_counting() {
     let f = setup_with_schema(
         BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192),

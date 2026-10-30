@@ -26458,6 +26458,146 @@
       "sha256": "17fcfa21749942cde2b3e2cdb9569cd18cccfff49b8affc82ed6fdc4cb28a20b"
     },
     {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/probe.rs",
+      "bytes": 21094,
+      "sha256": "318e34dd78162da1ae6a717342d8048ed82d84ec8d8440b725d5f3aba654a3a4"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/readback-record.json",
+      "bytes": 1428,
+      "sha256": "1560ad208c5a7f2f3acfbbd879cdae5651d3024a02e6d5aca5a6b9ee661d2b23"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/readback.py",
+      "bytes": 2652,
+      "sha256": "80138372329f57500634d361088e5aa1ee2b5b53913d13801ab97a564e75f65e"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/run_bounded.py",
+      "bytes": 5709,
+      "sha256": "97ffa17d9423007cc6002753b1128ff779c816d66e5db07c07d416f59112043c"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/admission.json",
+      "bytes": 6276,
+      "sha256": "8ff2318a78422c8912bb3c2191bd2d4bbc8cdf5408ea27e3692bfef6399ba06e"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/build/stderr.txt",
+      "bytes": 72,
+      "sha256": "fecede7c2157efe2f16c8c8b9dce94b0fb4dd384dca8207046c8bf7636eb0ffe"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/build/stdout.txt",
+      "bytes": 38886,
+      "sha256": "172abd7cc52796f580026b58f33b59230d6f2aba19ab5e32f92f22819d0d47b4"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/build/supervisor.json",
+      "bytes": 994,
+      "sha256": "f502e5c3cfa9e0f717165ae1a2586a1169b4a6b8d0c784eee027c76a3e292c5d"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/compile/stderr.txt",
+      "bytes": 2580,
+      "sha256": "01344195ea47d324f7b89b12bc91b21155697181eafd422918e3b565e28bebef"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/compile/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/compile/supervisor.json",
+      "bytes": 1912,
+      "sha256": "ffd193282ab4de1c515bf6dfa16ee3ccce304af5bc4dc524dbc4c44553d38575"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/probe/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/probe/stdout.txt",
+      "bytes": 745,
+      "sha256": "fb16c21e9903e3b341e4271228db78d46ea2a599bdb797e8caefaeb96e573832"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/probe/supervisor.json",
+      "bytes": 885,
+      "sha256": "9300343d46de5a46adbf39f800abd49cba416ffb715276133655305ba82e4846"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/probe.rs",
+      "bytes": 22215,
+      "sha256": "014a596726c2c6b734da1c461ad1f199051818e39429b613f916519a7fcbd4a1"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/readback-record.json",
+      "bytes": 2223,
+      "sha256": "bbcc9b973e85cd442d389dff5cb23a1940137dbe5b707f6da932708fdcd3ba55"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/readback.py",
+      "bytes": 3941,
+      "sha256": "c06e2cfeafab773257e3aeed90403f65a0c268fdf71f106e3f20fae55fe55290"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/run_bounded.py",
+      "bytes": 5733,
+      "sha256": "e979d5a82f1d21e54c13efd5f27a5ddb3e7d710cab448dcdf5fab999781758e9"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/admission.json",
+      "bytes": 6320,
+      "sha256": "fe14c3e353703a374884762f363ef6d42718b0c74a336e9cd502770dc709d4b0"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/build/stderr.txt",
+      "bytes": 72,
+      "sha256": "9a30d54c8b16d7e49510b182028079bca120aeebb7d662e88f8566e6196a49f6"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/build/stdout.txt",
+      "bytes": 38886,
+      "sha256": "1ebef7c6fc5fb3858d0f7b4975d2ccd3725b838f814adc82624747ee5a7e281d"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/build/supervisor.json",
+      "bytes": 992,
+      "sha256": "f1a3d71e7b236d504e8d4f9acd0195c6bafa3e8120372aef861e774195ca923d"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/compile/stderr.txt",
+      "bytes": 2634,
+      "sha256": "e43d1a45c891ec517553102aaf0ff16356b847046bdbcf52e0ab7ed26733e0c5"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/compile/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/compile/supervisor.json",
+      "bytes": 1929,
+      "sha256": "e7424933a8580a3cd31429338f97dbcbe48acaad9669cb9c8d48abb4300dd8a6"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/probe/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/probe/stdout.txt",
+      "bytes": 947,
+      "sha256": "0c4856a6c4a7ad1f79d33805528fd92ee485e8aa45888f12bbc2beac1ed4bc92"
+    },
+    {
+      "path": "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/probe/supervisor.json",
+      "bytes": 896,
+      "sha256": "a5bf571f7ab297c3403b3f0373be556c336f403ce57841e8592beebf93f713c2"
+    },
+    {
       "path": "artifacts/mdd-034-audit/streaming-json-independent-20261029/Cargo.lock",
       "bytes": 8362,
       "sha256": "269d9982be1a02df399add0da75fedce3dd4776b678988d5c21f2fa68944556f"
@@ -27096,6 +27236,36 @@
       "path": "artifacts/mdd-034/owner-binding-tests/stdout.txt",
       "bytes": 221,
       "sha256": "5095cfaf3922bf880e66919243d9f9e9d02536c256432fce9dd226e1fc6e015d"
+    },
+    {
+      "path": "artifacts/mdd-034/prequeue-fix-20261030/workspace-clippy/record.json",
+      "bytes": 1136,
+      "sha256": "20735da760d8c442d5e5692b3e3030c0c47ab18478f107bb126ccab24a21630f"
+    },
+    {
+      "path": "artifacts/mdd-034/prequeue-fix-20261030/workspace-clippy/stderr.txt",
+      "bytes": 277,
+      "sha256": "c3846eef50d418e0abd9d264fc4c4cbc75664f93ca9cac125ff9ad34c6f3507e"
+    },
+    {
+      "path": "artifacts/mdd-034/prequeue-fix-20261030/workspace-clippy/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034/prequeue-fix-20261030/workspace-tests/record.json",
+      "bytes": 1117,
+      "sha256": "7c6ec34b3b0009a872a9fc1658b12cfa0b5825648e3bc7c011ce832c1f470276"
+    },
+    {
+      "path": "artifacts/mdd-034/prequeue-fix-20261030/workspace-tests/stderr.txt",
+      "bytes": 1324,
+      "sha256": "ef9cbf32bf5ef80e2f1dcaa3ae59f7228776856a0e9d2cbf67d01480ab64cefc"
+    },
+    {
+      "path": "artifacts/mdd-034/prequeue-fix-20261030/workspace-tests/stdout.txt",
+      "bytes": 24427,
+      "sha256": "ee4cb9008a576c272d68bc11f67f4db984f4e6223f2c88aa60caceafcfab9f32"
     },
     {
       "path": "artifacts/mdd-034/queue-row-capacity-20261029/capacity-runtime/record.json",

@@ -1,0 +1,21 @@
+{
+  "status": "passed_scoped_readback",
+  "old_binary_sha256": "5b7562444222bd31d43dac283b822cf3577fa56ecb79bd415d8df16247484d38",
+  "new_binary_sha256": "5d3b1cc10fd2fd9db7bf300594b1742a1436bea157b0e3206393905a0ff5c9db",
+  "old_executor_sha256": "f34d93aa93f32ae47bd3c6a5b8c9059c412f6490739a83c7d7f8c6a20a1fe33e",
+  "new_executor_sha256": "55af58423cd53a1152627d0470aa11ff0a6798869d1f71b48c97772583ea5262",
+  "old_budget_sha256": "e6e7538bea071f57a470f3eee417a996d2747981ed9c6ede98c0ddb326994c79",
+  "new_budget_sha256": "b556aad8ef44c7d920dba16476a331076a83e38f6985bbdece8cb1237627f3b5",
+  "files_sha256": {
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/admission.json": "8ff2318a78422c8912bb3c2191bd2d4bbc8cdf5408ea27e3692bfef6399ba06e",
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/probe/stdout.txt": "fb16c21e9903e3b341e4271228db78d46ea2a599bdb797e8caefaeb96e573832",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/admission.json": "fe14c3e353703a374884762f363ef6d42718b0c74a336e9cd502770dc709d4b0",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/probe/stdout.txt": "0c4856a6c4a7ad1f79d33805528fd92ee485e8aa45888f12bbc2beac1ed4bc92",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/probe/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/runs/20261030T015618057401Z/probe/supervisor.json": "a5bf571f7ab297c3403b3f0373be556c336f403ce57841e8592beebf93f713c2",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/probe.rs": "014a596726c2c6b734da1c461ad1f199051818e39429b613f916519a7fcbd4a1",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/run_bounded.py": "e979d5a82f1d21e54c13efd5f27a5ddb3e7d710cab448dcdf5fab999781758e9",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/readback.py": "c06e2cfeafab773257e3aeed90403f65a0c268fdf71f106e3f20fae55fe55290"
+  },
+  "scope": "synthetic process-internal queue; no RSS, transport, performance or profile qualification"
+}

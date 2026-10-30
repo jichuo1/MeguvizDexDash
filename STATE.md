@@ -104,7 +104,9 @@ MDD-034 已重新打开：独立真实组合反例中，executor向有界队列�
 
 后续队列行将wire字节与Row持有容量分别做checked逻辑计量：稀疏数组低额度红绿与UTF-16、bytes、Entity内部容量、四级额度和取消持有测试通过；与拼接计步组合的Windows工作区241项测试、严格Clippy通过。独立探针在保留两次低内存准入阻断及两次测试预期失败后，按原3GiB门槛重建并完成8个限定场景；相同wire的紧凑/稀疏行分别按各自容量计费，工作区、输出与队列quota发生阶段分别核对，证据 artifacts/mdd-034/row-capacity-independent-20261029/readback-1/record.json。provider入队前分配、消费者克隆、allocator/RSS及生产传输仍未覆盖；流式计数候选尚待最终独立验收。
 
-流式JSON候选对固定serde_json writer进行逐块Bytes编码和精确计数，成功后原子charge；真实低额度单线程红绿的最大单次分配申请由699108降至632字节，原始quota维度与截断终态保留。Windows工作区247项测试与严格Clippy通过。独立探针保留首次180秒超时、低内存未启动及缺少pywintypes的启动失败；满足原3GiB准入后在2GiB Job内完成7个合成真实队列场景，25项独立回读通过，见 artifacts/mdd-034-audit/streaming-json-independent-20261029/verify-probe4-run/record.json。长Entity探针首次编译根进程退出时仍有子进程，被作业判失败且探针未启动；独立重试完成，合成50万字节普通字符用54步完成，等长转义字符在64步额度下报QUOTA，见 artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/probe/stdout.txt。该对比不证明取消延迟或实际产品缺陷。provider预分配、部分值的临时对象、其他serializer、allocator/RSS与传输未覆盖。静态审查另发现长Entity字符串的serde内部扫描和计数前累计驻留可能存在预算检查空窗，尚待真实反例，不将其写成已修复。
+流式JSON候选对固定serde_json writer进行逐块Bytes编码和精确计数，成功后原子charge；真实低额度单线程红绿的最大单次分配申请由699108降至632字节，原始quota维度与截断终态保留。Windows工作区247项测试与严格Clippy通过。独立探针保留首次180秒超时、低内存未启动及缺少pywintypes的启动失败；满足原3GiB准入后在2GiB Job内完成7个合成真实队列场景，25项独立回读通过，见 artifacts/mdd-034-audit/streaming-json-independent-20261029/verify-probe4-run/record.json。长Entity探针首次编译根进程退出时仍有子进程，被作业判失败且探针未启动；独立重试完成，合成50万字节普通字符用54步完成，等长转义字符在64步额度下报QUOTA，见 artifacts/mdd-034-audit/long-entity-steps-20261029/runs/20261030T014930199186Z/probe/stdout.txt。该对比不证明取消延迟或实际产品缺陷。provider预分配、部分值的临时对象、其他serializer、allocator/RSS与传输未覆盖。长Entity字符串的serde内部扫描仍是待验证的细粒度取消风险。
+
+MDD-034累计驻留反例与修复：两行各3989字节、额度5983时，旧代码在第二行计数时仅预约首行3989，随后入队才报7978超额；现将当前行的累计工作区预约移至计数前并交由队列持有。独立红绿回读确认第二行计数回调为0、输出仅首行427字节、首行确认后预约归零且最终不完整，见 artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/readback-record.json。修复后Windows工作区248项测试和严格Clippy通过；这是合成进程内队列的逻辑容量证据，不代表provider预分配、RSS、生产传输或任务资格。
 
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
 

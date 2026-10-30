@@ -923,14 +923,33 @@ impl<T> BoundedSender<T> {
         self.0
             .pool
             .check_individual(Resource::QueueBytes, wire_bytes)?;
+        let memory = self.reserve_payload(resident_bytes)?;
+        self.send_reserved(payload, wire_bytes, memory)
+    }
+    pub(crate) fn reserve_payload(&self, resident_bytes: u64) -> MddResult<Reservation> {
         self.0
             .pool
             .check_individual(Resource::QueryWorkspaceBytes, resident_bytes)?;
-        // Pending senders own live payload memory even while there is no queue slot.
-        let memory = self
-            .0
+        self.0
             .pool
-            .reserve(Resource::QueryWorkspaceBytes, resident_bytes)?;
+            .reserve(Resource::QueryWorkspaceBytes, resident_bytes)
+    }
+    pub(crate) fn send_reserved(
+        &self,
+        payload: T,
+        wire_bytes: u64,
+        memory: Reservation,
+    ) -> MddResult<()> {
+        self.0
+            .pool
+            .check_individual(Resource::QueueBytes, wire_bytes)?;
+        if memory.0.resource != Resource::QueryWorkspaceBytes
+            || !Arc::ptr_eq(&memory.0.pool.state, &self.0.pool.state)
+            || memory.0.pool.owner != self.0.pool.owner
+        {
+            return Err(invalid("payload reservation belongs to another budget"));
+        }
+        // Pending senders own live payload memory even while there is no queue slot.
         let mut payload = Some(Budgeted {
             payload,
             _memory: memory,

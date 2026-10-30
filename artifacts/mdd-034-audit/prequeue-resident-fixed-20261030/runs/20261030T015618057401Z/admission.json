@@ -1,0 +1,154 @@
+{
+  "schema_version": "mdd.prequeue-resident-fixed-admission.v1",
+  "created_utc": "2026-10-30T01:56:18.057401+00:00",
+  "status": "completed_observation",
+  "minimum_available_bytes": "3221225472",
+  "sources_before": {
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "crates/mdd-query/src/budget.rs": "b556aad8ef44c7d920dba16476a331076a83e38f6985bbdece8cb1237627f3b5",
+    "crates/mdd-query/src/executor.rs": "55af58423cd53a1152627d0470aa11ff0a6798869d1f71b48c97772583ea5262",
+    "crates/mdd-query/src/ir/mod.rs": "a4fe8a1a66d70684b868eeb61a77e56aecc10377ded6acd517b3c59407cfe46f",
+    "crates/mdd-query/src/executor/runtime_tests.rs": "85b1be07dcddac860d7f6eb320061c60e9081cece6434df478c522d08960fe8d",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/probe.rs": "014a596726c2c6b734da1c461ad1f199051818e39429b613f916519a7fcbd4a1"
+  },
+  "build_started": true,
+  "compile_started": true,
+  "probe_started": true,
+  "profile_admitted": false,
+  "task_complete_proven": false,
+  "scope": "synthetic provider; read-only evidence on current source, no private input or performance claim",
+  "memory_build": {
+    "available_bytes": "7611727872",
+    "required_bytes": "3221225472"
+  },
+  "build": {
+    "schema_version": "mdd.windows-job-run.v1",
+    "command_argv": [
+      "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+      "build",
+      "-p",
+      "mdd-query",
+      "--lib",
+      "--locked",
+      "--offline",
+      "--jobs",
+      "1",
+      "--message-format=json"
+    ],
+    "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+    "limits": {
+      "memory_commit_bytes": "2147483648",
+      "affinity_mask": "15",
+      "max_processes": 16,
+      "timeout_seconds": 180,
+      "max_log_bytes": 8388608
+    },
+    "assigned_before_resume": true,
+    "tree_empty_verified": true,
+    "status": "completed",
+    "job_name": "mdd-baseline-e3d4091bd365485785b783a3ae1885e2",
+    "process_id": 39004,
+    "reason": null,
+    "exit_code": 0,
+    "cpu_user_seconds": 0.109375,
+    "cpu_kernel_seconds": 0.21875,
+    "total_processes": 6,
+    "peak_job_commit_bytes": "26181632",
+    "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+    "wall_seconds": 0.435159399999975
+  },
+  "memory_compile": {
+    "available_bytes": "7610437632",
+    "required_bytes": "3221225472"
+  },
+  "compile": {
+    "schema_version": "mdd.windows-job-run.v1",
+    "command_argv": [
+      "C:\\Users\\Administrator\\.cargo\\bin\\rustc.EXE",
+      "--edition=2024",
+      "--crate-name",
+      "mdd_prequeue_resident_fixed",
+      "D:\\MeguvisDexDash\\artifacts\\mdd-034-audit\\prequeue-resident-fixed-20261030\\probe.rs",
+      "-L",
+      "dependency=target/debug/deps",
+      "-o",
+      "D:\\MeguvisDexDash\\artifacts\\local\\prequeue-resident-fixed\\20261030T015618057401Z\\probe.exe",
+      "--extern",
+      "mdd_dex=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_dex-b7b2b3c56f072191.rlib",
+      "--extern",
+      "mdd_facts=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_facts-4d93156677fe9e1b.rlib",
+      "--extern",
+      "mdd_input=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_input-0f932aaa5b1b1947.rlib",
+      "--extern",
+      "mdd_query=D:\\MeguvisDexDash\\target\\debug\\libmdd_query.rlib",
+      "--extern",
+      "mdd_session=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_session-3704becbc733c5c9.rlib",
+      "--extern",
+      "mdd_types=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_types-fd5a2447fe224bff.rlib",
+      "--extern",
+      "serde_json=D:\\MeguvisDexDash\\target\\debug\\deps\\libserde_json-cd74aa69794f938b.rlib"
+    ],
+    "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+    "limits": {
+      "memory_commit_bytes": "2147483648",
+      "affinity_mask": "15",
+      "max_processes": 16,
+      "timeout_seconds": 120,
+      "max_log_bytes": 4194304
+    },
+    "assigned_before_resume": true,
+    "tree_empty_verified": true,
+    "status": "completed",
+    "job_name": "mdd-baseline-6559414db8c942ceac0e7f53406400d1",
+    "process_id": 44300,
+    "reason": null,
+    "exit_code": 0,
+    "cpu_user_seconds": 1.125,
+    "cpu_kernel_seconds": 0.828125,
+    "total_processes": 4,
+    "peak_job_commit_bytes": "408834048",
+    "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+    "wall_seconds": 1.5057239000002482
+  },
+  "binary_sha256": "5d3b1cc10fd2fd9db7bf300594b1742a1436bea157b0e3206393905a0ff5c9db",
+  "memory_probe": {
+    "available_bytes": "7602192384",
+    "required_bytes": "3221225472"
+  },
+  "probe": {
+    "schema_version": "mdd.windows-job-run.v1",
+    "command_argv": [
+      "D:\\MeguvisDexDash\\artifacts\\local\\prequeue-resident-fixed\\20261030T015618057401Z\\probe.exe"
+    ],
+    "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+    "limits": {
+      "memory_commit_bytes": "2147483648",
+      "affinity_mask": "15",
+      "max_processes": 4,
+      "timeout_seconds": 30,
+      "max_log_bytes": 4194304
+    },
+    "assigned_before_resume": true,
+    "tree_empty_verified": true,
+    "status": "completed",
+    "job_name": "mdd-baseline-3a09569739114c02846b551fbef1d51b",
+    "process_id": 44284,
+    "reason": null,
+    "exit_code": 0,
+    "cpu_user_seconds": 0.0,
+    "cpu_kernel_seconds": 0.015625,
+    "total_processes": 2,
+    "peak_job_commit_bytes": "2203648",
+    "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+    "wall_seconds": 0.7892568000002029
+  },
+  "sources_after": {
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "crates/mdd-query/src/budget.rs": "b556aad8ef44c7d920dba16476a331076a83e38f6985bbdece8cb1237627f3b5",
+    "crates/mdd-query/src/executor.rs": "55af58423cd53a1152627d0470aa11ff0a6798869d1f71b48c97772583ea5262",
+    "crates/mdd-query/src/ir/mod.rs": "a4fe8a1a66d70684b868eeb61a77e56aecc10377ded6acd517b3c59407cfe46f",
+    "crates/mdd-query/src/executor/runtime_tests.rs": "85b1be07dcddac860d7f6eb320061c60e9081cece6434df478c522d08960fe8d",
+    "artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/probe.rs": "014a596726c2c6b734da1c461ad1f199051818e39429b613f916519a7fcbd4a1"
+  },
+  "sources_unchanged": true
+}

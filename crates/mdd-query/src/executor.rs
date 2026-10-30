@@ -1647,12 +1647,13 @@ pub fn execute_into(
                 dropped = true;
                 return Err(error);
             }
-            for resource in [Resource::QueryWorkspaceBytes, Resource::ResidentBytes] {
-                if let Err(error) = runtime.pool().check_individual(resource, resident_bytes) {
+            let memory = match sender.reserve_payload(resident_bytes) {
+                Ok(memory) => memory,
+                Err(error) => {
                     dropped = true;
                     return Err(error);
                 }
-            }
+            };
             let wire_bytes = match count_wire_row(&row, control, &runtime) {
                 Ok(value) => value,
                 Err(error) => {
@@ -1665,7 +1666,7 @@ pub fn execute_into(
                 return Err(error);
             }
             control.step("output_row", 1)?;
-            if let Err(error) = sender.send_with_resident_bytes(row, wire_bytes, resident_bytes) {
+            if let Err(error) = sender.send_reserved(row, wire_bytes, memory) {
                 dropped = true;
                 return Err(error);
             }
