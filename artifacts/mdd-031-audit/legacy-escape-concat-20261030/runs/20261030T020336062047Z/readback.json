@@ -1,0 +1,32 @@
+{
+  "status": "passed_scoped_readback",
+  "cases": 12,
+  "report_sha256": "15c5b41d5b65085e845f1531bb3ca7fbb7cad2765ffe18722f4bc2542787935a",
+  "runner_sha256": "32bbd6bc74732aed5956ec6188b8f1cef708edf36000f9a7b78bdf9e3a012133",
+  "readback_sha256": "c3dea79faf6d17694927c7b0261fad21b3d8f48c8206d0eff9ca343615e25c69",
+  "observed_values": {
+    "concat_nul": {
+      "result_type": "text",
+      "result_hex": "41C0804243"
+    },
+    "concat_non_utf8": {
+      "result_type": "text",
+      "result_hex": "EFBFBD41"
+    },
+    "dangling_like": {
+      "result": "0"
+    },
+    "dangling_not_like": {
+      "result": "1"
+    },
+    "escaped_literal": {
+      "result": "1"
+    },
+    "null_like": {
+      "result": "NULL"
+    }
+  },
+  "profile_admitted": false,
+  "task_complete_proven": false,
+  "scope": "fixed A0/A1 CLI observations on one synthetic DEX; not complete dialect or performance qualification"
+}

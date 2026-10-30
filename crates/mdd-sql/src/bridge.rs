@@ -1432,6 +1432,27 @@ mod tests {
             ]
         );
     }
+    #[test]
+    fn legacy_like_dangling_escape_matches_fixed_engines() {
+        let (provider, native) = bridge();
+        let sql = r"SELECT 'abc' LIKE 'abc\' ESCAPE '\' AS l, 'abc' NOT LIKE 'abc\' ESCAPE '\' AS n, 'a_b' LIKE 'a\_b' ESCAPE '\' AS ordinary, NULL LIKE 'abc\' ESCAPE '\' AS null_value";
+        for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {
+            let bridge = SqlBridge::new(provider.clone(), dialect, SqlLimits::default()).unwrap();
+            assert_eq!(
+                bridge.query(sql).unwrap().rows,
+                vec![vec![
+                    SqlValue::I64(mdd_query::ir::Signed64(0)),
+                    SqlValue::I64(mdd_query::ir::Signed64(1)),
+                    SqlValue::I64(mdd_query::ir::Signed64(1)),
+                    SqlValue::Null,
+                ]]
+            );
+        }
+        assert_eq!(
+            native.query(sql).unwrap_err().code,
+            ErrorCode::InvalidArgument
+        );
+    }
     struct Unbuilt {
         inner: Arc<Provider>,
         required: AtomicUsize,

@@ -1,0 +1,5 @@
+   Compiling mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+   Compiling mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+   Compiling mdd-independent-q03-probe v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-031-audit\legacy-escape-bridge-20261030)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 23.18s

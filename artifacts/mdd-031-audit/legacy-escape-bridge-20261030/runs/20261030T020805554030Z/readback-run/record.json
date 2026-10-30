@@ -1,0 +1,14 @@
+{
+  "command": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\legacy-escape-bridge-20261030\\readback.py",
+    "20261030T020805554030Z"
+  ],
+  "started_utc": "2026-10-30T02:09:08.057690+00:00",
+  "finished_utc": "2026-10-30T02:09:08.151493+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "28b3fd9aeba055a3aeaab94785243da8d5eeba7fdcd88a21d965ec1e9370d78a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic SQL bridge and fixed legacy CLI; no profile qualification"
+}

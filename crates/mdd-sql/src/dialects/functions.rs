@@ -639,12 +639,14 @@ fn like(
         if Some(unit) == escape {
             at += 1;
             control.checkpoint(1, false)?;
-            tokens.push(Token::Literal(
-                *pattern
-                    .utf16
-                    .get(at)
-                    .ok_or_else(|| invalid("LIKE_DANGLING_ESCAPE"))?,
-            ));
+            let Some(&escaped) = pattern.utf16.get(at) else {
+                return if dialect == SqlDialect::NativeV1 {
+                    Err(invalid("LIKE_DANGLING_ESCAPE"))
+                } else {
+                    Ok(false)
+                };
+            };
+            tokens.push(Token::Literal(escaped));
         } else if unit == 37 {
             tokens.push(Token::Many);
         } else if unit == 95 && dialect == SqlDialect::NativeV1 {
@@ -1323,7 +1325,7 @@ mod like_budget_tests {
     }
 
     #[test]
-    fn trailing_escape_preserves_existing_error_when_budget_sufficient() {
+    fn trailing_escape_follows_selected_dialect_when_budget_sufficient() {
         let control = SqlControl::new(SqlLimits::default(), None);
         let empty = SqlText {
             utf16: vec![],
@@ -1333,15 +1335,47 @@ mod like_budget_tests {
             utf16: vec![u16::from(b'!')],
             original_mutf8: None,
         };
+        for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {
+            assert!(!like(&empty, &pattern, Some(u16::from(b'!')), dialect, &control).unwrap());
+        }
         let error = like(
             &empty,
             &pattern,
             Some(u16::from(b'!')),
-            SqlDialect::DexSql010,
+            SqlDialect::NativeV1,
             &control,
         )
         .unwrap_err();
         assert_eq!(error.code, ErrorCode::InvalidArgument);
         assert_eq!(error.message, "LIKE_DANGLING_ESCAPE");
+    }
+
+    #[test]
+    fn legacy_trailing_escape_does_not_hide_budget_or_cancel_errors() {
+        let empty = SqlText {
+            utf16: vec![],
+            original_mutf8: None,
+        };
+        let pattern = SqlText {
+            utf16: vec![u16::from(b'!')],
+            original_mutf8: None,
+        };
+        for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {
+            let limited = SqlControl::new(
+                SqlLimits {
+                    max_steps: 1,
+                    ..SqlLimits::default()
+                },
+                None,
+            );
+            let error =
+                like(&empty, &pattern, Some(u16::from(b'!')), dialect, &limited).unwrap_err();
+            assert_eq!(error.code, ErrorCode::QuotaExceeded);
+            let cancelled = SqlControl::new(SqlLimits::default(), None);
+            cancelled.cancel().unwrap();
+            let error =
+                like(&empty, &pattern, Some(u16::from(b'!')), dialect, &cancelled).unwrap_err();
+            assert_eq!(error.code, ErrorCode::Cancelled);
+        }
     }
 }

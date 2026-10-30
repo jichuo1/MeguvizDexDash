@@ -110,6 +110,8 @@ MDD-034累计驻留反例与修复：两行各3989字节、额度5983时，旧�
 
 MDD-034入队前取消边界：独立代码复核指出流式输出行已计数但output_row检查失败时未标记丢弃；真实回归先因truncated=false失败，修复后保留原取消错误并标记截断，计数中取消和入队前取消的QueryWorkspaceBytes及ResidentBytes预约均验证归零。最终源码Windows工作区249项测试、严格Clippy通过，见 artifacts/mdd-034/output-row-truncation-20261030/；未重新执行先前7场景独立流式矩阵，不代表生产worker/传输或MDD-034整体准入。
 
+MDD-031尾部转义与字节拼接实测：固定A0/A1在合成DEX上完成12个CLI查询，尾部LIKE为0、NOT LIKE为1，普通转义为1、NULL保持NULL；bytes拼接为text，含NUL和非UTF-8的HEX分别41C0804243/EFBFBD41。旧方言此前误报INVALID_ARGUMENT；现仅对DexSql010/011返回false，NativeV1保留原错误，配额/取消仍传播。最终源码独立桥探针21场景和8项旧引擎语义对照通过，见 artifacts/mdd-031-audit/legacy-escape-bridge-20261030/runs/20261030T020805554030Z/readback-run/record.json；Windows工作区251项测试、严格Clippy通过。旧版NULL wire与候选不同，bytes拼接类型和编码仍不等价，完整corpus及MDD-031资格未通过。
+
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
 
 后续 SQL 结果驻留预算修复在 Windows 工作区重新运行165项测试、0失败/跳过及严格Clippy；零行 schema 的零预算错误、结果持有与释放独立复现。该计量是保守逻辑额度，SQLite内部分配、provider/调用方副本、传输缓冲及租约自身元数据仍需单独准入，不能称 RSS 硬上限。证据 artifacts/mdd-031-audit/result-memory-probe/after-fix.json、artifacts/integration/20261029/workspace-tests-result-budget/record.json。
@@ -120,7 +122,7 @@ SQL 比较路径已修复派生表同名遮蔽造成的 IN/NOT IN 静默错行�
 
 后续文本/bytes→INTEGER 转换在固定A0/A1的54项小样本上数值一致，但30项有 signed/unsigned DTO 类型差异，完整兼容仍受阻；Windows工作区170项测试和严格Clippy通过，见 artifacts/mdd-031/integer-cast-20261029/runs/20261028T174502714475Z/readback.json。Q04非零注解查询与A0/A1/SQLite的数值和顺序对照通过，但候选类型标签与旧wire不同，未签传输或profile资格。
 
-LIKE模式预处理与尾部扫描现按单元计步并检查取消，token逻辑容量在分配前预留并在成功、配额失败和取消后释放。最终源码的Windows工作区176项测试、严格Clippy通过；独立真实会话实测低额度QUOTA、结果释放归零，以及观察到token预留后请求取消最终CANCELLED并归零，证据 artifacts/mdd-031-audit/like-workspace-independent-20261029/readback/record.json。该额度不覆盖SQLite、参数缓冲、allocator额外容量、RSS或传输；取消到达的具体内部指令不可观测。尾部ESCAPE目前为INVALID_ARGUMENT而SQLite返回false，A0/A1该边界尚未验证。
+LIKE模式预处理与尾部扫描现按单元计步并检查取消，token逻辑容量在分配前预留并在成功、配额失败和取消后释放。最终源码的Windows工作区176项测试、严格Clippy通过；独立真实会话实测低额度QUOTA、结果释放归零，以及观察到token预留后请求取消最终CANCELLED并归零，证据 artifacts/mdd-031-audit/like-workspace-independent-20261029/readback/record.json。该额度不覆盖SQLite、参数缓冲、allocator额外容量、RSS或传输；取消到达的具体内部指令不可观测。此历史检查点的尾部ESCAPE为INVALID_ARGUMENT；后续A0/A1及修复证据见下。
 
 ORDER BY投影别名遮蔽输入列的静默错行已修复，含括号、位置编号、wildcard和NULL等限定反例；同一合成DEX的排序从10/9/8纠正为SQLite的-2/-1/0。独立桥探针72项覆盖排序、NULL、聚合及注入错误终态；SQLite限定对照通过，但已有A0 NULL结果的DTO包装仍不同，其他旧版方言未重新采样。Windows工作区177项测试和严格Clippy通过；见 artifacts/mdd-031-audit/null-aggregate-independent-20261029/qualification.json。
 
