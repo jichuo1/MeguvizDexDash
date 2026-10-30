@@ -108,6 +108,8 @@ MDD-034 已重新打开：独立真实组合反例中，executor向有界队列�
 
 MDD-034累计驻留反例与修复：两行各3989字节、额度5983时，旧代码在第二行计数时仅预约首行3989，随后入队才报7978超额；现将当前行的累计工作区预约移至计数前并交由队列持有。独立红绿回读确认第二行计数回调为0、输出仅首行427字节、首行确认后预约归零且最终不完整，见 artifacts/mdd-034-audit/prequeue-resident-fixed-20261030/readback-record.json。修复后Windows工作区248项测试和严格Clippy通过；这是合成进程内队列的逻辑容量证据，不代表provider预分配、RSS、生产传输或任务资格。
 
+MDD-034入队前取消边界：独立代码复核指出流式输出行已计数但output_row检查失败时未标记丢弃；真实回归先因truncated=false失败，修复后保留原取消错误并标记截断，计数中取消和入队前取消的QueryWorkspaceBytes及ResidentBytes预约均验证归零。最终源码Windows工作区249项测试、严格Clippy通过，见 artifacts/mdd-034/output-row-truncation-20261030/；未重新执行先前7场景独立流式矩阵，不代表生产worker/传输或MDD-034整体准入。
+
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
 
 后续 SQL 结果驻留预算修复在 Windows 工作区重新运行165项测试、0失败/跳过及严格Clippy；零行 schema 的零预算错误、结果持有与释放独立复现。该计量是保守逻辑额度，SQLite内部分配、provider/调用方副本、传输缓冲及租约自身元数据仍需单独准入，不能称 RSS 硬上限。证据 artifacts/mdd-031-audit/result-memory-probe/after-fix.json、artifacts/integration/20261029/workspace-tests-result-budget/record.json。

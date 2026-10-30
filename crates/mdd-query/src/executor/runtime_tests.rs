@@ -474,6 +474,18 @@ fn json_count_cancel_preserves_terminal_and_no_output_charge() {
     let result = receipt.finish(&mut pending).unwrap();
     assert_eq!(result.operation_status, OperationStatus::Cancelled);
     assert!(result.response.truncated);
+    for resource in [Resource::QueryWorkspaceBytes, Resource::ResidentBytes] {
+        assert_eq!(
+            f.runtime
+                .pool()
+                .usage()
+                .unwrap()
+                .used
+                .get(&resource)
+                .map_or(0, |v| v.0),
+            0
+        );
+    }
     assert_eq!(
         f.runtime
             .pool()
@@ -576,6 +588,54 @@ fn low_output_fails_on_observed_prefix_and_exact_limit_delivers() {
             .0,
         exact
     );
+}
+
+#[test]
+fn output_row_failure_marks_truncated_and_releases_reservation() {
+    let f = setup_with_rows(BudgetLimits::default(), 1);
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let mut control = Control::new(ExecutionLimits::default())
+        .with_runtime(f.runtime.clone())
+        .with_hook(|point| {
+            if point.phase == "output_row" {
+                return Err(MddError::new(
+                    ErrorCode::Cancelled,
+                    "test.output_row",
+                    "cancelled before enqueue",
+                ));
+            }
+            Ok(())
+        });
+    let mut pending = execute_into(
+        &f.prepared,
+        &f.source,
+        ExecutionMode::Streaming,
+        &mut control,
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    let QueueEvent::End(end) = receiver.receive().unwrap() else {
+        panic!("uncommitted row must not be delivered");
+    };
+    assert_eq!(end.unwrap_err().stage, "test.output_row");
+    for resource in [Resource::QueryWorkspaceBytes, Resource::ResidentBytes] {
+        assert_eq!(
+            f.runtime
+                .pool()
+                .usage()
+                .unwrap()
+                .used
+                .get(&resource)
+                .map_or(0, |v| v.0),
+            0
+        );
+    }
+    let mut receipt = receiver.into_delivery_receipt().unwrap();
+    let result = receipt.finish(&mut pending).unwrap();
+    assert!(!result.is_complete_result());
+    assert!(result.response.truncated);
 }
 
 #[test]

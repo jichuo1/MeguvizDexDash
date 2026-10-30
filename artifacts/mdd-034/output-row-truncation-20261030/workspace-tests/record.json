@@ -1,0 +1,29 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--workspace",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--",
+    "--test-threads",
+    "1"
+  ],
+  "started_utc": "2026-10-30T02:02:08.043852+00:00",
+  "finished_utc": "2026-10-30T02:02:42.417702+00:00",
+  "elapsed_seconds": 34.375,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_sha256": {
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "crates/mdd-query/src/budget.rs": "b556aad8ef44c7d920dba16476a331076a83e38f6985bbdece8cb1237627f3b5",
+    "crates/mdd-query/src/executor.rs": "575656594740f9b55adca4181f1bcc6262cd1bbff4b85a21466514aa4b6bbb5f",
+    "crates/mdd-query/src/executor/runtime_tests.rs": "448c6919c90513119480f12c7d16976b762ebdd85ffa91745cadd5252217e1bb"
+  },
+  "source_unchanged": true,
+  "stdout_sha256": "89d91e9e8e1940e55943487d8bc7f21869438e3bf4bcb1cf18e5a1f59c090a98",
+  "stderr_sha256": "98ae0a23968388b505b212d24a479da32f1526f9713048ea85643a1b4afe67ea",
+  "scope": "local Windows development check; no profile or performance qualification"
+}

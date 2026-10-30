@@ -27223,6 +27223,36 @@
       "sha256": "5fd7f3dbde35fa12bb3937c82758205acb1e758547d3c39f2889e56ddfb2d90b"
     },
     {
+      "path": "artifacts/mdd-034/output-row-truncation-20261030/workspace-clippy/record.json",
+      "bytes": 1120,
+      "sha256": "29c2b5481eac4bddb5e5db9b2559ee1803fe805700c94a9bcb511b12b7d5fb22"
+    },
+    {
+      "path": "artifacts/mdd-034/output-row-truncation-20261030/workspace-clippy/stderr.txt",
+      "bytes": 277,
+      "sha256": "3cf11fbda7e781135d114f66de49995cb6309303877c434908df029b126f9b72"
+    },
+    {
+      "path": "artifacts/mdd-034/output-row-truncation-20261030/workspace-clippy/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mdd-034/output-row-truncation-20261030/workspace-tests/record.json",
+      "bytes": 1104,
+      "sha256": "b58e565c32c6270eaca83efc8af69433d638643ee17064a0790c66cbec0933c2"
+    },
+    {
+      "path": "artifacts/mdd-034/output-row-truncation-20261030/workspace-tests/stderr.txt",
+      "bytes": 1324,
+      "sha256": "98ae0a23968388b505b212d24a479da32f1526f9713048ea85643a1b4afe67ea"
+    },
+    {
+      "path": "artifacts/mdd-034/output-row-truncation-20261030/workspace-tests/stdout.txt",
+      "bytes": 24523,
+      "sha256": "89d91e9e8e1940e55943487d8bc7f21869438e3bf4bcb1cf18e5a1f59c090a98"
+    },
+    {
       "path": "artifacts/mdd-034/owner-binding-tests/record.json",
       "bytes": 697,
       "sha256": "051e2c18b4be5eaf81fe99d828a4c43cef9fbe8348b65f7b19bebb5547b135a7"

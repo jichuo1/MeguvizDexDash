@@ -1665,7 +1665,10 @@ pub fn execute_into(
                 dropped = true;
                 return Err(error);
             }
-            control.step("output_row", 1)?;
+            if let Err(error) = control.step("output_row", 1) {
+                dropped = true;
+                return Err(error);
+            }
             if let Err(error) = sender.send_reserved(row, wire_bytes, memory) {
                 dropped = true;
                 return Err(error);
