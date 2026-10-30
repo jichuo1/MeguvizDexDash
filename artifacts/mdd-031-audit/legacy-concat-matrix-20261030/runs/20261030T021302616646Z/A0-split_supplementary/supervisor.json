@@ -1,0 +1,34 @@
+{
+  "schema_version": "mdd.windows-job-run.v1",
+  "command_argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+    "--sql",
+    "SELECT typeof(x'F09F'||x'9880') AS result_type,hex(x'F09F'||x'9880') AS result_hex"
+  ],
+  "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+  "limits": {
+    "memory_commit_bytes": "2147483648",
+    "affinity_mask": "15",
+    "max_processes": 16,
+    "timeout_seconds": 90,
+    "max_log_bytes": 8388608
+  },
+  "assigned_before_resume": true,
+  "tree_empty_verified": true,
+  "status": "completed",
+  "job_name": "mdd-baseline-57b4b048beb347d78a1c2d6ea022bc1f",
+  "process_id": 39304,
+  "reason": null,
+  "exit_code": 0,
+  "cpu_user_seconds": 0.0,
+  "cpu_kernel_seconds": 0.015625,
+  "total_processes": 2,
+  "peak_job_commit_bytes": "4120576",
+  "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+  "wall_seconds": 0.7307103000002826
+}

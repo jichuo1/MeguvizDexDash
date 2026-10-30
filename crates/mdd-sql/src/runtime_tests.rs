@@ -132,6 +132,14 @@ fn concat_preserves_null_non_scalar_nul_and_bytes() {
         let result = prepared
             .execute(SqlControl::new(SqlLimits::default(), None))
             .unwrap();
+        let concatenated_bytes = if dialect == SqlDialect::NativeV1 {
+            SqlValue::Bytes(vec![0, 0xff, 0x41])
+        } else {
+            SqlValue::Text(SqlText {
+                utf16: vec![0, 0xfffd, 0x41],
+                original_mutf8: None,
+            })
+        };
         assert_eq!(
             result.rows()[0],
             vec![
@@ -141,7 +149,7 @@ fn concat_preserves_null_non_scalar_nul_and_bytes() {
                 }),
                 SqlValue::Null,
                 SqlValue::Null,
-                SqlValue::Bytes(vec![0, 0xff, 0x41]),
+                concatenated_bytes,
             ],
             "{dialect:?}"
         );

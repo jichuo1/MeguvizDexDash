@@ -1,0 +1,10 @@
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.76s
+     Running unittests src\lib.rs (target\debug\deps\mdd_sql-46977fcd4387e316.exe)
+
+thread 'bridge::tests::legacy_concat_matches_fixed_engine_observations' (37988) panicked at crates\mdd-sql\src\bridge.rs:1728:17:
+assertion `left == right` failed: DexSql010: SELECT x'410042'||x'43',hex(x'410042'||x'43')
+  left: [Bytes([65, 0, 66, 67]), Text(SqlText { utf16: [52, 49, 48, 48, 52, 50, 52, 51], original_mutf8: None })]
+ right: [Text(SqlText { utf16: [65, 0, 66, 67], original_mutf8: None }), Text(SqlText { utf16: [52, 49, 67, 48, 56, 48, 52, 50, 52, 51], original_mutf8: None })]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-sql --lib`

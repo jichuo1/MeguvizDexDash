@@ -110,7 +110,9 @@ MDD-034累计驻留反例与修复：两行各3989字节、额度5983时，旧�
 
 MDD-034入队前取消边界：独立代码复核指出流式输出行已计数但output_row检查失败时未标记丢弃；真实回归先因truncated=false失败，修复后保留原取消错误并标记截断，计数中取消和入队前取消的QueryWorkspaceBytes及ResidentBytes预约均验证归零。最终源码Windows工作区249项测试、严格Clippy通过，见 artifacts/mdd-034/output-row-truncation-20261030/；未重新执行先前7场景独立流式矩阵，不代表生产worker/传输或MDD-034整体准入。
 
-MDD-031尾部转义与字节拼接实测：固定A0/A1在合成DEX上完成12个CLI查询，尾部LIKE为0、NOT LIKE为1，普通转义为1、NULL保持NULL；bytes拼接为text，含NUL和非UTF-8的HEX分别41C0804243/EFBFBD41。旧方言此前误报INVALID_ARGUMENT；现仅对DexSql010/011返回false，NativeV1保留原错误，配额/取消仍传播。最终源码独立桥探针21场景和8项旧引擎语义对照通过，见 artifacts/mdd-031-audit/legacy-escape-bridge-20261030/runs/20261030T020805554030Z/readback-run/record.json；Windows工作区251项测试、严格Clippy通过。旧版NULL wire与候选不同，bytes拼接类型和编码仍不等价，完整corpus及MDD-031资格未通过。
+MDD-031尾部转义与字节拼接实测：固定A0/A1在合成DEX上完成12个CLI查询，尾部LIKE为0、NOT LIKE为1，普通转义为1、NULL保持NULL；bytes拼接为text，含NUL和非UTF-8的HEX分别41C0804243/EFBFBD41。旧方言此前误报INVALID_ARGUMENT；现仅对DexSql010/011返回false，NativeV1保留原错误，配额/取消仍传播。该修复检查点独立桥探针21场景和8项旧引擎语义对照通过，见 artifacts/mdd-031-audit/legacy-escape-bridge-20261030/runs/20261030T020805554030Z/readback-run/record.json；Windows工作区251项测试、严格Clippy通过。旧版NULL wire与候选不同；当时bytes拼接类型和编码不等价，完整corpus及MDD-031资格未通过。
+
+MDD-031拼接候选：A0/A1合成矩阵32项与独立replacement/MUTF-8 oracle一致，覆盖跨操作数字节、无效/截断、混合类型、NULL和DEX来源；候选旧方言按操作数增量解码Bytes、保留DEX UTF-16并在分配前检查额度与预约，Native路径保持原样。目标红绿及SQL模块测试通过；首次严格Clippy报manual_contains并保留失败，修正后最终源码Windows工作区255项测试和严格Clippy通过，见 artifacts/mdd-031/legacy-concat-20261030-final/。最终源码独立桥探针构建完成后，运行前可用内存2082922496字节低于原3GiB门槛，未启动，见 artifacts/mdd-031-audit/legacy-concat-independent-20261030/runs/20261030T022444872913Z/report.json；不能将旧引擎矩阵等同最终桥对照。输入载体复制、SQLite副本、allocator及RSS未覆盖，完整语料和profile仍未准入。
 
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
 

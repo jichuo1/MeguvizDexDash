@@ -1,0 +1,28 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "mdd-sql",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--",
+    "--test-threads",
+    "1"
+  ],
+  "started_utc": "2026-10-30T02:20:58.744829+00:00",
+  "finished_utc": "2026-10-30T02:21:16.981998+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "429103b27bed3a4a58bd109ffb5aa6e838563c97e8a1bfc94cd3bfe7169edb4b",
+  "stderr_sha256": "226ea9323d7ef073239528ba3ecf82e6257734374818b59461cb632e0f001b33",
+  "sources_sha256": {
+    "crates/mdd-sql/src/bridge.rs": "3e3f4c89dde0d91a9e58df90574f9a111c0679052852e87ee874cc6fd438bf3f",
+    "crates/mdd-sql/src/dialects/functions.rs": "66d7054befeaff97d4459e5d70e33f8bb0682d1fc30c75e1c3a5908aa4dea440",
+    "crates/mdd-sql/src/runtime_tests.rs": "4a0746f85b51803bb8d802528ee62f586571d3d6cfd97411839f9a224a3a497d",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+  },
+  "source_unchanged": true,
+  "scope": "SQL crate local tests; no profile or performance qualification"
+}

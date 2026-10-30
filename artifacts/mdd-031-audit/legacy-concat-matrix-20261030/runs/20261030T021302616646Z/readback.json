@@ -1,0 +1,77 @@
+{
+  "status": "passed_scoped_readback",
+  "cases": 32,
+  "oracle": "per operand Python UTF-8 replacement then UTF-16 unit MUTF-8 encoding",
+  "expected": {
+    "ascii": {
+      "result_type": "text",
+      "result_hex": "4142"
+    },
+    "valid_utf8": {
+      "result_type": "text",
+      "result_hex": "C3A941"
+    },
+    "split_utf8": {
+      "result_type": "text",
+      "result_hex": "EFBFBDEFBFBD"
+    },
+    "split_supplementary": {
+      "result_type": "text",
+      "result_hex": "EFBFBDEFBFBDEFBFBD"
+    },
+    "truncated_prefix": {
+      "result_type": "text",
+      "result_hex": "EFBFBD41"
+    },
+    "invalid_continuation": {
+      "result_type": "text",
+      "result_hex": "EFBFBD4142"
+    },
+    "two_invalid": {
+      "result_type": "text",
+      "result_hex": "EFBFBDEFBFBD"
+    },
+    "overlong_nul": {
+      "result_type": "text",
+      "result_hex": "EFBFBDEFBFBD41"
+    },
+    "blob_text": {
+      "result_type": "text",
+      "result_hex": "4142"
+    },
+    "text_blob": {
+      "result_type": "text",
+      "result_hex": "4241"
+    },
+    "blob_unicode_text": {
+      "result_type": "text",
+      "result_hex": "41E4B8AD"
+    },
+    "null_right": {
+      "result_type": "null",
+      "result_hex": ""
+    },
+    "null_left": {
+      "result_type": "null",
+      "result_hex": ""
+    },
+    "source_nul": {
+      "result_type": "text",
+      "result_hex": "C08041"
+    },
+    "source_surrogate": {
+      "result_type": "text",
+      "result_hex": "EDA08041"
+    },
+    "source_pair": {
+      "result_type": "text",
+      "result_hex": "EDA0BDEDB88041"
+    }
+  },
+  "report_sha256": "509029d89fb1978bf05b128b76211b0fa8c886ff5814b60c5b2918090d21b1f9",
+  "runner_sha256": "a5286547a463020ff76d3fda93fea059b59c28fa84f79de79cdc3f69e754256d",
+  "readback_sha256": "b94a14b15432e80c44e51365a0c13d4697278094d0e7c751d2566671b9484471",
+  "profile_admitted": false,
+  "task_complete_proven": false,
+  "scope": "fixed legacy CLI on one synthetic DEX; oracle matches measured cases only; not complete dialect or performance qualification"
+}

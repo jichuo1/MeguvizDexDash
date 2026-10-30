@@ -1,0 +1,1685 @@
+{
+  "schema_version": "mdd.legacy-sql-boundary-observation.v1",
+  "status": "observed_all",
+  "profile_admitted": false,
+  "task_complete_proven": false,
+  "minimum_available_bytes": "3221225472",
+  "cases": [
+    {
+      "engine": "A0",
+      "case": "ascii",
+      "sql": "SELECT typeof(x'41'||x'42') AS result_type,hex(x'41'||x'42') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6863097856",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'41'||x'42') AS result_type,hex(x'41'||x'42') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-a38dc823edd045faa4131b6969d139ec",
+        "process_id": 33496,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4157440",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.6328407999999399
+      },
+      "stdout_sha256": "a7ac7d0ad29f431f0f9c0f114d77cdcbda9a06af11546f4879b2e5ce305c2a10",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "b30c76b540cac91d86772ad6060598d7ef4a6168de0101ca33150d03b77489c9",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "4142"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "valid_utf8",
+      "sql": "SELECT typeof(x'C3A9'||x'41') AS result_type,hex(x'C3A9'||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6901891072",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'C3A9'||x'41') AS result_type,hex(x'C3A9'||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-9f138149cd764d6eb9c0f9cdbae8cd8d",
+        "process_id": 31352,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4136960",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 1.2629065000000992
+      },
+      "stdout_sha256": "5ad82e098f1987bc6cd31b0768bb922b0b84754d354ced3eff2c8b8a8f5c48ae",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "a53bc750eb936771776adf166efd9a319633470c04ce96bf5b4d5ea6a2caf647",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "C3A941"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "split_utf8",
+      "sql": "SELECT typeof(x'C3'||x'A9') AS result_type,hex(x'C3'||x'A9') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "7089565696",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'C3'||x'A9') AS result_type,hex(x'C3'||x'A9') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-af579b12585146faa3fccf0608b1fc68",
+        "process_id": 29052,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4136960",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.6341470000006666
+      },
+      "stdout_sha256": "d2c2df28e25a621a94ec81fb228ece2b8e1a238e5d0615209741f3e221661cf0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "2ae4658c72bba3d1b11f4213bd38858a5ff0a6f2afe2b421f54cee1b86e46d48",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBDEFBFBD"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "split_supplementary",
+      "sql": "SELECT typeof(x'F09F'||x'9880') AS result_type,hex(x'F09F'||x'9880') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6970839040",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'F09F'||x'9880') AS result_type,hex(x'F09F'||x'9880') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-57b4b048beb347d78a1c2d6ea022bc1f",
+        "process_id": 39304,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4120576",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.7307103000002826
+      },
+      "stdout_sha256": "e02ca47cf5aa1d1a50867b2f6944165d31f9feb28d3f4b9ebdd5a03553b29a4b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "e11c656473491b419984bc790e203d8fe265986d904a35bf0e28b7b38fdb7205",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBDEFBFBDEFBFBD"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "truncated_prefix",
+      "sql": "SELECT typeof(x'E282'||x'41') AS result_type,hex(x'E282'||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "7035768832",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'E282'||x'41') AS result_type,hex(x'E282'||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-177e066219f24a08a8e7acb472226743",
+        "process_id": 25960,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4116480",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.654484699999557
+      },
+      "stdout_sha256": "5018c82196854d181f31cc94ebefb15f847edbea5c819fbb72a93f86f9f8f1dd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "130f1e589b6e6478932b4ea66da4ee374ddf2c816365517854f303ee7bd3e208",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBD41"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "invalid_continuation",
+      "sql": "SELECT typeof(x'C341'||x'42') AS result_type,hex(x'C341'||x'42') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6792982528",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'C341'||x'42') AS result_type,hex(x'C341'||x'42') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-16c72bec77db46be81038e06a60fce94",
+        "process_id": 42004,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4190208",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.6395116000003327
+      },
+      "stdout_sha256": "7ef5a29274099b17192c13f9d046565682b4b81a5298dd3d957458cfc9d2d79d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "8ca634910fd5bfd5f8af730ee01a641a7b54f979946e1d16082f0f76e94d183c",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBD4142"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "two_invalid",
+      "sql": "SELECT typeof(x'FF'||x'FF') AS result_type,hex(x'FF'||x'FF') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6682767360",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'FF'||x'FF') AS result_type,hex(x'FF'||x'FF') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-311a0f3295dd4d6699d5f7cc84b4b00e",
+        "process_id": 38060,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.03125,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4300800",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.13533300000017334
+      },
+      "stdout_sha256": "d2c2df28e25a621a94ec81fb228ece2b8e1a238e5d0615209741f3e221661cf0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "7b510f388fec86ec914bc56a89ff921b10065fe082a0094725684a7ae3035bf6",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBDEFBFBD"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "overlong_nul",
+      "sql": "SELECT typeof(x'C080'||x'41') AS result_type,hex(x'C080'||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6699982848",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'C080'||x'41') AS result_type,hex(x'C080'||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-f138b072402b4aab91d44443b09030d4",
+        "process_id": 20748,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4128768",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.13669409999965865
+      },
+      "stdout_sha256": "b28e92701798a9229da0b19b166d2e48f03eea2f0699877b884ad88c63ec254c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "ee217d88c0258369b743e502f287ecd3a58b6606844a7bd219b878bbfecbbbe7",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBDEFBFBD41"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "blob_text",
+      "sql": "SELECT typeof(x'41'||'B') AS result_type,hex(x'41'||'B') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6788235264",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'41'||'B') AS result_type,hex(x'41'||'B') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-d46986c74806441f99081c94510e3682",
+        "process_id": 43336,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4161536",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.1400535000002492
+      },
+      "stdout_sha256": "a7ac7d0ad29f431f0f9c0f114d77cdcbda9a06af11546f4879b2e5ce305c2a10",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "ab6cb40acf341fb35772cf2cd20d4848018dc28635cdba386066bdb446af1e10",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "4142"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "text_blob",
+      "sql": "SELECT typeof('B'||x'41') AS result_type,hex('B'||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6718697472",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof('B'||x'41') AS result_type,hex('B'||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-c46c20ff3dbf4453bfadd3fc6c1c493f",
+        "process_id": 31352,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4161536",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.1473307999995086
+      },
+      "stdout_sha256": "2d447cba46ac774951b9a4f71c79675f7cebb36d9de24e9a9dd73bd950e3ae83",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "8c743e8fb332fdccdf7d6b734693e1e4aa4b5fefdd628266d233fba1d787d1c5",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "4241"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "blob_unicode_text",
+      "sql": "SELECT typeof(x'41'||'\u4e2d') AS result_type,hex(x'41'||'\u4e2d') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6689980416",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'41'||'\u4e2d') AS result_type,hex(x'41'||'\u4e2d') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-d5d432a43c4b46a096ca684c575ba1e3",
+        "process_id": 44408,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4157440",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.16056549999939307
+      },
+      "stdout_sha256": "0c25a8826e9699b64a463904ecff477456e385efa0d2bce3e5fd136fa6c1d258",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "15341a9bd12dd0b59b468bdac3d3332c066b04bcb09faec707eb56abe9c5dd80",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "41E4B8AD"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "null_right",
+      "sql": "SELECT typeof(x'41'||NULL) AS result_type,hex(x'41'||NULL) AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6813728768",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'41'||NULL) AS result_type,hex(x'41'||NULL) AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-faf52f6e8a5c47e08411eb7bd8df928e",
+        "process_id": 42804,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4075520",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.18116709999958402
+      },
+      "stdout_sha256": "202ebd334366f9489769c643425a2b93bcf1e4e0fda593a04489e8f70295a7e3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "0480661d3d6638b1c1f24a0a2bd067ca0c6d9165120f038d6e429d7a409f8037",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "null",
+          "result_hex": ""
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "null_left",
+      "sql": "SELECT typeof(NULL||x'41') AS result_type,hex(NULL||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6676844544",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(NULL||x'41') AS result_type,hex(NULL||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-467ec8d7a9e4408994d7421c135e79f0",
+        "process_id": 43828,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.03125,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4165632",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.1436716999996861
+      },
+      "stdout_sha256": "202ebd334366f9489769c643425a2b93bcf1e4e0fda593a04489e8f70295a7e3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "6796a44f03b1025e267bee3e2dbf01e1a60f52fc6ce9fc1e7d530a44500579b6",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "null",
+          "result_hex": ""
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "source_nul",
+      "sql": "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=1",
+      "status": "observed",
+      "available_physical_bytes": "6755160064",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=1"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-3c878589c70945d085e31b539e8861e5",
+        "process_id": 39700,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4292608",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.25980210000034276
+      },
+      "stdout_sha256": "1132675e771ae6cc1cdd09eec84c537b8109a12f6172becdd03989380db06f7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "2e9b59db42621e30673d6d68c8d5585c6b9ec780e30d4a829fc6748250726b70",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "C08041"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "source_surrogate",
+      "sql": "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=4",
+      "status": "observed",
+      "available_physical_bytes": "6941724672",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=4"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-91b2b37d706043669c3b5fa4dfe37f34",
+        "process_id": 41668,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.03125,
+        "cpu_kernel_seconds": 0.0,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4173824",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.659483000000364
+      },
+      "stdout_sha256": "960977da743ab53cb6c5c5b43aff1f9d062f9aa459a62eaa26758b245b015742",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "6034c93d3fe82d7d56acf877003a23ee6ee13b4e9cbfda24ce57e2790e5ca62c",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EDA08041"
+        }
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "source_pair",
+      "sql": "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=5",
+      "status": "observed",
+      "available_physical_bytes": "6985539584",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=5"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-2ba2d1b7c330405297886bce5a42a7ad",
+        "process_id": 41948,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.03125,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4247552",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.8548141999999643
+      },
+      "stdout_sha256": "eff6b882e5e858e3130b6429dd9b7f133f67a25b1a743d330961b9f831e67247",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "d50186989d15aad48da1e1bfa931ed15b4c4c8b2b02f64af684476425781ce5f",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EDA0BDEDB88041"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "ascii",
+      "sql": "SELECT typeof(x'41'||x'42') AS result_type,hex(x'41'||x'42') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "7001141248",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'41'||x'42') AS result_type,hex(x'41'||x'42') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-2d1d8b035b4f4fb7b1bbafd5ace29d05",
+        "process_id": 41280,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.03125,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4255744",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.7195483999994394
+      },
+      "stdout_sha256": "a7ac7d0ad29f431f0f9c0f114d77cdcbda9a06af11546f4879b2e5ce305c2a10",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "b1aefed781088cfa0c08410847ad6945983430281a7e3bfd353f722e25382466",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "4142"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "valid_utf8",
+      "sql": "SELECT typeof(x'C3A9'||x'41') AS result_type,hex(x'C3A9'||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6868312064",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'C3A9'||x'41') AS result_type,hex(x'C3A9'||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-f0e8571cff8843bfb5118092d73ef9af",
+        "process_id": 31452,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4247552",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.6010160000005271
+      },
+      "stdout_sha256": "5ad82e098f1987bc6cd31b0768bb922b0b84754d354ced3eff2c8b8a8f5c48ae",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "93b82ea7ae7a2b4882e6f766bdda0408e94846155034c003dcad0e354d74d097",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "C3A941"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "split_utf8",
+      "sql": "SELECT typeof(x'C3'||x'A9') AS result_type,hex(x'C3'||x'A9') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6648479744",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'C3'||x'A9') AS result_type,hex(x'C3'||x'A9') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-adaa7dabbd5c49658bfd7f78b55076c7",
+        "process_id": 42312,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.046875,
+        "cpu_kernel_seconds": 0.0,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4218880",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.7620077000001402
+      },
+      "stdout_sha256": "d2c2df28e25a621a94ec81fb228ece2b8e1a238e5d0615209741f3e221661cf0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "640fabb3aa94a1e8f368a325a0c9942489f850576b0c5a0127c1efea1530ae04",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBDEFBFBD"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "split_supplementary",
+      "sql": "SELECT typeof(x'F09F'||x'9880') AS result_type,hex(x'F09F'||x'9880') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6927560704",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'F09F'||x'9880') AS result_type,hex(x'F09F'||x'9880') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-a0680b60caf9434d946b3003598fea3c",
+        "process_id": 39000,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4284416",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.7197909000005893
+      },
+      "stdout_sha256": "e02ca47cf5aa1d1a50867b2f6944165d31f9feb28d3f4b9ebdd5a03553b29a4b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "07489872e3f70884123db7bbbd87df89a1b106d3976ca8ff570fb1123f1c75a3",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBDEFBFBDEFBFBD"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "truncated_prefix",
+      "sql": "SELECT typeof(x'E282'||x'41') AS result_type,hex(x'E282'||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "6972313600",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'E282'||x'41') AS result_type,hex(x'E282'||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-d6d09a50c73b4f89b94f07528e96d5bf",
+        "process_id": 42956,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.03125,
+        "cpu_kernel_seconds": 0.0,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4268032",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.8258354999998119
+      },
+      "stdout_sha256": "5018c82196854d181f31cc94ebefb15f847edbea5c819fbb72a93f86f9f8f1dd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "927e6e2e06f1deaeab6127355e441ca7479ea29b370276fed8f8eb0ff4af4412",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBD41"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "invalid_continuation",
+      "sql": "SELECT typeof(x'C341'||x'42') AS result_type,hex(x'C341'||x'42') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "7468474368",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'C341'||x'42') AS result_type,hex(x'C341'||x'42') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-4f11481649994538944031dc4dcf75dd",
+        "process_id": 42620,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.0,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4198400",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.7226113999995505
+      },
+      "stdout_sha256": "7ef5a29274099b17192c13f9d046565682b4b81a5298dd3d957458cfc9d2d79d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "bdc6251caaed1ef30fe835ab2525d8b112fa0bbd5b3eb0140a940187533e94a4",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBD4142"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "two_invalid",
+      "sql": "SELECT typeof(x'FF'||x'FF') AS result_type,hex(x'FF'||x'FF') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "11239710720",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'FF'||x'FF') AS result_type,hex(x'FF'||x'FF') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-2d7963000bbd4753bf239411c9379f0a",
+        "process_id": 12732,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.03125,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4214784",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 1.3183085000000574
+      },
+      "stdout_sha256": "d2c2df28e25a621a94ec81fb228ece2b8e1a238e5d0615209741f3e221661cf0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "8e0647d4b02acef8ac283288023b385d6773978f31f03566fd65101eca10ae1a",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBDEFBFBD"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "overlong_nul",
+      "sql": "SELECT typeof(x'C080'||x'41') AS result_type,hex(x'C080'||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "11538526208",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'C080'||x'41') AS result_type,hex(x'C080'||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-36917b7f7db3470ca5ba19fe6fff6e20",
+        "process_id": 44336,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.03125,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4177920",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.6901494999992792
+      },
+      "stdout_sha256": "b28e92701798a9229da0b19b166d2e48f03eea2f0699877b884ad88c63ec254c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "21018e5c22e3aaaec4761579d9c73dd55680577121c409f6736c49318d1c75bc",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EFBFBDEFBFBD41"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "blob_text",
+      "sql": "SELECT typeof(x'41'||'B') AS result_type,hex(x'41'||'B') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "12336590848",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'41'||'B') AS result_type,hex(x'41'||'B') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-ed54c818a57a4ab79381b76f2596c4c5",
+        "process_id": 44656,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4186112",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.6693564999995942
+      },
+      "stdout_sha256": "a7ac7d0ad29f431f0f9c0f114d77cdcbda9a06af11546f4879b2e5ce305c2a10",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "3c32371ee822e3b8221f681da0f1ed5a017771f049833934284499560ab31c1a",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "4142"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "text_blob",
+      "sql": "SELECT typeof('B'||x'41') AS result_type,hex('B'||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "12516929536",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof('B'||x'41') AS result_type,hex('B'||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-d76e04c770dd4a2fa381eed554a06113",
+        "process_id": 19368,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.03125,
+        "cpu_kernel_seconds": 0.0,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4186112",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.6500202999995963
+      },
+      "stdout_sha256": "2d447cba46ac774951b9a4f71c79675f7cebb36d9de24e9a9dd73bd950e3ae83",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "8d97e7b74b24eafe3ba72d61a3ea63e9bb1cb6fb0bbb3289a6343d062f90f796",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "4241"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "blob_unicode_text",
+      "sql": "SELECT typeof(x'41'||'\u4e2d') AS result_type,hex(x'41'||'\u4e2d') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "12190851072",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'41'||'\u4e2d') AS result_type,hex(x'41'||'\u4e2d') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-c136bb021dec4813bf4abc5687143a45",
+        "process_id": 44672,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.03125,
+        "cpu_kernel_seconds": 0.03125,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4210688",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.13086810000004334
+      },
+      "stdout_sha256": "0c25a8826e9699b64a463904ecff477456e385efa0d2bce3e5fd136fa6c1d258",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "58ee4f60e0464c3debfbc5400368b6328b92eacd043fb33dffa4f8974e63920d",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "41E4B8AD"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "null_right",
+      "sql": "SELECT typeof(x'41'||NULL) AS result_type,hex(x'41'||NULL) AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "12105719808",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(x'41'||NULL) AS result_type,hex(x'41'||NULL) AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-0c492d520efb4bf9a62248b7fa99b27d",
+        "process_id": 36668,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.015625,
+        "cpu_kernel_seconds": 0.0,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4268032",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.20317160000013246
+      },
+      "stdout_sha256": "202ebd334366f9489769c643425a2b93bcf1e4e0fda593a04489e8f70295a7e3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "2a73556a21ba25aae072f8491246361ad0795be6c3b284b356818a659aab93a7",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "null",
+          "result_hex": ""
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "null_left",
+      "sql": "SELECT typeof(NULL||x'41') AS result_type,hex(NULL||x'41') AS result_hex",
+      "status": "observed",
+      "available_physical_bytes": "12372889600",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(NULL||x'41') AS result_type,hex(NULL||x'41') AS result_hex"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-2ee4573ef0da421eac253e5294e9ddd5",
+        "process_id": 36996,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.03125,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4231168",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.2420036000003165
+      },
+      "stdout_sha256": "202ebd334366f9489769c643425a2b93bcf1e4e0fda593a04489e8f70295a7e3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "74e7382c94946c900a9a501dbfaa2d34a32c6cc714301e74b4c4715f02586cbc",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "null",
+          "result_hex": ""
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "source_nul",
+      "sql": "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=1",
+      "status": "observed",
+      "available_physical_bytes": "12459438080",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=1"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-a1e37bfe3b4a40beb7e94d029a7f93a8",
+        "process_id": 32104,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.03125,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4349952",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.7472600999999486
+      },
+      "stdout_sha256": "1132675e771ae6cc1cdd09eec84c537b8109a12f6172becdd03989380db06f7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "a3ec8c2735a37901577699afcdcf1989e5bbec40d2dff18aa7cf987449cf1518",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "C08041"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "source_surrogate",
+      "sql": "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=4",
+      "status": "observed",
+      "available_physical_bytes": "12458938368",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=4"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-d6d1363510174ce6a5c588a43249f631",
+        "process_id": 12684,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.03125,
+        "cpu_kernel_seconds": 0.0,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4222976",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.8374555999998847
+      },
+      "stdout_sha256": "960977da743ab53cb6c5c5b43aff1f9d062f9aa459a62eaa26758b245b015742",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "c7d0fac919a9e80460c052d0f864e33b50f1d0b30f2723bb355f8a339f66b194",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EDA08041"
+        }
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "source_pair",
+      "sql": "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=5",
+      "status": "observed",
+      "available_physical_bytes": "12653993984",
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+          "--threads",
+          "1",
+          "query",
+          "--input",
+          "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+          "--sql",
+          "SELECT typeof(s.value||x'41') AS result_type,hex(s.value||x'41') AS result_hex FROM strings AS s WHERE s.string_idx=5"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "2147483648",
+          "affinity_mask": "15",
+          "max_processes": 16,
+          "timeout_seconds": 90,
+          "max_log_bytes": 8388608
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-6ac14be0354c4e559c5e08af4f6169de",
+        "process_id": 44888,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 0.046875,
+        "cpu_kernel_seconds": 0.015625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "4308992",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 0.8779589000005217
+      },
+      "stdout_sha256": "eff6b882e5e858e3130b6429dd9b7f133f67a25b1a743d330961b9f831e67247",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "supervisor_sha256": "01187929b92bdff971e0e24620a16d768cd223832a0af53b16e642f03bc46325",
+      "table": {
+        "status": "one_row",
+        "cells": {
+          "result_type": "text",
+          "result_hex": "EDA0BDEDB88041"
+        }
+      }
+    }
+  ],
+  "scope": "fixed legacy CLI on synthetic DEX; no complete dialect, transport, release or performance claim",
+  "identities_before": {
+    "fixture": {
+      "path": "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+      "sha256": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+      "expected_sha256": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+      "matches": true
+    },
+    "A0": {
+      "path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+      "sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+      "expected_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+      "matches": true
+    },
+    "A1": {
+      "path": "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+      "sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6",
+      "expected_sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6",
+      "matches": true
+    }
+  },
+  "supervisor_sha256": "7d09b5f48217c2444e5a86e796f69743126aba5d7683bddaf7c48df3aa3bea95",
+  "script_sha256": "a5286547a463020ff76d3fda93fea059b59c28fa84f79de79cdc3f69e754256d",
+  "identities_after": {
+    "fixture": {
+      "path": "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+      "sha256": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+      "expected_sha256": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+      "matches": true
+    },
+    "A0": {
+      "path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+      "sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+      "expected_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+      "matches": true
+    },
+    "A1": {
+      "path": "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+      "sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6",
+      "expected_sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6",
+      "matches": true
+    }
+  },
+  "identities_unchanged": true
+}

@@ -1710,6 +1710,119 @@ mod tests {
         );
     }
     #[test]
+    fn legacy_concat_matches_fixed_engine_observations() {
+        let (provider, _) = bridge();
+        let cases = [
+            (
+                "SELECT x'410042'||x'43',hex(x'410042'||x'43')",
+                Some("A\0BC"),
+                "41C0804243",
+            ),
+            (
+                "SELECT x'C3'||x'A9',hex(x'C3'||x'A9')",
+                Some("��"),
+                "EFBFBDEFBFBD",
+            ),
+            (
+                "SELECT x'F09F'||x'9880',hex(x'F09F'||x'9880')",
+                Some("���"),
+                "EFBFBDEFBFBDEFBFBD",
+            ),
+            (
+                "SELECT x'E282'||x'41',hex(x'E282'||x'41')",
+                Some("�A"),
+                "EFBFBD41",
+            ),
+            (
+                "SELECT x'C080'||x'41',hex(x'C080'||x'41')",
+                Some("��A"),
+                "EFBFBDEFBFBD41",
+            ),
+            ("SELECT x'41'||'B',hex(x'41'||'B')", Some("AB"), "4142"),
+            ("SELECT 'B'||x'41',hex('B'||x'41')", Some("BA"), "4241"),
+            ("SELECT NULL||x'41',hex(NULL||x'41')", None, ""),
+        ];
+        for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {
+            let bridge = SqlBridge::new(provider.clone(), dialect, SqlLimits::default()).unwrap();
+            for (sql, text, bytes) in cases {
+                assert_eq!(
+                    bridge.query(sql).unwrap().rows()[0],
+                    vec![
+                        text.map_or(SqlValue::Null, SqlValue::text),
+                        SqlValue::text(bytes)
+                    ],
+                    "{dialect:?}: {sql}"
+                );
+            }
+            let source = SqlValue::DexMutf8 {
+                bytes: vec![0xed, 0xa0, 0x80],
+                utf16_code_units: DecimalU64(1),
+            };
+            let prepared = bridge
+                .prepare_with_parameters("SELECT ?||x'41'", &[source])
+                .unwrap();
+            let output = bridge
+                .execute(&prepared, SqlControl::new(SqlLimits::default(), None))
+                .unwrap();
+            assert_eq!(
+                output.rows()[0][0],
+                SqlValue::Text(crate::values::SqlText {
+                    utf16: vec![0xd800, 65],
+                    original_mutf8: None
+                })
+            );
+        }
+    }
+
+    #[test]
+    fn legacy_concat_bridge_budget_and_cancellation_are_errors() {
+        let (provider, _) = bridge();
+        for dialect in [SqlDialect::DexSql010, SqlDialect::DexSql011] {
+            let bridge = SqlBridge::new(provider.clone(), dialect, SqlLimits::default()).unwrap();
+            let prepared = bridge
+                .prepare_with_parameters(
+                    "SELECT ?||?",
+                    &[SqlValue::Bytes(vec![b'a'; 1000]), SqlValue::text("b")],
+                )
+                .unwrap();
+            let low = SqlControl::new(
+                SqlLimits {
+                    max_steps: 32,
+                    ..SqlLimits::default()
+                },
+                None,
+            );
+            assert_eq!(
+                bridge.execute(&prepared, low).unwrap_err().code,
+                ErrorCode::QuotaExceeded
+            );
+            let cancelled = SqlControl::new(SqlLimits::default(), None);
+            cancelled.cancel().unwrap();
+            assert_eq!(
+                bridge.execute(&prepared, cancelled).unwrap_err().code,
+                ErrorCode::Cancelled
+            );
+            let small = bridge
+                .prepare_with_parameters(
+                    "SELECT ?||?",
+                    &[SqlValue::Bytes(vec![b'a'; 2]), SqlValue::text("bc")],
+                )
+                .unwrap();
+            let cell = SqlControl::new(
+                SqlLimits {
+                    max_cell_bytes: 6,
+                    ..SqlLimits::default()
+                },
+                None,
+            );
+            assert_eq!(
+                bridge.execute(&small, cell).unwrap_err().code,
+                ErrorCode::QuotaExceeded
+            );
+        }
+    }
+
+    #[test]
     fn blob_magic_is_never_an_internal_text_and_controls_cannot_be_rebound() {
         let (_, bridge) = bridge();
         let expected = vec![0, 77, 68, 68, 84, 69, 88, 84, 49, 0, 65];

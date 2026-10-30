@@ -1,0 +1,13 @@
+   Compiling mdd-cli v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-cli)
+    Checking mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+error: using `contains()` instead of `iter().any()` is more efficient
+    --> crates\mdd-sql\src\dialects\functions.rs:1259:21
+     |
+1259 |                 && !values.iter().any(|value| *value == SqlValue::Null)
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `values.contains(&SqlValue::Null)`
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_contains
+     = note: `-D clippy::manual-contains` implied by `-D warnings`
+     = help: to override `-D warnings` add `#[allow(clippy::manual_contains)]`
+
+error: could not compile `mdd-sql` (lib) due to 1 previous error

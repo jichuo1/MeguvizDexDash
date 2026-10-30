@@ -1,0 +1,8 @@
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.88s
+     Running unittests src\lib.rs (target\debug\deps\mdd_sql-46977fcd4387e316.exe)
+
+thread 'bridge::tests::legacy_concat_matches_fixed_engine_observations' (44972) panicked at crates\mdd-sql\src\bridge.rs:1728:46:
+called `Result::unwrap()` on an `Err` value: MddError { code: UnsupportedQuery, stage: "sql.ast", message: "SQLite accepts this read-only syntax but the AST adapter does not yet implement it", retryable: false, details: {"ast_error": String("FUNCTION_NOT_IMPLEMENTED")} }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-sql --lib`

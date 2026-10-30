@@ -278,7 +278,7 @@ fn reserve_key_workspace(value: &SqlValue, control: &SqlControl) -> MddResult<Op
 // live until the copy call returns; it does not account for SQLite's copy.
 struct SqlCellWithKeyLease {
     value: Cell,
-    _key_workspace: Option<Reservation>,
+    _workspace: Option<Reservation>,
 }
 impl ToSql for SqlCellWithKeyLease {
     fn to_sql(&self) -> rusqlite::Result<ToSqlOutput<'_>> {
@@ -729,6 +729,156 @@ fn concat_capacity(
     Ok(units)
 }
 
+// Decode each ordinary byte operand independently. Inspect at most four bytes
+// between checkpoints so malformed input cannot create an unbounded scan.
+fn legacy_concat_units(
+    value: &SqlValue,
+    control: &SqlControl,
+    mut emit: impl FnMut(u16) -> MddResult<()>,
+) -> MddResult<()> {
+    match value {
+        SqlValue::Bytes(bytes) => {
+            let mut at = 0;
+            while at < bytes.len() {
+                control.checkpoint(0, false)?;
+                let end = at.saturating_add(4).min(bytes.len());
+                let window = &bytes[at..end];
+                let (ch, consumed) = match std::str::from_utf8(window) {
+                    Ok(text) => {
+                        let ch = text.chars().next().expect("nonempty window");
+                        (ch, ch.len_utf8())
+                    }
+                    Err(error) if error.valid_up_to() > 0 => {
+                        let prefix = std::str::from_utf8(&window[..error.valid_up_to()])
+                            .map_err(|_| invalid("CONCAT_UTF8_VALID_PREFIX"))?;
+                        let ch = prefix.chars().next().expect("nonempty valid prefix");
+                        (ch, ch.len_utf8())
+                    }
+                    Err(error) => ('\u{fffd}', error.error_len().unwrap_or(window.len())),
+                };
+                control.checkpoint(consumed as u64, false)?;
+                let mut buffer = [0u16; 2];
+                for unit in ch.encode_utf16(&mut buffer).iter().copied() {
+                    emit(unit)?;
+                }
+                at += consumed;
+            }
+        }
+        SqlValue::DexMutf8 {
+            bytes,
+            utf16_code_units,
+        } => {
+            let mut at = 0;
+            let mut count = 0u64;
+            while at < bytes.len() {
+                control.checkpoint(0, false)?;
+                let first = bytes[at];
+                let (size, mut unit, minimum) = match first {
+                    1..=0x7f => (1, u16::from(first), 0),
+                    0xc0..=0xdf => (2, u16::from(first & 31), 0x80),
+                    0xe0..=0xef => (3, u16::from(first & 15), 0x800),
+                    _ => return Err(invalid("INVALID_DEX_MUTF8_CARRIER")),
+                };
+                let end = at
+                    .checked_add(size)
+                    .filter(|end| *end <= bytes.len())
+                    .ok_or_else(|| invalid("TRUNCATED_DEX_MUTF8_CARRIER"))?;
+                for byte in &bytes[at + 1..end] {
+                    if byte & 0xc0 != 0x80 {
+                        return Err(invalid("INVALID_DEX_MUTF8_CONTINUATION"));
+                    }
+                    unit = (unit << 6) | u16::from(byte & 63);
+                }
+                if unit < minimum && !(size == 2 && unit == 0 && first == 0xc0) {
+                    return Err(invalid("OVERLONG_DEX_MUTF8_CARRIER"));
+                }
+                control.checkpoint(size as u64, false)?;
+                emit(unit)?;
+                count = count
+                    .checked_add(1)
+                    .ok_or_else(|| quota("DEX_MUTF8_UNIT_COUNT_OVERFLOW"))?;
+                at = end;
+            }
+            if count != utf16_code_units.0 {
+                return Err(invalid("DEX_MUTF8_UNIT_COUNT_MISMATCH"));
+            }
+        }
+        SqlValue::Text(text) => {
+            for unit in &text.utf16 {
+                control.checkpoint(1, false)?;
+                emit(*unit)?;
+            }
+        }
+        _ => {
+            // Scalar numeric formatting has bounded size; do not clone a text operand.
+            let text = scalar_text(value)?;
+            for unit in text.utf16 {
+                control.checkpoint(1, false)?;
+                emit(unit)?;
+            }
+        }
+    }
+    Ok(())
+}
+
+fn legacy_concat(
+    args: &[SqlValue],
+    control: &SqlControl,
+) -> MddResult<(SqlValue, Option<Reservation>)> {
+    let mut count = 0usize;
+    for value in args {
+        legacy_concat_units(value, control, |_| {
+            count = count
+                .checked_add(1)
+                .ok_or_else(|| quota("CONCAT_CELL_BYTES"))?;
+            concat_capacity(
+                count,
+                0,
+                2,
+                control.inner.limits.max_cell_bytes,
+                "CONCAT_CELL_BYTES",
+            )?;
+            Ok(())
+        })?;
+    }
+    // The text vector and tagged SQLite value coexist until ToSql returns.
+    // This is a logical bound; SQLite's own copies and allocator overhead are separate.
+    let workspace = u64::try_from(count)
+        .ok()
+        .and_then(|n| n.checked_mul(4))
+        .and_then(|n| n.checked_add(b"\0MDDTEXT1".len() as u64))
+        .ok_or_else(|| quota("CONCAT_WORKSPACE_OVERFLOW"))?;
+    let lease = control
+        .runtime()
+        .map(|runtime| {
+            runtime
+                .pool()
+                .reserve(mdd_query::budget::Resource::QueryWorkspaceBytes, workspace)
+                .map_err(|error| control.fail(error))
+        })
+        .transpose()?;
+    let mut units = Vec::new();
+    units
+        .try_reserve_exact(count)
+        .map_err(|_| control.fail(quota("CONCAT_ALLOCATION")))?;
+    for value in args {
+        legacy_concat_units(value, control, |unit| {
+            units.push(unit);
+            Ok(())
+        })?;
+    }
+    if units.len() != count {
+        return Err(invalid("CONCAT_LENGTH_CHANGED"));
+    }
+    Ok((
+        SqlValue::Text(SqlText {
+            utf16: units,
+            original_mutf8: None,
+        }),
+        lease,
+    ))
+}
+
 fn scalar(
     name: &str,
     args: &[SqlValue],
@@ -1104,14 +1254,23 @@ pub(crate) fn register(
             } else {
                 None
             };
-            let value =
-                scalar(name, &values, dialect, &control).map_err(|e| failure(&control, e))?;
+            let (value, concat_workspace) = if name == "mdd_concat"
+                && dialect != SqlDialect::NativeV1
+                && !values.contains(&SqlValue::Null)
+            {
+                legacy_concat(&values, &control).map_err(|e| failure(&control, e))?
+            } else {
+                (
+                    scalar(name, &values, dialect, &control).map_err(|e| failure(&control, e))?,
+                    None,
+                )
+            };
             let value = value
                 .sqlite(control.inner.limits.max_cell_bytes)
                 .map_err(|e| failure(&control, e))?;
             Ok(SqlCellWithKeyLease {
                 value,
-                _key_workspace: key_workspace,
+                _workspace: key_workspace.or(concat_workspace),
             })
         })?;
     }
@@ -1186,6 +1345,69 @@ mod like_budget_tests {
     use mdd_types::ErrorCode;
 
     #[test]
+    fn legacy_concat_lossy_decoder_agrees_with_bounded_standard_oracle() {
+        let tails: &[&[u8]] = &[
+            &[],
+            &[0x80],
+            &[0xa9],
+            &[0x41],
+            &[0x9f, 0x98, 0x80],
+            &[0xff, 0x80],
+        ];
+        for first in 0u8..=u8::MAX {
+            for tail in tails {
+                let mut bytes = vec![first];
+                bytes.extend_from_slice(tail);
+                let mut actual = Vec::new();
+                legacy_concat_units(
+                    &SqlValue::Bytes(bytes.clone()),
+                    &SqlControl::new(SqlLimits::default(), None),
+                    |u| {
+                        actual.push(u);
+                        Ok(())
+                    },
+                )
+                .unwrap();
+                let expected: Vec<_> = String::from_utf8_lossy(&bytes).encode_utf16().collect();
+                assert_eq!(actual, expected, "{bytes:?}");
+            }
+        }
+    }
+
+    #[test]
+    fn legacy_concat_checks_steps_cell_limit_and_cancellation() {
+        let values = [SqlValue::Bytes(vec![b'a'; 100]), SqlValue::text("b")];
+        let limited = SqlControl::new(
+            SqlLimits {
+                max_steps: 16,
+                ..SqlLimits::default()
+            },
+            None,
+        );
+        assert_eq!(
+            legacy_concat(&values, &limited).err().unwrap().code,
+            ErrorCode::QuotaExceeded
+        );
+        let cell = SqlControl::new(
+            SqlLimits {
+                max_cell_bytes: 6,
+                ..SqlLimits::default()
+            },
+            None,
+        );
+        assert_eq!(
+            legacy_concat(&values, &cell).err().unwrap().code,
+            ErrorCode::QuotaExceeded
+        );
+        let cancelled = SqlControl::new(SqlLimits::default(), None);
+        cancelled.cancel().unwrap();
+        assert_eq!(
+            legacy_concat(&values, &cancelled).err().unwrap().code,
+            ErrorCode::Cancelled
+        );
+    }
+
+    #[test]
     fn concat_capacity_checks_addition_multiplication_and_cell_limit() {
         assert_eq!(concat_capacity(2, 2, 2, 8, "CONCAT_CELL_BYTES").unwrap(), 4);
         for (left, right, unit, max) in [
@@ -1252,7 +1474,7 @@ mod like_budget_tests {
                 Ok(ObservedCell {
                     inner: SqlCellWithKeyLease {
                         value: Cell::Blob(vec![0, 1, 0xff]),
-                        _key_workspace: Some(lease),
+                        _workspace: Some(lease),
                     },
                     pool: callback_pool.clone(),
                     observed: Arc::clone(&callback_observed),

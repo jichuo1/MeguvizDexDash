@@ -1,0 +1,14 @@
+{
+  "command": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\legacy-concat-matrix-20261030\\readback.py",
+    "20261030T021302616646Z"
+  ],
+  "started_utc": "2026-10-30T02:14:20.808281+00:00",
+  "finished_utc": "2026-10-30T02:14:21.004492+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "3a9edb1b194b900a2fec95202d65443000c356196e375a35a2665cf05562702f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic fixed legacy CLI; no profile qualification"
+}
