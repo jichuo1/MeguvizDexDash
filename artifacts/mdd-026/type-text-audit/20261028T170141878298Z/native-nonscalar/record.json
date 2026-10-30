@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\type-text-audit\\20261028T170141878298Z\\type_text_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\nonscalar-string-035.dex"
+  ],
+  "started_utc": "2026-10-28T17:01:48.736371+00:00",
+  "finished_utc": "2026-10-28T17:01:48.782369+00:00",
+  "elapsed_seconds": 0.047000000000025466,
+  "exit_code": 0,
+  "stdout_sha256": "762da6b65871f143d76309dd0c018df9aa85e9ee9efdefb06fb389a418a76ce2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

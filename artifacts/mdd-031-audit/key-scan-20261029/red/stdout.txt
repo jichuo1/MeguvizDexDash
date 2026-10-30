@@ -1,0 +1,39 @@
+
+running 4 tests
+test runtime_tests::key_distinct_long_bytes_respects_session_step_budget ... FAILED
+test runtime_tests::key_distinct_long_text_respects_session_step_budget ... FAILED
+test runtime_tests::key_group_long_text_respects_session_step_budget ... FAILED
+test runtime_tests::key_order_long_text_respects_session_step_budget ... FAILED
+
+failures:
+
+---- runtime_tests::key_distinct_long_bytes_respects_session_step_budget stdout ----
+
+thread 'runtime_tests::key_distinct_long_bytes_respects_session_step_budget' (42076) panicked at crates\mdd-sql\src\runtime_tests.rs:69:14:
+called `Result::unwrap_err()` on an `Ok` value: SqlResult { binding: SqlBinding { provider_identity: "sql-metadata-provider-28259ac6ac0d2558334c51c0b1b6c23d7b1356e67a17e15d539619bffd163ba0", snapshot_id: "snapshot-82c0897201406909286b417ab350c7c5dc999e50f47e16488e831fe557a0ee66", catalog_epoch: DecimalU64(0) }, dialect: NativeV1, columns: ["COUNT(*)"], rows: [[I64(Signed64(1))]], calculation_complete: true, profiles_admitted: [], sqlite_version: "3.53.2", optimizer: OptimizerPolicy { omit: false, order_by_consumed: false, limit_offset_pushdown: false, in_pushdown: false }, required_relations: [], required_layers: [], ast_nodes: 9, execution_binding: Some(SqlExecutionBinding { schema_version: "mdd.sql.execution-binding.v1", worker_owner_id: "runtime-f5665cd130ce4d96ae44c30c32c20b4961fbe35048a3a47d8987ba447e0b1495", session_id: "session-d53ba3862898911df5465914ea216a980255b33e34f93fb8a6c4ea8e6af576d7", query_id: "query-ed3dcaac3337f33296e7578498c2e9449e132440d74e344582f1841654e12dc8", snapshot_id: "snapshot-82c0897201406909286b417ab350c7c5dc999e50f47e16488e831fe557a0ee66", catalog_epoch: DecimalU64(0), provider_identity: "sql-metadata-provider-28259ac6ac0d2558334c51c0b1b6c23d7b1356e67a17e15d539619bffd163ba0", request_key: "370491e06367cc598666ea1b4b313e8ba38a8295babdf3740c5d2a03feb75d06", schema_id: "mdd.sql.dynamic-rows.v1:4c1d1eb64a2f0270f52fb15d2b9ea3621c5f2db2ed1e9d2a5f2cd1fcea49432d", semantic_version: "mdd.sql.ast.v2;mdd.sql.values.v1;NativeV1" }), _result_memory: ResultMemory { reservations: 1, unused: 1898 } }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- runtime_tests::key_distinct_long_text_respects_session_step_budget stdout ----
+
+thread 'runtime_tests::key_distinct_long_text_respects_session_step_budget' (37768) panicked at crates\mdd-sql\src\runtime_tests.rs:69:14:
+called `Result::unwrap_err()` on an `Ok` value: SqlResult { binding: SqlBinding { provider_identity: "sql-metadata-provider-8f86d3d0120ee95598919b7175e37b3fecce53d5e96c82af16b99b1ebb825b3d", snapshot_id: "snapshot-3fffefacac41392a7076f69707d4dfe1bd99abe51529fe2099d4ac4929195472", catalog_epoch: DecimalU64(0) }, dialect: NativeV1, columns: ["COUNT(*)"], rows: [[I64(Signed64(1))]], calculation_complete: true, profiles_admitted: [], sqlite_version: "3.53.2", optimizer: OptimizerPolicy { omit: false, order_by_consumed: false, limit_offset_pushdown: false, in_pushdown: false }, required_relations: [], required_layers: [], ast_nodes: 9, execution_binding: Some(SqlExecutionBinding { schema_version: "mdd.sql.execution-binding.v1", worker_owner_id: "runtime-10723a06d316092d253cc26817856e244fbe43e37948a9b82b456fc54ee993e0", session_id: "session-f5853a2f05907a184e8439ac8d027c8e1a87c8999fb79c26b58ce71eb42a3215", query_id: "query-a21d0608a17e1d54c7a293f0111f926bdd3d69d598270477b27bb2ce5e0a055a", snapshot_id: "snapshot-3fffefacac41392a7076f69707d4dfe1bd99abe51529fe2099d4ac4929195472", catalog_epoch: DecimalU64(0), provider_identity: "sql-metadata-provider-8f86d3d0120ee95598919b7175e37b3fecce53d5e96c82af16b99b1ebb825b3d", request_key: "285481296dd0f82098cb9f01bb6084b0cf90cfd9abbaaec6ec4de78ad0d48e94", schema_id: "mdd.sql.dynamic-rows.v1:4c1d1eb64a2f0270f52fb15d2b9ea3621c5f2db2ed1e9d2a5f2cd1fcea49432d", semantic_version: "mdd.sql.ast.v2;mdd.sql.values.v1;NativeV1" }), _result_memory: ResultMemory { reservations: 1, unused: 1898 } }
+
+---- runtime_tests::key_group_long_text_respects_session_step_budget stdout ----
+
+thread 'runtime_tests::key_group_long_text_respects_session_step_budget' (1808) panicked at crates\mdd-sql\src\runtime_tests.rs:69:14:
+called `Result::unwrap_err()` on an `Ok` value: SqlResult { binding: SqlBinding { provider_identity: "sql-metadata-provider-a0ae293ded46a56abf04b29d475deaed3282270215c938aa38e4892a30e1539f", snapshot_id: "snapshot-44fded5189833eadebcd47f13a976e03d0b6ac727be609f0b336a4c009b2dc64", catalog_epoch: DecimalU64(0) }, dialect: NativeV1, columns: ["COUNT(*)"], rows: [[I64(Signed64(1))]], calculation_complete: true, profiles_admitted: [], sqlite_version: "3.53.2", optimizer: OptimizerPolicy { omit: false, order_by_consumed: false, limit_offset_pushdown: false, in_pushdown: false }, required_relations: [], required_layers: [], ast_nodes: 9, execution_binding: Some(SqlExecutionBinding { schema_version: "mdd.sql.execution-binding.v1", worker_owner_id: "runtime-861cda84adea04ec9ea16292a65620b03880ad86aa41cb516c6b5b0ddfc32328", session_id: "session-5c29a62344fb3b71e73b7db4722f83f94632863bf677366def25ebf5b7dad968", query_id: "query-2be7de843aeba653b48eee1193b644aeaf8e13895fc4cfb895e75a438595a000", snapshot_id: "snapshot-44fded5189833eadebcd47f13a976e03d0b6ac727be609f0b336a4c009b2dc64", catalog_epoch: DecimalU64(0), provider_identity: "sql-metadata-provider-a0ae293ded46a56abf04b29d475deaed3282270215c938aa38e4892a30e1539f", request_key: "5729790b568f94744c742894b33e5d8affc2bbf639460fb9f3036d045b888789", schema_id: "mdd.sql.dynamic-rows.v1:b8751f0573c4ba691ed8d000c7f3f90651343d7cb9284497bb81e86280fab27f", semantic_version: "mdd.sql.ast.v2;mdd.sql.values.v1;NativeV1" }), _result_memory: ResultMemory { reservations: 1, unused: 1898 } }
+
+---- runtime_tests::key_order_long_text_respects_session_step_budget stdout ----
+
+thread 'runtime_tests::key_order_long_text_respects_session_step_budget' (45932) panicked at crates\mdd-sql\src\runtime_tests.rs:69:14:
+called `Result::unwrap_err()` on an `Ok` value: SqlResult { binding: SqlBinding { provider_identity: "sql-metadata-provider-7cc8e32a99e995940b3ff367f923cfcb432398c6e13b576c9d946ccef09b372d", snapshot_id: "snapshot-6602e58134766f1bc86843f229907cd76ff890ace6b1ed7d20e504ba530725c7", catalog_epoch: DecimalU64(0) }, dialect: NativeV1, columns: ["1"], rows: [[I64(Signed64(1))]], calculation_complete: true, profiles_admitted: [], sqlite_version: "3.53.2", optimizer: OptimizerPolicy { omit: false, order_by_consumed: false, limit_offset_pushdown: false, in_pushdown: false }, required_relations: [], required_layers: [], ast_nodes: 17, execution_binding: Some(SqlExecutionBinding { schema_version: "mdd.sql.execution-binding.v1", worker_owner_id: "runtime-f16234e03a495d35ea05184d4a4bc3bcd49c1334120e10342cd8e679bef0db42", session_id: "session-6a6ae66f2c2fda00cbc5abfff60c07c66ae4df8b3f304716a36b1931128fdf33", query_id: "query-1192ce9ad420fc0995325c37b7e294ef177023a1e4721583b9dde6543418bcfd", snapshot_id: "snapshot-6602e58134766f1bc86843f229907cd76ff890ace6b1ed7d20e504ba530725c7", catalog_epoch: DecimalU64(0), provider_identity: "sql-metadata-provider-7cc8e32a99e995940b3ff367f923cfcb432398c6e13b576c9d946ccef09b372d", request_key: "e6145efdda715df9a35f4d1e5cdeb14b3521d13ce92f0178972e7173535453bb", schema_id: "mdd.sql.dynamic-rows.v1:ca634cbb5d99336b682f800c3232f6130950683735cc8925afabc176de8e9952", semantic_version: "mdd.sql.ast.v2;mdd.sql.values.v1;NativeV1" }), _result_memory: ResultMemory { reservations: 1, unused: 1912 } }
+
+
+failures:
+    runtime_tests::key_distinct_long_bytes_respects_session_step_budget
+    runtime_tests::key_distinct_long_text_respects_session_step_budget
+    runtime_tests::key_group_long_text_respects_session_step_budget
+    runtime_tests::key_order_long_text_respects_session_step_budget
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 53 filtered out; finished in 0.19s
+

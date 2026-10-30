@@ -1,0 +1,1 @@
+{"error":{"code":"UNSUPPORTED_QUERY","details":{"ast_error":"IN_LEFT_AFFINITY_NOT_IMPLEMENTED"},"message":"SQLite accepts this read-only syntax but the AST adapter does not yet implement it","retryable":false,"stage":"sql.ast"},"full_audit_complete":false,"operation_status":"error"}

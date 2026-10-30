@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "conformance/facts/verify.py"
+  ],
+  "started_utc": "2026-10-28T13:06:25.941169+00:00",
+  "finished_utc": "2026-10-28T13:06:26.052966+00:00",
+  "elapsed_seconds": 0.10900000000401633,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "565aa1d3abdf62ce2df003b46ec42cda44665c859f1458c3a0cc56bf1a5f0576",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

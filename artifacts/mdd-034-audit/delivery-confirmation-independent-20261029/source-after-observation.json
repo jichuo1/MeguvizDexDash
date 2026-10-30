@@ -1,0 +1,13 @@
+{
+  "captured_utc": "2026-10-29T05:54:58.892681+00:00",
+  "source_before3_sha256": "a47847beba79d7c77e6d819cbcbca578bbd77d02abe8fc8796e3a10231a21605",
+  "all_equal_before": false,
+  "changed": {
+    "crates/mdd-query/src/executor.rs": {
+      "before": "188f5c208dd73f6240587bf65a8e1252119f55969aa1d2bb1d2122b0bf34d1ed",
+      "observed_after": "b63018384acc7713d0013f19cfbcd9730382b4862bad2367656ec74528e9b60f"
+    }
+  },
+  "binary_sha256": "4a798fb4a22c7c2819f636086df6b6b2241b0d802eb38a9b923d860ceaabf93f",
+  "scope": "after observation; exact change timing relative to compilation unknown, no final-source qualification"
+}

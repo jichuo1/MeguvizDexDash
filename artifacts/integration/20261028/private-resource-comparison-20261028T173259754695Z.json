@@ -1,0 +1,56 @@
+{
+  "schema_version": "mdd.private-resource-comparison.v1",
+  "created_utc": "2026-10-28T17:32:59.755706+00:00",
+  "status": "passed-resource-byte-equivalence-only",
+  "native_commit": "e56db3e9380a60b117e9e65ec5ab3f76ffb61361",
+  "a0_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "resource_recipe": "SHA-256 of decompressed resources.arsc and res/*.xml; names and multiplicity checked",
+  "full_hostlab_audit_equivalent": false,
+  "method_fingerprints_compared": false,
+  "method_boundary": "A0 stores selected individual class recipes; native private diagnostic stores per-DEX aggregate of all classes/methods, so existing outputs cannot be aligned.",
+  "performance_qualified": false,
+  "results": [
+    {
+      "input_id": "hostlab-9161100",
+      "input_bytes": 226519215,
+      "input_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "a0_certificate_sha256": "a54cffaf0f324ebf86daa7e8f46ff2256892d8ebba6b38b4bea6c73319d73217",
+      "a0_evidence_sha256": "66fb6f640531ae77dbcbe4f0ab09350fb315121d8a9a39d49a081e84461d8f85",
+      "a0_business_exit_code": 1,
+      "native_raw_stdout_sha256": "64cc1184cf59bd24e54531c20b6c943682a05a4c54a2e37f8a038144c5d8d33a",
+      "resource_recipe_source_sha256": "6f2468bfbaebf1cecab0fd9c5eaeb3afdc7f95fa2154aaee6e0b48613769b928",
+      "resource_entries": 17755,
+      "stored_maps_same_names_and_values": true,
+      "independent_raw_zip_entries_equal": true,
+      "resource_map_canonical_sha256": "05e734dabb5bc7b6790ccdee01282276752da213b54d2e4052b4abb3b3e8d485",
+      "source_same_sha256_before_after": true,
+      "scope": "selected decompressed resource bytes only"
+    },
+    {
+      "input_id": "hostlab-9170100",
+      "input_bytes": 243687778,
+      "input_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "a0_certificate_sha256": "00929b7e144bdcc5efd4b35da24fe43ee28f4d79c7fa6b27f8edd9cf35723d3a",
+      "a0_evidence_sha256": "81751b97a9d5b4d1c22bc762ff127ab2fe48cba317e0022c54d67473b56ee90f",
+      "a0_business_exit_code": 1,
+      "native_raw_stdout_sha256": "8bc385802df39d42f5f3a42936376f7e90cfb413ec13052c8167772da930a458",
+      "resource_recipe_source_sha256": "6f2468bfbaebf1cecab0fd9c5eaeb3afdc7f95fa2154aaee6e0b48613769b928",
+      "resource_entries": 17770,
+      "stored_maps_same_names_and_values": true,
+      "independent_raw_zip_entries_equal": true,
+      "resource_map_canonical_sha256": "052fc3e4b1da8a7ab51ed7ee8c5f85b58b80dfa6426201b237e5e0e3241ffbc9",
+      "source_same_sha256_before_after": true,
+      "scope": "selected decompressed resource bytes only"
+    }
+  ],
+  "native_producer_sources": {
+    "raw_evidence_summary": {
+      "sha256": "0d1a3fb4a4baaf8922fa20435c948cd7f5f89091e1a1aa8d7d71e162699f8e4e",
+      "bytes": 7133
+    },
+    "raw_fingerprints": {
+      "sha256": "8577f6ee93aa73bb38c26418b51c31283b11640d4d9f059f1b49c0a30024d52a",
+      "bytes": 26145
+    }
+  }
+}

@@ -1,0 +1,41 @@
+Diff in \\?\D:\MeguvisDexDash\crates\mdd-dex\src\instructions\tests.rs:240:
+     );
+     assert!(read_code_offsets(&bytes, &header, &[114], CodeLimits::default()).is_err());
+     assert!(!all.full_dex_validation_complete);
+-    for version in [b"035",b"037",b"038",b"039",b"040"] {
+-        let mut variant=bytes.clone();variant[4..7].copy_from_slice(version);resign(&mut variant);
+-        let parsed=parse_file(&variant).unwrap();assert_eq!(parsed.items.len(),2);
+-        assert_eq!(parsed.items[0].insns_range.byte_length,DecimalU64(2));
++    for version in [b"035", b"037", b"038", b"039", b"040"] {
++        let mut variant = bytes.clone();
++        variant[4..7].copy_from_slice(version);
++        resign(&mut variant);
++        let parsed = parse_file(&variant).unwrap();
++        assert_eq!(parsed.items.len(), 2);
++        assert_eq!(parsed.items[0].insns_range.byte_length, DecimalU64(2));
+     }
+-    for version in [b"036",b"041"] {
+-        let mut variant=bytes.clone();variant[4..7].copy_from_slice(version);resign(&mut variant);
+-        assert_eq!(parse_file(&variant).unwrap_err().code,ErrorCode::UnsupportedCapability);
++    for version in [b"036", b"041"] {
++        let mut variant = bytes.clone();
++        variant[4..7].copy_from_slice(version);
++        resign(&mut variant);
++        assert_eq!(
++            parse_file(&variant).unwrap_err().code,
++            ErrorCode::UnsupportedCapability
++        );
+     }
+     for name in ["bad-reserved-opcode.dex", "bad-truncated-wide.dex"] {
+         assert_eq!(
+Diff in \\?\D:\MeguvisDexDash\crates\mdd-dex\src\instructions\tests.rs:474:
+     let error = read_code_section(&bytes, &header, CodeLimits::default()).unwrap_err();
+     assert_eq!(error.code, ErrorCode::InvalidInput);
+     assert_eq!(error.details["reason"], "DEBUG_OFFSET_NOT_ITEM_START");
+-    assert_eq!(error.details["code_item_byte_offset"],"132");
+-    assert_eq!(error.details["debug_info_byte_offset"],"151");
++    assert_eq!(error.details["code_item_byte_offset"], "132");
++    assert_eq!(error.details["debug_info_byte_offset"], "151");
+     let mut bytes = fixture("unreferenced-two-code.dex");
+     bytes[116..118].copy_from_slice(&6u16.to_le_bytes());
+     resign(&mut bytes);

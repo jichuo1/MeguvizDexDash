@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/group-ordinal-boundary-20261029/readback.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:47:42.801497+00:00",
+  "finished_utc": "2026-10-29T01:47:42.882721+00:00",
+  "elapsed_seconds": 0.07799999999951979,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 230,
+    "sha256": "d928dc9205251f4f34ff8a21c1a05bf7872056e0c6dc9960c41dd56de48b0500"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

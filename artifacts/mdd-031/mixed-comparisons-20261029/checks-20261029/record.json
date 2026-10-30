@@ -1,0 +1,100 @@
+{
+  "schema_version": "mdd.local-checks.v1",
+  "scope": "literal comparisons without affinity; full SQL affinity and profile not qualified",
+  "before": {
+    "crates/mdd-sql/examples/sql_bridge_probe.rs": "2584d27c0c13b1dcba7a00a3c0e22d34b8489b892acb808e5e0bfe7d10cda2f4",
+    "crates/mdd-sql/src/bridge.rs": "2aea580f41bd26f1b9be92dcfb1e62a00da451327413dcba4a9cc8b8c1735f93",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/dialects/ast.rs": "5abf471899f3ae31a9c2f1c260639120d0c1033e9076ab6be938d8c2bb517b3b",
+    "crates/mdd-sql/src/dialects/functions.rs": "a7c75c39696fab66a02206601bc1bea8791c952c073dd8ef55ef54afcc948315",
+    "crates/mdd-sql/src/dialects/mod.rs": "b86349330e76a79a7049897ca50eddb5f3bed16cf8a6bde17ff1c471e98d57f4",
+    "crates/mdd-sql/src/lib.rs": "8f6fba6ae5691adf53df693815c6964e53728e22021f8cd97d8f526a35749973",
+    "crates/mdd-sql/src/provider/metadata.rs": "197c6e25a1d6f1ed249e0102c1c0f90f0bb65c8371d8a30be07f544fe1688fbe",
+    "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+    "crates/mdd-sql/src/runtime.rs": "b842c26d3a534e948970f0181e46c2089cdadfbc345f803a0c0f01313f9b814b",
+    "crates/mdd-sql/src/runtime_tests.rs": "1c2163b7c97365da28853a08152e727857139650fd39ec74d163d4f1841ad03d",
+    "crates/mdd-sql/src/values.rs": "4ae2d0398b29c5f4f6a693eee5ffa37fe9a764e3013ccf42d9b417940b011b32",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "crates/mdd-sql/Cargo.toml": "44701b578f006ff5ec3e509c218c278cdff39a321d1b583bec533e942e8fb6c6",
+    "Cargo.toml": "02880b4608d3dd392f2ef67d7bbb165c0f1ffa715409902c8d127e698472354a",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+  },
+  "after": {
+    "crates/mdd-sql/examples/sql_bridge_probe.rs": "2584d27c0c13b1dcba7a00a3c0e22d34b8489b892acb808e5e0bfe7d10cda2f4",
+    "crates/mdd-sql/src/bridge.rs": "2aea580f41bd26f1b9be92dcfb1e62a00da451327413dcba4a9cc8b8c1735f93",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/dialects/ast.rs": "5abf471899f3ae31a9c2f1c260639120d0c1033e9076ab6be938d8c2bb517b3b",
+    "crates/mdd-sql/src/dialects/functions.rs": "a7c75c39696fab66a02206601bc1bea8791c952c073dd8ef55ef54afcc948315",
+    "crates/mdd-sql/src/dialects/mod.rs": "b86349330e76a79a7049897ca50eddb5f3bed16cf8a6bde17ff1c471e98d57f4",
+    "crates/mdd-sql/src/lib.rs": "8f6fba6ae5691adf53df693815c6964e53728e22021f8cd97d8f526a35749973",
+    "crates/mdd-sql/src/provider/metadata.rs": "197c6e25a1d6f1ed249e0102c1c0f90f0bb65c8371d8a30be07f544fe1688fbe",
+    "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+    "crates/mdd-sql/src/runtime.rs": "b842c26d3a534e948970f0181e46c2089cdadfbc345f803a0c0f01313f9b814b",
+    "crates/mdd-sql/src/runtime_tests.rs": "1c2163b7c97365da28853a08152e727857139650fd39ec74d163d4f1841ad03d",
+    "crates/mdd-sql/src/values.rs": "4ae2d0398b29c5f4f6a693eee5ffa37fe9a764e3013ccf42d9b417940b011b32",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "crates/mdd-sql/Cargo.toml": "44701b578f006ff5ec3e509c218c278cdff39a321d1b583bec533e942e8fb6c6",
+    "Cargo.toml": "02880b4608d3dd392f2ef67d7bbb165c0f1ffa715409902c8d127e698472354a",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+  },
+  "identities_unchanged": true,
+  "checks": [
+    {
+      "name": "fmt",
+      "argv": [
+        "cargo",
+        "fmt",
+        "-p",
+        "mdd-sql",
+        "--",
+        "--check"
+      ],
+      "started_utc": "2026-10-28T17:16:56.058681+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "test",
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "mdd-sql",
+        "--locked",
+        "--offline",
+        "--jobs",
+        "1",
+        "--",
+        "--test-threads",
+        "1"
+      ],
+      "started_utc": "2026-10-28T17:16:57.087648+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "8ae886e05d2a9e7ca93b2334b5da388a1f28e19ac7fdd8e0a3e3c040e3753f0e",
+      "stderr_sha256": "503515fb5e59906dbe6a8ee5c4b2d57c5ec2f9741311695e6cf79eaa2c287348"
+    },
+    {
+      "name": "clippy",
+      "argv": [
+        "cargo",
+        "clippy",
+        "-p",
+        "mdd-sql",
+        "--all-targets",
+        "--locked",
+        "--offline",
+        "--jobs",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "started_utc": "2026-10-28T17:16:58.952603+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a178c7902ac24dda0e2c0cd4cf0e47a2a6976ef30481cb4015f2f71620380d8b"
+    }
+  ],
+  "pre_fix_failure": "see runs/20261028T171200202170Z; separate unit red result was tool-returned and not persisted raw"
+}

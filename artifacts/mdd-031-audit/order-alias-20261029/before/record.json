@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "target/debug/examples/sql_bridge_probe.exe",
+    "query",
+    "native",
+    "SELECT 10 - string_idx AS string_idx FROM native_strings ORDER BY string_idx LIMIT 3"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:21:56.148255+00:00",
+  "finished_utc": "2026-10-29T01:21:58.196217+00:00",
+  "elapsed_seconds": 2.0470000000000255,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 730,
+    "sha256": "5e012f36d458ea30731d3de5a6248c9e9249659229569c7613142da8559b5712"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

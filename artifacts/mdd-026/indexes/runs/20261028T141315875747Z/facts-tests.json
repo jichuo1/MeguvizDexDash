@@ -1,0 +1,19 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "-p",
+    "mdd-facts",
+    "-j",
+    "2",
+    "--",
+    "--test-threads=2"
+  ],
+  "started_utc": "2026-10-28T14:13:16.015807+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "92fe1718a05b438a60706e900b451597eb19a1bb77006505cccd7e8dbf370d67",
+  "stderr_sha256": "c2dad7a4f78ddae8a05b4e2848319ec4b09fc82d998b57a3b246e9ab1993fafd",
+  "lock_before_sha256": "19323721f4102af40d3f4c79684ac35a6b04ae186e2dc77dea720c849714e9b9",
+  "lock_after_sha256": "19323721f4102af40d3f4c79684ac35a6b04ae186e2dc77dea720c849714e9b9"
+}

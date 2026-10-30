@@ -1,0 +1,8 @@
+{
+  "captured_utc": "2026-10-29T06:31:22.913336+00:00",
+  "available_physical_bytes": "1328590848",
+  "job_cap_bytes": "67108864",
+  "minimum_remaining_bytes": "536870912",
+  "admitted": true,
+  "scope": "100k-byte single-thread local prototype; unrelated 3GiB admission unchanged"
+}

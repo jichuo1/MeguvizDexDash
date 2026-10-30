@@ -1,0 +1,114 @@
+{
+  "literals": [
+    {
+      "id": "empty",
+      "sql": "SELECT CAST('' AS INTEGER) AS v"
+    },
+    {
+      "id": "invalid",
+      "sql": "SELECT CAST('bad' AS INTEGER) AS v"
+    },
+    {
+      "id": "prefix",
+      "sql": "SELECT CAST('  +00012tail' AS INTEGER) AS v"
+    },
+    {
+      "id": "negative_decimal",
+      "sql": "SELECT CAST('-5.9' AS INTEGER) AS v"
+    },
+    {
+      "id": "leading_decimal",
+      "sql": "SELECT CAST('.5' AS INTEGER) AS v"
+    },
+    {
+      "id": "exponent",
+      "sql": "SELECT CAST('1e5' AS INTEGER) AS v"
+    },
+    {
+      "id": "hex_text",
+      "sql": "SELECT CAST('0x10' AS INTEGER) AS v"
+    },
+    {
+      "id": "double_sign",
+      "sql": "SELECT CAST('++1' AS INTEGER) AS v"
+    },
+    {
+      "id": "whitespace",
+      "sql": "SELECT CAST('\t-12\n' AS INTEGER) AS v"
+    },
+    {
+      "id": "nul_after_digits",
+      "sql": "SELECT CAST('+12\u0000Z' AS INTEGER) AS v"
+    },
+    {
+      "id": "nul_before_digits",
+      "sql": "SELECT CAST('\u0000-12' AS INTEGER) AS v"
+    },
+    {
+      "id": "max",
+      "sql": "SELECT CAST('9223372036854775807' AS INTEGER) AS v"
+    },
+    {
+      "id": "above_max",
+      "sql": "SELECT CAST('9223372036854775808' AS INTEGER) AS v"
+    },
+    {
+      "id": "below_min",
+      "sql": "SELECT CAST('-9223372036854775809' AS INTEGER) AS v"
+    },
+    {
+      "id": "oversized",
+      "sql": "SELECT CAST('999999999999999999999999999999999999' AS INTEGER) AS v"
+    },
+    {
+      "id": "min",
+      "sql": "SELECT CAST('-9223372036854775808' AS INTEGER) AS v"
+    },
+    {
+      "id": "blob_prefix",
+      "sql": "SELECT CAST(X'31327461696C' AS INTEGER) AS v"
+    },
+    {
+      "id": "blob_nul",
+      "sql": "SELECT CAST(X'31320039' AS INTEGER) AS v"
+    },
+    {
+      "id": "blob_invalid",
+      "sql": "SELECT CAST(X'FF3132' AS INTEGER) AS v"
+    },
+    {
+      "id": "null",
+      "sql": "SELECT CAST(NULL AS INTEGER) AS v"
+    }
+  ],
+  "dex": [
+    {
+      "id": "string_0",
+      "sql": "SELECT CAST(value AS INTEGER) AS v FROM strings WHERE string_idx=0"
+    },
+    {
+      "id": "string_1",
+      "sql": "SELECT CAST(value AS INTEGER) AS v FROM strings WHERE string_idx=1"
+    },
+    {
+      "id": "string_2",
+      "sql": "SELECT CAST(value AS INTEGER) AS v FROM strings WHERE string_idx=2"
+    },
+    {
+      "id": "string_3",
+      "sql": "SELECT CAST(value AS INTEGER) AS v FROM strings WHERE string_idx=3"
+    },
+    {
+      "id": "string_4",
+      "sql": "SELECT CAST(value AS INTEGER) AS v FROM strings WHERE string_idx=4"
+    },
+    {
+      "id": "string_5",
+      "sql": "SELECT CAST(value AS INTEGER) AS v FROM strings WHERE string_idx=5"
+    },
+    {
+      "id": "string_6",
+      "sql": "SELECT CAST(value AS INTEGER) AS v FROM strings WHERE string_idx=6"
+    }
+  ]
+}

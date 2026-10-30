@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\aapt2.exe",
+    "dump",
+    "xmltree",
+    "--file",
+    "AndroidManifest.xml",
+    "D:\\MeguvisDexDash\\artifacts\\local\\inputs\\NewPipe_v0.28.6.apk"
+  ],
+  "started_utc": "2026-10-28T12:26:48.520309+00:00",
+  "finished_utc": "2026-10-28T12:26:48.881543+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.35899999999674037,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 65234,
+    "sha256": "531c183f056e437ea726cafdd7cf381930ef884eda7b955f8fca09c8b4a99ea5"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

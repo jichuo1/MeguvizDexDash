@@ -1,0 +1,4 @@
+
+thread 'main' (6944) panicked at src\main.rs:14:216:
+called `Result::unwrap()` on an `Err` value: MddError { code: IncompleteFacts, stage: "query.facts", message: "required fact layer has not been completely built for this catalog scope", retryable: false, details: {"required_layer": String("structure")} }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -98,6 +98,14 @@
         "unsupported-041.dex"
       ],
       "expected": "UNSUPPORTED_CAPABILITY; no unsupported container represented as a complete single logical DEX"
+    },
+    {
+      "fixture_manifest": "tests/fixtures/zip64/manifest.json",
+      "expected": "52 real small positive/malformed/quota vectors, with complete independent Python consumption of positives"
+    },
+    {
+      "public_input": "NewPipe0.28.6 exactSHA e56ef628...",
+      "expected": "1351 physical entries and2 selectedDEX fully consumed, retained ZIP32 default behavior"
     }
   ],
   "completion_boundaries": {
@@ -107,12 +115,41 @@
     "dex_facts": "MDD-013 and later required"
   },
   "unqualified": [
-    "ZIP64",
     "multi-volume archives",
     "encrypted members",
     "non-STORE/DEFLATE codecs",
     "Linux native runtime",
     "full HostLab compatibility",
     "performance"
-  ]
+  ],
+  "zip64": {
+    "status": "implemented_windows_conformance_passed",
+    "profile": "single-disk STORE/DEFLATE ZIP64 with budgets",
+    "specification": "PKWARE APPNOTE6.3.10 sections4.3.9,4.3.14-16,4.5.3",
+    "specification_url": "https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT",
+    "fixture_manifest": "tests/fixtures/zip64/manifest.json",
+    "fixtures": 52,
+    "positive": 26,
+    "negative": 26,
+    "real_count_boundaries": [
+      65535,
+      65536
+    ],
+    "real_4gb_data_tested": false,
+    "virtual_only": "u64 single-member tail offsets above u32 and stream-length overflow; not a valid huge archive trial",
+    "rules": [
+      "EOCD64+locator fields checked against legacy fields, declared quotas before allocation",
+      "0x0001 conditional central order and both local size fields, duplicates/truncation rejected",
+      "32/64 descriptors with/without signature, CRC-magic collision considered",
+      "local-only force_zip64 with zero descriptor placeholders supported",
+      "central offset64 with local version20 is valid when local sizes remain32",
+      "Android local extra trailing1-3 zero padding supported; nonzero truncated extras rejected",
+      "physical CDE ordinal/raw names and duplicate occurrences preserved"
+    ],
+    "evidence": "artifacts/mdd-012/zip64/qualification.json",
+    "remaining": [
+      "Linux native CI for final source",
+      "multi-volume/encrypted/non-STORE-DEFLATE remain unsupported"
+    ]
+  }
 }

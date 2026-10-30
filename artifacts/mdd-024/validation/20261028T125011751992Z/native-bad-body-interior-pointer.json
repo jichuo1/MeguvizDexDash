@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\reference_summary.exe",
+    "tests/fixtures/references/generated/bad-body-interior-pointer.dex",
+    "be7015677a88b8b70ed4547b9d1579d7ee7cdb75c1ce100371ee67578d947020",
+    "--relations"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"error\":{\"code\":\"INVALID_INPUT\",\"details\":{\"byte_offset\":\"424\",\"content_id\":\"sha256:be7015677a88b8b70ed4547b9d1579d7ee7cdb75c1ce100371ee67578d947020\",\"dex_occurrence_id\":\"snapshot-ef82804c86745b9fdee9096fb6de15eaac4e470112ada7d3ff2cf41de51c2bfc:source:0:raw:dex:header:0\",\"member_id\":\"snapshot-ef82804c86745b9fdee9096fb6de15eaac4e470112ada7d3ff2cf41de51c2bfc:source:0:raw\",\"method_idx\":0,\"reason\":\"METHOD_BODY_NOT_CODE_ITEM_START\",\"snapshot_id\":\"snapshot-ef82804c86745b9fdee9096fb6de15eaac4e470112ada7d3ff2cf41de51c2bfc\"},\"message\":\"METHOD_BODY_NOT_CODE_ITEM_START\",\"retryable\":false,\"stage\":\"facts.references\"},\"full_audit_complete\":false,\"operation_status\":\"error\"}\n",
+  "stderr": ""
+}

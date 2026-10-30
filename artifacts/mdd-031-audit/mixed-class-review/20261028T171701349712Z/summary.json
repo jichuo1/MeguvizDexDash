@@ -1,0 +1,21 @@
+{
+  "scope": "fixed reference engines, ASCII comparison samples only",
+  "profiles_admitted": false,
+  "formal_performance_measurement": false,
+  "private_input_parsed": false,
+  "fixture_sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+  "driver_sha256": "335dbee8804905ee61c0b4e0b6bbc19eb7035bdc9e92cfc57a6377e029d9e830",
+  "helper_sha256": "590ecb8914bfe1477330ba7860463f3063c58aca3828cc05daba9e24ef8fffc1",
+  "records": [
+    {
+      "variant": "A0",
+      "cases": 14,
+      "sha256": "f219643485e5887bc9242fab98d2c962e0927fcc29c60d887678dfdd0259b503"
+    },
+    {
+      "variant": "A1",
+      "cases": 14,
+      "sha256": "cf1e454c92e31ef81be66899b6b17833bfb0986e976b15bd9f9a4470d187a275"
+    }
+  ]
+}

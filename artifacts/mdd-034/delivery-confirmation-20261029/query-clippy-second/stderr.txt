@@ -1,0 +1,3 @@
+    Checking mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+    Checking mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.10s

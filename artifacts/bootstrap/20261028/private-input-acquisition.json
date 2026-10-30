@@ -1,0 +1,510 @@
+{
+  "record_kind": "actual_user_supplied_input_verification",
+  "captured_utc": "2026-10-28T10:43:02.516902+00:00",
+  "inputs": [
+    {
+      "id": "hostlab-9161100",
+      "visibility": "restricted",
+      "supplied_by": "direct user message 2026-10-28",
+      "actual_path": "D:\\Bilibili_Innocent_Lab\\Bilibili_Innocent_Lab\\哔哩哔哩-9.16.1(9161100).apk",
+      "bytes": 226519215,
+      "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "status": "acquired_verified",
+      "modified_time_ns_before": 1792643322652000000,
+      "modified_time_ns_after": 1792643322652000000,
+      "dex_members": [
+        {
+          "ordinal": 2,
+          "name": "classes.dex",
+          "bytes": 10509424,
+          "compressed_bytes": 4566518,
+          "crc32": 2341364042
+        },
+        {
+          "ordinal": 3,
+          "name": "classes10.dex",
+          "bytes": 9588564,
+          "compressed_bytes": 3637811,
+          "crc32": 2712551676
+        },
+        {
+          "ordinal": 4,
+          "name": "classes11.dex",
+          "bytes": 8977576,
+          "compressed_bytes": 3625070,
+          "crc32": 3413852948
+        },
+        {
+          "ordinal": 5,
+          "name": "classes12.dex",
+          "bytes": 9790156,
+          "compressed_bytes": 4001759,
+          "crc32": 384550346
+        },
+        {
+          "ordinal": 6,
+          "name": "classes13.dex",
+          "bytes": 13484384,
+          "compressed_bytes": 3864039,
+          "crc32": 1865302515
+        },
+        {
+          "ordinal": 7,
+          "name": "classes14.dex",
+          "bytes": 9664200,
+          "compressed_bytes": 3884043,
+          "crc32": 2634199537
+        },
+        {
+          "ordinal": 8,
+          "name": "classes15.dex",
+          "bytes": 9666916,
+          "compressed_bytes": 3801864,
+          "crc32": 1369340798
+        },
+        {
+          "ordinal": 9,
+          "name": "classes16.dex",
+          "bytes": 9777632,
+          "compressed_bytes": 4097173,
+          "crc32": 144461533
+        },
+        {
+          "ordinal": 10,
+          "name": "classes17.dex",
+          "bytes": 9126328,
+          "compressed_bytes": 3619739,
+          "crc32": 1621800911
+        },
+        {
+          "ordinal": 11,
+          "name": "classes18.dex",
+          "bytes": 8988244,
+          "compressed_bytes": 3387975,
+          "crc32": 1196943517
+        },
+        {
+          "ordinal": 12,
+          "name": "classes19.dex",
+          "bytes": 9909992,
+          "compressed_bytes": 4104580,
+          "crc32": 3046224779
+        },
+        {
+          "ordinal": 13,
+          "name": "classes2.dex",
+          "bytes": 285128,
+          "compressed_bytes": 129967,
+          "crc32": 1969008125
+        },
+        {
+          "ordinal": 14,
+          "name": "classes20.dex",
+          "bytes": 12434848,
+          "compressed_bytes": 4923583,
+          "crc32": 3729300623
+        },
+        {
+          "ordinal": 15,
+          "name": "classes21.dex",
+          "bytes": 14098520,
+          "compressed_bytes": 5689145,
+          "crc32": 455809221
+        },
+        {
+          "ordinal": 16,
+          "name": "classes22.dex",
+          "bytes": 11265124,
+          "compressed_bytes": 4447458,
+          "crc32": 3215374180
+        },
+        {
+          "ordinal": 17,
+          "name": "classes23.dex",
+          "bytes": 10087636,
+          "compressed_bytes": 3896595,
+          "crc32": 2963552578
+        },
+        {
+          "ordinal": 18,
+          "name": "classes24.dex",
+          "bytes": 5074300,
+          "compressed_bytes": 1403468,
+          "crc32": 1154586583
+        },
+        {
+          "ordinal": 19,
+          "name": "classes25.dex",
+          "bytes": 10198340,
+          "compressed_bytes": 4013500,
+          "crc32": 2787559062
+        },
+        {
+          "ordinal": 20,
+          "name": "classes26.dex",
+          "bytes": 7279888,
+          "compressed_bytes": 2392094,
+          "crc32": 781063919
+        },
+        {
+          "ordinal": 21,
+          "name": "classes27.dex",
+          "bytes": 2236540,
+          "compressed_bytes": 651855,
+          "crc32": 253016005
+        },
+        {
+          "ordinal": 22,
+          "name": "classes28.dex",
+          "bytes": 5654696,
+          "compressed_bytes": 1590780,
+          "crc32": 513922270
+        },
+        {
+          "ordinal": 23,
+          "name": "classes29.dex",
+          "bytes": 5504204,
+          "compressed_bytes": 1569689,
+          "crc32": 1776566826
+        },
+        {
+          "ordinal": 24,
+          "name": "classes3.dex",
+          "bytes": 5616652,
+          "compressed_bytes": 1657542,
+          "crc32": 2955086759
+        },
+        {
+          "ordinal": 25,
+          "name": "classes30.dex",
+          "bytes": 5651700,
+          "compressed_bytes": 1643776,
+          "crc32": 1655790277
+        },
+        {
+          "ordinal": 26,
+          "name": "classes31.dex",
+          "bytes": 6470312,
+          "compressed_bytes": 1995286,
+          "crc32": 2076193448
+        },
+        {
+          "ordinal": 27,
+          "name": "classes32.dex",
+          "bytes": 7019848,
+          "compressed_bytes": 1872886,
+          "crc32": 2980424208
+        },
+        {
+          "ordinal": 28,
+          "name": "classes33.dex",
+          "bytes": 5127536,
+          "compressed_bytes": 1406878,
+          "crc32": 2200348409
+        },
+        {
+          "ordinal": 29,
+          "name": "classes4.dex",
+          "bytes": 9590040,
+          "compressed_bytes": 3887530,
+          "crc32": 2747884923
+        },
+        {
+          "ordinal": 30,
+          "name": "classes5.dex",
+          "bytes": 9157280,
+          "compressed_bytes": 3653744,
+          "crc32": 3082765915
+        },
+        {
+          "ordinal": 31,
+          "name": "classes6.dex",
+          "bytes": 9882468,
+          "compressed_bytes": 4032380,
+          "crc32": 3798175141
+        },
+        {
+          "ordinal": 32,
+          "name": "classes7.dex",
+          "bytes": 10336248,
+          "compressed_bytes": 4149391,
+          "crc32": 2670333637
+        },
+        {
+          "ordinal": 33,
+          "name": "classes8.dex",
+          "bytes": 9079892,
+          "compressed_bytes": 3577117,
+          "crc32": 2768072296
+        },
+        {
+          "ordinal": 34,
+          "name": "classes9.dex",
+          "bytes": 9455488,
+          "compressed_bytes": 3804405,
+          "crc32": 213219818
+        }
+      ],
+      "git_distribution": "APK excluded; reference only"
+    },
+    {
+      "id": "hostlab-9170100",
+      "visibility": "restricted",
+      "supplied_by": "direct user message 2026-10-28",
+      "actual_path": "D:\\Bilibili_Innocent_Lab\\Bilibili_Innocent_Lab\\哔哩哔哩_9.17.0(9170100).apk",
+      "bytes": 243687778,
+      "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "status": "acquired_verified",
+      "modified_time_ns_before": 1792760074543141500,
+      "modified_time_ns_after": 1792760074543141500,
+      "dex_members": [
+        {
+          "ordinal": 2,
+          "name": "classes.dex",
+          "bytes": 10540184,
+          "compressed_bytes": 4579385,
+          "crc32": 2219787299
+        },
+        {
+          "ordinal": 3,
+          "name": "classes10.dex",
+          "bytes": 9968108,
+          "compressed_bytes": 3421938,
+          "crc32": 3986991730
+        },
+        {
+          "ordinal": 4,
+          "name": "classes11.dex",
+          "bytes": 10256532,
+          "compressed_bytes": 4218064,
+          "crc32": 2002949119
+        },
+        {
+          "ordinal": 5,
+          "name": "classes12.dex",
+          "bytes": 9347256,
+          "compressed_bytes": 3805040,
+          "crc32": 248794427
+        },
+        {
+          "ordinal": 6,
+          "name": "classes13.dex",
+          "bytes": 14353432,
+          "compressed_bytes": 4088853,
+          "crc32": 1345588249
+        },
+        {
+          "ordinal": 7,
+          "name": "classes14.dex",
+          "bytes": 9684612,
+          "compressed_bytes": 3973772,
+          "crc32": 3678616088
+        },
+        {
+          "ordinal": 8,
+          "name": "classes15.dex",
+          "bytes": 9742432,
+          "compressed_bytes": 3890643,
+          "crc32": 1405300555
+        },
+        {
+          "ordinal": 9,
+          "name": "classes16.dex",
+          "bytes": 11313520,
+          "compressed_bytes": 4440798,
+          "crc32": 42698762
+        },
+        {
+          "ordinal": 10,
+          "name": "classes17.dex",
+          "bytes": 12234784,
+          "compressed_bytes": 4933352,
+          "crc32": 492089416
+        },
+        {
+          "ordinal": 11,
+          "name": "classes18.dex",
+          "bytes": 9744820,
+          "compressed_bytes": 4043410,
+          "crc32": 3297256724
+        },
+        {
+          "ordinal": 12,
+          "name": "classes19.dex",
+          "bytes": 9187528,
+          "compressed_bytes": 3643958,
+          "crc32": 3767417288
+        },
+        {
+          "ordinal": 13,
+          "name": "classes2.dex",
+          "bytes": 285140,
+          "compressed_bytes": 129971,
+          "crc32": 3630586176
+        },
+        {
+          "ordinal": 14,
+          "name": "classes20.dex",
+          "bytes": 8894576,
+          "compressed_bytes": 3328931,
+          "crc32": 1364561335
+        },
+        {
+          "ordinal": 15,
+          "name": "classes21.dex",
+          "bytes": 9862036,
+          "compressed_bytes": 4078743,
+          "crc32": 1849503008
+        },
+        {
+          "ordinal": 16,
+          "name": "classes22.dex",
+          "bytes": 13037112,
+          "compressed_bytes": 5243603,
+          "crc32": 1162810526
+        },
+        {
+          "ordinal": 17,
+          "name": "classes23.dex",
+          "bytes": 14270476,
+          "compressed_bytes": 5748390,
+          "crc32": 1120637904
+        },
+        {
+          "ordinal": 18,
+          "name": "classes24.dex",
+          "bytes": 5142184,
+          "compressed_bytes": 1437144,
+          "crc32": 2542800356
+        },
+        {
+          "ordinal": 19,
+          "name": "classes25.dex",
+          "bytes": 11492740,
+          "compressed_bytes": 4532277,
+          "crc32": 591371349
+        },
+        {
+          "ordinal": 20,
+          "name": "classes26.dex",
+          "bytes": 10622912,
+          "compressed_bytes": 4094351,
+          "crc32": 3486758916
+        },
+        {
+          "ordinal": 21,
+          "name": "classes27.dex",
+          "bytes": 10291264,
+          "compressed_bytes": 3909158,
+          "crc32": 3230497404
+        },
+        {
+          "ordinal": 22,
+          "name": "classes28.dex",
+          "bytes": 8301780,
+          "compressed_bytes": 3162379,
+          "crc32": 435359375
+        },
+        {
+          "ordinal": 23,
+          "name": "classes29.dex",
+          "bytes": 4614080,
+          "compressed_bytes": 1356657,
+          "crc32": 234109511
+        },
+        {
+          "ordinal": 24,
+          "name": "classes3.dex",
+          "bytes": 5849592,
+          "compressed_bytes": 1854294,
+          "crc32": 2313312370
+        },
+        {
+          "ordinal": 25,
+          "name": "classes30.dex",
+          "bytes": 5935184,
+          "compressed_bytes": 1731874,
+          "crc32": 1311466109
+        },
+        {
+          "ordinal": 26,
+          "name": "classes31.dex",
+          "bytes": 5785828,
+          "compressed_bytes": 1700073,
+          "crc32": 3700645844
+        },
+        {
+          "ordinal": 27,
+          "name": "classes32.dex",
+          "bytes": 5940292,
+          "compressed_bytes": 1791612,
+          "crc32": 1295117119
+        },
+        {
+          "ordinal": 28,
+          "name": "classes33.dex",
+          "bytes": 6054004,
+          "compressed_bytes": 1805217,
+          "crc32": 2260744289
+        },
+        {
+          "ordinal": 29,
+          "name": "classes34.dex",
+          "bytes": 5987796,
+          "compressed_bytes": 1711850,
+          "crc32": 1508804293
+        },
+        {
+          "ordinal": 30,
+          "name": "classes35.dex",
+          "bytes": 6434380,
+          "compressed_bytes": 2078340,
+          "crc32": 1427447290
+        },
+        {
+          "ordinal": 31,
+          "name": "classes4.dex",
+          "bytes": 6529036,
+          "compressed_bytes": 2187745,
+          "crc32": 1479128975
+        },
+        {
+          "ordinal": 32,
+          "name": "classes5.dex",
+          "bytes": 9194900,
+          "compressed_bytes": 3622995,
+          "crc32": 3668793193
+        },
+        {
+          "ordinal": 33,
+          "name": "classes6.dex",
+          "bytes": 10294992,
+          "compressed_bytes": 4259147,
+          "crc32": 3496939533
+        },
+        {
+          "ordinal": 34,
+          "name": "classes7.dex",
+          "bytes": 9807928,
+          "compressed_bytes": 3893657,
+          "crc32": 3807206191
+        },
+        {
+          "ordinal": 35,
+          "name": "classes8.dex",
+          "bytes": 9924220,
+          "compressed_bytes": 3926926,
+          "crc32": 4276504423
+        },
+        {
+          "ordinal": 36,
+          "name": "classes9.dex",
+          "bytes": 9416428,
+          "compressed_bytes": 3844567,
+          "crc32": 1812805756
+        }
+      ],
+      "git_distribution": "APK excluded; reference only"
+    }
+  ]
+}

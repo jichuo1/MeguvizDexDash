@@ -1,0 +1,8 @@
+{
+  "schema_version": "mdd.annotation-preflight-failures.v1",
+  "failures": [
+    {"action":"Read-only fixed A0 binary identity and --help execution", "outcome":"not executed", "source":"automatic approval review", "reason":"review stream disconnected before completion; review transport failure, not unsafe determination", "recovery":"Same authorized read-only command retried with normal approval review and succeeded; no bypass or relaxation."},
+    {"action":"Independent Python oracle on bad-parameter-count.dex", "outcome":"failed expectation", "observed":"parameter_ref_bounds", "initial_expected":"parameter_count_mismatch", "analysis":"Changing ref-list size2 to3 exceeds its physical section before method-prototype arity is inspected. Original bytes and parser remain unchanged; precise first error is bounds. Added separate size1 mutant that stays within physical section and fails arity.", "recovery":"Classify original malformed vector as parameter_ref_bounds and independently add arity-only vector; retain this failure record."}
+  ],
+  "not_a_product_gate":"Preflight fixture/oracle work only; no production annotation module or MDD-022 completion claimed."
+}

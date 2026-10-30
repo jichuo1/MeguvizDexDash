@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "-f",
+    "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\bad-interior-string.dex"
+  ],
+  "exit_code": 1,
+  "input_sha256": "93a84307e3cade1f4d0d0ca1a294af172f7672479fb65ecfc7ac433ec1497f28",
+  "stdout_bytes": 106,
+  "stderr_bytes": 226
+}

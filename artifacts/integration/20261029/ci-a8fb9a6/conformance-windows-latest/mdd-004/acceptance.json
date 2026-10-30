@@ -1,0 +1,49 @@
+{
+  "schema_version": "mdd.task-acceptance.v1",
+  "task_id": "MDD-004",
+  "decision": "done_for_M0_fixture_oracle_and_validation_plan_scope",
+  "evaluated_date": "2026-10-28",
+  "actual_runner": "conformance/oracles/reproduce.py",
+  "execution_evidence": ["artifacts/mdd-004/fixture-reproducibility.json","artifacts/mdd-004/oracle-checks.json","artifacts/mdd-004/encoding-independent-review.json"],
+  "required_outputs": ["tests/fixtures/manifest.json","conformance/oracles/README.md","conformance/oracles/expected-results.json","conformance/manifests/metamorphic-cases.json","artifacts/mdd-004/fixture-reproducibility.json"],
+  "acceptance": [
+    {
+      "ordinal": 1,
+      "status": "done",
+      "requirement": "Reproducibly generate valid and explicitly invalid fixtures with generator/input identities, handwritten expectations and independent oracle provenance.",
+      "evidence": ["tests/fixtures/generate.py","tests/fixtures/manifest.json","conformance/oracles/expected-results.json","conformance/oracles/README.md","artifacts/mdd-004/fixture-reproducibility.json"],
+      "scope": "Two complete deterministic generations; handwritten bounded parser checks distinct from generator and production reader; exact component/header/map/structure claims only, not ART executability."
+    },
+    {
+      "ordinal": 2,
+      "status": "done",
+      "requirement": "MUTF-8 NUL/surrogates, ULEB/SLEB overflow, identical local IDs across DEX occurrences, repeated calls, no body, payload and try/catch counterexamples.",
+      "evidence": ["tests/fixtures/generated/strings-mutf8-035.dex","tests/fixtures/generated/component-vectors.json","tests/fixtures/generated/duplicate-content.apk","tests/fixtures/generated/structured-035.dex","artifacts/mdd-004/oracle-checks.json","artifacts/mdd-004/encoding-independent-review.json"],
+      "scope": "Native code_off=0 differs from body-bearing methods; invoke sites retain PCs 0/3; packed/sparse/array payload component vectors and catch-all code layout are explicit. 512 independent fifth-byte LEB boundary checks supplement handwritten values."
+    },
+    {
+      "ordinal": 3,
+      "status": "done",
+      "requirement": "Distinguish invalid input, unknown format, incomplete facts and normal empty scope; do not infer 036/041 support from numeric ranges.",
+      "evidence": ["tests/fixtures/manifest.json","conformance/oracles/expected-results.json","artifacts/mdd-004/oracle-checks.json"],
+      "scope": "Exact-version positive headers, unsupported 036/041 magic discrimination, concrete malformed errors, explicit zero-table header/map scope and unbuilt-fact outcome expectations. Production result envelope execution is a later task."
+    },
+    {
+      "ordinal": 4,
+      "status": "done",
+      "requirement": "Metamorphic cases for input order, logical duplicates, member renaming, same-size/same-mtime changes and semantics-preserving reordering.",
+      "evidence": ["conformance/manifests/metamorphic-cases.json","tests/fixtures/generated/class-reorder-before.dex","tests/fixtures/generated/class-reorder-after.dex","artifacts/mdd-004/fixture-reproducibility.json"],
+      "scope": "Actually executed. Legal independent class_defs reorder changes class_def_idx; string_data/class_data layouts reverse and offsets relocate. Every encoded string/type/proto/method/class-data reference in the pair is validated; complete normalized two-class/two-method semantics equal while physical SHA/IDs differ."
+    },
+    {
+      "ordinal": 5,
+      "status": "done",
+      "requirement": "Independent oracle does not reuse production core; synthetic DEX/APK is not described as installable Android software.",
+      "evidence": ["conformance/oracles/check_fixtures.py","conformance/oracles/README.md","tests/fixtures/manifest.json"],
+      "scope": "Checker imports no production reader or generator. Python ZIP writer/checker common ancestry is disclosed. APK installability/signatures and external full verifier qualification are not claimed."
+    }
+  ],
+  "remaining_task_acceptance_blockers": [],
+  "future_qualification_gates_unexecuted": ["AOSP verifier/dexdump", "dexlib2 full format differential", "AAPT2 semantic dump", "production parser differential", "fuzz", "production snapshot/session/cursor/worker lifecycle", "private HostLab full report"],
+  "qualification_limit": "MDD-004 is a preparatory fixture/oracle/validation-plan task. Completing it unlocks implementation dependencies but grants no parser, SQL, HostLab, platform or performance release qualification."
+}

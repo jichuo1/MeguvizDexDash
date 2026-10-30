@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "rustc",
+    "--edition=2024",
+    "--crate-name",
+    "mdd_sql_text_observer",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031\\text-projection-20261029\\probe.rs",
+    "-L",
+    "dependency=target/debug/deps",
+    "-o",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031\\text-projection-20261029\\probe.exe",
+    "--extern",
+    "mdd_dex=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_dex-b7b2b3c56f072191.rlib",
+    "--extern",
+    "mdd_facts=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_facts-4d93156677fe9e1b.rlib",
+    "--extern",
+    "mdd_input=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_input-0f932aaa5b1b1947.rlib",
+    "--extern",
+    "mdd_sql=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_sql-229f30e8e72d0cc9.rlib",
+    "--extern",
+    "mdd_types=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_types-fd5a2447fe224bff.rlib",
+    "--extern",
+    "serde_json=D:\\MeguvisDexDash\\target\\debug\\deps\\libserde_json-cd74aa69794f938b.rlib"
+  ],
+  "started_utc": "2026-10-28T17:04:06.579658+00:00",
+  "elapsed_seconds": 1.6775794999998652,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "d62f0d27de1d7cc268d578509bcafa868531374061b0c92e461d3f96d90134bd",
+  "scope": "synthetic development corpus; not performance"
+}

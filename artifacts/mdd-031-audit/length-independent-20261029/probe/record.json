@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\length-independent-20261029-target\\debug\\mdd-length-independent.exe"
+  ],
+  "started_utc": "2026-10-29T04:39:44.406981+00:00",
+  "finished_utc": "2026-10-29T04:39:45.908654+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "a043396b008df4c651b37a7cc1c98f95d98345c3859ec04488b7787588f16645",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "d88cc64104785e68c064174f02bd25998c56d097cd376b64da4eb9c842ee7925",
+  "scope": "independent synthetic validation; not performance qualification"
+}

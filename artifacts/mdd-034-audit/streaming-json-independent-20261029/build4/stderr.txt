@@ -1,0 +1,14 @@
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+   Compiling mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+   Compiling mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+   Compiling mdd-streaming-json-independent v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-034-audit\streaming-json-independent-20261029)
+warning: unused import: `Row`
+ --> src\main.rs:3:295
+  |
+3 | ...alog,Table}},ir::{Bytes,Column,DataType,FactLayer,Node,QueryIr,Row,Signed64,Value,IR_VERSION,TEXT_VERSION}};
+  |                                                                   ^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `mdd-streaming-json-independent` (bin "mdd-streaming-json-independent") generated 1 warning (run `cargo fix --bin "mdd-streaming-json-independent" -p mdd-streaming-json-independent` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 12.98s

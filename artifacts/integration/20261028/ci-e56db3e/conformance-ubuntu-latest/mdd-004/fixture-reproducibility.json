@@ -1,0 +1,268 @@
+{
+  "schema_version": "mdd.fixture-reproducibility.v1",
+  "python": "3.12.10 (main, Apr  8 2025, 22:38:13) [GCC 13.3.0]",
+  "commands": [
+    {
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.10/x64/bin/python",
+        "tests/fixtures/generate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "generated 29 fixture files\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.10/x64/bin/python",
+        "tests/fixtures/generate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "generated 29 fixture files\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.10/x64/bin/python",
+        "conformance/oracles/check_fixtures.py"
+      ],
+      "exit_code": 0,
+      "stdout": "oracle checks: 72 passed, 0 failed\n",
+      "stderr": ""
+    }
+  ],
+  "metamorphic_checks": [
+    {
+      "id": "deterministic-generation",
+      "passed": true,
+      "details": {
+        "file_count_including_manifest": 30,
+        "sha256": {
+          "bad-checksum.dex": "cc90d70fe322f17950015d5f3bd536c666a8ebadfc2e6c0d0773ebca1fd916b2",
+          "bad-crc.apk": "603dbaa843394e744b3e3d7ea96652e3e003d9de97eb2a5df63b81399c817d3f",
+          "bad-magic.dex": "b4d2ed6864170624455d06c9cf6436052bc26d0ac0482008c9b088b4f363942c",
+          "bad-map-offset.dex": "07245312d7d77766e11af0409c35c00895c1dccda7fe932d0a7654ee7efe0b1f",
+          "bad-signature.dex": "914032948790b185d306c3425c6b830783a8c895bab247481712373cc0b28bee",
+          "class-reorder-after.dex": "24f35f625f4501fdef365a7e3ba8685c609fdec6c2955aaa1900c1e0501ee9b2",
+          "class-reorder-before.dex": "f41794ab3a1778f69fbb005f598c614be473189d89ddd2f9e7730d75f5dcb921",
+          "component-vectors.json": "3fb7d06b38ad9f90e4d2411e3df3f049e0db68816b2a6083fe415a3fa8758f0f",
+          "duplicate-content.apk": "2f8ff0d537beb8d331c40e76e153c37bf2ae5a1c9cb69c2808aa6f4324433529",
+          "duplicate-name.apk": "46d7f5af4b29dfebe4a75bff5a93a11fedaa638fc1cc9a53cf9501deb9af7eb5",
+          "invalid-dex-member.apk": "3e7335469f72a71a4e85f17037e63c85ab32e7fffc9bf443905908e4ddd66c89",
+          "manifest-bad-chunk.axml": "590a8a0dc286918187b751fbe8cb51fc798a884f10999c09dfbb23fd90d814d8",
+          "manifest-minimal.axml": "b0651901e1484afae644f62a3b2527ea77ae72b3ea68f4f6d9253ca35b1fe1f7",
+          "member-policy.apk": "78c3264f1aa9ffad0096b8b69e8127ac1898dd6a24a878fad7cc11eb2ac5655d",
+          "minimal-035.dex": "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "minimal-037.dex": "45b6d94b81a498ff626152716c43fa3f37ae84cb347808954cdc11f2f6db5b7a",
+          "minimal-038.dex": "7e0f156611de3f393809abb6b2f355a4973b4632b877b6217d916069e811f59a",
+          "minimal-039.dex": "2133d3fb663cfceadea61c1a15963a6deb69ef9cb82c1e0b7d5583a238b6e0a6",
+          "minimal-040.dex": "2ceacba2863f6acbaf5014ff304492665a30f299d1dde0113fbb7de913253f38",
+          "multidex-deflated.apk": "d063e89802d9cc0445c547f91b22deeeda3574ee17be8bcd3190ee6ae3113697",
+          "multidex-stored.apk": "6b88277747a49dfddcc91900c171ae6420449cc424d57ffd46f896891ad26098",
+          "renamed-member.apk": "c8c3efa07421cd00a293d4c431f1ee2e014e1182ddf301fdea2c3c6c2cca8c27",
+          "strings-mutf8-035.dex": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+          "structured-035-same-size-changed.dex": "12dc21ec8975294592eb4994c57e148ab99d26f973b435697b97cb6ab58faa11",
+          "structured-035.dex": "108cf907d330b823c6e32d38eaab8f23709fe493f52537688bbd09ba3e271605",
+          "table-count-overflow.dex": "6e9c4e42737e914a17686958fb11a1e816d1bd4a869f3d176e6d85a8885550e3",
+          "truncated-header.dex": "348c14b585035f8e3afd91525198630fe5b05b881044bc887bb0f22717f8d6dc",
+          "unsupported-036.dex": "38ec39a44c9c076bc34c61a6fe2280d8c56d97bb40d5edcbd88e26b72859cd30",
+          "unsupported-041.dex": "cefcbe1475083b6aa3380d447ff875ec35c7ac05574ca51403b5e2ae0d38a552",
+          "manifest.json": "cc228661f53f8ea600420648d177cf428283bd5393bee303b6ef3e61653b83d4"
+        }
+      }
+    },
+    {
+      "id": "independent-expectations-preserved",
+      "passed": true,
+      "details": {
+        "sha256": "d642842d8e88c6d18f5c605b241e6c68af06cfe48ab745be836e1fd45853ecd5"
+      }
+    },
+    {
+      "id": "stored-vs-deflated",
+      "passed": true,
+      "details": {
+        "member_count": 4,
+        "uncompressed_bytes": 798
+      }
+    },
+    {
+      "id": "logical-duplicate",
+      "passed": true,
+      "details": {
+        "occurrences": 2,
+        "content_id": "108cf907d330b823c6e32d38eaab8f23709fe493f52537688bbd09ba3e271605"
+      }
+    },
+    {
+      "id": "input-order",
+      "passed": true,
+      "details": {
+        "forward": [
+          "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae",
+          "108cf907d330b823c6e32d38eaab8f23709fe493f52537688bbd09ba3e271605"
+        ],
+        "reverse": [
+          "108cf907d330b823c6e32d38eaab8f23709fe493f52537688bbd09ba3e271605",
+          "e0aeaa1d698e1d1149ffdcf116e7b3e98b3a3097814e01718c80caaee147b7ae"
+        ]
+      }
+    },
+    {
+      "id": "member-rename",
+      "passed": true,
+      "details": {
+        "old_name": "classes.dex",
+        "new_name": "renamed.dex"
+      }
+    },
+    {
+      "id": "dex-class-table-and-index-reordering",
+      "passed": true,
+      "details": {
+        "before_sha256": "f41794ab3a1778f69fbb005f598c614be473189d89ddd2f9e7730d75f5dcb921",
+        "after_sha256": "24f35f625f4501fdef365a7e3ba8685c609fdec6c2955aaa1900c1e0501ee9b2",
+        "before": {
+          "semantic_classes": [
+            {
+              "descriptor": "Lfixture/A;",
+              "flags": 1,
+              "superclass": "Ljava/lang/Object;",
+              "methods": [
+                {
+                  "owner": "Lfixture/A;",
+                  "name": "a",
+                  "proto": "()V",
+                  "flags": 265,
+                  "body": null
+                }
+              ]
+            },
+            {
+              "descriptor": "Lfixture/B;",
+              "flags": 1,
+              "superclass": "Ljava/lang/Object;",
+              "methods": [
+                {
+                  "owner": "Lfixture/B;",
+                  "name": "b",
+                  "proto": "()V",
+                  "flags": 265,
+                  "body": null
+                }
+              ]
+            }
+          ],
+          "physical_mapping": [
+            {
+              "class_def_idx": 0,
+              "type_idx": 0,
+              "descriptor": "Lfixture/A;",
+              "class_data_off": 299,
+              "method_ref_idx": 0
+            },
+            {
+              "class_def_idx": 1,
+              "type_idx": 1,
+              "descriptor": "Lfixture/B;",
+              "class_data_off": 307,
+              "method_ref_idx": 1
+            }
+          ],
+          "string_data_offsets": [
+            244,
+            257,
+            270,
+            290,
+            293,
+            296
+          ]
+        },
+        "after": {
+          "semantic_classes": [
+            {
+              "descriptor": "Lfixture/A;",
+              "flags": 1,
+              "superclass": "Ljava/lang/Object;",
+              "methods": [
+                {
+                  "owner": "Lfixture/A;",
+                  "name": "a",
+                  "proto": "()V",
+                  "flags": 265,
+                  "body": null
+                }
+              ]
+            },
+            {
+              "descriptor": "Lfixture/B;",
+              "flags": 1,
+              "superclass": "Ljava/lang/Object;",
+              "methods": [
+                {
+                  "owner": "Lfixture/B;",
+                  "name": "b",
+                  "proto": "()V",
+                  "flags": 265,
+                  "body": null
+                }
+              ]
+            }
+          ],
+          "physical_mapping": [
+            {
+              "class_def_idx": 0,
+              "type_idx": 1,
+              "descriptor": "Lfixture/B;",
+              "class_data_off": 299,
+              "method_ref_idx": 1
+            },
+            {
+              "class_def_idx": 1,
+              "type_idx": 0,
+              "descriptor": "Lfixture/A;",
+              "class_data_off": 307,
+              "method_ref_idx": 0
+            }
+          ],
+          "string_data_offsets": [
+            286,
+            273,
+            253,
+            250,
+            247,
+            244
+          ]
+        },
+        "comparison_scope": "complete two-class/two-native-method fixture: all encoded string/type/proto/method/class-data references and semantic values; physical definition IDs intentionally differ"
+      }
+    },
+    {
+      "id": "same-size-same-mtime-change",
+      "passed": true,
+      "details": {
+        "bytes": 536,
+        "mtime_ns": 1793194035558929366,
+        "before_sha256": "108cf907d330b823c6e32d38eaab8f23709fe493f52537688bbd09ba3e271605",
+        "after_sha256": "12dc21ec8975294592eb4994c57e148ab99d26f973b435697b97cb6ab58faa11"
+      }
+    }
+  ],
+  "fixture_count": 29,
+  "oracle_check_count": 72,
+  "success": true,
+  "independent_leb_terminal_checks": 512,
+  "source_sha256": {
+    "tests/fixtures/generate.py": "f57649bb724f9d7623f329c1680824f619832cd0f8e7cd1b2d108dd526dc9ae7",
+    "conformance/oracles/check_fixtures.py": "317eed1e4721d4f237ffdad4cc8fc6dbb005b219bca26d1889ca710ed1694e0f",
+    "conformance/oracles/reproduce.py": "6a3c2f16cc435cf38c58167df848cb468d2679fbfd8bf08e199b0f54efe24910",
+    "conformance/oracles/expected-results.json": "d642842d8e88c6d18f5c605b241e6c68af06cfe48ab745be836e1fd45853ecd5"
+  },
+  "qualification": "fixture reproducibility and bounded reference checks only; no production engine or external full-format oracle qualification",
+  "not_run": [
+    "production parser",
+    "AOSP verifier/dexdump",
+    "AAPT2",
+    "fuzz",
+    "production lifecycle"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\bad-reference-index.dex",
+    "--sql",
+    "SELECT CASE WHEN \"method\" IS NULL THEN 'N' ELSE hex(CAST(\"method\" AS TEXT)) END AS \"method\",CASE WHEN \"method_class\" IS NULL THEN 'N' ELSE hex(CAST(\"method_class\" AS TEXT)) END AS \"method_class\",CASE WHEN \"method_name\" IS NULL THEN 'N' ELSE hex(CAST(\"method_name\" AS TEXT)) END AS \"method_name\",CASE WHEN \"callee\" IS NULL THEN 'N' ELSE hex(CAST(\"callee\" AS TEXT)) END AS \"callee\",CASE WHEN \"callee_class\" IS NULL THEN 'N' ELSE hex(CAST(\"callee_class\" AS TEXT)) END AS \"callee_class\",CASE WHEN \"callee_name\" IS NULL THEN 'N' ELSE hex(CAST(\"callee_name\" AS TEXT)) END AS \"callee_name\",CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"method_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"method_idx\" AS TEXT)) END AS \"method_idx\",CASE WHEN \"callee_method_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"callee_method_idx\" AS TEXT)) END AS \"callee_method_idx\" FROM method_calls"
+  ],
+  "started_utc": "2026-10-29T01:54:51.170046+00:00",
+  "finished_utc": "2026-10-29T01:54:51.774474+00:00",
+  "elapsed_seconds": 0.5929999999998472,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "37b9bd899a68a454c8cfaa0f18d7c3e83b9a1c386a42247c800ab861824cf52e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "observed invalid synthetic input; no equivalence inferred"
+}

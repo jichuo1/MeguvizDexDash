@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cargo",
+    "clippy",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-input",
+    "--all-targets",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "deb721f9c38a40ba497ea42ff7dd72643b735b175f397600c0c4f6d73a8e7ef1",
+  "manifest_sha256": "7a1eaa706392d1375dcfb35295854ede58ef2124a0de68a9340b3df84f42fe0c"
+}

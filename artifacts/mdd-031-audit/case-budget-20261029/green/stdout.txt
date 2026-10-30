@@ -1,0 +1,8 @@
+
+running 3 tests
+test runtime_tests::case_conversion_cancelled_during_scan_stays_failed ... ok
+test runtime_tests::case_conversion_long_text_respects_session_step_budget ... ok
+test runtime_tests::case_conversion_preserves_empty_nul_and_unpaired_units ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.95s
+

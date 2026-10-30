@@ -1,0 +1,1 @@
+{"status": "passed-readback-only", "sqlite_comparisons": 42, "controls": 12, "a0_a1_started": false, "profile_admitted": false, "scope": "in-memory SQLite recomputation and synthetic provider bridge receipts"}

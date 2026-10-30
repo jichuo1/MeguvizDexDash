@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\between-independent-20261029-target\\debug\\mdd-hostlab-case-independent.exe"
+  ],
+  "started_utc": "2026-10-29T05:10:16.466851+00:00",
+  "finished_utc": "2026-10-29T05:10:17.031680+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "19d10ebc62f6f7d0fa9f9752714b4e67df8c5d8661443c55043d15b53a2c33d5",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "6d7aa37be682574368097e40ee62838bb03abe4e9b87135b16a64fc869c6e882",
+  "scope": "independent synthetic validation; not performance qualification"
+}

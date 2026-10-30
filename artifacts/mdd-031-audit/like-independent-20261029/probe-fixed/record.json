@@ -1,0 +1,20 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "artifacts/local/like-independent-20261029-target/debug/mdd-independent-q03-probe.exe"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T00:59:24.178538+00:00",
+  "finished_utc": "2026-10-29T00:59:25.356155+00:00",
+  "elapsed_seconds": 1.1870000000001255,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 9050,
+    "sha256": "3a1100187cb1bc69f9106224ff228e131542707acf718a22908a3834b7769fed"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

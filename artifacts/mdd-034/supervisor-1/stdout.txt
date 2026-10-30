@@ -1,0 +1,89 @@
+{
+  "case": "real-hard-worker-deadline-all-unfinished",
+  "computing_query": {
+    "catalog_epoch": "0",
+    "delivery_complete": false,
+    "error": {
+      "code": "DEADLINE_EXCEEDED",
+      "details": {
+        "budget": "deadline_ms",
+        "limit": "250"
+      },
+      "message": "worker lifetime deadline exceeded",
+      "retryable": false,
+      "stage": "worker"
+    },
+    "execution_complete": false,
+    "phase": "failed"
+  },
+  "owned_child_pid": 49636,
+  "prior_complete_query": {
+    "catalog_epoch": "0",
+    "delivery_complete": true,
+    "error": null,
+    "execution_complete": true,
+    "phase": "completed"
+  },
+  "scope": "owned direct child reaped; process-tree isolation remains false",
+  "termination": {
+    "affected_requests": [
+      {
+        "error": {
+          "code": "DEADLINE_EXCEEDED",
+          "details": {
+            "budget": "deadline_ms",
+            "limit": "250"
+          },
+          "message": "worker lifetime deadline exceeded",
+          "retryable": false,
+          "stage": "worker"
+        },
+        "query_id": "query-8ec6255a914e437584b26a707631b4e1890db22e0c8ceb70702051d9b4d21381"
+      },
+      {
+        "error": {
+          "code": "DEADLINE_EXCEEDED",
+          "details": {
+            "budget": "deadline_ms",
+            "limit": "250"
+          },
+          "message": "worker lifetime deadline exceeded",
+          "retryable": false,
+          "stage": "worker"
+        },
+        "query_id": "query-5cf85a96fac588bb49d7ffad32599e348ed3c52ed720acfac9d0a0b0889dae66"
+      }
+    ],
+    "cause": "worker_deadline",
+    "direct_child_reaped": true,
+    "error": {
+      "code": "DEADLINE_EXCEEDED",
+      "details": {
+        "budget": "deadline_ms",
+        "limit": "250"
+      },
+      "message": "worker lifetime deadline exceeded",
+      "retryable": false,
+      "stage": "worker"
+    },
+    "exit_code": 1,
+    "process_tree_isolated": false,
+    "stdout_bytes": "24"
+  },
+  "unconsumed_spool_query": {
+    "catalog_epoch": "0",
+    "delivery_complete": false,
+    "error": {
+      "code": "DEADLINE_EXCEEDED",
+      "details": {
+        "budget": "deadline_ms",
+        "limit": "250"
+      },
+      "message": "worker lifetime deadline exceeded",
+      "retryable": false,
+      "stage": "worker"
+    },
+    "execution_complete": true,
+    "phase": "failed"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/raw_generation_boundary/test_failures.py",
+    "artifacts/mdd-026/raw-generation-audit/20261029T062620399999Z"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "ea1f8acbc6184010b2f9a1e1af5f6732b1ade4a2cb115d4849ee7330de1eadb1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

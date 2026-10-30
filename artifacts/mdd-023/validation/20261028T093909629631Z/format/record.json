@@ -1,0 +1,25 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "rustfmt",
+    "--check",
+    "--edition",
+    "2024",
+    "crates/mdd-dex/src/instructions/mod.rs",
+    "crates/mdd-facts/src/code.rs"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T09:39:21.409804+00:00",
+  "finished_utc": "2026-10-28T09:39:22.072890+00:00",
+  "elapsed_seconds": 0.6719999999986612,
+  "exit_code": 1,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 2225,
+    "sha256": "d5ef4a7024d90625fcc5fd55e21d68c08f9b5e49b80ff4b100bc367ce6948d72"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

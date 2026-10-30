@@ -1,141 +1,147 @@
 {
-  "schema_version": "mdd.baseline-plan.v1",
+  "schema_version": "mdd.baseline-plan.v2",
   "date": "2026-10-28",
-  "readiness": "blocked",
-  "record_kind": "preregistered_plan_not_a_measurement",
-  "reference_hostlab_commit": "8782f43d537c442905123e35af325c412caa5188",
-  "environment": {
-    "path": "artifacts/bootstrap/20261028/environment.json",
-    "sha256": "d336a75eb089bfe202206daff55f027df41bed4f103fcb32c044df91750a185f",
-    "resource_budget_verified": false,
-    "scope": "development environment metadata; not a dedicated performance reservation"
+  "readiness": "prepared_not_qualified",
+  "record_kind": "pre_registered_local_baseline_not_a_measurement",
+  "reference": {
+    "path": "D:\\MeguvisDexDash\\artifacts\\local\\hostlab-reference",
+    "commit": "8782f43d537c442905123e35af325c412caa5188",
+    "source_manifest": "artifacts/mdd-005/preparation-20261028/reference-source-manifest-gitblobs.json"
+  },
+  "python": {
+    "path": "D:\\MeguvisDexDash\\artifacts\\local\\baseline-venv\\Scripts\\python.exe",
+    "mcp_version": "2.2.0",
+    "installation_report": "artifacts/mdd-005/preparation-20261028/python-install-report.json"
   },
   "inputs": [
     {
-      "occurrence_id": "hostlab-9170100",
-      "path": null,
-      "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
-      "bytes": "243687778",
-      "availability": "not_bound_to_this_harness"
-    },
-    {
       "occurrence_id": "hostlab-9161100",
-      "path": null,
+      "visibility": "restricted",
+      "path": "D:\\Bilibili_Innocent_Lab\\Bilibili_Innocent_Lab\\哔哩哔哩-9.16.1(9161100).apk",
       "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
       "bytes": "226519215",
-      "availability": "not_bound_to_this_harness"
+      "verified_mtime_ns": 1792643322652000000,
+      "expected_certificate_sha256": [
+        "93ba270f5521139ecafe4bb638ac5b1198bc548f62d9fd8f8580a079faf5910e"
+      ],
+      "version_code": 9161100,
+      "dex_members": 33,
+      "identity_evidence": "artifacts/bootstrap/20261028/private-input-acquisition.json"
+    },
+    {
+      "occurrence_id": "hostlab-9170100",
+      "visibility": "restricted",
+      "path": "D:\\Bilibili_Innocent_Lab\\Bilibili_Innocent_Lab\\哔哩哔哩_9.17.0(9170100).apk",
+      "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "bytes": "243687778",
+      "verified_mtime_ns": 1792760074543141500,
+      "expected_certificate_sha256": [
+        "93ba270f5521139ecafe4bb638ac5b1198bc548f62d9fd8f8580a079faf5910e"
+      ],
+      "version_code": 9170100,
+      "dex_members": 35,
+      "identity_evidence": "artifacts/bootstrap/20261028/private-input-acquisition.json"
     }
   ],
   "variants": [
     {
       "id": "A0",
-      "included": false,
       "product": "DexSQL",
       "version": "0.1.0",
-      "expected_linux_x64_sha256": "f9e795e1e33547fdda451f592fe54c85e99c2138575f599540f5a860c1cef00c",
-      "status": "driver_not_configured",
-      "observed_windows_binary": {
-        "group": "A0",
-        "version": "0.1.0",
-        "platform": "windows_amd64",
-        "actual_path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
-        "expected_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
-        "actual_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
-        "bytes": 21365760,
-        "status": "verified_available",
-        "version_observed": "dexsql 0.1.0",
-        "executed_scope": "version/help/schema only",
-        "origin_url": "https://github.com/LSPosed/dexsql-release/releases/download/v0.1.0/dexsql-windows-amd64.exe"
+      "included_for_qualification": true,
+      "performance_qualified": false,
+      "engine_binary": {
+        "path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448"
       },
-      "note": "Windows version/help/schema verified only; complete workload driver and performance qualification missing. Linux hash is a separate historical identity."
+      "provider": "unaltered original pinned install_dexsql module"
     },
     {
       "id": "A1",
-      "included": false,
       "product": "DexSQL",
       "version": "0.1.1",
-      "expected_linux_x64_sha256": "f35c57610fcee62864e68f12e51997621375c025447aa2f32a0be9eb2df464bc",
-      "status": "driver_not_configured"
+      "included_for_qualification": true,
+      "performance_qualified": false,
+      "engine_binary": {
+        "path": "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+        "sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6"
+      },
+      "provider": "explicit external A1 version/hash pin adapter; original installer/source unchanged",
+      "actual_mcp_build": "0.1.1+6ac7870875a519ec471e41c93fc86d80e8e2bce7"
     },
     {
       "id": "A2",
-      "included": false,
-      "product": "existing deployable optimized path",
-      "version": null,
-      "status": "not_evaluated",
-      "exclusion_is_not_qualified": true
+      "product": "DexSQL 0.1.1 compact MCP candidate",
+      "version": "0.1.1",
+      "included_for_qualification": false,
+      "performance_qualified": false,
+      "status": "transport_adaptation_not_qualified",
+      "reason": "CLI query has text-table output only; compact is MCP. Native audit consumer uses CLI shape+hex+markers; preserving same full DTO requires separate bounded MCP adapter and full20-group proof. Not excluded as a universal alternative.",
+      "capability_evidence": "artifacts/mdd-005/preparation-20261028/a1-mcp-capabilities.json"
     },
     {
       "id": "B0",
-      "included": false,
       "product": "MeguvizDexDash",
-      "status": "not_implemented",
-      "fixed_contract": "same query scheduling, final complete DTO, rule consumer, timing window; wire need not copy old table/hex"
+      "included_for_qualification": false,
+      "performance_qualified": false,
+      "status": "full HostLab provider not implemented"
     },
     {
       "id": "B1",
-      "included": false,
       "product": "MeguvizDexDash",
-      "status": "not_implemented",
-      "fixed_contract": "typed batch plus HostLab adapter; producer/transport attribution separate"
+      "included_for_qualification": false,
+      "performance_qualified": false,
+      "status": "full typed batch HostLab provider not implemented"
     }
   ],
-  "workload_catalog": "benchmarks/workloads/initial.json",
-  "required_workloads": [
-    "W01",
-    "W02",
-    "W03",
-    "W04",
-    "W05",
-    "W06",
-    "W07",
-    "W08",
-    "W09",
-    "W10",
-    "W11",
-    "W12"
-  ],
-  "timing_windows": {
-    "primary": "complete producer-to-consumer final DTO, including validation",
-    "hostlab": "E/P/S/F/R/O actual scopes; R and O residuals retained",
-    "not_additive": [
-      "producer and consumer overlap",
-      "CPU seconds and wall seconds"
-    ]
+  "driver": {
+    "path": "artifacts/mdd-005/preparation-20261028/baseline_driver.py",
+    "scope": "unmodified local full analyze.main native+surface with unchanged FEATURE/intake/home/20-group consumer"
   },
-  "performance_policy": {
-    "status": "proposed_uncalibrated",
-    "minimum_pairs_per_workload": 10,
-    "independent_time_blocks": 2,
-    "run_order": "alternating paired blocks",
-    "warmups_per_variant": 1,
-    "audit_and_bulk_minimum_paired_median_reduction": 0.1,
-    "other_required_maximum_reproducible_regression": 0.05,
-    "p95_minimum_independent_requests": 100,
-    "best_baseline": "strongest semantically qualified deployable A0/A1/A2 per workload",
-    "historical_37_47_percent": "conditional A0 targets only"
+  "resource_request": {
+    "cpu_affinity_mask": 15,
+    "logical_cpus": 4,
+    "engine_threads": 2,
+    "job_memory_commit_bytes": "8589934592",
+    "minimum_free_memory_bytes": "10737418240",
+    "max_processes": 16,
+    "native_timeout_seconds": 900,
+    "worker_timeout_seconds": 1500,
+    "supervisor_smoke": "artifacts/mdd-005/preparation-20261028/windows-job-smoke-4/summary.json",
+    "qualification_window_request_minutes": 30,
+    "expected_phase": "four serial static runs A0/A1 x target/baseline, complete results before comparison; no formal speed claim",
+    "initial_four_serial_window_minutes": 110,
+    "qualification_admission": "one explicitly root-leased worker at a time; no automatic renewal",
+    "current_root_denial": "artifacts/mdd-005/preparation-20261028/root-memory-denial.json",
+    "threshold_unchanged": true
   },
-  "cache_policy": {
-    "scenario": "process-cold / OS-warm",
-    "cold_disk_claim": false,
-    "persistent_and_resident_cases": "separate workloads; no prebuilt sidecar costs omitted"
+  "safety": {
+    "root_exclusive_lease_required": true,
+    "private_parse_without_lease": false,
+    "old_sources_installers_configs_unchanged": true,
+    "remote_network_ai_telegram_publish": false,
+    "outputs_under": "artifacts/local/baseline-runs",
+    "source_tree_reverified": true,
+    "input_full_sha_before_after_actual_run": true
   },
-  "measurement_constraints": {
-    "exclusive_machine_window_required": true,
-    "same_total_cpu_budget": true,
-    "same_input_occurrences": true,
-    "same_rules_and_final_dto": true,
-    "complete_consumption_and_certificate_required": true,
-    "failed_and_contaminated_trials_retained": true,
-    "no_production_default_switch": true
+  "certificate": {
+    "feature_count": 27,
+    "evidence_group_count": 20,
+    "consumer_source": "fixed verify_audits.evidence",
+    "equivalence": "all20 canonical groups including multiplicity/nulls/sample/gates/raw fingerprints/home log; zero fallback, complete markers, no discarded pages"
   },
-  "remaining": [
-    "bind actual executable/driver/input/environment hashes",
-    "implement audited workload-specific full DTO drivers and paired scheduler",
-    "verify POSIX supervisor on native Linux or implement native Windows job supervisor",
-    "obtain full equivalence before any speed claim"
-  ],
-  "observed_runs": [],
-  "actual_binary_registry": "conformance/manifests/engine-binaries.json",
-  "input_registry": "conformance/manifests/input-corpus.json"
+  "timing": {
+    "primary_window": "local analyze.main --apk full native+surface + retained intake/home gates + post SHA + full evidence JSON publication; certificate comparison excluded",
+    "difference_from_historical": "Direct local identity/sdk copy is in E; HF metadata/download route is absent. Keep historical37/47 conditional budgets separate and recalibrate current environment.",
+    "cache_state": "process-cold/OS-warm; no cold-disk claim",
+    "run_order": "alternate A0/A1 by sample then reverse next pair; failed trials retained"
+  },
+  "formal_policy": {
+    "minimum_pairs": 10,
+    "independent_blocks": 2,
+    "key_median_reduction": 0.1,
+    "other_required_regression_limit": 0.05,
+    "status": "not_run"
+  },
+  "measured_runs": []
 }

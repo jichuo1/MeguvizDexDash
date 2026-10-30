@@ -1,0 +1,80 @@
+{
+  "schema_version": "mdd.private-manifest-comparison.v1",
+  "run": "20261028T133711100506Z",
+  "binaries": {
+    "native": {
+      "bytes": 2108416,
+      "sha256": "888b6e754b7585f46220068cae599d0f907dc10478b73dc6939c73fc1d074697"
+    },
+    "aapt2": {
+      "bytes": 5036696,
+      "sha256": "4b09f89d449cc4498fcf5076a4ad6b28f079e565d2737f7881a674580960c8df"
+    }
+  },
+  "measurement_scope": "bounded development comparison; not full HostLab or performance",
+  "results": [
+    {
+      "input_id": "hostlab-9161100",
+      "status": "failed",
+      "error_type": "RuntimeError",
+      "jobs": {
+        "native": {
+          "status": "completed",
+          "tree_empty": true,
+          "reason": null,
+          "peak_job_commit_bytes": "498966528",
+          "stdout": {
+            "bytes": 4617046,
+            "sha256": "99568214e2d98aaf9151833a7247992d3a4c954b6a433f9981d72a43e9351b4d"
+          },
+          "raw_directory": "artifacts/local/private-manifest/20261028T133711100506Z/hostlab-9161100-native"
+        },
+        "aapt2": {
+          "status": "completed",
+          "tree_empty": true,
+          "reason": null,
+          "peak_job_commit_bytes": "231505920",
+          "stdout": {
+            "bytes": 741867,
+            "sha256": "3c329090a3e4a893030f386b03e631623fa05fabacf9b777a86cea694011fbd9"
+          },
+          "raw_directory": "artifacts/local/private-manifest/20261028T133711100506Z/hostlab-9161100-aapt2"
+        }
+      },
+      "diagnostic": "artifacts/local/private-manifest/20261028T133711100506Z/hostlab-9161100-failure.txt"
+    },
+    {
+      "input_id": "hostlab-9170100",
+      "status": "failed",
+      "error_type": "RuntimeError",
+      "jobs": {
+        "native": {
+          "status": "completed",
+          "tree_empty": true,
+          "reason": null,
+          "peak_job_commit_bytes": "516149248",
+          "stdout": {
+            "bytes": 4629893,
+            "sha256": "2f0c97a6dff61376149430b7b44088ff04ccf8cb09554f0a56aaf04249805105"
+          },
+          "raw_directory": "artifacts/local/private-manifest/20261028T133711100506Z/hostlab-9170100-native"
+        },
+        "aapt2": {
+          "status": "completed",
+          "tree_empty": true,
+          "reason": null,
+          "peak_job_commit_bytes": "234590208",
+          "stdout": {
+            "bytes": 743876,
+            "sha256": "dac425e17f7a42be3ae4d7a795ca0e22d1eb1985baa4d126aa7a38bc9beb8d39"
+          },
+          "raw_directory": "artifacts/local/private-manifest/20261028T133711100506Z/hostlab-9170100-aapt2"
+        }
+      },
+      "diagnostic": "artifacts/local/private-manifest/20261028T133711100506Z/hostlab-9170100-failure.txt"
+    }
+  ],
+  "full_audit_complete": false,
+  "formal_performance_qualified": false,
+  "status": "failed"
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.private-raw-diagnostic.v1",
+  "source_commit": "e56db3e9380a60b117e9e65ec5ab3f76ffb61361",
+  "materialized_source": "handoff/checkpoint-030",
+  "source_files_verified": 61,
+  "measurement_scope": "bounded static input diagnosis; no full workflow or performance qualification",
+  "results": [],
+  "status": "blocked-or-failed",
+  "full_audit_complete": false,
+  "formal_performance_qualified": false,
+  "failure": {
+    "type": "ValueError",
+    "reason": "below 4 GiB available for this bounded development task"
+  },
+  "followup_resource_observation": {
+    "source": "Win32_OperatingSystem.FreePhysicalMemory read after admission denial",
+    "free_physical_kib": 2404388,
+    "free_physical_bytes": 2462093312,
+    "original_exact_available_bytes": null,
+    "note": "Followup observation is not represented as the exact original guard snapshot; no diagnostic compiler or APK parsing started"
+  }
+}

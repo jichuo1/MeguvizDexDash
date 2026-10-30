@@ -1,0 +1,8 @@
+
+running 3 tests
+test strings::tests::physical_string_item_starts_allow_orphans_and_reject_interior_offsets ... ok
+test types::prototype_type_list_must_reference_a_real_physical_item_start ... ok
+test instructions::tests::debug_references_must_name_physical_item_starts_and_outs_layout_is_checked ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s
+

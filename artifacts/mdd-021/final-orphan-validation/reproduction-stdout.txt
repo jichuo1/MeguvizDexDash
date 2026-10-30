@@ -1,0 +1,208 @@
+{
+  "schema_version": "mdd.definition-fixture-reproduction.v1",
+  "complete": true,
+  "fixtures": [
+    {
+      "id": "definitions-035",
+      "bytes": 1308,
+      "sha256": "4e8f9e8deedf44c8793e10d99f2614e0bed705dcac617c0d74137e7b2bd459cc"
+    },
+    {
+      "id": "zero-insns-present",
+      "bytes": 1304,
+      "sha256": "a7f71afa39b5981a897f0777f2266d9790d37f6ef08e5aea56215349e8f487b6"
+    },
+    {
+      "id": "empty-class-data",
+      "bytes": 1304,
+      "sha256": "2768791b0eaf032422ec02244cd238d4248efb1b213ef887443df3c835c3a0ca"
+    },
+    {
+      "id": "duplicate-field-delta",
+      "bytes": 1308,
+      "sha256": "2df4a46508322874ddc6de07f0617c79265ccc1272b63712e4d37fd086a06b5a"
+    },
+    {
+      "id": "field-delta-overflow",
+      "bytes": 1312,
+      "sha256": "e090eeaeffdaf75422a829d6255a4124ad7d7d2f2b0dbc60779f80dd3e53e007"
+    },
+    {
+      "id": "wrong-field-owner",
+      "bytes": 1308,
+      "sha256": "9fc3ab75a9a1bce9f99a669321aa1316517f79330cc1276fae4f94f24fcbcd0b"
+    },
+    {
+      "id": "static-flag-mismatch",
+      "bytes": 1308,
+      "sha256": "52cfdea1c433f630ad358dcb9d15f9856455830f931ed27aada9f153d3830bdd"
+    },
+    {
+      "id": "duplicate-method-layout",
+      "bytes": 1308,
+      "sha256": "cf70f93631a9ffcf77a0cf6d187df42761cb28d9db4f14259ffd32a80bf49d07"
+    },
+    {
+      "id": "native-with-code",
+      "bytes": 1312,
+      "sha256": "24caa65dee3fa650615b05c578397d122348eb0d5ffd526667910924562d96c9"
+    },
+    {
+      "id": "concrete-no-body",
+      "bytes": 1308,
+      "sha256": "b672daf96a60c002427b3d9e18e1b5b7fb8637a05bc2e3c52c2d585f18fc853b"
+    },
+    {
+      "id": "inheritance-order",
+      "bytes": 1308,
+      "sha256": "1ff76d2884e114401eaef2af477230746869fb31515356ebc14a01dd88be5f00"
+    },
+    {
+      "id": "duplicate-class",
+      "bytes": 1308,
+      "sha256": "44761724e8daf314a5058863f6cdfbd3a555a68c9a1e0f4b74505c3caf41efcf"
+    },
+    {
+      "id": "shared-class-data",
+      "bytes": 1308,
+      "sha256": "fb43ff3fbb0720151c5debb61346647c3cf489ce7082b994438a6c9b4b5abef5"
+    },
+    {
+      "id": "duplicate-interface",
+      "bytes": 1308,
+      "sha256": "6dd171bf8a235353905bbb876a97c65ad3c6d96ec7435155f93a5016e7b5a176"
+    },
+    {
+      "id": "shared-empty-class-data",
+      "bytes": 1296,
+      "sha256": "8ae516961761b5d1792c29d81c723ce68a1d8aee4444f3b11f37094a8cf8360d"
+    },
+    {
+      "id": "source-file-surrogate",
+      "bytes": 1316,
+      "sha256": "32671156d58286ad79d455b4f141ea1ae517312dd02c4f99525323436690b0d2"
+    },
+    {
+      "id": "invalid-member-surrogate",
+      "bytes": 1316,
+      "sha256": "7fea91c14468a9e581e9dafbe0018c5a1a732c11363926c88302b6eef089ca77"
+    },
+    {
+      "id": "method-delta-overflow",
+      "bytes": 1312,
+      "sha256": "33ee71491e5eaf2291c11d632a00a5e546d8631949704c3368cfcf9c72b507eb"
+    },
+    {
+      "id": "field-index-out-of-range",
+      "bytes": 1308,
+      "sha256": "dc1fef5f321140a7be19965cd280823e6d061ec089602c0562b4f90e08cfefb9"
+    },
+    {
+      "id": "method-index-out-of-range",
+      "bytes": 1308,
+      "sha256": "3f7abd141df7b3abc348332dcab80d34a910f54d2211698409809b52e3c6a106"
+    },
+    {
+      "id": "wrong-method-owner",
+      "bytes": 1308,
+      "sha256": "43beddb9297e3b7e5bfd6860775b21df2a146f23c4d3bc4e7f4aa6a68bf18cfd"
+    },
+    {
+      "id": "virtual-flag-mismatch",
+      "bytes": 1308,
+      "sha256": "7916fb7c0437a4e5cd4d7b5e08f8b58e9bd44389b4da1efa94feeca4eae77341"
+    },
+    {
+      "id": "class-data-interior",
+      "bytes": 1308,
+      "sha256": "242bb3915b2875e0ee3e888add1afb55c0d806f1f6283b593eced7deccb84acc"
+    },
+    {
+      "id": "interface-list-interior",
+      "bytes": 1308,
+      "sha256": "78d0c26b36fed6ff31a72861b331162ecb92416036cf4ce12f8abd73f32da4c4"
+    },
+    {
+      "id": "nullable-root-class",
+      "bytes": 1340,
+      "sha256": "cb9f9d5265e6caa4d6935edeca9ab6fc15cc43de3a165746836183c5e02ccc70"
+    },
+    {
+      "id": "virtual-native-no-body",
+      "bytes": 1308,
+      "sha256": "1f1e67f8b7d987beac1906225895d9f51a109a8b345f014e293d3093e0445037"
+    },
+    {
+      "id": "orphan-field-valid",
+      "bytes": 1316,
+      "sha256": "6985a7965c9854fd7de3c7b24f215aff8f353315c175f3f00f83feb932f39c1d"
+    },
+    {
+      "id": "orphan-field-index",
+      "bytes": 1316,
+      "sha256": "2ca50b0e17ec9ce93dc8b610dcaf5f469d86e427fa9a9983cdb5c3b363ac67fc"
+    },
+    {
+      "id": "orphan-field-flags",
+      "bytes": 1316,
+      "sha256": "71e702c2c6c4cb935fc4833ecbf569072b9264050c58c6f80f6e2c9de8152320"
+    },
+    {
+      "id": "orphan-method-valid",
+      "bytes": 1316,
+      "sha256": "936c2bceba53f2f60c6a1e185f03d27011f2864b195533f074ab9b4ce6393abf"
+    },
+    {
+      "id": "orphan-method-index",
+      "bytes": 1316,
+      "sha256": "d4bc52d0b74af14a8cb2f7805cb8fc37a9c18a407bf415c7370c691790c8a12f"
+    },
+    {
+      "id": "orphan-method-delta",
+      "bytes": 1324,
+      "sha256": "d7ad5e5c580702b019263029e0b406ecf067b5844082806e845e15bafd96e3aa"
+    },
+    {
+      "id": "orphan-method-kind",
+      "bytes": 1316,
+      "sha256": "556bce99fb4ed0bdc7b840b7d113b020cc631c97e4f1b37fab9187305e4d98a9"
+    },
+    {
+      "id": "orphan-empty",
+      "bytes": 1312,
+      "sha256": "35abb3d2cc798f34e352ee1c57a7177578b20d947e5cead9a6702b5545b08f6b"
+    },
+    {
+      "id": "orphan-field-defined-owner",
+      "bytes": 1316,
+      "sha256": "1d8ba35c784eaa862a69d789e7ed5d483af83917aa5b3d0eb9ec83163d3db4e9"
+    },
+    {
+      "id": "orphan-method-defined-owner",
+      "bytes": 1316,
+      "sha256": "cc6180c955d7156deca718631f3b016d1029f38d532c80649c3ce718b744c081"
+    },
+    {
+      "id": "definitions-037",
+      "bytes": 1308,
+      "sha256": "78e714d881e2d2c7b126d04601275a61e1a8e5ef91fc9209ee6a7a6ea9c59102"
+    },
+    {
+      "id": "definitions-038",
+      "bytes": 1308,
+      "sha256": "89abdd6279e9e3cf2074d83561c4180690ef77167bae70b2aea7a276aae81c01"
+    },
+    {
+      "id": "definitions-039",
+      "bytes": 1308,
+      "sha256": "051471d8ec7f8ebc2f75e5055027dc9379f94930961bdc6661dacd6ea5d405e6"
+    },
+    {
+      "id": "definitions-040",
+      "bytes": 1308,
+      "sha256": "b1117c40f6b19641b4f1068ec522da6ae8b53df384155d071dfb50515df131af"
+    }
+  ],
+  "generator_sha256": "f40c3015e47d213635ec8331313ef71ea65d5f9ebf8ed667c4f5e3748ffca476",
+  "limits": "byte reproduction only; no ART runtime or engine compatibility qualification"
+}

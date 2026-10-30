@@ -1,0 +1,363 @@
+{
+  "schema_version": "mdd.hostlab-native-fact-qualification.v1",
+  "task": "MDD-026",
+  "created_utc": "2026-10-28T14:30:13.090186+00:00",
+  "status": "passed-native-atoms-index-and-scoped-coverage",
+  "native_fact_scope_only": true,
+  "product_profile_admitted": false,
+  "compatibility_projection_qualification": false,
+  "full_G1_admitted": false,
+  "required_relations": 17,
+  "required_columns": 156,
+  "unassembled_compatibility_projections": [
+    {
+      "relation": "dex_files",
+      "column": "file_id"
+    },
+    {
+      "relation": "dex_files",
+      "column": "string_pool_id"
+    },
+    {
+      "relation": "dex_files",
+      "column": "source_path"
+    },
+    {
+      "relation": "dex_files",
+      "column": "entry_name"
+    },
+    {
+      "relation": "dex_files",
+      "column": "byte_len"
+    },
+    {
+      "relation": "dex_files",
+      "column": "dex_version"
+    },
+    {
+      "relation": "dex_files",
+      "column": "checksum"
+    },
+    {
+      "relation": "dex_files",
+      "column": "signature_hex"
+    },
+    {
+      "relation": "dex_files",
+      "column": "file_size"
+    },
+    {
+      "relation": "dex_files",
+      "column": "header_size"
+    },
+    {
+      "relation": "dex_files",
+      "column": "endian_tag"
+    },
+    {
+      "relation": "dex_files",
+      "column": "link_size"
+    },
+    {
+      "relation": "dex_files",
+      "column": "link_off"
+    },
+    {
+      "relation": "dex_files",
+      "column": "map_off"
+    },
+    {
+      "relation": "dex_files",
+      "column": "string_count"
+    },
+    {
+      "relation": "dex_files",
+      "column": "string_ids_off"
+    },
+    {
+      "relation": "dex_files",
+      "column": "type_count"
+    },
+    {
+      "relation": "dex_files",
+      "column": "type_ids_off"
+    },
+    {
+      "relation": "dex_files",
+      "column": "proto_count"
+    },
+    {
+      "relation": "dex_files",
+      "column": "proto_ids_off"
+    },
+    {
+      "relation": "dex_files",
+      "column": "field_count"
+    },
+    {
+      "relation": "dex_files",
+      "column": "field_ids_off"
+    },
+    {
+      "relation": "dex_files",
+      "column": "method_count"
+    },
+    {
+      "relation": "dex_files",
+      "column": "method_ids_off"
+    },
+    {
+      "relation": "dex_files",
+      "column": "class_count"
+    },
+    {
+      "relation": "dex_files",
+      "column": "class_defs_off"
+    },
+    {
+      "relation": "dex_files",
+      "column": "data_size"
+    },
+    {
+      "relation": "dex_files",
+      "column": "data_off"
+    },
+    {
+      "relation": "strings",
+      "column": "string_pool_id"
+    },
+    {
+      "relation": "strings",
+      "column": "string_idx"
+    },
+    {
+      "relation": "strings",
+      "column": "value"
+    },
+    {
+      "relation": "types",
+      "column": "file_id"
+    },
+    {
+      "relation": "types",
+      "column": "type_idx"
+    },
+    {
+      "relation": "types",
+      "column": "descriptor"
+    },
+    {
+      "relation": "types",
+      "column": "java_name"
+    },
+    {
+      "relation": "methods",
+      "column": "file_id"
+    },
+    {
+      "relation": "methods",
+      "column": "method_idx"
+    },
+    {
+      "relation": "methods",
+      "column": "class_idx"
+    },
+    {
+      "relation": "methods",
+      "column": "class_descriptor"
+    },
+    {
+      "relation": "methods",
+      "column": "proto_idx"
+    },
+    {
+      "relation": "methods",
+      "column": "name"
+    },
+    {
+      "relation": "methods",
+      "column": "descriptor"
+    },
+    {
+      "relation": "methods",
+      "column": "return_descriptor"
+    },
+    {
+      "relation": "methods",
+      "column": "param_count"
+    },
+    {
+      "relation": "methods",
+      "column": "param_descriptors"
+    },
+    {
+      "relation": "methods",
+      "column": "access_flags"
+    },
+    {
+      "relation": "methods",
+      "column": "opcode_count"
+    },
+    {
+      "relation": "methods",
+      "column": "opcode_hex"
+    },
+    {
+      "relation": "methods",
+      "column": "method_kind"
+    },
+    {
+      "relation": "classes",
+      "column": "file_id"
+    },
+    {
+      "relation": "classes",
+      "column": "class_def_idx"
+    },
+    {
+      "relation": "classes",
+      "column": "class_idx"
+    },
+    {
+      "relation": "classes",
+      "column": "descriptor"
+    },
+    {
+      "relation": "classes",
+      "column": "access_flags"
+    },
+    {
+      "relation": "classes",
+      "column": "superclass_descriptor"
+    },
+    {
+      "relation": "classes",
+      "column": "interface_count"
+    },
+    {
+      "relation": "classes",
+      "column": "source_file"
+    },
+    {
+      "relation": "code_items",
+      "column": "file_id"
+    },
+    {
+      "relation": "code_items",
+      "column": "method_idx"
+    },
+    {
+      "relation": "code_items",
+      "column": "code_off"
+    },
+    {
+      "relation": "code_items",
+      "column": "registers_size"
+    },
+    {
+      "relation": "code_items",
+      "column": "ins_size"
+    },
+    {
+      "relation": "code_items",
+      "column": "outs_size"
+    },
+    {
+      "relation": "code_items",
+      "column": "tries_size"
+    },
+    {
+      "relation": "code_items",
+      "column": "debug_info_off"
+    },
+    {
+      "relation": "code_items",
+      "column": "insns_size"
+    },
+    {
+      "relation": "code_items",
+      "column": "insns_off"
+    },
+    {
+      "relation": "code_items",
+      "column": "tries_off"
+    },
+    {
+      "relation": "code_items",
+      "column": "handlers_off"
+    }
+  ],
+  "validation": {
+    "native_fact_scenarios": 8,
+    "independent_dex_occurrences": 9,
+    "indexed_scalar_target_checks": 331,
+    "complete_relation_comparisons": 43,
+    "candidate_predicates": 219,
+    "residual_candidate_cases": 55,
+    "component_fact_unit_tests": 35,
+    "compile_fail_tests": 4,
+    "root_current_lock_index_tests": 11,
+    "readback_negative_controls": 6
+  },
+  "semantics": [
+    "explicit selected scope, source/DEX occurrence and immutable byte leases",
+    "UTF16 code-unit queries and raw MUTF8 remain separate",
+    "NULL, order and multiplicity checked with independent leaf oracles",
+    "input/facts Complete Partial Unknown recomputed; true failure dominates missing/unsupported",
+    "encoded parameter slots differ from proven prototype positions",
+    "code projection, all physical code, all method bodies and source positions differ",
+    "lazy index attempts retain one terminal; original waiters retain original errors",
+    "no runtime dispatch/inheritance inference or lossy UTF8 substitution"
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/mdd-026/indexes/runs/20261028T141315875747Z/result.json",
+      "bytes": 1820,
+      "sha256": "58e680e367d64a4f938836c03819af2ef0c0394c4c4704cb92449135bb13f16e"
+    },
+    {
+      "path": "artifacts/mdd-026/indexes/runs/20261028T141315875747Z/readback.json",
+      "bytes": 1588,
+      "sha256": "ca898f421f495f01f72f69fd49ae61093b9c2b9c05c1c622302b143a923c9db3"
+    },
+    {
+      "path": "conformance/facts/required-columns.json",
+      "bytes": 143235,
+      "sha256": "7283875ca5372848bf08a0e91beb981e18ed9b96ff9bb586c9597ee6397f069c"
+    },
+    {
+      "path": "artifacts/mdd-026/facts-differential.json",
+      "bytes": 8127,
+      "sha256": "5a2ae3e489b314210fdb04ded5680ad7145e9d6e705486b7c49cdda65dbe138b"
+    },
+    {
+      "path": "artifacts/mdd-026/root-reviewed-index-tests/record.json",
+      "bytes": 723,
+      "sha256": "de3425c36eb3971abf6694f8bac4f2f4cd4b5ef063ed926f8a67c036469b1fb7"
+    },
+    {
+      "path": "artifacts/mdd-025/raw-evidence-conformance.json",
+      "bytes": 4076,
+      "sha256": "fada8d7510f1e582cad66e3d7d9a1015e9f86dc551ed3d4af20c986c20e612f9"
+    },
+    {
+      "path": "artifacts/conformance/parser-safety/ci-readback.json",
+      "bytes": 2271,
+      "sha256": "2e2ac6b5761b9eddbb7e5ffe2596227a93d7053840c503e68ddf174138477c98"
+    }
+  ],
+  "index_component_lock_sha256": "19323721f4102af40d3f4c79684ac35a6b04ae186e2dc77dea720c849714e9b9",
+  "root_integration_lock": {
+    "path": "Cargo.lock",
+    "bytes": 11593,
+    "sha256": "c1f415ca947a52700948cf6a6bea3acc18100a99d53c1e38d301693d80a8e19e"
+  },
+  "lock_context": "Root separately reran the 11 index tests after unrelated approved internal SQL/runtime dependency edges changed; all index sources and independent matrix match the frozen component run.",
+  "not_qualified": [
+    "69 frozen relation projections remain unavailable, not NULL defaults",
+    "full HostLab audit, SQL, interface or release profiles",
+    "private full-facts corpus or formal performance",
+    "current-index Linux until immutable feature-branch CI readback"
+  ],
+  "rollback": "Scope revert on review branch; retain original handoff and all failures; no default backend/deployment changed."
+}

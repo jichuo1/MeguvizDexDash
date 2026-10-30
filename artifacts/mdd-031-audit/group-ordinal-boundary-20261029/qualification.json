@@ -1,0 +1,29 @@
+{
+  "status": "passed-scoped",
+  "candidate_cases": 90,
+  "sqlite_comparisons": 78,
+  "controls": 12,
+  "integer_boundary_cases": 36,
+  "sqlite_version": "3.53.1",
+  "source_sha256": {
+    "crates/mdd-sql/src/bridge.rs": "bcd366aedb1999b133be1bd2b848136cb98d407bb91777085594599109c99d5e",
+    "crates/mdd-sql/src/dialects/ast.rs": "abaf22b7e37344a5ba00b1c9d30835e411b79474da0197d9bcb88fc24b09b6ac",
+    "crates/mdd-sql/src/dialects/functions.rs": "062dac4d1fe72eaa4b4d71aa9672380d6ddad0d04122e86c5ca185a0523f9654",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "artifacts/mdd-031-audit/group-ordinal-boundary-20261029/Cargo.lock": "f7845e9a5309eaa2446cd3a3eebe14d0904aeb75356ddec207e1b114c3d3b946",
+    "artifacts/mdd-031-audit/group-ordinal-boundary-20261029/Cargo.toml": "11cfaa0c1b63d42ccf0cc4ea2e54b0eec730557dcbb0691e0dbe28bb6551b0f7",
+    "artifacts/mdd-031-audit/group-ordinal-boundary-20261029/src/main.rs": "0b5ec0a14ae4e987e7e49048d94a04a7bc6f229bcb5e698cec98d818946b9c3f",
+    "artifacts/mdd-031-audit/group-ordinal-boundary-20261029/run_bounded.py": "252c788820eeb6ea099568817be9d61396cef4c4720432cdafd7a607f8c36c09"
+  },
+  "prior_reference_sha256": "ce6cd570358bef6988f8144b6c312adba55f916c0813d5b8d46ab14605707e1b",
+  "extra_reference_sha256": "9de8b18c4db2e804ef25343043c27ac67ea2d541484ed81253162e61e98c6db6",
+  "probe_stdout_sha256": "6aea89c016c19a919578a412e504664139d90fc4723bb93722f1773def67cd5e",
+  "binary_sha256": "5a6d9eda8049ea08d2d15d6982d859c3a1236864c96a9f184109bed31f2d5a11",
+  "a0_a1_started": false,
+  "profile_admitted": false,
+  "dto_equal": false,
+  "scope": "synthetic provider and SQLite value/order reference; constant-key ORDER ties compared as multiset",
+  "injected_controls": "SOURCE_CHANGED and INCOMPLETE_FACTS are synthetic provider errors"
+}

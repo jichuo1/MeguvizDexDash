@@ -1,0 +1,30 @@
+{
+  "phenomenon": "Unit format vectors passed while real public whole-code-map consumption exposed debug PC-to-instruction confusion, shared programs longer than referring methods, and emitted encoded line0.",
+  "evidence": [
+    "artifacts/mdd-023/public-debug-investigation.json",
+    "artifacts/mdd-023/public-line-investigation.json",
+    "artifacts/mdd-023/r8-reference/manifest.json",
+    "artifacts/mdd-023/public-newpipe-code-layout/record.json",
+    "artifacts/mdd-023/public-newpipe-code-layout-after-debug/record.json",
+    "artifacts/mdd-023/public-newpipe-code-layout-pc2pc/record.json",
+    "artifacts/mdd-023/public-newpipe-code-layout-encoded-policy/record.json"
+  ],
+  "root_cause": "Physical debug-item syntax, per-code-unit context projection, and usable source positions had been conflated. The first fixture generator also used outs8 for registers1, independently rejected by SDK37.",
+  "final_solution": "Retain full physical events/raw ranges; tag inside/end/beyond method context; recognize pc-to-pc encoding shape without inferring producer; default encoded policy preserves unknown lines and strict source policy returns INCOMPLETE_FACTS. Bound all physical/projection expansions and expose immutable fact getters.",
+  "failed_solutions": [
+    "Requiring debug PCs to be opcode starts",
+    "Rejecting every shared-program suffix beyond a short method",
+    "Treating non-positive encoded line as a default physical encoding failure",
+    "Using SDK orphan-code exit0 or shared table-derived vectors as complete correctness proof"
+  ],
+  "verification_scope": {
+    "windows": "13 instruction tests (224 active/32 reserved/26 formats), 2 CodeFacts differential+lease tests, compile_fail immutability docs, Python -O and deterministic fixtures; public both-DEX full code-map consumed",
+    "not_claimed": [
+      "Linux native run in this child",
+      "method binding/references graph/source-position semantics built",
+      "full ART verification",
+      "HostLab replacement",
+      "performance qualification"
+    ]
+  }
+}

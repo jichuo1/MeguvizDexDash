@@ -1,0 +1,26 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "mdd-sql",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "concat_preserves_null_non_scalar_nul_and_bytes",
+    "--",
+    "--nocapture"
+  ],
+  "started_utc": "2026-10-30T02:20:10.168630+00:00",
+  "finished_utc": "2026-10-30T02:20:11.001203+00:00",
+  "exit_code": 101,
+  "stdout_sha256": "ab7499be0a75d0b23595b7d271d397fa1c960d928f178fd181bb6bfba48b6832",
+  "stderr_sha256": "bd2cefd9daa8339cabeb9cc54e293ecf1477466e3fabf2a63799bffec4f186cd",
+  "sources_sha256": {
+    "crates/mdd-sql/src/bridge.rs": "be14b73b0589e95494c5a964475cb4e75aabe780d82591264d3340abdd8fa645",
+    "crates/mdd-sql/src/dialects/functions.rs": "e65ec53115f30ba0a3a8e7e45d0209708347859232e5ec01eb61497c6b5e0ed8",
+    "crates/mdd-sql/src/runtime_tests.rs": "f3af7501b1372fe888a3b16772a2b7252b477782df30ca27f3d37a65484f1a7d"
+  },
+  "scope": "existing test expectation conflicts with fixed old engine samples"
+}

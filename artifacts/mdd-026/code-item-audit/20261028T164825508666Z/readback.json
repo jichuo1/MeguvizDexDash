@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "result_sha256": "5feb920ddedfcfc6910dd23abd8a928c44bf4af7cc383455eef38496f00647bd",
+  "readback_source_sha256": "7cdc56421bdf5289f7aea4dfe39e18cf4f8c49b639bd78247177b9427aa9b973",
+  "cases": 3,
+  "source_files_checked": 52,
+  "task_complete_proven": false,
+  "scope": "small synthetic fixtures; non-null try/handler item has no method owner"
+}

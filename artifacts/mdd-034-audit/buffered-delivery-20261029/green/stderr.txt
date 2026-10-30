@@ -1,0 +1,4 @@
+    Blocking waiting for file lock on build directory
+   Compiling mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.09s
+     Running unittests src\lib.rs (target\debug\deps\mdd_session-34588e5d55bf44f1.exe)

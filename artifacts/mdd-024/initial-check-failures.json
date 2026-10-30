@@ -1,0 +1,13 @@
+{
+  "schema_version":"mdd.reference-check-history.v1",
+  "records":[
+    {
+      "command":"cargo test --locked --offline -p mdd-facts references::",
+      "outcome":"6 tests passed; full-fixture comparison failed while reading the Python oracle JSON, before native fact comparison",
+      "diagnostic":"serde_json unexpected end of hex escape at the isolated-surrogate literal",
+      "root_cause":"Python json.dumps can emit a lone surrogate escape, but project machine JSON must contain scalar Unicode. The valid DEX literal was incorrectly used as an ordinary JSON string in an independent oracle artifact.",
+      "fix":"Encode the oracle/layout non-scalar value as tagged UTF16 units plus raw MUTF8 where available. Keep original DEX bytes unchanged. Native facts retain UTF16 and plain UTF8 projection remains explicit UnsupportedQuery rather than replacement.",
+      "scope":"Artifact encoding correction only; no parser, fixture bytes or semantic expectation was relaxed."
+    }
+  ]
+}

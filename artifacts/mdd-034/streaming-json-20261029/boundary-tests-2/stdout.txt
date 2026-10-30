@@ -1,0 +1,7 @@
+
+running 2 tests
+test executor::runtime_tests::json_count_cancel_preserves_terminal_and_no_output_charge ... ok
+test executor::runtime_tests::low_output_fails_on_observed_prefix_and_exact_limit_delivers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 50 filtered out; finished in 0.01s
+

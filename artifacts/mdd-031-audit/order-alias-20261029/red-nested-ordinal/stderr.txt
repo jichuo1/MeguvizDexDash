@@ -1,0 +1,10 @@
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.51s
+     Running unittests src\lib.rs (target\debug\deps\mdd_sql-46977fcd4387e316.exe)
+
+thread 'bridge::tests::order_by_projection_alias_beats_same_named_source_column' (44784) panicked at crates\mdd-sql\src\bridge.rs:830:13:
+assertion `left == right` failed: SELECT 4-id AS id FROM facts ORDER BY (1)
+  left: [[Some(3)], [Some(2)], [Some(1)]]
+ right: [[Some(1)], [Some(2)], [Some(3)]]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-sql --lib`

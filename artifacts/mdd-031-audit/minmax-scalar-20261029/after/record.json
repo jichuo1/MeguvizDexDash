@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "target/debug/examples/sql_bridge_probe.exe",
+    "query",
+    "native",
+    "SELECT min(1,2) AS lo,max(1,2) AS hi"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:58:48.547276+00:00",
+  "finished_utc": "2026-10-29T01:58:50.183994+00:00",
+  "elapsed_seconds": 1.639999999999418,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 669,
+    "sha256": "62ddf95a2bfa814973e256516373025f9d82f54d11de2d4ef198663df574a470"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

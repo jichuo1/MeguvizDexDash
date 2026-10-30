@@ -1,0 +1,11 @@
+
+running 1 test
+test runtime_tests::concat_preserves_null_non_scalar_nul_and_bytes ... FAILED
+
+failures:
+
+failures:
+    runtime_tests::concat_preserves_null_non_scalar_nul_and_bytes
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 78 filtered out; finished in 0.00s
+

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\native_probe.exe",
+    "tests/fixtures/annotations/generated/annotations-038.dex"
+  ],
+  "started_utc": "2026-10-28T13:06:25.573449+00:00",
+  "finished_utc": "2026-10-28T13:06:25.651196+00:00",
+  "elapsed_seconds": 0.07800000000133878,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "eddc53281721a0d99ab7b969ae837380a583a39b56859836c417c51ea8115724",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

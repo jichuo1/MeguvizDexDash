@@ -1,0 +1,27 @@
+    Checking mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+error[E0063]: missing field `prefix_provenance` in initializer of `manifest::ManifestAttribute`
+   --> crates\mdd-input\src\manifest\axml.rs:445:41
+    |
+445 |                         attributes.push(ManifestAttribute {
+    |                                         ^^^^^^^^^^^^^^^^^ missing `prefix_provenance`
+
+error[E0063]: missing field `prefix_provenance` in initializer of `manifest::ManifestNode`
+   --> crates\mdd-input\src\manifest\axml.rs:461:32
+    |
+461 |                     let node = ManifestNode {
+    |                                ^^^^^^^^^^^^ missing `prefix_provenance`
+
+error[E0063]: missing field `prefix_provenance` in initializer of `manifest::ManifestAttribute`
+   --> crates\mdd-input\src\manifest\text.rs:219:37
+    |
+219 |                     attributes.push(ManifestAttribute {
+    |                                     ^^^^^^^^^^^^^^^^^ missing `prefix_provenance`
+
+error[E0063]: missing field `prefix_provenance` in initializer of `manifest::ManifestNode`
+   --> crates\mdd-input\src\manifest\text.rs:234:28
+    |
+234 |                 let node = ManifestNode {
+    |                            ^^^^^^^^^^^^ missing `prefix_provenance`
+
+For more information about this error, try `rustc --explain E0063`.
+error: could not compile `mdd-input` (lib) due to 4 previous errors

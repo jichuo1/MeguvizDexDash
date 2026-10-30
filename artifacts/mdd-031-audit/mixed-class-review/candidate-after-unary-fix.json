@@ -1,0 +1,1229 @@
+{
+  "binary_sha256": "181e66a39985e9646bb678eddeaed6acecb6aa7bd289b4289813c75d23c14b03",
+  "driver_sha256": "c5f1d00c3eed78bbf6fe172ee56432a133cfbad0439deb6dcd0149b504237a90",
+  "sqlite_version": "3.53.1",
+  "reference_sha256": {
+    "A0": "f219643485e5887bc9242fab98d2c962e0927fcc29c60d887678dfdd0259b503",
+    "A1": "cf1e454c92e31ef81be66899b6b17833bfb0986e976b15bd9f9a4470d187a275"
+  },
+  "cases": [
+    {
+      "engine": "A0",
+      "case": "number_text_eq",
+      "sql": "SELECT 1='1' AS v",
+      "candidate_sql": "SELECT 1='1' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-fdf4ba1ce1b3780a3751150a82a6aae0f867821f092990d198add2c2f7383cfa",
+            "snapshot_id": "snapshot-2db23975a9a9d46c0ae1081d7e9ff500c8c7a45eca53df53979ed3d1475baca5"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "0"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "number_text_lt",
+      "sql": "SELECT 1<'a' AS v",
+      "candidate_sql": "SELECT 1<'a' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-1636e915e4fff96217cd5be085efe453b72399f91513f75a70dc21db131abea2",
+            "snapshot_id": "snapshot-2567eaaaaa26ca57d94b305b920436a5b1326e03665577d3e24e2f99f51877fa"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "text_blob_lt",
+      "sql": "SELECT 'a'<X'00' AS v",
+      "candidate_sql": "SELECT 'a'<X'00' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-ec9f4225a047ad43efa4f134945a3ee6346b831e09bb6f2ebf1bbe22ea956e08",
+            "snapshot_id": "snapshot-603cd2851314f28a499af08bfe76f4f2d3dc0f501ac04a08ac2ceab7b42602fc"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "blob_number_gt",
+      "sql": "SELECT X'31'>1 AS v",
+      "candidate_sql": "SELECT X'31'>1 AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-9f013ee9f4dd3a6b9c9592779f403346e96dad75db0afb8217b8f6c849b3e80d",
+            "snapshot_id": "snapshot-4f8f8bd39ec6de2c20aaccb27a8052201c9292255a88ea0c18c8e83c38e2a7ee"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "equal_numeric",
+      "sql": "SELECT 1=1.0 AS v",
+      "candidate_sql": "SELECT 1=1.0 AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-d185d0a14efacf927bef06b93d2ff6f159bd807038533edb0ba0a7a8677ab06e",
+            "snapshot_id": "snapshot-1425fc8fb977a8b3bf37e1339ec0893063b420b6b1fa0a3978c58ff757718836"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "null_equal",
+      "sql": "SELECT NULL=1 AS v",
+      "candidate_sql": "SELECT NULL=1 AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-4bc08db8a23f6e7b56de7fb5bc503fe5dafef8f85790d6fc1209d614938380ce",
+            "snapshot_id": "snapshot-7ed66301b9b7122d7935529b918e91c1dd317c1becafc2e460d249d5fecd0200"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "null_less",
+      "sql": "SELECT NULL<'a' AS v",
+      "candidate_sql": "SELECT NULL<'a' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-9fd5e696c5dc4b4242f61b43bd31fce2afa6698d38808266708a51dfbd5c0d66",
+            "snapshot_id": "snapshot-e5165b861bf00ba6688bacd41758a555461e8427915efa1ee82453ce337bc7c5"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "null_not_equal",
+      "sql": "SELECT NULL<>NULL AS v",
+      "candidate_sql": "SELECT NULL<>NULL AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-6545e0384990adb931ebbdaf128ede99aff90b70b04ecbad3bd77c919bdd5d31",
+            "snapshot_id": "snapshot-087b9308bab3b0be7ae72526a1faf917aba6d43ec5289c96e61e7729f5f8f1c5"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "nested",
+      "sql": "SELECT ((1))=(('1')) AS v",
+      "candidate_sql": "SELECT ((1))=(('1')) AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 9,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-6105670d704f3918ad033ffb11af23d5cca6dc173c33580c16f66cc51c83e9f1",
+            "snapshot_id": "snapshot-87aabfaec5cd1009937cadc3da4ecb46f8a6f1a378569e3b09538f6ef167b54b"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "0"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "negative",
+      "sql": "SELECT -1<'1' AS v",
+      "candidate_sql": "SELECT -1<'1' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 6,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-c2da3f3dde33cad35ccfe5eb47473a20a4cc8155746f71eef9c7e6b3d55f5a74",
+            "snapshot_id": "snapshot-ef1236f6cad141b94d34d60333f7ae836fed8261985a931f8684f462e1510791"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "cast_text_numeric",
+      "sql": "SELECT CAST('1' AS TEXT)=1 AS v",
+      "candidate_sql": "SELECT CAST('1' AS TEXT)=1 AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {},
+          "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+          "retryable": false,
+          "stage": "sql.affinity"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "cast_numeric_text",
+      "sql": "SELECT CAST(1 AS TEXT)=1 AS v",
+      "candidate_sql": "SELECT CAST(1 AS TEXT)=1 AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {},
+          "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+          "retryable": false,
+          "stage": "sql.affinity"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "invalid_arithmetic",
+      "sql": "SELECT 1+'a' AS v",
+      "candidate_sql": "SELECT 1+'a' AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {},
+          "message": "LEGACY_TEXT_NUMERIC_COERCION_NOT_IMPLEMENTED",
+          "retryable": false,
+          "stage": "sql.numeric"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A0",
+      "case": "unknown_column",
+      "sql": "SELECT absent=1 AS v FROM strings",
+      "candidate_sql": "SELECT absent=1 AS v FROM native_strings",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "details": {},
+          "message": "no such column: absent in SELECT mdd_eq(absent, ?1) AS v FROM native_strings at offset 14",
+          "retryable": false,
+          "stage": "sql.sqlite"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "error",
+        "exception": "OperationalError",
+        "message": "no such column: absent"
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "number_text_eq",
+      "sql": "SELECT 1='1' AS v",
+      "candidate_sql": "SELECT 1='1' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-943602a4262ae6975327057e66b85759c437c2cf1cf3cb31740b2584681ee008",
+            "snapshot_id": "snapshot-1ec9d93be1dc35e45610fa2ae43e83729571606c331dceaa2cb3033fc6317e95"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "0"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "number_text_lt",
+      "sql": "SELECT 1<'a' AS v",
+      "candidate_sql": "SELECT 1<'a' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-6c6a7220d447c331b799d144fb0bcca766dbeca4a714b4295351dce8757be09f",
+            "snapshot_id": "snapshot-001b0feeb46bc482268bed670c608223068683785a84026b20b65a6097ace08f"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "text_blob_lt",
+      "sql": "SELECT 'a'<X'00' AS v",
+      "candidate_sql": "SELECT 'a'<X'00' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-90e25c82b19e48e711249fe7388ae6c41c12e304c748f1b603163f6411977312",
+            "snapshot_id": "snapshot-999c521d579af66f78cf5400cfe7b3f9f1b4c8a37e0a85cdcc70897095cb6d51"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "blob_number_gt",
+      "sql": "SELECT X'31'>1 AS v",
+      "candidate_sql": "SELECT X'31'>1 AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-b02db1ffcfe93679d5599c68795b6debee8e45abf637b1088db92cf43904841d",
+            "snapshot_id": "snapshot-be46c6a2f8b601dbbe7599a4d875066b88317005c505f9abd087809a39c775a7"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "equal_numeric",
+      "sql": "SELECT 1=1.0 AS v",
+      "candidate_sql": "SELECT 1=1.0 AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-ef6f114490da3f57e2554dee75e740b8ce5c03ebce8975d6ea0cb257594ebe33",
+            "snapshot_id": "snapshot-58b1839806de210199db7ebe725966d20743f0eb59551bbcd39d15f894ed9e5c"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "null_equal",
+      "sql": "SELECT NULL=1 AS v",
+      "candidate_sql": "SELECT NULL=1 AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-139afd36d2e57d6393a6867ad4af67466e6d3657eafdb6ca4ca1799daa172d83",
+            "snapshot_id": "snapshot-74b99a736b6a138dd68e62339adaef96225b5fe056bc0838d04b348cbabfc1e3"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "null_less",
+      "sql": "SELECT NULL<'a' AS v",
+      "candidate_sql": "SELECT NULL<'a' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-230e93fa41dff0b31c0523a67f44a406f684f03fee4dda8f895e836e329a9ba8",
+            "snapshot_id": "snapshot-f30d3fedb190803bf1ccc7e0a3d46409420a2c2596d34948ed97c5f8f28ae1a3"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "null_not_equal",
+      "sql": "SELECT NULL<>NULL AS v",
+      "candidate_sql": "SELECT NULL<>NULL AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 5,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-3db22ba5e6d60f753bc4bb60170d6545792b07a8cf5ec5997e3f28ed74f9856e",
+            "snapshot_id": "snapshot-fe2192145fe6d45283cc0aef304cc19aa0c1888cf8973689a6327ddef44a8ff1"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "nested",
+      "sql": "SELECT ((1))=(('1')) AS v",
+      "candidate_sql": "SELECT ((1))=(('1')) AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 9,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-fea9b6d2442622226d1e10b1d4dd04d1cff05822774bec6c682b2e55b8c0dbba",
+            "snapshot_id": "snapshot-6d77606f90861bb41a5446ce15ce1b4ce9486c6f66f5383854188a9bcdc68b3d"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "0"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "negative",
+      "sql": "SELECT -1<'1' AS v",
+      "candidate_sql": "SELECT -1<'1' AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 6,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-c303f8b841cfa82f787411940878576f52dc1792a4e9e370c640a443ebf70110",
+            "snapshot_id": "snapshot-d49231163f7d56e39c8c8f8face71d8ba9c0ef5a469d0c76382572b77d25328f"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "cast_text_numeric",
+      "sql": "SELECT CAST('1' AS TEXT)=1 AS v",
+      "candidate_sql": "SELECT CAST('1' AS TEXT)=1 AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {},
+          "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+          "retryable": false,
+          "stage": "sql.affinity"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "cast_numeric_text",
+      "sql": "SELECT CAST(1 AS TEXT)=1 AS v",
+      "candidate_sql": "SELECT CAST(1 AS TEXT)=1 AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {},
+          "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+          "retryable": false,
+          "stage": "sql.affinity"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "invalid_arithmetic",
+      "sql": "SELECT 1+'a' AS v",
+      "candidate_sql": "SELECT 1+'a' AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {},
+          "message": "LEGACY_TEXT_NUMERIC_COERCION_NOT_IMPLEMENTED",
+          "retryable": false,
+          "stage": "sql.numeric"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "A1",
+      "case": "unknown_column",
+      "sql": "SELECT absent=1 AS v FROM strings",
+      "candidate_sql": "SELECT absent=1 AS v FROM native_strings",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "details": {},
+          "message": "no such column: absent in SELECT mdd_eq(absent, ?1) AS v FROM native_strings at offset 14",
+          "retryable": false,
+          "stage": "sql.sqlite"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "error",
+        "exception": "OperationalError",
+        "message": "no such column: absent"
+      }
+    }
+  ],
+  "profiles_admitted": false,
+  "scope": "literal and CAST sample; not full dialect/profile"
+}

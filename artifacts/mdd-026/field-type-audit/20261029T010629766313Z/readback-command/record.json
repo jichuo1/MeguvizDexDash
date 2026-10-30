@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/field_type_boundary/readback.py",
+    "artifacts/mdd-026/field-type-audit/20261029T010629766313Z"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:07:00.945013+00:00",
+  "finished_utc": "2026-10-29T01:07:01.089686+00:00",
+  "elapsed_seconds": 0.1570000000001528,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 498,
+    "sha256": "35d1e17aaedc85e0ab08d90f6c9d78a5371a10ace5d506269949dd8e6f4f0d23"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

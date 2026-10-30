@@ -1,0 +1,64 @@
+   Compiling typenum v1.20.1
+   Compiling cfg-if v1.0.5
+   Compiling const-oid v0.10.2
+   Compiling cpufeatures v0.3.1
+   Compiling memchr v2.8.3
+   Compiling serde_core v1.0.229
+   Compiling hybrid-array v0.4.15
+   Compiling block-buffer v0.12.1
+   Compiling crypto-common v0.2.2
+   Compiling digest v0.11.3
+   Compiling sha2 v0.11.0
+   Compiling zmij v1.0.23
+   Compiling libc v0.2.189
+   Compiling itoa v1.0.18
+   Compiling serde_json v1.0.151
+   Compiling getrandom v0.4.3
+   Compiling serde v1.0.229
+   Compiling hashbrown v0.17.1
+   Compiling mdd-types v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-types)
+   Compiling equivalent v1.0.2
+   Compiling zlib-rs v0.6.8
+   Compiling indexmap v2.14.2
+   Compiling crc32fast v1.5.2
+   Compiling typed-path v0.12.3
+   Compiling quick-xml v0.42.0
+   Compiling sha1 v0.11.0
+   Compiling mdd-dex v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-dex)
+   Compiling flate2 v1.1.10
+   Compiling zip v8.6.0
+   Compiling mdd-input v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-input)
+   Compiling libsqlite3-sys v0.38.2
+   Compiling fallible-streaming-iterator v0.1.9
+   Compiling fallible-iterator v0.3.0
+   Compiling bitflags v2.13.2
+   Compiling mdd-facts v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-facts)
+   Compiling mdd-session v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-session)
+   Compiling smallvec v1.16.2
+   Compiling rusqlite v0.40.2
+   Compiling mdd-query v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-query)
+   Compiling log v0.4.34
+   Compiling sqlparser v0.63.0
+   Compiling mdd-cli v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-cli)
+   Compiling mdd-worker v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-worker)
+   Compiling mdd-sql v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-sql)
+   Compiling mdd-build-probe v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/tools/build-probe)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 49.58s
+     Running unittests src/main.rs (target/debug/deps/mdd_build_probe-efb4691501925b23)
+     Running unittests src/main.rs (target/debug/deps/meguvizdexdash-1f1600199e267e34)
+     Running unittests src/lib.rs (target/debug/deps/mdd_dex-7db776d3d5b391a3)
+     Running unittests src/lib.rs (target/debug/deps/mdd_facts-45728b0bea469a61)
+     Running unittests src/lib.rs (target/debug/deps/mdd_input-ae2cf7cddac001a5)
+     Running unittests src/lib.rs (target/debug/deps/mdd_query-e0be36e6105ac101)
+     Running unittests src/lib.rs (target/debug/deps/mdd_session-f5e33d440100d4ea)
+     Running unittests src/lib.rs (target/debug/deps/mdd_sql-cefb9e974a37760f)
+     Running unittests src/lib.rs (target/debug/deps/mdd_types-1598e8f2a310ab9b)
+     Running unittests src/lib.rs (target/debug/deps/mdd_worker-acf3918f99418b81)
+   Doc-tests mdd_dex
+   Doc-tests mdd_facts
+   Doc-tests mdd_input
+   Doc-tests mdd_query
+   Doc-tests mdd_session
+   Doc-tests mdd_sql
+   Doc-tests mdd_types
+   Doc-tests mdd_worker

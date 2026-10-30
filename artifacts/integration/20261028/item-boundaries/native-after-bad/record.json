@@ -1,0 +1,29 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "cargo",
+    "run",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-facts",
+    "--example",
+    "metadata_summary",
+    "--",
+    "artifacts/integration/20261028/item-boundaries/bad-interior-string.dex"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T08:56:34.265360+00:00",
+  "finished_utc": "2026-10-28T08:56:37.876171+00:00",
+  "elapsed_seconds": 3.610000000000582,
+  "exit_code": 1,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 759,
+    "sha256": "2dd91438e702c98eb3d541adc88b0de8d629c3181a9b444d6f94f40edcacbe1e"
+  },
+  "stderr": {
+    "bytes": 511,
+    "sha256": "08bffe0b827e823cb00997ce0ce14c4e0279985d52d6df30c481c1f03dc4599d"
+  }
+}

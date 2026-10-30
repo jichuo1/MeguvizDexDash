@@ -1,0 +1,55 @@
+   Compiling typenum v1.20.1
+   Compiling cfg-if v1.0.5
+   Compiling const-oid v0.10.2
+   Compiling cpufeatures v0.3.1
+   Compiling memchr v2.8.3
+   Compiling hybrid-array v0.4.15
+   Compiling serde_core v1.0.229
+   Compiling block-buffer v0.12.1
+   Compiling crypto-common v0.2.2
+   Compiling digest v0.11.3
+   Compiling sha2 v0.11.0
+   Compiling zmij v1.0.23
+   Compiling itoa v1.0.18
+   Compiling serde_json v1.0.151
+   Compiling serde v1.0.229
+   Compiling getrandom v0.4.3
+   Compiling mdd-types v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-types)
+   Compiling hashbrown v0.17.1
+   Compiling zlib-rs v0.6.8
+   Compiling equivalent v1.0.2
+   Compiling indexmap v2.14.2
+   Compiling crc32fast v1.5.2
+   Compiling typed-path v0.12.3
+   Compiling quick-xml v0.42.0
+   Compiling flate2 v1.1.10
+   Compiling zip v8.6.0
+   Compiling sha1 v0.11.0
+   Compiling mdd-dex v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-dex)
+   Compiling mdd-input v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-input)
+   Compiling mdd-facts v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-facts)
+   Compiling mdd-session v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-session)
+   Compiling libsqlite3-sys v0.38.2
+   Compiling mdd-cli v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-cli)
+   Compiling fallible-streaming-iterator v0.1.9
+   Compiling fallible-iterator v0.3.0
+   Compiling bitflags v2.13.2
+   Compiling smallvec v1.16.2
+   Compiling rusqlite v0.40.2
+   Compiling mdd-worker v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\crates\mdd-worker)
+   Compiling mdd-build-probe v0.1.0-dev (D:\a\MeguvizDexDash\MeguvizDexDash\tools\build-probe)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 56.50s
+     Running unittests src\main.rs (target\debug\deps\mdd_build_probe-c42e9a94c2cc3ccf.exe)
+     Running unittests src\main.rs (target\debug\deps\meguvizdexdash-20f1984cacb176f8.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_dex-e3d71ee845c65e6d.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_facts-53e4c3eb8863deb6.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_input-e6e88835443ed4a2.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_session-59634de5c3405732.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_types-2fe49b08e1ac4144.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_worker-f36f3739807ad317.exe)
+   Doc-tests mdd_dex
+   Doc-tests mdd_facts
+   Doc-tests mdd_input
+   Doc-tests mdd_session
+   Doc-tests mdd_types
+   Doc-tests mdd_worker

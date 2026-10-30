@@ -1,0 +1,10 @@
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.19s
+     Running unittests src\lib.rs (target\debug\deps\mdd_dex-53da92c92ae5d2fd.exe)
+
+thread 'definitions::tests::physical_orphan_probe_reports_real_acceptance' (32132) panicked at crates\mdd-dex\src\definitions.rs:354:9:
+assertion `left == right` failed
+  left: Bool(true)
+ right: false
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-dex --lib`

@@ -1,0 +1,19 @@
+error[E0432]: unresolved import `mdd_query::executor::execute_trusted_into`
+    --> artifacts/mdd-034/delivery-confirmation-20261029/external-old-entry.rs:1:5
+     |
+   1 | use mdd_query::executor::execute_trusted_into;
+     |     ^^^^^^^^^^^^^^^^^^^^^--------------------
+     |                          |
+     |                          no `execute_trusted_into` in `executor`
+     |
+note: found an item that was configured out
+    --> crates\mdd-query\src\executor.rs:1210:4
+     |
+1209 | #[cfg(test)]
+     |       ---- the item is gated here
+1210 | fn execute_trusted_into(
+     |    ^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0432`.

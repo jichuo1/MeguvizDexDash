@@ -1,0 +1,23 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "mdd-sql",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "legacy_concat_matches_fixed_engine_observations",
+    "--",
+    "--nocapture"
+  ],
+  "started_utc": "2026-10-30T02:16:48.765264+00:00",
+  "finished_utc": "2026-10-30T02:16:54.739722+00:00",
+  "exit_code": 101,
+  "stdout_sha256": "666829b4890ddf1c3abede00b9d321d9f721c5b6406723f1b7d5b34dd9db4bd3",
+  "stderr_sha256": "9f5e5a46de677aac0b7718fd530e787e5ad2cdbb1130081582ff3983f723147f",
+  "bridge_sha256": "e913f6c2ecf543c2a28bbc3c3b01a2a41fc72695c8284f36efd391abacf9300d",
+  "functions_sha256": "1c8918be5bcde6f2ac1f2178c3d73dc5f05362c60515ba3df0e266fe0bd0e257",
+  "scope": "targeted red test on fixed-engine examples"
+}

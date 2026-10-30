@@ -1,0 +1,49 @@
+{
+  "schema_version": "mdd.parser-test-toolchain.v1",
+  "test_only": true,
+  "release_toolchain": "1.99.0",
+  "nightly": "nightly-2026-10-28",
+  "target": "x86_64-unknown-linux-gnu",
+  "official_manifest_url": "https://static.rust-lang.org/dist/2026-10-28/channel-rust-nightly.toml",
+  "manifest_sha256": "1967311fbc5935e67f5804023f029f70c48377d78d586ac61e9375960d52eeb3",
+  "packages": {
+    "rustc": {
+      "version": "1.101.0-nightly (41089d07a 2026-10-27)",
+      "url": "https://static.rust-lang.org/dist/2026-10-28/rustc-nightly-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "3e933d06e5a409b882d8e26117ab7b48ce227b50bfc76cc4396b9ab116b5e05c",
+      "available": true
+    },
+    "cargo": {
+      "version": "0.102.0-nightly (cad07cf8e 2026-10-23)",
+      "url": "https://static.rust-lang.org/dist/2026-10-28/cargo-nightly-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "e9b45286785d3a35ddccb5d441b29e3d3a66043d467dfbb4c4d9ed1fd1f9851b",
+      "available": true
+    },
+    "rust-std": {
+      "version": "1.101.0-nightly (41089d07a 2026-10-27)",
+      "url": "https://static.rust-lang.org/dist/2026-10-28/rust-std-nightly-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "a3d6fbb9c400cf7ba5456e1700036fb303676d6cb4dd7e0cb31eb3ea74c3ece7",
+      "available": true
+    },
+    "rust-src": {
+      "version": "1.101.0-nightly (41089d07a 2026-10-27)",
+      "url": "https://static.rust-lang.org/dist/2026-10-28/rust-src-nightly.tar.xz",
+      "sha256": "beb9e507844b0fb33e6de8509cc7a6a902af9e4f4fb0da783ad3aa9120aa7c43",
+      "available": true
+    }
+  },
+  "crates": {
+    "libfuzzer-sys": {
+      "version": "0.4.13",
+      "checksum": "a9fd2f41a1cba099f79a0b6b6c35656cf7c03351a7bae8ff0f28f25270f929d2",
+      "repository": "https://github.com/rust-fuzz/libfuzzer",
+      "download_url": "https://crates.io/api/v1/crates/libfuzzer-sys/0.4.13/download"
+    },
+    "cargo-fuzz": {
+      "version": "0.13.2",
+      "checksum": "5acfd01930e49823e58c30dd8012d3338a620377d7c7d4cc140ca4b2169400e2",
+      "repository": "https://github.com/rust-fuzz/cargo-fuzz/",
+      "download_url": "https://crates.io/api/v1/crates/cargo-fuzz/0.13.2/download"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "mdd.sql.signed-comparison-readback.v1",
+  "status": "passed-scoped",
+  "pre_fix_observation": "artifacts\\mdd-031\\mixed-comparisons-20261029\\runs\\20261028T171200202170Z",
+  "post_fix_observation": "artifacts\\mdd-031\\mixed-comparisons-20261029\\runs\\20261028T171954497119Z",
+  "source_sha256": {
+    "crates/mdd-sql/examples/sql_bridge_probe.rs": "2584d27c0c13b1dcba7a00a3c0e22d34b8489b892acb808e5e0bfe7d10cda2f4",
+    "crates/mdd-sql/src/bridge.rs": "a6793b4d9acb93600f07beb08e23454b906759fac59b944536ef60f61795e298",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/dialects/ast.rs": "83c6e985aa58670b1ab54cf1106dd66e25f0fab295278991cace6f52b6477d2a",
+    "crates/mdd-sql/src/dialects/functions.rs": "9183346cbdc7c799c71b3e2a6f53fb0f99631fcccadd22411d653ff6142dd6e6",
+    "crates/mdd-sql/src/dialects/mod.rs": "b86349330e76a79a7049897ca50eddb5f3bed16cf8a6bde17ff1c471e98d57f4",
+    "crates/mdd-sql/src/lib.rs": "8f6fba6ae5691adf53df693815c6964e53728e22021f8cd97d8f526a35749973",
+    "crates/mdd-sql/src/provider/metadata.rs": "197c6e25a1d6f1ed249e0102c1c0f90f0bb65c8371d8a30be07f544fe1688fbe",
+    "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+    "crates/mdd-sql/src/runtime.rs": "b842c26d3a534e948970f0181e46c2089cdadfbc345f803a0c0f01313f9b814b",
+    "crates/mdd-sql/src/runtime_tests.rs": "1c2163b7c97365da28853a08152e727857139650fd39ec74d163d4f1841ad03d",
+    "crates/mdd-sql/src/values.rs": "4ae2d0398b29c5f4f6a693eee5ffa37fe9a764e3013ccf42d9b417940b011b32",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "Cargo.toml": "02880b4608d3dd392f2ef67d7bbb165c0f1ffa715409902c8d127e698472354a"
+  },
+  "readback_sha256": "d594c30cbb8e6d491c30767b86206e0dde5643cbcb265914c78533b91ea0583d",
+  "base_readback_sha256": "82a3a25cbc7a3c44589b9675a17fea4f98e688e4d7a013a07337385d1b6f1030",
+  "raw_command_hashes_verified": true,
+  "fixed_legacy_engines": [
+    "A0",
+    "A1"
+  ],
+  "literal_comparisons_with_null": 7,
+  "affinity_cases_explicitly_unsupported": 2,
+  "legacy_text_arithmetic": "A0/A1 return 1; candidate reports unsupported, not equivalent",
+  "negative_controls_rejected": [
+    "signed_wrong",
+    "legacy_false_success"
+  ],
+  "profile_admitted": false,
+  "limits": [
+    "No CAST, CTE or column affinity qualification, including same-storage-class cases.",
+    "No HostLab full corpus or performance qualification."
+  ]
+}

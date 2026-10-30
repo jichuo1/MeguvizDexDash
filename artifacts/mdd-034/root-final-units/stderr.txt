@@ -1,0 +1,9 @@
+   Compiling mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+   Compiling mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.03s
+     Running unittests src\lib.rs (target\debug\deps\mdd_query-82579f4092cfd058.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_session-34588e5d55bf44f1.exe)
+     Running unittests src\lib.rs (target\debug\deps\mdd_types-22644c537d602cc8.exe)
+   Doc-tests mdd_query
+   Doc-tests mdd_session
+   Doc-tests mdd_types

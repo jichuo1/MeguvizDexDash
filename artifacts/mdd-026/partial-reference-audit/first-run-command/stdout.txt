@@ -1,0 +1,1 @@
+{"path": "artifacts/mdd-026/partial-reference-audit/20261029T021708996807Z", "cases": 2, "partial_sites_each": 10, "a0_full_rows": 8, "task_complete_proven": false}

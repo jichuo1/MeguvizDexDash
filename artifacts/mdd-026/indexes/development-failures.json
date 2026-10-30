@@ -1,0 +1,29 @@
+{
+  "schema_version": "mdd.development-failures.v1",
+  "task": "MDD-026",
+  "events": [
+    {
+      "phase": "test first compile",
+      "observed": "E0432 wrong test imports mdd_dex::code and root InputKind/InputSpec; E0624/E0061 calling private CodeFacts::build instead of public build_all_code_items",
+      "raw_evidence": "live tool receipt; this initial command did not tee a filesystem log",
+      "root_cause": "test setup used unverified export spellings",
+      "fix": "read existing ReferenceFacts test setup, use instructions::CodeLimits and snapshot::{InputKind,InputSpec} plus public build_all_code_items",
+      "production_behavior_changed": false
+    },
+    {
+      "phase": "first runnable tests",
+      "observed": "5 passed, 1 failed: test asserted target sites >=4 for two occurrences",
+      "raw_evidence": "artifacts/mdd-026/indexes/runs/first-runnable.txt",
+      "root_cause": "test confused the defined target (one call per occurrence) with external target (three calls per occurrence); original hand oracle states both counts",
+      "fix": "assert exact target=2 and external=6, retain scalar equality; existing tests/fixtures/references/expected.json unchanged",
+      "production_behavior_changed": false
+    },
+    {
+      "phase": "first strict Clippy",
+      "observed": "collapsible_if at coverage.rs method_strings scalar projection gate",
+      "raw_evidence": "artifacts/mdd-026/indexes/runs/first-clippy.txt",
+      "fix": "combine nested conditions into the existing edition-2024 let chain",
+      "production_behavior_changed": false
+    }
+  ]
+}

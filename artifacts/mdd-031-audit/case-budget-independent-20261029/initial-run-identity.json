@@ -1,0 +1,7 @@
+{
+  "source_sha256": "8495e747087bf243a1e80f4a76a41a087b6520e6ed0f8122676652fe635d6fa2",
+  "binary_sha256": "b22aff8d0fa50ddad0350f36b2a0f011d681bb1e603e1072f19f0c0e4440e9bd",
+  "stdout_sha256": "6ae7b5b1a74cd004b4edd4080f958498e94104415e9a9fb21617996287a7e540",
+  "records": 60,
+  "scope": "initial session probe with long-result summary"
+}

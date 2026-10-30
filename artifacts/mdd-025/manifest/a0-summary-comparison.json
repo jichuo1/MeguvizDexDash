@@ -1,0 +1,24 @@
+{
+  "source": "NewPipe_v0.28.6.apk",
+  "all_required_summary_fields_equal": true,
+  "root_attributes": 8,
+  "application_attributes": 11,
+  "uses_sdk_attributes": 2,
+  "components": {
+    "activity": 12,
+    "receiver": 10,
+    "service": 12,
+    "provider": 3
+  },
+  "target_sdk": 35,
+  "permission_rows": 12,
+  "permission_pages": 6,
+  "all_pages_consumed": true,
+  "a0_dataset_closed": true,
+  "presentation_adapter": {
+    "installLocation:0": "auto",
+    "protectionLevel:2": "signature",
+    "references": "unresolved @8lowerhex"
+  },
+  "scope": "full A0 HostLab default get_manifest summary fields for this public input; typed rawbits and complete tree independently verified by manual vectors/AAPT2; no generic XML rendering/MCP equivalence qualification"
+}

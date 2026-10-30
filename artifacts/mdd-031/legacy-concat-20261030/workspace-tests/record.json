@@ -1,0 +1,29 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--workspace",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--",
+    "--test-threads",
+    "1"
+  ],
+  "started_utc": "2026-10-30T02:22:10.777591+00:00",
+  "finished_utc": "2026-10-30T02:22:25.973468+00:00",
+  "elapsed_seconds": 15.188000000000102,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_sha256": {
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "crates/mdd-sql/src/bridge.rs": "3e3f4c89dde0d91a9e58df90574f9a111c0679052852e87ee874cc6fd438bf3f",
+    "crates/mdd-sql/src/dialects/functions.rs": "66d7054befeaff97d4459e5d70e33f8bb0682d1fc30c75e1c3a5908aa4dea440",
+    "crates/mdd-sql/src/runtime_tests.rs": "4a0746f85b51803bb8d802528ee62f586571d3d6cfd97411839f9a224a3a497d"
+  },
+  "source_unchanged": true,
+  "stdout_sha256": "b6e11f92a2b45744637def567b010d0161968fa54642a8b1398b357e777ff9bd",
+  "stderr_sha256": "ec58c8bdc64df88814a40d053ee82d441ee09e22e05cb132b22ea12d913f3ba8",
+  "scope": "local Windows development check; no full dialect or performance qualification"
+}

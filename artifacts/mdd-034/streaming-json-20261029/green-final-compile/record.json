@@ -1,0 +1,42 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "rustc",
+    "--edition=2024",
+    "--crate-name",
+    "mdd_streaming_json_probe",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-034\\streaming-json-20261029\\probe.rs",
+    "-L",
+    "dependency=target/debug/deps",
+    "-o",
+    "D:\\MeguvisDexDash\\artifacts\\local\\streaming-json-20261029\\green-final-probe.exe",
+    "--extern",
+    "mdd_dex=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_dex-b7b2b3c56f072191.rlib",
+    "--extern",
+    "mdd_facts=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_facts-4d93156677fe9e1b.rlib",
+    "--extern",
+    "mdd_input=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_input-0f932aaa5b1b1947.rlib",
+    "--extern",
+    "mdd_query=D:\\MeguvisDexDash\\target\\debug\\libmdd_query.rlib",
+    "--extern",
+    "mdd_session=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_session-3704becbc733c5c9.rlib",
+    "--extern",
+    "mdd_types=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_types-fd5a2447fe224bff.rlib",
+    "--extern",
+    "serde_json=D:\\MeguvisDexDash\\target\\debug\\deps\\libserde_json-cd74aa69794f938b.rlib"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:45:15.763239+00:00",
+  "finished_utc": "2026-10-29T06:45:17.506790+00:00",
+  "elapsed_seconds": 1.735000000000582,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "stdout": "{\"status\": \"pass\", \"sqlite_version\": \"3.53.1\", \"dialects\": [\"010\", \"011\"], \"cases_per_dialect\": 11, \"q03_rows\": 3, \"q03_duplicate_rows\": 2, \"candidate_binary_sha256\": \"78993d06ace4323c643bed64f23ee2fb22f3f87f84c569f8b209b5e4d8716d49\", \"candidate_raw_sha256\": \"e6b869bd9b6fae27766d8b0c4506020fcbdb9be753baf7244604c27b6f059477\", \"fixture_sha256\": \"0935ead44d8f83e2b1b978c52c5bc1daad0338f05b48beea3984978d580fbc5f\", \"frozen_corpus_sha256\": \"e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4\", \"profiles_admitted\": false, \"scope\": \"frozen Q03 with synthetic partial schema plus explicit same-name test column; SQLite oracle, not actual HostLab facts\"}\n",
+  "stderr": "",
+  "binary_sha256": "78993d06ace4323c643bed64f23ee2fb22f3f87f84c569f8b209b5e4d8716d49",
+  "source_sha256": "39994d793060cddef95756988b6f042edd46bf39a0ca4eb78ec876b770ccbec7",
+  "fixture_sha256": "0935ead44d8f83e2b1b978c52c5bc1daad0338f05b48beea3984978d580fbc5f",
+  "verifier_sha256": "5687cf88a61d32cb23138cc4bf49c90b0439ad5fe5a759bdf360f010469ebe61",
+  "lock_sha256": "f7845e9a5309eaa2446cd3a3eebe14d0904aeb75356ddec207e1b114c3d3b946",
+  "root_lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "profiles_admitted": false
+}

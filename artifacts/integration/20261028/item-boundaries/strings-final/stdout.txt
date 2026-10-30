@@ -1,0 +1,8 @@
+
+running 3 tests
+test strings::tests::actual_pool_preserves_utf16_nul_and_surrogates ... ok
+test strings::tests::independent_component_vectors_match_without_lossy_substitution ... ok
+test strings::tests::all_512_independent_fifth_byte_oracle_cases_match ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 29 filtered out; finished in 0.01s
+

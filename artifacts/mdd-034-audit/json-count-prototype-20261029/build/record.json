@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-034-audit\\json-count-prototype-20261029\\Cargo.toml"
+  ],
+  "started_utc": "2026-10-29T06:28:50.500159+00:00",
+  "finished_utc": "2026-10-29T06:30:09.097353+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "3296c21d0ee12f39e1d3f673dbf21aee6ba4bb7a68b18f8e56e32c23001d3c37",
+  "supervisor_sha256": "0a73872f05891f86797d427535f139711590a0dde3fc455a35bc9075a2550f56",
+  "scope": "independent synthetic validation; not performance qualification"
+}

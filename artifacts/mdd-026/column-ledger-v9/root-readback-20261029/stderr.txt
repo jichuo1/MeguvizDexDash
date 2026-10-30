@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "D:\MeguvisDexDash\conformance\facts\readback_column_ledger_v9.py", line 61, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "D:\MeguvisDexDash\conformance\facts\readback_column_ledger_v9.py", line 44, in main
+    neg=run_recorded(out,'negative-controls',['conformance/facts/test_column_ledger_v9.py'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\MeguvisDexDash\conformance\facts\readback_column_ledger_v9.py", line 19, in run_recorded
+    audit.base.require(proc.returncode==0,label+' failed; output retained')
+  File "D:\MeguvisDexDash\conformance\facts\compile_column_ledger.py", line 24, in require
+    raise ValueError(message)
+ValueError: negative-controls failed; output retained

@@ -1,0 +1,1569 @@
+{
+  "scope": "observations only; legacy CLI display, Python SQLite and candidate bridge have distinct identities",
+  "profile_admitted": false,
+  "fixture_sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+  "probe_sha256": "104ca41ec2e33a14dcb180cd01788594509dcf6f24e0b3fb301ebae83ce6d18b",
+  "source_sha256": {
+    "crates/mdd-sql/examples/sql_bridge_probe.rs": "2584d27c0c13b1dcba7a00a3c0e22d34b8489b892acb808e5e0bfe7d10cda2f4",
+    "crates/mdd-sql/src/bridge.rs": "d62b53edfc6fecd04812c944ec88a4e1140218a333eace65a3e9678c6521ce15",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/dialects/ast.rs": "bda8e1fb735eae97324f8a945a9467db147ba0061e37ac87fc77eba2bc5f2292",
+    "crates/mdd-sql/src/dialects/functions.rs": "21fc122da3e0d004ecf137056fe1d9dd1ebf25f4b8179c1a3d4fe7fb10cb807a",
+    "crates/mdd-sql/src/dialects/mod.rs": "b86349330e76a79a7049897ca50eddb5f3bed16cf8a6bde17ff1c471e98d57f4",
+    "crates/mdd-sql/src/join_tests.rs": "2e06417c7300d2e48404a8e72c7879810151f4beb33846839db1bd772ed79cbf",
+    "crates/mdd-sql/src/lib.rs": "4045b5a1c1cbc2cae32b601bac11e9509365a42d3b6835bca6e0e0fb9ca9f15a",
+    "crates/mdd-sql/src/provider/metadata.rs": "197c6e25a1d6f1ed249e0102c1c0f90f0bb65c8371d8a30be07f544fe1688fbe",
+    "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+    "crates/mdd-sql/src/runtime.rs": "b842c26d3a534e948970f0181e46c2089cdadfbc345f803a0c0f01313f9b814b",
+    "crates/mdd-sql/src/runtime_tests.rs": "ed03279079eee70051383a3434cf42c1a389f6e6b7d55d267aec7b47d2ae2c21",
+    "crates/mdd-sql/src/values.rs": "4ae2d0398b29c5f4f6a693eee5ffa37fe9a764e3013ccf42d9b417940b011b32",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "Cargo.toml": "02880b4608d3dd392f2ef67d7bbb165c0f1ffa715409902c8d127e698472354a"
+  },
+  "cases": [
+    {
+      "id": "numeric_text_equal",
+      "sql": "SELECT 1='1' AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 0,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "bridge-native": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-40354d876cc2cb345a9c2f40ab2ac95579f864634f0cd140f1a4d63b66931aa4",
+                "snapshot_id": "snapshot-e1327233a0fd8c31fa2e811a16212aed09a024a5f6b829555d0d2b62afc4ea7a"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "native_v1",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-010": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-842c8f10ce71f7a8b069e51373494a687641ee7b8f6ff948b9923a187750bfa3",
+                "snapshot_id": "snapshot-6faca90b549c9661c3e28b581aba170a6a8ecf2001a5263cdc9edd738e357a7d"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql010",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-011": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-d4331b9a5b1b9f676c785605ab7eef4a150ef3c8f83d93712d02e78be1ce7a3a",
+                "snapshot_id": "snapshot-416ffd1a9687d5d816d2faab6cd696bf28785bd1f01796c9da99e583ee68eb1c"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql011",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "numeric_text_order",
+      "sql": "SELECT 1<'a' AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-67231db22de194d087ccde37ee202dff1aa4dc15229031c0346953705be6c126",
+                "snapshot_id": "snapshot-2eb440636d3c45a51d454bcf081304d47c7a881f8fe52be191e045e936a4a0d0"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "native_v1",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-010": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-0af98007e9005a7002789842311625d75839445380ca60e529fc5eccc706eb89",
+                "snapshot_id": "snapshot-5722d60a0ebdd65a9c7f1cf94e5edc3ff862fbf671c821e368a0b9df9a2a481c"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql010",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-011": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-835922a6d95f0482a40d6d8da064444edcf6b831c3a12288b83bd2462d261e30",
+                "snapshot_id": "snapshot-b99661b1989fdc4485a59e6b1bad87743dc8b9abd9d457de6700fa88d69d463f"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql011",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "text_blob_order",
+      "sql": "SELECT 'a'<X'00' AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-4fb903bc42453ec1e60680cf225387444190bea6841021ecd88cef01eea623d3",
+                "snapshot_id": "snapshot-c240bf584884cf699dc2c9bbd617128a211d2f94957a36c2fa2ea4527f36a3f6"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "native_v1",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-010": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-ba6ece9ff92aaf03aeee12059d0ada02952daa4f503521eb24487831b77c0b4d",
+                "snapshot_id": "snapshot-1c1405bca88e65586714b2ac7e774912b84db300cf12a2725785c7257a758943"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql010",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-011": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-a56f765c0140cecfceb20e21cf8188748f1812d747d15986fc348885015f2cdf",
+                "snapshot_id": "snapshot-1664057f9165ce01966ac6b51aa77cba2c2335ce52021f98ac058e2fd0fbe200"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql011",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "numeric_blob_unequal",
+      "sql": "SELECT 1<>X'31' AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-108fc2b7aab1ed0596ec5441a16d7ded0355659b418802891361dba62fcda20d",
+                "snapshot_id": "snapshot-7002c2edb2b6ef0c60cad0f728fcc57047caadb3759c398c27c9c4cdf7f40b3a"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "native_v1",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-010": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-465f3cf6071e0a90969b05104c63d2626d26e751987eb6b393bdb4f19b7019d1",
+                "snapshot_id": "snapshot-11a41b95a3b77e468a3a9fc3e00727db3ba7ed17fba7eef9f8625d6daf96501e"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql010",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-011": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-e0f96fac0a905bcb6a34cc83ce0d229ca47bf413f4977bc6007a83a47534308d",
+                "snapshot_id": "snapshot-13f11c9ede61807ded3d16e8693990ae60884aee5fbad42222f71c8dfb64a762"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql011",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "float_text_equal",
+      "sql": "SELECT 1.0='1.0' AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 0,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "bridge-native": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-bd394f324f0e42712ba5ad0ce09ee072aeb1b2d827267270a2c95f93c0d1569f",
+                "snapshot_id": "snapshot-72f8f3d2cef14349f91d8a6efa76d1b8560aee8b9cd1712faa80b6b1fc8b0f21"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "native_v1",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-010": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-7735f9a95d6816e5e989567e59d4fcf442851df2acaa75cab73a2e2da7c8aea1",
+                "snapshot_id": "snapshot-2810d961aae0124f97b249f6d5c78caa9575f14249613b18c607904caaa7e92e"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql010",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-011": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-7fdcecdd8974e981f3ad8263f97e800d9b33586d63935e442346a3c52df6c8a3",
+                "snapshot_id": "snapshot-132e7316bc43dcc50933a4af903dfc2385e1560933e3230ce946ee9ea5e29ac7"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql011",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "null_compare",
+      "sql": "SELECT NULL=1 AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": null,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "NULL"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "NULL"
+        },
+        "bridge-native": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-90e8c44f49a7465941e72d01159aba7a112267296c1b6a9c7052a9127e12e732",
+                "snapshot_id": "snapshot-df50851ca4170faad41dd63ff08310c1e32eb5db592e25730da4a3998dcae6a7"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "native_v1",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "null"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-010": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-dab2a560e5471c0ef02fa5f711c95862e6d20a8db4bdd869e7cdf4a287039993",
+                "snapshot_id": "snapshot-35c382ee1f63e9925b18991362fedcf7d0a33dd5331e1032478e0b22f3d70d1a"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql010",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "null"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-011": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 5,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-8fab5f3fb279f9f42148aab4298d2de991846736e47f3b4c67115e7abe1a0cf3",
+                "snapshot_id": "snapshot-f418d34986f8adb108d04260d94212c6fe6dba1cfc451cbd8b2b1f776e10aa36"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql011",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "null"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "cast_text_affinity",
+      "sql": "SELECT CAST('1' AS TEXT)=1 AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.affinity"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-010": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.affinity"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-011": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.affinity"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        }
+      }
+    },
+    {
+      "id": "cte_text_affinity",
+      "sql": "WITH t AS (SELECT CAST('1' AS TEXT) AS x) SELECT x=1 AS v FROM t",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.affinity"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-010": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.affinity"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-011": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "MIXED_CLASS_AFFINITY_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.affinity"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        }
+      }
+    },
+    {
+      "id": "signed_literal",
+      "sql": "SELECT -1<'1' AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 6,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-0a8560d608fd07b1eb23719bc68c82da40f8608eca33cee1939bfbb74b9b80e3",
+                "snapshot_id": "snapshot-dfb4c878ae05e536178aea879a1a97e2dcff8b5c412bb2a7a13ea67da9b0a024"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "native_v1",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-010": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 6,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-8565cdfd739dfb1f1c43eeb5d8a186c452f622d8b72a039cd6af483e6278a27e",
+                "snapshot_id": "snapshot-eaf5a938d377a99147bed99bfb023c024c12cdcc0998dd08ae340e82176b4a8c"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql010",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-011": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 6,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-fee46693af5c581600fb2a42f4ae1fa167228dd9734c32a29291b039ca408235",
+                "snapshot_id": "snapshot-11476f615655a1bcad5c753a26ef60a2aa23493d39c4c2f7cb9233086d23a612"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql011",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "legacy_text_arithmetic",
+      "sql": "SELECT 1+'a' AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "INVALID_ARGUMENT",
+              "details": {},
+              "message": "INTEGER_VALUE_REQUIRED",
+              "retryable": false,
+              "stage": "sql"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-010": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "LEGACY_TEXT_NUMERIC_COERCION_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.numeric"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-011": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "LEGACY_TEXT_NUMERIC_COERCION_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.numeric"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        }
+      }
+    },
+    {
+      "id": "cast_bad",
+      "sql": "SELECT CAST('bad' AS INTEGER) AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 0,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "bridge-native": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "INVALID_ARGUMENT",
+              "details": {},
+              "message": "INVALID_INTEGER_CAST",
+              "retryable": false,
+              "stage": "sql"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-010": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "LEGACY_TEXT_INTEGER_COERCION_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.cast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-011": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "LEGACY_TEXT_INTEGER_COERCION_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.cast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        }
+      }
+    },
+    {
+      "id": "cast_prefix",
+      "sql": "SELECT CAST('123tail' AS INTEGER) AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 123,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "123"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "123"
+        },
+        "bridge-native": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "INVALID_ARGUMENT",
+              "details": {},
+              "message": "INVALID_INTEGER_CAST",
+              "retryable": false,
+              "stage": "sql"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-010": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "LEGACY_TEXT_INTEGER_COERCION_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.cast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-011": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {},
+              "message": "LEGACY_TEXT_INTEGER_COERCION_NOT_IMPLEMENTED",
+              "retryable": false,
+              "stage": "sql.cast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        }
+      }
+    },
+    {
+      "id": "literal_in",
+      "sql": "SELECT 1 IN ('1') AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 0,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "bridge-native": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 7,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-3b18cf1f280c9810227097b0f1d9c0f29c69bbd61afcb4a968796c63d08f3720",
+                "snapshot_id": "snapshot-37f7e2a89ada93013a8560b56839600f4e11531eb20e4eb4f3b592317d2e6802"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "native_v1",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-010": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 7,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-bb460de92b0044cc9e507d1d0b1ce703878e125515224f114d87012ccbd92a85",
+                "snapshot_id": "snapshot-a69c96293d9e0e34f8729a3d684fae1a2bb3425092b5956b8dd3bb01fd841493"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql010",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        },
+        "bridge-011": {
+          "exit_code": 0,
+          "result": {
+            "full_audit_complete": false,
+            "operation_status": "ok",
+            "result": {
+              "ast_nodes": 7,
+              "binding": {
+                "catalog_epoch": "0",
+                "provider_identity": "sql-metadata-provider-30d6bc045bb122a01ba4cd16deb435d117eef33b78c2a2383db1fd47e00f0c51",
+                "snapshot_id": "snapshot-af0286d090066ec89aa522599235836fb2facc005fb0ef3f1159eff111aebcf0"
+              },
+              "calculation_complete": true,
+              "columns": [
+                "v"
+              ],
+              "dialect": "dex_sql011",
+              "execution_binding": null,
+              "optimizer": {
+                "in_pushdown": false,
+                "limit_offset_pushdown": false,
+                "omit": false,
+                "order_by_consumed": false
+              },
+              "profiles_admitted": [],
+              "required_layers": [],
+              "required_relations": [],
+              "rows": [
+                [
+                  {
+                    "type": "i64",
+                    "value": "0"
+                  }
+                ]
+              ],
+              "sqlite_version": "3.53.2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "cast_in",
+      "sql": "SELECT CAST('01' AS INTEGER) IN ('1') AS v",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-010": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-011": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        }
+      }
+    },
+    {
+      "id": "derived_in",
+      "sql": "SELECT d.string_idx IN (1) AS v FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 1,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "1"
+        },
+        "bridge-native": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-010": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-011": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        }
+      }
+    },
+    {
+      "id": "derived_not_in",
+      "sql": "SELECT d.string_idx NOT IN (1) AS v FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+      "sqlite_version": "3.50.4",
+      "sqlite_value": 0,
+      "engines": {
+        "A0": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "A1": {
+          "exit_code": 0,
+          "display_value": "0"
+        },
+        "bridge-native": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-010": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        },
+        "bridge-011": {
+          "exit_code": 1,
+          "result": {
+            "error": {
+              "code": "UNSUPPORTED_QUERY",
+              "details": {
+                "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+              },
+              "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+              "retryable": false,
+              "stage": "sql.ast"
+            },
+            "full_audit_complete": false,
+            "operation_status": "error"
+          }
+        }
+      }
+    }
+  ]
+}

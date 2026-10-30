@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tests/fixtures/references/generate.py"
+  ],
+  "exit_code": 0,
+  "stdout": "generated 18 reference fixtures\n",
+  "stderr": ""
+}

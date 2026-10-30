@@ -1,0 +1,363 @@
+{
+  "binary_sha256": "124b3c352398557f97e867e00127409cbbe9a2b678dd041428a630eae0801f3a",
+  "driver_sha256": "b90ec9374f8630dba5ea901ba91c8f646164c204b258db9fd0e7456d77ea3e84",
+  "sqlite_version": "3.53.1",
+  "cases": [
+    {
+      "dialect": "010",
+      "case": "column_in",
+      "sql": "SELECT string_idx IN ('0') AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "dialect": "010",
+      "case": "column_not_in",
+      "sql": "SELECT string_idx NOT IN ('0') AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "dialect": "010",
+      "case": "cast_in",
+      "sql": "SELECT CAST('01' AS INTEGER) IN ('1') AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "dialect": "010",
+      "case": "literal_null",
+      "sql": "SELECT 0 IN ('0',NULL) AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 9,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-5856b98cfa0d3d298d74bfaf012ca53c6f68cc317386756d069766fd376c20f0",
+            "snapshot_id": "snapshot-75ea3e49345034866d7e7eb1d548f4ff51f68a742e3578d1ca9df423f91631bd"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": [
+        [
+          null
+        ]
+      ]
+    },
+    {
+      "dialect": "011",
+      "case": "column_in",
+      "sql": "SELECT string_idx IN ('0') AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "dialect": "011",
+      "case": "column_not_in",
+      "sql": "SELECT string_idx NOT IN ('0') AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "dialect": "011",
+      "case": "cast_in",
+      "sql": "SELECT CAST('01' AS INTEGER) IN ('1') AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "dialect": "011",
+      "case": "literal_null",
+      "sql": "SELECT 0 IN ('0',NULL) AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 9,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-60689091e391fc8add0eceb73340c9398e4fdd80a7614f83eb541314b8922753",
+            "snapshot_id": "snapshot-cdd67fc455c82aa7ba1100d7207986e15cac02cf3d4cf886cc13319291a7a073"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": [
+        [
+          null
+        ]
+      ]
+    },
+    {
+      "dialect": "native",
+      "case": "column_in",
+      "sql": "SELECT string_idx IN ('0') AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "dialect": "native",
+      "case": "column_not_in",
+      "sql": "SELECT string_idx NOT IN ('0') AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "dialect": "native",
+      "case": "cast_in",
+      "sql": "SELECT CAST('01' AS INTEGER) IN ('1') AS v",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "dialect": "native",
+      "case": "literal_null",
+      "sql": "SELECT 0 IN ('0',NULL) AS v",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 9,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-0af781589798ca041c3acd80e45b600d46bb34c617e95610452099ebc423c684",
+            "snapshot_id": "snapshot-405a71e455f7817c0d993e547a70c518548a5e5b4cee56cf1402bd4724e62d66"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "native_v1",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [],
+          "required_relations": [],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": [
+        [
+          null
+        ]
+      ]
+    }
+  ],
+  "profiles_admitted": false,
+  "scope": "synthetic metadata fixture and CAST; not full dialect/profile"
+}

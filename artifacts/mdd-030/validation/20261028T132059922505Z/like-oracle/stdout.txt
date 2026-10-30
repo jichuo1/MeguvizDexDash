@@ -1,0 +1,1 @@
+{"cases": 20, "independent_oracle": "UTF16 consumed-position-set enumeration", "sql_compatibility_admitted": false}

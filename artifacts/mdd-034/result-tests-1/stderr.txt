@@ -1,0 +1,13 @@
+   Compiling mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+warning: unused import: `Completeness`
+ --> crates\mdd-types\src\result.rs:2:13
+  |
+2 | use crate::{Completeness,Coverage,DecimalU64,ErrorCode,Execution,MddError,MddResult,OperationStatus,Response,ResultEnvelope};
+  |             ^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `mdd-types` (lib) generated 1 warning (run `cargo fix --lib -p mdd-types` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.69s
+     Running unittests src\lib.rs (target\debug\deps\mdd_types-674dda7073209242.exe)
+   Doc-tests mdd_types

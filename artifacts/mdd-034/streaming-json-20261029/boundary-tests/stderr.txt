@@ -1,0 +1,17 @@
+   Compiling mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+error[E0618]: expected function, found `ResultEnvelope`
+   --> crates\mdd-query\src\executor\runtime_tests.rs:444:88
+    |
+192 | fn terminal(f: &Fixture) -> TerminalBuilder {
+    | ------------------------------------------- this function of the same name is available here, but it's shadowed by the local binding
+...
+434 |     let terminal = receipt.finish(&mut pending).unwrap();
+    |         -------- `terminal` has type `ResultEnvelope`
+...
+444 |         &mut Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()), terminal(&f), &sender).unwrap();
+    |                                                                                        ^^^^^^^^----
+    |                                                                                        |
+    |                                                                                        call expression requires function
+
+For more information about this error, try `rustc --explain E0618`.
+error: could not compile `mdd-query` (lib test) due to 1 previous error

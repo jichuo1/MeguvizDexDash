@@ -1,0 +1,33 @@
+Processing 'D:\MeguvisDexDash\tests\fixtures\owned_try\generated\owned-try-even.dex'...
+Opened 'D:\MeguvisDexDash\tests\fixtures\owned_try\generated\owned-try-even.dex', DEX version '035'
+Class #0            -
+  Class descriptor  : 'Lfixture/Try;'
+  Access flags      : 0x0001 (PUBLIC)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+  Direct methods    -
+    #0              : (in Lfixture/Try;)
+      name          : 'run'
+      type          : '()V'
+      access        : 0x0009 (PUBLIC STATIC)
+      code          -
+      registers     : 1
+      ins           : 0
+      outs          : 0
+      insns size    : 4 16-bit code units
+0000ec:                                        |[0000ec] fixture.Try.run:()V
+0000fc: 1200                                   |0000: const/4 v0, #int 0 // #0
+0000fe: 2700                                   |0001: throw v0
+000100: 0d00                                   |0002: move-exception v0
+000102: 0e00                                   |0003: return-void
+      catches       : 1
+        0x0001 - 0x0002
+          <any> -> 0x0002
+      positions     :
+      locals        :
+
+  Virtual methods   -
+  source_file_idx   : -1 (unknown)
+

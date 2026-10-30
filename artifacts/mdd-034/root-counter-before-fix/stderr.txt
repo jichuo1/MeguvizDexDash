@@ -1,0 +1,4 @@
+   Compiling mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.02s
+     Running unittests src\lib.rs (target\debug\deps\mdd_types-674dda7073209242.exe)
+error: test failed, to rerun pass `-p mdd-types --lib`

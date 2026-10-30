@@ -1,0 +1,32 @@
+[
+  {
+    "fixture": "tests\\fixtures\\definitions\\generated\\orphan-empty.dex",
+    "fixture_sha256": "35abb3d2cc798f34e352ee1c57a7177578b20d947e5cead9a6702b5545b08f6b",
+    "command": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+      "-f",
+      "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-empty.dex"
+    ],
+    "exit_code": 0
+  },
+  {
+    "fixture": "tests\\fixtures\\definitions\\generated\\orphan-field-defined-owner.dex",
+    "fixture_sha256": "1d8ba35c784eaa862a69d789e7ed5d483af83917aa5b3d0eb9ec83163d3db4e9",
+    "command": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+      "-f",
+      "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-field-defined-owner.dex"
+    ],
+    "exit_code": 0
+  },
+  {
+    "fixture": "tests\\fixtures\\definitions\\generated\\orphan-method-defined-owner.dex",
+    "fixture_sha256": "cc6180c955d7156deca718631f3b016d1029f38d532c80649c3ce718b744c081",
+    "command": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+      "-f",
+      "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-method-defined-owner.dex"
+    ],
+    "exit_code": 0
+  }
+]

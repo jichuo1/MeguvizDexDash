@@ -1,0 +1,25 @@
+{
+  "status": "blocked_verified",
+  "checks": {
+    "probe_blocked": true,
+    "original_memory_threshold": true,
+    "build_success_and_tree_empty": true,
+    "original_job_limits": true,
+    "candidate_binary_identity": true,
+    "source_unchanged_now": true,
+    "legacy_engines_unchanged": true,
+    "no_qualification": true
+  },
+  "source_drift": [],
+  "legacy_engine_checks": {
+    "A0": true,
+    "A1": true
+  },
+  "report_sha256": "d386483b744b6b873bb53d79d5311c7b40f4400ad8bae0373e74614936b1fd73",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e5fc6a37088bab242c32c6c63d55a58adbf1ad76078044cd0174a607620fa161",
+  "supervisor_sha256": "1fa7afeac3e29badf5dc9ba74c25d107cb90ba95aa17cde57d819b393bbd7cfe",
+  "readback_sha256": "b088fee3307db1f734feb5c1149c27aece99f08a001750fc8bd592bdd614c1ab",
+  "candidate_binary_sha256": "a903ceb6bad9898330c1a4fcbd6cc60e8186636617560a02dd7280106633cd73",
+  "scope": "build only; no probe started and no SQL result or qualification claim"
+}

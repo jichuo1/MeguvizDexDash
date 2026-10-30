@@ -1,0 +1,3543 @@
+{
+  "schema_version": "mdd.reference-independent-oracle.v1",
+  "results": [
+    {
+      "path": "tests/fixtures/references/generated/classic-035.dex",
+      "sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 10
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 10
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 10,
+          "byte_offset": 438,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 10,
+          "byte_offset": 442,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 446,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 450,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 454,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 458,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 462,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 468,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 480,
+          "byte_length": 2,
+          "opcode": 113
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/shared-code-035.dex",
+      "sha256": "22eb2d4020f172334a99f5c75538af5f2b3e80673adb11803b368cc68aaec0ab",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 11
+          },
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 11
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "value": "repeat",
+            "string_idx": 11
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "value": "repeat",
+            "string_idx": 11
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 3
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->aliasCaller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "aliasCaller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 1,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 466,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 470,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 478,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 482,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 486,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 490,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 496,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 502,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 508,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 466,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 470,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 478,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 482,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 486,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 490,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 496,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 502,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 1,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 508,
+          "byte_length": 2,
+          "opcode": 113
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        2
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/orphan-code-035.dex",
+      "sha256": "be046c1bc2b7392257e174b5bac47c6cc9a141e8f4c9a9e839a1d7c5c01ba92f",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 10
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 10
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 10,
+          "byte_offset": 438,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 10,
+          "byte_offset": 442,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 446,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 450,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 454,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 458,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 462,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 468,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 480,
+          "byte_length": 2,
+          "opcode": 113
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [
+        508
+      ],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/poly-custom-038.dex",
+      "sha256": "25bc5a03641d31d87212a9a292d798e64c563e2666d03f579e7fc894ac8ee425",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 21
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 21
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+            "callee_class": "Ljava/lang/invoke/MethodHandle;",
+            "callee_name": "invokeExact",
+            "callee_method_idx": 5
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+            "callee_class": "Ljava/lang/invoke/MethodHandle;",
+            "callee_name": "invokeExact",
+            "callee_method_idx": 5
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 1
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 1
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->handle:Ljava/lang/invoke/MethodHandle;",
+            "field_class": "Lfixture/External;",
+            "field_name": "handle",
+            "field_type": "Ljava/lang/invoke/MethodHandle;",
+            "using_type": "get",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 5
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 5
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 21,
+          "byte_offset": 814,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 21,
+          "byte_offset": 818,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 5,
+          "byte_offset": 822,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 5,
+          "byte_offset": 826,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 1,
+          "byte_offset": 830,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 1,
+          "byte_offset": 834,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 838,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 844,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 850,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 856,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 24,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 862,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 26,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 5,
+          "byte_offset": 866,
+          "byte_length": 2,
+          "opcode": 250
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 26,
+          "operand_ordinal": 1,
+          "kind": "prototype",
+          "index": 2,
+          "byte_offset": 870,
+          "byte_length": 2,
+          "opcode": 250
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 30,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 5,
+          "byte_offset": 874,
+          "byte_length": 2,
+          "opcode": 251
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 30,
+          "operand_ordinal": 1,
+          "kind": "prototype",
+          "index": 2,
+          "byte_offset": 878,
+          "byte_length": 2,
+          "opcode": 251
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 34,
+          "operand_ordinal": 0,
+          "kind": "call_site",
+          "index": 0,
+          "byte_offset": 882,
+          "byte_length": 2,
+          "opcode": 252
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 37,
+          "operand_ordinal": 0,
+          "kind": "call_site",
+          "index": 0,
+          "byte_offset": 888,
+          "byte_length": 2,
+          "opcode": 253
+        }
+      ],
+      "dynamic_calls": [
+        {
+          "caller_method_idx": 0,
+          "pc": 34,
+          "call_site_idx": 0,
+          "runtime_target": "unknown_dynamic_target"
+        },
+        {
+          "caller_method_idx": 0,
+          "pc": 37,
+          "call_site_idx": 0,
+          "runtime_target": "unknown_dynamic_target"
+        }
+      ],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/handles-039.dex",
+      "sha256": "1ef9feee89649371933005100ef2cc2878a581f9459233dcc1810881a9824c27",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 10
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 10
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 10,
+          "byte_offset": 454,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 10,
+          "byte_offset": 458,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 462,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 466,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 470,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 478,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 484,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 490,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 496,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 24,
+          "operand_ordinal": 0,
+          "kind": "method_handle",
+          "index": 0,
+          "byte_offset": 502,
+          "byte_length": 2,
+          "opcode": 254
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 26,
+          "operand_ordinal": 0,
+          "kind": "method_handle",
+          "index": 1,
+          "byte_offset": 506,
+          "byte_length": 2,
+          "opcode": 254
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 28,
+          "operand_ordinal": 0,
+          "kind": "prototype",
+          "index": 0,
+          "byte_offset": 510,
+          "byte_length": 2,
+          "opcode": 255
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/nonscalar-string-035.dex",
+      "sha256": "d2bc2a79ed9d2304a3ffeb9bc0c762fccc5460019a280ab923901b84ddd9510a",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": {
+              "encoding": "dex_utf16",
+              "units": [
+                55296
+              ],
+              "raw_mutf8_hex": "eda080"
+            },
+            "string_idx": 13
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": {
+              "encoding": "dex_utf16",
+              "units": [
+                55296
+              ],
+              "raw_mutf8_hex": "eda080"
+            },
+            "string_idx": 13
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 13,
+          "byte_offset": 450,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 13,
+          "byte_offset": 454,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 458,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 462,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 466,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 470,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 480,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 486,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 492,
+          "byte_length": 2,
+          "opcode": 113
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": false,
+      "raw_string_values": [
+        {
+          "string_idx": 13,
+          "utf16_units": [
+            55296
+          ],
+          "mutf8_hex": "eda080"
+        }
+      ]
+    },
+    {
+      "path": "tests/fixtures/references/generated/ordinary-unrelated-bad-annotation.dex",
+      "sha256": "05bdd53bfc54760a1fb41425f492b4c5eaadcaf3b1ca82e2a5ea9998d950b3d7",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 11
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 11
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 5
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 5
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 478,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 5,
+          "byte_offset": 482,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 5,
+          "byte_offset": 486,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 490,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 494,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 498,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 504,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 510,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 516,
+          "byte_length": 2,
+          "opcode": 113
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/poly-custom-unrelated-bad-annotation.dex",
+      "sha256": "4f0ab7a6cfe9f1053f079344331e6da5bccb435b2f7754b4d2edc8b8571fbdd0",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 22
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 22
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+            "callee_class": "Ljava/lang/invoke/MethodHandle;",
+            "callee_name": "invokeExact",
+            "callee_method_idx": 5
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+            "callee_class": "Ljava/lang/invoke/MethodHandle;",
+            "callee_name": "invokeExact",
+            "callee_method_idx": 5
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 1
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 1
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->handle:Ljava/lang/invoke/MethodHandle;",
+            "field_class": "Lfixture/External;",
+            "field_name": "handle",
+            "field_type": "Ljava/lang/invoke/MethodHandle;",
+            "using_type": "get",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 6
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 6
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 22,
+          "byte_offset": 846,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 22,
+          "byte_offset": 850,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 6,
+          "byte_offset": 854,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 6,
+          "byte_offset": 858,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 1,
+          "byte_offset": 862,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 1,
+          "byte_offset": 866,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 870,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 876,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 4,
+          "byte_offset": 882,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 888,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 24,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 894,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 26,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 5,
+          "byte_offset": 898,
+          "byte_length": 2,
+          "opcode": 250
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 26,
+          "operand_ordinal": 1,
+          "kind": "prototype",
+          "index": 2,
+          "byte_offset": 902,
+          "byte_length": 2,
+          "opcode": 250
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 30,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 5,
+          "byte_offset": 906,
+          "byte_length": 2,
+          "opcode": 251
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 30,
+          "operand_ordinal": 1,
+          "kind": "prototype",
+          "index": 2,
+          "byte_offset": 910,
+          "byte_length": 2,
+          "opcode": 251
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 34,
+          "operand_ordinal": 0,
+          "kind": "call_site",
+          "index": 0,
+          "byte_offset": 914,
+          "byte_length": 2,
+          "opcode": 252
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 37,
+          "operand_ordinal": 0,
+          "kind": "call_site",
+          "index": 0,
+          "byte_offset": 920,
+          "byte_length": 2,
+          "opcode": 253
+        }
+      ],
+      "dynamic_calls": [
+        {
+          "caller_method_idx": 0,
+          "pc": 34,
+          "call_site_idx": 0,
+          "runtime_target": "unknown_dynamic_target"
+        },
+        {
+          "caller_method_idx": 0,
+          "pc": 37,
+          "call_site_idx": 0,
+          "runtime_target": "unknown_dynamic_target"
+        }
+      ],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/defined-field-035.dex",
+      "sha256": "fbf81250c61964b9312688ab4e6f47e09a904978a7c5aa77bebe2ec330921bd8",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 11
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 11
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 1
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 1
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 462,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 466,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 470,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 1,
+          "byte_offset": 478,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 1,
+          "byte_offset": 482,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 486,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 15,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 492,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 18,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 498,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 21,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 504,
+          "byte_length": 2,
+          "opcode": 113
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/type-names-035.dex",
+      "sha256": "9d4d2cfebd4ac275fe508004cd7efd29b307c855671e716da6e02955ab93774f",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 11
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 11
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "I",
+            "type_name": "int",
+            "type_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "[I",
+            "type_name": "int[]",
+            "type_idx": 6
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 450,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 2,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 11,
+          "byte_offset": 454,
+          "byte_length": 2,
+          "opcode": 26
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 4,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 458,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 462,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 0,
+          "byte_offset": 466,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 6,
+          "byte_offset": 470,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 474,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 14,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 478,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 16,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 482,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 19,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 488,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 22,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 494,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 25,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 500,
+          "byte_length": 2,
+          "opcode": 113
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/jumbo-string-035.dex",
+      "sha256": "f7a587b896028ec950b78b747e87d6f7cda956f65e415a1b188f071d7e0e12c1",
+      "status": "complete",
+      "relations": {
+        "method_strings": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 10
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "value": "repeat",
+            "string_idx": 10
+          }
+        ],
+        "method_calls": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/External;->external()V",
+            "callee_class": "Lfixture/External;",
+            "callee_name": "external",
+            "callee_method_idx": 3
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "callee": "Lfixture/A;->target()V",
+            "callee_class": "Lfixture/A;",
+            "callee_name": "target",
+            "callee_method_idx": 2
+          }
+        ],
+        "method_field_accesses": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "get",
+            "field_idx": 0
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "field": "Lfixture/External;->shared:Ljava/lang/String;",
+            "field_class": "Lfixture/External;",
+            "field_name": "shared",
+            "field_type": "Ljava/lang/String;",
+            "using_type": "put",
+            "field_idx": 0
+          }
+        ],
+        "method_used_types": [
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          },
+          {
+            "method": "Lfixture/A;->caller()V",
+            "method_class": "Lfixture/A;",
+            "method_name": "caller",
+            "file_id": 0,
+            "class_idx": 1,
+            "method_idx": 0,
+            "type_descriptor": "Ljava/lang/String;",
+            "type_name": "java.lang.String",
+            "type_idx": 4
+          }
+        ]
+      },
+      "sites": [
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 0,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 10,
+          "byte_offset": 438,
+          "byte_length": 4,
+          "opcode": 27
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 3,
+          "operand_ordinal": 0,
+          "kind": "string",
+          "index": 10,
+          "byte_offset": 444,
+          "byte_length": 4,
+          "opcode": 27
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 6,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 450,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 8,
+          "operand_ordinal": 0,
+          "kind": "type",
+          "index": 4,
+          "byte_offset": 454,
+          "byte_length": 2,
+          "opcode": 28
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 10,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 458,
+          "byte_length": 2,
+          "opcode": 98
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 12,
+          "operand_ordinal": 0,
+          "kind": "field",
+          "index": 0,
+          "byte_offset": 462,
+          "byte_length": 2,
+          "opcode": 105
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 14,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 466,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 17,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 472,
+          "byte_length": 2,
+          "opcode": 113
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 20,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 3,
+          "byte_offset": 478,
+          "byte_length": 2,
+          "opcode": 119
+        },
+        {
+          "caller_method_idx": 0,
+          "class_def_idx": 0,
+          "class_idx": 1,
+          "pc": 23,
+          "operand_ordinal": 0,
+          "kind": "method",
+          "index": 2,
+          "byte_offset": 484,
+          "byte_length": 2,
+          "opcode": 113
+        }
+      ],
+      "dynamic_calls": [],
+      "no_body_method_indices": [
+        1
+      ],
+      "unowned_code_offsets": [],
+      "plain_scalar_string_projection": true,
+      "raw_string_values": []
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-reference-index.dex",
+      "sha256": "a08ae1ba17e56fabfde47b331dae64bc5de7715ececd74f552e0c663e421919f",
+      "status": "invalid",
+      "reason": "invalid_code_operand"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-invoke-argument-count.dex",
+      "sha256": "422b7b00d0d239b15488831df89b51d153192263c74d9e50c652a77d1b95f857",
+      "status": "invalid",
+      "reason": "fixture subset"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-caller-ins-size.dex",
+      "sha256": "c2bdff173412f339da67dfa30d21569049cc452a7d900d042559ef703f1a48c3",
+      "status": "invalid",
+      "reason": "caller_ins_words"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-body-interior-pointer.dex",
+      "sha256": "be7015677a88b8b70ed4547b9d1579d7ee7cdb75c1ce100371ee67578d947020",
+      "status": "invalid",
+      "reason": "body_not_physical_start"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-custom-prefix.dex",
+      "sha256": "2a13dbc8af3f9ab1cf780a3e80d0335f387b8e049ad7638f0abf447734278240",
+      "status": "invalid",
+      "reason": "custom_prefix"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-custom-argument-count.dex",
+      "sha256": "b5a3502e53e9b85eed66148dd8351faf4f232aa0ce9cb0f19d2edf8d21d33649",
+      "status": "invalid",
+      "reason": "custom_argument_words"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-poly-proto-index.dex",
+      "sha256": "f93919716280127f987a6becea290ebd10db0c3da5407cf1029e163d06c98276",
+      "status": "invalid",
+      "reason": "poly_proto_index"
+    }
+  ],
+  "success": true,
+  "scope": "Handwritten tiny-opcode scalar oracle over source bytes; no Rust parser or writer imports, no runtime dispatch/ART type-flow proof"
+}

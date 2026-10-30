@@ -1,0 +1,17 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-dex",
+    "definitions::",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "11137d5de1968d2c8ecd28a6f8f7fc3b4438879df96219f33f87a403a42f2866",
+  "stderr_sha256": "467281eee1fe94eb2d12245534bdb6988304eebbb94973b2c8e78106a26cadfd",
+  "scope": "definition module conformance, not full DEX or performance qualification"
+}

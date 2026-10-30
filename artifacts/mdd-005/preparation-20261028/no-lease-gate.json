@@ -1,0 +1,18 @@
+{
+  "command_argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\baseline-venv\\Scripts\\python.exe",
+    "D:\\MeguvisDexDash\\benchmarks\\run-existing-baselines.py",
+    "--qualify",
+    "--variant",
+    "A0",
+    "--sample",
+    "hostlab-9170100",
+    "--output",
+    "D:\\MeguvisDexDash\\artifacts\\local\\baseline-runs\\no-lease-must-not-exist"
+  ],
+  "exit_code": 2,
+  "private_input_parsed": false,
+  "output_created": false,
+  "stdout": "",
+  "stderr": "usage: run-existing-baselines.py [-h] [--manifest MANIFEST] [--preflight]\n                                 [--output OUTPUT] [--self-test] [--qualify]\n                                 [--variant {A0,A1}] [--sample SAMPLE]\n                                 [--lease LEASE]\nrun-existing-baselines.py: error: qualification requires explicit variant/sample/output/root lease\n"
+}

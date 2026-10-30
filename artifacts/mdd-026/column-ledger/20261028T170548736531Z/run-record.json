@@ -1,0 +1,52 @@
+{
+  "runs": [
+    {
+      "argv": [
+        "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+        "-O",
+        "conformance/facts/readback_column_ledger.py",
+        "artifacts/mdd-026/column-ledger/20261028T170548736531Z"
+      ],
+      "started_utc": "2026-10-28T17:06:41.005503+00:00",
+      "finished_utc": "2026-10-28T17:06:41.824069+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "dd0b71733a334bbab132c3a8b92c3c9e6ec92fbd895fa1fd80bab5bdc3a1b24d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+        "-O",
+        "conformance/facts/test_column_ledger.py"
+      ],
+      "started_utc": "2026-10-28T17:06:41.824069+00:00",
+      "finished_utc": "2026-10-28T17:06:42.021537+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "91b7440d94e973b85126e9ba2af5597d488a7ada964338efb39e8bb2e736f53b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "identities": [
+    {
+      "path": "conformance/facts/compile_column_ledger.py",
+      "sha256": "6b2c5139e9fc185b4c4147ab6a148a972f02b003b18486c5265b30992a5c8671"
+    },
+    {
+      "path": "conformance/facts/readback_column_ledger.py",
+      "sha256": "212cc6e347f3af87f2b8a6e417f4aa6683481eac917a8cf563ef0834e93a8a47"
+    },
+    {
+      "path": "conformance/facts/test_column_ledger.py",
+      "sha256": "6a766b001fed16621f0a407c5ff29f998c3101a38c82b8b9a087f953336ca3e6"
+    },
+    {
+      "path": "artifacts/mdd-026/column-ledger/20261028T170548736531Z/column-ledger.json",
+      "sha256": "27cc3f75944e424cc701ecd3467ab69bfa2472148f508d08dfff190f088c276a"
+    },
+    {
+      "path": "artifacts/mdd-026/column-ledger/20261028T170548736531Z/readback.json",
+      "sha256": "85568dbf32f964ad304d09e7b397abc4d6fde265e2a3640298981cea08dbb414"
+    }
+  ],
+  "task_complete_proven": false
+}

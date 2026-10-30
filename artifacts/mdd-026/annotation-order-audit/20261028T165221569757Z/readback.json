@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "result_sha256": "f69723671a746710191ca6525a5d04b43b4eb221dd40ec12890d144d66d9729a",
+  "readback_source_sha256": "2859f3d44cfaf25a5f01f2996f1c3f3555fd686b8120eb7d616d9d5ecc84a2c4",
+  "relations": 4,
+  "a0_rows": 116,
+  "a0_negative_zero_display_sign_changes": 2,
+  "source_files_checked": 53,
+  "task_complete_proven": false,
+  "scope": "two tiny duplicated fixtures; A0 numeric comparison normalizes zero sign"
+}

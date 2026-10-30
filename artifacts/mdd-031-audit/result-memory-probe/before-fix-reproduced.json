@@ -1,0 +1,11 @@
+{
+  "command": "mdd-independent-result-memory-probe.exe",
+  "exit_code": 0,
+  "stdout": "{\"clone\":{\"copied_rows\":1,\"copy\":[[{\"type\":\"text\",\"value\":{\"original_mutf8\":null,\"utf16\":[112,101,114,115,105,115,116,101,110,116,32,99,111,112,121]}}]],\"workspace_after_drop\":0,\"workspace_during\":4096},\"zero_row\":{\"columns\":[\"long_alias\"],\"rows\":0,\"status\":\"ok\",\"workspace\":0}}\n",
+  "stderr": "",
+  "binary_sha256": "85fed03399e1cd26645bb69cab4dc026ec4b3a692a20e064c86175daf3afd6b1",
+  "probe_source_sha256": "1f60957ae9fd5a271dff45748ad027e77c20d4915a917543293dcb4b3660e06f",
+  "probe_lock_sha256": "588c4abb11f78b019adf215ba2160ebda4065f808a70dceda0e659a296a7ff9e",
+  "root_lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "tested_scope": "candidate before schema fix; no transport admission implemented"
+}

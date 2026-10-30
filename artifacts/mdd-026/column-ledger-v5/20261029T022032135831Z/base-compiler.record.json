@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "conformance/facts/compile_column_ledger_v4.py"
+  ],
+  "started_utc": "2026-10-29T02:20:32.135831+00:00",
+  "finished_utc": "2026-10-29T02:20:32.813892+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "52b226735951029f434929e27c86c21a35bca9911a4236d8b2604bf02ad3e2df",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

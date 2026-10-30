@@ -1,0 +1,6 @@
+
+running 1 test
+test runtime_tests::cast_text_to_blob_respects_session_step_budget ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 50 filtered out; finished in 0.14s
+

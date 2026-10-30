@@ -1,0 +1,9 @@
+
+running 4 tests
+test raw_fingerprints::tests::present_empty_insns_has_empty_digest_not_absent_body ... ok
+test raw_fingerprints::tests::raw_body_bytes_and_explicit_order_match_handwritten_python_digests ... ok
+test raw_fingerprints::tests::missing_projection_bad_item_source_and_zero_quotas_fail_closed ... ok
+test raw_fingerprints::tests::resource_fingerprint_is_raw_same_snapshot_and_survives_source_mutation ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 20 filtered out; finished in 0.00s
+

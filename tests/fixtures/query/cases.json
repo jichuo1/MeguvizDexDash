@@ -1,0 +1,3607 @@
+{
+  "schema_version": "mdd.hand-query-cases.v1",
+  "snapshot_id": "fixture-snapshot",
+  "catalog_epoch": "18446744073709551615",
+  "ready_layers": [
+    "metadata",
+    "structure"
+  ],
+  "tables": {
+    "left": {
+      "columns": [
+        {
+          "id": "id",
+          "display_name": "id",
+          "data_type": "i64",
+          "nullable": false
+        },
+        {
+          "id": "label",
+          "display_name": "label",
+          "data_type": "utf16",
+          "nullable": true
+        },
+        {
+          "id": "entity",
+          "display_name": "entity",
+          "data_type": "entity",
+          "nullable": true
+        },
+        {
+          "id": "raw",
+          "display_name": "raw",
+          "data_type": "bytes",
+          "nullable": true
+        }
+      ],
+      "required_layers": [
+        "structure"
+      ],
+      "rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "2"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "4"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AP8="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "5"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55357,
+              56832
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "6"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ]
+      ]
+    },
+    "right": {
+      "columns": [
+        {
+          "id": "entity",
+          "display_name": "entity",
+          "data_type": "entity",
+          "nullable": true
+        },
+        {
+          "id": "number",
+          "display_name": "number",
+          "data_type": "i64",
+          "nullable": true
+        }
+      ],
+      "required_layers": [
+        "structure"
+      ],
+      "rows": [
+        [
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "20"
+          }
+        ],
+        [
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "30"
+          }
+        ],
+        [
+          {
+            "type": "null"
+          },
+          {
+            "type": "i64",
+            "value": "40"
+          }
+        ],
+        [
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      ]
+    },
+    "empty": {
+      "columns": [
+        {
+          "id": "id",
+          "display_name": "id",
+          "data_type": "i64",
+          "nullable": false
+        },
+        {
+          "id": "label",
+          "display_name": "label",
+          "data_type": "utf16",
+          "nullable": true
+        },
+        {
+          "id": "entity",
+          "display_name": "entity",
+          "data_type": "entity",
+          "nullable": true
+        },
+        {
+          "id": "raw",
+          "display_name": "raw",
+          "data_type": "bytes",
+          "nullable": true
+        }
+      ],
+      "required_layers": [
+        "structure"
+      ],
+      "rows": []
+    },
+    "unbuilt": {
+      "columns": [
+        {
+          "id": "id",
+          "display_name": "id",
+          "data_type": "i64",
+          "nullable": false
+        }
+      ],
+      "required_layers": [
+        "references"
+      ],
+      "rows": []
+    },
+    "overflow": {
+      "columns": [
+        {
+          "id": "n",
+          "display_name": "n",
+          "data_type": "i64",
+          "nullable": false
+        }
+      ],
+      "required_layers": [
+        "structure"
+      ],
+      "rows": [
+        [
+          {
+            "type": "i64",
+            "value": "9223372036854775807"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          }
+        ]
+      ]
+    }
+  },
+  "cases": [
+    {
+      "id": "scan-bag",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "scan",
+          "relation": "left"
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "2"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "4"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AP8="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "5"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55357,
+              56832
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "6"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "empty-scan",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "scan",
+          "relation": "empty"
+        }
+      },
+      "expected_rows": [],
+      "expected_error": null
+    },
+    {
+      "id": "eq-null-is-unknown",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "eq",
+            "left": {
+              "expr": "column",
+              "ordinal": 1
+            },
+            "right": {
+              "expr": "literal",
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": [],
+      "expected_error": null
+    },
+    {
+      "id": "is-null",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "is_null",
+            "value": {
+              "expr": "column",
+              "ordinal": 1
+            }
+          }
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "2"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "duplicate-exact-filter",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "eq",
+            "left": {
+              "expr": "column",
+              "ordinal": 0
+            },
+            "right": {
+              "expr": "literal",
+              "value": {
+                "type": "i64",
+                "value": "1"
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "raw-empty-is-not-null",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "raw_bytes_eq",
+            "left": {
+              "expr": "column",
+              "ordinal": 3
+            },
+            "right": {
+              "expr": "literal",
+              "value": {
+                "type": "bytes",
+                "value": ""
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "2"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "6"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "raw-nul-is-not-empty",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "raw_bytes_eq",
+            "left": {
+              "expr": "column",
+              "ordinal": 3
+            },
+            "right": {
+              "expr": "literal",
+              "value": {
+                "type": "bytes",
+                "value": "AA=="
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "prefix-preserves-nul",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "prefix",
+            "value": {
+              "expr": "column",
+              "ordinal": 1
+            },
+            "units": [
+              97
+            ]
+          }
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "like-one-includes-nul",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "like",
+            "value": {
+              "expr": "column",
+              "ordinal": 1
+            },
+            "pattern": [
+              {
+                "token": "literal",
+                "value": 97
+              },
+              {
+                "token": "any_one"
+              },
+              {
+                "token": "literal",
+                "value": 122
+              }
+            ]
+          }
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "like-one-is-one-utf16-unit",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "like",
+            "value": {
+              "expr": "column",
+              "ordinal": 1
+            },
+            "pattern": [
+              {
+                "token": "any_one"
+              }
+            ]
+          }
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "4"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AP8="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "6"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "like-many-plus-one",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "like",
+            "value": {
+              "expr": "column",
+              "ordinal": 1
+            },
+            "pattern": [
+              {
+                "token": "any_many"
+              },
+              {
+                "token": "any_one"
+              }
+            ]
+          }
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "4"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AP8="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "5"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55357,
+              56832
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "6"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "false-or-unknown-not-selected",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "or",
+            "left": {
+              "predicate": "eq",
+              "left": {
+                "expr": "column",
+                "ordinal": 0
+              },
+              "right": {
+                "expr": "literal",
+                "value": {
+                  "type": "i64",
+                  "value": "999"
+                }
+              }
+            },
+            "right": {
+              "predicate": "eq",
+              "left": {
+                "expr": "column",
+                "ordinal": 1
+              },
+              "right": {
+                "expr": "literal",
+                "value": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": [],
+      "expected_error": null
+    },
+    {
+      "id": "not-unknown-stays-unknown",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "not",
+            "value": {
+              "predicate": "eq",
+              "left": {
+                "expr": "column",
+                "ordinal": 1
+              },
+              "right": {
+                "expr": "literal",
+                "value": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": [],
+      "expected_error": null
+    },
+    {
+      "id": "set-duplicates-do-not-multiply-rows",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "select_ids",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "ordinal": 0,
+          "ids": [
+            {
+              "type": "i64",
+              "value": "1"
+            },
+            {
+              "type": "i64",
+              "value": "1"
+            },
+            {
+              "type": "i64",
+              "value": "3"
+            }
+          ]
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "join-entity-keeps-dex-and-multiplicity",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "equi_join",
+          "left": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "right": {
+            "op": "scan",
+            "relation": "right"
+          },
+          "left_keys": [
+            2
+          ],
+          "right_keys": [
+            0
+          ],
+          "kind": "inner"
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "20"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "20"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "2"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "30"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "left-join-null-never-equals-null",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "equi_join",
+          "left": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "right": {
+            "op": "scan",
+            "relation": "right"
+          },
+          "left_keys": [
+            2
+          ],
+          "right_keys": [
+            0
+          ],
+          "kind": "left"
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "20"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "20"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "2"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "i64",
+            "value": "30"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "4"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AP8="
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "5"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55357,
+              56832
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "6"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "empty-left-join",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "equi_join",
+          "left": {
+            "op": "scan",
+            "relation": "empty"
+          },
+          "right": {
+            "op": "scan",
+            "relation": "right"
+          },
+          "left_keys": [
+            2
+          ],
+          "right_keys": [
+            0
+          ],
+          "kind": "left"
+        }
+      },
+      "expected_rows": [],
+      "expected_error": null
+    },
+    {
+      "id": "global-aggregate-bag",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "aggregate",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "group_by": [],
+          "aggregates": [
+            {
+              "kind": "count_star",
+              "ordinal": null,
+              "column": {
+                "id": "all",
+                "display_name": "all",
+                "data_type": "u64",
+                "nullable": false
+              }
+            },
+            {
+              "kind": "count",
+              "ordinal": 1,
+              "column": {
+                "id": "nonnull",
+                "display_name": "nonnull",
+                "data_type": "u64",
+                "nullable": false
+              }
+            },
+            {
+              "kind": "sum",
+              "ordinal": 0,
+              "column": {
+                "id": "sum",
+                "display_name": "sum",
+                "data_type": "i64",
+                "nullable": true
+              }
+            },
+            {
+              "kind": "min",
+              "ordinal": 0,
+              "column": {
+                "id": "min",
+                "display_name": "min",
+                "data_type": "i64",
+                "nullable": true
+              }
+            },
+            {
+              "kind": "max",
+              "ordinal": 0,
+              "column": {
+                "id": "max",
+                "display_name": "max",
+                "data_type": "i64",
+                "nullable": true
+              }
+            }
+          ]
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "u64",
+            "value": "7"
+          },
+          {
+            "type": "u64",
+            "value": "6"
+          },
+          {
+            "type": "i64",
+            "value": "22"
+          },
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "i64",
+            "value": "6"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "global-aggregate-empty-still-one-row",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "aggregate",
+          "input": {
+            "op": "scan",
+            "relation": "empty"
+          },
+          "group_by": [],
+          "aggregates": [
+            {
+              "kind": "count_star",
+              "ordinal": null,
+              "column": {
+                "id": "all",
+                "display_name": "all",
+                "data_type": "u64",
+                "nullable": false
+              }
+            },
+            {
+              "kind": "count",
+              "ordinal": 1,
+              "column": {
+                "id": "nonnull",
+                "display_name": "nonnull",
+                "data_type": "u64",
+                "nullable": false
+              }
+            },
+            {
+              "kind": "sum",
+              "ordinal": 0,
+              "column": {
+                "id": "sum",
+                "display_name": "sum",
+                "data_type": "i64",
+                "nullable": true
+              }
+            },
+            {
+              "kind": "min",
+              "ordinal": 0,
+              "column": {
+                "id": "min",
+                "display_name": "min",
+                "data_type": "i64",
+                "nullable": true
+              }
+            },
+            {
+              "kind": "max",
+              "ordinal": 0,
+              "column": {
+                "id": "max",
+                "display_name": "max",
+                "data_type": "i64",
+                "nullable": true
+              }
+            }
+          ]
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "u64",
+            "value": "0"
+          },
+          {
+            "type": "u64",
+            "value": "0"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "group-null-once-and-preserve-duplicates",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "aggregate",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "group_by": [
+            1
+          ],
+          "aggregates": [
+            {
+              "kind": "count_star",
+              "ordinal": null,
+              "column": {
+                "id": "all",
+                "display_name": "all",
+                "data_type": "u64",
+                "nullable": false
+              }
+            },
+            {
+              "kind": "count",
+              "ordinal": 1,
+              "column": {
+                "id": "nonnull",
+                "display_name": "nonnull",
+                "data_type": "u64",
+                "nullable": false
+              }
+            },
+            {
+              "kind": "sum",
+              "ordinal": 0,
+              "column": {
+                "id": "sum",
+                "display_name": "sum",
+                "data_type": "i64",
+                "nullable": true
+              }
+            }
+          ]
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "null"
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "u64",
+            "value": "0"
+          },
+          {
+            "type": "i64",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "u64",
+            "value": "2"
+          },
+          {
+            "type": "u64",
+            "value": "2"
+          },
+          {
+            "type": "i64",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "i64",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "i64",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "utf16",
+            "value": [
+              55357,
+              56832
+            ]
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "i64",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "u64",
+            "value": "1"
+          },
+          {
+            "type": "i64",
+            "value": "6"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "utf16-total-order",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": true,
+        "root": {
+          "op": "order",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "keys": [
+            {
+              "ordinal": 1,
+              "descending": false,
+              "nulls_first": true
+            },
+            {
+              "ordinal": 0,
+              "descending": false,
+              "nulls_first": true
+            },
+            {
+              "ordinal": 2,
+              "descending": false,
+              "nulls_first": true
+            },
+            {
+              "ordinal": 3,
+              "descending": false,
+              "nulls_first": true
+            }
+          ]
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "2"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "4"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AP8="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "5"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55357,
+              56832
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "6"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "descending-keeps-null-policy",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": true,
+        "root": {
+          "op": "order",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "keys": [
+            {
+              "ordinal": 1,
+              "descending": true,
+              "nulls_first": false
+            },
+            {
+              "ordinal": 0,
+              "descending": false,
+              "nulls_first": false
+            },
+            {
+              "ordinal": 2,
+              "descending": false,
+              "nulls_first": false
+            },
+            {
+              "ordinal": 3,
+              "descending": false,
+              "nulls_first": false
+            }
+          ]
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "6"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              57344
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "5"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55357,
+              56832
+            ]
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "4"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AP8="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "2"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "ordered-limit-is-relation-operator",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": true,
+        "root": {
+          "op": "limit",
+          "input": {
+            "op": "order",
+            "input": {
+              "op": "scan",
+              "relation": "left"
+            },
+            "keys": [
+              {
+                "ordinal": 1,
+                "descending": false,
+                "nulls_first": true
+              },
+              {
+                "ordinal": 0,
+                "descending": false,
+                "nulls_first": true
+              },
+              {
+                "ordinal": 2,
+                "descending": false,
+                "nulls_first": true
+              },
+              {
+                "ordinal": 3,
+                "descending": false,
+                "nulls_first": true
+              }
+            ]
+          },
+          "offset": "2",
+          "count": "3"
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "1"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-A",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AA=="
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "3"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              97,
+              0,
+              122
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 0
+            }
+          },
+          {
+            "type": "null"
+          }
+        ],
+        [
+          {
+            "type": "i64",
+            "value": "4"
+          },
+          {
+            "type": "utf16",
+            "value": [
+              55296
+            ]
+          },
+          {
+            "type": "entity",
+            "value": {
+              "snapshot_id": "fixture-snapshot",
+              "dex_occurrence_id": "dex-B",
+              "kind": "method_reference",
+              "local_index": 1
+            }
+          },
+          {
+            "type": "bytes",
+            "value": "AP8="
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "zero-limit",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": true,
+        "root": {
+          "op": "limit",
+          "input": {
+            "op": "order",
+            "input": {
+              "op": "scan",
+              "relation": "left"
+            },
+            "keys": [
+              {
+                "ordinal": 1,
+                "descending": false,
+                "nulls_first": true
+              },
+              {
+                "ordinal": 0,
+                "descending": false,
+                "nulls_first": true
+              },
+              {
+                "ordinal": 2,
+                "descending": false,
+                "nulls_first": true
+              },
+              {
+                "ordinal": 3,
+                "descending": false,
+                "nulls_first": true
+              }
+            ]
+          },
+          "offset": "0",
+          "count": "0"
+        }
+      },
+      "expected_rows": [],
+      "expected_error": null
+    },
+    {
+      "id": "duplicate-display-names",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "project",
+          "input": {
+            "op": "limit",
+            "input": {
+              "op": "scan",
+              "relation": "left"
+            },
+            "offset": "0",
+            "count": "1"
+          },
+          "columns": [
+            {
+              "column": {
+                "id": "first",
+                "display_name": "duplicate",
+                "data_type": "utf16",
+                "nullable": true
+              },
+              "expression": {
+                "expr": "column",
+                "ordinal": 1
+              }
+            },
+            {
+              "column": {
+                "id": "second",
+                "display_name": "duplicate",
+                "data_type": "i64",
+                "nullable": false
+              },
+              "expression": {
+                "expr": "column",
+                "ordinal": 0
+              }
+            }
+          ]
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "utf16",
+            "value": [
+              97
+            ]
+          },
+          {
+            "type": "i64",
+            "value": "1"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "lossless-integer-and-null-codec",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "project",
+          "input": {
+            "op": "limit",
+            "input": {
+              "op": "scan",
+              "relation": "left"
+            },
+            "offset": "0",
+            "count": "1"
+          },
+          "columns": [
+            {
+              "column": {
+                "id": "min",
+                "display_name": "min",
+                "data_type": "i64",
+                "nullable": false
+              },
+              "expression": {
+                "expr": "literal",
+                "value": {
+                  "type": "i64",
+                  "value": "-9223372036854775808"
+                }
+              }
+            },
+            {
+              "column": {
+                "id": "max",
+                "display_name": "max",
+                "data_type": "u64",
+                "nullable": false
+              },
+              "expression": {
+                "expr": "literal",
+                "value": {
+                  "type": "u64",
+                  "value": "18446744073709551615"
+                }
+              }
+            },
+            {
+              "column": {
+                "id": "empty",
+                "display_name": "empty",
+                "data_type": "bytes",
+                "nullable": false
+              },
+              "expression": {
+                "expr": "literal",
+                "value": {
+                  "type": "bytes",
+                  "value": ""
+                }
+              }
+            },
+            {
+              "column": {
+                "id": "missing",
+                "display_name": "missing",
+                "data_type": "bytes",
+                "nullable": true
+              },
+              "expression": {
+                "expr": "literal",
+                "value": {
+                  "type": "null"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "expected_rows": [
+        [
+          {
+            "type": "i64",
+            "value": "-9223372036854775808"
+          },
+          {
+            "type": "u64",
+            "value": "18446744073709551615"
+          },
+          {
+            "type": "bytes",
+            "value": ""
+          },
+          {
+            "type": "null"
+          }
+        ]
+      ],
+      "expected_error": null
+    },
+    {
+      "id": "eq-has-no-implicit-cast",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "eq",
+            "left": {
+              "expr": "column",
+              "ordinal": 0
+            },
+            "right": {
+              "expr": "literal",
+              "value": {
+                "type": "utf16",
+                "value": [
+                  49
+                ]
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "COMPARISON_TYPE_MISMATCH",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "raw-bytes-requires-explicit-predicate",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "eq",
+            "left": {
+              "expr": "column",
+              "ordinal": 3
+            },
+            "right": {
+              "expr": "literal",
+              "value": {
+                "type": "bytes",
+                "value": ""
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "USE_RAW_BYTES_EQ",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "bad-column-ordinal",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "predicate": {
+            "predicate": "eq",
+            "left": {
+              "expr": "column",
+              "ordinal": 9
+            },
+            "right": {
+              "expr": "literal",
+              "value": {
+                "type": "i64",
+                "value": "1"
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "COLUMN_ORDINAL",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "foreign-entity-even-empty-input",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "filter",
+          "input": {
+            "op": "scan",
+            "relation": "empty"
+          },
+          "predicate": {
+            "predicate": "eq",
+            "left": {
+              "expr": "column",
+              "ordinal": 2
+            },
+            "right": {
+              "expr": "literal",
+              "value": {
+                "type": "entity",
+                "value": {
+                  "snapshot_id": "other-snapshot",
+                  "dex_occurrence_id": "dex-A",
+                  "kind": "method_reference",
+                  "local_index": 0
+                }
+              }
+            }
+          }
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "ENTITY_OUTSIDE_SNAPSHOT",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "unbuilt-empty-layer-is-not-empty-success",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "limit",
+          "input": {
+            "op": "scan",
+            "relation": "unbuilt"
+          },
+          "offset": "0",
+          "count": "0"
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INCOMPLETE_FACTS",
+        "reason": "references",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "limit-addition-overflow",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "limit",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "offset": "18446744073709551615",
+          "count": "1"
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "LIMIT_RANGE_OVERFLOW",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "stable-requires-total-order",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": true,
+        "root": {
+          "op": "scan",
+          "relation": "left"
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "TOTAL_ORDER_REQUIRED",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "partial-order-not-total",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": true,
+        "root": {
+          "op": "order",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "keys": [
+            {
+              "ordinal": 1,
+              "descending": false,
+              "nulls_first": true
+            }
+          ]
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "TOTAL_ORDER_REQUIRED",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "numeric-sum-typechecked",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "aggregate",
+          "input": {
+            "op": "scan",
+            "relation": "left"
+          },
+          "group_by": [],
+          "aggregates": [
+            {
+              "kind": "sum",
+              "ordinal": 1,
+              "column": {
+                "id": "sum",
+                "display_name": "sum",
+                "data_type": "i64",
+                "nullable": true
+              }
+            }
+          ]
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "SUM_NUMERIC_TYPE",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "sum-overflow-is-error",
+      "query": {
+        "schema_version": "mdd.typed-query.v1",
+        "text_semantics": "mdd-text-v1",
+        "snapshot_id": "fixture-snapshot",
+        "catalog_epoch": "18446744073709551615",
+        "require_stable_order": false,
+        "root": {
+          "op": "aggregate",
+          "input": {
+            "op": "scan",
+            "relation": "overflow"
+          },
+          "group_by": [],
+          "aggregates": [
+            {
+              "kind": "sum",
+              "ordinal": 0,
+              "column": {
+                "id": "sum",
+                "display_name": "sum",
+                "data_type": "i64",
+                "nullable": true
+              }
+            }
+          ]
+        }
+      },
+      "expected_rows": null,
+      "expected_error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "SUM_OVERFLOW",
+        "stage": "execute"
+      }
+    }
+  ]
+}

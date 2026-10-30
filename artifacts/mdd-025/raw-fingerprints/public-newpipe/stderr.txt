@@ -1,0 +1,3 @@
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.66s
+     Running `target\debug\examples\raw_evidence_summary.exe artifacts/local/inputs/NewPipe_v0.28.6.apk e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58`

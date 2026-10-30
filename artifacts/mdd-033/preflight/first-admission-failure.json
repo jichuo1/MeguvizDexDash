@@ -1,0 +1,10 @@
+{
+  "kind": "driver_admission_failure_before_engine_start",
+  "observed_error": "RuntimeError: fixed tiny input identity mismatch",
+  "root_cause": "Driver initially copied the earlier A2 probe's different input SHA while selecting the MDD024 660-byte classic fixture path.",
+  "fix": "Read the actual 660-byte fixture SHA and independently match tests/fixtures/references/manifest.json plus artifacts/mdd-024/reference-conformance.json. Use 076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8.",
+  "fixture_modified": false,
+  "engine_started": false,
+  "raw_evidence": "initial tool command receipt; no filesystem tee for this admission-only failure",
+  "query_result_reclassified": false
+}

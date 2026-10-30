@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\key-lease-independent-20261029-target\\debug\\mdd-key-lease-independent.exe"
+  ],
+  "started_utc": "2026-10-29T05:34:12.201169+00:00",
+  "finished_utc": "2026-10-29T05:34:15.006368+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "5f5a94147e8826004b03680f306dd61840c36ecfd4ba8ae104c1f002df61965d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "b6ae88d562a7dac3dfae16643a468ef185be19f55fa85c6ba871bbd0a7f5a489",
+  "scope": "independent synthetic validation; not performance qualification"
+}

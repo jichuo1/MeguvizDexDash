@@ -1,0 +1,130 @@
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+   Compiling mdd-independent-q03-probe v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-031-audit\null-aggregate-independent-20261029)
+error[E0308]: mismatched types
+  --> src\main.rs:35:52
+   |
+35 |             vec![vec![SqlValue::Null,SqlValue::I64(7)],vec![SqlValue::I64(2),SqlValue::I64(3)],
+   |                                      ------------- ^ expected `Signed64`, found integer
+   |                                      |
+   |                                      arguments to this enum variant are incorrect
+   |
+note: tuple variant defined here
+  --> D:\MeguvisDexDash\crates\mdd-sql\src\values.rs:53:5
+   |
+53 |     I64(Signed64),
+   |     ^^^
+help: try wrapping the expression in `mdd_query::ir::Signed64`
+   |
+35 |             vec![vec![SqlValue::Null,SqlValue::I64(mdd_query::ir::Signed64(7))],vec![SqlValue::I64(2),SqlValue::I64(3)],
+   |                                                    ++++++++++++++++++++++++ +
+
+error[E0308]: mismatched types
+  --> src\main.rs:35:75
+   |
+35 |             vec![vec![SqlValue::Null,SqlValue::I64(7)],vec![SqlValue::I64(2),SqlValue::I64(3)],
+   |                                                             ------------- ^ expected `Signed64`, found integer
+   |                                                             |
+   |                                                             arguments to this enum variant are incorrect
+   |
+note: tuple variant defined here
+  --> D:\MeguvisDexDash\crates\mdd-sql\src\values.rs:53:5
+   |
+53 |     I64(Signed64),
+   |     ^^^
+help: try wrapping the expression in `mdd_query::ir::Signed64`
+   |
+35 |             vec![vec![SqlValue::Null,SqlValue::I64(7)],vec![SqlValue::I64(mdd_query::ir::Signed64(2)),SqlValue::I64(3)],
+   |                                                                           ++++++++++++++++++++++++ +
+
+error[E0308]: mismatched types
+  --> src\main.rs:35:92
+   |
+35 |             vec![vec![SqlValue::Null,SqlValue::I64(7)],vec![SqlValue::I64(2),SqlValue::I64(3)],
+   |                                                                              ------------- ^ expected `Signed64`, found integer
+   |                                                                              |
+   |                                                                              arguments to this enum variant are incorrect
+   |
+note: tuple variant defined here
+  --> D:\MeguvisDexDash\crates\mdd-sql\src\values.rs:53:5
+   |
+53 |     I64(Signed64),
+   |     ^^^
+help: try wrapping the expression in `mdd_query::ir::Signed64`
+   |
+35 |             vec![vec![SqlValue::Null,SqlValue::I64(7)],vec![SqlValue::I64(2),SqlValue::I64(mdd_query::ir::Signed64(3))],
+   |                                                                                            ++++++++++++++++++++++++ +
+
+error[E0308]: mismatched types
+  --> src\main.rs:36:37
+   |
+36 |                  vec![SqlValue::I64(2),SqlValue::I64(-9)],vec![SqlValue::I64(-1),SqlValue::I64(2)]]
+   |                       ------------- ^ expected `Signed64`, found integer
+   |                       |
+   |                       arguments to this enum variant are incorrect
+   |
+note: tuple variant defined here
+  --> D:\MeguvisDexDash\crates\mdd-sql\src\values.rs:53:5
+   |
+53 |     I64(Signed64),
+   |     ^^^
+help: try wrapping the expression in `mdd_query::ir::Signed64`
+   |
+36 |                  vec![SqlValue::I64(mdd_query::ir::Signed64(2)),SqlValue::I64(-9)],vec![SqlValue::I64(-1),SqlValue::I64(2)]]
+   |                                     ++++++++++++++++++++++++ +
+
+error[E0308]: mismatched types
+  --> src\main.rs:36:54
+   |
+36 |                  vec![SqlValue::I64(2),SqlValue::I64(-9)],vec![SqlValue::I64(-1),SqlValue::I64(2)]]
+   |                                        ------------- ^^ expected `Signed64`, found integer
+   |                                        |
+   |                                        arguments to this enum variant are incorrect
+   |
+note: tuple variant defined here
+  --> D:\MeguvisDexDash\crates\mdd-sql\src\values.rs:53:5
+   |
+53 |     I64(Signed64),
+   |     ^^^
+help: try wrapping the expression in `mdd_query::ir::Signed64`
+   |
+36 |                  vec![SqlValue::I64(2),SqlValue::I64(mdd_query::ir::Signed64(-9))],vec![SqlValue::I64(-1),SqlValue::I64(2)]]
+   |                                                      ++++++++++++++++++++++++  +
+
+error[E0308]: mismatched types
+  --> src\main.rs:36:78
+   |
+36 |                  vec![SqlValue::I64(2),SqlValue::I64(-9)],vec![SqlValue::I64(-1),SqlValue::I64(2)]]
+   |                                                                ------------- ^^ expected `Signed64`, found integer
+   |                                                                |
+   |                                                                arguments to this enum variant are incorrect
+   |
+note: tuple variant defined here
+  --> D:\MeguvisDexDash\crates\mdd-sql\src\values.rs:53:5
+   |
+53 |     I64(Signed64),
+   |     ^^^
+help: try wrapping the expression in `mdd_query::ir::Signed64`
+   |
+36 |                  vec![SqlValue::I64(2),SqlValue::I64(-9)],vec![SqlValue::I64(mdd_query::ir::Signed64(-1)),SqlValue::I64(2)]]
+   |                                                                              ++++++++++++++++++++++++  +
+
+error[E0308]: mismatched types
+  --> src\main.rs:36:96
+   |
+36 |                  vec![SqlValue::I64(2),SqlValue::I64(-9)],vec![SqlValue::I64(-1),SqlValue::I64(2)]]
+   |                                                                                  ------------- ^ expected `Signed64`, found integer
+   |                                                                                  |
+   |                                                                                  arguments to this enum variant are incorrect
+   |
+note: tuple variant defined here
+  --> D:\MeguvisDexDash\crates\mdd-sql\src\values.rs:53:5
+   |
+53 |     I64(Signed64),
+   |     ^^^
+help: try wrapping the expression in `mdd_query::ir::Signed64`
+   |
+36 |                  vec![SqlValue::I64(2),SqlValue::I64(-9)],vec![SqlValue::I64(-1),SqlValue::I64(mdd_query::ir::Signed64(2))]]
+   |                                                                                                ++++++++++++++++++++++++ +
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `mdd-independent-q03-probe` (bin "mdd-null-aggregate-independent") due to 7 previous errors

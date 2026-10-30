@@ -1,0 +1,1 @@
+10-29 01:42:37.780 43468  5916 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\MeguvisDexDash\tests\fixtures\class_source_boundary\generated\bad-source-index.dex': Bad index for class_def.source_file: 4 >= 4

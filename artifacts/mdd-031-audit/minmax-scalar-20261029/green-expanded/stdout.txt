@@ -1,0 +1,6 @@
+
+running 1 test
+test bridge::tests::min_max_multi_argument_scalar_does_not_become_aggregate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.01s
+

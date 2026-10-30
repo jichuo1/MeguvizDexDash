@@ -1,0 +1,139 @@
+{
+  "status": "sqlite-reference-complete",
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "expression": "2147483647",
+      "operator": "ORDER BY",
+      "sql": "SELECT v FROM t ORDER BY 2147483647",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st ORDER BY term out of range - should be between 1 and 1"
+    },
+    {
+      "expression": "2147483647",
+      "operator": "GROUP BY",
+      "sql": "SELECT v FROM t GROUP BY 2147483647",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st GROUP BY term out of range - should be between 1 and 1"
+    },
+    {
+      "expression": "2147483648",
+      "operator": "ORDER BY",
+      "sql": "SELECT v FROM t ORDER BY 2147483648",
+      "status": "ok",
+      "rows": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "expression": "2147483648",
+      "operator": "GROUP BY",
+      "sql": "SELECT v FROM t GROUP BY 2147483648",
+      "status": "ok",
+      "rows": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "expression": "-2147483647",
+      "operator": "ORDER BY",
+      "sql": "SELECT v FROM t ORDER BY -2147483647",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st ORDER BY term out of range - should be between 1 and 1"
+    },
+    {
+      "expression": "-2147483647",
+      "operator": "GROUP BY",
+      "sql": "SELECT v FROM t GROUP BY -2147483647",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st GROUP BY term out of range - should be between 1 and 1"
+    },
+    {
+      "expression": "-2147483648",
+      "operator": "ORDER BY",
+      "sql": "SELECT v FROM t ORDER BY -2147483648",
+      "status": "ok",
+      "rows": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "expression": "-2147483648",
+      "operator": "GROUP BY",
+      "sql": "SELECT v FROM t GROUP BY -2147483648",
+      "status": "ok",
+      "rows": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "expression": "+2147483648",
+      "operator": "ORDER BY",
+      "sql": "SELECT v FROM t ORDER BY +2147483648",
+      "status": "ok",
+      "rows": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "expression": "+2147483648",
+      "operator": "GROUP BY",
+      "sql": "SELECT v FROM t GROUP BY +2147483648",
+      "status": "ok",
+      "rows": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "expression": "1.0",
+      "operator": "ORDER BY",
+      "sql": "SELECT v FROM t ORDER BY 1.0",
+      "status": "ok",
+      "rows": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "expression": "1.0",
+      "operator": "GROUP BY",
+      "sql": "SELECT v FROM t GROUP BY 1.0",
+      "status": "ok",
+      "rows": [
+        [
+          1
+        ]
+      ]
+    }
+  ],
+  "scope": "SQLite-only synthetic integer boundaries; A0/A1 not started"
+}

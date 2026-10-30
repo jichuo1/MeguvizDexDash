@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\native_probe.exe",
+    "tests/fixtures/references/generated/nonscalar-string-035.dex"
+  ],
+  "started_utc": "2026-10-28T13:06:25.786667+00:00",
+  "finished_utc": "2026-10-28T13:06:25.856485+00:00",
+  "elapsed_seconds": 0.07800000000133878,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "9af90feb58202557a3fd8f6d0ab38471b43b6eaae42291a367e23d21bc51592c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

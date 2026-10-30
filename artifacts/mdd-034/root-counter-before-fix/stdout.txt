@@ -1,0 +1,18 @@
+
+running 1 test
+test result::tests::consumer_count_errors_remain_failed_and_do_not_partially_commit ... FAILED
+
+failures:
+
+---- result::tests::consumer_count_errors_remain_failed_and_do_not_partially_commit stdout ----
+
+thread 'result::tests::consumer_count_errors_remain_failed_and_do_not_partially_commit' (39588) panicked at crates\mdd-types\src\result.rs:616:9:
+assertion failed: receiver.terminal(terminal).is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    result::tests::consumer_count_errors_remain_failed_and_do_not_partially_commit
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
+

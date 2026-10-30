@@ -1,0 +1,149 @@
+{
+  "schema_version": "mdd.private-raw-diagnostic.v1",
+  "source_commit": "e56db3e9380a60b117e9e65ec5ab3f76ffb61361",
+  "materialized_source": "handoff/checkpoint-030",
+  "source_files_verified": 61,
+  "measurement_scope": "bounded static input diagnosis; no full workflow or performance qualification",
+  "results": [
+    {
+      "input_id": "hostlab-9161100",
+      "available_physical_before": "8673189888",
+      "input": {
+        "bytes": 226519215,
+        "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2"
+      },
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\handoff\\checkpoint-030\\target\\release\\examples\\raw_evidence_summary.exe",
+          "D:\\Bilibili_Innocent_Lab\\Bilibili_Innocent_Lab\\\u54d4\u54e9\u54d4\u54e9-9.16.1(9161100).apk",
+          "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "3221225472",
+          "affinity_mask": "1",
+          "max_processes": 1,
+          "timeout_seconds": 600,
+          "max_log_bytes": 33554432
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-45bcd6eedeb146c3854975edd31781fd",
+        "process_id": 43812,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 122.421875,
+        "cpu_kernel_seconds": 10.765625,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "3172966400",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 163.2190502000003
+      },
+      "private_raw_directory": "artifacts/local/private-raw-diagnostic/20261028T172024248736Z/hostlab-9161100",
+      "status": "native-raw-calculation-complete",
+      "stdout": {
+        "bytes": 1478557,
+        "sha256": "64cc1184cf59bd24e54531c20b6c943682a05a4c54a2e37f8a038144c5d8d33a"
+      },
+      "dex_occurrences": 33,
+      "method_records": 1731482,
+      "class_records": 310716,
+      "resource_fingerprints": 17755
+    },
+    {
+      "input_id": "hostlab-9170100",
+      "available_physical_before": "8716230656",
+      "input": {
+        "bytes": 243687778,
+        "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955"
+      },
+      "job": {
+        "schema_version": "mdd.windows-job-run.v1",
+        "command_argv": [
+          "D:\\MeguvisDexDash\\handoff\\checkpoint-030\\target\\release\\examples\\raw_evidence_summary.exe",
+          "D:\\Bilibili_Innocent_Lab\\Bilibili_Innocent_Lab\\\u54d4\u54e9\u54d4\u54e9_9.17.0(9170100).apk",
+          "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955"
+        ],
+        "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+        "limits": {
+          "memory_commit_bytes": "3221225472",
+          "affinity_mask": "1",
+          "max_processes": 1,
+          "timeout_seconds": 600,
+          "max_log_bytes": 33554432
+        },
+        "assigned_before_resume": true,
+        "tree_empty_verified": true,
+        "status": "completed",
+        "job_name": "mdd-baseline-14207783680f4b4297e15d358d6358e5",
+        "process_id": 38572,
+        "reason": null,
+        "exit_code": 0,
+        "cpu_user_seconds": 124.359375,
+        "cpu_kernel_seconds": 10.484375,
+        "total_processes": 2,
+        "peak_job_commit_bytes": "3163942912",
+        "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+        "wall_seconds": 147.9187262000005
+      },
+      "private_raw_directory": "artifacts/local/private-raw-diagnostic/20261028T172024248736Z/hostlab-9170100",
+      "status": "native-raw-calculation-complete",
+      "stdout": {
+        "bytes": 1480882,
+        "sha256": "8bc385802df39d42f5f3a42936376f7e90cfb413ec13052c8167772da930a458"
+      },
+      "dex_occurrences": 35,
+      "method_records": 1848430,
+      "class_records": 345907,
+      "resource_fingerprints": 17770
+    }
+  ],
+  "status": "native-raw-calculation-complete-not-audit",
+  "full_audit_complete": false,
+  "formal_performance_qualified": false,
+  "last_available_physical_bytes": "8716230656",
+  "minimum_development_available_bytes": "4294967296",
+  "available_physical_before_build": "8487149568",
+  "build": {
+    "schema_version": "mdd.windows-job-run.v1",
+    "command_argv": [
+      "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+      "build",
+      "--locked",
+      "--offline",
+      "--release",
+      "-p",
+      "mdd-facts",
+      "--example",
+      "raw_evidence_summary"
+    ],
+    "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+    "limits": {
+      "memory_commit_bytes": "2147483648",
+      "affinity_mask": "15",
+      "max_processes": 16,
+      "timeout_seconds": 300,
+      "max_log_bytes": 16777216
+    },
+    "assigned_before_resume": true,
+    "tree_empty_verified": true,
+    "status": "completed",
+    "job_name": "mdd-baseline-36751141d6bf48b38c290da6cc07fc06",
+    "process_id": 19560,
+    "reason": null,
+    "exit_code": 0,
+    "cpu_user_seconds": 40.421875,
+    "cpu_kernel_seconds": 16.046875,
+    "total_processes": 77,
+    "peak_job_commit_bytes": "553418752",
+    "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+    "wall_seconds": 40.89815449999969
+  },
+  "binary": {
+    "path": "D:\\MeguvisDexDash\\handoff\\checkpoint-030\\target\\release\\examples\\raw_evidence_summary.exe",
+    "bytes": 957440,
+    "sha256": "9eee898b4aefd1e9aea21961afbba9d0ca5026e4ac9f72ee887c3c8c4accd680"
+  }
+}

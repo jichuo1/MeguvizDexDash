@@ -1,0 +1,15 @@
+[package]
+name = "mdd-row-capacity-independent"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+mdd-query = { path = "../../../crates/mdd-query" }
+mdd-types = { path = "../../../crates/mdd-types" }
+mdd-facts = { path = "../../../crates/mdd-facts" }
+mdd-input = { path = "../../../crates/mdd-input" }
+mdd-session = { path = "../../../crates/mdd-session" }
+serde_json = "=1.0.151"

@@ -1,0 +1,294 @@
+{
+  "schema_version": "mdd.annotation-relations.v1",
+  "task_id": "MDD-022",
+  "source_relation_manifest_sha256": "f416926d6da3467b5cfea625978c2e4faac08c914cf2930d2c64878c261bb82d",
+  "relations": [
+    {
+      "name": "annotation_directories",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotations_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_annotations_off",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "fields_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "methods_size",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "parameters_size",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/annotations.rs",
+      "status": "implemented_synthetic_validated",
+      "admitted": false
+    },
+    {
+      "name": "annotation_directory_entries",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotations_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "entry_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "entry_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "annotation_set_ref_list_off",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/annotations.rs",
+      "status": "implemented_synthetic_validated",
+      "admitted": false
+    },
+    {
+      "name": "annotation_set_entries",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/annotations.rs",
+      "status": "implemented_synthetic_validated",
+      "admitted": false
+    },
+    {
+      "name": "annotation_set_refs",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_ref_list_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": false,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/annotations.rs",
+      "status": "implemented_synthetic_validated",
+      "admitted": false
+    },
+    {
+      "name": "annotations",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "visibility",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "element_count",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/annotations.rs",
+      "status": "implemented_synthetic_validated",
+      "admitted": false
+    },
+    {
+      "name": "annotation_elements",
+      "columns": [
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "depth",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_end_off",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "value_kind",
+          "data_type": "Utf8",
+          "nullable": false
+        },
+        {
+          "name": "value_index",
+          "data_type": "UInt32",
+          "nullable": true
+        },
+        {
+          "name": "value_i64",
+          "data_type": "Int64",
+          "nullable": true
+        },
+        {
+          "name": "value_f64",
+          "data_type": "Float64",
+          "nullable": true
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/annotations.rs",
+      "status": "implemented_synthetic_validated",
+      "admitted": false
+    }
+  ],
+  "profile_admitted": false,
+  "physical_validation": "All declared annotation_item, encoded_array_item, annotation_set_item, annotation_set_ref_list and annotations_directory_item starts are established by full map traversal; every source reference must resolve to a real item start. Valid unused items and shared empty items are retained.",
+  "source_identity": "Every facts object retains one DefinitionFacts/MetadataFacts/MemberBlob lease. Native IDs include snapshot and DEX occurrence. file_id is an explicit dataset-local projection argument. class_idx is type_idx; class_def_idx is separately retained.",
+  "row_semantics": {
+    "depth": "Top encoded annotation elements depth0; each child array or nested annotation increments depth.",
+    "ordinal": "Index within the immediate sibling sequence, not a global node ID. Native node_id is separate.",
+    "name_idx": "Named annotation elements retain their name; array children are NULL.",
+    "value_range": "value_off includes tag byte; value_end_off is exclusive end of the entire value subtree.",
+    "null": "NULL remains separate from zero, false, empty string and absent slots. Parameter lists preserve only encoded slots; omitted slots do not become invented NULL rows.",
+    "directory_entries": "Field/method/parameter rows; class annotations are linked by annotation_directories.class_annotations_off.",
+    "duplicates": "Logical owner/source multiplicity is retained; physical item parsing is shared without removing occurrence-scoped references."
+  },
+  "native_json_encoding": {
+    "UInt32": "JSON integer after checked bounds",
+    "Int64": "exact decimal string",
+    "Float64": "finite JSON number, nonfinite NaN/Infinity/-Infinity string with declared float column type; raw IEEE bits and width remain on native EncodedValue"
+  },
+  "signature": {
+    "order": "encoded string-array order, including repeated fragments; never sort by string_idx or value",
+    "identity": "owner EntityRef, AnnotationRef, source string_pool_id and ordered String EntityRefs",
+    "text": "concatenated UTF16 units; strict scalar conversion may fail without lossy identity replacement"
+  },
+  "scope_limits": [
+    "static field initial value type compatibility remains a separate unbuilt layer",
+    "CallSite real array starts, minimum arity, MethodHandle/String/MethodType prefix, feature versions and all encoded indices validated; external runtime bootstrap target/flags remain separate",
+    "no SQL profile or HostLab/backend qualification"
+  ],
+  "evidence": [
+    "tests/fixtures/annotations/oracle-results.json",
+    "artifacts/mdd-022/probes/reference-results.json",
+    "artifacts/mdd-022/probes/oracle-comparison.json",
+    "artifacts/mdd-022/probes/sdk-physical-items.json",
+    "artifacts/mdd-022/probes/parameter-arity-sdk/adjudication.json",
+    "artifacts/mdd-022/progress.json",
+    "artifacts/mdd-022/annotation-conformance.json"
+  ],
+  "parameter_coverage": "Exact encoded slots are complete; per-list prototype-position coverage is separately complete/unknown, and require_complete_parameter_positions fails closed on unknown."
+}

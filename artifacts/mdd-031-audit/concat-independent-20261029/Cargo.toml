@@ -1,0 +1,14 @@
+[workspace]
+[package]
+name = "mdd-concat-independent"
+version = "0.0.0"
+edition = "2024"
+[dependencies]
+mdd-sql = { path = "../../../handoff/concat-3c334c5-20261029/crates/mdd-sql" }
+mdd-types = { path = "../../../handoff/concat-3c334c5-20261029/crates/mdd-types" }
+mdd-input = { path = "../../../handoff/concat-3c334c5-20261029/crates/mdd-input" }
+mdd-dex = { path = "../../../handoff/concat-3c334c5-20261029/crates/mdd-dex" }
+mdd-facts = { path = "../../../handoff/concat-3c334c5-20261029/crates/mdd-facts" }
+mdd-session = { path = "../../../handoff/concat-3c334c5-20261029/crates/mdd-session" }
+mdd-query = { path = "../../../handoff/concat-3c334c5-20261029/crates/mdd-query" }
+serde_json = "=1.0.151"

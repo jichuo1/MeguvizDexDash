@@ -1,0 +1,91 @@
+{
+  "status": "sqlite-reference-complete",
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "case": "parenthesized_ordinal",
+      "sql": "SELECT v,alt FROM facts ORDER BY (1),(2) DESC",
+      "status": "ok",
+      "columns": [
+        "v",
+        "alt"
+      ],
+      "rows": [
+        [
+          null,
+          7
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          -9
+        ]
+      ]
+    },
+    {
+      "case": "limit_order",
+      "sql": "SELECT v AS alt FROM facts ORDER BY alt LIMIT 2",
+      "status": "ok",
+      "columns": [
+        "alt"
+      ],
+      "rows": [
+        [
+          null
+        ],
+        [
+          -1
+        ]
+      ]
+    },
+    {
+      "case": "cte_alias",
+      "sql": "WITH s AS (SELECT v,alt FROM facts) SELECT v AS alt FROM s ORDER BY alt",
+      "status": "ok",
+      "columns": [
+        "alt"
+      ],
+      "rows": [
+        [
+          null
+        ],
+        [
+          -1
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "case": "compound_null",
+      "sql": "SELECT 2 AS val UNION ALL SELECT NULL AS val UNION ALL SELECT -1 AS val ORDER BY val",
+      "status": "ok",
+      "columns": [
+        "val"
+      ],
+      "rows": [
+        [
+          null
+        ],
+        [
+          -1
+        ],
+        [
+          2
+        ]
+      ]
+    }
+  ],
+  "scope": "synthetic SQLite only, no new A0/A1 or profile qualification"
+}

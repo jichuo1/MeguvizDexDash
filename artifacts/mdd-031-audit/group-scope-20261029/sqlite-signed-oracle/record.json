@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/group-scope-20261029/sqlite_signed_oracle.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:39:32.392894+00:00",
+  "finished_utc": "2026-10-29T01:39:32.447036+00:00",
+  "elapsed_seconds": 0.04699999999957072,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 666,
+    "sha256": "9895a60f76de777e8524f9b82e04565c2b515f3f0d740c7f7e8dcdf155c4bb31"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

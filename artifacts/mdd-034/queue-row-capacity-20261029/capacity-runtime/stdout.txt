@@ -1,0 +1,14 @@
+
+running 9 tests
+test budget::tests::pending_senders_hold_resident_admission_before_a_queue_slot ... ok
+test budget::tests::queue_backpressure_and_dequeued_payload_keep_memory_until_consumer_drop ... ok
+test executor::runtime_tests::empty_queue_needs_explicit_end_and_unbound_queue_cannot_prove_delivery ... ok
+test executor::runtime_tests::queue_accounts_owned_row_capacity_separately_from_wire_length ... ok
+test executor::runtime_tests::queue_consumer_receives_original_required_facts_failure_end ... ok
+test executor::runtime_tests::queue_counts_owned_text_bytes_and_entity_capacities_on_real_rows ... ok
+test executor::runtime_tests::queue_deadline_has_explicit_error_end_and_no_complete_success ... ok
+test executor::runtime_tests::queue_quota_delivers_only_acknowledged_prefix_with_failure_end ... ok
+test executor::runtime_tests::queue_with_real_backpressure_completes_only_after_consumer_end ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 37 filtered out; finished in 0.04s
+

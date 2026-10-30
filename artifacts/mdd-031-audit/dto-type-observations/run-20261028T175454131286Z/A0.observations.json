@@ -1,0 +1,15 @@
+{
+  "variant": "A0",
+  "engine_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "cases": [],
+  "final": null,
+  "server_info": {
+    "name": "dexsql",
+    "title": null,
+    "version": "0.1.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "transcript_sha256": "1fccc2946ee378fa33bea9e2ac75f1c2230f1d51cf737688b395172c72998671"
+}

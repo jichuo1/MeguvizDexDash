@@ -1,0 +1,69 @@
+{
+  "schema_version": "mdd.private-header-inspection.v1",
+  "run": "20261028T130804307935Z",
+  "measurement_scope": "development; owned job; not performance or full audit",
+  "binary": {
+    "path": "D:\\MeguvisDexDash\\target\\debug\\meguvizdexdash.exe",
+    "bytes": 1766912,
+    "sha256": "19a7330827a5697af3823580540735f94ba52d62d44dd2e874ae7c41e3febca6",
+    "version": {
+      "build_id": "source-sha256:f5d001c62bd7a07ab6a049645ed21c5251ad35e590c48bbead8b32bf1c078e53",
+      "engine_version": "0.1.0-dev",
+      "implementation_scope": "unqualified development build",
+      "product": "MeguvizDexDash"
+    }
+  },
+  "supervisor_source": {
+    "bytes": 9276,
+    "sha256": "7d09b5f48217c2444e5a86e796f69743126aba5d7683bddaf7c48df3aa3bea95"
+  },
+  "results": [
+    {
+      "input_id": "hostlab-9161100",
+      "input": {
+        "bytes": 226519215,
+        "sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2"
+      },
+      "dex_headers": 33,
+      "available_physical_bytes": "8273952768",
+      "header_versions": [
+        "037"
+      ],
+      "snapshot_id": "snapshot-2fdee77abcafb4f03a12b278f3c531de90e8c0f4dc86c2354c84d5e2ae99b59d",
+      "requested_scope_complete": true,
+      "stdout": {
+        "bytes": 14442865,
+        "sha256": "2dd3e8b047dec4084a7b2cd5a978a23a8620ff1512e77414c5b591212ac162fe"
+      },
+      "private_raw_directory": "artifacts/local/private-header-inspection/20261028T130804307935Z/hostlab-9161100",
+      "job_status": "completed",
+      "job_tree_empty": true,
+      "peak_job_commit_bytes": "623386624"
+    },
+    {
+      "input_id": "hostlab-9170100",
+      "input": {
+        "bytes": 243687778,
+        "sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955"
+      },
+      "dex_headers": 35,
+      "available_physical_bytes": "7345963008",
+      "header_versions": [
+        "037"
+      ],
+      "snapshot_id": "snapshot-d22d0b0da29e65d5632068f74bac7bb5da08766f6982bc76067a44a76dc6e983",
+      "requested_scope_complete": true,
+      "stdout": {
+        "bytes": 15215677,
+        "sha256": "60b68b4d0a2d18816bd5546fe6f44938025044fb33bd300e906b1f757d80b114"
+      },
+      "private_raw_directory": "artifacts/local/private-header-inspection/20261028T130804307935Z/hostlab-9170100",
+      "job_status": "completed",
+      "job_tree_empty": true,
+      "peak_job_commit_bytes": "676052992"
+    }
+  ],
+  "formal_performance_qualified": false,
+  "full_audit_complete": false,
+  "status": "passed-header-inventory-scope-only"
+}

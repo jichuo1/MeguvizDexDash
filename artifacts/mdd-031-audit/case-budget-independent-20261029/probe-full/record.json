@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\like-independent-20261029-target\\debug\\mdd-case-budget-independent.exe"
+  ],
+  "started_utc": "2026-10-29T02:11:30.122681+00:00",
+  "finished_utc": "2026-10-29T02:11:33.474551+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 60,
+  "stdout_sha256": "b1db0771f01443bf0ea0c05d29ff54f46c945fa586f00e4bc54df7bbacb658d1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "93a7e66afedf4dfcc408e75fefce48be616680728737c92f40ca0eeae69ffcf8",
+  "scope": "local independent test, no formal performance"
+}

@@ -1,0 +1,14 @@
+[workspace]
+[package]
+name = "mdd-key-lease-independent"
+version = "0.0.0"
+edition = "2024"
+[dependencies]
+mdd-sql = { path = "../../../handoff/key-lease-cebb3a7-20261029/crates/mdd-sql" }
+mdd-types = { path = "../../../handoff/key-lease-cebb3a7-20261029/crates/mdd-types" }
+mdd-input = { path = "../../../handoff/key-lease-cebb3a7-20261029/crates/mdd-input" }
+mdd-dex = { path = "../../../handoff/key-lease-cebb3a7-20261029/crates/mdd-dex" }
+mdd-facts = { path = "../../../handoff/key-lease-cebb3a7-20261029/crates/mdd-facts" }
+mdd-session = { path = "../../../handoff/key-lease-cebb3a7-20261029/crates/mdd-session" }
+mdd-query = { path = "../../../handoff/key-lease-cebb3a7-20261029/crates/mdd-query" }
+serde_json = "=1.0.151"

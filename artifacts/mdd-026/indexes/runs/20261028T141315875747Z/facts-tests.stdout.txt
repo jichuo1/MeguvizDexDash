@@ -1,0 +1,49 @@
+
+running 35 tests
+test annotations::tests::short_parameter_lists_have_explicit_unknown_prototype_coverage ... ok
+test annotations::tests::same_snapshot_duplicate_occurrences_keep_distinct_annotation_refs ... ok
+test annotations::tests::signature_parts_keep_array_order_pool_and_owner_source ... ok
+test annotations::tests::six_full_relations_equal_independent_oracle_and_reference ... ok
+test code::tests::raw_code_retains_exact_member_lease_scope_and_occurrence_after_source_changes ... ok
+test code::tests::all_hand_fixtures_match_independent_python_oracle_fields_and_raw_bytes ... ok
+test definitions::tests::occurrences_and_reference_definition_kinds_remain_distinct ... ok
+test indexes::lazy::tests::concurrent_first_build_publishes_one_immutable_terminal ... ok
+test indexes::lazy::tests::joined_failed_attempt_survives_immediate_ready_retry ... ok
+test indexes::lazy::tests::panic_quota_deadline_failures_are_audited_without_implicit_retry ... ok
+test indexes::tests::coverage_retains_late_genuine_errors_and_rejects_terminal_overwrite ... ok
+test definitions::tests::wildcard_definition_columns_match_frozen_reference_schema ... ok
+test indexes::tests::definitions_owners_and_encoded_reference_symbols_preserve_distinct_sites ... ok
+test indexes::tests::explicit_subset_negative_proof_and_foreign_generation_are_bounded ... ok
+test indexes::tests::fine_coverage_parameter_positions_projection_bodies_source_and_resource ... ok
+test indexes::tests::index_quota_deadline_and_unbuilt_failures_never_publish_ready_or_zero ... ok
+test indexes::tests::exhaustive_candidate_probe_for_independent_code_unit_oracle ... ok
+test indexes::tests::scalar_reference_scan_is_independent_of_lazy_candidate_failure ... ok
+test indexes::tests::utf16_raw_candidates_match_scalar_and_hand_oracle_without_occurrence_dedup ... ok
+test metadata::tests::duplicate_content_occurrences_keep_distinct_refs_and_owned_leases ... ok
+test metadata::tests::unrelated_snapshot_inventory_and_zero_quota_fail_closed ... ok
+test metadata::tests::same_archive_duplicate_dexes_retain_independent_local_indices ... ok
+test raw_fingerprints::tests::missing_projection_bad_item_source_and_zero_quotas_fail_closed ... ok
+test raw_fingerprints::tests::present_empty_insns_has_empty_digest_not_absent_body ... ok
+test raw_fingerprints::tests::raw_body_bytes_and_explicit_order_match_handwritten_python_digests ... ok
+test raw_fingerprints::tests::resource_fingerprint_is_raw_same_snapshot_and_survives_source_mutation ... ok
+test references::tests::caller_site_expansion_query_and_search_budgets_fail_before_partial_success ... ok
+test references::tests::custom_narrow_metadata_scope_and_definition_candidate_budget_are_explicit ... ok
+test references::tests::index_and_scalar_definition_search_keep_world_scope_external_and_ambiguity ... ok
+test references::tests::ordinary_scope_does_not_consume_unrelated_annotations_and_custom_does_not_fake_callee ... ok
+test references::tests::partial_or_missing_code_never_becomes_complete_empty_rows ... ok
+test references::tests::physical_invalid_body_is_not_downgraded_to_unbuilt_partial_scope ... ok
+test references::tests::shared_code_expands_callers_without_counting_projection_duplicates_or_fake_callers ... ok
+test references::tests::source_and_snapshot_guards_reject_local_id_cross_joins ... ok
+test references::tests::all_hand_fixtures_match_independent_sites_ranges_and_complete_rows ... ok
+
+test result: ok. 35 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+
+running 4 tests
+test crates\mdd-facts\src\code.rs - code::CodeFacts (line 255) - compile fail ... ok
+test crates\mdd-facts\src\annotations.rs - annotations::AnnotationFacts (line 43) - compile fail ... ok
+test crates\mdd-facts\src\metadata.rs - metadata::MetadataFacts (line 82) - compile fail ... ok
+test crates\mdd-facts\src\references.rs - references::ReferenceFacts (line 146) - compile fail ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+

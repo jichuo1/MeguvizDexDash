@@ -1,0 +1,35 @@
+{
+  "schema_version": "mdd.parser-local-validation.v1",
+  "source_stable": true,
+  "commands": [
+    {
+      "name": "compiler",
+      "exit_code": 0
+    },
+    {
+      "name": "tests",
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "exit_code": 0
+    },
+    {
+      "name": "format",
+      "exit_code": 0
+    },
+    {
+      "name": "driver-contract",
+      "exit_code": 0
+    },
+    {
+      "name": "smoke",
+      "exit_code": 0
+    }
+  ],
+  "binary_sha256": "6dedbcda4fde18bbe3242672970f3095c19593e27cc1d663d465f22c1b530ad3",
+  "sanitizer": null,
+  "instrumented_coverage": false,
+  "linux_asan_status": "awaiting-reviewed-CI",
+  "qualification": false
+}

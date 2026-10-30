@@ -1,0 +1,13 @@
+{
+  "captured_utc": "2026-10-29T04:58:08.404635+00:00",
+  "sha256": {
+    "crates/mdd-sql/src/dialects/functions.rs": "11dbda22f2203b0f790eeb751674cbc9425d324f26c7895330c82e1634c6140b",
+    "crates/mdd-sql/src/dialects/ast.rs": "ed72f8637f44d0ceb1982c4f54e7ada43a63ea9fdb652892fbfc22e4ac7cbb9e",
+    "crates/mdd-sql/src/bridge.rs": "da5f562c40fcea5dc34fe0a9626ea1e2ce7f921d19cbedb7b20750be42790fee",
+    "crates/mdd-sql/src/provider.rs": "27cdcc535265c054e4c470ab737cf5402abb9c734b2d5894a2b1cb439d0ace56",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "artifacts/mdd-031-audit/between-independent-20261029/src/main.rs": "876cb5384aff6f021838752ee7a3bdb0317402ccd7e405a83d3c11d58c4aa9a2",
+    "artifacts/mdd-031-audit/between-independent-20261029/Cargo.lock": "33e50662eb177edddd2331dab4d9db402a8c5031c270ec9c2a204939df2d6049",
+    "artifacts/mdd-031-audit/between-independent-20261029/run_bounded.py": "22bc04c3e063d7717229ac0f1215a0d37f20ae4503619eda80c53c7e829680a9"
+  }
+}

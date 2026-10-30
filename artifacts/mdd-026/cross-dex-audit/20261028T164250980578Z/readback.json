@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "result_sha256": "0f3f4f46764973908fad5e6c540ee0b804ed023ec43278464d26318c38ea92e3",
+  "readback_source_sha256": "88dac1fed1da6e9eb325d1fa11aaf1e8575e5363ba33f09e94b1bac4db08ce6c",
+  "cases": 3,
+  "a0_join_rows": 79,
+  "source_files_checked": 51,
+  "task_complete_proven": false,
+  "scope": "three synthetic multi-input cases, not production mapping or full HostLab"
+}

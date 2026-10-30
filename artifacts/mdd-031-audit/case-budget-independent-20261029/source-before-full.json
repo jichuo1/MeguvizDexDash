@@ -1,0 +1,13 @@
+{
+  "crates/mdd-sql/src/dialects/functions.rs": "254e9fe73cc5cf995ad42dc47fbd580a4221d2042d40955968c99f04586920ca",
+  "crates/mdd-sql/src/runtime_tests.rs": "04dfb2f61a885be2439518f9f5f7188598fb0974485599a07142b24685bc2456",
+  "crates/mdd-sql/src/bridge.rs": "4597793d0fdcc5ae74916304c00fee7242feba4dbf0cfe476e7ec02b26b2d5fe",
+  "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+  "crates/mdd-query/src/budget.rs": "1d326b08ee510706e7fd6553fe8e334c19073715d686e82e15d4bd1ecb83a1fe",
+  "crates/mdd-session/src/lib.rs": "96c0d1aff2cca943fc4c628fe8d8be22a436ef0d45f77f1adf8f39307e27e9b3",
+  "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "artifacts/mdd-031-audit/case-budget-independent-20261029/Cargo.lock": "d34640dfbf1c4dcbf5c6343dbc2c4ec432f9ca1c073a084155fd2e463777bea4",
+  "artifacts/mdd-031-audit/case-budget-independent-20261029/Cargo.toml": "2cd171a56df3a6a785840ae68bc42848b7d3be7d2f891acadfc68a585ef20119",
+  "artifacts/mdd-031-audit/case-budget-independent-20261029/src/main.rs": "135a575c941e0ee140e66167873c503073885dabd4537244c5c71f7bee7f7fc8",
+  "artifacts/mdd-031-audit/case-budget-independent-20261029/run_bounded.py": "a6778192b64f5f57d48611cd7f6e5670f0ea38f6a211d8ec458d7098bee40711"
+}

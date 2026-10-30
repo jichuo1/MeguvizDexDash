@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-facts",
+    "--doc"
+  ],
+  "exit_code": 0,
+  "stdout": "\nrunning 4 tests\ntest crates\\mdd-facts\\src\\code.rs - code::CodeFacts (line 255) - compile fail ... ok\ntest crates\\mdd-facts\\src\\annotations.rs - annotations::AnnotationFacts (line 43) - compile fail ... ok\ntest crates\\mdd-facts\\src\\metadata.rs - metadata::MetadataFacts (line 82) - compile fail ... ok\ntest crates\\mdd-facts\\src\\references.rs - references::ReferenceFacts (line 146) - compile fail ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.47s\n\n",
+  "stderr": "   Compiling mdd-facts v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-facts)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.21s\n   Doc-tests mdd_facts\n"
+}

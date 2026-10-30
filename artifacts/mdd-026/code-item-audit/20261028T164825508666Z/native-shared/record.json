@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\code-item-audit\\20261028T164825508666Z\\code_item_atoms_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\shared-code-035.dex"
+  ],
+  "started_utc": "2026-10-28T16:48:38.431910+00:00",
+  "finished_utc": "2026-10-28T16:48:39.115616+00:00",
+  "elapsed_seconds": 0.6880000000001019,
+  "exit_code": 0,
+  "stdout_sha256": "73c61d019ecc10c73b1f30b0d332c1a55dac441870d34967f43fb01540d86d07",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

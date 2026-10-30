@@ -1,0 +1,875 @@
+{
+  "schema_version": "mdd.oracle-check.v1",
+  "checker": "conformance/oracles/check_fixtures.py",
+  "python": "3.12.10 (main, Apr  8 2025, 22:38:13) [GCC 13.3.0]",
+  "scope": "bounded handwritten header/map/string/table/raw-code/component checks and Python zipfile inventory; not ART execution verification",
+  "checks": [
+    {
+      "case": "minimal-035",
+      "status": "passed",
+      "observed": {
+        "version": "035",
+        "strings_utf16": [],
+        "map_entries": 2,
+        "class_count": 0,
+        "method_ref_count": 0
+      }
+    },
+    {
+      "case": "minimal-037",
+      "status": "passed",
+      "observed": {
+        "version": "037",
+        "strings_utf16": [],
+        "map_entries": 2,
+        "class_count": 0,
+        "method_ref_count": 0
+      }
+    },
+    {
+      "case": "minimal-038",
+      "status": "passed",
+      "observed": {
+        "version": "038",
+        "strings_utf16": [],
+        "map_entries": 2,
+        "class_count": 0,
+        "method_ref_count": 0
+      }
+    },
+    {
+      "case": "minimal-039",
+      "status": "passed",
+      "observed": {
+        "version": "039",
+        "strings_utf16": [],
+        "map_entries": 2,
+        "class_count": 0,
+        "method_ref_count": 0
+      }
+    },
+    {
+      "case": "minimal-040",
+      "status": "passed",
+      "observed": {
+        "version": "040",
+        "strings_utf16": [],
+        "map_entries": 2,
+        "class_count": 0,
+        "method_ref_count": 0
+      }
+    },
+    {
+      "case": "unsupported-036",
+      "status": "passed",
+      "observed_rejection": "UNSUPPORTED_CAPABILITY"
+    },
+    {
+      "case": "unsupported-041",
+      "status": "passed",
+      "observed_rejection": "UNSUPPORTED_CAPABILITY"
+    },
+    {
+      "case": "structured-035",
+      "status": "passed",
+      "observed": {
+        "version": "035",
+        "strings_utf16": [
+          [
+            76,
+            102,
+            105,
+            120,
+            116,
+            117,
+            114,
+            101,
+            47,
+            65,
+            59
+          ],
+          [
+            76,
+            106,
+            97,
+            118,
+            97,
+            47,
+            108,
+            97,
+            110,
+            103,
+            47,
+            79,
+            98,
+            106,
+            101,
+            99,
+            116,
+            59
+          ],
+          [
+            86
+          ],
+          [
+            99,
+            97,
+            108,
+            108,
+            101,
+            114
+          ],
+          [
+            110,
+            97,
+            116,
+            105,
+            118,
+            101,
+            78,
+            111,
+            66,
+            111,
+            100,
+            121
+          ],
+          [
+            116,
+            97,
+            114,
+            103,
+            101,
+            116
+          ],
+          [
+            119,
+            105,
+            116,
+            104,
+            84,
+            114,
+            121
+          ]
+        ],
+        "map_entries": 10,
+        "class_count": 1,
+        "method_ref_count": 4
+      }
+    },
+    {
+      "case": "strings-mutf8-035",
+      "status": "passed",
+      "observed": {
+        "version": "035",
+        "strings_utf16": [
+          [],
+          [
+            0
+          ],
+          [
+            65
+          ],
+          [
+            20013
+          ],
+          [
+            55296
+          ],
+          [
+            55357,
+            56832
+          ],
+          [
+            56320
+          ]
+        ],
+        "map_entries": 4,
+        "class_count": 0,
+        "method_ref_count": 0
+      }
+    },
+    {
+      "case": "class-reorder-before",
+      "status": "passed",
+      "observed": {
+        "version": "035",
+        "strings_utf16": [
+          [
+            76,
+            102,
+            105,
+            120,
+            116,
+            117,
+            114,
+            101,
+            47,
+            65,
+            59
+          ],
+          [
+            76,
+            102,
+            105,
+            120,
+            116,
+            117,
+            114,
+            101,
+            47,
+            66,
+            59
+          ],
+          [
+            76,
+            106,
+            97,
+            118,
+            97,
+            47,
+            108,
+            97,
+            110,
+            103,
+            47,
+            79,
+            98,
+            106,
+            101,
+            99,
+            116,
+            59
+          ],
+          [
+            86
+          ],
+          [
+            97
+          ],
+          [
+            98
+          ]
+        ],
+        "map_entries": 9,
+        "class_count": 2,
+        "method_ref_count": 2,
+        "class_reorder": {
+          "semantic_classes": [
+            {
+              "descriptor": "Lfixture/A;",
+              "flags": 1,
+              "superclass": "Ljava/lang/Object;",
+              "methods": [
+                {
+                  "owner": "Lfixture/A;",
+                  "name": "a",
+                  "proto": "()V",
+                  "flags": 265,
+                  "body": null
+                }
+              ]
+            },
+            {
+              "descriptor": "Lfixture/B;",
+              "flags": 1,
+              "superclass": "Ljava/lang/Object;",
+              "methods": [
+                {
+                  "owner": "Lfixture/B;",
+                  "name": "b",
+                  "proto": "()V",
+                  "flags": 265,
+                  "body": null
+                }
+              ]
+            }
+          ],
+          "physical_mapping": [
+            {
+              "class_def_idx": 0,
+              "type_idx": 0,
+              "descriptor": "Lfixture/A;",
+              "class_data_off": 299,
+              "method_ref_idx": 0
+            },
+            {
+              "class_def_idx": 1,
+              "type_idx": 1,
+              "descriptor": "Lfixture/B;",
+              "class_data_off": 307,
+              "method_ref_idx": 1
+            }
+          ],
+          "string_data_offsets": [
+            244,
+            257,
+            270,
+            290,
+            293,
+            296
+          ]
+        }
+      }
+    },
+    {
+      "case": "class-reorder-after",
+      "status": "passed",
+      "observed": {
+        "version": "035",
+        "strings_utf16": [
+          [
+            76,
+            102,
+            105,
+            120,
+            116,
+            117,
+            114,
+            101,
+            47,
+            65,
+            59
+          ],
+          [
+            76,
+            102,
+            105,
+            120,
+            116,
+            117,
+            114,
+            101,
+            47,
+            66,
+            59
+          ],
+          [
+            76,
+            106,
+            97,
+            118,
+            97,
+            47,
+            108,
+            97,
+            110,
+            103,
+            47,
+            79,
+            98,
+            106,
+            101,
+            99,
+            116,
+            59
+          ],
+          [
+            86
+          ],
+          [
+            97
+          ],
+          [
+            98
+          ]
+        ],
+        "map_entries": 9,
+        "class_count": 2,
+        "method_ref_count": 2,
+        "class_reorder": {
+          "semantic_classes": [
+            {
+              "descriptor": "Lfixture/A;",
+              "flags": 1,
+              "superclass": "Ljava/lang/Object;",
+              "methods": [
+                {
+                  "owner": "Lfixture/A;",
+                  "name": "a",
+                  "proto": "()V",
+                  "flags": 265,
+                  "body": null
+                }
+              ]
+            },
+            {
+              "descriptor": "Lfixture/B;",
+              "flags": 1,
+              "superclass": "Ljava/lang/Object;",
+              "methods": [
+                {
+                  "owner": "Lfixture/B;",
+                  "name": "b",
+                  "proto": "()V",
+                  "flags": 265,
+                  "body": null
+                }
+              ]
+            }
+          ],
+          "physical_mapping": [
+            {
+              "class_def_idx": 0,
+              "type_idx": 1,
+              "descriptor": "Lfixture/B;",
+              "class_data_off": 299,
+              "method_ref_idx": 1
+            },
+            {
+              "class_def_idx": 1,
+              "type_idx": 0,
+              "descriptor": "Lfixture/A;",
+              "class_data_off": 307,
+              "method_ref_idx": 0
+            }
+          ],
+          "string_data_offsets": [
+            286,
+            273,
+            253,
+            250,
+            247,
+            244
+          ]
+        }
+      }
+    },
+    {
+      "case": "structured-035-same-size-changed",
+      "status": "passed",
+      "observed": {
+        "version": "035",
+        "strings_utf16": [
+          [
+            76,
+            102,
+            105,
+            120,
+            116,
+            117,
+            114,
+            101,
+            47,
+            66,
+            59
+          ],
+          [
+            76,
+            106,
+            97,
+            118,
+            97,
+            47,
+            108,
+            97,
+            110,
+            103,
+            47,
+            79,
+            98,
+            106,
+            101,
+            99,
+            116,
+            59
+          ],
+          [
+            86
+          ],
+          [
+            99,
+            97,
+            108,
+            108,
+            101,
+            114
+          ],
+          [
+            110,
+            97,
+            116,
+            105,
+            118,
+            101,
+            78,
+            111,
+            66,
+            111,
+            100,
+            121
+          ],
+          [
+            116,
+            97,
+            114,
+            103,
+            101,
+            116
+          ],
+          [
+            119,
+            105,
+            116,
+            104,
+            84,
+            114,
+            121
+          ]
+        ],
+        "map_entries": 10,
+        "class_count": 1,
+        "method_ref_count": 4
+      }
+    },
+    {
+      "case": "bad-magic",
+      "status": "passed",
+      "observed_rejection": "INVALID_MAGIC"
+    },
+    {
+      "case": "truncated-header",
+      "status": "passed",
+      "observed_rejection": "TRUNCATED"
+    },
+    {
+      "case": "bad-checksum",
+      "status": "passed",
+      "observed_rejection": "CHECKSUM_MISMATCH"
+    },
+    {
+      "case": "bad-signature",
+      "status": "passed",
+      "observed_rejection": "SIGNATURE_MISMATCH"
+    },
+    {
+      "case": "bad-map-offset",
+      "status": "passed",
+      "observed_rejection": "INVALID_MAP"
+    },
+    {
+      "case": "table-count-overflow",
+      "status": "passed",
+      "observed_rejection": "TABLE_RANGE"
+    },
+    {
+      "case": "manifest-minimal",
+      "status": "passed",
+      "observed": {
+        "chunk_types": [
+          1,
+          258,
+          259
+        ],
+        "semantic_validation": "not_run"
+      }
+    },
+    {
+      "case": "manifest-bad-chunk",
+      "status": "passed",
+      "observed_rejection": "INVALID_CHUNK"
+    },
+    {
+      "case": "multidex-stored",
+      "status": "passed",
+      "observed": {
+        "physical_members": 4,
+        "names": [
+          "classes.dex",
+          "classes2.dex",
+          "AndroidManifest.xml",
+          "assets/raw.bin"
+        ],
+        "profile_classification": "valid_inventory"
+      }
+    },
+    {
+      "case": "multidex-deflated",
+      "status": "passed",
+      "observed": {
+        "physical_members": 4,
+        "names": [
+          "classes.dex",
+          "classes2.dex",
+          "AndroidManifest.xml",
+          "assets/raw.bin"
+        ],
+        "profile_classification": "valid_inventory"
+      }
+    },
+    {
+      "case": "renamed-member",
+      "status": "passed",
+      "observed": {
+        "physical_members": 4,
+        "names": [
+          "renamed.dex",
+          "classes2.dex",
+          "AndroidManifest.xml",
+          "assets/raw.bin"
+        ],
+        "profile_classification": "explicit_selection_required"
+      }
+    },
+    {
+      "case": "duplicate-content",
+      "status": "passed",
+      "observed": {
+        "physical_members": 2,
+        "names": [
+          "classes.dex",
+          "classes2.dex"
+        ],
+        "profile_classification": "valid_inventory"
+      }
+    },
+    {
+      "case": "duplicate-name",
+      "status": "passed",
+      "observed": {
+        "physical_members": 2,
+        "names": [
+          "classes.dex",
+          "classes.dex"
+        ],
+        "profile_classification": "ambiguous_hostlab_inventory"
+      }
+    },
+    {
+      "case": "member-policy",
+      "status": "passed",
+      "observed": {
+        "physical_members": 4,
+        "names": [
+          "classes10.dex",
+          "classes2.dex",
+          "nested/classes.dex",
+          "../escape.dex"
+        ],
+        "profile_classification": "policy_dependent_inventory"
+      }
+    },
+    {
+      "case": "invalid-dex-member",
+      "status": "passed",
+      "observed": {
+        "physical_members": 1,
+        "names": [
+          "classes.dex"
+        ],
+        "profile_classification": "invalid_selected_dex_magic"
+      }
+    },
+    {
+      "case": "bad-crc",
+      "status": "passed",
+      "observed_rejection": "CRC_MISMATCH"
+    },
+    {
+      "case": "mutf8/empty",
+      "status": "passed"
+    },
+    {
+      "case": "mutf8/nul",
+      "status": "passed"
+    },
+    {
+      "case": "mutf8/bmp",
+      "status": "passed"
+    },
+    {
+      "case": "mutf8/surrogate-pair",
+      "status": "passed"
+    },
+    {
+      "case": "mutf8/isolated-high",
+      "status": "passed"
+    },
+    {
+      "case": "mutf8/isolated-low",
+      "status": "passed"
+    },
+    {
+      "case": "mutf8/bad-continuation",
+      "status": "passed",
+      "observed_rejection": "INVALID_MUTF8"
+    },
+    {
+      "case": "mutf8/four-byte-utf8",
+      "status": "passed",
+      "observed_rejection": "INVALID_MUTF8"
+    },
+    {
+      "case": "mutf8/length-mismatch",
+      "status": "passed",
+      "observed_rejection": "STRING_LENGTH_MISMATCH"
+    },
+    {
+      "case": "mutf8/missing-terminator",
+      "status": "passed",
+      "observed_rejection": "TRUNCATED"
+    },
+    {
+      "case": "mutf8/overlong-non-nul",
+      "status": "passed",
+      "observed_rejection": "INVALID_MUTF8"
+    },
+    {
+      "case": "mutf8/three-byte-overlong",
+      "status": "passed",
+      "observed_rejection": "INVALID_MUTF8"
+    },
+    {
+      "case": "mutf8/continuation-as-leading",
+      "status": "passed",
+      "observed_rejection": "INVALID_MUTF8"
+    },
+    {
+      "case": "mutf8/truncated-three-byte",
+      "status": "passed",
+      "observed_rejection": "TRUNCATED"
+    },
+    {
+      "case": "mutf8/raw-nul-is-terminator",
+      "status": "passed",
+      "observed_rejection": "STRING_LENGTH_MISMATCH"
+    },
+    {
+      "case": "leb32/uleb-zero",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/uleb-max",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/uleb-overflow",
+      "status": "passed",
+      "observed_rejection": "LEB_OVERFLOW"
+    },
+    {
+      "case": "leb32/uleb-truncated",
+      "status": "passed",
+      "observed_rejection": "TRUNCATED"
+    },
+    {
+      "case": "leb32/uleb-unterminated",
+      "status": "passed",
+      "observed_rejection": "LEB_OVERFLOW"
+    },
+    {
+      "case": "leb32/sleb-minus-one",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-minus-128",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-minus-64",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-minus-65",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-63",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-64",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-min",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-max",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-min-plus-one",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-max-minus-one",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-positive-overflow",
+      "status": "passed",
+      "observed_rejection": "LEB_OVERFLOW"
+    },
+    {
+      "case": "leb32/sleb-negative-overflow",
+      "status": "passed",
+      "observed_rejection": "LEB_OVERFLOW"
+    },
+    {
+      "case": "leb32/sleb-unsigned-max-is-overflow",
+      "status": "passed",
+      "observed_rejection": "LEB_OVERFLOW"
+    },
+    {
+      "case": "leb32/sleb-truncated",
+      "status": "passed",
+      "observed_rejection": "TRUNCATED"
+    },
+    {
+      "case": "leb32/sleb-nonshortest-negative",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/sleb-five-byte-sign-extension",
+      "status": "passed"
+    },
+    {
+      "case": "leb32/uleb-six-bytes",
+      "status": "passed",
+      "observed_rejection": "LEB_OVERFLOW"
+    },
+    {
+      "case": "leb32/uleb-nonshortest",
+      "status": "passed"
+    },
+    {
+      "case": "code_layout/packed-switch",
+      "status": "passed"
+    },
+    {
+      "case": "code_layout/packed-switch-truncated",
+      "status": "passed",
+      "observed_rejection": "TRUNCATED"
+    },
+    {
+      "case": "code_layout/sparse-switch",
+      "status": "passed"
+    },
+    {
+      "case": "code_layout/array-data",
+      "status": "passed"
+    },
+    {
+      "case": "code_layout/array-data-count-overflow",
+      "status": "passed",
+      "observed_rejection": "TRUNCATED"
+    },
+    {
+      "case": "component-vectors",
+      "status": "passed",
+      "observed": {
+        "component_vectors": 43
+      }
+    }
+  ],
+  "failures": [],
+  "success": true,
+  "unexecuted": [
+    "AOSP verifier/dexdump",
+    "dexlib2",
+    "AAPT2",
+    "production parser comparison",
+    "fuzz"
+  ]
+}

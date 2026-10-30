@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "rustc",
+    "--edition=2024",
+    "--crate-name",
+    "mdd_fact_conformance",
+    "conformance/facts/native_probe.rs",
+    "-L",
+    "dependency=target/debug/deps",
+    "-o",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\native_probe.exe",
+    "--extern",
+    "mdd_dex=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_dex-b7b2b3c56f072191.rlib",
+    "--extern",
+    "mdd_facts=D:\\MeguvisDexDash\\target\\debug\\libmdd_facts.rlib",
+    "--extern",
+    "mdd_input=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_input-0f932aaa5b1b1947.rlib",
+    "--extern",
+    "mdd_types=D:\\MeguvisDexDash\\target\\debug\\deps\\libmdd_types-fd5a2447fe224bff.rlib",
+    "--extern",
+    "serde_json=D:\\MeguvisDexDash\\target\\debug\\deps\\libserde_json-cd74aa69794f938b.rlib"
+  ],
+  "started_utc": "2026-10-28T13:06:22.802953+00:00",
+  "finished_utc": "2026-10-28T13:06:25.177184+00:00",
+  "elapsed_seconds": 2.375,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

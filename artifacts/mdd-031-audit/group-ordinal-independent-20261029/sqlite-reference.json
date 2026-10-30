@@ -1,0 +1,239 @@
+{
+  "status": "sqlite-reference-complete",
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "case": "plain",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY 1 ORDER BY g",
+      "status": "ok",
+      "columns": [
+        "g",
+        "n"
+      ],
+      "rows": [
+        [
+          null,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "case": "parenthesized",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY (1) ORDER BY g",
+      "status": "ok",
+      "columns": [
+        "g",
+        "n"
+      ],
+      "rows": [
+        [
+          null,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "case": "nested",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY (((1))) ORDER BY g",
+      "status": "ok",
+      "columns": [
+        "g",
+        "n"
+      ],
+      "rows": [
+        [
+          null,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "case": "expression_constant",
+      "sql": "SELECT COUNT(*) AS n FROM facts GROUP BY (1+0)",
+      "status": "ok",
+      "columns": [
+        "n"
+      ],
+      "rows": [
+        [
+          4
+        ]
+      ]
+    },
+    {
+      "case": "two_positions",
+      "sql": "SELECT k+1 AS g,alt AS h,COUNT(*) AS n FROM facts GROUP BY (1),(2) ORDER BY g,h",
+      "status": "ok",
+      "columns": [
+        "g",
+        "h",
+        "n"
+      ],
+      "rows": [
+        [
+          null,
+          9,
+          1
+        ],
+        [
+          2,
+          10,
+          1
+        ],
+        [
+          2,
+          20,
+          1
+        ],
+        [
+          3,
+          30,
+          1
+        ]
+      ]
+    },
+    {
+      "case": "alias",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY g ORDER BY g",
+      "status": "ok",
+      "columns": [
+        "g",
+        "n"
+      ],
+      "rows": [
+        [
+          null,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "case": "alias_having",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY g HAVING COUNT(*)>1 ORDER BY g",
+      "status": "ok",
+      "columns": [
+        "g",
+        "n"
+      ],
+      "rows": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "case": "ordinal_having",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY (1) HAVING COUNT(*)>1 ORDER BY g",
+      "status": "ok",
+      "columns": [
+        "g",
+        "n"
+      ],
+      "rows": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "case": "alias_input_collision",
+      "sql": "SELECT k+1 AS alt,COUNT(*) AS n FROM facts GROUP BY alt ORDER BY alt",
+      "status": "ok",
+      "columns": [
+        "alt",
+        "n"
+      ],
+      "rows": [
+        [
+          null,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "case": "empty",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts WHERE 0 GROUP BY (1) ORDER BY g",
+      "status": "ok",
+      "columns": [
+        "g",
+        "n"
+      ],
+      "rows": []
+    },
+    {
+      "case": "zero",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY (0)",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st GROUP BY term out of range - should be between 1 and 2"
+    },
+    {
+      "case": "range",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY (3)",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st GROUP BY term out of range - should be between 1 and 2"
+    },
+    {
+      "case": "aggregate_position",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY (2)",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "aggregate functions are not allowed in the GROUP BY clause"
+    },
+    {
+      "case": "unknown",
+      "sql": "SELECT k+1 AS g,COUNT(*) AS n FROM facts GROUP BY absent",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "no such column: absent"
+    }
+  ],
+  "scope": "SQLite synthetic table; old A0/A1 not restarted; no full SQL qualification"
+}

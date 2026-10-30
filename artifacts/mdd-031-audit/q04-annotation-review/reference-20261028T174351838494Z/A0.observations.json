@@ -1,0 +1,646 @@
+{
+  "variant": "A0",
+  "engine_path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+  "engine_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "engine_bytes": 21365760,
+  "command": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "mcp",
+    "--timeout-ms",
+    "1500",
+    "--max-datasets",
+    "1"
+  ],
+  "cases": [
+    {
+      "id": "dynamic_q04",
+      "dataset_id": "dataset-1",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-1",
+          "has_dex": true,
+          "input_bytes": 1452,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+          ],
+          "prepare_ms": 2.7319
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-1\",\"has_dex\":true,\"input_bytes\":1452,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\annotations\\\\generated\\\\annotations-038.dex\"],\"prepare_ms\":2.7319}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-1",
+            "has_dex": true,
+            "input_bytes": 1452,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+            ],
+            "prepare_ms": 2.7319
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT file_id,annotation_off,ordinal,value_index FROM annotation_elements WHERE ((file_id=0 AND annotation_off IN (1000))) AND depth=1 AND value_kind='string' ORDER BY file_id,annotation_off,ordinal",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-1",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=5"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "uint64",
+                      "name": "file_id",
+                      "nullable": false
+                    },
+                    {
+                      "data_type": "uint64",
+                      "name": "annotation_off",
+                      "nullable": false
+                    },
+                    {
+                      "data_type": "uint64",
+                      "name": "ordinal",
+                      "nullable": false
+                    },
+                    {
+                      "data_type": "uint64",
+                      "name": "value_index",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1000"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1"
+                      }
+                    ],
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1000"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "13"
+                      }
+                    ],
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1000"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "2"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "4"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT file_id,annotation_off,ordinal,value_index FROM annotation_elements WHERE ((file_id=0 AND annotation_off IN (1000))) AND depth=1 AND value_kind='string' ORDER BY file_id,annotation_off,ordinal",
+                  "statement_index": 0,
+                  "total_rows": 3,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=5\"}],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_off\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"ordinal\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"value_index\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"13\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"4\"}]],\"sql\":\"SELECT file_id,annotation_off,ordinal,value_index FROM annotation_elements WHERE ((file_id=0 AND annotation_off IN (1000))) AND depth=1 AND value_kind='string' ORDER BY file_id,annotation_off,ordinal\",\"statement_index\":0,\"total_rows\":3,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-1",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=5"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "uint64",
+                        "name": "file_id",
+                        "nullable": false
+                      },
+                      {
+                        "data_type": "uint64",
+                        "name": "annotation_off",
+                        "nullable": false
+                      },
+                      {
+                        "data_type": "uint64",
+                        "name": "ordinal",
+                        "nullable": false
+                      },
+                      {
+                        "data_type": "uint64",
+                        "name": "value_index",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1000"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1"
+                        }
+                      ],
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1000"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "13"
+                        }
+                      ],
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1000"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "2"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "4"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT file_id,annotation_off,ordinal,value_index FROM annotation_elements WHERE ((file_id=0 AND annotation_off IN (1000))) AND depth=1 AND value_kind='string' ORDER BY file_id,annotation_off,ordinal",
+                    "statement_index": 0,
+                    "total_rows": 3,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-1"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-1\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-1"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "grouped",
+      "dataset_id": "dataset-2",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-2",
+          "has_dex": true,
+          "input_bytes": 1452,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+          ],
+          "prepare_ms": 1.723
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-2\",\"has_dex\":true,\"input_bytes\":1452,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\annotations\\\\generated\\\\annotations-038.dex\"],\"prepare_ms\":1.723}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-2",
+            "has_dex": true,
+            "input_bytes": 1452,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+            ],
+            "prepare_ms": 1.723
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT file_id,annotation_off,ordinal,value_index FROM annotation_elements WHERE ((file_id=0 AND annotation_off IN (1000,999999)) OR (file_id=1 AND annotation_off IN (1000))) AND depth=1 AND value_kind='string' ORDER BY file_id,annotation_off,ordinal",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-2",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=3"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "uint64",
+                      "name": "file_id",
+                      "nullable": false
+                    },
+                    {
+                      "data_type": "uint64",
+                      "name": "annotation_off",
+                      "nullable": false
+                    },
+                    {
+                      "data_type": "uint64",
+                      "name": "ordinal",
+                      "nullable": false
+                    },
+                    {
+                      "data_type": "uint64",
+                      "name": "value_index",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1000"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1"
+                      }
+                    ],
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1000"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "13"
+                      }
+                    ],
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "0"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "1000"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "2"
+                      },
+                      {
+                        "type": "uint64",
+                        "value": "4"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT file_id,annotation_off,ordinal,value_index FROM annotation_elements WHERE ((file_id=0 AND annotation_off IN (1000,999999)) OR (file_id=1 AND annotation_off IN (1000))) AND depth=1 AND value_kind='string' ORDER BY file_id,annotation_off,ordinal",
+                  "statement_index": 0,
+                  "total_rows": 3,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-2\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=3\"}],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_off\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"ordinal\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"value_index\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"13\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"4\"}]],\"sql\":\"SELECT file_id,annotation_off,ordinal,value_index FROM annotation_elements WHERE ((file_id=0 AND annotation_off IN (1000,999999)) OR (file_id=1 AND annotation_off IN (1000))) AND depth=1 AND value_kind='string' ORDER BY file_id,annotation_off,ordinal\",\"statement_index\":0,\"total_rows\":3,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-2",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=3"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "uint64",
+                        "name": "file_id",
+                        "nullable": false
+                      },
+                      {
+                        "data_type": "uint64",
+                        "name": "annotation_off",
+                        "nullable": false
+                      },
+                      {
+                        "data_type": "uint64",
+                        "name": "ordinal",
+                        "nullable": false
+                      },
+                      {
+                        "data_type": "uint64",
+                        "name": "value_index",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1000"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1"
+                        }
+                      ],
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1000"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "13"
+                        }
+                      ],
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "0"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "1000"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "2"
+                        },
+                        {
+                          "type": "uint64",
+                          "value": "4"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT file_id,annotation_off,ordinal,value_index FROM annotation_elements WHERE ((file_id=0 AND annotation_off IN (1000,999999)) OR (file_id=1 AND annotation_off IN (1000))) AND depth=1 AND value_kind='string' ORDER BY file_id,annotation_off,ordinal",
+                    "statement_index": 0,
+                    "total_rows": 3,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-2"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-2\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-2"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    }
+  ],
+  "active_dataset_after_all_cases": {
+    "is_error": false,
+    "body": {
+      "admitted_requests": 0,
+      "datasets": [],
+      "limits": {
+        "max_datasets": 1,
+        "max_dex_bytes": 1073741824,
+        "max_input_bytes": 1073741824,
+        "max_output_bytes": 131072,
+        "max_pending": 16,
+        "max_resource_bytes": 67108864,
+        "max_total_input_bytes": 2147483648,
+        "timeout_ms": 1500
+      },
+      "running_requests": 0,
+      "usage": {
+        "datasets": 0,
+        "input_bytes": 0
+      }
+    },
+    "mcp_result": {
+      "_meta": null,
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"admitted_requests\":0,\"datasets\":[],\"limits\":{\"max_datasets\":1,\"max_dex_bytes\":1073741824,\"max_input_bytes\":1073741824,\"max_output_bytes\":131072,\"max_pending\":16,\"max_resource_bytes\":67108864,\"max_total_input_bytes\":2147483648,\"timeout_ms\":1500},\"running_requests\":0,\"usage\":{\"datasets\":0,\"input_bytes\":0}}",
+          "annotations": null,
+          "_meta": null
+        }
+      ],
+      "structuredContent": {
+        "admitted_requests": 0,
+        "datasets": [],
+        "limits": {
+          "max_datasets": 1,
+          "max_dex_bytes": 1073741824,
+          "max_input_bytes": 1073741824,
+          "max_output_bytes": 131072,
+          "max_pending": 16,
+          "max_resource_bytes": 67108864,
+          "max_total_input_bytes": 2147483648,
+          "timeout_ms": 1500
+        },
+        "running_requests": 0,
+        "usage": {
+          "datasets": 0,
+          "input_bytes": 0
+        }
+      },
+      "isError": false,
+      "resultType": "complete"
+    }
+  },
+  "server_info": {
+    "name": "dexsql",
+    "title": null,
+    "version": "0.1.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "client_context_exited": true,
+  "transcript_sha256": "7f4cc7d61ae761bbcccb6054056bcb7ba46ecc7b925dca9fc76256a3052ee18a"
+}

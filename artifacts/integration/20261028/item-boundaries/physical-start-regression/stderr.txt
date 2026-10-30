@@ -1,0 +1,51 @@
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+error[E0425]: cannot find function `read_types_and_prototypes` in module `super`
+   --> crates\mdd-dex\src\types.rs:585:30
+    |
+585 |     let (_, protos) = super::read_types_and_prototypes(valid, &header, &strings).unwrap();
+    |                              ^^^^^^^^^^^^^^^^^^^^^^^^^ not found in `super`
+    |
+help: consider importing this function
+    |
+  2 + use crate::types::read_types_and_prototypes;
+    |
+help: if you import `read_types_and_prototypes`, refer to it directly
+    |
+585 -     let (_, protos) = super::read_types_and_prototypes(valid, &header, &strings).unwrap();
+585 +     let (_, protos) = read_types_and_prototypes(valid, &header, &strings).unwrap();
+    |
+
+error[E0425]: cannot find function `type_list_item_starts` in module `super`
+   --> crates\mdd-dex\src\types.rs:587:23
+    |
+587 |     assert_eq!(super::type_list_item_starts(valid, &header).unwrap(), [136]);
+    |                       ^^^^^^^^^^^^^^^^^^^^^ not found in `super`
+    |
+help: consider importing this function
+    |
+  2 + use crate::types::type_list_item_starts;
+    |
+help: if you import `type_list_item_starts`, refer to it directly
+    |
+587 -     assert_eq!(super::type_list_item_starts(valid, &header).unwrap(), [136]);
+587 +     assert_eq!(type_list_item_starts(valid, &header).unwrap(), [136]);
+    |
+
+error[E0425]: cannot find function `read_types_and_prototypes` in module `super`
+   --> crates\mdd-dex\src\types.rs:595:24
+    |
+595 |     let error = super::read_types_and_prototypes(bad, &header, &strings).unwrap_err();
+    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^ not found in `super`
+    |
+help: consider importing this function
+    |
+  2 + use crate::types::read_types_and_prototypes;
+    |
+help: if you import `read_types_and_prototypes`, refer to it directly
+    |
+595 -     let error = super::read_types_and_prototypes(bad, &header, &strings).unwrap_err();
+595 +     let error = read_types_and_prototypes(bad, &header, &strings).unwrap_err();
+    |
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `mdd-dex` (lib test) due to 3 previous errors

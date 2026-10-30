@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\streaming-json-independent-20261029-target\\debug\\mdd-streaming-json-independent.exe"
+  ],
+  "started_utc": "2026-10-30T01:46:25.786768+00:00",
+  "finished_utc": "2026-10-30T01:46:29.496317+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "job_status": "completed",
+  "admission_sha256": "99b72367f170df19fadbe817cf1be819c8dbda1d74e42e7a66be96b6f65953b1",
+  "stdout_sha256": "7f85d10ee82d0eb555cd30ce2ce1ebdc0b685d543303a823e330bfc1208e0397",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "8c66daf84a62106d6d436cca2be1aa6d9d3f3a00fddb138e59b98412882778cc",
+  "scope": "independent static development check; no performance qualification"
+}

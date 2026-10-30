@@ -1,0 +1,7 @@
+
+running 2 tests
+test code::tests::raw_code_retains_exact_member_lease_scope_and_occurrence_after_source_changes ... ok
+test code::tests::all_hand_fixtures_match_independent_python_oracle_fields_and_raw_bytes ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.01s
+

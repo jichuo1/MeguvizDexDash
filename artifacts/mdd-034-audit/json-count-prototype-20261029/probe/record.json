@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-10-29T06:31:22.931242+00:00",
+  "finished_utc": "2026-10-29T06:31:23.284587+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "admission_sha256": "064cb358417af9ed396d0aea42906ae11fdd7252408fc13273da89cd924d612d",
+  "stdout_sha256": "f304dd7903f3409941e1b5ad73d9a28d40d4f437092eb588316e51d66c8b5490",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "ca7771cbc70890338781edae1d1136c79e7d25d4baf6e96ec9fba9f20bf6b977",
+  "scope": "small synthetic prototype; not performance qualification"
+}

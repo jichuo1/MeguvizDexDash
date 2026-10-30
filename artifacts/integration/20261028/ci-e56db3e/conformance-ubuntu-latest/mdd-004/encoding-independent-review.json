@@ -1,0 +1,8332 @@
+{
+  "schema_version": "mdd.encoding-independent-review.v1",
+  "reference": "https://source.android.com/docs/core/runtime/dex-format#leb128",
+  "reviewed_date": "2026-10-28",
+  "scope": "32-bit, at most five octets; bounded permissive non-shortest profile",
+  "derivation": "Four initial octets encode 28 bits. The fifth unsigned payload must fit four remaining bits (0..15). The fifth signed payload must have bits 4..6 equal to its bit 3 sign, hence 0..7 or 120..127. Both extreme low-28-bit patterns are checked for every terminal payload.",
+  "checks": [
+    {
+      "signed": false,
+      "hex": "8080808000",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 0,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 0,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808001",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 268435456,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 268435456,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808002",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 536870912,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 536870912,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808003",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 805306368,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 805306368,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808004",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1073741824,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1073741824,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808005",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1342177280,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1342177280,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808006",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1610612736,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1610612736,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808007",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1879048192,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1879048192,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808008",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2147483648,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2147483648,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808009",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2415919104,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2415919104,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080800a",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2684354560,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2684354560,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080800b",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2952790016,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2952790016,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080800c",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 3221225472,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 3221225472,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080800d",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 3489660928,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 3489660928,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080800e",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 3758096384,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 3758096384,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080800f",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 4026531840,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 4026531840,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808010",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808011",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808012",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808013",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808014",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808015",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808016",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808017",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808018",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808019",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080801a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080801b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080801c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080801d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080801e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080801f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808020",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808021",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808022",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808023",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808024",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808025",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808026",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808027",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808028",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808029",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080802a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080802b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080802c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080802d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080802e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080802f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808030",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808031",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808032",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808033",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808034",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808035",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808036",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808037",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808038",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808039",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080803a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080803b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080803c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080803d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080803e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080803f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808040",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808041",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808042",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808043",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808044",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808045",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808046",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808047",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808048",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808049",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080804a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080804b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080804c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080804d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080804e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080804f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808050",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808051",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808052",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808053",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808054",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808055",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808056",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808057",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808058",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808059",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080805a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080805b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080805c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080805d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080805e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080805f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808060",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808061",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808062",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808063",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808064",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808065",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808066",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808067",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808068",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808069",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080806a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080806b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080806c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080806d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080806e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080806f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808070",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808071",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808072",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808073",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808074",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808075",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808076",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808077",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808078",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "8080808079",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080807a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080807b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080807c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080807d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080807e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "808080807f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff00",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 268435455,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 268435455,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff01",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 536870911,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 536870911,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff02",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 805306367,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 805306367,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff03",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1073741823,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1073741823,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff04",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1342177279,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1342177279,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff05",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1610612735,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1610612735,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff06",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1879048191,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1879048191,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff07",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2147483647,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2147483647,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff08",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2415919103,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2415919103,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff09",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2684354559,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2684354559,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff0a",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2952790015,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2952790015,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff0b",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 3221225471,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 3221225471,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff0c",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 3489660927,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 3489660927,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff0d",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 3758096383,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 3758096383,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff0e",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 4026531839,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 4026531839,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff0f",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 4294967295,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 4294967295,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff10",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff11",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff12",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff13",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff14",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff15",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff16",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff17",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff18",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff19",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff1a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff1b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff1c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff1d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff1e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff1f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff20",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff21",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff22",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff23",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff24",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff25",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff26",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff27",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff28",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff29",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff2a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff2b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff2c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff2d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff2e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff2f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff30",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff31",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff32",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff33",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff34",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff35",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff36",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff37",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff38",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff39",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff3a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff3b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff3c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff3d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff3e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff3f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff40",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff41",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff42",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff43",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff44",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff45",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff46",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff47",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff48",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff49",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff4a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff4b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff4c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff4d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff4e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff4f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff50",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff51",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff52",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff53",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff54",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff55",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff56",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff57",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff58",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff59",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff5a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff5b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff5c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff5d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff5e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff5f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff60",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff61",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff62",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff63",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff64",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff65",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff66",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff67",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff68",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff69",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff6a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff6b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff6c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff6d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff6e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff6f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff70",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff71",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff72",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff73",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff74",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff75",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff76",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff77",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff78",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff79",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff7a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff7b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff7c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff7d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff7e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": false,
+      "hex": "ffffffff7f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808000",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 0,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 0,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808001",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 268435456,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 268435456,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808002",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 536870912,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 536870912,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808003",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 805306368,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 805306368,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808004",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1073741824,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1073741824,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808005",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1342177280,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1342177280,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808006",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1610612736,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1610612736,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808007",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1879048192,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1879048192,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808008",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808009",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080800a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080800b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080800c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080800d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080800e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080800f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808010",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808011",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808012",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808013",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808014",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808015",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808016",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808017",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808018",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808019",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080801a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080801b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080801c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080801d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080801e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080801f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808020",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808021",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808022",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808023",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808024",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808025",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808026",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808027",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808028",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808029",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080802a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080802b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080802c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080802d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080802e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080802f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808030",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808031",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808032",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808033",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808034",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808035",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808036",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808037",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808038",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808039",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080803a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080803b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080803c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080803d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080803e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080803f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808040",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808041",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808042",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808043",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808044",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808045",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808046",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808047",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808048",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808049",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080804a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080804b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080804c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080804d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080804e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080804f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808050",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808051",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808052",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808053",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808054",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808055",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808056",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808057",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808058",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808059",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080805a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080805b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080805c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080805d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080805e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080805f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808060",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808061",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808062",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808063",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808064",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808065",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808066",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808067",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808068",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808069",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080806a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080806b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080806c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080806d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080806e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080806f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808070",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808071",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808072",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808073",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808074",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808075",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808076",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808077",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808078",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -2147483648,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -2147483648,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "8080808079",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1879048192,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1879048192,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080807a",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1610612736,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1610612736,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080807b",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1342177280,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1342177280,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080807c",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1073741824,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1073741824,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080807d",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -805306368,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -805306368,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080807e",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -536870912,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -536870912,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "808080807f",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -268435456,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -268435456,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff00",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 268435455,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 268435455,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff01",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 536870911,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 536870911,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff02",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 805306367,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 805306367,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff03",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1073741823,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1073741823,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff04",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1342177279,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1342177279,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff05",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1610612735,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1610612735,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff06",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 1879048191,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 1879048191,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff07",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": 2147483647,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": 2147483647,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff08",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff09",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff0a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff0b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff0c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff0d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff0e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff0f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff10",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff11",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff12",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff13",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff14",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff15",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff16",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff17",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff18",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff19",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff1a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff1b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff1c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff1d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff1e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff1f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff20",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff21",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff22",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff23",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff24",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff25",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff26",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff27",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff28",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff29",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff2a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff2b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff2c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff2d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff2e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff2f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff30",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff31",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff32",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff33",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff34",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff35",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff36",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff37",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff38",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff39",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff3a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff3b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff3c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff3d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff3e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff3f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff40",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff41",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff42",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff43",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff44",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff45",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff46",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff47",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff48",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff49",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff4a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff4b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff4c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff4d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff4e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff4f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff50",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff51",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff52",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff53",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff54",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff55",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff56",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff57",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff58",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff59",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff5a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff5b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff5c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff5d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff5e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff5f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff60",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff61",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff62",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff63",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff64",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff65",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff66",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff67",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff68",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff69",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff6a",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff6b",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff6c",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff6d",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff6e",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff6f",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff70",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff71",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff72",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff73",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff74",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff75",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff76",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff77",
+      "expected_valid": false,
+      "observed": [
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        },
+        {
+          "valid": false,
+          "error": "LEB_OVERFLOW"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff78",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1879048193,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1879048193,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff79",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1610612737,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1610612737,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff7a",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1342177281,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1342177281,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff7b",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1073741825,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1073741825,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff7c",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -805306369,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -805306369,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff7d",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -536870913,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -536870913,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff7e",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -268435457,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -268435457,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    },
+    {
+      "signed": true,
+      "hex": "ffffffff7f",
+      "expected_valid": true,
+      "observed": [
+        {
+          "valid": true,
+          "value": -1,
+          "consumed": 5
+        },
+        {
+          "valid": true,
+          "value": -1,
+          "consumed": 5
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "success": true,
+  "mutf8_review": "Handwritten decoder checked against Python UTF-8 surrogatepass after translating the sole allowed overlong C0 80 to NUL and explicitly rejecting four-byte UTF-8. Negative continuation/overlong/truncation/length vectors are required to agree in both formulations.",
+  "not_claimed": "DexSQL profile qualification or complete DEX verifier qualification"
+}

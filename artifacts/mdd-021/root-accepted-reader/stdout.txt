@@ -1,0 +1,10 @@
+
+running 5 tests
+test definitions::tests::definitions_match_hand_semantic_expectations ... ok
+test definitions::tests::present_zero_insns_is_not_no_body_and_empty_class_data_is_explicit ... ok
+test definitions::tests::standard_versions_and_lossless_source_file_keep_definition_semantics ... ok
+test definitions::tests::physical_orphan_probe_reports_real_acceptance ... ok
+test definitions::tests::invalid_delta_owner_body_and_duplicate_layout_are_located ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.01s
+

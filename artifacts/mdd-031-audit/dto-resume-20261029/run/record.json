@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/dto-resume-20261029/verify_sqlite_literals.py",
+    "artifacts/mdd-031-audit/dto-resume-20261029/sqlite-corrected.json"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T00:45:04.403526+00:00",
+  "finished_utc": "2026-10-29T00:45:04.657432+00:00",
+  "elapsed_seconds": 0.25,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 151,
+    "sha256": "b3a8405de50540fa319a8c64b37eaedbb57fae5afab8df40f18f2f2c82305e23"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\definitions-035.dex",
+    "--sql",
+    "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"class_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"class_idx\" AS TEXT)) END AS \"class_idx\",CASE WHEN \"class_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"class_descriptor\" AS TEXT)) END AS \"class_descriptor\",CASE WHEN \"method_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"method_idx\" AS TEXT)) END AS \"method_idx\",CASE WHEN \"method_name\" IS NULL THEN 'N' ELSE hex(CAST(\"method_name\" AS TEXT)) END AS \"method_name\",CASE WHEN \"method_descriptor\" IS NULL THEN 'N' ELSE hex(CAST(\"method_descriptor\" AS TEXT)) END AS \"method_descriptor\",CASE WHEN \"kind\" IS NULL THEN 'N' ELSE hex(CAST(\"kind\" AS TEXT)) END AS \"kind\",CASE WHEN \"access_flags\" IS NULL THEN 'N' ELSE hex(CAST(\"access_flags\" AS TEXT)) END AS \"access_flags\" FROM class_methods"
+  ],
+  "started_utc": "2026-10-28T16:34:07.659604+00:00",
+  "finished_utc": "2026-10-28T16:34:07.790987+00:00",
+  "elapsed_seconds": 0.125,
+  "exit_code": 0,
+  "stdout_sha256": "e8924f8f9e8775a8e1c83c0b513e9bfca91fdc2535df184631db83c01e9ed1e0",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

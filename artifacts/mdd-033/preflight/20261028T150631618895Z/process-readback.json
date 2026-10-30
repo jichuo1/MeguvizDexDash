@@ -1,0 +1,8 @@
+{
+  "kind": "post_probe_readonly_process_inventory",
+  "captured_utc": "2026-10-28T15:10:48.3576361Z",
+  "matching_process_count": 0,
+  "processes": [],
+  "processes_terminated_by_this_check": false,
+  "scope": "actual Windows process inventory after both MCP Client contexts exited; no child exit code asserted"
+}

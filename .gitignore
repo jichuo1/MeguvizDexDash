@@ -8,3 +8,7 @@
 *.apk
 !tests/fixtures/generated/*.apk
 /artifacts/local/
+/artifacts/**/*.exe
+/artifacts/**/*.dll
+/artifacts/**/*.pdb
+/artifacts/mdd-025/raw-fingerprints/legacy-class-recipes/reference-stdout.txt

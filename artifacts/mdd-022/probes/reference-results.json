@@ -1,0 +1,5962 @@
+{
+  "schema_version": "mdd.annotation-reference-probes.v1",
+  "time_utc": "2026-10-28T08:15:19.658031+00:00",
+  "reference": {
+    "path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+    "bytes": 21365760,
+    "version": "0.1.0",
+    "platform": "windows_amd64"
+  },
+  "input": {
+    "path": "tests/fixtures/annotations/generated/annotations-038.dex",
+    "sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+    "bytes": 1452
+  },
+  "protocol": "newline JSONRPC MCP, strict legal JSON parser",
+  "records": [
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "initialize",
+        "params": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {},
+          "clientInfo": {
+            "name": "mdd-022-annotation-probe",
+            "version": "1"
+          }
+        },
+        "id": 1
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "resources": {},
+            "tools": {}
+          },
+          "serverInfo": {
+            "name": "dexsql",
+            "version": "0.1.0"
+          },
+          "instructions": "Analyze Android DEX/APK using read-only SQL, paged smali and APK Manifest/resources. Use resources/list for the complete English documentation catalog, including unlinked pages. Read relevant pages using the URIs returned by the catalog. Inspect the schema, open_dataset, then query/decode or resource tools. Reuse dataset_id and close unused datasets. Follow next_offset; query paging re-executes SQL and needs stable ORDER BY. Classes default to method summaries. Running timeout/cancellation closes that dataset; reopen it to continue. list_datasets reports quotas. int64/uint64 cells are exact decimal strings."
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "notifications/initialized",
+        "params": {}
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "open_dataset",
+          "arguments": {
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+            ]
+          }
+        },
+        "id": 2
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-1\",\"has_dex\":true,\"input_bytes\":1452,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\annotations\\\\generated\\\\annotations-038.dex\"],\"prepare_ms\":2.7925}"
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-1",
+            "has_dex": true,
+            "input_bytes": 1452,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+            ],
+            "prepare_ms": 2.7925
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "query",
+          "arguments": {
+            "dataset_id": "dataset-1",
+            "sql": [
+              "SELECT file_id,entry_name,string_pool_id FROM dex_files ORDER BY file_id"
+            ],
+            "limit": 1000
+          }
+        },
+        "id": 3
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=1\"}],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"utf8\",\"name\":\"entry_name\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"string_pool_id\",\"nullable\":false}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"utf8\",\"value\":\"annotations-038.dex\"},{\"type\":\"uint64\",\"value\":\"0\"}]],\"sql\":\"SELECT file_id,entry_name,string_pool_id FROM dex_files ORDER BY file_id\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}"
+            }
+          ],
+          "structuredContent": {
+            "dataset_id": "dataset-1",
+            "diagnostics": [
+              {
+                "code": "sql_static_optimizer_rewrite",
+                "message": "sql_static_optimizer rewrites=1"
+              }
+            ],
+            "statements": [
+              {
+                "columns": [
+                  {
+                    "data_type": "uint64",
+                    "name": "file_id",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "utf8",
+                    "name": "entry_name",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "string_pool_id",
+                    "nullable": false
+                  }
+                ],
+                "kind": "query",
+                "next_offset": null,
+                "offset": 0,
+                "rows": [
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "annotations-038.dex"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    }
+                  ]
+                ],
+                "sql": "SELECT file_id,entry_name,string_pool_id FROM dex_files ORDER BY file_id",
+                "statement_index": 0,
+                "total_rows": 1,
+                "truncated": false
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "query",
+          "arguments": {
+            "dataset_id": "dataset-1",
+            "sql": [
+              "SELECT * FROM annotation_directories ORDER BY file_id,class_idx"
+            ],
+            "limit": 1000
+          }
+        },
+        "id": 4
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"class_idx\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotations_off\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"class_annotations_off\",\"nullable\":true},{\"data_type\":\"uint64\",\"name\":\"fields_size\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"methods_size\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"parameters_size\",\"nullable\":false}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1200\"},{\"type\":\"uint64\",\"value\":\"1152\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"2\"}]],\"sql\":\"SELECT * FROM annotation_directories ORDER BY file_id,class_idx\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}"
+            }
+          ],
+          "structuredContent": {
+            "dataset_id": "dataset-1",
+            "diagnostics": [],
+            "statements": [
+              {
+                "columns": [
+                  {
+                    "data_type": "uint64",
+                    "name": "file_id",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "class_idx",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotations_off",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "class_annotations_off",
+                    "nullable": true
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "fields_size",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "methods_size",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "parameters_size",
+                    "nullable": false
+                  }
+                ],
+                "kind": "query",
+                "next_offset": null,
+                "offset": 0,
+                "rows": [
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1200"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1152"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    }
+                  ]
+                ],
+                "sql": "SELECT * FROM annotation_directories ORDER BY file_id,class_idx",
+                "statement_index": 0,
+                "total_rows": 1,
+                "truncated": false
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "query",
+          "arguments": {
+            "dataset_id": "dataset-1",
+            "sql": [
+              "SELECT * FROM annotation_directory_entries ORDER BY file_id,class_idx,entry_kind,entry_idx"
+            ],
+            "limit": 1000
+          }
+        },
+        "id": 5
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 5,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"class_idx\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotations_off\",\"nullable\":false},{\"data_type\":\"utf8\",\"name\":\"entry_kind\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"entry_idx\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_set_off\",\"nullable\":true},{\"data_type\":\"uint64\",\"name\":\"annotation_set_ref_list_off\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1200\"},{\"type\":\"utf8\",\"value\":\"field\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1164\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1200\"},{\"type\":\"utf8\",\"value\":\"field\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1164\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1200\"},{\"type\":\"utf8\",\"value\":\"method\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1172\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1200\"},{\"type\":\"utf8\",\"value\":\"parameter\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1188\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1200\"},{\"type\":\"utf8\",\"value\":\"parameter\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1188\"}]],\"sql\":\"SELECT * FROM annotation_directory_entries ORDER BY file_id,class_idx,entry_kind,entry_idx\",\"statement_index\":0,\"total_rows\":5,\"truncated\":false}]}"
+            }
+          ],
+          "structuredContent": {
+            "dataset_id": "dataset-1",
+            "diagnostics": [],
+            "statements": [
+              {
+                "columns": [
+                  {
+                    "data_type": "uint64",
+                    "name": "file_id",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "class_idx",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotations_off",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "utf8",
+                    "name": "entry_kind",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "entry_idx",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotation_set_off",
+                    "nullable": true
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotation_set_ref_list_off",
+                    "nullable": true
+                  }
+                ],
+                "kind": "query",
+                "next_offset": null,
+                "offset": 0,
+                "rows": [
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1200"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "field"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1164"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1200"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "field"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1164"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1200"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "method"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1172"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1200"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "parameter"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1188"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1200"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "parameter"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1188"
+                    }
+                  ]
+                ],
+                "sql": "SELECT * FROM annotation_directory_entries ORDER BY file_id,class_idx,entry_kind,entry_idx",
+                "statement_index": 0,
+                "total_rows": 5,
+                "truncated": false
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "query",
+          "arguments": {
+            "dataset_id": "dataset-1",
+            "sql": [
+              "SELECT * FROM annotation_set_entries ORDER BY file_id,annotation_set_off,ordinal"
+            ],
+            "limit": 1000
+          }
+        },
+        "id": 6
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 6,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_set_off\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"ordinal\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_off\",\"nullable\":false}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1152\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1152\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1012\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1164\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1120\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1172\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1180\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"}]],\"sql\":\"SELECT * FROM annotation_set_entries ORDER BY file_id,annotation_set_off,ordinal\",\"statement_index\":0,\"total_rows\":5,\"truncated\":false}]}"
+            }
+          ],
+          "structuredContent": {
+            "dataset_id": "dataset-1",
+            "diagnostics": [],
+            "statements": [
+              {
+                "columns": [
+                  {
+                    "data_type": "uint64",
+                    "name": "file_id",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotation_set_off",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "ordinal",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotation_off",
+                    "nullable": false
+                  }
+                ],
+                "kind": "query",
+                "next_offset": null,
+                "offset": 0,
+                "rows": [
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1152"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1000"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1152"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1164"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1120"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1172"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1180"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    }
+                  ]
+                ],
+                "sql": "SELECT * FROM annotation_set_entries ORDER BY file_id,annotation_set_off,ordinal",
+                "statement_index": 0,
+                "total_rows": 5,
+                "truncated": false
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "query",
+          "arguments": {
+            "dataset_id": "dataset-1",
+            "sql": [
+              "SELECT * FROM annotation_set_refs ORDER BY file_id,annotation_set_ref_list_off,ordinal"
+            ],
+            "limit": 1000
+          }
+        },
+        "id": 7
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 7,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_set_ref_list_off\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"ordinal\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_set_off\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1188\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1180\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1188\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"null\",\"value\":null}]],\"sql\":\"SELECT * FROM annotation_set_refs ORDER BY file_id,annotation_set_ref_list_off,ordinal\",\"statement_index\":0,\"total_rows\":2,\"truncated\":false}]}"
+            }
+          ],
+          "structuredContent": {
+            "dataset_id": "dataset-1",
+            "diagnostics": [],
+            "statements": [
+              {
+                "columns": [
+                  {
+                    "data_type": "uint64",
+                    "name": "file_id",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotation_set_ref_list_off",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "ordinal",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotation_set_off",
+                    "nullable": true
+                  }
+                ],
+                "kind": "query",
+                "next_offset": null,
+                "offset": 0,
+                "rows": [
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1188"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1180"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1188"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ]
+                ],
+                "sql": "SELECT * FROM annotation_set_refs ORDER BY file_id,annotation_set_ref_list_off,ordinal",
+                "statement_index": 0,
+                "total_rows": 2,
+                "truncated": false
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "query",
+          "arguments": {
+            "dataset_id": "dataset-1",
+            "sql": [
+              "SELECT * FROM annotations ORDER BY file_id,annotation_off"
+            ],
+            "limit": 1000
+          }
+        },
+        "id": 8
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 8,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_off\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"visibility\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"type_idx\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"element_count\",\"nullable\":false}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"5\"},{\"type\":\"uint64\",\"value\":\"24\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1120\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1\"}]],\"sql\":\"SELECT * FROM annotations ORDER BY file_id,annotation_off\",\"statement_index\":0,\"total_rows\":4,\"truncated\":false}]}"
+            }
+          ],
+          "structuredContent": {
+            "dataset_id": "dataset-1",
+            "diagnostics": [],
+            "statements": [
+              {
+                "columns": [
+                  {
+                    "data_type": "uint64",
+                    "name": "file_id",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotation_off",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "visibility",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "type_idx",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "element_count",
+                    "nullable": false
+                  }
+                ],
+                "kind": "query",
+                "next_offset": null,
+                "offset": 0,
+                "rows": [
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1000"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "5"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "24"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1120"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    }
+                  ]
+                ],
+                "sql": "SELECT * FROM annotations ORDER BY file_id,annotation_off",
+                "statement_index": 0,
+                "total_rows": 4,
+                "truncated": false
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "query",
+          "arguments": {
+            "dataset_id": "dataset-1",
+            "sql": [
+              "SELECT * FROM annotation_elements ORDER BY file_id,annotation_off,ordinal"
+            ],
+            "limit": 1000
+          }
+        },
+        "id": 9
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 9,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"uint64\",\"name\":\"file_id\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"annotation_off\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"depth\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"ordinal\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"name_idx\",\"nullable\":true},{\"data_type\":\"uint64\",\"name\":\"value_off\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"value_end_off\",\"nullable\":false},{\"data_type\":\"utf8\",\"name\":\"value_kind\",\"nullable\":false},{\"data_type\":\"uint64\",\"name\":\"value_index\",\"nullable\":true},{\"data_type\":\"int64\",\"name\":\"value_i64\",\"nullable\":true},{\"data_type\":\"float64\",\"name\":\"value_f64\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"45\"},{\"type\":\"uint64\",\"value\":\"1004\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"utf8\",\"value\":\"array\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1006\"},{\"type\":\"uint64\",\"value\":\"1008\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1008\"},{\"type\":\"uint64\",\"value\":\"1010\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"13\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1000\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1010\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"4\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"18\"},{\"type\":\"uint64\",\"value\":\"1016\"},{\"type\":\"uint64\",\"value\":\"1018\"},{\"type\":\"utf8\",\"value\":\"byte\"},{\"type\":\"null\",\"value\":null},{\"type\":\"int64\",\"value\":\"-128\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1074\"},{\"type\":\"uint64\",\"value\":\"1076\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"48\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"45\"},{\"type\":\"uint64\",\"value\":\"1085\"},{\"type\":\"uint64\",\"value\":\"1087\"},{\"type\":\"utf8\",\"value\":\"int\"},{\"type\":\"null\",\"value\":null},{\"type\":\"int64\",\"value\":\"7\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"19\"},{\"type\":\"uint64\",\"value\":\"1019\"},{\"type\":\"uint64\",\"value\":\"1022\"},{\"type\":\"utf8\",\"value\":\"short\"},{\"type\":\"null\",\"value\":null},{\"type\":\"int64\",\"value\":\"-32768\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1076\"},{\"type\":\"uint64\",\"value\":\"1078\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"17\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"uint64\",\"value\":\"20\"},{\"type\":\"uint64\",\"value\":\"1023\"},{\"type\":\"uint64\",\"value\":\"1026\"},{\"type\":\"utf8\",\"value\":\"char\"},{\"type\":\"null\",\"value\":null},{\"type\":\"int64\",\"value\":\"65535\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1078\"},{\"type\":\"uint64\",\"value\":\"1080\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"48\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"3\"},{\"type\":\"uint64\",\"value\":\"21\"},{\"type\":\"uint64\",\"value\":\"1027\"},{\"type\":\"uint64\",\"value\":\"1032\"},{\"type\":\"utf8\",\"value\":\"int\"},{\"type\":\"null\",\"value\":null},{\"type\":\"int64\",\"value\":\"-2147483648\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"4\"},{\"type\":\"uint64\",\"value\":\"22\"},{\"type\":\"uint64\",\"value\":\"1033\"},{\"type\":\"uint64\",\"value\":\"1042\"},{\"type\":\"utf8\",\"value\":\"long\"},{\"type\":\"null\",\"value\":null},{\"type\":\"int64\",\"value\":\"-9223372036854775808\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"5\"},{\"type\":\"uint64\",\"value\":\"25\"},{\"type\":\"uint64\",\"value\":\"1043\"},{\"type\":\"uint64\",\"value\":\"1046\"},{\"type\":\"utf8\",\"value\":\"float\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"float64\",\"value\":1.0}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"6\"},{\"type\":\"uint64\",\"value\":\"26\"},{\"type\":\"uint64\",\"value\":\"1047\"},{\"type\":\"uint64\",\"value\":\"1050\"},{\"type\":\"utf8\",\"value\":\"double\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"float64\",\"value\":1.0}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"7\"},{\"type\":\"uint64\",\"value\":\"27\"},{\"type\":\"uint64\",\"value\":\"1051\"},{\"type\":\"uint64\",\"value\":\"1053\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"28\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"8\"},{\"type\":\"uint64\",\"value\":\"29\"},{\"type\":\"uint64\",\"value\":\"1054\"},{\"type\":\"uint64\",\"value\":\"1056\"},{\"type\":\"utf8\",\"value\":\"type\"},{\"type\":\"uint64\",\"value\":\"7\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"9\"},{\"type\":\"uint64\",\"value\":\"30\"},{\"type\":\"uint64\",\"value\":\"1057\"},{\"type\":\"uint64\",\"value\":\"1059\"},{\"type\":\"utf8\",\"value\":\"field\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"10\"},{\"type\":\"uint64\",\"value\":\"31\"},{\"type\":\"uint64\",\"value\":\"1060\"},{\"type\":\"uint64\",\"value\":\"1062\"},{\"type\":\"utf8\",\"value\":\"method\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"11\"},{\"type\":\"uint64\",\"value\":\"32\"},{\"type\":\"uint64\",\"value\":\"1063\"},{\"type\":\"uint64\",\"value\":\"1065\"},{\"type\":\"utf8\",\"value\":\"enum\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"12\"},{\"type\":\"uint64\",\"value\":\"35\"},{\"type\":\"uint64\",\"value\":\"1066\"},{\"type\":\"uint64\",\"value\":\"1068\"},{\"type\":\"utf8\",\"value\":\"method_type\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"13\"},{\"type\":\"uint64\",\"value\":\"36\"},{\"type\":\"uint64\",\"value\":\"1069\"},{\"type\":\"uint64\",\"value\":\"1071\"},{\"type\":\"utf8\",\"value\":\"method_handle\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"14\"},{\"type\":\"uint64\",\"value\":\"37\"},{\"type\":\"uint64\",\"value\":\"1072\"},{\"type\":\"uint64\",\"value\":\"1080\"},{\"type\":\"utf8\",\"value\":\"array\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"15\"},{\"type\":\"uint64\",\"value\":\"38\"},{\"type\":\"uint64\",\"value\":\"1081\"},{\"type\":\"uint64\",\"value\":\"1087\"},{\"type\":\"utf8\",\"value\":\"annotation\"},{\"type\":\"uint64\",\"value\":\"4\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"16\"},{\"type\":\"uint64\",\"value\":\"39\"},{\"type\":\"uint64\",\"value\":\"1088\"},{\"type\":\"uint64\",\"value\":\"1089\"},{\"type\":\"utf8\",\"value\":\"null\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"17\"},{\"type\":\"uint64\",\"value\":\"40\"},{\"type\":\"uint64\",\"value\":\"1090\"},{\"type\":\"uint64\",\"value\":\"1091\"},{\"type\":\"utf8\",\"value\":\"boolean\"},{\"type\":\"null\",\"value\":null},{\"type\":\"int64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"18\"},{\"type\":\"uint64\",\"value\":\"41\"},{\"type\":\"uint64\",\"value\":\"1092\"},{\"type\":\"uint64\",\"value\":\"1093\"},{\"type\":\"utf8\",\"value\":\"boolean\"},{\"type\":\"null\",\"value\":null},{\"type\":\"int64\",\"value\":\"1\"},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"19\"},{\"type\":\"uint64\",\"value\":\"42\"},{\"type\":\"uint64\",\"value\":\"1094\"},{\"type\":\"uint64\",\"value\":\"1099\"},{\"type\":\"utf8\",\"value\":\"float\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"float64\",\"value\":\"NaN\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"20\"},{\"type\":\"uint64\",\"value\":\"43\"},{\"type\":\"uint64\",\"value\":\"1100\"},{\"type\":\"uint64\",\"value\":\"1109\"},{\"type\":\"utf8\",\"value\":\"double\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"float64\",\"value\":\"NaN\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"21\"},{\"type\":\"uint64\",\"value\":\"44\"},{\"type\":\"uint64\",\"value\":\"1110\"},{\"type\":\"uint64\",\"value\":\"1113\"},{\"type\":\"utf8\",\"value\":\"float\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"float64\",\"value\":\"Infinity\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"22\"},{\"type\":\"uint64\",\"value\":\"46\"},{\"type\":\"uint64\",\"value\":\"1114\"},{\"type\":\"uint64\",\"value\":\"1117\"},{\"type\":\"utf8\",\"value\":\"double\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"float64\",\"value\":\"Infinity\"}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1012\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"23\"},{\"type\":\"uint64\",\"value\":\"47\"},{\"type\":\"uint64\",\"value\":\"1118\"},{\"type\":\"uint64\",\"value\":\"1120\"},{\"type\":\"utf8\",\"value\":\"float\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"float64\",\"value\":-0.0}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1120\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"45\"},{\"type\":\"uint64\",\"value\":\"1124\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"utf8\",\"value\":\"array\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1120\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1126\"},{\"type\":\"uint64\",\"value\":\"1128\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"16\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1120\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1128\"},{\"type\":\"uint64\",\"value\":\"1130\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"14\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1120\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1130\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"45\"},{\"type\":\"uint64\",\"value\":\"1136\"},{\"type\":\"uint64\",\"value\":\"1152\"},{\"type\":\"utf8\",\"value\":\"array\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1138\"},{\"type\":\"uint64\",\"value\":\"1140\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1140\"},{\"type\":\"uint64\",\"value\":\"1142\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"16\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1142\"},{\"type\":\"uint64\",\"value\":\"1144\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"14\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"3\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1144\"},{\"type\":\"uint64\",\"value\":\"1146\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"3\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"4\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1146\"},{\"type\":\"uint64\",\"value\":\"1148\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"16\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"5\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1148\"},{\"type\":\"uint64\",\"value\":\"1150\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"14\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}],[{\"type\":\"uint64\",\"value\":\"0\"},{\"type\":\"uint64\",\"value\":\"1132\"},{\"type\":\"uint64\",\"value\":\"1\"},{\"type\":\"uint64\",\"value\":\"6\"},{\"type\":\"null\",\"value\":null},{\"type\":\"uint64\",\"value\":\"1150\"},{\"type\":\"uint64\",\"value\":\"1152\"},{\"type\":\"utf8\",\"value\":\"string\"},{\"type\":\"uint64\",\"value\":\"2\"},{\"type\":\"null\",\"value\":null},{\"type\":\"null\",\"value\":null}]],\"sql\":\"SELECT * FROM annotation_elements ORDER BY file_id,annotation_off,ordinal\",\"statement_index\":0,\"total_rows\":44,\"truncated\":false}]}"
+            }
+          ],
+          "structuredContent": {
+            "dataset_id": "dataset-1",
+            "diagnostics": [],
+            "statements": [
+              {
+                "columns": [
+                  {
+                    "data_type": "uint64",
+                    "name": "file_id",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "annotation_off",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "depth",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "ordinal",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "name_idx",
+                    "nullable": true
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "value_off",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "value_end_off",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "utf8",
+                    "name": "value_kind",
+                    "nullable": false
+                  },
+                  {
+                    "data_type": "uint64",
+                    "name": "value_index",
+                    "nullable": true
+                  },
+                  {
+                    "data_type": "int64",
+                    "name": "value_i64",
+                    "nullable": true
+                  },
+                  {
+                    "data_type": "float64",
+                    "name": "value_f64",
+                    "nullable": true
+                  }
+                ],
+                "kind": "query",
+                "next_offset": null,
+                "offset": 0,
+                "rows": [
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1000"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "45"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1004"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "array"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1000"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1006"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1008"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1000"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1008"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1010"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "13"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1000"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1010"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "4"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "18"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1016"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1018"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "byte"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "int64",
+                      "value": "-128"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1074"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1076"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "48"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "45"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1085"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1087"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "int"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "int64",
+                      "value": "7"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "19"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1019"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1022"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "short"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "int64",
+                      "value": "-32768"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1076"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1078"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "17"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "20"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1023"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1026"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "char"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "int64",
+                      "value": "65535"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1078"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1080"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "48"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "3"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "21"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1027"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1032"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "int"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "int64",
+                      "value": "-2147483648"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "4"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "22"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1033"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1042"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "long"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "int64",
+                      "value": "-9223372036854775808"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "5"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "25"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1043"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1046"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "float"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "float64",
+                      "value": 1.0
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "6"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "26"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1047"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1050"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "double"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "float64",
+                      "value": 1.0
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "7"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "27"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1051"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1053"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "28"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "8"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "29"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1054"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1056"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "type"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "7"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "9"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "30"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1057"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1059"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "field"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "10"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "31"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1060"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1062"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "method"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "11"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "32"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1063"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1065"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "enum"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "12"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "35"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1066"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1068"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "method_type"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "13"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "36"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1069"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1071"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "method_handle"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "14"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "37"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1072"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1080"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "array"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "15"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "38"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1081"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1087"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "annotation"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "4"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "16"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "39"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1088"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1089"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "null"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "17"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "40"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1090"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1091"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "boolean"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "int64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "18"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "41"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1092"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1093"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "boolean"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "int64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "19"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "42"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1094"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1099"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "float"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "float64",
+                      "value": "NaN"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "20"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "43"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1100"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1109"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "double"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "float64",
+                      "value": "NaN"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "21"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "44"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1110"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1113"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "float"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "float64",
+                      "value": "Infinity"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "22"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "46"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1114"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1117"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "double"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "float64",
+                      "value": "Infinity"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1012"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "23"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "47"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1118"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1120"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "float"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "float64",
+                      "value": -0.0
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1120"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "45"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1124"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "array"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1120"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1126"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1128"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "16"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1120"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1128"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1130"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "14"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1120"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1130"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "45"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1136"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1152"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "array"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1138"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1140"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1140"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1142"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "16"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1142"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1144"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "14"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "3"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1144"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1146"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "3"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "4"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1146"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1148"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "16"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "5"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1148"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1150"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "14"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ],
+                  [
+                    {
+                      "type": "uint64",
+                      "value": "0"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1132"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "6"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1150"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "1152"
+                    },
+                    {
+                      "type": "utf8",
+                      "value": "string"
+                    },
+                    {
+                      "type": "uint64",
+                      "value": "2"
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    },
+                    {
+                      "type": "null",
+                      "value": null
+                    }
+                  ]
+                ],
+                "sql": "SELECT * FROM annotation_elements ORDER BY file_id,annotation_off,ordinal",
+                "statement_index": 0,
+                "total_rows": 44,
+                "truncated": false
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "request",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "params": {
+          "name": "close_dataset",
+          "arguments": {
+            "dataset_id": "dataset-1"
+          }
+        },
+        "id": 10
+      }
+    },
+    {
+      "direction": "response",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 10,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-1\"}"
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-1"
+          },
+          "isError": false
+        }
+      }
+    }
+  ],
+  "query_results": [
+    {
+      "label": "identity",
+      "sql": "SELECT file_id,entry_name,string_pool_id FROM dex_files ORDER BY file_id",
+      "result": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [
+          {
+            "code": "sql_static_optimizer_rewrite",
+            "message": "sql_static_optimizer rewrites=1"
+          }
+        ],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "uint64",
+                "name": "file_id",
+                "nullable": false
+              },
+              {
+                "data_type": "utf8",
+                "name": "entry_name",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "string_pool_id",
+                "nullable": false
+              }
+            ],
+            "kind": "query",
+            "next_offset": null,
+            "offset": 0,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "utf8",
+                  "value": "annotations-038.dex"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                }
+              ]
+            ],
+            "sql": "SELECT file_id,entry_name,string_pool_id FROM dex_files ORDER BY file_id",
+            "statement_index": 0,
+            "total_rows": 1,
+            "truncated": false
+          }
+        ]
+      }
+    },
+    {
+      "label": "directories",
+      "sql": "SELECT * FROM annotation_directories ORDER BY file_id,class_idx",
+      "result": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "uint64",
+                "name": "file_id",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "class_idx",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotations_off",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "class_annotations_off",
+                "nullable": true
+              },
+              {
+                "data_type": "uint64",
+                "name": "fields_size",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "methods_size",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "parameters_size",
+                "nullable": false
+              }
+            ],
+            "kind": "query",
+            "next_offset": null,
+            "offset": 0,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1200"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1152"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                }
+              ]
+            ],
+            "sql": "SELECT * FROM annotation_directories ORDER BY file_id,class_idx",
+            "statement_index": 0,
+            "total_rows": 1,
+            "truncated": false
+          }
+        ]
+      }
+    },
+    {
+      "label": "directory_entries",
+      "sql": "SELECT * FROM annotation_directory_entries ORDER BY file_id,class_idx,entry_kind,entry_idx",
+      "result": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "uint64",
+                "name": "file_id",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "class_idx",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotations_off",
+                "nullable": false
+              },
+              {
+                "data_type": "utf8",
+                "name": "entry_kind",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "entry_idx",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotation_set_off",
+                "nullable": true
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotation_set_ref_list_off",
+                "nullable": true
+              }
+            ],
+            "kind": "query",
+            "next_offset": null,
+            "offset": 0,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1200"
+                },
+                {
+                  "type": "utf8",
+                  "value": "field"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1164"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1200"
+                },
+                {
+                  "type": "utf8",
+                  "value": "field"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1164"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1200"
+                },
+                {
+                  "type": "utf8",
+                  "value": "method"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1172"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1200"
+                },
+                {
+                  "type": "utf8",
+                  "value": "parameter"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1188"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1200"
+                },
+                {
+                  "type": "utf8",
+                  "value": "parameter"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1188"
+                }
+              ]
+            ],
+            "sql": "SELECT * FROM annotation_directory_entries ORDER BY file_id,class_idx,entry_kind,entry_idx",
+            "statement_index": 0,
+            "total_rows": 5,
+            "truncated": false
+          }
+        ]
+      }
+    },
+    {
+      "label": "set_entries",
+      "sql": "SELECT * FROM annotation_set_entries ORDER BY file_id,annotation_set_off,ordinal",
+      "result": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "uint64",
+                "name": "file_id",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotation_set_off",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "ordinal",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotation_off",
+                "nullable": false
+              }
+            ],
+            "kind": "query",
+            "next_offset": null,
+            "offset": 0,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1152"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1000"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1152"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1164"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1120"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1172"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1180"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                }
+              ]
+            ],
+            "sql": "SELECT * FROM annotation_set_entries ORDER BY file_id,annotation_set_off,ordinal",
+            "statement_index": 0,
+            "total_rows": 5,
+            "truncated": false
+          }
+        ]
+      }
+    },
+    {
+      "label": "set_refs",
+      "sql": "SELECT * FROM annotation_set_refs ORDER BY file_id,annotation_set_ref_list_off,ordinal",
+      "result": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "uint64",
+                "name": "file_id",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotation_set_ref_list_off",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "ordinal",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotation_set_off",
+                "nullable": true
+              }
+            ],
+            "kind": "query",
+            "next_offset": null,
+            "offset": 0,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1188"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1180"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1188"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ]
+            ],
+            "sql": "SELECT * FROM annotation_set_refs ORDER BY file_id,annotation_set_ref_list_off,ordinal",
+            "statement_index": 0,
+            "total_rows": 2,
+            "truncated": false
+          }
+        ]
+      }
+    },
+    {
+      "label": "annotations",
+      "sql": "SELECT * FROM annotations ORDER BY file_id,annotation_off",
+      "result": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "uint64",
+                "name": "file_id",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotation_off",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "visibility",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "type_idx",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "element_count",
+                "nullable": false
+              }
+            ],
+            "kind": "query",
+            "next_offset": null,
+            "offset": 0,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1000"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "5"
+                },
+                {
+                  "type": "uint64",
+                  "value": "24"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1120"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                }
+              ]
+            ],
+            "sql": "SELECT * FROM annotations ORDER BY file_id,annotation_off",
+            "statement_index": 0,
+            "total_rows": 4,
+            "truncated": false
+          }
+        ]
+      }
+    },
+    {
+      "label": "elements",
+      "sql": "SELECT * FROM annotation_elements ORDER BY file_id,annotation_off,ordinal",
+      "result": {
+        "dataset_id": "dataset-1",
+        "diagnostics": [],
+        "statements": [
+          {
+            "columns": [
+              {
+                "data_type": "uint64",
+                "name": "file_id",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "annotation_off",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "depth",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "ordinal",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "name_idx",
+                "nullable": true
+              },
+              {
+                "data_type": "uint64",
+                "name": "value_off",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "value_end_off",
+                "nullable": false
+              },
+              {
+                "data_type": "utf8",
+                "name": "value_kind",
+                "nullable": false
+              },
+              {
+                "data_type": "uint64",
+                "name": "value_index",
+                "nullable": true
+              },
+              {
+                "data_type": "int64",
+                "name": "value_i64",
+                "nullable": true
+              },
+              {
+                "data_type": "float64",
+                "name": "value_f64",
+                "nullable": true
+              }
+            ],
+            "kind": "query",
+            "next_offset": null,
+            "offset": 0,
+            "rows": [
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1000"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "45"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1004"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "utf8",
+                  "value": "array"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1000"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1006"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1008"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1000"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1008"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1010"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "13"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1000"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1010"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "4"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "18"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1016"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1018"
+                },
+                {
+                  "type": "utf8",
+                  "value": "byte"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "int64",
+                  "value": "-128"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1074"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1076"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "48"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "45"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1085"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1087"
+                },
+                {
+                  "type": "utf8",
+                  "value": "int"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "int64",
+                  "value": "7"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "19"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1019"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1022"
+                },
+                {
+                  "type": "utf8",
+                  "value": "short"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "int64",
+                  "value": "-32768"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1076"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1078"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "17"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "uint64",
+                  "value": "20"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1023"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1026"
+                },
+                {
+                  "type": "utf8",
+                  "value": "char"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "int64",
+                  "value": "65535"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1078"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1080"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "48"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "3"
+                },
+                {
+                  "type": "uint64",
+                  "value": "21"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1027"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1032"
+                },
+                {
+                  "type": "utf8",
+                  "value": "int"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "int64",
+                  "value": "-2147483648"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "4"
+                },
+                {
+                  "type": "uint64",
+                  "value": "22"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1033"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1042"
+                },
+                {
+                  "type": "utf8",
+                  "value": "long"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "int64",
+                  "value": "-9223372036854775808"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "5"
+                },
+                {
+                  "type": "uint64",
+                  "value": "25"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1043"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1046"
+                },
+                {
+                  "type": "utf8",
+                  "value": "float"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "float64",
+                  "value": 1.0
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "6"
+                },
+                {
+                  "type": "uint64",
+                  "value": "26"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1047"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1050"
+                },
+                {
+                  "type": "utf8",
+                  "value": "double"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "float64",
+                  "value": 1.0
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "7"
+                },
+                {
+                  "type": "uint64",
+                  "value": "27"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1051"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1053"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "28"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "8"
+                },
+                {
+                  "type": "uint64",
+                  "value": "29"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1054"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1056"
+                },
+                {
+                  "type": "utf8",
+                  "value": "type"
+                },
+                {
+                  "type": "uint64",
+                  "value": "7"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "9"
+                },
+                {
+                  "type": "uint64",
+                  "value": "30"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1057"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1059"
+                },
+                {
+                  "type": "utf8",
+                  "value": "field"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "10"
+                },
+                {
+                  "type": "uint64",
+                  "value": "31"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1060"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1062"
+                },
+                {
+                  "type": "utf8",
+                  "value": "method"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "11"
+                },
+                {
+                  "type": "uint64",
+                  "value": "32"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1063"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1065"
+                },
+                {
+                  "type": "utf8",
+                  "value": "enum"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "12"
+                },
+                {
+                  "type": "uint64",
+                  "value": "35"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1066"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1068"
+                },
+                {
+                  "type": "utf8",
+                  "value": "method_type"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "13"
+                },
+                {
+                  "type": "uint64",
+                  "value": "36"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1069"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1071"
+                },
+                {
+                  "type": "utf8",
+                  "value": "method_handle"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "14"
+                },
+                {
+                  "type": "uint64",
+                  "value": "37"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1072"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1080"
+                },
+                {
+                  "type": "utf8",
+                  "value": "array"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "15"
+                },
+                {
+                  "type": "uint64",
+                  "value": "38"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1081"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1087"
+                },
+                {
+                  "type": "utf8",
+                  "value": "annotation"
+                },
+                {
+                  "type": "uint64",
+                  "value": "4"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "16"
+                },
+                {
+                  "type": "uint64",
+                  "value": "39"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1088"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1089"
+                },
+                {
+                  "type": "utf8",
+                  "value": "null"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "17"
+                },
+                {
+                  "type": "uint64",
+                  "value": "40"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1090"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1091"
+                },
+                {
+                  "type": "utf8",
+                  "value": "boolean"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "int64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "18"
+                },
+                {
+                  "type": "uint64",
+                  "value": "41"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1092"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1093"
+                },
+                {
+                  "type": "utf8",
+                  "value": "boolean"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "int64",
+                  "value": "1"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "19"
+                },
+                {
+                  "type": "uint64",
+                  "value": "42"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1094"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1099"
+                },
+                {
+                  "type": "utf8",
+                  "value": "float"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "float64",
+                  "value": "NaN"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "20"
+                },
+                {
+                  "type": "uint64",
+                  "value": "43"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1100"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1109"
+                },
+                {
+                  "type": "utf8",
+                  "value": "double"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "float64",
+                  "value": "NaN"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "21"
+                },
+                {
+                  "type": "uint64",
+                  "value": "44"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1110"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1113"
+                },
+                {
+                  "type": "utf8",
+                  "value": "float"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "float64",
+                  "value": "Infinity"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "22"
+                },
+                {
+                  "type": "uint64",
+                  "value": "46"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1114"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1117"
+                },
+                {
+                  "type": "utf8",
+                  "value": "double"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "float64",
+                  "value": "Infinity"
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1012"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "23"
+                },
+                {
+                  "type": "uint64",
+                  "value": "47"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1118"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1120"
+                },
+                {
+                  "type": "utf8",
+                  "value": "float"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "float64",
+                  "value": -0.0
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1120"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "45"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1124"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "utf8",
+                  "value": "array"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1120"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1126"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1128"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "16"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1120"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1128"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1130"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "14"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1120"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1130"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "45"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1136"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1152"
+                },
+                {
+                  "type": "utf8",
+                  "value": "array"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1138"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1140"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1140"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1142"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "16"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1142"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1144"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "14"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "3"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1144"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1146"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "3"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "4"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1146"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1148"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "16"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "5"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1148"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1150"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "14"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ],
+              [
+                {
+                  "type": "uint64",
+                  "value": "0"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1132"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1"
+                },
+                {
+                  "type": "uint64",
+                  "value": "6"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "uint64",
+                  "value": "1150"
+                },
+                {
+                  "type": "uint64",
+                  "value": "1152"
+                },
+                {
+                  "type": "utf8",
+                  "value": "string"
+                },
+                {
+                  "type": "uint64",
+                  "value": "2"
+                },
+                {
+                  "type": "null",
+                  "value": null
+                },
+                {
+                  "type": "null",
+                  "value": null
+                }
+              ]
+            ],
+            "sql": "SELECT * FROM annotation_elements ORDER BY file_id,annotation_off,ordinal",
+            "statement_index": 0,
+            "total_rows": 44,
+            "truncated": false
+          }
+        ]
+      }
+    }
+  ],
+  "stderr": "",
+  "process_exit_code": 0,
+  "failure": null,
+  "tool_error_queries": [],
+  "success": true,
+  "scope": "read-only compatibility observations on a synthetic annotated DEX only; not a performance trial, production parser, HostLab or release qualification"
+}

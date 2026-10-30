@@ -1,0 +1,16 @@
+{
+  "run_utc": "2026-10-28T17:34:27.734034+00:00",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/q03-repeat-20261029/verify.py"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"status\": \"pass\", \"sqlite_version\": \"3.53.1\", \"dialects\": [\"010\", \"011\"], \"cases_per_dialect\": 11, \"q03_rows\": 3, \"q03_duplicate_rows\": 2, \"candidate_binary_sha256\": \"78993d06ace4323c643bed64f23ee2fb22f3f87f84c569f8b209b5e4d8716d49\", \"candidate_raw_sha256\": \"e6b869bd9b6fae27766d8b0c4506020fcbdb9be753baf7244604c27b6f059477\", \"fixture_sha256\": \"0935ead44d8f83e2b1b978c52c5bc1daad0338f05b48beea3984978d580fbc5f\", \"frozen_corpus_sha256\": \"e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4\", \"profiles_admitted\": false, \"scope\": \"frozen Q03 with synthetic partial schema plus explicit same-name test column; SQLite oracle, not actual HostLab facts\"}\n",
+  "stderr": "",
+  "binary_sha256": "78993d06ace4323c643bed64f23ee2fb22f3f87f84c569f8b209b5e4d8716d49",
+  "verifier_sha256": "5687cf88a61d32cb23138cc4bf49c90b0439ad5fe5a759bdf360f010469ebe61",
+  "fixture_sha256": "0935ead44d8f83e2b1b978c52c5bc1daad0338f05b48beea3984978d580fbc5f",
+  "profiles_admitted": false,
+  "scope": "new independent verification, synthetic partial schema, not full HostLab"
+}

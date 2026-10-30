@@ -1,0 +1,77 @@
+{
+  "schema_version": "mdd.parser-safety-ci-readback.v1",
+  "head_sha": "b29933d489d945b91f8becf62d34af6b69288978",
+  "run_id": 40692557250,
+  "run_url": "https://github.com/jichuo1/MeguvizDexDash/actions/runs/40692557250",
+  "artifact_id": 12817673629,
+  "artifact_bytes": 1043606,
+  "artifact_sha256": "0322c81be925db13e30aab81f7919cb3b191bb260cd6e95e84462f9e7788c473",
+  "archive": "artifacts/conformance/parser-safety/ci-40692557250.zip",
+  "status": "bounded-rust-asan-fuzz-passed",
+  "positive_control": "actual nonzero heap-buffer-overflow diagnostic under ASan",
+  "targets": [
+    {
+      "name": "fuzz-archive",
+      "executions": 14099,
+      "coverage_counters": 2123,
+      "initial_coverage_counters": 1932,
+      "features": 4370,
+      "seed": 617349,
+      "crash_files": 0
+    },
+    {
+      "name": "fuzz-mutf8_leb",
+      "executions": 771035,
+      "coverage_counters": 379,
+      "initial_coverage_counters": 303,
+      "features": 873,
+      "seed": 617350,
+      "crash_files": 0
+    },
+    {
+      "name": "fuzz-header_raw",
+      "executions": 768113,
+      "coverage_counters": 1136,
+      "initial_coverage_counters": 1055,
+      "features": 1567,
+      "seed": 617351,
+      "crash_files": 0
+    },
+    {
+      "name": "fuzz-header_repaired",
+      "executions": 273207,
+      "coverage_counters": 1467,
+      "initial_coverage_counters": 1073,
+      "features": 3055,
+      "seed": 617352,
+      "crash_files": 0
+    },
+    {
+      "name": "fuzz-code_payload",
+      "executions": 403436,
+      "coverage_counters": 2209,
+      "initial_coverage_counters": 1479,
+      "features": 4747,
+      "seed": 617353,
+      "crash_files": 0
+    },
+    {
+      "name": "fuzz-encoded_values",
+      "executions": 196680,
+      "coverage_counters": 3202,
+      "initial_coverage_counters": 2549,
+      "features": 7260,
+      "seed": 617354,
+      "crash_files": 0
+    }
+  ],
+  "total_fuzzer_executions": 2426570,
+  "actual_locked_child_compiler_calls": 12,
+  "coverage_percent": null,
+  "limitations": [
+    "finite six-target smoke, no proof of complete format/absence of UB",
+    "no SQLite/FFI UBSan or TSan",
+    "no AXML/ARSC/QueryIR/paging/cancel fuzz",
+    "does not grant full G1, MDD-026, HostLab, performance or release qualification"
+  ]
+}

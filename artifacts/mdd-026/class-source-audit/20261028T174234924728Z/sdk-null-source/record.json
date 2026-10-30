@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "-d",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\class_source_boundary\\generated\\null-source.dex"
+  ],
+  "started_utc": "2026-10-28T17:42:35.834572+00:00",
+  "finished_utc": "2026-10-28T17:42:35.871053+00:00",
+  "elapsed_seconds": 0.03099999999994907,
+  "exit_code": 0,
+  "stdout_sha256": "f9e722846204a94910a97a51a1b133b65b768bcfff17a7188735bbc68772b00e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "small synthetic development conformance"
+}

@@ -2,7 +2,7 @@
 
 MeguvizDexDash 是面向桌面与云端、可嵌入且可服务化的 DEX 静态分析引擎。首个业务接入点是 `jichuo1/innocent-lab-host-analysis` 中 DexSQL 承担的职能。Android 进程内 DexKit 替换属于独立的 DexMeguviz 项目。
 
-本仓库基于 2026-10-26 工程包开始实现，保留完整规格、契约和历史研究证据。当前已有 Rust workspace、结果类型、CLI 能力入口、自有输入快照、保留物理成员身份的 APK 清点及有限 DEX header/map 校验；会话与 worker 生命周期正在验收。当前为未取得产品资格的开发版本，尚不能替代 HostLab DexSQL。
+本仓库基于 2026-10-26 工程包开始实现，保留完整规格、契约和历史研究证据。当前已有 Rust workspace、结果类型、CLI 能力入口、不可变输入快照、ZIP32/ZIP64 物理成员、会话和 worker 生命周期；字符串/类型/原型、定义、注解、代码布局、引用、原始指纹和必需 Manifest 已在各任务限定范围验收。候选索引、事实覆盖与类型化查询正在实施。当前为未取得产品资格的开发版本，尚不能替代 HostLab DexSQL。
 
 任务与具体限制见 [STATE.md](STATE.md)、[唯一任务图](tasks/backlog.json)、[兼容账本](compatibility/ledger.json) 和 [实际证据索引](artifacts/index.json)。全部 profile 仍未准入，约 37%/47% 是历史条件预算，没有新引擎性能成绩。
 
@@ -19,9 +19,11 @@ cargo run --locked -p mdd-cli -- inspect-dex tests/fixtures/generated/structured
 cargo run --locked -p mdd-cli -- inspect-apk tests/fixtures/generated/multidex-deflated.apk
 ```
 
-`inspect-dex` / `inspect-apk` 可以接收多个路径，结果只覆盖成员清单和标准 little-endian DEX 035/037/038/039/040 的 header/map/固定引用范围。返回来源内容摘要、独立 occurrence、物理成员与逻辑 DEX 标识，明确 `full_dex_validation_complete=false`。当前 header-v2 同时验证 Adler32 与 DEX 原生 SHA-1 摘要，来源身份仍采用 SHA-256；SHA-1 不是签名认证。036、041、ZIP64、多卷、加密等未获资格能力明确拒绝，损坏输入以真实错误拒绝。SQL、Smali、完整资源、MCP、FFI 和桌面尚未交付。
+`inspect-dex` / `inspect-apk` 可以接收多个路径，结果只覆盖成员清单和标准 little-endian DEX 035/037/038/039/040 的 header/map/固定引用范围。返回来源内容摘要、独立 occurrence、物理成员与逻辑 DEX 标识，明确 `full_dex_validation_complete=false`。当前 header-v2 同时验证 Adler32 与 DEX 原生 SHA-1 摘要，来源身份仍采用 SHA-256；SHA-1 不是签名认证。输入支持受预算的单磁盘 ZIP32/ZIP64 STORE/DEFLATE，保留重复物理成员；真实65535/65536成员与独立小语料均已测试，不把虚拟64位边界当4GB实物通过。036、041、多卷、加密和其他codec等未获资格能力明确拒绝，损坏输入以真实错误拒绝。SQL、Smali、完整资源、MCP、FFI 和桌面尚未交付。
 
 Windows x86_64 本机已实际运行；Linux x86_64 由 CI 验收，状态以真实 CI 结果为准。`.github/workflows/ci.yml` 对两个原生平台执行独立语料、构建、lint、测试和真实 CLI 检查，不执行或冒称生产性能基准。
+
+事实 crate 的原生 API 与示例入口在 `crates/mdd-facts`，不会把窄范围 CLI 检查冒充完整事实查询。检查点 b29933d 已通过两平台原生 CI，以及独立测试 workspace 的 Linux ASan 正控制和六目标短 fuzz（2,426,570 次真实执行）。公开 NewPipe 的原始字节证据、AAPT2 Manifest 与固定参考比较见 [MDD-025 验收](artifacts/mdd-025/raw-evidence-conformance.json)，检测边界见 [解析器安全说明](conformance/sanitizers/README.md)。这些证据不授予完整 G1、HostLab、SQL 或正式性能资格。
 
 ## 原始工程包与实施入口
 
@@ -69,4 +71,4 @@ python3 tools/recompute_targets.py
 
 本包规格版本为 `0.1-draft`，整理日期为 2026 年 10 月 26 日，用户时区 Asia/Shanghai。原始日志时间保持其来源时区。HostLab 固定研究提交为 `8782f43d537c442905123e35af325c412caa5188`，后续实施必须同时保存固定基线与当时实际 checkout 身份，不能把快照当作所有部署实例的现状。
 
-新设计与已知事实分开标注。规范性新增接口由契约文件和架构文档约束；它们都是待实现契约。引用的闭源 DexSQL 行为只覆盖已经观察或文档说明的范围，不声称恢复完整内部源码。
+新设计与已知事实分开标注。接口实现进度以任务图和实际证据为准；架构文档中的远期契约不等于当前已交付能力。引用的闭源 DexSQL 行为只覆盖已经观察或文档说明的范围，不声称恢复完整内部源码。

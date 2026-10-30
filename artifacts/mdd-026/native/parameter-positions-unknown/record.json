@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\native_probe.exe",
+    "tests/fixtures/annotations/generated/bad-parameter-arity.dex"
+  ],
+  "started_utc": "2026-10-28T13:06:25.653201+00:00",
+  "finished_utc": "2026-10-28T13:06:25.726997+00:00",
+  "elapsed_seconds": 0.06199999999807915,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "e2e98c40f8e6069c29a61e00e1e066599fe0734963a5415209c9a31ff0923a67",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

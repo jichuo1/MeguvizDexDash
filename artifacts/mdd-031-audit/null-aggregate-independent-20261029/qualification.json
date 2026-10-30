@@ -1,0 +1,29 @@
+{
+  "status": "passed-scoped",
+  "candidate_cases": 72,
+  "sqlite_comparisons": 57,
+  "control_terminals": 15,
+  "sqlite_version": "3.53.1",
+  "a0_exact_query_value_order_equal": true,
+  "a0_exact_query_dto_equal": false,
+  "a0_dto_difference": "NULL value key absent and zero uint64 vs i64",
+  "source_changed_scope": "injected by synthetic provider; not a disk mutation test",
+  "missing_facts_scope": "injected by synthetic provider; not full corpus",
+  "no_new_a0_a1_runs": true,
+  "profile_admitted": false,
+  "source_sha256": {
+    "crates/mdd-sql/src/bridge.rs": "2b6a05792e37394be9e7eb88c9aeb80456cdab57866b801572210b94a4b69976",
+    "crates/mdd-sql/src/dialects/ast.rs": "90e9677b84a4253f0a06e4df8b328232cb114c4645dcddc17a1c6de31969a65b",
+    "crates/mdd-sql/src/dialects/functions.rs": "062dac4d1fe72eaa4b4d71aa9672380d6ddad0d04122e86c5ca185a0523f9654",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "artifacts/mdd-031-audit/null-aggregate-independent-20261029/Cargo.lock": "f7845e9a5309eaa2446cd3a3eebe14d0904aeb75356ddec207e1b114c3d3b946",
+    "artifacts/mdd-031-audit/null-aggregate-independent-20261029/Cargo.toml": "2eded879d2a1cd59f9d47da2c7d924f37147f97b238d781884bc80b61dfeb2bf",
+    "artifacts/mdd-031-audit/null-aggregate-independent-20261029/src/main.rs": "60049d17d444b2ad62ed280c746205f673daf44f6d1e1d365bfc8215aacd19c4",
+    "artifacts/mdd-031-audit/null-aggregate-independent-20261029/run_bounded.py": "d435fcf313dbd35226aa54751445c332dfb54a150d6f17df9735d8a092db0cc0"
+  },
+  "binary_sha256": "f57f5c18e5df74d72c48a3abf48e9cdce0f76b1db67fb2c7d1a196a3081ccc65",
+  "candidate_stdout_sha256": "7fddbdb63599b0ba7f8791da283cf28b5daa1c3f54237ed3b745f74832414e03",
+  "scope": "synthetic provider and SQLite oracle; no production facts, transport, or full SQL qualification"
+}

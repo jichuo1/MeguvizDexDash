@@ -1,0 +1,98 @@
+{
+  "captured_input_bytes": "10885562",
+  "definition_search_scope": {
+    "dex_occurrences": [
+      "snapshot-add5d9ec6e811f8fc0a99da21b2d7820acbc2ad399f789170af466e8c34f6055:source:0:member:4:dex:header:0",
+      "snapshot-add5d9ec6e811f8fc0a99da21b2d7820acbc2ad399f789170af466e8c34f6055:source:0:member:5:dex:header:0"
+    ],
+    "kind": "complete_selected_inputs",
+    "snapshot_content_key": "sha256:e404d3f52d4c89c07ed4c3130841a3efaa5137b52372633c4f634ab375fd0eee",
+    "source_selection_policies": [
+      "snapshot-add5d9ec6e811f8fc0a99da21b2d7820acbc2ad399f789170af466e8c34f6055:source:0:top-level-classes-v1"
+    ]
+  },
+  "engine": "MeguvizDexDash",
+  "full_audit_complete": false,
+  "full_dex_validation_complete": false,
+  "input_content_id": "sha256:e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+  "operation_status": "ok",
+  "qualification": "self-owned complete encoded reference construction only; no runtime call graph, HostLab profile or performance qualification",
+  "reference_calculation_complete": true,
+  "relations": null,
+  "scope": "encoded-reference-sites-in-defined-methods-v1",
+  "selected_dexes": [
+    {
+      "call_site_metadata_scope": null,
+      "code_projection_scope": "complete-declared-code-map-v1",
+      "content_id": "sha256:b661eaad3277de9147c4461f27c15b949d2a360ab61ef05b7a9e82b3e6c27521",
+      "coverage": {
+        "code_projection_scope": "complete-declared-code-map-v1",
+        "decoded_callers": 47110,
+        "defined_methods": 50046,
+        "facts": "complete",
+        "missing_method_indices": [],
+        "no_body_methods": 2936,
+        "required_layer_scope": "encoded operands in all declared method definitions of this bound DEX occurrence; not runtime dispatch",
+        "unowned_physical_code_items": 0
+      },
+      "custom_call_sites": 0,
+      "dex_occurrence_id": "snapshot-add5d9ec6e811f8fc0a99da21b2d7820acbc2ad399f789170af466e8c34f6055:source:0:member:4:dex:header:0",
+      "encoded_method_reference_sites": 221993,
+      "full_audit_complete": false,
+      "method_field_access_sites": 153569,
+      "method_handle_sites": 0,
+      "method_string_sites": 39406,
+      "method_used_type_sites": 61805,
+      "non_scalar_referenced_strings": 0,
+      "plain_utf8_projection": "available_losslessly",
+      "prototype_sites": 0,
+      "reference_calculation_complete": true,
+      "runtime_targets_inferred": false,
+      "site_count": 476773,
+      "usage": {
+        "callers": 47110,
+        "expanded_code_units": 1939598,
+        "fact_bytes": 63557158,
+        "index_postings": 476773,
+        "sites": 476773
+      }
+    },
+    {
+      "call_site_metadata_scope": null,
+      "code_projection_scope": "complete-declared-code-map-v1",
+      "content_id": "sha256:e95ea094cdfb755304f5027ba6e64fa98f9b10e874c4093f3b19c43d62bfee3f",
+      "coverage": {
+        "code_projection_scope": "complete-declared-code-map-v1",
+        "decoded_callers": 5222,
+        "defined_methods": 5717,
+        "facts": "complete",
+        "missing_method_indices": [],
+        "no_body_methods": 495,
+        "required_layer_scope": "encoded operands in all declared method definitions of this bound DEX occurrence; not runtime dispatch",
+        "unowned_physical_code_items": 0
+      },
+      "custom_call_sites": 0,
+      "dex_occurrence_id": "snapshot-add5d9ec6e811f8fc0a99da21b2d7820acbc2ad399f789170af466e8c34f6055:source:0:member:5:dex:header:0",
+      "encoded_method_reference_sites": 14651,
+      "full_audit_complete": false,
+      "method_field_access_sites": 10048,
+      "method_handle_sites": 0,
+      "method_string_sites": 2648,
+      "method_used_type_sites": 5202,
+      "non_scalar_referenced_strings": 0,
+      "plain_utf8_projection": "available_losslessly",
+      "prototype_sites": 0,
+      "reference_calculation_complete": true,
+      "runtime_targets_inferred": false,
+      "site_count": 32549,
+      "usage": {
+        "callers": 5222,
+        "expanded_code_units": 149107,
+        "fact_bytes": 4417703,
+        "index_postings": 32549,
+        "sites": 32549
+      }
+    }
+  ],
+  "snapshot_id": "snapshot-add5d9ec6e811f8fc0a99da21b2d7820acbc2ad399f789170af466e8c34f6055"
+}

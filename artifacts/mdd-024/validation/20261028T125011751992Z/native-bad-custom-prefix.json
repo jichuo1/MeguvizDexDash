@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\reference_summary.exe",
+    "tests/fixtures/references/generated/bad-custom-prefix.dex",
+    "2a13dbc8af3f9ab1cf780a3e80d0335f387b8e049ad7638f0abf447734278240",
+    "--relations"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"error\":{\"code\":\"INVALID_INPUT\",\"details\":{\"byte_length\":\"2\",\"byte_offset\":\"787\",\"content_id\":\"sha256:2a13dbc8af3f9ab1cf780a3e80d0335f387b8e049ad7638f0abf447734278240\",\"dex_occurrence_id\":\"snapshot-9e4818983e908b263632e2365576504d2bf23297024111033882f04d4285a87e:source:0:raw:dex:header:0\",\"expected\":\"method_handle\",\"facts_coverage\":\"unknown\",\"input_coverage\":\"partial\",\"member_id\":\"snapshot-9e4818983e908b263632e2365576504d2bf23297024111033882f04d4285a87e:source:0:raw\",\"position\":\"0\",\"reason\":\"CALL_SITE_ENCODED_PREFIX\",\"snapshot_id\":\"snapshot-9e4818983e908b263632e2365576504d2bf23297024111033882f04d4285a87e\",\"source_binding\":\"caller_snapshot_required\"},\"message\":\"CALL_SITE_ENCODED_PREFIX\",\"retryable\":false,\"stage\":\"dex.annotations\"},\"full_audit_complete\":false,\"operation_status\":\"error\"}\n",
+  "stderr": ""
+}

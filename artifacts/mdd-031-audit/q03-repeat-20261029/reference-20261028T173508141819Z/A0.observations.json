@@ -1,0 +1,234 @@
+{
+  "variant": "A0",
+  "engine_path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+  "engine_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "engine_bytes": 21365760,
+  "command": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "mcp",
+    "--timeout-ms",
+    "1500",
+    "--max-datasets",
+    "1"
+  ],
+  "cases": [
+    {
+      "id": "frozen_q03",
+      "dataset_id": "dataset-1",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-1",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 6.5268
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-1\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":6.5268}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-1",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 6.5268
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT ci.interface_descriptor,c.descriptor FROM class_interfaces ci JOIN classes c ON c.file_id=ci.file_id AND c.class_idx=ci.class_idx WHERE c.descriptor IN ('Lfixture/A;') ORDER BY ci.file_id,ci.class_idx,ci.ordinal",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-1",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=17"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "utf8",
+                      "name": "interface_descriptor",
+                      "nullable": false
+                    },
+                    {
+                      "data_type": "utf8",
+                      "name": "descriptor",
+                      "nullable": false
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [],
+                  "sql": "SELECT ci.interface_descriptor,c.descriptor FROM class_interfaces ci JOIN classes c ON c.file_id=ci.file_id AND c.class_idx=ci.class_idx WHERE c.descriptor IN ('Lfixture/A;') ORDER BY ci.file_id,ci.class_idx,ci.ordinal",
+                  "statement_index": 0,
+                  "total_rows": 0,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=17\"}],\"statements\":[{\"columns\":[{\"data_type\":\"utf8\",\"name\":\"interface_descriptor\",\"nullable\":false},{\"data_type\":\"utf8\",\"name\":\"descriptor\",\"nullable\":false}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[],\"sql\":\"SELECT ci.interface_descriptor,c.descriptor FROM class_interfaces ci JOIN classes c ON c.file_id=ci.file_id AND c.class_idx=ci.class_idx WHERE c.descriptor IN ('Lfixture/A;') ORDER BY ci.file_id,ci.class_idx,ci.ordinal\",\"statement_index\":0,\"total_rows\":0,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-1",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=17"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "utf8",
+                        "name": "interface_descriptor",
+                        "nullable": false
+                      },
+                      {
+                        "data_type": "utf8",
+                        "name": "descriptor",
+                        "nullable": false
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [],
+                    "sql": "SELECT ci.interface_descriptor,c.descriptor FROM class_interfaces ci JOIN classes c ON c.file_id=ci.file_id AND c.class_idx=ci.class_idx WHERE c.descriptor IN ('Lfixture/A;') ORDER BY ci.file_id,ci.class_idx,ci.ordinal",
+                    "statement_index": 0,
+                    "total_rows": 0,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-1"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-1\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-1"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    }
+  ],
+  "active_dataset_after_all_cases": {
+    "is_error": false,
+    "body": {
+      "admitted_requests": 0,
+      "datasets": [],
+      "limits": {
+        "max_datasets": 1,
+        "max_dex_bytes": 1073741824,
+        "max_input_bytes": 1073741824,
+        "max_output_bytes": 131072,
+        "max_pending": 16,
+        "max_resource_bytes": 67108864,
+        "max_total_input_bytes": 2147483648,
+        "timeout_ms": 1500
+      },
+      "running_requests": 0,
+      "usage": {
+        "datasets": 0,
+        "input_bytes": 0
+      }
+    },
+    "mcp_result": {
+      "_meta": null,
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"admitted_requests\":0,\"datasets\":[],\"limits\":{\"max_datasets\":1,\"max_dex_bytes\":1073741824,\"max_input_bytes\":1073741824,\"max_output_bytes\":131072,\"max_pending\":16,\"max_resource_bytes\":67108864,\"max_total_input_bytes\":2147483648,\"timeout_ms\":1500},\"running_requests\":0,\"usage\":{\"datasets\":0,\"input_bytes\":0}}",
+          "annotations": null,
+          "_meta": null
+        }
+      ],
+      "structuredContent": {
+        "admitted_requests": 0,
+        "datasets": [],
+        "limits": {
+          "max_datasets": 1,
+          "max_dex_bytes": 1073741824,
+          "max_input_bytes": 1073741824,
+          "max_output_bytes": 131072,
+          "max_pending": 16,
+          "max_resource_bytes": 67108864,
+          "max_total_input_bytes": 2147483648,
+          "timeout_ms": 1500
+        },
+        "running_requests": 0,
+        "usage": {
+          "datasets": 0,
+          "input_bytes": 0
+        }
+      },
+      "isError": false,
+      "resultType": "complete"
+    }
+  },
+  "server_info": {
+    "name": "dexsql",
+    "title": null,
+    "version": "0.1.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "client_context_exited": true,
+  "transcript_sha256": "a6d9f7fb28993ec48f7abdb1cb056c672c035e68a02b50d674517a85f74c8cc0"
+}

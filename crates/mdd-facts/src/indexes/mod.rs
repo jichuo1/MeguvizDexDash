@@ -1,0 +1,1042 @@
+//! Snapshot/selected-scope candidate indexes; every candidate is exactly rechecked.
+mod columns;
+pub mod lazy;
+mod scope;
+#[cfg(test)]
+mod tests;
+mod views;
+use crate::{
+    coverage::{CoverageLedger, CoverageReport, CoverageRequest, FactLayer},
+    metadata::{EntityKind, EntityRef},
+    references::{MethodSymbol, ReferenceMatches, ReferenceTargetId, TargetKind},
+};
+use lazy::{IndexAudit, LazyIndex};
+use mdd_types::{ErrorCode, MddError, MddResult};
+pub use scope::{SelectedDex, SelectedInput, SelectedScope};
+use serde::Serialize;
+use std::{
+    collections::{BTreeMap, BTreeSet},
+    time::{Duration, Instant},
+};
+pub use views::FactView;
+
+#[derive(Clone, Copy, Debug, Serialize)]
+pub struct ColumnSpec {
+    pub relation: &'static str,
+    pub column: &'static str,
+    pub data_type: &'static str,
+    pub nullable: bool,
+    pub assembled_projection: bool,
+}
+pub fn column_specs() -> &'static [ColumnSpec] {
+    columns::COLUMNS
+}
+#[derive(Clone, Copy, Debug)]
+pub struct IndexLimits {
+    pub max_entries: u64,
+    pub max_index_bytes: u64,
+    pub max_result_entries: u64,
+    pub max_result_bytes: u64,
+    pub max_build_attempts: u64,
+    pub build_duration: Option<Duration>,
+}
+impl Default for IndexLimits {
+    fn default() -> Self {
+        Self {
+            max_entries: 8_000_000,
+            max_index_bytes: 512 * 1024 * 1024,
+            max_result_entries: 1_000_000,
+            max_result_bytes: 256 * 1024 * 1024,
+            max_build_attempts: 32,
+            build_duration: None,
+        }
+    }
+}
+struct Budget {
+    limits: IndexLimits,
+    entries: u64,
+    bytes: u64,
+    started: Instant,
+}
+impl Budget {
+    fn new(limits: IndexLimits) -> Self {
+        Self {
+            limits,
+            entries: 0,
+            bytes: 0,
+            started: Instant::now(),
+        }
+    }
+    fn charge(&mut self, entries: u64, bytes: u64) -> MddResult<()> {
+        if self
+            .limits
+            .build_duration
+            .is_some_and(|duration| self.started.elapsed() >= duration)
+        {
+            return Err(MddError::new(
+                ErrorCode::DeadlineExceeded,
+                "facts.index_build",
+                "index build deadline reached",
+            )
+            .detail("budget", "index_build_duration"));
+        }
+        self.entries = self
+            .entries
+            .checked_add(entries)
+            .ok_or_else(|| quota("INDEX_ENTRY_BUDGET"))?;
+        self.bytes = self
+            .bytes
+            .checked_add(bytes)
+            .ok_or_else(|| quota("INDEX_BYTE_BUDGET"))?;
+        if self.entries > self.limits.max_entries {
+            return Err(quota("INDEX_ENTRY_BUDGET"));
+        }
+        if self.bytes > self.limits.max_index_bytes {
+            return Err(quota("INDEX_BYTE_BUDGET"));
+        }
+        Ok(())
+    }
+}
+fn quota(reason: &str) -> MddError {
+    MddError::new(ErrorCode::QuotaExceeded, "facts.index", reason).detail("reason", reason)
+}
+#[derive(Clone, Debug, Serialize)]
+#[serde(tag = "kind", content = "value", rename_all = "snake_case")]
+pub enum Utf16Predicate {
+    Any,
+    Equal(Vec<u16>),
+    Prefix(Vec<u16>),
+    Contains(Vec<u16>),
+}
+impl Utf16Predicate {
+    pub fn matches(&self, value: &[u16]) -> bool {
+        match self {
+            Self::Any => true,
+            Self::Equal(expected) => value == expected,
+            Self::Prefix(prefix) => value.starts_with(prefix),
+            Self::Contains(needle) => {
+                needle.is_empty() || value.windows(needle.len()).any(|part| part == needle)
+            }
+        }
+    }
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum DefinitionKind {
+    Class,
+    Field,
+    Method,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd)]
+struct Atom {
+    view: u32,
+    local: u32,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd)]
+struct DefinitionAtom {
+    view: u32,
+    kind: DefinitionKind,
+    local: u32,
+}
+#[derive(Clone, Copy, Debug)]
+struct ReferenceAtom {
+    view: u32,
+    local: u32,
+}
+struct StringIndex {
+    all: Vec<Atom>,
+    utf16: BTreeMap<Vec<u16>, Vec<Atom>>,
+    raw: BTreeMap<Vec<u8>, Vec<Atom>>,
+    units: BTreeMap<u16, Vec<Atom>>,
+}
+struct DefinitionIndex {
+    names: BTreeMap<(DefinitionKind, Vec<u16>), Vec<DefinitionAtom>>,
+    owners: BTreeMap<(u32, u32, DefinitionKind), Vec<DefinitionAtom>>,
+    all: Vec<DefinitionAtom>,
+}
+struct ReferenceSymbolIndex {
+    methods: BTreeMap<MethodSymbol, Vec<ReferenceAtom>>,
+}
+#[derive(Clone, Debug, Serialize)]
+pub struct IndexMatches {
+    pub scope_id: String,
+    pub snapshot_id: String,
+    pub index_attempt: Option<IndexAudit>,
+    pub access_path: String,
+    pub candidate_count: u64,
+    pub exact_match_count: u64,
+    pub entities: Vec<EntityRef>,
+    pub absence_proven_within_selected_scope: bool,
+    pub covers_all_captured_sources: bool,
+    pub coverage: CoverageReport,
+}
+#[derive(Clone, Debug, Serialize)]
+pub struct ReferenceIndexMatches {
+    pub snapshot_id: String,
+    pub scope_id: String,
+    pub index_attempt: Option<IndexAudit>,
+    pub access_path: String,
+    pub candidate_reference_count: u64,
+    pub sites: Vec<crate::references::ReferenceSiteId>,
+    pub absence_proven_within_selected_encoded_scope: bool,
+    pub covers_all_captured_sources: bool,
+    pub runtime_resolution: &'static str,
+    pub coverage: CoverageReport,
+}
+pub struct SnapshotFactIndex<'a> {
+    scope: SelectedScope,
+    views: Vec<FactView<'a>>,
+    by_occurrence: BTreeMap<String, u32>,
+    ledger: CoverageLedger<'a>,
+    limits: IndexLimits,
+    strings: LazyIndex<StringIndex>,
+    definitions: LazyIndex<DefinitionIndex>,
+    reference_symbols: LazyIndex<ReferenceSymbolIndex>,
+}
+
+impl<'a> SnapshotFactIndex<'a> {
+    pub fn new(
+        scope: SelectedScope,
+        views: &[FactView<'a>],
+        limits: IndexLimits,
+    ) -> MddResult<Self> {
+        let ledger = CoverageLedger::new(scope.clone(), views)?;
+        let mut ordered = Vec::new();
+        let mut by_occurrence = BTreeMap::new();
+        for dex in scope.dexes() {
+            if let Some(view) = views
+                .iter()
+                .find(|view| view.occurrence() == dex.dex_occurrence_id)
+            {
+                view.validate(&scope)?;
+                by_occurrence.insert(dex.dex_occurrence_id.clone(), ordered.len() as u32);
+                ordered.push(view.clone());
+            }
+        }
+        Ok(Self {
+            strings: LazyIndex::new(
+                scope.scope_id(),
+                "strings-utf16-raw-candidates-v1",
+                limits.max_build_attempts,
+            )?,
+            definitions: LazyIndex::new(
+                scope.scope_id(),
+                "definitions-owner-candidates-v1",
+                limits.max_build_attempts,
+            )?,
+            reference_symbols: LazyIndex::new(
+                scope.scope_id(),
+                "encoded-reference-symbol-candidates-v1",
+                limits.max_build_attempts,
+            )?,
+            scope,
+            views: ordered,
+            by_occurrence,
+            ledger,
+            limits,
+        })
+    }
+    pub fn scope(&self) -> &SelectedScope {
+        &self.scope
+    }
+    pub fn coverage(&self, request: &CoverageRequest) -> MddResult<CoverageReport> {
+        self.ledger.evaluate(request)
+    }
+    pub fn audits(&self) -> MddResult<Vec<IndexAudit>> {
+        Ok(vec![
+            self.strings.audit()?,
+            self.definitions.audit()?,
+            self.reference_symbols.audit()?,
+        ])
+    }
+    fn require(&self, layer: FactLayer) -> MddResult<CoverageReport> {
+        let report = self
+            .ledger
+            .evaluate(&CoverageRequest::for_scope(&self.scope, &[layer]))?;
+        report.require_complete()?;
+        Ok(report)
+    }
+    fn metadata(&self, view: u32) -> MddResult<&crate::MetadataFacts> {
+        self.views
+            .get(view as usize)
+            .and_then(|view| view.metadata)
+            .ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.index",
+                    "metadata not built",
+                )
+            })
+    }
+    fn definition_facts(&self, view: u32) -> MddResult<&crate::definitions::DefinitionFacts> {
+        self.views
+            .get(view as usize)
+            .and_then(|view| view.definitions)
+            .ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.index",
+                    "definitions not built",
+                )
+            })
+    }
+    fn string_entity(&self, atom: Atom) -> MddResult<EntityRef> {
+        self.metadata(atom.view)?
+            .entity(EntityKind::String, atom.local)
+    }
+    fn definition_entity(&self, atom: DefinitionAtom) -> MddResult<EntityRef> {
+        self.definition_facts(atom.view)?.entity(
+            match atom.kind {
+                DefinitionKind::Class => EntityKind::ClassDefinition,
+                DefinitionKind::Field => EntityKind::FieldDefinition,
+                DefinitionKind::Method => EntityKind::MethodDefinition,
+            },
+            atom.local,
+        )
+    }
+    fn result(
+        &self,
+        mut entities: Vec<EntityRef>,
+        candidates: usize,
+        path: &str,
+        audit: Option<IndexAudit>,
+        coverage: CoverageReport,
+    ) -> MddResult<IndexMatches> {
+        let bytes = entities
+            .iter()
+            .try_fold(0u64, |sum, entity| {
+                sum.checked_add(
+                    (entity.snapshot_id.len()
+                        + entity.dex_occurrence_id.len()
+                        + std::mem::size_of::<EntityRef>()) as u64,
+                )
+            })
+            .ok_or_else(|| quota("INDEX_RESULT_BYTE_BUDGET"))?;
+        if entities.len() as u64 > self.limits.max_result_entries
+            || bytes > self.limits.max_result_bytes
+        {
+            return Err(quota("INDEX_RESULT_BUDGET"));
+        }
+        entities.sort_by_key(|entity| {
+            (
+                self.by_occurrence[&entity.dex_occurrence_id],
+                entity.local_index,
+            )
+        });
+        Ok(IndexMatches {
+            scope_id: self.scope.scope_id().into(),
+            snapshot_id: self.scope.snapshot_id().into(),
+            index_attempt: audit,
+            access_path: path.into(),
+            candidate_count: candidates as u64,
+            exact_match_count: entities.len() as u64,
+            absence_proven_within_selected_scope: entities.is_empty()
+                && coverage.input == mdd_types::Completeness::Complete
+                && coverage.facts == mdd_types::Completeness::Complete,
+            covers_all_captured_sources: self.scope.covers_all_captured_sources(),
+            entities,
+            coverage,
+        })
+    }
+    fn check_predicate(predicate: &Utf16Predicate) -> MddResult<()> {
+        let length = match predicate {
+            Utf16Predicate::Any => 0,
+            Utf16Predicate::Equal(v) | Utf16Predicate::Prefix(v) | Utf16Predicate::Contains(v) => {
+                v.len()
+            }
+        };
+        if length > 1_000_000 {
+            return Err(quota("INDEX_PREDICATE_BUDGET"));
+        }
+        Ok(())
+    }
+    fn append_entity(
+        &self,
+        result: &mut Vec<EntityRef>,
+        bytes: &mut u64,
+        view: u32,
+        make: impl FnOnce() -> MddResult<EntityRef>,
+    ) -> MddResult<()> {
+        let cost = (self.scope.snapshot_id().len()
+            + self.views[view as usize].occurrence().len()
+            + std::mem::size_of::<EntityRef>()) as u64;
+        *bytes = bytes
+            .checked_add(cost)
+            .ok_or_else(|| quota("INDEX_RESULT_BYTE_BUDGET"))?;
+        if result.len() as u64 >= self.limits.max_result_entries
+            || *bytes > self.limits.max_result_bytes
+        {
+            return Err(quota("INDEX_RESULT_BUDGET"));
+        }
+        result
+            .try_reserve(1)
+            .map_err(|_| quota("INDEX_RESULT_ALLOCATION"))?;
+        result.push(make()?);
+        Ok(())
+    }
+    fn build_strings(&self) -> MddResult<StringIndex> {
+        self.require(FactLayer::Metadata)?;
+        let mut index = StringIndex {
+            all: Vec::new(),
+            utf16: BTreeMap::new(),
+            raw: BTreeMap::new(),
+            units: BTreeMap::new(),
+        };
+        let mut budget = Budget::new(self.limits);
+        budget.charge(0, 0)?;
+        for (view_id, view) in self.views.iter().enumerate() {
+            let metadata = view.metadata.ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.index",
+                    "metadata missing",
+                )
+            })?;
+            for string in metadata.strings() {
+                let atom = Atom {
+                    view: view_id as u32,
+                    local: string.data.string_idx,
+                };
+                budget.charge(1, 16)?;
+                index.all.push(atom);
+                if !index.utf16.contains_key(&string.data.text.utf16_units) {
+                    budget.charge(0, string.data.text.utf16_units.len() as u64 * 2 + 64)?;
+                }
+                index
+                    .utf16
+                    .entry(string.data.text.utf16_units.clone())
+                    .or_default()
+                    .push(atom);
+                budget.charge(1, 8)?;
+                if !index.raw.contains_key(&string.data.text.raw_mutf8) {
+                    budget.charge(0, string.data.text.raw_mutf8.len() as u64 + 64)?;
+                }
+                index
+                    .raw
+                    .entry(string.data.text.raw_mutf8.clone())
+                    .or_default()
+                    .push(atom);
+                budget.charge(1, 8)?;
+                for unit in string
+                    .data
+                    .text
+                    .utf16_units
+                    .iter()
+                    .copied()
+                    .collect::<BTreeSet<_>>()
+                {
+                    budget.charge(1, 8)?;
+                    index.units.entry(unit).or_default().push(atom);
+                }
+            }
+        }
+        Ok(index)
+    }
+    fn string_candidates<'b>(
+        index: &'b StringIndex,
+        predicate: &'b Utf16Predicate,
+    ) -> Box<dyn Iterator<Item = Atom> + 'b> {
+        match predicate {
+            Utf16Predicate::Any => Box::new(index.all.iter().copied()),
+            Utf16Predicate::Equal(value) => {
+                Box::new(index.utf16.get(value).into_iter().flatten().copied())
+            }
+            Utf16Predicate::Prefix(prefix) => Box::new(
+                index
+                    .utf16
+                    .range(prefix.clone()..)
+                    .take_while(|(key, _)| key.starts_with(prefix))
+                    .flat_map(|(_, values)| values.iter().copied()),
+            ),
+            Utf16Predicate::Contains(value) => match value.first() {
+                None => Box::new(index.all.iter().copied()),
+                Some(unit) => Box::new(index.units.get(unit).into_iter().flatten().copied()),
+            },
+        }
+    }
+    pub fn strings_indexed(&self, predicate: &Utf16Predicate) -> MddResult<IndexMatches> {
+        Self::check_predicate(predicate)?;
+        let coverage = self.require(FactLayer::Metadata)?;
+        let index = self.strings.get_or_build(|| self.build_strings())?;
+        let candidates = Self::string_candidates(&index, predicate);
+        let mut entities = Vec::new();
+        let mut result_bytes = 0;
+        let mut candidate_count = 0;
+        for atom in candidates {
+            candidate_count += 1;
+            let text = &self.metadata(atom.view)?.strings()[atom.local as usize]
+                .data
+                .text;
+            if predicate.matches(&text.utf16_units) {
+                self.append_entity(&mut entities, &mut result_bytes, atom.view, || {
+                    self.string_entity(atom)
+                })?;
+            }
+        }
+        self.result(
+            entities,
+            candidate_count,
+            "utf16_candidate_then_exact_residual",
+            Some(self.strings.audit()?),
+            coverage,
+        )
+    }
+    pub fn strings_scalar(&self, predicate: &Utf16Predicate) -> MddResult<IndexMatches> {
+        Self::check_predicate(predicate)?;
+        let coverage = self.require(FactLayer::Metadata)?;
+        let mut entities = Vec::new();
+        let mut candidates = 0;
+        let mut result_bytes = 0;
+        for (view, entry) in self.views.iter().enumerate() {
+            for string in entry
+                .metadata
+                .ok_or_else(|| {
+                    MddError::new(
+                        ErrorCode::IncompleteFacts,
+                        "facts.index",
+                        "metadata missing",
+                    )
+                })?
+                .strings()
+            {
+                candidates += 1;
+                if predicate.matches(&string.data.text.utf16_units) {
+                    self.append_entity(&mut entities, &mut result_bytes, view as u32, || {
+                        self.string_entity(Atom {
+                            view: view as u32,
+                            local: string.data.string_idx,
+                        })
+                    })?;
+                }
+            }
+        }
+        self.result(
+            entities,
+            candidates,
+            "scalar_full_string_scan",
+            None,
+            coverage,
+        )
+    }
+    pub fn strings_raw_mutf8(&self, raw: &[u8]) -> MddResult<IndexMatches> {
+        if raw.len() > 16 * 1024 * 1024 {
+            return Err(quota("INDEX_PREDICATE_BUDGET"));
+        }
+        let coverage = self.require(FactLayer::Metadata)?;
+        let index = self.strings.get_or_build(|| self.build_strings())?;
+        let candidates = index.raw.get(raw).map(Vec::as_slice).unwrap_or_default();
+        let mut entities = Vec::new();
+        let mut result_bytes = 0;
+        for atom in candidates {
+            if self.metadata(atom.view)?.strings()[atom.local as usize]
+                .data
+                .text
+                .raw_mutf8
+                == raw
+            {
+                self.append_entity(&mut entities, &mut result_bytes, atom.view, || {
+                    self.string_entity(*atom)
+                })?;
+            }
+        }
+        self.result(
+            entities,
+            candidates.len(),
+            "raw_mutf8_exact",
+            Some(self.strings.audit()?),
+            coverage,
+        )
+    }
+    pub fn retry_string_index(&self) -> MddResult<IndexAudit> {
+        self.strings.retry_failed(|| self.build_strings())?;
+        self.strings.audit()
+    }
+    fn build_definitions(&self) -> MddResult<DefinitionIndex> {
+        self.require(FactLayer::Definitions)?;
+        let mut index = DefinitionIndex {
+            names: BTreeMap::new(),
+            owners: BTreeMap::new(),
+            all: Vec::new(),
+        };
+        let mut budget = Budget::new(self.limits);
+        budget.charge(0, 0)?;
+        for (view_id, view) in self.views.iter().enumerate() {
+            let facts = view.definitions.ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.index",
+                    "definitions missing",
+                )
+            })?;
+            let view = view_id as u32;
+            for class in &facts.definitions().classes {
+                let atom = DefinitionAtom {
+                    view,
+                    kind: DefinitionKind::Class,
+                    local: class.class_def_idx,
+                };
+                let descriptor = class.descriptor.encode_utf16().collect::<Vec<_>>();
+                budget.charge(1, descriptor.len() as u64 * 2 + 24)?;
+                index
+                    .names
+                    .entry((DefinitionKind::Class, descriptor))
+                    .or_default()
+                    .push(atom);
+                index.all.push(atom);
+            }
+            for field in &facts.definitions().field_definitions {
+                let reference = &facts.definitions().field_references[field.field_idx as usize];
+                let atom = DefinitionAtom {
+                    view,
+                    kind: DefinitionKind::Field,
+                    local: field.field_idx,
+                };
+                let name = reference.field_name.encode_utf16().collect::<Vec<_>>();
+                budget.charge(1, name.len() as u64 * 2 + 48)?;
+                index
+                    .names
+                    .entry((DefinitionKind::Field, name))
+                    .or_default()
+                    .push(atom);
+                index
+                    .owners
+                    .entry((view, field.class_def_idx, DefinitionKind::Field))
+                    .or_default()
+                    .push(atom);
+                index.all.push(atom);
+            }
+            for method in &facts.definitions().method_definitions {
+                let reference = &facts.definitions().method_references[method.method_idx as usize];
+                let atom = DefinitionAtom {
+                    view,
+                    kind: DefinitionKind::Method,
+                    local: method.method_idx,
+                };
+                let name = reference.method_name.encode_utf16().collect::<Vec<_>>();
+                budget.charge(1, name.len() as u64 * 2 + 48)?;
+                index
+                    .names
+                    .entry((DefinitionKind::Method, name))
+                    .or_default()
+                    .push(atom);
+                index
+                    .owners
+                    .entry((view, method.class_def_idx, DefinitionKind::Method))
+                    .or_default()
+                    .push(atom);
+                index.all.push(atom);
+            }
+        }
+        Ok(index)
+    }
+    fn definition_name(&self, atom: DefinitionAtom) -> MddResult<Vec<u16>> {
+        let facts = self.definition_facts(atom.view)?;
+        Ok(match atom.kind {
+            DefinitionKind::Class => facts.definitions().classes[atom.local as usize]
+                .descriptor
+                .encode_utf16()
+                .collect(),
+            DefinitionKind::Field => facts.definitions().field_references[atom.local as usize]
+                .field_name
+                .encode_utf16()
+                .collect(),
+            DefinitionKind::Method => facts.definitions().method_references[atom.local as usize]
+                .method_name
+                .encode_utf16()
+                .collect(),
+        })
+    }
+    pub fn definition_names(
+        &self,
+        kind: DefinitionKind,
+        predicate: &Utf16Predicate,
+    ) -> MddResult<IndexMatches> {
+        Self::check_predicate(predicate)?;
+        let coverage = self.require(FactLayer::Definitions)?;
+        let index = self.definitions.get_or_build(|| self.build_definitions())?;
+        let candidates: Box<dyn Iterator<Item = DefinitionAtom> + '_> = match predicate {
+            Utf16Predicate::Equal(name) => Box::new(
+                index
+                    .names
+                    .get(&(kind, name.clone()))
+                    .into_iter()
+                    .flatten()
+                    .copied(),
+            ),
+            Utf16Predicate::Prefix(prefix) => Box::new(
+                index
+                    .names
+                    .range((kind, prefix.clone())..)
+                    .take_while(|((found, key), _)| *found == kind && key.starts_with(prefix))
+                    .flat_map(|(_, values)| values.iter().copied()),
+            ),
+            _ => Box::new(index.all.iter().filter(|atom| atom.kind == kind).copied()),
+        };
+        let mut entities = Vec::new();
+        let mut result_bytes = 0;
+        let mut candidate_count = 0;
+        for atom in candidates {
+            candidate_count += 1;
+            if predicate.matches(&self.definition_name(atom)?) {
+                self.append_entity(&mut entities, &mut result_bytes, atom.view, || {
+                    self.definition_entity(atom)
+                })?;
+            }
+        }
+        self.result(
+            entities,
+            candidate_count,
+            "definition_name_candidates_then_exact",
+            Some(self.definitions.audit()?),
+            coverage,
+        )
+    }
+    pub fn definition_names_scalar(
+        &self,
+        kind: DefinitionKind,
+        predicate: &Utf16Predicate,
+    ) -> MddResult<IndexMatches> {
+        Self::check_predicate(predicate)?;
+        let coverage = self.require(FactLayer::Definitions)?;
+        let mut entities = Vec::new();
+        let mut candidates = 0;
+        let mut result_bytes = 0;
+        for (view, entry) in self.views.iter().enumerate() {
+            let facts = entry.definitions.ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.index",
+                    "definitions missing",
+                )
+            })?;
+            let locals = match kind {
+                DefinitionKind::Class => facts
+                    .definitions()
+                    .classes
+                    .iter()
+                    .map(|item| item.class_def_idx)
+                    .collect::<Vec<_>>(),
+                DefinitionKind::Field => facts
+                    .definitions()
+                    .field_definitions
+                    .iter()
+                    .map(|item| item.field_idx)
+                    .collect(),
+                DefinitionKind::Method => facts
+                    .definitions()
+                    .method_definitions
+                    .iter()
+                    .map(|item| item.method_idx)
+                    .collect(),
+            };
+            for local in locals {
+                let atom = DefinitionAtom {
+                    view: view as u32,
+                    kind,
+                    local,
+                };
+                candidates += 1;
+                if predicate.matches(&self.definition_name(atom)?) {
+                    self.append_entity(&mut entities, &mut result_bytes, atom.view, || {
+                        self.definition_entity(atom)
+                    })?;
+                }
+            }
+        }
+        self.result(
+            entities,
+            candidates,
+            "scalar_full_definition_scan",
+            None,
+            coverage,
+        )
+    }
+    pub fn owner_members(
+        &self,
+        owner: &EntityRef,
+        kind: DefinitionKind,
+        predicate: &Utf16Predicate,
+    ) -> MddResult<IndexMatches> {
+        Self::check_predicate(predicate)?;
+        let coverage = self.require(FactLayer::Definitions)?;
+        if owner.snapshot_id != self.scope.snapshot_id()
+            || owner.kind != EntityKind::ClassDefinition
+            || kind == DefinitionKind::Class
+        {
+            return Err(MddError::new(
+                ErrorCode::InvalidArgument,
+                "facts.index",
+                "owner must be a class definition in this scope and member kind field/method",
+            ));
+        }
+        let view = *self
+            .by_occurrence
+            .get(&owner.dex_occurrence_id)
+            .ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::InvalidArgument,
+                    "facts.index",
+                    "owner occurrence outside selection",
+                )
+            })?;
+        self.definition_facts(view)?
+            .entity(EntityKind::ClassDefinition, owner.local_index)?;
+        let index = self.definitions.get_or_build(|| self.build_definitions())?;
+        let candidates = index
+            .owners
+            .get(&(view, owner.local_index, kind))
+            .map(Vec::as_slice)
+            .unwrap_or_default();
+        let mut entities = Vec::new();
+        let mut result_bytes = 0;
+        for atom in candidates {
+            if predicate.matches(&self.definition_name(*atom)?) {
+                self.append_entity(&mut entities, &mut result_bytes, atom.view, || {
+                    self.definition_entity(*atom)
+                })?;
+            }
+        }
+        self.result(
+            entities,
+            candidates.len(),
+            "owner_candidates_then_exact",
+            Some(self.definitions.audit()?),
+            coverage,
+        )
+    }
+    pub fn retry_definition_index(&self) -> MddResult<IndexAudit> {
+        self.definitions.retry_failed(|| self.build_definitions())?;
+        self.definitions.audit()
+    }
+    pub fn retry_reference_symbol_index(&self) -> MddResult<IndexAudit> {
+        self.reference_symbols
+            .retry_failed(|| self.build_reference_symbols())?;
+        self.reference_symbols.audit()
+    }
+    fn build_reference_symbols(&self) -> MddResult<ReferenceSymbolIndex> {
+        self.require(FactLayer::Definitions)?;
+        let mut index = ReferenceSymbolIndex {
+            methods: BTreeMap::new(),
+        };
+        let mut budget = Budget::new(self.limits);
+        budget.charge(0, 0)?;
+        for (view, entry) in self.views.iter().enumerate() {
+            let facts = entry.definitions.ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.index",
+                    "definitions missing",
+                )
+            })?;
+            for reference in &facts.definitions().method_references {
+                let symbol = MethodSymbol {
+                    owner: reference.class_descriptor.clone(),
+                    name: reference.method_name.clone(),
+                    prototype: facts.metadata().prototypes()[reference.proto_idx as usize]
+                        .data
+                        .descriptor
+                        .clone(),
+                };
+                budget.charge(
+                    1,
+                    (symbol.owner.len() + symbol.name.len() + symbol.prototype.len()) as u64 + 16,
+                )?;
+                index
+                    .methods
+                    .entry(symbol)
+                    .or_default()
+                    .push(ReferenceAtom {
+                        view: view as u32,
+                        local: reference.method_idx,
+                    });
+            }
+        }
+        Ok(index)
+    }
+    pub fn references_local(&self, target: &ReferenceTargetId) -> MddResult<ReferenceMatches> {
+        self.require(FactLayer::References)?;
+        let view = *self
+            .by_occurrence
+            .get(&target.dex_occurrence_id)
+            .ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::InvalidArgument,
+                    "facts.index",
+                    "reference target outside selected occurrences",
+                )
+            })?;
+        let matches = self.views[view as usize]
+            .references
+            .ok_or_else(|| {
+                MddError::new(
+                    ErrorCode::IncompleteFacts,
+                    "facts.index",
+                    "references not built",
+                )
+            })?
+            .find_target_indexed(target)?;
+        self.check_site_budget(&matches.sites)?;
+        Ok(matches)
+    }
+    fn check_site_budget(&self, sites: &[crate::references::ReferenceSiteId]) -> MddResult<()> {
+        let bytes = Self::site_bytes(sites)?;
+        if sites.len() as u64 > self.limits.max_result_entries
+            || bytes > self.limits.max_result_bytes
+        {
+            return Err(quota("INDEX_RESULT_BUDGET"));
+        }
+        Ok(())
+    }
+    fn site_bytes(sites: &[crate::references::ReferenceSiteId]) -> MddResult<u64> {
+        sites
+            .iter()
+            .try_fold(0u64, |sum, site| {
+                sum.checked_add(
+                    (std::mem::size_of::<crate::references::ReferenceSiteId>()
+                        + site.caller_method_definition.snapshot_id.len()
+                        + site.caller_method_definition.dex_occurrence_id.len())
+                        as u64,
+                )
+            })
+            .ok_or_else(|| quota("INDEX_RESULT_BYTE_BUDGET"))
+    }
+    fn reference_result(
+        &self,
+        mut sites: Vec<crate::references::ReferenceSiteId>,
+        candidates: u64,
+        scalar: bool,
+        coverage: CoverageReport,
+    ) -> MddResult<ReferenceIndexMatches> {
+        self.check_site_budget(&sites)?;
+        sites.sort_by_key(|site| {
+            (
+                self.by_occurrence[&site.caller_method_definition.dex_occurrence_id],
+                site.caller_method_definition.local_index,
+                site.code_unit_pc,
+                site.operand_ordinal,
+            )
+        });
+        Ok(ReferenceIndexMatches {
+            snapshot_id: self.scope.snapshot_id().into(),
+            scope_id: self.scope.scope_id().into(),
+            index_attempt: if scalar {
+                None
+            } else {
+                Some(self.reference_symbols.audit()?)
+            },
+            access_path: if scalar {
+                "scalar_encoded_method_refs_then_scalar_sites"
+            } else {
+                "method_symbol_candidates_then_exact_ref_and_existing_postings"
+            }
+            .into(),
+            candidate_reference_count: candidates,
+            absence_proven_within_selected_encoded_scope: sites.is_empty(),
+            covers_all_captured_sources: self.scope.covers_all_captured_sources(),
+            runtime_resolution: "encoded_method_operands_only;runtime_dispatch_not_inferred",
+            sites,
+            coverage,
+        })
+    }
+    pub fn references_to_method_symbol(
+        &self,
+        symbol: &MethodSymbol,
+    ) -> MddResult<ReferenceIndexMatches> {
+        self.references_to_symbol(symbol, false)
+    }
+    pub fn references_to_method_symbol_scalar(
+        &self,
+        symbol: &MethodSymbol,
+    ) -> MddResult<ReferenceIndexMatches> {
+        self.references_to_symbol(symbol, true)
+    }
+    fn references_to_symbol(
+        &self,
+        symbol: &MethodSymbol,
+        scalar: bool,
+    ) -> MddResult<ReferenceIndexMatches> {
+        if symbol
+            .owner
+            .len()
+            .saturating_add(symbol.name.len())
+            .saturating_add(symbol.prototype.len())
+            > 16 * 1024 * 1024
+        {
+            return Err(quota("INDEX_PREDICATE_BUDGET"));
+        }
+        let coverage = self.require(FactLayer::References)?;
+        // The scalar path scans immutable definition/reference facts and does not
+        // consult candidate postings or a cached index failure.
+        let index = if scalar {
+            None
+        } else {
+            Some(
+                self.reference_symbols
+                    .get_or_build(|| self.build_reference_symbols())?,
+            )
+        };
+        let mut result = Vec::new();
+        let mut result_bytes = 0u64;
+        let candidates: Box<dyn Iterator<Item = ReferenceAtom> + '_> = if let Some(index) = &index {
+            Box::new(index.methods.get(symbol).into_iter().flatten().copied())
+        } else {
+            Box::new(self.views.iter().enumerate().flat_map(|(view, entry)| {
+                entry.definitions.into_iter().flat_map(move |defs| {
+                    defs.definitions()
+                        .method_references
+                        .iter()
+                        .map(move |reference| ReferenceAtom {
+                            view: view as u32,
+                            local: reference.method_idx,
+                        })
+                })
+            }))
+        };
+        let mut candidate_count = 0;
+        for candidate in candidates {
+            candidate_count += 1;
+            let refs = self.views[candidate.view as usize]
+                .references
+                .ok_or_else(|| {
+                    MddError::new(
+                        ErrorCode::IncompleteFacts,
+                        "facts.index",
+                        "references missing",
+                    )
+                })?;
+            let reference =
+                &refs.definitions().definitions().method_references[candidate.local as usize];
+            if reference.class_descriptor != symbol.owner
+                || reference.method_name != symbol.name
+                || refs.definitions().metadata().prototypes()[reference.proto_idx as usize]
+                    .data
+                    .descriptor
+                    != symbol.prototype
+            {
+                continue;
+            }
+            let target = refs.target_id(TargetKind::Method, candidate.local)?;
+            let matches = if scalar {
+                refs.find_target_scalar(&target)?
+            } else {
+                refs.find_target_indexed(&target)?
+            };
+            if result.len() as u64 + matches.sites.len() as u64 > self.limits.max_result_entries {
+                return Err(quota("INDEX_RESULT_ENTRY_BUDGET"));
+            }
+            self.check_site_budget(&matches.sites)?;
+            result_bytes = result_bytes
+                .checked_add(Self::site_bytes(&matches.sites)?)
+                .ok_or_else(|| quota("INDEX_RESULT_BYTE_BUDGET"))?;
+            if result_bytes > self.limits.max_result_bytes {
+                return Err(quota("INDEX_RESULT_BYTE_BUDGET"));
+            }
+            // Charge the combined result before copying another source's sites.
+            result
+                .try_reserve(matches.sites.len())
+                .map_err(|_| quota("INDEX_RESULT_ALLOCATION"))?;
+            result.extend(matches.sites);
+        }
+        self.reference_result(result, candidate_count, scalar, coverage)
+    }
+}

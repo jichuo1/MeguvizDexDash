@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\hex-independent-20261029-target\\debug\\mdd-hex-independent.exe"
+  ],
+  "started_utc": "2026-10-29T04:54:38.742937+00:00",
+  "finished_utc": "2026-10-29T04:54:42.056256+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "b51918b505d2f5610c2e594c045905f22d2110fb2ab8e6b78f78a2d1a27fb70f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "6c12fc0b3164395ff0bf6f2fa0e27aa768c0d4022531c01099b133064d8c3cc5",
+  "scope": "independent synthetic validation; not performance qualification"
+}

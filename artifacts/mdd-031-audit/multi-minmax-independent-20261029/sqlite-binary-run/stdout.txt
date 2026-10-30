@@ -1,0 +1,1 @@
+{"status": "sqlite-binary-columns-complete", "cases": 4, "sqlite_version": "3.53.1"}

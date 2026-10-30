@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\reference_summary.exe",
+    "tests/fixtures/references/generated/bad-custom-argument-count.dex",
+    "b5a3502e53e9b85eed66148dd8351faf4f232aa0ce9cb0f19d2edf8d21d33649",
+    "--relations"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"error\":{\"code\":\"INVALID_INPUT\",\"details\":{\"byte_length\":\"6\",\"byte_offset\":\"880\",\"code_unit_pc\":34,\"content_id\":\"sha256:b5a3502e53e9b85eed66148dd8351faf4f232aa0ce9cb0f19d2edf8d21d33649\",\"dex_occurrence_id\":\"snapshot-72c634343040b980a3da69a409230399600001b71d8cbcf09a342ef41a0c6eb1:source:0:raw:dex:header:0\",\"encoded_words\":1,\"expected_words\":0,\"member_id\":\"snapshot-72c634343040b980a3da69a409230399600001b71d8cbcf09a342ef41a0c6eb1:source:0:raw\",\"method_idx\":0,\"reason\":\"INVOKE_ARGUMENT_WORD_MISMATCH\",\"snapshot_id\":\"snapshot-72c634343040b980a3da69a409230399600001b71d8cbcf09a342ef41a0c6eb1\"},\"message\":\"INVOKE_ARGUMENT_WORD_MISMATCH\",\"retryable\":false,\"stage\":\"facts.references\"},\"full_audit_complete\":false,\"operation_status\":\"error\"}\n",
+  "stderr": ""
+}

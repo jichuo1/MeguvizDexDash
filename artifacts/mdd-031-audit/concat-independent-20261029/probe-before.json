@@ -1,0 +1,12 @@
+{
+  "captured_utc": "2026-10-29T06:16:00.979338+00:00",
+  "probe_files_sha256": {
+    "Cargo.toml": "db5b23b9ce47db97b76d8e7dbdde51f88abdec82e2982dd5bca25bf9698a679e",
+    "Cargo.lock": "fd8834e7947c2d3be8dff0ef94dcb2da55bc121309dade2401fcae5344bd3ad9",
+    "src/main.rs": "6a8b9c1586e4f2c1327bd2d3284e27a8416421221d54010a93ed0c4d50fa8c3d",
+    "run_bounded.py": "8dd817a47a9941d0dc477ea3d366002605a6f293970a75bc7c2d6ebe1b83fe7a"
+  },
+  "snapshot_before_sha256": "da2886cf3422c08c093c3ec69d13393070ec161456d85ed7f1352739aef354a9",
+  "external_packages": 46,
+  "lock_equal": true
+}

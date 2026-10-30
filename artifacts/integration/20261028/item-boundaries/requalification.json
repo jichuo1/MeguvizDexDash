@@ -1,0 +1,166 @@
+{
+  "record_kind": "observed_requalification_after_counterexample",
+  "task_id": "MDD-020",
+  "task_reopened": true,
+  "initial_completion_revision": "05359f93d0f02ff0ca64cf3cd2751c8a4c9996ca",
+  "counterexample": {
+    "physical_string_data_start": 116,
+    "invalid_string_id_offset": 117,
+    "old_native_exit": 0,
+    "sdk_exit": 1,
+    "new_native_exit": 1,
+    "new_error": "STRING_OFFSET_NOT_ITEM_START"
+  },
+  "legitimate_unused_items": "physical string_data count may exceed string_ids; unused type_list permitted; both SDK/native accept controls",
+  "fix": "walk physical map items first; require referenced actual starts; retain logical indices and multiplicity; do not infer physical count from logical count",
+  "new_tests": [
+    "strings-final/record.json",
+    "types-final/record.json",
+    "facts-final/record.json",
+    "physical-start-final/record.json",
+    "public-metadata-after/record.json",
+    "final-metadata-tests/record.json",
+    "final-clippy/record.json"
+  ],
+  "independent_reference_records": [
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\valid-empty-string.dex"
+      ],
+      "exit_code": 0,
+      "input_sha256": "f7585c9ec58de21583b71cbdd971086ca015f733555c1b2b239d6f2ed9e4b3f4",
+      "stdout_bytes": 892,
+      "stderr_bytes": 0
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\bad-interior-string.dex"
+      ],
+      "exit_code": 1,
+      "input_sha256": "93a84307e3cade1f4d0d0ca1a294af172f7672479fb65ecfc7ac433ec1497f28",
+      "stdout_bytes": 106,
+      "stderr_bytes": 226
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\valid-orphan-string-data.dex"
+      ],
+      "exit_code": 0,
+      "input_sha256": "bcfc1c5c9b731522fe20840301dee1e9074b5f1fe5765260b714e5e034896311"
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\valid-unused-type-list.dex"
+      ],
+      "exit_code": 0,
+      "input_sha256": "c605aa4b71cdd86fd91901a68dd196135e14ebc0e3eaaecc35904c6bec102ccd",
+      "expected": 0
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\bad-interior-type-list.dex"
+      ],
+      "exit_code": 1,
+      "input_sha256": "4a793e630c2758224f71dad6f693f7a3fc42d9daa9fa9641249705be5450eb11",
+      "expected": 1
+    }
+  ],
+  "source_sha256": {
+    "crates/mdd-dex/src/header.rs": "7c16fefbe4b2078a0b4c8e0f94f8b6e7e2df362d45714e97a7888411e1ec32d0",
+    "crates/mdd-dex/src/strings.rs": "5abafc2942b4ce4501742c77f643530aaf92a589b7a59abe4763f5853e2bfe96",
+    "crates/mdd-dex/src/types.rs": "799fd8591ee0318b4e192fe14ff329d4b9c2c07003c6f57befad3cc7c5d73a64"
+  },
+  "fixture_sha256": {
+    "bad-interior-string.dex": "93a84307e3cade1f4d0d0ca1a294af172f7672479fb65ecfc7ac433ec1497f28",
+    "bad-interior-type-list.dex": "4a793e630c2758224f71dad6f693f7a3fc42d9daa9fa9641249705be5450eb11",
+    "valid-empty-string.dex": "f7585c9ec58de21583b71cbdd971086ca015f733555c1b2b239d6f2ed9e4b3f4",
+    "valid-orphan-string-data.dex": "bcfc1c5c9b731522fe20840301dee1e9074b5f1fe5765260b714e5e034896311",
+    "valid-unused-type-list.dex": "c605aa4b71cdd86fd91901a68dd196135e14ebc0e3eaaecc35904c6bec102ccd"
+  },
+  "reference_tool": {
+    "path": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "sha256": "f870af85191214f8f59d78e6a27748f00e724bbcce362115347014419969bcce",
+    "origin": "observed local SDK37 verifier; source independence bounded by normative AOSP format"
+  },
+  "fixed_aosp_verifier_sha256": "8e3d595c8c37e7e49f5df2070db9d93bc6825a6e351eadbee7e342a6a52cb207",
+  "public_input_complete_metadata": {
+    "captured_input_bytes": "10885562",
+    "full_audit_complete": false,
+    "input_content_id": "sha256:e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+    "metadata_calculation_complete": true,
+    "operation_status": "ok",
+    "qualification": "actual complete metadata construction; no HostLab, full facts or performance qualification",
+    "required_dex_occurrences": 2,
+    "scope": "strings-types-prototypes-only-v1",
+    "selected_dexes": [
+      {
+        "completed_layers": [
+          "strings",
+          "types",
+          "prototypes"
+        ],
+        "content_id": "sha256:b661eaad3277de9147c4461f27c15b949d2a360ab61ef05b7a9e82b3e6c27521",
+        "dex_occurrence_id": "snapshot-dbe54f6991e98806e2ec3cf3b361a4b7646745237c32a8f0e6de528f9edf35b7:source:0:member:4:dex:header:0",
+        "full_dex_validation_complete": false,
+        "parameter_references": 29796,
+        "prototypes": 13644,
+        "signature_verified": true,
+        "strings": 64754,
+        "strings_without_scalar_utf8": 0,
+        "types": 9630,
+        "unbuilt_layers": [
+          "definitions",
+          "annotations",
+          "code_layout",
+          "references",
+          "resources",
+          "derived_analysis"
+        ],
+        "utf16_code_units": 1661296,
+        "version": "035"
+      },
+      {
+        "completed_layers": [
+          "strings",
+          "types",
+          "prototypes"
+        ],
+        "content_id": "sha256:e95ea094cdfb755304f5027ba6e64fa98f9b10e874c4093f3b19c43d62bfee3f",
+        "dex_occurrence_id": "snapshot-dbe54f6991e98806e2ec3cf3b361a4b7646745237c32a8f0e6de528f9edf35b7:source:0:member:5:dex:header:0",
+        "full_dex_validation_complete": false,
+        "parameter_references": 2386,
+        "prototypes": 1455,
+        "signature_verified": true,
+        "strings": 3722,
+        "strings_without_scalar_utf8": 0,
+        "types": 1034,
+        "unbuilt_layers": [
+          "definitions",
+          "annotations",
+          "code_layout",
+          "references",
+          "resources",
+          "derived_analysis"
+        ],
+        "utf16_code_units": 58996,
+        "version": "035"
+      }
+    ],
+    "snapshot_id": "snapshot-dbe54f6991e98806e2ec3cf3b361a4b7646745237c32a8f0e6de528f9edf35b7"
+  },
+  "scope": "MDD-020 strings/types/prototypes only. No full ART/HostLab/performance qualification.",
+  "initial_command_and_test_wiring_failures_retained": [
+    "metadata-regression/record.json",
+    "physical-start-regression/record.json"
+  ]
+}

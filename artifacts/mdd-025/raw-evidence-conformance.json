@@ -1,0 +1,112 @@
+{
+  "schema_version": "mdd.raw-evidence-conformance.v1",
+  "task": "MDD-025",
+  "created_utc": "2026-10-28T13:00:02.647571+00:00",
+  "status": "passed-required-component-scope",
+  "sources": [
+    {
+      "path": "crates/mdd-facts/src/raw_fingerprints.rs",
+      "bytes": 26145,
+      "sha256": "8577f6ee93aa73bb38c26418b51c31283b11640d4d9f059f1b49c0a30024d52a"
+    },
+    {
+      "path": "crates/mdd-facts/examples/raw_evidence_summary.rs",
+      "bytes": 7133,
+      "sha256": "0d1a3fb4a4baaf8922fa20435c948cd7f5f89091e1a1aa8d7d71e162699f8e4e"
+    },
+    {
+      "path": "tests/fixtures/raw_fingerprints/expected.json",
+      "bytes": 1154,
+      "sha256": "00eb3467500b20629d3f60113d4965dfcf3350f7d63a1838a89e83aaa4eed5bd"
+    },
+    {
+      "path": "conformance/resources/compare_raw_evidence.py",
+      "bytes": 5915,
+      "sha256": "508d909e33e92d52fa5f83d30baddfb7333cd46ce80baf9787ff938730582ce8"
+    },
+    {
+      "path": "conformance/resources/compare_legacy_class_recipes.py",
+      "bytes": 5582,
+      "sha256": "0e366a2d7358be257e6c2183b9b12ebdc2f9574aa87b386c5738a17a604c9b6d"
+    },
+    {
+      "path": "conformance/resources/qualify_raw_evidence.py",
+      "bytes": 7174,
+      "sha256": "3c3acca9af45ce4bf189645831b188dffda3e02ec170b4590eeaaaaa5dcabe03"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 10804,
+      "sha256": "dbf8169031c0d4be29a902fc251dffb67c0d262b78defe1c6709a1ef29511145"
+    }
+  ],
+  "actual_binary": {
+    "path": "target/debug/examples/raw_evidence_summary.exe",
+    "bytes": 2660864,
+    "sha256": "213b232dc76564c1472a35969f43968601061ad0054d1f6ffd9c111475a023a9"
+  },
+  "final_run": {
+    "path": "artifacts/mdd-025/raw-fingerprints/final-public/record.json",
+    "bytes": 756,
+    "sha256": "0500616bd484ca32497eb13bb8153409d4044d9115a84e18822de76b53fcd62c"
+  },
+  "evidence": [
+    {
+      "path": "artifacts/mdd-025/manifest/qualification.json",
+      "bytes": 4598,
+      "sha256": "874a7c4a903cb15ac107b46e3c1a26c2e4044007489b86b3e94110bd53064f4e"
+    },
+    {
+      "path": "artifacts/mdd-025/raw-fingerprints/independent-public/comparison.json",
+      "bytes": 1917,
+      "sha256": "f36fff95eaa37b755565fdbd913236c17567ae83c79eabef8fbf3347e18811ce"
+    },
+    {
+      "path": "artifacts/mdd-025/raw-fingerprints/legacy-class-recipes/comparison.json",
+      "bytes": 1045,
+      "sha256": "981f690df185f6209132b767a2a4f01734cdf2b3185e478ab15238be2639e723"
+    },
+    {
+      "path": "artifacts/mdd-025/raw-fingerprints/legacy-class-recipes/reference-stdout.txt.archive.json",
+      "bytes": 695,
+      "sha256": "cc76c661cb368c17a5e8ca068af470e1d616483053bf836480d5f8fd69e3ac22"
+    }
+  ],
+  "validation": {
+    "raw_unit_tests": 4,
+    "raw_tests_failed": 0,
+    "manifest_vectors": {
+      "count": 76,
+      "positive": 14,
+      "negative": 62,
+      "all_expected_trees_and_errors_executed": true
+    },
+    "method_rows": 55763,
+    "resource_entries": 792,
+    "class_recipes": 8540,
+    "independent_oracles": [
+      "handwritten bytes plus Python SHA-256",
+      "fixed A0 raw ranges plus Python ZIP bytes",
+      "unchanged frozen HostLab resource and class recipe",
+      "AAPT2 complete trees and fixed A0 Manifest pages"
+    ]
+  },
+  "semantics": {
+    "no_body": "None; present empty insns retain Some(empty) and SHA-256(empty)",
+    "resource_bytes": "exact decompressed physical member, CRC checked",
+    "manifest": "same immutable Arc as resource evidence",
+    "source_mutation": "capture then rewrite/rename/drop owner actual test passed",
+    "class_order": "explicit caller recipe; business ordering outside core",
+    "bad_input": "error, never empty success"
+  },
+  "not_qualified": [
+    "full ART verification",
+    "private full HostLab workflow",
+    "MCP/SQL/QueryIR integration",
+    "MDD-072 ARSC and full resource tools",
+    "performance",
+    "product profiles",
+    "this checkpoint Linux until CI readback"
+  ],
+  "rollback": "Revert only the review branch implementation commit; preserve original handoff and failure evidence. No default/backend/deployment switch occurred."
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/null-aggregate-independent-20261029/sqlite_reference.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:26:17.075874+00:00",
+  "finished_utc": "2026-10-29T01:26:17.213106+00:00",
+  "elapsed_seconds": 0.1410000000000764,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 81,
+    "sha256": "f311a2e8bbb177cd765dba682d61f4de70e842682074f3d0372500ff81d65c92"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "mdd.windows-job-run.v1",
+  "command_argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\delivery-confirmation-independent-20261029-target\\debug\\delivery-probe.exe"
+  ],
+  "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+  "limits": {
+    "memory_commit_bytes": "2147483648",
+    "affinity_mask": "15",
+    "max_processes": 16,
+    "timeout_seconds": 60,
+    "max_log_bytes": 16777216
+  },
+  "assigned_before_resume": true,
+  "tree_empty_verified": true,
+  "status": "failed",
+  "job_name": "mdd-baseline-b4aa2aa39cf14cd39648cf3be4a66ba8",
+  "process_id": 32840,
+  "reason": null,
+  "exit_code": 101,
+  "cpu_user_seconds": 0.015625,
+  "cpu_kernel_seconds": 0.0,
+  "total_processes": 2,
+  "peak_job_commit_bytes": "2416640",
+  "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+  "wall_seconds": 0.8737350999981572
+}

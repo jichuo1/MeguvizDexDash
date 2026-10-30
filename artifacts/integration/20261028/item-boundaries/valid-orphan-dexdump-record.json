@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "-f",
+    "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\valid-orphan-string-data.dex"
+  ],
+  "exit_code": 0,
+  "input_sha256": "bcfc1c5c9b731522fe20840301dee1e9074b5f1fe5765260b714e5e034896311"
+}

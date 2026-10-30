@@ -1,0 +1,112 @@
+    Checking mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+error: this function has too many arguments (9/7)
+  --> crates\mdd-dex\src\instructions\debug.rs:31:1
+   |
+31 | / pub(super) fn parse(
+32 | |     bytes: &[u8],
+33 | |     header: &DexHeader,
+34 | |     offset: u64,
+...  |
+40 | |     used: &mut Used,
+41 | | ) -> MddResult<DebugInfo> {
+   | |_________________________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+   = note: `-D clippy::too-many-arguments` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::too_many_arguments)]`
+
+error: the following explicit lifetimes could be elided: 'a
+ --> crates\mdd-dex\src\instructions\decode.rs:3:10
+  |
+3 | fn words<'a>(units: &'a [u16], pc: usize, count: usize, base: u64) -> MddResult<&'a [u16]> {
+  |          ^^          ^^                                                          ^^
+  |
+  = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_lifetimes
+  = note: `-D clippy::needless-lifetimes` implied by `-D warnings`
+  = help: to override `-D warnings` add `#[allow(clippy::needless_lifetimes)]`
+help: elide the lifetimes
+  |
+3 - fn words<'a>(units: &'a [u16], pc: usize, count: usize, base: u64) -> MddResult<&'a [u16]> {
+3 + fn words(units: &[u16], pc: usize, count: usize, base: u64) -> MddResult<&[u16]> {
+  |
+
+error: using `chunks_exact` with a constant chunk size
+  --> crates\mdd-dex\src\instructions\decode.rs:57:18
+   |
+57 |                 .chunks_exact(2)
+   |                  ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<2>().0.iter()`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+   = note: `-D clippy::chunks-exact-to-as-chunks` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::chunks_exact_to_as_chunks)]`
+
+error: using `chunks_exact` with a constant chunk size
+  --> crates\mdd-dex\src\instructions\decode.rs:80:18
+   |
+80 |                 .chunks_exact(2)
+   |                  ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<2>().0.iter()`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+
+error: using `chunks_exact` with a constant chunk size
+  --> crates\mdd-dex\src\instructions\decode.rs:87:18
+   |
+87 |                 .chunks_exact(2)
+   |                  ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<2>().0.iter()`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+
+error: this function has too many arguments (8/7)
+   --> crates\mdd-dex\src\instructions\decode.rs:177:1
+    |
+177 | / fn instruction(
+178 | |     units: &[u16],
+179 | |     pc: usize,
+180 | |     base: u64,
+...   |
+185 | |     ordinal: u32,
+186 | | ) -> MddResult<Instruction> {
+    | |___________________________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+error: this function has too many arguments (8/7)
+   --> crates\mdd-dex\src\instructions\decode.rs:382:1
+    |
+382 | / pub(super) fn decode(
+383 | |     units: &[u16],
+384 | |     base: u64,
+385 | |     registers: u16,
+...   |
+390 | |     used: &mut Used,
+391 | | ) -> MddResult<Decoded> {
+    | |_______________________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+error: using `chunks_exact` with a constant chunk size
+   --> crates\mdd-dex\src\instructions\mod.rs:394:10
+    |
+394 |         .chunks_exact(2)
+    |          ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<2>().0.iter()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+
+error: could not compile `mdd-dex` (lib) due to 8 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: field assignment outside of initializer for an instance created with Default::default()
+   --> crates\mdd-dex\src\instructions\tests.rs:345:5
+    |
+345 |     limits.max_debug_operations = 0;
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+note: consider initializing the variable with `instructions::CodeLimits { max_debug_operations: 0, ..Default::default() }` and removing relevant reassignments
+   --> crates\mdd-dex\src\instructions\tests.rs:344:5
+    |
+344 |     let mut limits = CodeLimits::default();
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#field_reassign_with_default
+    = note: `-D clippy::field-reassign-with-default` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::field_reassign_with_default)]`
+
+error: could not compile `mdd-dex` (lib test) due to 9 previous errors

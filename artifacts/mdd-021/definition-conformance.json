@@ -1,0 +1,135 @@
+{
+  "task": "MDD-021",
+  "state": "ready_for_root_acceptance",
+  "platform": "Windows x86_64 / Rust 1.99.0",
+  "source_files": [
+    {
+      "path": "crates/mdd-dex/src/definitions.rs",
+      "sha256": "a8c3ee39b930de66fa331bb30ec494d31d14292aba764abafe18ba83d234f56d"
+    },
+    {
+      "path": "crates/mdd-facts/src/definitions.rs",
+      "sha256": "b6733bc3c55c5faa457c6b57a88039b552cccc393a62c67e3b848048e9e65e5b"
+    },
+    {
+      "path": "crates/mdd-dex/src/types.rs",
+      "sha256": "799fd8591ee0318b4e192fe14ff329d4b9c2c07003c6f57befad3cc7c5d73a64"
+    },
+    {
+      "path": "crates/mdd-dex/src/strings.rs",
+      "sha256": "5abafc2942b4ce4501742c77f643530aaf92a589b7a59abe4763f5853e2bfe96"
+    },
+    {
+      "path": "crates/mdd-dex/src/header.rs",
+      "sha256": "7c16fefbe4b2078a0b4c8e0f94f8b6e7e2df362d45714e97a7888411e1ec32d0"
+    },
+    {
+      "path": "crates/mdd-facts/src/metadata.rs",
+      "sha256": "2b3c2861f6b363edd3a09b6967905f9e6494ff51f00ac57f5ea3a41f59744475"
+    },
+    {
+      "path": "tests/fixtures/definitions/generate.py",
+      "sha256": "f40c3015e47d213635ec8331313ef71ea65d5f9ebf8ed667c4f5e3748ffca476"
+    },
+    {
+      "path": "tests/fixtures/definitions/check.py",
+      "sha256": "5eea10b002d6deb9cf8f4f920d72bbfd73b8ed2a901153d68d1c2c1874e2a027"
+    },
+    {
+      "path": "tests/fixtures/definitions/reproduce.py",
+      "sha256": "ad96457169ddfcd7c0674008ff64499b031fee2f1247b7fdde38415603dd1acb"
+    },
+    {
+      "path": "tests/fixtures/definitions/manifest.json",
+      "sha256": "772f5c88fe017fedab62a12019c4a8394d4aa78f7731a2c286b9496113270b05"
+    },
+    {
+      "path": "tests/fixtures/definitions/expected.json",
+      "sha256": "fe3ec0d314b9b42e7fe842b305898dcea9dfc908ed90c0cad4c44346c8eeb81c"
+    },
+    {
+      "path": "conformance/relations/definitions.json",
+      "sha256": "15b7c1aaad0a4ee4b1b124d34c832c50af286a84c1abe3d5c67b45a3b7dbd267"
+    }
+  ],
+  "fixture_checks": {
+    "total": 40,
+    "positive": 14,
+    "negative": 26,
+    "independent_oracle": "artifacts/mdd-021/final-orphan-validation/oracle-stdout.txt",
+    "reproduction": "artifacts/mdd-021/final-orphan-validation/reproduction-stdout.txt"
+  },
+  "rust_tests": {
+    "reader_passed": 5,
+    "facts_passed": 2,
+    "failed": 0,
+    "ignored": 0,
+    "reader_command": "artifacts/mdd-021/final-orphan-validation/reader-command.json",
+    "facts_command": "artifacts/mdd-021/final-orphan-validation/facts-command.json"
+  },
+  "lint": {
+    "status": "passed",
+    "command": "artifacts/mdd-021/final-orphan-validation/clippy-command.json",
+    "retained_parallel_instruction_failure": "artifacts/mdd-021/final-boundaries/clippy-command.json"
+  },
+  "independent_reference": {
+    "fixed_a0": "artifacts/mdd-021/reference-comparison.json",
+    "evidence_reuse": "artifacts/mdd-021/reference-evidence-reuse.json",
+    "scope": "6 metadata relations, 40 rows, complete multiset equal; excludes code columns/SQL ordering/performance"
+  },
+  "sdk37_orphan_boundary": {
+    "initial": "artifacts/mdd-021/orphan-sdk-probes/results.json",
+    "positive_owner_and_empty": "artifacts/mdd-021/orphan-sdk-probes-v2/results.json",
+    "native_before_fix": "artifacts/mdd-021/orphan-sdk-probes-v2/native-before-fix-command.json",
+    "native_after_fix": "artifacts/mdd-021/final-orphan-validation/reader-command.json",
+    "conclusion": "empty orphan and nonempty orphan with a declared owner allowed; bad index/delta/flags/kind and absent nonempty owner rejected"
+  },
+  "acceptance": [
+    {
+      "item": 1,
+      "satisfied": true,
+      "evidence": [
+        "conformance/relations/definitions.json",
+        "artifacts/mdd-021/reference-comparison.json"
+      ],
+      "detail": "class/interface/field/method required metadata columns and full cf/cm eight-column DTOs bind actual refs/definitions and source IDs; unavailable code columns explicitly refused"
+    },
+    {
+      "item": 2,
+      "satisfied": true,
+      "evidence": [
+        "tests/fixtures/definitions/expected.json",
+        "artifacts/mdd-021/final-orphan-validation/oracle-stdout.txt",
+        "artifacts/mdd-021/final-orphan-validation/reader-stdout.txt"
+      ],
+      "detail": "5 versions, exact signatures, static/instance and direct/virtual group order and reset deltas, inheritance/interfaces, nullable root/sourcefile and lossless surrogate filename"
+    },
+    {
+      "item": 3,
+      "satisfied": true,
+      "evidence": [
+        "artifacts/mdd-021/final-orphan-validation/facts-stdout.txt"
+      ],
+      "detail": "reference/definition EntityKind distinct; duplicate-content occurrences remain ambiguous; mixed snapshots rejected; external and array-owner references retained"
+    },
+    {
+      "item": 4,
+      "satisfied": true,
+      "evidence": [
+        "artifacts/mdd-021/final-orphan-validation/reader-stdout.txt",
+        "artifacts/mdd-021/orphan-sdk-probes/results.json"
+      ],
+      "detail": "native/abstract/reference-only/present-zero-insns/empty-class-data remain distinct; indexes/deltas/physical starts/duplicates/owners/flags/body errors include byte range and bound source"
+    }
+  ],
+  "unqualified": [
+    "full DEX or ART verification",
+    "code_layout/opcode fields and full methods wildcard",
+    "annotations/static values",
+    "compat param_descriptors text encoding",
+    "SQL profiles",
+    "HostLab complete audit",
+    "performance",
+    "Linux native execution for this exact final source until root CI"
+  ]
+}

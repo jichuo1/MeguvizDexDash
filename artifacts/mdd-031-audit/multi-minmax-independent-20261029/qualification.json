@@ -1,0 +1,53 @@
+{
+  "status": "passed-supported-subset",
+  "candidate_cases": 69,
+  "value_matches": 45,
+  "invalid_arity": 6,
+  "explicit_collation_unsupported": 18,
+  "sqlite_version": "3.53.1",
+  "source_sha256": {
+    "crates/mdd-sql/src/bridge.rs": "4597793d0fdcc5ae74916304c00fee7242feba4dbf0cfe476e7ec02b26b2d5fe",
+    "crates/mdd-sql/src/dialects/ast.rs": "3dab52bc3bc58920e724182c99f12b37300c39b283cc19290fb86b7c1b6769c4",
+    "crates/mdd-sql/src/dialects/functions.rs": "dbe594680fec252b660ee43e91a1a23a77f688125bf4e5ba41f067dff2fa65b5",
+    "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+    "crates/mdd-sql/src/virtual_tables/mod.rs": "14e2de32a8e60ee92fe2176b5d3eb7646eb3ad61c8acfa7eef9cbb8c38979d4b",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "artifacts/mdd-031-audit/multi-minmax-independent-20261029/Cargo.lock": "f7845e9a5309eaa2446cd3a3eebe14d0904aeb75356ddec207e1b114c3d3b946",
+    "artifacts/mdd-031-audit/multi-minmax-independent-20261029/Cargo.toml": "d2b7b083ec544e9a0ee2f5f2a00fde65177454d553f9b8fdd6607c88b6be0939",
+    "artifacts/mdd-031-audit/multi-minmax-independent-20261029/src/main.rs": "5289f2836a8296637e08b11ec7c9f3e6ea33d9e2c3dfc6213f54b5f2b86d594b",
+    "artifacts/mdd-031-audit/multi-minmax-independent-20261029/run_bounded.py": "7d0187f3de0102f461913af23c15c4a157fbe0e7e4201a7456833d7b312f51fe"
+  },
+  "candidate_stdout_sha256": "3ce6f86c798e18cb72b4a299700b17f5b91aaf9821798fee0397e5f4055cc443",
+  "sqlite_reference_sha256": "612d30f9635f04861da3b4b97fb33df055cfac3dde9f0dccad168919097eb857",
+  "sqlite_binary_sha256": "c6f5c8e171b1e4a74cab7639131d9b9eab85fdc373ddacac8bad24806135b382",
+  "binary_sha256": "afa9bb5f62c0ee732fa81b0fa31598aa075e02c466eebc1f14c9b9817f9e0689",
+  "column_collation_counterexample": {
+    "declared_nocase": [
+      [
+        "a",
+        "B",
+        "B",
+        "a"
+      ]
+    ],
+    "declared_binary": [
+      [
+        "B",
+        "a",
+        "B",
+        "a"
+      ]
+    ]
+  },
+  "a0_a1_started": false,
+  "dto_equivalent": false,
+  "profile_admitted": false,
+  "scope": "small synthetic provider; 45 values compared to SQLite, 6 invalid arity and 18 unsupported collation",
+  "limits": [
+    "explicit COLLATE not supported",
+    "provider has no per-column collation metadata",
+    "NOCASE column reference differs from BINARY and was not equated",
+    "native DTO labels/NULL layout not compared to old engines",
+    "no production fact adapter or full SQL profile qualification"
+  ]
+}

@@ -1,0 +1,8 @@
+
+running 3 tests
+test metadata::tests::unrelated_snapshot_inventory_and_zero_quota_fail_closed ... ok
+test metadata::tests::duplicate_content_occurrences_keep_distinct_refs_and_owned_leases ... ok
+test metadata::tests::same_archive_duplicate_dexes_retain_independent_local_indices ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+

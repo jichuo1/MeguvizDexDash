@@ -1,0 +1,14 @@
+{
+  "run_utc": "2026-10-28T17:41:37.580732+00:00",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/integer-cast-observations/readback.py",
+    "run-20261028T174032300709Z"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"status\": \"pass\", \"engines\": [\"A0\", \"A1\"], \"literal_cases_per_engine\": 20, \"dex_cases_per_engine\": 7, \"sqlite_version\": \"3.53.1\", \"sqlite_oracle_scope\": \"20 literal/blob inputs; DEX non-scalar values directly checked against real reference responses, not SQLite\", \"observations_sha256\": {\"A0-literals\": \"8b6203f9ad9bff230e459f712e36803d0934d4022670b7adacf74fc7219b15b0\", \"A0-dex\": \"01ecd14dba46e349578c53452a0351b1d3a63e09c3901e1e29f8754efb01d6da\", \"A1-literals\": \"153750fd42f5a0c45f7e3195e6c170c4888c916bea39d58e4a63a468afdd8a4d\", \"A1-dex\": \"bfb3ce5940d51c0b36fd1999fe4b5607c441f03e71cb96539ecf1906e315de9f\"}, \"profiles_admitted\": false}\n",
+  "stderr": "",
+  "verifier_sha256": "7da8041a1f16b6d676cfc5b22ae695be219ed350d0e311f126adff56546e403e",
+  "profiles_admitted": false
+}

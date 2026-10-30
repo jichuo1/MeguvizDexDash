@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "--sql",
+    "SELECT NULL=1 AS v"
+  ],
+  "started_utc": "2026-10-28T17:32:10.430835+00:00",
+  "elapsed_seconds": 0.6188194000005751,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "ba9d0ea5de767ab95c04cb1b7bf6a0ba194cceeca053f8265ba66da3a4e696d9",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

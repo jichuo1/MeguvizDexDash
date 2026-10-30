@@ -1,0 +1,17 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-input",
+    "archive::",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "bb0e1624183a9d50dcc5cc71da42f04018e5fdd81dfa5737c31c46caedf4832d",
+  "stderr_sha256": "20280dc013f4ca697f2f765ed28ac80978780cf99159ad50cb7ee48a136a4a46",
+  "manifest_sha256": "7a1eaa706392d1375dcfb35295854ede58ef2124a0de68a9340b3df84f42fe0c"
+}

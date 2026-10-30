@@ -1,0 +1,101 @@
+[
+  {
+    "name": "utf8",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  },
+  {
+    "name": "utf16",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  },
+  {
+    "name": "aliased-pool",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  },
+  {
+    "name": "styled-utf8",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  },
+  {
+    "name": "styled-utf16",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  },
+  {
+    "name": "unpaired-value-utf16",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  },
+  {
+    "name": "long-utf8",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  },
+  {
+    "name": "long-utf16",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  },
+  {
+    "name": "ambiguous-prefix",
+    "exit_code": 0,
+    "complete_output_captured": true,
+    "nodes": 11,
+    "attributes": 23,
+    "complete_tree_equal": true,
+    "comparison": "all document-order element namespace/name/parent and attribute namespace/name/resource_id/raw/rendered typed value",
+    "aapt_empty_raw_presentation_omissions": [],
+    "independent_raw_value_indices_verified": true
+  }
+]

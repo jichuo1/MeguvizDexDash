@@ -1,0 +1,130 @@
+{
+  "schema_version": "mdd.instruction-conformance.v1",
+  "task": "MDD-023",
+  "record_kind": "observed_component_validation",
+  "status": "passed_component_scope",
+  "failure": null,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_before": {
+    "crates/mdd-dex/src/instructions/debug.rs": "c513acab6698fb67b1556bd411ee56e5490f24526cefcd4fa5853a18bda9bcea",
+    "crates/mdd-dex/src/instructions/decode.rs": "3d2afb1196eee7bd0601defb636cca207c8581a27138bacd61bdd8f08f1e1d9b",
+    "crates/mdd-dex/src/instructions/mod.rs": "d7149dbbce95994715b516f8f919a92917eb906461dccd030089277b525fc3d8",
+    "crates/mdd-dex/src/instructions/opcodes.rs": "a0d33bc5870e65f49b673e32a2f6182ffd9dbc3fc3dbaf1d7170daaeca597cca",
+    "crates/mdd-dex/src/instructions/tests.rs": "4e1e11aaad63910e1a666c07475a485ff3ddb3b6614c13fc9d37c41d64f744d6",
+    "crates/mdd-facts/src/code.rs": "aac9068337f96e0e5c24c861d88c5b5cf04d57bb3c4fead8c1609cbe9f10549e",
+    "tests/fixtures/instructions/generate.py": "1ff2c29870604518e50d908ce77e9262df1ea7a00e587cfaca5e5c65a66176e0",
+    "tests/fixtures/instructions/oracle.py": "f561d51473805f7289016aca3f2f14fc402c23dc8710bbb764d1ad89d9003beb",
+    "artifacts/mdd-023/verify.py": "a8d589fc742452dba39c7d4c2d4ec843d3d49fd2eca5b82ea47f5f04272bd4bb",
+    "tools/record_command.py": "ed04b70fda4bad1c781ee2bda8f9bfb158212be6ba7ec9b7cbfaafdd6be8762e"
+  },
+  "source_after": {
+    "crates/mdd-dex/src/instructions/debug.rs": "c513acab6698fb67b1556bd411ee56e5490f24526cefcd4fa5853a18bda9bcea",
+    "crates/mdd-dex/src/instructions/decode.rs": "3d2afb1196eee7bd0601defb636cca207c8581a27138bacd61bdd8f08f1e1d9b",
+    "crates/mdd-dex/src/instructions/mod.rs": "d7149dbbce95994715b516f8f919a92917eb906461dccd030089277b525fc3d8",
+    "crates/mdd-dex/src/instructions/opcodes.rs": "a0d33bc5870e65f49b673e32a2f6182ffd9dbc3fc3dbaf1d7170daaeca597cca",
+    "crates/mdd-dex/src/instructions/tests.rs": "4e1e11aaad63910e1a666c07475a485ff3ddb3b6614c13fc9d37c41d64f744d6",
+    "crates/mdd-facts/src/code.rs": "aac9068337f96e0e5c24c861d88c5b5cf04d57bb3c4fead8c1609cbe9f10549e",
+    "tests/fixtures/instructions/generate.py": "1ff2c29870604518e50d908ce77e9262df1ea7a00e587cfaca5e5c65a66176e0",
+    "tests/fixtures/instructions/oracle.py": "f561d51473805f7289016aca3f2f14fc402c23dc8710bbb764d1ad89d9003beb",
+    "artifacts/mdd-023/verify.py": "a8d589fc742452dba39c7d4c2d4ec843d3d49fd2eca5b82ea47f5f04272bd4bb",
+    "tools/record_command.py": "ed04b70fda4bad1c781ee2bda8f9bfb158212be6ba7ec9b7cbfaafdd6be8762e"
+  },
+  "dependency_before": {
+    "Cargo.lock": "56ada8d2bfb6d97dc28008b9823399a3fe0716d5c77fc7d471586569e0b24073",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "crates/mdd-dex/src/header.rs": "7c16fefbe4b2078a0b4c8e0f94f8b6e7e2df362d45714e97a7888411e1ec32d0",
+    "crates/mdd-dex/src/strings.rs": "5abafc2942b4ce4501742c77f643530aaf92a589b7a59abe4763f5853e2bfe96",
+    "crates/mdd-dex/src/types.rs": "799fd8591ee0318b4e192fe14ff329d4b9c2c07003c6f57befad3cc7c5d73a64",
+    "crates/mdd-dex/src/checked_reader.rs": "58c14936ccd64e63a0a8930468cec210a331c5beb77bec3ba0684bb2b6631a3a",
+    "crates/mdd-types/src/lib.rs": "9ac5371ecbe5a6292aafe9e8d94a1278395b2b8994ec703bdd73d72c71706b95",
+    "crates/mdd-dex/src/lib.rs": "d488a0f3e27e907a4f1e822741721e9b7b1fa2c8bf76a0ca6806bd5773ada8d2",
+    "crates/mdd-facts/src/lib.rs": "7bff1aa4bb9442a0f528311218bfa2af00a6c8ebd20145615deedcb0a35d78c9"
+  },
+  "dependency_after": {
+    "Cargo.lock": "56ada8d2bfb6d97dc28008b9823399a3fe0716d5c77fc7d471586569e0b24073",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "crates/mdd-dex/src/header.rs": "7c16fefbe4b2078a0b4c8e0f94f8b6e7e2df362d45714e97a7888411e1ec32d0",
+    "crates/mdd-dex/src/strings.rs": "5abafc2942b4ce4501742c77f643530aaf92a589b7a59abe4763f5853e2bfe96",
+    "crates/mdd-dex/src/types.rs": "799fd8591ee0318b4e192fe14ff329d4b9c2c07003c6f57befad3cc7c5d73a64",
+    "crates/mdd-dex/src/checked_reader.rs": "58c14936ccd64e63a0a8930468cec210a331c5beb77bec3ba0684bb2b6631a3a",
+    "crates/mdd-types/src/lib.rs": "9ac5371ecbe5a6292aafe9e8d94a1278395b2b8994ec703bdd73d72c71706b95",
+    "crates/mdd-dex/src/lib.rs": "d488a0f3e27e907a4f1e822741721e9b7b1fa2c8bf76a0ca6806bd5773ada8d2",
+    "crates/mdd-facts/src/lib.rs": "7bff1aa4bb9442a0f528311218bfa2af00a6c8ebd20145615deedcb0a35d78c9"
+  },
+  "source_stable": true,
+  "commands": [
+    {
+      "name": "generate-first",
+      "record": "artifacts/mdd-023/validation/20261028T103223561558Z/generate-first/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "generate-second",
+      "record": "artifacts/mdd-023/validation/20261028T103223561558Z/generate-second/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "manual-oracle",
+      "record": "artifacts/mdd-023/validation/20261028T103223561558Z/manual-oracle/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "instruction-tests",
+      "record": "artifacts/mdd-023/validation/20261028T103223561558Z/instruction-tests/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "code-facts-tests",
+      "record": "artifacts/mdd-023/validation/20261028T103223561558Z/code-facts-tests/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "immutable-facts-doc-tests",
+      "record": "artifacts/mdd-023/validation/20261028T103223561558Z/immutable-facts-doc-tests/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "record": "artifacts/mdd-023/validation/20261028T103223561558Z/clippy/record.json",
+      "exit_code": 0
+    },
+    {
+      "name": "format",
+      "record": "artifacts/mdd-023/validation/20261028T103223561558Z/format/record.json",
+      "exit_code": 0
+    }
+  ],
+  "fixture_manifest_sha256": "92cf73bd77f56bcec0cea98b1bbc80fa8aec9ef4666ab26ff783423c30c86c6e",
+  "expected_results_sha256": "e94bdd5876fe27b3988812f0a655e88012ac0ce69383a43b135f6adfc021a8db",
+  "opcode_vectors": 224,
+  "formats": 26,
+  "reserved_rejection_vectors": 32,
+  "hand_operand_vectors": 9,
+  "full_dex_fixture_count": 25,
+  "independent_fixture_valid": 20,
+  "independent_fixture_invalid": 5,
+  "profile_admitted": false,
+  "full_art_verification_complete": false,
+  "hostlab_replacement_qualified": false,
+  "performance_qualified": false,
+  "task_done": false,
+  "scope": [
+    "complete declared code-map enumeration including unreferenced items",
+    "explicit offset scope preserves order and repeats with projection budgets",
+    "same snapshot member lease for raw code/insns",
+    "all active standard opcode formats, payload/target/register/reference layouts",
+    "bounded catch/debug programs, exact pc-to-pc encoding pattern and explicit borrowed method projection"
+  ],
+  "oracle_limits": [
+    "224 format vectors and opcode descriptors share AOSP table ancestry; not independent oracles",
+    "Python oracle is independently implemented for listed hand fixtures only; no full opcode/ART claim",
+    "SDK dexdump over orphan code does not prove all opcode/target semantics"
+  ],
+  "remaining": [
+    "parent dependency review after MDD-020 physical item corrections",
+    "native Linux execution/CI not recorded by this local verifier",
+    "method/prototype binding, references relation graph and ART type flow are separate scopes",
+    "full HostLab corpus/equivalence/performance gates not claimed"
+  ],
+  "run_directory": "artifacts/mdd-023/validation/20261028T103223561558Z"
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "mdd.approved-sql-ast-dependency-preflight.v1",
+  "user_approved": true,
+  "root_lock_changed": false,
+  "external_packages": [
+    {
+      "name": "log",
+      "version": "0.4.34",
+      "license": "MIT OR Apache-2.0",
+      "repository": "https://github.com/rust-lang/log",
+      "features": [],
+      "checksum": "f9f8bd3e56ce4dfc153cf470fffbfa98c7620958b312ca5c3a4b8d5181fd13c6",
+      "manifest_sha256": "a6b553a374b237960e65d91de04e102a1755a7a20ff21f2c1ef6ba74b9d0ab76"
+    },
+    {
+      "name": "sqlparser",
+      "version": "0.63.0",
+      "license": "Apache-2.0",
+      "repository": "https://github.com/apache/datafusion-sqlparser-rs",
+      "features": [
+        "std"
+      ],
+      "checksum": "3679862809bd1f92e563cf6fd820e28f39135303668001c10331d5027183e8b4",
+      "manifest_sha256": "04f3871e76dc0361f11c295798502d6eec5a4af3c4b7fe809415663b4a52eb30"
+    }
+  ],
+  "source": "artifacts/mdd-031/dependency-preflight/source",
+  "record": "artifacts/mdd-031/dependency-preflight/record.json",
+  "scope": "isolated actual build and simple AST roundtrip only; not bounded hostile SQL or dialect qualification"
+}

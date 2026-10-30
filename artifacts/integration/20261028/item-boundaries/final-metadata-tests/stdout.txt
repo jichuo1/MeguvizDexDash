@@ -1,0 +1,61 @@
+
+running 34 tests
+test checked_reader::tests::arithmetic_and_ranges_reject_before_reading ... ok
+test header::tests::exact_unsupported_formats_do_not_admit_numeric_ranges ... ok
+test header::tests::header_empty_ranges_and_large_counts_fail_explicitly ... ok
+test header::tests::map_overlap_duplicate_and_header_disagreement_are_errors ... ok
+test header::tests::malformed_fixtures_have_distinct_errors_and_ranges ... ok
+test header::tests::checksum_and_sha1_validation_scopes_remain_distinct ... ok
+test instructions::tests::hand_expected_operands_literals_ranges_and_dynamic_invokes_remain_distinct ... ok
+test header::tests::structured_sources_and_reordered_data_keep_valid_reference_ranges ... ok
+test instructions::tests::debug_all_opcodes_no_index_and_pc_line_register_failures_are_visible ... ok
+test header::tests::forward_backwards_and_out_of_range_references_are_rejected ... ok
+test header::tests::each_standard_version_has_real_fixture ... ok
+test instructions::tests::malformed_width_register_wide_range_branch_payload_and_index_cases_fail ... ok
+test strings::tests::actual_pool_preserves_utf16_nul_and_surrogates ... ok
+test instructions::tests::debug_references_must_name_physical_item_starts_and_outs_layout_is_checked ... ok
+test instructions::tests::tries_padding_handler_origin_and_catch_all_targets_are_bounded ... ok
+test definitions::tests::definitions_match_hand_semantic_expectations ... ok
+test strings::tests::physical_string_item_starts_allow_orphans_and_reject_interior_offsets ... ok
+test types::prototype_type_list_must_reference_a_real_physical_item_start ... ok
+test instructions::tests::limits_are_cumulative_and_zero_never_means_unlimited ... ok
+test instructions::tests::payload_units_raw_ranges_targets_and_repetition_are_exact ... ok
+test types::tests::descriptor_grammar_has_exact_void_array_name_and_version_rules ... ok
+test instructions::tests::shared_payload_expansion_and_duplicate_offset_projection_each_consume_budget ... ok
+test strings::tests::independent_component_vectors_match_without_lossy_substitution ... ok
+test types::tests::existing_independent_fixture_types_and_empty_proto_match ... ok
+test instructions::tests::full_map_includes_unreferenced_code_and_offsets_have_explicit_narrow_scope ... ok
+test types::tests::independent_nonempty_parameter_fixture_matches_every_declared_field ... ok
+test types::tests::independent_metadata_mutants_reject_instead_of_empty_success ... ok
+test definitions::tests::present_zero_insns_is_not_no_body_and_empty_class_data_is_explicit ... ok
+test header::tests::all_prefix_truncations_fail_without_panic ... ok
+test instructions::tests::debug_state_only_operations_and_try_ends_preserve_format_permitted_positions ... ok
+test instructions::tests::every_active_opcode_and_format_is_actually_decoded_and_reserved_items_fail ... ok
+test definitions::tests::standard_versions_and_lossless_source_file_keep_definition_semantics ... ok
+test strings::tests::all_512_independent_fifth_byte_oracle_cases_match ... ok
+test definitions::tests::invalid_delta_owner_body_and_duplicate_layout_are_located ... ok
+
+test result: ok. 34 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 7 tests
+test metadata::tests::unrelated_snapshot_inventory_and_zero_quota_fail_closed ... ok
+test metadata::tests::duplicate_content_occurrences_keep_distinct_refs_and_owned_leases ... ok
+test metadata::tests::same_archive_duplicate_dexes_retain_independent_local_indices ... ok
+test definitions::tests::wildcard_definition_columns_match_frozen_reference_schema ... ok
+test definitions::tests::occurrences_and_reference_definition_kinds_remain_distinct ... ok
+test code::tests::raw_code_retains_exact_member_lease_scope_and_occurrence_after_source_changes ... ok
+test code::tests::all_hand_fixtures_match_independent_python_oracle_fields_and_raw_bytes ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

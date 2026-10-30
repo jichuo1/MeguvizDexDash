@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\resource-generation-audit\\20261029T050623250919Z\\resource_generation_probe.exe",
+    "D:\\MeguvisDexDash\\artifacts\\local\\resource-generation-boundary\\20261029T050623250919Z\\mutable.apk",
+    "D:\\MeguvisDexDash\\artifacts\\local\\resource-generation-boundary\\20261029T050623250919Z\\replacement.zip"
+  ],
+  "started_utc": "2026-10-29T05:06:24.310171+00:00",
+  "finished_utc": "2026-10-29T05:06:24.489421+00:00",
+  "elapsed_seconds": 0.17199999999866122,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "c772b3c86bf19af895c30ebc188970e141109bcd9b42bb13a6cddd87ca1c18ae",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic static reference test; no performance claim"
+}

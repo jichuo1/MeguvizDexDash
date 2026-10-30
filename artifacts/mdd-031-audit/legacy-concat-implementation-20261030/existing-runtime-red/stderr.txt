@@ -1,0 +1,9 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.17s
+     Running unittests src\lib.rs (target\debug\deps\mdd_sql-46977fcd4387e316.exe)
+
+thread 'runtime_tests::concat_preserves_null_non_scalar_nul_and_bytes' (40612) panicked at crates\mdd-sql\src\runtime_tests.rs:135:9:
+assertion `left == right` failed: DexSql010
+  left: [Text(SqlText { utf16: [55296, 0, 55357, 56832], original_mutf8: None }), Null, Null, Text(SqlText { utf16: [0, 65533, 65], original_mutf8: None })]
+ right: [Text(SqlText { utf16: [55296, 0, 55357, 56832], original_mutf8: None }), Null, Null, Bytes([0, 255, 65])]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-sql --lib`

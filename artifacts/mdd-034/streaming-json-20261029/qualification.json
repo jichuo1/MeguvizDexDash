@@ -1,0 +1,138 @@
+{
+  "schema_version": "mdd.streaming-json-count.v1",
+  "task": "MDD-034",
+  "created_utc": "2026-10-29T06:46:36.451698+00:00",
+  "status": "passed-scoped-fixed-serde-json-count",
+  "source_identity_observed_at_readback": true,
+  "sources": [
+    {
+      "path": "crates/mdd-query/src/budget.rs",
+      "bytes": 41354,
+      "sha256": "e6e7538bea071f57a470f3eee417a996d2747981ed9c6ede98c0ddb326994c79"
+    },
+    {
+      "path": "crates/mdd-query/src/executor.rs",
+      "bytes": 61358,
+      "sha256": "f34d93aa93f32ae47bd3c6a5b8c9059c412f6490739a83c7d7f8c6a20a1fe33e"
+    },
+    {
+      "path": "crates/mdd-query/src/executor/runtime_tests.rs",
+      "bytes": 56520,
+      "sha256": "5045d67972fb053731010b46174621b3f18c719c4b00cba181ff8fe2d3bf5d1e"
+    },
+    {
+      "path": "crates/mdd-query/src/ir/mod.rs",
+      "bytes": 11982,
+      "sha256": "a4fe8a1a66d70684b868eeb61a77e56aecc10377ded6acd517b3c59407cfe46f"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 11609,
+      "sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/probe.rs",
+      "bytes": 6435,
+      "sha256": "d5383992b96bc2614962491c81caf49a85859229e38c044a7077b758d1ef63bc"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/red2-build/record.json",
+      "bytes": 733,
+      "sha256": "fca7769e68332ae743823520ddcd4e10bd661a570987224baccefd34407dd908"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/red2-compile/record.json",
+      "bytes": 1627,
+      "sha256": "f80d56fbfdae6b9b66ec6fecfcee02ed4a21d361b0fbdb4b9e8d2781c373d3a8"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/red2-run/record.json",
+      "bytes": 665,
+      "sha256": "07ca141f4233a4be1ec1380263901dd39bce7f4eab14c0a8aaece327a4ed0112"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/green-final-build/record.json",
+      "bytes": 719,
+      "sha256": "00e894cb8b12b667c51e6da0f54b774b6377e9fe8fab0d13a8c6433140190f13"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/green-final-compile/record.json",
+      "bytes": 1633,
+      "sha256": "920905e068b9206af1588850d6d9d89d5ac9e3d041dd5db261cdc10ae0b820e0"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/green-final-run/record.json",
+      "bytes": 657,
+      "sha256": "2b668babb1a591c33ece686aa2f18fa370222e92f2455563efe13f1819688c81"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/json-tests-first/record.json",
+      "bytes": 746,
+      "sha256": "875da83a775908becceea93b3eb70cc03f073ef253331660949d8e4326f5c528"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/parity-first/record.json",
+      "bytes": 788,
+      "sha256": "39525469a2d3f149e44c8bd6266b3de21f14852f28c9e094776193ad1b0ba399"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/boundary-tests-2/record.json",
+      "bytes": 742,
+      "sha256": "8ee26d1fe1a8aabe868f4754ff72296692b36906cac8a8e941ba230e3601ac2f"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/precheck-test/record.json",
+      "bytes": 789,
+      "sha256": "3e3ec523676f90f0cb004cb893bd579fa009e4a6c0386feb52beafc66a780a1b"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/query-tests-final/record.json",
+      "bytes": 729,
+      "sha256": "759b63a11ab3a0a4b7f4f2aa5ed0d3fd4f3265c4b0d569c524b4a79aad167039"
+    },
+    {
+      "path": "artifacts/mdd-034/streaming-json-20261029/clippy-final/record.json",
+      "bytes": 732,
+      "sha256": "919472b477e2f13856cc7aea820735fdc74c4133fc3187b55a982fe9f6c9f16a"
+    }
+  ],
+  "retained_initial_test_compile_failure": {
+    "path": "artifacts/mdd-034/streaming-json-20261029/boundary-tests/record.json",
+    "bytes": 744,
+    "sha256": "02f9ef0b43c262b9b65d5a1182563f7da3a24f5ef83d4984a8aca3a509b274c9"
+  },
+  "pre_change_identity": {
+    "path": "artifacts/mdd-034/streaming-json-20261029/red-identity.json",
+    "bytes": 948,
+    "sha256": "a0241ca2d66ab3790d8087d3f922c1a6fccf7b324af56b7b98b215d92ef3afa1"
+  },
+  "allocation_observations": [
+    {
+      "case": "small_output",
+      "budget": "output_bytes",
+      "red_max_single_request": 699108,
+      "green_max_single_request": 632
+    },
+    {
+      "case": "small_workspace",
+      "budget": "query_workspace_bytes",
+      "red_max_single_request": 699108,
+      "green_max_single_request": 632
+    }
+  ],
+  "query_tests": 52,
+  "compile_fail_tests": 3,
+  "strict_clippy": true,
+  "scope": "fixed serde_json writer for query queue counting; exact count is atomically charged after successful traversal",
+  "limits": [
+    "allocation observation is largest individual request in one process, not RSS or performance",
+    "source Row and values were created before measurement and before queue admission",
+    "public Bytes serializer and other serializers remain outside this streaming guarantee",
+    "non-Bytes temporary values, consumer copies, transport and allocator overhead are not fully bounded",
+    "producer worker/MCP/FFI and full task/profile remain unqualified"
+  ],
+  "task_complete_proven": false,
+  "profile_admitted": false
+}

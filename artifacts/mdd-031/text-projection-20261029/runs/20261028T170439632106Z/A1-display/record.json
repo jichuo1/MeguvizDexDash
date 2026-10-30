@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\strings-mutf8-035.dex",
+    "--sql",
+    "SELECT s.string_idx,s.value FROM strings AS s ORDER BY s.string_idx"
+  ],
+  "started_utc": "2026-10-28T17:04:44.706697+00:00",
+  "elapsed_seconds": 0.5827604000000974,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "b17fd77312b997e1e9e4f8087819e95e2160db66f32be31e067520cfd494973a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic development corpus; not performance"
+}

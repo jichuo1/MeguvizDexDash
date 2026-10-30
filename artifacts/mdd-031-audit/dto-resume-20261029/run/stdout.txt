@@ -1,0 +1,1 @@
+{"status": "sqlite-only-passed", "sqlite_version": "3.53.1", "cases": 6, "reference_runs_executed": 0, "different_type": 30, "dto_equivalent": false}

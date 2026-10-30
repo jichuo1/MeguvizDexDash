@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\like-independent-20261029-target\\debug\\mdd-multi-minmax-independent.exe"
+  ],
+  "started_utc": "2026-10-29T01:58:01.964807+00:00",
+  "finished_utc": "2026-10-29T01:58:03.248951+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 30,
+  "stdout_sha256": "3ce6f86c798e18cb72b4a299700b17f5b91aaf9821798fee0397e5f4055cc443",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "fd1ce1781dec60425e5f5c0175fb08d7b0bfeafe3f360ea92071e15a5e9afd8b",
+  "scope": "local independent test, no formal performance"
+}

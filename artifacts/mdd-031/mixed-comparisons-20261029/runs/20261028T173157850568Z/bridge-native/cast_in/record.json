@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\sql_bridge_probe.exe",
+    "query",
+    "native",
+    "SELECT CAST('01' AS INTEGER) IN ('1') AS v"
+  ],
+  "started_utc": "2026-10-28T17:32:19.023028+00:00",
+  "elapsed_seconds": 0.03907989999970596,
+  "exit_code": 1,
+  "timed_out": false,
+  "stdout_sha256": "e6b2b591b989a8ac86069a77c64b52398dcafa080bc5ff77e72f2584a3a6d3e1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,2 @@
+   Compiling mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.85s

@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tests/fixtures/references/oracle.py"
+  ],
+  "exit_code": 0,
+  "stdout": "independent reference oracle passed: 18 fixtures; 11 complete; rest explicitly invalid\n",
+  "stderr": ""
+}

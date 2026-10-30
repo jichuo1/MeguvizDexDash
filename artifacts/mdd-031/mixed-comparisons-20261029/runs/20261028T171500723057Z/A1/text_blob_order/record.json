@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\baseline-engines\\A1-0.1.1-windows\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "--sql",
+    "SELECT 'a'<X'00' AS v"
+  ],
+  "started_utc": "2026-10-28T17:15:08.284860+00:00",
+  "elapsed_seconds": 0.10335759999998118,
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout_sha256": "7b261defa45edb98425a80b0780eedf76db6775de30497b4f1b73e3e56ac1a2d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\like-workspace-extras-20261029\\Cargo.toml"
+  ],
+  "started_utc": "2026-10-29T01:16:26.516259+00:00",
+  "finished_utc": "2026-10-29T01:16:34.249924+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 180,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "328a41c268de62a400273f44d55703f903793305de48375864855f2e1db13e0a",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "289bbd3d694dced4e8ca560cb61459fc3fb0d0da3be25ea5010677be89e920dd",
+  "scope": "local independent test, no formal performance"
+}

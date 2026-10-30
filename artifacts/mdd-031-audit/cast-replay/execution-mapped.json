@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "stderr": "",
+  "binary_sha256": "545ebd651ccbfa4a7e0be2c0ba2634393b00cdf35f1e239fcd3825f2e3ef9c01",
+  "source_before_sha256": "0a53beba7e80becbf281d13351032ea60a554d3f88efa59027f0c503403c61d8",
+  "relation_mapping": {
+    "reference": "strings",
+    "candidate": "native_strings"
+  }
+}

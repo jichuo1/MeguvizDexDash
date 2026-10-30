@@ -1,0 +1,9 @@
+{
+  "record_kind": "collaboration_runtime_observation",
+  "agent": "/root/query_contracts",
+  "consecutive_turn_interruptions": 2,
+  "reported_reason": "This content was flagged for possible cybersecurity risk.",
+  "specific_tool_action": null,
+  "technical_test_verdict": null,
+  "handling": "Root took sole ownership of the existing local application budget/stream modules. Completed records remain unchanged; no further turn was dispatched to this agent. This event is neither a test success nor a confirmed engineering defect."
+}

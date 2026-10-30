@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\like-independent-20261029-target\\debug\\mdd-group-ordinal-independent.exe"
+  ],
+  "started_utc": "2026-10-29T01:41:07.046198+00:00",
+  "finished_utc": "2026-10-29T01:41:09.695059+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 30,
+  "stdout_sha256": "fd52a0bdec4a3091c1456172ea8041cffc7d553d7b9bc08bc9d94eab7e6a01f5",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "8c273feebaa51ae6d6512aada107319683a52d5318c6626655ddf56629382728",
+  "scope": "local independent test, no formal performance"
+}

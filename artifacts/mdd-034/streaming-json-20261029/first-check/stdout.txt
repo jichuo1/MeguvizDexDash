@@ -1,0 +1,31 @@
+
+running 26 tests
+test executor::runtime_tests::all_rows_dequeued_but_one_unacknowledged_still_cannot_complete ... ok
+test executor::runtime_tests::cancelled_before_claim_sends_explicit_cancelled_end ... ok
+test executor::runtime_tests::computation_claim_is_atomic_and_later_attempt_cannot_fail_original ... ok
+test executor::runtime_tests::concurrent_execution_claims_have_exactly_one_winner ... ok
+test executor::runtime_tests::dropped_unacknowledged_rows_and_unread_end_never_complete ... ok
+test executor::runtime_tests::duplicate_end_and_out_of_order_ack_are_sticky_failures ... ok
+test executor::runtime_tests::empty_queue_needs_explicit_end_and_unbound_queue_cannot_prove_delivery ... ok
+test executor::runtime_tests::error_receipt_requires_every_original_error_field ... ok
+test executor::runtime_tests::native_cancel_after_prefix_isolated_from_sibling_and_computed_spool_retained ... ok
+test executor::runtime_tests::queue_accounts_owned_row_capacity_separately_from_wire_length ... ok
+test executor::runtime_tests::queue_consumer_receives_original_required_facts_failure_end ... ok
+test executor::runtime_tests::queue_counts_owned_text_bytes_and_entity_capacities_on_real_rows ... ok
+test executor::runtime_tests::queue_deadline_has_explicit_error_end_and_no_complete_success ... ok
+test executor::runtime_tests::queue_quota_delivers_only_acknowledged_prefix_with_failure_end ... ok
+test executor::runtime_tests::queue_with_real_backpressure_completes_only_after_consumer_end ... ok
+test executor::runtime_tests::queued_row_lease_stays_while_cancelled_consumer_still_holds_packet ... ok
+test executor::runtime_tests::queued_row_wire_and_resident_leases_are_distinct_and_release_on_ack ... ok
+test executor::runtime_tests::queued_rows_are_not_delivery_without_consumer_acknowledgement ... ok
+test executor::runtime_tests::quota_after_rows_has_failure_terminal_and_preserves_real_compute_axis ... ok
+test executor::runtime_tests::receipt_cannot_confirm_another_query ... ok
+test executor::runtime_tests::runtime_budget_rejects_different_session_or_worker_ancestry ... ok
+test executor::runtime_tests::runtime_owner_and_prepared_binding_are_verified_before_execution_claim ... ok
+test executor::runtime_tests::trusted_callback_cannot_complete_a_query_bound_unread_queue ... ok
+test executor::runtime_tests::worker_loss_and_cancel_before_final_receipt_are_not_success ... ok
+test executor::runtime_tests::wrong_terminal_binding_does_not_poison_or_claim_the_original_queue ... ok
+test executor::runtime_tests::zero_deadline_and_unconsumed_cursor_do_not_become_empty_success ... ok
+
+test result: ok. 26 passed; 0 failed; 0 ignored; 0 measured; 20 filtered out; finished in 0.03s
+

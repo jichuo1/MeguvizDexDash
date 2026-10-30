@@ -1,0 +1,38 @@
+{
+  "record_kind": "observed_full_raw_evidence_projection",
+  "reference_argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\artifacts\\local\\inputs\\NewPipe_v0.28.6.apk",
+    "--sql",
+    "SELECT d.entry_name,cm.method_idx,cm.access_flags,CASE WHEN ci.insns_off IS NULL THEN 'N' ELSE CAST(ci.insns_off AS TEXT) END AS insns_off,CASE WHEN ci.insns_size IS NULL THEN 'N' ELSE CAST(ci.insns_size AS TEXT) END AS insns_size FROM class_methods cm JOIN dex_files d ON d.file_id=cm.file_id LEFT JOIN code_items ci ON ci.file_id=cm.file_id AND ci.method_idx=cm.method_idx ORDER BY cm.file_id,cm.method_idx"
+  ],
+  "reference_exit_code": 0,
+  "reference_engine_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "input_sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+  "native_summary_sha256": "d6cfd5f8455df23388ebefbcce3fbe902b527ad17dd2d6d920953166fc77148d",
+  "method_checks": [
+    {
+      "entry_name": "classes.dex",
+      "method_rows": 50046,
+      "canonical_sha256": "276e0a96c06917371af4910296606e906b943ca04d319ca0bb82cb6c26aa6718",
+      "equal": true
+    },
+    {
+      "entry_name": "classes2.dex",
+      "method_rows": 5717,
+      "canonical_sha256": "ef4ec6ee1983da3de8882b69eb1513fc1d49a65bb3c84a243b7c529d0bed3a40",
+      "equal": true
+    }
+  ],
+  "complete_method_rows": 55763,
+  "resource_entries": 792,
+  "legacy_resource_gate_sha256": "6f2468bfbaebf1cecab0fd9c5eaeb3afdc7f95fa2154aaee6e0b48613769b928",
+  "legacy_resource_gate_commit": "8782f43d537c442905123e35af325c412caa5188",
+  "raw_resource_equal": true,
+  "all_byte_projections_equal": true,
+  "scope": "full raw insns off/size/SHA and no-body state, plus unchanged legacy selected raw resources; not full business/ART/SQL/performance qualification"
+}

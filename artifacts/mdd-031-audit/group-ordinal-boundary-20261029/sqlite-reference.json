@@ -1,0 +1,163 @@
+{
+  "status": "sqlite-reference-complete",
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "case": "order_max",
+      "sql": "SELECT k FROM facts WHERE k IS NOT NULL ORDER BY 2147483647",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st ORDER BY term out of range - should be between 1 and 1"
+    },
+    {
+      "case": "group_max",
+      "sql": "SELECT COUNT(*) AS n FROM facts WHERE k IS NOT NULL GROUP BY 2147483647",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st GROUP BY term out of range - should be between 1 and 1"
+    },
+    {
+      "case": "order_above",
+      "sql": "SELECT k FROM facts WHERE k IS NOT NULL ORDER BY 2147483648",
+      "status": "ok",
+      "columns": [
+        "k"
+      ],
+      "rows": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "case": "group_above",
+      "sql": "SELECT COUNT(*) AS n FROM facts WHERE k IS NOT NULL GROUP BY 2147483648",
+      "status": "ok",
+      "columns": [
+        "n"
+      ],
+      "rows": [
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "case": "order_negmax",
+      "sql": "SELECT k FROM facts WHERE k IS NOT NULL ORDER BY -2147483647",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st ORDER BY term out of range - should be between 1 and 1"
+    },
+    {
+      "case": "group_negmax",
+      "sql": "SELECT COUNT(*) AS n FROM facts WHERE k IS NOT NULL GROUP BY -2147483647",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "1st GROUP BY term out of range - should be between 1 and 1"
+    },
+    {
+      "case": "order_negmin",
+      "sql": "SELECT k FROM facts WHERE k IS NOT NULL ORDER BY -2147483648",
+      "status": "ok",
+      "columns": [
+        "k"
+      ],
+      "rows": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "case": "group_negmin",
+      "sql": "SELECT COUNT(*) AS n FROM facts WHERE k IS NOT NULL GROUP BY -2147483648",
+      "status": "ok",
+      "columns": [
+        "n"
+      ],
+      "rows": [
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "case": "order_posabove",
+      "sql": "SELECT k FROM facts WHERE k IS NOT NULL ORDER BY +2147483648",
+      "status": "ok",
+      "columns": [
+        "k"
+      ],
+      "rows": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "case": "group_posabove",
+      "sql": "SELECT COUNT(*) AS n FROM facts WHERE k IS NOT NULL GROUP BY +2147483648",
+      "status": "ok",
+      "columns": [
+        "n"
+      ],
+      "rows": [
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "case": "order_real",
+      "sql": "SELECT k FROM facts WHERE k IS NOT NULL ORDER BY 1.0",
+      "status": "ok",
+      "columns": [
+        "k"
+      ],
+      "rows": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "case": "group_real",
+      "sql": "SELECT COUNT(*) AS n FROM facts WHERE k IS NOT NULL GROUP BY 1.0",
+      "status": "ok",
+      "columns": [
+        "n"
+      ],
+      "rows": [
+        [
+          3
+        ]
+      ]
+    }
+  ],
+  "scope": "SQLite synthetic facts; tie order not asserted for ORDER BY constants; no old-engine run"
+}

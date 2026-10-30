@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/dynamic_source_boundary/readback.py",
+    "artifacts/mdd-026/dynamic-source-audit/20261029T012418079194Z"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:25:02.036237+00:00",
+  "finished_utc": "2026-10-29T01:25:04.506599+00:00",
+  "elapsed_seconds": 2.469000000000051,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 517,
+    "sha256": "a8eddebf04722d5744783c12f21011a8a21d1821f6fa20c9c3db646fe71d01d3"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

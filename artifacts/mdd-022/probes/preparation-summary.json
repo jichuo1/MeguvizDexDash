@@ -1,0 +1,222 @@
+{
+  "schema_version": "mdd.annotation-preparation.v1",
+  "task_id": "MDD-022",
+  "time_utc": "2026-10-28T08:29:13.162005+00:00",
+  "phase": "independent-fixture-and-compatibility-oracle-preflight",
+  "production_annotation_implementation_started": false,
+  "task_done": false,
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tests/fixtures/annotations/generate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "generated 12 annotation fixtures\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tests/fixtures/annotations/generate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "generated 12 annotation fixtures\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tests/fixtures/annotations/oracle.py"
+      ],
+      "exit_code": 0,
+      "stdout": "annotation oracle passed: 12 fixtures, 8 components, 44 flattened value rows, depth budget rejected\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-O",
+        "tests/fixtures/annotations/oracle.py"
+      ],
+      "exit_code": 0,
+      "stdout": "annotation oracle passed: 12 fixtures, 8 components, 44 flattened value rows, depth budget rejected\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "artifacts/mdd-022/probes/compare_oracle.py"
+      ],
+      "exit_code": 0,
+      "stdout": "six complete annotation relations match independent oracle; annotation_directories=1, annotation_directory_entries=5, annotation_set_entries=5, annotation_set_refs=2, annotations=4, annotation_elements=44\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-O",
+        "artifacts/mdd-022/probes/compare_oracle.py"
+      ],
+      "exit_code": 0,
+      "stdout": "six complete annotation relations match independent oracle; annotation_directories=1, annotation_directory_entries=5, annotation_set_entries=5, annotation_set_refs=2, annotations=4, annotation_elements=44\n",
+      "stderr": ""
+    }
+  ],
+  "success": true,
+  "fixture_generation_reproducible": true,
+  "fixture_sha256": {
+    "annotations-038.dex": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+    "bad-annotation-type.dex": "0d2150bc7d9aa2a65ba15e44461a18c51a3b3e5196583f461a3b859efb4a3566",
+    "bad-boolean-arg.dex": "2180633b81ddd5ceca55027b834a209804f2f05cb922c818b47dcb35f5769bd5",
+    "bad-class-owner.dex": "f26f2201d09107b9d42b5626be92dfa6f1ae1571911ae593a54014808905b601",
+    "bad-element-order.dex": "a0a5c31d5a0806e1febfd125fa285a8723c976e5c2c526d0f73a06d7c4cd97cf",
+    "bad-field-entry-order.dex": "81de4456c0595da4e07c53edfa4e3a8b07eeebf8b4482dc747a725bd64a001ff",
+    "bad-parameter-arity.dex": "dac87eb4842227104f1a7b3f215eb1fdc452422273c54020de89e88939ceea4f",
+    "bad-parameter-count.dex": "19b0576495255e34828c35a813836c27be30bdcb5bb69816ff4567e2f3ba85f6",
+    "bad-string-index.dex": "99b52e4d7de2655419dc3c7db73baafc5ba24bcc2832f0a8d2b2ffc2d04720c5",
+    "bad-value-tag.dex": "8150b2c7574b0197a84fe33ad49034909ecb03424cb0bc82fb95689bb31a5a31",
+    "bad-value-width.dex": "4107157ce5d1a6244731d9df28c8b7c8e1b5713a5d32cb5fbe33d148bb1901c9",
+    "bad-visibility.dex": "d9effa82f83c695ad33712f5c8af7c79de2ef315c5e070c2702d78d743ca6813"
+  },
+  "manual_expectation_sha256": "c5a0d073291b76a68db02e46102c2b860911428707be14c22b1fcfe5dc02b063",
+  "fixture_checks": 12,
+  "component_checks": 8,
+  "reference_observation": "Existing immutable verified A0 observation; not rerun or newly presented as an engine trial by this script.",
+  "reference_result_sha256": "2eea632723c2102a67828795c8dbd767d69fafb984685bec4c5894d1daa6abed",
+  "reference_binary": {
+    "path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+    "bytes": 21365760,
+    "version": "0.1.0",
+    "platform": "windows_amd64"
+  },
+  "reference_input": {
+    "path": "tests/fixtures/annotations/generated/annotations-038.dex",
+    "sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360",
+    "bytes": 1452
+  },
+  "six_complete_relation_comparisons": [
+    {
+      "relation": "annotation_directories",
+      "columns": [
+        "file_id",
+        "class_idx",
+        "annotations_off",
+        "class_annotations_off",
+        "fields_size",
+        "methods_size",
+        "parameters_size"
+      ],
+      "reference_rows": 1,
+      "oracle_rows": 1,
+      "equal_multiset": true,
+      "reference_sha256": "b8bf891a07804ee6376eedc253845039aa607915dc6f1202d11ad3475f2c741d",
+      "oracle_sha256": "b8bf891a07804ee6376eedc253845039aa607915dc6f1202d11ad3475f2c741d",
+      "first_difference": null
+    },
+    {
+      "relation": "annotation_directory_entries",
+      "columns": [
+        "file_id",
+        "class_idx",
+        "annotations_off",
+        "entry_kind",
+        "entry_idx",
+        "annotation_set_off",
+        "annotation_set_ref_list_off"
+      ],
+      "reference_rows": 5,
+      "oracle_rows": 5,
+      "equal_multiset": true,
+      "reference_sha256": "09a3b0319ef1de01f70175b46fc3314745dcaa204e458002952cc931c17ce04c",
+      "oracle_sha256": "09a3b0319ef1de01f70175b46fc3314745dcaa204e458002952cc931c17ce04c",
+      "first_difference": null
+    },
+    {
+      "relation": "annotation_set_entries",
+      "columns": [
+        "file_id",
+        "annotation_set_off",
+        "ordinal",
+        "annotation_off"
+      ],
+      "reference_rows": 5,
+      "oracle_rows": 5,
+      "equal_multiset": true,
+      "reference_sha256": "eca4df9849380111fb4d7ee36b501fcba55be43e719e68175ee4bb7d179393a1",
+      "oracle_sha256": "eca4df9849380111fb4d7ee36b501fcba55be43e719e68175ee4bb7d179393a1",
+      "first_difference": null
+    },
+    {
+      "relation": "annotation_set_refs",
+      "columns": [
+        "file_id",
+        "annotation_set_ref_list_off",
+        "ordinal",
+        "annotation_set_off"
+      ],
+      "reference_rows": 2,
+      "oracle_rows": 2,
+      "equal_multiset": true,
+      "reference_sha256": "0f6ad4f335fd272ad69f1e8f7edd2ed3dee0983d6c4269b07443924348f257c8",
+      "oracle_sha256": "0f6ad4f335fd272ad69f1e8f7edd2ed3dee0983d6c4269b07443924348f257c8",
+      "first_difference": null
+    },
+    {
+      "relation": "annotations",
+      "columns": [
+        "file_id",
+        "annotation_off",
+        "visibility",
+        "type_idx",
+        "element_count"
+      ],
+      "reference_rows": 4,
+      "oracle_rows": 4,
+      "equal_multiset": true,
+      "reference_sha256": "accd07163f0505a93799af652ec2a100b0276c1aafb21e7d6091fa8ad421e6e9",
+      "oracle_sha256": "accd07163f0505a93799af652ec2a100b0276c1aafb21e7d6091fa8ad421e6e9",
+      "first_difference": null
+    },
+    {
+      "relation": "annotation_elements",
+      "columns": [
+        "file_id",
+        "annotation_off",
+        "depth",
+        "ordinal",
+        "name_idx",
+        "value_off",
+        "value_end_off",
+        "value_kind",
+        "value_index",
+        "value_i64",
+        "value_f64"
+      ],
+      "reference_rows": 44,
+      "oracle_rows": 44,
+      "equal_multiset": true,
+      "reference_sha256": "69010c1b081782dd203a92c679ef5f49b1c41f56ef207170854248fe167218ad",
+      "oracle_sha256": "69010c1b081782dd203a92c679ef5f49b1c41f56ef207170854248fe167218ad",
+      "first_difference": null
+    }
+  ],
+  "source_sha256": {
+    "tests/fixtures/annotations/generate.py": "bdf526bb0e900f410a9612a0fdef7c7e0ad1579bf31c38a377412fcf011a0ec2",
+    "tests/fixtures/annotations/oracle.py": "39c5c645a8305dec177e8443a01426122309bcd1d0611423a7dee0b7af279ff8",
+    "tests/fixtures/annotations/expected.json": "c5a0d073291b76a68db02e46102c2b860911428707be14c22b1fcfe5dc02b063",
+    "artifacts/mdd-022/probes/probe_reference.py": "a41d8c1c260ec5ebf6dcf946d6ecc48fee930bc7ecee670ec58546b84b984d80",
+    "artifacts/mdd-022/probes/compare_oracle.py": "4d6d9e102c715ca6a9aa0b1886b9ec945d5530df417682363fbcf680935c38d7",
+    "artifacts/mdd-022/probes/prepare.py": "34ce2014ee418d4286e1dafd4248a8cac425694dbcd94fc63e8a1d23bd6d1d25"
+  },
+  "production_dependency": "MDD-021 root acceptance still required before AnnotationFacts implementation and MDD-022 task completion.",
+  "limits": [
+    "Only one synthetic positive annotated DEX and explicit invalid/component vectors",
+    "A0 Windows0.1.0 reference only",
+    "No private HostLab audit",
+    "No performance trial",
+    "No production annotation task qualification"
+  ],
+  "retained_failures": "artifacts/mdd-022/probes/initial-preflight-failures.json"
+}

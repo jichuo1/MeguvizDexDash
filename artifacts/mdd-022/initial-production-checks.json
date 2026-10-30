@@ -1,0 +1,12 @@
+{
+  "schema_version":"mdd.annotation-production-check-history.v1",
+  "initial_implementation":"3 reader + 2 facts annotation tests passed; crate Clippy passed",
+  "expanded_suite_first_run":{
+    "command":"cargo test --locked --offline -p mdd-dex -p mdd-facts annotations::",
+    "result":"4 reader tests passed, fixture-matrix test failed only at its final handwritten count assertion",
+    "observed":"All 32 per-file SDK classifications matched; actual total is 11 accepted / 21 rejected, while the new test summary mistakenly expected 12 / 20.",
+    "resolution":"Correct the test bookkeeping count to independently enumerated 11 / 21. No fixture bytes, classification, parser or rejection policy changed."
+  },
+  "prior_preflight_failures":"artifacts/mdd-022/probes/initial-preflight-failures.json",
+  "parameter_rule_adjudication":"artifacts/mdd-022/probes/parameter-arity-sdk/adjudication.json"
+}

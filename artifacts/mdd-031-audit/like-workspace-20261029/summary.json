@@ -1,0 +1,46 @@
+{
+  "schema_version": "mdd.like-workspace-evidence.v1",
+  "status": "passed-scoped",
+  "source_sha256": {
+    "crates/mdd-sql/src/dialects/functions.rs": "062dac4d1fe72eaa4b4d71aa9672380d6ddad0d04122e86c5ca185a0523f9654",
+    "crates/mdd-sql/src/runtime_tests.rs": "a2d1b8963b6947a4a01a5c9f58724cf19c93abd0191b5e0f64e0398570ed3fd9",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089"
+  },
+  "records": {
+    "before": {
+      "record_sha256": "74c48d8f8744ae4e2c67fa2d044b69d5083fd89b80d9740197c4b5785e77cade",
+      "exit_code": 101
+    },
+    "after": {
+      "record_sha256": "39dcdb11d35ffccd72bf25d4fd313fddfd843b93252924c306781b67f98d7c2b",
+      "exit_code": 0
+    },
+    "success": {
+      "record_sha256": "429cece7e8121fc66d5fa78b987566c72935335e9465872802e18fb3c3644282",
+      "exit_code": 0
+    },
+    "cancel": {
+      "record_sha256": "b58455fc0d1d0a83cc6aa8d06eae4abf67eb2b90417d4634ceaaad0264d266af",
+      "exit_code": 0
+    },
+    "full": {
+      "record_sha256": "bf275ed3397c5ffb4a7244b8861604002ba608d8f096a7e2e57caad2798636ec",
+      "exit_code": 0
+    },
+    "clippy": {
+      "record_sha256": "da677c5f59df8924f3b4839bc58f411af063f7592497acd5f925b66b6847ef92",
+      "exit_code": 0
+    }
+  },
+  "checks": [
+    "real bound session: 8192 bytes, long pattern previously returned success; now quota and release",
+    "successful pattern releases token allocation before result drop",
+    "cancel while token allocation is live: CANCELLED and release"
+  ],
+  "limitations": [
+    "logical token-vector capacity only",
+    "SQLite internals, parameter and text clones, transport, allocator overhead and RSS not accounted",
+    "no SQL/profile qualification"
+  ],
+  "profile_admitted": false
+}

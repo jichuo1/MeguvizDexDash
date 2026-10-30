@@ -1,0 +1,2 @@
+   Compiling mdd-substring-independent v0.0.0 (D:\MeguvisDexDash\artifacts\mdd-031-audit\substring-independent-20261029)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.77s

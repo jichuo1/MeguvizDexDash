@@ -1,0 +1,294 @@
+{
+  "schema_version": "mdd.dto-sqlite-baseline.v1",
+  "status": "sqlite-only-passed",
+  "sqlite_version": "3.53.1",
+  "records": [
+    {
+      "id": "integers",
+      "original_sql": "SELECT 0 AS zero,1 AS one,-1 AS negative,9223372036854775807 AS signed_max,9223372036854775808 AS above_signed,NULL AS nothing",
+      "executed_sql": "SELECT 0 AS zero,1 AS one,-1 AS negative,9223372036854775807 AS signed_max,9223372036854775808 AS above_signed,NULL AS \"nothing\"",
+      "corrected_alias_only": true,
+      "columns": [
+        "zero",
+        "one",
+        "negative",
+        "signed_max",
+        "above_signed",
+        "nothing"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "0"
+          },
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "-1"
+          },
+          {
+            "type": "integer",
+            "value": "9223372036854775807"
+          },
+          {
+            "type": "real",
+            "f64_be_hex": "43e0000000000000"
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer",
+          "integer",
+          "integer",
+          "real",
+          "null"
+        ]
+      ]
+    },
+    {
+      "id": "cast",
+      "original_sql": "SELECT CAST('12' AS INTEGER) AS positive,CAST('-12' AS INTEGER) AS negative,CAST('bad' AS INTEGER) AS invalid,CAST(NULL AS INTEGER) AS nothing,CAST(12 AS INTEGER) AS numeric",
+      "executed_sql": "SELECT CAST('12' AS INTEGER) AS positive,CAST('-12' AS INTEGER) AS negative,CAST('bad' AS INTEGER) AS invalid,CAST(NULL AS INTEGER) AS \"nothing\",CAST(12 AS INTEGER) AS numeric",
+      "corrected_alias_only": true,
+      "columns": [
+        "positive",
+        "negative",
+        "invalid",
+        "nothing",
+        "numeric"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "12"
+          },
+          {
+            "type": "integer",
+            "value": "-12"
+          },
+          {
+            "type": "integer",
+            "value": "0"
+          },
+          {
+            "type": "null",
+            "value": null
+          },
+          {
+            "type": "integer",
+            "value": "12"
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer",
+          "integer",
+          "null",
+          "integer"
+        ]
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "original_sql": "SELECT 1+2 AS plus,1-2 AS minus,0+0 AS zero,1*2 AS product,1/2 AS quotient",
+      "executed_sql": "SELECT 1+2 AS plus,1-2 AS minus,0+0 AS zero,1*2 AS product,1/2 AS quotient",
+      "corrected_alias_only": false,
+      "columns": [
+        "plus",
+        "minus",
+        "zero",
+        "product",
+        "quotient"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "3"
+          },
+          {
+            "type": "integer",
+            "value": "-1"
+          },
+          {
+            "type": "integer",
+            "value": "0"
+          },
+          {
+            "type": "integer",
+            "value": "2"
+          },
+          {
+            "type": "integer",
+            "value": "0"
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer",
+          "integer",
+          "integer",
+          "integer"
+        ]
+      ]
+    },
+    {
+      "id": "case",
+      "original_sql": "SELECT CASE WHEN 1 THEN 1 ELSE -1 END AS positive,CASE WHEN 0 THEN 1 ELSE -1 END AS negative,CASE WHEN 1 THEN NULL ELSE 1 END AS nothing",
+      "executed_sql": "SELECT CASE WHEN 1 THEN 1 ELSE -1 END AS positive,CASE WHEN 0 THEN 1 ELSE -1 END AS negative,CASE WHEN 1 THEN NULL ELSE 1 END AS \"nothing\"",
+      "corrected_alias_only": true,
+      "columns": [
+        "positive",
+        "negative",
+        "nothing"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "-1"
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer",
+          "null"
+        ]
+      ]
+    },
+    {
+      "id": "comparison",
+      "original_sql": "SELECT 1=1 AS yes,1=2 AS no,NULL=1 AS unknown",
+      "executed_sql": "SELECT 1=1 AS yes,1=2 AS no,NULL=1 AS unknown",
+      "corrected_alias_only": false,
+      "columns": [
+        "yes",
+        "no",
+        "unknown"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "0"
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer",
+          "null"
+        ]
+      ]
+    },
+    {
+      "id": "cte",
+      "original_sql": "WITH x AS (SELECT 1 AS n UNION ALL SELECT -1 AS n) SELECT n,n+0 AS plus_zero FROM x ORDER BY n",
+      "executed_sql": "WITH x AS (SELECT 1 AS n UNION ALL SELECT -1 AS n) SELECT n,n+0 AS plus_zero FROM x ORDER BY n",
+      "corrected_alias_only": false,
+      "columns": [
+        "n",
+        "plus_zero"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "-1"
+          },
+          {
+            "type": "integer",
+            "value": "-1"
+          }
+        ],
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "1"
+          }
+        ]
+      ],
+      "storage_classes": [
+        [
+          "integer",
+          "integer"
+        ],
+        [
+          "integer",
+          "integer"
+        ]
+      ]
+    }
+  ],
+  "source_sha256": {
+    "reference_source": "6cde3680f959c324cbd30a1c3a56d4d8ee8cec7faf3f90a43f8b4d222b0d065c",
+    "previous_sqlite_observation": "521c2006da0a2b40fc67af1f1272c262481db91e24d2e58639d7328802d6d05d",
+    "dto_origin": "a95221ebe2b3d1624831410bba0bd50c692fdd6e356736987c2cb84ae61b7bb1",
+    "cast_replay": "a3ccb80e4f698f6f7f10f2e25c2729d37570d377a2e7bfc61e747bfbf918dfec",
+    "this_script": "23985953db31459edae761a254b9ebe64c7b08d4dad8e4d7bf1b4588008a5058"
+  },
+  "preserved_reference_timeout_runs": [
+    "run-20261028T175409892480Z",
+    "run-20261028T175454131286Z"
+  ],
+  "reference_runs_executed": 0,
+  "profile_admitted": false,
+  "dto_equivalent": false,
+  "known_reference_differences": {
+    "numeric_equal": 54,
+    "same_type": 24,
+    "different_type": 30,
+    "reference_null": {
+      "type": "null",
+      "value": null
+    },
+    "candidate_null": {
+      "type": "null"
+    },
+    "consumer_uses_required_value_key": true
+  },
+  "limits": [
+    "SQLite storage classes do not determine A0/A1 SDK integer tags",
+    "both timeout runs stopped at open_dataset; no query or final dataset list",
+    "source/column type and expression affinity remain unqualified",
+    "HostLab consumer and transport adapter are not exercised by this probe"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "status": "not_started",
+  "command": ".venv/Scripts/python.exe retry_build3.py build3",
+  "exit_code": 1,
+  "reason": "ModuleNotFoundError: No module named pywintypes",
+  "note": "Windows Job not created; build not started; admission retained"
+}

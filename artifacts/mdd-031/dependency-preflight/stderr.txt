@@ -1,0 +1,9 @@
+    Updating crates.io index
+     Locking 2 packages to highest Rust 1.99.0 compatible versions
+ Downloading crates ...
+  Downloaded sqlparser v0.63.0
+   Compiling log v0.4.34
+   Compiling sqlparser v0.63.0
+   Compiling mdd-sqlparser-dependency-probe v0.0.0 (D:\MeguvisDexDash\artifacts\local\sqlparser-probe)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 17.68s
+     Running `artifacts\local\sqlparser-probe\target\debug\mdd-sqlparser-dependency-probe.exe`

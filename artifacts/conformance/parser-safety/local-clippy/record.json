@@ -1,0 +1,30 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "cargo",
+    "clippy",
+    "--manifest-path",
+    "fuzz/Cargo.toml",
+    "--locked",
+    "--lib",
+    "--bin",
+    "mutation-smoke",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-28T12:36:07.118824+00:00",
+  "finished_utc": "2026-10-28T12:36:10.961364+00:00",
+  "elapsed_seconds": 3.8430000000007567,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "bytes": 133,
+    "sha256": "63f97ce671b1dbdc1967f5c6f33cce0f892e9f324b5c436db2cdeee0bcd5b4fd"
+  }
+}

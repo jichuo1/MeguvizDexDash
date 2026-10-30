@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "stdout": "{\"status\": \"pass\", \"frozen_query\": \"Q10\", \"sqlite_version\": \"3.53.1\", \"columns\": [\"file_id\", \"method\", \"callee\", \"n\"], \"ordered_rows\": [[0, \"LA;->a()V\", \"Lfixture/F;->f()V\", 2], [0, \"LA;->a()V\", \"Lfixture/G;->g()V\", 1], [0, \"LB;->b()V\", \"Lfixture/F;->f()V\", 1]], \"input_rows\": 6, \"tests\": [\"full ordered rows and duplicate count\", \"genuine zero result\", \"LIMIT 0 incomplete facts\", \"midscan source changed\"], \"binary_sha256\": \"9274145f9bc9d5570cd0a6bda77cf347ce7776c652b4a2e240242ea5b2fd73c9\", \"fixture_sha256\": \"0c98f1a91481050206516b9abb47b271a5572521e6ded736a06ad51932800701\", \"corpus_sha256\": \"e6a94471466af10c2482d851358296c1a5fcc3809c8eb3c7531a9262af2391b4\", \"candidate_result_sha256\": \"681f2ce3b19aa115a3c2688b23fab68c0209d9fce5718c2453bb6cf0ed51205b\", \"profiles_admitted\": false, \"scope\": \"synthetic provider, fixed Q10 and injected provider errors; not real APK or production qualification\"}\n",
+  "stderr": "",
+  "binary_sha256": "9274145f9bc9d5570cd0a6bda77cf347ce7776c652b4a2e240242ea5b2fd73c9",
+  "scope": "same synthetic Q10 provider including injected SourceChanged and missing facts"
+}

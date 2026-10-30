@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\between-independent-20261029-target\\debug\\mdd-between-independent.exe"
+  ],
+  "started_utc": "2026-10-29T04:58:29.045199+00:00",
+  "finished_utc": "2026-10-29T04:58:29.586014+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "98c8fb31e4fd1fcac5e0e680f0988b5aaa0a052a4d0ea724d037e6170211af3c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "ff0886f120c57cb1deb80176be8d81883962432d6e1e9628b158c275a17c04b1",
+  "scope": "independent synthetic validation; not performance qualification"
+}

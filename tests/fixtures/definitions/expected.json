@@ -1,0 +1,18 @@
+{
+  "schema_version":"mdd.definition-expectations.v1",
+  "basis":"Hand-maintained semantic model; not generated from Rust reader or DexSQL output",
+  "definitions-035":{
+    "class_order":["Lfixture/I0;","Lfixture/I1;","Lfixture/Base;","Lfixture/Child;"],
+    "class_count":4,"field_reference_count":6,"field_definition_count":5,"method_reference_count":13,"method_definition_count":10,
+    "interfaces":[["Lfixture/I1;",0,"Lfixture/I0;"],["Lfixture/Base;",0,"Lfixture/I1;"]],
+    "superclasses":[["Lfixture/I0;","Ljava/lang/Object;"],["Lfixture/I1;","Ljava/lang/Object;"],["Lfixture/Base;","Ljava/lang/Object;"],["Lfixture/Child;","Lfixture/Base;"]],
+    "fields":[["Lfixture/Base;->iValue:I","instance",0,1],["Lfixture/Base;->mValue:I","instance",1,1],["Lfixture/Base;->sValue:I","static",0,9],["Lfixture/Base;->zStatic:I","static",1,9],["Lfixture/Child;->childRef:Lfixture/Base;","instance",0,1]],
+    "methods":[["Lfixture/Base;-><init>()V","direct",0,65537,"present"],["Lfixture/Base;->nativeCall()V","direct",1,265,"native"],["Lfixture/Base;->privateCall()V","direct",2,2,"present"],["Lfixture/Base;->staticCall(I)I","direct",3,9,"present"],["Lfixture/Base;->virtualCall()V","virtual",0,1,"present"],["Lfixture/Child;-><init>()V","direct",0,65537,"present"],["Lfixture/Child;->abstractCall()V","virtual",0,1025,"abstract"],["Lfixture/Child;->overrideCall(I)I","virtual",1,1,"present"],["Lfixture/I0;->iMethod()V","virtual",0,1025,"abstract"],["Lfixture/I1;->jMethod()V","virtual",0,1025,"abstract"]],
+    "reference_only_fields":["Lfixture/External;->outside:I"],
+    "reference_only_methods":["Lfixture/External;->externalCall(I)I","Ljava/lang/Object;-><init>()V","[Lfixture/Base;->clone()Ljava/lang/Object;"]
+  },
+  "zero-insns-present":{"method":"Lfixture/Base;->privateCall()V","body_state":"present","declared_insns_size":0,"full_code_semantics_qualified":false},
+  "empty-class-data":{"class":"Lfixture/I0;","declared_member_count":0,"class_data_present":true},
+  "nullable-root-class":{"class":"Ljava/lang/Object;","class_def_idx":0,"superclass":null,"source_file":null,"class_data_present":false},
+  "virtual-native-no-body":{"method":"Lfixture/Base;->virtualCall()V","kind":"virtual","access_flags":257,"body_state":"native"}
+}

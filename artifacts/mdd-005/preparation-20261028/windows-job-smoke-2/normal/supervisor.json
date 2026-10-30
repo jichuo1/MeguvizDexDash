@@ -1,0 +1,28 @@
+{
+  "schema_version": "mdd.windows-job-run.v1",
+  "command_argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\baseline-venv\\Scripts\\python.exe",
+    "-c",
+    "print('complete tiny process')"
+  ],
+  "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+  "limits": {
+    "memory_commit_bytes": "536870912",
+    "affinity_mask": "1",
+    "max_processes": 16,
+    "timeout_seconds": 10,
+    "max_log_bytes": 16777216
+  },
+  "assigned_before_resume": true,
+  "tree_empty_verified": true,
+  "status": "completed",
+  "process_id": 28980,
+  "reason": null,
+  "exit_code": 0,
+  "cpu_user_seconds": 0.03125,
+  "cpu_kernel_seconds": 0.078125,
+  "total_processes": 3,
+  "peak_job_commit_bytes": "7901184",
+  "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+  "wall_seconds": 0.6239332000041031
+}

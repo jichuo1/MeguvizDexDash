@@ -1,0 +1,76 @@
+{
+  "sdk_binary_sha256": "f870af85191214f8f59d78e6a27748f00e724bbcce362115347014419969bcce",
+  "records": [
+    {
+      "fixture": "tests/fixtures/definitions/generated/orphan-field-flags.dex",
+      "fixture_sha256": "71e702c2c6c4cb935fc4833ecbf569072b9264050c58c6f80f6e2c9de8152320",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-field-flags.dex"
+      ],
+      "exit_code": 1
+    },
+    {
+      "fixture": "tests/fixtures/definitions/generated/orphan-field-index.dex",
+      "fixture_sha256": "2ca50b0e17ec9ce93dc8b610dcaf5f469d86e427fa9a9983cdb5c3b363ac67fc",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-field-index.dex"
+      ],
+      "exit_code": 1
+    },
+    {
+      "fixture": "tests/fixtures/definitions/generated/orphan-field-valid.dex",
+      "fixture_sha256": "6985a7965c9854fd7de3c7b24f215aff8f353315c175f3f00f83feb932f39c1d",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-field-valid.dex"
+      ],
+      "exit_code": 1
+    },
+    {
+      "fixture": "tests/fixtures/definitions/generated/orphan-method-delta.dex",
+      "fixture_sha256": "d7ad5e5c580702b019263029e0b406ecf067b5844082806e845e15bafd96e3aa",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-method-delta.dex"
+      ],
+      "exit_code": 1
+    },
+    {
+      "fixture": "tests/fixtures/definitions/generated/orphan-method-index.dex",
+      "fixture_sha256": "d4bc52d0b74af14a8cb2f7805cb8fc37a9c18a407bf415c7370c691790c8a12f",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-method-index.dex"
+      ],
+      "exit_code": 1
+    },
+    {
+      "fixture": "tests/fixtures/definitions/generated/orphan-method-kind.dex",
+      "fixture_sha256": "556bce99fb4ed0bdc7b840b7d113b020cc631c97e4f1b37fab9187305e4d98a9",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-method-kind.dex"
+      ],
+      "exit_code": 1
+    },
+    {
+      "fixture": "tests/fixtures/definitions/generated/orphan-method-valid.dex",
+      "fixture_sha256": "936c2bceba53f2f60c6a1e185f03d27011f2864b195533f074ab9b4ce6393abf",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\definitions\\generated\\orphan-method-valid.dex"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "scope": "SDK37 dexdump -f format checks; not Android installation"
+}

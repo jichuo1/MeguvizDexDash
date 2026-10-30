@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/group-ordinal-independent-20261029/verify.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:41:56.827427+00:00",
+  "finished_utc": "2026-10-29T01:41:56.917874+00:00",
+  "elapsed_seconds": 0.09400000000005093,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 154,
+    "sha256": "e3f081364f8081f8ddef16041284c41a5bb3941f881a9a250670f03e2d775cc7"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

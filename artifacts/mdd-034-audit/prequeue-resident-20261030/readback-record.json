@@ -1,0 +1,14 @@
+{
+  "status": "passed_scoped_readback",
+  "checks": "source identity, 3 stage admission and Job, queue sample, capacity arithmetic, output charges, quota terminal, incomplete result",
+  "files_sha256": {
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/admission.json": "8ff2318a78422c8912bb3c2191bd2d4bbc8cdf5408ea27e3692bfef6399ba06e",
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/probe/stdout.txt": "fb16c21e9903e3b341e4271228db78d46ea2a599bdb797e8caefaeb96e573832",
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/probe/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/runs/20261030T015214252995Z/probe/supervisor.json": "9300343d46de5a46adbf39f800abd49cba416ffb715276133655305ba82e4846",
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/probe.rs": "318e34dd78162da1ae6a717342d8048ed82d84ec8d8440b725d5f3aba654a3a4",
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/run_bounded.py": "97ffa17d9423007cc6002753b1128ff779c816d66e5db07c07d416f59112043c",
+    "artifacts/mdd-034-audit/prequeue-resident-20261030/readback.py": "80138372329f57500634d361088e5aa1ee2b5b53913d13801ab97a564e75f65e"
+  },
+  "scope": "synthetic process-internal queue; no RSS, transport, performance or profile qualification"
+}

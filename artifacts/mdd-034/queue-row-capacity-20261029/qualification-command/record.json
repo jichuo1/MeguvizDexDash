@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-034/queue-row-capacity-20261029/qualify.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:16:25.147910+00:00",
+  "finished_utc": "2026-10-29T06:16:25.311505+00:00",
+  "elapsed_seconds": 0.1720000000022992,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 104,
+    "sha256": "cfde76ae064a67caac5cefd9b0afffd29de2e6c4d572c6a7edc6cceed73fb1ba"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

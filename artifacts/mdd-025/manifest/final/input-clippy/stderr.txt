@@ -1,0 +1,2 @@
+    Checking mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.73s

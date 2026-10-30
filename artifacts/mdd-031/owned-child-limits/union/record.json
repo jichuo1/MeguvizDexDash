@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\sql_bridge_probe.exe",
+    "stress",
+    "native",
+    "union"
+  ],
+  "started_utc": "2026-10-28T14:30:02.784312+00:00",
+  "elapsed_seconds": 0.06199999999807915,
+  "exit_code": 0,
+  "stdout_sha256": "89e7b5d5f746847e728eb050193e7ed064d5132091fbe65e8dbbbf9b39cde2ea",
+  "scope": "development rejection test, not performance"
+}

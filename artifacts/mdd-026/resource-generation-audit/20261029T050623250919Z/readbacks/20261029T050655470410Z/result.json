@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "result_sha256": "e0ff89b6560e9ee4678e4c8cd621a471361849124a488220ee08a6da3ff7f8ed",
+  "readback_source_sha256": "ae206337c9931951562e15b260e3a21319f1faa9a130dc6870a0fadf480833c0",
+  "generations": 2,
+  "physical_resource_occurrences": 6,
+  "negative_controls": 9,
+  "task_complete_proven": false,
+  "scope": "actual disk rewrite between two immutable snapshots; resource fact coverage only"
+}

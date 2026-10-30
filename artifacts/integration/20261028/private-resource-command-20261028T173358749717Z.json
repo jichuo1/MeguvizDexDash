@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "started_utc": "2026-10-28T17:33:58.749717+00:00",
+  "finished_utc": "2026-10-28T17:34:03.811910+00:00",
+  "runs": [
+    {
+      "script": "conformance/resources/compare_private_resource_evidence.py",
+      "script_sha256": "ec81ac9e1fa186117e06c237c8f5da0221937d7389cea7acd2838796976283a4",
+      "exit_code": 0,
+      "stdout_sha256": "7cb214345c4229196b6e1f39a5729da438b4b82b7baa874526749dc3271e66b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "script": "conformance/resources/test_private_resource_comparison.py",
+      "script_sha256": "e7bb8549c776bc18cbbcdb926800bdcc5c1edaf7380619d3f6c2861dbc0f2bbd",
+      "exit_code": 0,
+      "stdout_sha256": "5f2121c99380a0b5621537f956e533866ca4bda08e4da3b47cbe5a3720420b87",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "comparison_receipt": "artifacts/integration/20261028/private-resource-comparison-20261028T173359931537Z.json",
+  "comparison_sha256": "d063093f19148bef2e0bb3e028f08e924413f475590806c355ccd0a9c6904902",
+  "scope": "resource evidence only, no private raw values"
+}

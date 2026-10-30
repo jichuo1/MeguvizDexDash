@@ -1,0 +1,5 @@
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+   Compiling mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.73s
+     Running `target\debug\examples\metadata_summary.exe artifacts/integration/20261028/item-boundaries/bad-interior-string.dex`
+error: process didn't exit successfully: `target\debug\examples\metadata_summary.exe artifacts/integration/20261028/item-boundaries/bad-interior-string.dex` (exit code: 1)

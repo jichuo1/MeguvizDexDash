@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "conformance/facts/test_column_ledger_v5.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:36:40.684339+00:00",
+  "finished_utc": "2026-10-29T01:36:40.900968+00:00",
+  "elapsed_seconds": 0.21900000000005093,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 86,
+    "sha256": "9ecd5ddd96a6ddf6d0cb52668938807ce4eb0f1fced603c09778a49814bd8fb0"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\cross-dex-audit\\20261028T164208638443Z\\synthetic-same-content.apk",
+    "--sql",
+    "SELECT CASE WHEN d.file_id IS NULL THEN 'N' ELSE hex(CAST(d.file_id AS TEXT)) END AS \"file_id\",CASE WHEN d.string_pool_id IS NULL THEN 'N' ELSE hex(CAST(d.string_pool_id AS TEXT)) END AS \"string_pool_id\",CASE WHEN d.source_path IS NULL THEN 'N' ELSE hex(CAST(d.source_path AS TEXT)) END AS \"source_path\",CASE WHEN d.entry_name IS NULL THEN 'N' ELSE hex(CAST(d.entry_name AS TEXT)) END AS \"entry_name\" FROM dex_files d ORDER BY d.file_id"
+  ],
+  "started_utc": "2026-10-28T16:42:20.424501+00:00",
+  "finished_utc": "2026-10-28T16:42:21.775526+00:00",
+  "elapsed_seconds": 1.344000000000051,
+  "exit_code": 0,
+  "stdout_sha256": "1e31d1b163f2082b3d3b1113a5debe337e99534e0b89e422ae5195af68d2ee5b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

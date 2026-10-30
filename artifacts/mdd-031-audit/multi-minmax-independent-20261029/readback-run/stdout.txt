@@ -1,0 +1,1 @@
+{"status": "passed-readback-only", "value_matches": 45, "invalid_arity": 6, "explicit_collation_unsupported": 18, "sqlite_version": "3.53.1", "a0_a1_started": false, "dto_equivalent": false, "profile_admitted": false, "scope": "SQLite in-memory recomputation and synthetic provider; explicit collation remains unsupported"}

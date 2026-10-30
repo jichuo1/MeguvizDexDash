@@ -1,0 +1,1 @@
+10-28 16:55:16.749 40532 48144 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\MeguvisDexDash\artifacts\mdd-023\initial-fixtures-outs-error\try-catch-all.dex': outs_size (8d) > registers_size (1d)

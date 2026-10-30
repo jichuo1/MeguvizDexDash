@@ -1,0 +1,12 @@
+
+running 1 test
+MDD_ORPHAN_PROBE [{"accepted":true,"error":null,"fixture":"orphan-empty"},{"accepted":true,"error":null,"fixture":"orphan-field-valid"},{"accepted":true,"error":null,"fixture":"orphan-field-defined-owner"},{"accepted":true,"error":null,"fixture":"orphan-field-index"},{"accepted":true,"error":null,"fixture":"orphan-field-flags"},{"accepted":true,"error":null,"fixture":"orphan-method-valid"},{"accepted":true,"error":null,"fixture":"orphan-method-defined-owner"},{"accepted":true,"error":null,"fixture":"orphan-method-index"},{"accepted":true,"error":null,"fixture":"orphan-method-delta"},{"accepted":true,"error":null,"fixture":"orphan-method-kind"}]
+test definitions::tests::physical_orphan_probe_reports_real_acceptance ... FAILED
+
+failures:
+
+failures:
+    definitions::tests::physical_orphan_probe_reports_real_acceptance
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 35 filtered out; finished in 0.01s
+

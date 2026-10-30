@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "-t",
+    "1",
+    "mcp"
+  ],
+  "started_utc": "2026-10-28T12:16:52.210830+00:00",
+  "finished_utc": "2026-10-28T12:16:52.725506+00:00",
+  "elapsed_seconds": 0.5159999999959837,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification"
+}

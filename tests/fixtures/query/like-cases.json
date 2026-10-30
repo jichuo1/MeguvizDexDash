@@ -1,0 +1,243 @@
+{
+  "schema_version": "mdd.native-like-hand-cases.v1",
+  "text_semantics": "mdd-text-v1",
+  "sql_compatibility_admitted": false,
+  "cases": [
+    {
+      "id": "nul-is-one-unit",
+      "text": [
+        0
+      ],
+      "pattern": [
+        95
+      ],
+      "escape": null,
+      "expected": true
+    },
+    {
+      "id": "nul-in-middle",
+      "text": [
+        97,
+        0,
+        122
+      ],
+      "pattern": [
+        97,
+        95,
+        122
+      ],
+      "escape": null,
+      "expected": true
+    },
+    {
+      "id": "nul-is-not-terminator",
+      "text": [
+        97,
+        0,
+        122
+      ],
+      "pattern": [
+        97,
+        0
+      ],
+      "escape": null,
+      "expected": false
+    },
+    {
+      "id": "isolated-surrogate-one",
+      "text": [
+        55296
+      ],
+      "pattern": [
+        95
+      ],
+      "escape": null,
+      "expected": true
+    },
+    {
+      "id": "surrogate-pair-two",
+      "text": [
+        55357,
+        56832
+      ],
+      "pattern": [
+        95
+      ],
+      "escape": null,
+      "expected": false
+    },
+    {
+      "id": "surrogate-pair-two-matches",
+      "text": [
+        55357,
+        56832
+      ],
+      "pattern": [
+        95,
+        95
+      ],
+      "escape": null,
+      "expected": true
+    },
+    {
+      "id": "escaped-percent",
+      "text": [
+        37
+      ],
+      "pattern": [
+        92,
+        37
+      ],
+      "escape": 92,
+      "expected": true
+    },
+    {
+      "id": "escaped-underscore",
+      "text": [
+        95
+      ],
+      "pattern": [
+        92,
+        95
+      ],
+      "escape": 92,
+      "expected": true
+    },
+    {
+      "id": "literal-percent-not-underscore",
+      "text": [
+        37
+      ],
+      "pattern": [
+        92,
+        95
+      ],
+      "escape": 92,
+      "expected": false
+    },
+    {
+      "id": "no-default-escape",
+      "text": [
+        92,
+        120
+      ],
+      "pattern": [
+        92,
+        95
+      ],
+      "escape": null,
+      "expected": true
+    },
+    {
+      "id": "no-default-escape-needs-backslash",
+      "text": [
+        95
+      ],
+      "pattern": [
+        92,
+        95
+      ],
+      "escape": null,
+      "expected": false
+    },
+    {
+      "id": "trailing-explicit-escape",
+      "text": [
+        120
+      ],
+      "pattern": [
+        120,
+        92
+      ],
+      "escape": 92,
+      "expected": "LIKE_TRAILING_ESCAPE"
+    },
+    {
+      "id": "trailing-no-escape-is-literal",
+      "text": [
+        92
+      ],
+      "pattern": [
+        92
+      ],
+      "escape": null,
+      "expected": true
+    },
+    {
+      "id": "escaped-escape",
+      "text": [
+        92
+      ],
+      "pattern": [
+        92,
+        92
+      ],
+      "escape": 92,
+      "expected": true
+    },
+    {
+      "id": "alternate-escape",
+      "text": [
+        37
+      ],
+      "pattern": [
+        33,
+        37
+      ],
+      "escape": 33,
+      "expected": true
+    },
+    {
+      "id": "nul-escape-unit",
+      "text": [
+        37
+      ],
+      "pattern": [
+        0,
+        37
+      ],
+      "escape": 0,
+      "expected": true
+    },
+    {
+      "id": "empty-many",
+      "text": [],
+      "pattern": [
+        37
+      ],
+      "escape": null,
+      "expected": true
+    },
+    {
+      "id": "empty-one",
+      "text": [],
+      "pattern": [
+        95
+      ],
+      "escape": null,
+      "expected": false
+    },
+    {
+      "id": "unknown-null",
+      "text": null,
+      "pattern": [
+        37
+      ],
+      "escape": null,
+      "expected": null
+    },
+    {
+      "id": "nul-surrogate-many",
+      "text": [
+        0,
+        55296
+      ],
+      "pattern": [
+        37,
+        95
+      ],
+      "escape": null,
+      "expected": true
+    }
+  ]
+}

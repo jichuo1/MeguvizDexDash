@@ -1,0 +1,8 @@
+   Compiling mdd-sql v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-sql)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.50s
+     Running unittests src\lib.rs (target\debug\deps\mdd_sql-46977fcd4387e316.exe)
+
+thread 'bridge::tests::min_max_multi_argument_scalar_does_not_become_aggregate' (5596) panicked at crates\mdd-sql\src\bridge.rs:775:74:
+called `Result::unwrap()` on an `Err` value: MddError { code: InvalidArgument, stage: "sql.sqlite", message: "wrong number of arguments to function mdd_min() in SELECT mdd_min(?1, ?2) AS lo, mdd_max(?3, ?4) AS hi at offset 7", retryable: false, details: {} }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p mdd-sql --lib`

@@ -1,0 +1,11 @@
+{
+  "crates/mdd-sql/src/dialects/functions.rs": "062dac4d1fe72eaa4b4d71aa9672380d6ddad0d04122e86c5ca185a0523f9654",
+  "crates/mdd-sql/src/runtime_tests.rs": "be601f35b8db8452eb0082d255910f7cbeac8a9913fbf73500ed3791127c6e8e",
+  "crates/mdd-sql/src/control.rs": "3ea21b172fbbf2f062a3c2b6c4325fd78bdf6010221e6e8686cd1a41875476a8",
+  "crates/mdd-sql/src/bridge.rs": "e19c683e30c1f084774750e9026ff5760b6a3cf3c21d65c3e2d7c63fad7a2565",
+  "crates/mdd-query/src/budget.rs": "1d326b08ee510706e7fd6553fe8e334c19073715d686e82e15d4bd1ecb83a1fe",
+  "crates/mdd-session/src/lib.rs": "96c0d1aff2cca943fc4c628fe8d8be22a436ef0d45f77f1adf8f39307e27e9b3",
+  "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "artifacts/mdd-031-audit/like-workspace-independent-20261029/Cargo.lock": "d34640dfbf1c4dcbf5c6343dbc2c4ec432f9ca1c073a084155fd2e463777bea4",
+  "artifacts/mdd-031-audit/like-workspace-independent-20261029/src/main.rs": "0b9e392af820072ff222dfa32e6406fe36f3e1ffdfb826279294354ca3b8613e"
+}

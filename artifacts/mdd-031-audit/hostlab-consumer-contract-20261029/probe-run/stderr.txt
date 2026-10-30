@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\MeguvisDexDash\artifacts\mdd-031-audit\hostlab-consumer-contract-20261029\probe.py", line 179, in <module>
+    main()
+  File "D:\MeguvisDexDash\artifacts\mdd-031-audit\hostlab-consumer-contract-20261029\probe.py", line 155, in main
+    entry=next(x for x in manifest['files'] if x['path']==rel)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\MeguvisDexDash\artifacts\mdd-031-audit\hostlab-consumer-contract-20261029\probe.py", line 155, in <genexpr>
+    entry=next(x for x in manifest['files'] if x['path']==rel)
+                                               ~^^^^^^^^
+KeyError: 'path'

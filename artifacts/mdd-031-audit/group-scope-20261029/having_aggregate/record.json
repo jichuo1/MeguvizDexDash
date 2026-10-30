@@ -1,0 +1,23 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "target/debug/examples/sql_bridge_probe.exe",
+    "query",
+    "native",
+    "SELECT string_idx % 2 AS parity, COUNT(*) AS n FROM native_strings GROUP BY parity HAVING COUNT(*)>6 ORDER BY parity"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:35:36.418397+00:00",
+  "finished_utc": "2026-10-29T01:35:36.465907+00:00",
+  "elapsed_seconds": 0.04699999999957072,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 699,
+    "sha256": "4fe395831cc3f97963dfcb667b3be6f8e8908a10182fbebfc8ea5892b235ee2d"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

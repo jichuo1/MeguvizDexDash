@@ -1,0 +1,37 @@
+{
+  "schema_version":"mdd.reference-hand-expectations.v1",
+  "generator_must_not_modify":true,
+  "classic":{
+    "string_pcs":[0,2],"type_pcs":[4,6],"field_pcs":[8,10],"method_pcs":[12,15,18,21],
+    "caller":"Lfixture/A;->caller()V","external_callee":"Lfixture/External;->external()V","external_call_multiplicity":3,
+    "defined_target":"Lfixture/A;->target()V","defined_target_multiplicity":1,
+    "string_value":"repeat","field":"Lfixture/External;->shared:Ljava/lang/String;","field_usages":["get","put"],
+    "type_descriptor":"Ljava/lang/String;","type_name":"java.lang.String","site_count":10,
+    "relation_counts":{"method_strings":2,"method_calls":4,"method_field_accesses":2,"method_used_types":2}
+  },
+  "poly_custom":{
+    "site_count":17,"ordinary_call_pcs":[12,15,18,21],"polymorphic_call_pcs":[26,30],"custom_call_pcs":[34,37],
+    "polymorphic_encoded_target":"Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;",
+    "polymorphic_extra_prototype":"()V","custom_runtime_target":"unknown; do not substitute encoded bootstrap method as callee",
+    "relation_counts":{"method_strings":2,"method_calls":6,"method_field_accesses":3,"method_used_types":2}
+  },
+  "handles":{
+    "site_count":13,"handle_pcs":[24,26],"prototype_pc":28,"handle_targets":["method:Lfixture/External;->external()V","field:Lfixture/External;->shared:Ljava/lang/String;"],
+    "relation_counts":{"method_strings":2,"method_calls":4,"method_field_accesses":2,"method_used_types":2},
+    "no_implied_call_or_field_access_from_handle_constant":true
+  },
+  "shared_code":{
+    "caller_definitions":["Lfixture/A;->aliasCaller()V","Lfixture/A;->caller()V"],"same_physical_code_item":true,"site_count":20,
+    "relation_counts":{"method_strings":4,"method_calls":8,"method_field_accesses":4,"method_used_types":4}
+  },
+  "orphan_code":{"unowned_code_items":1,"site_count":10,"no_fake_caller":true},
+  "nonscalar":{"raw_utf16_units":[55296],"raw_mutf8_hex":"eda080","reference_sites":2,"native_utf8_projection":"explicit UnsupportedQuery; no replacement identity","A0_observed_projection":"U+FFFD replacement; compatibility difference, not native expected value"},
+  "type_names":{"Ljava/lang/String;":"java.lang.String","I":"int","[I":"int[]"},
+  "search_scope":{
+    "provided_miss":"not_found_in_provided_scope; absence not proven",
+    "complete_selected_miss":"no encoded definition in exact selected snapshot inputs; runtime classpath remains unknown",
+    "one":"one definition within scope; runtime dispatch not inferred",
+    "duplicates":"two source-scoped definitions remain ambiguous even when content bytes are equal",
+    "unbuilt":"NotBuilt, never Missing/proven_absent"
+  }
+}

@@ -69,7 +69,7 @@ fn capabilities() -> Value {
         "capabilities":[{"name":"result-contract","version":"1","available":true},
             {"name":"inspect-dex-header","version":"1","available":true}],
         "input_formats":[{"kind":"dex-header","versions":["035","037","038","039","040"],"available":true},
-            {"kind":"apk-zip32","versions":["stored","deflated"],"available":true}],
+            {"kind":"apk-zip","versions":["stored","deflated","zip64-single-disk"],"available":true}],
         "transports":[{"name":"cli-json","version":"1","result_encodings":["json"]}],
         "semantics":{"pagination_modes":[],"native_cancel_scope":"query","compat_cancel_closes_dataset":false},
         "effective_limits":limits,"providers":[]

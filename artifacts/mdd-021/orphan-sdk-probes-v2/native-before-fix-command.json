@@ -1,0 +1,15 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-dex",
+    "physical_orphan_probe_reports_real_acceptance",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 101,
+  "definitions_source_sha256": "a7fc4158ee18ce522651038664d61fa21d91bf318973b0cc7d37af732a2eb9dc"
+}

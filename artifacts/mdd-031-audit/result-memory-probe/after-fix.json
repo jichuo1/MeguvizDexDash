@@ -1,0 +1,11 @@
+{
+  "command": "mdd-independent-result-memory-probe.exe",
+  "exit_code": 0,
+  "stdout": "{\"clone\":{\"copied_rows\":1,\"copy\":[[{\"type\":\"text\",\"value\":{\"original_mutf8\":null,\"utf16\":[112,101,114,115,105,115,116,101,110,116,32,99,111,112,121]}}]],\"workspace_after_drop\":0,\"workspace_during\":4096},\"metadata\":{\"columns\":[\"long_alias\"],\"rows\":0,\"workspace_after_drop\":0,\"workspace_during\":4096},\"zero_row\":{\"error\":{\"code\":\"QUOTA_EXCEEDED\",\"details\":{\"budget\":\"query_workspace_bytes\",\"limit\":\"0\",\"observed\":\"2058\",\"owner\":\"query-c7009fbe72fc3dd811cb3eb778a2e0aa62fc9be6fdcafbc5654dd8a54b2ec4f4\"},\"message\":\"budget exhausted\",\"retryable\":false,\"stage\":\"budget\"},\"status\":\"error\",\"workspace\":0}}\n",
+  "stderr": "",
+  "binary_sha256": "9780a5d35093262dace12add0341a0edfe1c7e1f831d25ef283b0cdf3ff943b3",
+  "probe_source_sha256": "6bf1846549c1ffba3ea1e24e2eb02248d71a92115c3e70d31c8cbbfda010cb03",
+  "probe_lock_sha256": "588c4abb11f78b019adf215ba2160ebda4065f808a70dceda0e659a296a7ff9e",
+  "root_lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "tested_scope": "schema reservation fix and explicit downstream copy boundary"
+}

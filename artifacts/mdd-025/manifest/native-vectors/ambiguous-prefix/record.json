@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\manifest_summary.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\manifest\\generated\\ambiguous-prefix.axml.apk"
+  ],
+  "started_utc": "2026-10-28T12:26:51.989569+00:00",
+  "finished_utc": "2026-10-28T12:26:52.111883+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.125,
+  "measurement_scope": "development validation only, not performance qualification",
+  "stdout": {
+    "bytes": 25365,
+    "sha256": "245b2b3fbc6bb21352c0e7be75a9b50cdf2b4403dcec0d0460d7d3a6609de63e"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

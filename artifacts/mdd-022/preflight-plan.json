@@ -1,0 +1,56 @@
+{
+  "schema_version": "mdd.annotation-preflight.v1",
+  "task_id": "MDD-022",
+  "phase": "read_and_plan_only",
+  "implementation_started": false,
+  "qualified": false,
+  "depends_on": ["MDD-020", "MDD-021"],
+  "dependency_state_at_planning": {"MDD-020":"done at checkpoint 05359f9", "MDD-021":"in_progress; wait for root acceptance before production implementation"},
+  "fixed_schema_source": "conformance/manifests/relations.json",
+  "fixed_schema_capture_sha256": "aa990e6a7bbfc0565b67e7774fefed5427dbb71e7fe97b7053a1aec6b466b234",
+  "source_references": [
+    {"path":"tasks/backlog.json", "task":"MDD-022"},
+    {"path":"conformance/corpus/hostlab/source-8782f43/native_graph.py", "section":"Graph.signatures"},
+    {"path":"docs/02_ARCHITECTURE_AND_CONTRACTS.md", "section":"3.2, 5.1, 5.2"},
+    {"path":"docs/04_VALIDATION_AND_PERFORMANCE.md", "section":"4.1, 5.2"},
+    {"url":"https://source.android.com/docs/core/runtime/dex-format", "sections":["encoded_value", "encoded_annotation", "annotations_directory_item", "annotation_set_item", "annotation_item"], "read_date":"2026-10-28"}
+  ],
+  "frozen_required_relations": {
+    "annotation_directory_entries":["file_id:UInt32", "class_idx:UInt32", "annotations_off:UInt32", "entry_kind:Utf8", "entry_idx:UInt32", "annotation_set_off:UInt32?", "annotation_set_ref_list_off:UInt32?"],
+    "annotation_set_entries":["file_id:UInt32", "annotation_set_off:UInt32", "ordinal:UInt32", "annotation_off:UInt32"],
+    "annotations":["file_id:UInt32", "annotation_off:UInt32", "visibility:UInt32", "type_idx:UInt32", "element_count:UInt32"],
+    "annotation_elements":["file_id:UInt32", "annotation_off:UInt32", "depth:UInt32", "ordinal:UInt32", "name_idx:UInt32?", "value_off:UInt32", "value_end_off:UInt32", "value_kind:Utf8", "value_index:UInt32?", "value_i64:Int64?", "value_f64:Float64?"]
+  },
+  "planned_api": {
+    "low_level":"read_annotations over same owned bytes and validated metadata/definitions with AnnotationLimits; no path reopen",
+    "facts":"AnnotationFacts::build(DefinitionFacts, AnnotationLimits) retains definitions and its MetadataFacts/MemberBlob lease",
+    "owners":"class_def_idx plus class_idx and distinct class/field/method/parameter owner; parameter method_idx plus parameter ordinal",
+    "source":"same MetadataSource, EntityRef scope and physical string_pool_id; no local-index-only joins",
+    "signature":"ordered string references plus concatenated UTF16 units; strict scalar conversion separate; generic grammar inference is not exact fact parsing"
+  },
+  "planned_validations": [
+    "Bound directory/set/ref-list/annotation/array sections before reads; checked length/index/offset arithmetic.",
+    "Directory field/method/parameter entries strictly ordered by proper local index; target owners match class; parameter positions bind actual prototype parameter list.",
+    "Set entries ordered by annotation type_idx; annotation element names strictly ordered by name_idx; visibility exactly 0,1,2.",
+    "Encoded tag and value_arg width checked per kind; preserve original payload bytes and source ranges.",
+    "Signed values sign-extend; char/index values zero-extend; float/double right-zero-extend into original bits; preserve NaN payloads and infinities without JSON null substitution.",
+    "Validate string/type/field/method/proto/method-handle indices and DEX version restrictions; unknown tag remains InvalidInput rather than fallback unsupported.",
+    "Use shared maximum depth, node count, array count and byte budget, with explicit quota errors and no partial-ready facts.",
+    "Preserve depth, traversal ordinal, array element position and named-element identity separately, then project only after reference behavior is observed.",
+    "Signature fragments concatenate in encoded array order even if their string_idx or lexical value order differs."
+  ],
+  "planned_independent_fixture_groups": [
+    {"id":"owners-and-parameters", "cases":["class, static/instance field, direct/virtual method annotations", "two parameter positions with an empty ref slot", "shared annotation_set used by multiple owners", "method_idx equals field_idx without mixing kinds"]},
+    {"id":"signature-order-and-pools", "cases":["at least three Signature string fragments whose array order differs from lexical/string_idx order", "same local type/string indices in two DEX occurrences", "empty Signature array", "non-string Signature value diagnosed separately from ordinary typed annotation fact"]},
+    {"id":"all-encoded-values", "cases":["byte/short/char/int/long signed and unsigned boundaries", "float/double compressed low-byte forms, finite/negative-zero/NaN/infinity bits", "string/type/field/method/enum/proto/method-handle references", "nested array, nested annotation, null and boolean"]},
+    {"id":"invalid-and-quota", "cases":["unknown tag and illegal value_arg", "bad visibility/type/name/target index", "out-of-section and truncated values", "unsorted/duplicate annotation types or element names", "wrong class owner or parameter list length", "deep nesting/node/byte budget exhaustion", "reused objects and traversal cannot create loops or duplicate semantic owner bindings"]}
+  ],
+  "independent_oracle_strategy":"Hand-authored byte layouts and expected per-field rows plus a separate Python standard-library reference reader; retain implementation ancestor record. AOSP is a format reference, not the sole independent oracle. Fixed DexSQL is an optional compatibility oracle for flattening, not a source of engine facts.",
+  "required_inputs_missing_now": [
+    {"input":"Accepted MDD-021 DefinitionFacts source/API", "recovery":"Wait for /root/hostlab_corpus and root task acceptance; no product implementation until then."},
+    {"input":"Observed fixed DexSQL flattening semantics for depth/ordinal/name_idx and class/parameter entry kinds", "recovery":"After independently generated annotated fixture exists, run bounded read-only queries with hash-verified A0 binary and save full tiny results."},
+    {"input":"Observed nonfinite float projection semantics", "recovery":"Run tiny NaN/Infinity reference query; core preserves raw bits regardless; do not admit a lossy compatibility profile."}
+  ],
+  "not_blocking_inputs":["private HostLab APKs", "DexMeguviz", "Android device", "JADX GUI"],
+  "no_results_claimed":"This file records preflight only. No annotation production reader, fixture generation, test, compatibility or release gate is claimed complete."
+}

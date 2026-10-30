@@ -1,0 +1,506 @@
+{
+  "schema_version": "mdd.minmax.sqlite-observations.v1",
+  "sqlite_version": "3.53.1",
+  "status": "reference-complete",
+  "records": [
+    {
+      "case": "zero_min",
+      "sql": "SELECT min() AS v",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "wrong number of arguments to function min()"
+    },
+    {
+      "case": "zero_max",
+      "sql": "SELECT max() AS v",
+      "status": "error",
+      "error_type": "OperationalError",
+      "message": "wrong number of arguments to function max()"
+    },
+    {
+      "case": "one_literal",
+      "sql": "SELECT min(2) AS lo,max(2) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "2"
+          },
+          {
+            "type": "integer",
+            "value": "2"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "one_column",
+      "sql": "SELECT min(v) AS lo,max(v) AS hi FROM facts",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "2"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "empty_aggregate",
+      "sql": "SELECT min(v) AS lo,max(v) AS hi FROM facts WHERE 0",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "null",
+            "value": null
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ]
+    },
+    {
+      "case": "one_null",
+      "sql": "SELECT min(NULL) AS lo,max(NULL) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "null",
+            "value": null
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ]
+    },
+    {
+      "case": "numeric_pair",
+      "sql": "SELECT min(2,1) AS lo,max(2,1) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "2"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "numeric_three",
+      "sql": "SELECT min(2,1,3) AS lo,max(2,1,3) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "integer",
+            "value": "3"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "null_second",
+      "sql": "SELECT min(5,NULL) AS lo,max(5,NULL) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "null",
+            "value": null
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ]
+    },
+    {
+      "case": "null_first",
+      "sql": "SELECT min(NULL,5) AS lo,max(NULL,5) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "null",
+            "value": null
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ]
+    },
+    {
+      "case": "null_third",
+      "sql": "SELECT min(1,2,NULL) AS lo,max(1,2,NULL) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "null",
+            "value": null
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ]
+    },
+    {
+      "case": "mixed_number_text",
+      "sql": "SELECT min(1,'0') AS lo,max(1,'0') AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "text",
+            "value": "0"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "mixed_text_blob",
+      "sql": "SELECT min('z',x'00') AS lo,max('z',x'00') AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "z"
+          },
+          {
+            "type": "blob",
+            "hex": "00"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "binary_text",
+      "sql": "SELECT min('a','B') AS lo,max('a','B') AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "B"
+          },
+          {
+            "type": "text",
+            "value": "a"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "nocase_left",
+      "sql": "SELECT min('a' COLLATE NOCASE,'B') AS lo,max('a' COLLATE NOCASE,'B') AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "a"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "nocase_right",
+      "sql": "SELECT min('a','B' COLLATE NOCASE) AS lo,max('a','B' COLLATE NOCASE) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "a"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "binary_then_nocase",
+      "sql": "SELECT min('a' COLLATE BINARY,'B' COLLATE NOCASE) AS lo,max('a' COLLATE BINARY,'B' COLLATE NOCASE) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "B"
+          },
+          {
+            "type": "text",
+            "value": "a"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "nocase_then_binary",
+      "sql": "SELECT min('a' COLLATE NOCASE,'B' COLLATE BINARY) AS lo,max('a' COLLATE NOCASE,'B' COLLATE BINARY) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "a"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "reversed_collations",
+      "sql": "SELECT min('B' COLLATE NOCASE,'a' COLLATE BINARY) AS lo,max('B' COLLATE NOCASE,'a' COLLATE BINARY) AS hi",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "a"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "column_binding",
+      "sql": "SELECT min(c,d) AS cd_lo,max(c,d) AS cd_hi,min(d,c) AS dc_lo,max(d,c) AS dc_hi FROM facts WHERE id=1",
+      "status": "ok",
+      "columns": [
+        "cd_lo",
+        "cd_hi",
+        "dc_lo",
+        "dc_hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "a"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          },
+          {
+            "type": "text",
+            "value": "a"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "column_explicit",
+      "sql": "SELECT min(c,d COLLATE BINARY) AS cd_lo,min(d,c COLLATE NOCASE) AS dc_lo FROM facts WHERE id=1",
+      "status": "ok",
+      "columns": [
+        "cd_lo",
+        "dc_lo"
+      ],
+      "rows": [
+        [
+          {
+            "type": "text",
+            "value": "a"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          }
+        ]
+      ]
+    },
+    {
+      "case": "column_null",
+      "sql": "SELECT min(v,5) AS lo,max(v,5) AS hi FROM facts WHERE id=2",
+      "status": "ok",
+      "columns": [
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "null",
+            "value": null
+          },
+          {
+            "type": "null",
+            "value": null
+          }
+        ]
+      ]
+    },
+    {
+      "case": "column_multirow",
+      "sql": "SELECT id,min(c,d) AS lo,max(c,d) AS hi FROM facts ORDER BY id",
+      "status": "ok",
+      "columns": [
+        "id",
+        "lo",
+        "hi"
+      ],
+      "rows": [
+        [
+          {
+            "type": "integer",
+            "value": "1"
+          },
+          {
+            "type": "text",
+            "value": "a"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          }
+        ],
+        [
+          {
+            "type": "integer",
+            "value": "2"
+          },
+          {
+            "type": "text",
+            "value": "a"
+          },
+          {
+            "type": "text",
+            "value": "B"
+          }
+        ],
+        [
+          {
+            "type": "integer",
+            "value": "3"
+          },
+          {
+            "type": "text",
+            "value": "A"
+          },
+          {
+            "type": "text",
+            "value": "z"
+          }
+        ]
+      ]
+    }
+  ],
+  "scope": "SQLite literal and ordinary-table values only; no A0/A1 or bridge result"
+}

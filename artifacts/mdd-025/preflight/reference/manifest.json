@@ -1,0 +1,43 @@
+{
+  "record_kind": "resource_oracle_preparation",
+  "task": "MDD-025",
+  "production_implementation_started": false,
+  "aosp_files": [
+    {
+      "url": "https://android.googlesource.com/platform/frameworks/base/+/99b01a65cc4c104933788b3143285ab6bae65827/libs/androidfw/include/androidfw/ResourceTypes.h",
+      "revision": "99b01a65cc4c104933788b3143285ab6bae65827",
+      "path": "artifacts/mdd-025/preflight/reference/ResourceTypes.h",
+      "bytes": 88061,
+      "sha256": "3caf800ec1013ee60f5e71815e15340b4caf048c028ed12ec90bfa8083e4d903"
+    },
+    {
+      "url": "https://android.googlesource.com/platform/frameworks/base/+/99b01a65cc4c104933788b3143285ab6bae65827/libs/androidfw/ResourceTypes.cpp",
+      "revision": "99b01a65cc4c104933788b3143285ab6bae65827",
+      "path": "artifacts/mdd-025/preflight/reference/ResourceTypes.cpp",
+      "bytes": 291364,
+      "sha256": "52aeffbec96a58e09f7058c7e4f35a8c0d3ca176fc29eb1ae8c63d12632d1012"
+    },
+    {
+      "url": "https://android.googlesource.com/platform/frameworks/base/+/99b01a65cc4c104933788b3143285ab6bae65827/tools/aapt2/xml/XmlDom.cpp",
+      "revision": "99b01a65cc4c104933788b3143285ab6bae65827",
+      "path": "artifacts/mdd-025/preflight/reference/XmlDom.cpp",
+      "bytes": 18936,
+      "sha256": "7401d0ce9482d0fd0c5096ca3454d97a93ee887d971725aa9448830546a31293"
+    }
+  ],
+  "aapt2": {
+    "path": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\aapt2.exe",
+    "bytes": 5036696,
+    "sha256": "4b09f89d449cc4498fcf5076a4ad6b28f079e565d2737f7881a674580960c8df",
+    "observed_version": "Android Asset Packaging Tool (aapt) 2.20-15087165",
+    "origin": "locally installed Android SDK; no official artifact checksum claim",
+    "version_stdout": "",
+    "version_stderr": "Android Asset Packaging Tool (aapt) 2.20-15087165\r\n",
+    "version_exit_code": 0
+  },
+  "actual_parse_records": [
+    "artifacts/mdd-025/preflight/aapt-public/record.json",
+    "artifacts/mdd-025/preflight/aapt-synthetic/record.json"
+  ],
+  "scope": "fixed normative source and independent AAPT2 complete XML tree captures; not a resource implementation or full audit"
+}

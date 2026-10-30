@@ -1,0 +1,2 @@
+   Compiling mdd-cli v0.1.0-dev (/home/runner/work/MeguvizDexDash/MeguvizDexDash/crates/mdd-cli)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.24s

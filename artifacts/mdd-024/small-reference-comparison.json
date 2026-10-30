@@ -1,0 +1,382 @@
+{
+  "schema_version": "mdd.reference-small-comparison.v1",
+  "success": true,
+  "reference_record": "artifacts/mdd-024/reference-observations-20261028T122655200847Z.json",
+  "reference_sha256": "115097fe3841d9832db4596e5b855f3f3b4193e54bf470081a672a2dda871599",
+  "complete_relation_comparisons": [
+    {
+      "fixture": "tests/fixtures/references/generated/classic-035.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "f52aff10d3c0597219c9d4783d7cafbf45af7f0753685283769a96f6c206c557"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/classic-035.dex",
+      "relation": "method_calls",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/classic-035.dex",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/classic-035.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/shared-code-035.dex",
+      "relation": "method_strings",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "ec17194ca41f8a8615061697cae3c333b0831744f4bc0c718002e3a2b15a1876"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/shared-code-035.dex",
+      "relation": "method_calls",
+      "rows": 8,
+      "complete_multiset_equal": true,
+      "sha256": "fe9ff10170df7c54c20d3b0d2c4fe0df81a1e659481e0eddaced78c08c09737c"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/shared-code-035.dex",
+      "relation": "method_field_accesses",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "85511c819bf24a0b6697623e8f648fa96933a0b5bb345cb919bdbd3a26adf3a1"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/shared-code-035.dex",
+      "relation": "method_used_types",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "0109ac582d83aadda50c16058d434cbe7ce85deda7ec754f94e0aab305d2da56"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/orphan-code-035.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "f52aff10d3c0597219c9d4783d7cafbf45af7f0753685283769a96f6c206c557"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/orphan-code-035.dex",
+      "relation": "method_calls",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/orphan-code-035.dex",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/orphan-code-035.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/poly-custom-038.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "d9975ef7e95aeeff8533830407f087bc394497198cd5821c0da8f6ef769a964f"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/poly-custom-038.dex",
+      "relation": "method_calls",
+      "rows": 6,
+      "complete_multiset_equal": true,
+      "sha256": "3a7bf96c9c69cce0bb3676c0019e78738908b5904d90fa59413706d4cc135194"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/poly-custom-038.dex",
+      "relation": "method_field_accesses",
+      "rows": 3,
+      "complete_multiset_equal": true,
+      "sha256": "f65a830e47d3ac2c0aba18ab66297c056f5c46e338ba250a4f3da984e5212c19"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/poly-custom-038.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "24eca82f973d104323238ec8a547f35aa769df7878384b102b79f5cdafdfce40"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/handles-039.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "f52aff10d3c0597219c9d4783d7cafbf45af7f0753685283769a96f6c206c557"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/handles-039.dex",
+      "relation": "method_calls",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/handles-039.dex",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/handles-039.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/nonscalar-string-035.dex",
+      "relation": "method_calls",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/nonscalar-string-035.dex",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/nonscalar-string-035.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/ordinary-unrelated-bad-annotation.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "01bd1a2a27efe3d1fc0d6ddbfb5b927923f7bc0d838d7fbb7935447d33068820"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/ordinary-unrelated-bad-annotation.dex",
+      "relation": "method_calls",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/ordinary-unrelated-bad-annotation.dex",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/ordinary-unrelated-bad-annotation.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "24eca82f973d104323238ec8a547f35aa769df7878384b102b79f5cdafdfce40"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/poly-custom-unrelated-bad-annotation.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "345ed6dfa67cabe84bf61878cde81458263f82ca8e55447342418d6975e492c5"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/poly-custom-unrelated-bad-annotation.dex",
+      "relation": "method_calls",
+      "rows": 6,
+      "complete_multiset_equal": true,
+      "sha256": "3a7bf96c9c69cce0bb3676c0019e78738908b5904d90fa59413706d4cc135194"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/poly-custom-unrelated-bad-annotation.dex",
+      "relation": "method_field_accesses",
+      "rows": 3,
+      "complete_multiset_equal": true,
+      "sha256": "f65a830e47d3ac2c0aba18ab66297c056f5c46e338ba250a4f3da984e5212c19"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/poly-custom-unrelated-bad-annotation.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "eb2768e49637ef8e26d6ac06314d87b4d58ac830f87e076b299405bc76be6c34"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/defined-field-035.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "01bd1a2a27efe3d1fc0d6ddbfb5b927923f7bc0d838d7fbb7935447d33068820"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/defined-field-035.dex",
+      "relation": "method_calls",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/defined-field-035.dex",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "1bb2d66a9e60f67037e86b62e88acf70a524be13c566d0f67279b6b2b0cdfc4f"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/defined-field-035.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/type-names-035.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "01bd1a2a27efe3d1fc0d6ddbfb5b927923f7bc0d838d7fbb7935447d33068820"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/type-names-035.dex",
+      "relation": "method_calls",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/type-names-035.dex",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/type-names-035.dex",
+      "relation": "method_used_types",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "407ff1e16da712377a8d156321cb7d6d6c16da488873725af66ae135c4dece2a"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/jumbo-string-035.dex",
+      "relation": "method_strings",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "f52aff10d3c0597219c9d4783d7cafbf45af7f0753685283769a96f6c206c557"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/jumbo-string-035.dex",
+      "relation": "method_calls",
+      "rows": 4,
+      "complete_multiset_equal": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/jumbo-string-035.dex",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/jumbo-string-035.dex",
+      "relation": "method_used_types",
+      "rows": 2,
+      "complete_multiset_equal": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    }
+  ],
+  "known_differences": [
+    {
+      "fixture": "tests/fixtures/references/generated/nonscalar-string-035.dex",
+      "relation": "method_strings",
+      "native_expected": "raw UTF16 sites complete; plain UTF8 projection UnsupportedQuery",
+      "A0_observed": "U+FFFD replacement",
+      "profile_admitted": false
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-reference-index.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "invalid_code_operand",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 0,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-invoke-argument-count.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "fixture subset",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 1,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-caller-ins-size.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "caller_ins_words",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 0,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-body-interior-pointer.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "body_not_physical_start",
+      "A0_open_error": true,
+      "A0_successful_query_count": 0,
+      "SDK_exit_code": 1,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-custom-prefix.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "custom_prefix",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 1,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-custom-argument-count.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "custom_argument_words",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 0,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-poly-proto-index.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "poly_proto_index",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 0,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    }
+  ],
+  "scope": "Complete tiny scalar relation equality only; stricter native corrupt-input rejection and lossless UTF16 policy remain intentional. No general SQL/HostLab/runtime/performance qualification."
+}

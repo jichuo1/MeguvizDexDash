@@ -1,0 +1,19 @@
+{
+  "scope": "fixed DexSQL derived-table affinity examples, not qualification",
+  "profiles_admitted": false,
+  "fixture_sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+  "driver_sha256": "a489a3b4a7d63d277068b3671703a4e66a40e01493e32ea03a2eba18e2f306ac",
+  "helper_sha256": "590ecb8914bfe1477330ba7860463f3063c58aca3828cc05daba9e24ef8fffc1",
+  "records": [
+    {
+      "variant": "A0",
+      "cases": 2,
+      "sha256": "c9966490a361924042e738873fcd75f1e590c902ee6f1f811ceff9ad53a8d7d2"
+    },
+    {
+      "variant": "A1",
+      "cases": 2,
+      "sha256": "f0fe680599ce06b5fec9171788e7fb2b26eff650952ab8a3d7fc28f1264d4dcc"
+    }
+  ]
+}

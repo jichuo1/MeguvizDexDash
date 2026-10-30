@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "D:\MeguvisDexDash\tests\fixtures\mixed_failure_boundary\verify.py", line 129, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "D:\MeguvisDexDash\tests\fixtures\mixed_failure_boundary\verify.py", line 113, in main
+    common.require(sdk['exit_code']!=0 and sdk['timed_out'] is False,'SDK did not reject bad operand')
+  File "D:\MeguvisDexDash\conformance\facts\verify_definition_projections.py", line 21, in require
+    raise RuntimeError(message)
+RuntimeError: SDK did not reject bad operand

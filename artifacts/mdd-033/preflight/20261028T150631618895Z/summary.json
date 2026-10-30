@@ -1,0 +1,42 @@
+{
+  "schema_version": "mdd.temp-policy-preflight.v1",
+  "task": "MDD-033",
+  "status": "observations_recorded_not_qualified",
+  "fixture": {
+    "path": "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex",
+    "bytes": 660,
+    "sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8"
+  },
+  "mcp_version": "2.2.0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "driver_sha256": "590ecb8914bfe1477330ba7860463f3063c58aca3828cc05daba9e24ef8fffc1",
+  "existing_helper_patterns": [
+    "artifacts/mdd-005/preparation-20261028/mcp_capability_probe.py",
+    "artifacts/mdd-005/preparation-20261028/a2_compact_fixture_probe.py"
+  ],
+  "max_simultaneous_engine_processes": 1,
+  "native_timeout_ms": 1500,
+  "client_call_timeout_seconds": 5,
+  "engine_session_timeout_seconds": 45,
+  "formal_measurement": false,
+  "private_input_parsed": false,
+  "new_engine_executed": false,
+  "profiles_admitted": false,
+  "MDD033_done": false,
+  "records": [
+    {
+      "variant": "A0",
+      "cases": 16,
+      "statements": 70,
+      "observations_path": "artifacts/mdd-033/preflight/20261028T150631618895Z/A0.observations.json",
+      "observations_sha256": "ee7e2ca95d4d5708ed311756635ce20438b7f2d85ee6b612ca5ba1c5c8c7816e"
+    },
+    {
+      "variant": "A1",
+      "cases": 16,
+      "statements": 70,
+      "observations_path": "artifacts/mdd-033/preflight/20261028T150631618895Z/A1.observations.json",
+      "observations_sha256": "305cc6460a879605e28a6f9220f4a7a77549f59191e9713ef18accf587214d8b"
+    }
+  ]
+}

@@ -1,0 +1,1341 @@
+{
+  "schema_version": "mdd.annotation-independent-oracle.v1",
+  "success": true,
+  "fixture_checks": [
+    {
+      "path": "tests/fixtures/annotations/generated/annotations-038.dex",
+      "status": "passed",
+      "outcome": "accepted bounded structural annotation scope"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-visibility.dex",
+      "status": "passed",
+      "outcome": "invalid_visibility"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-annotation-type.dex",
+      "status": "passed",
+      "outcome": "annotation_type_out_of_range"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-class-owner.dex",
+      "status": "passed",
+      "outcome": "field_owner_mismatch"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-parameter-count.dex",
+      "status": "passed",
+      "outcome": "parameter_ref_bounds"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-parameter-arity.dex",
+      "status": "passed",
+      "outcome": "parameter_count_mismatch"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-value-tag.dex",
+      "status": "passed",
+      "outcome": "unknown_value_tag"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-value-width.dex",
+      "status": "passed",
+      "outcome": "invalid_value_arg"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-boolean-arg.dex",
+      "status": "passed",
+      "outcome": "invalid_value_arg"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-string-index.dex",
+      "status": "passed",
+      "outcome": "value_index_out_of_range"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-element-order.dex",
+      "status": "passed",
+      "outcome": "annotation_element_order"
+    },
+    {
+      "path": "tests/fixtures/annotations/generated/bad-field-entry-order.dex",
+      "status": "passed",
+      "outcome": "directory_entry_order"
+    }
+  ],
+  "depth_budget_rejection": "passed",
+  "positive": {
+    "annotation_directories": [
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "class_annotations_off": 1152,
+        "fields_size": 2,
+        "methods_size": 1,
+        "parameters_size": 2
+      }
+    ],
+    "annotation_directory_entries": [
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "field",
+        "entry_idx": 0,
+        "annotation_set_off": 1164,
+        "annotation_set_ref_list_off": null
+      },
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "field",
+        "entry_idx": 1,
+        "annotation_set_off": 1164,
+        "annotation_set_ref_list_off": null
+      },
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "method",
+        "entry_idx": 0,
+        "annotation_set_off": 1172,
+        "annotation_set_ref_list_off": null
+      },
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "parameter",
+        "entry_idx": 0,
+        "annotation_set_off": null,
+        "annotation_set_ref_list_off": 1188
+      },
+      {
+        "file_id": 0,
+        "class_idx": 2,
+        "annotations_off": 1200,
+        "entry_kind": "parameter",
+        "entry_idx": 1,
+        "annotation_set_off": null,
+        "annotation_set_ref_list_off": 1188
+      }
+    ],
+    "annotation_set_entries": [
+      {
+        "file_id": 0,
+        "annotation_set_off": 1152,
+        "ordinal": 0,
+        "annotation_off": 1000
+      },
+      {
+        "file_id": 0,
+        "annotation_set_off": 1152,
+        "ordinal": 1,
+        "annotation_off": 1012
+      },
+      {
+        "file_id": 0,
+        "annotation_set_off": 1164,
+        "ordinal": 0,
+        "annotation_off": 1120
+      },
+      {
+        "file_id": 0,
+        "annotation_set_off": 1172,
+        "ordinal": 0,
+        "annotation_off": 1132
+      },
+      {
+        "file_id": 0,
+        "annotation_set_off": 1180,
+        "ordinal": 0,
+        "annotation_off": 1012
+      }
+    ],
+    "annotation_set_refs": [
+      {
+        "file_id": 0,
+        "annotation_set_ref_list_off": 1188,
+        "ordinal": 0,
+        "annotation_set_off": 1180
+      },
+      {
+        "file_id": 0,
+        "annotation_set_ref_list_off": 1188,
+        "ordinal": 1,
+        "annotation_set_off": null
+      }
+    ],
+    "annotations": [
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "visibility": 2,
+        "type_idx": 1,
+        "element_count": 1
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "visibility": 1,
+        "type_idx": 5,
+        "element_count": 24
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "visibility": 2,
+        "type_idx": 1,
+        "element_count": 1
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "visibility": 2,
+        "type_idx": 1,
+        "element_count": 1
+      }
+    ],
+    "annotation_elements": [
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "depth": 0,
+        "ordinal": 0,
+        "name_idx": 45,
+        "value_off": 1004,
+        "value_end_off": 1012,
+        "value_kind": "array",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": null,
+        "value_off": 1006,
+        "value_end_off": 1008,
+        "value_kind": "string",
+        "value_index": 1,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "depth": 1,
+        "ordinal": 1,
+        "name_idx": null,
+        "value_off": 1008,
+        "value_end_off": 1010,
+        "value_kind": "string",
+        "value_index": 13,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1000,
+        "depth": 1,
+        "ordinal": 2,
+        "name_idx": null,
+        "value_off": 1010,
+        "value_end_off": 1012,
+        "value_kind": "string",
+        "value_index": 4,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 0,
+        "name_idx": 18,
+        "value_off": 1016,
+        "value_end_off": 1018,
+        "value_kind": "byte",
+        "value_index": null,
+        "value_i64": "-128",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 1,
+        "name_idx": 19,
+        "value_off": 1019,
+        "value_end_off": 1022,
+        "value_kind": "short",
+        "value_index": null,
+        "value_i64": "-32768",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 2,
+        "name_idx": 20,
+        "value_off": 1023,
+        "value_end_off": 1026,
+        "value_kind": "char",
+        "value_index": null,
+        "value_i64": "65535",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 3,
+        "name_idx": 21,
+        "value_off": 1027,
+        "value_end_off": 1032,
+        "value_kind": "int",
+        "value_index": null,
+        "value_i64": "-2147483648",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 4,
+        "name_idx": 22,
+        "value_off": 1033,
+        "value_end_off": 1042,
+        "value_kind": "long",
+        "value_index": null,
+        "value_i64": "-9223372036854775808",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 5,
+        "name_idx": 25,
+        "value_off": 1043,
+        "value_end_off": 1046,
+        "value_kind": "float",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": 1.0
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 6,
+        "name_idx": 26,
+        "value_off": 1047,
+        "value_end_off": 1050,
+        "value_kind": "double",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": 1.0
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 7,
+        "name_idx": 27,
+        "value_off": 1051,
+        "value_end_off": 1053,
+        "value_kind": "string",
+        "value_index": 28,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 8,
+        "name_idx": 29,
+        "value_off": 1054,
+        "value_end_off": 1056,
+        "value_kind": "type",
+        "value_index": 7,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 9,
+        "name_idx": 30,
+        "value_off": 1057,
+        "value_end_off": 1059,
+        "value_kind": "field",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 10,
+        "name_idx": 31,
+        "value_off": 1060,
+        "value_end_off": 1062,
+        "value_kind": "method",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 11,
+        "name_idx": 32,
+        "value_off": 1063,
+        "value_end_off": 1065,
+        "value_kind": "enum",
+        "value_index": 2,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 12,
+        "name_idx": 35,
+        "value_off": 1066,
+        "value_end_off": 1068,
+        "value_kind": "method_type",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 13,
+        "name_idx": 36,
+        "value_off": 1069,
+        "value_end_off": 1071,
+        "value_kind": "method_handle",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 14,
+        "name_idx": 37,
+        "value_off": 1072,
+        "value_end_off": 1080,
+        "value_kind": "array",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": null,
+        "value_off": 1074,
+        "value_end_off": 1076,
+        "value_kind": "string",
+        "value_index": 48,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 1,
+        "ordinal": 1,
+        "name_idx": null,
+        "value_off": 1076,
+        "value_end_off": 1078,
+        "value_kind": "string",
+        "value_index": 17,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 1,
+        "ordinal": 2,
+        "name_idx": null,
+        "value_off": 1078,
+        "value_end_off": 1080,
+        "value_kind": "string",
+        "value_index": 48,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 15,
+        "name_idx": 38,
+        "value_off": 1081,
+        "value_end_off": 1087,
+        "value_kind": "annotation",
+        "value_index": 4,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": 45,
+        "value_off": 1085,
+        "value_end_off": 1087,
+        "value_kind": "int",
+        "value_index": null,
+        "value_i64": "7",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 16,
+        "name_idx": 39,
+        "value_off": 1088,
+        "value_end_off": 1089,
+        "value_kind": "null",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 17,
+        "name_idx": 40,
+        "value_off": 1090,
+        "value_end_off": 1091,
+        "value_kind": "boolean",
+        "value_index": null,
+        "value_i64": "0",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 18,
+        "name_idx": 41,
+        "value_off": 1092,
+        "value_end_off": 1093,
+        "value_kind": "boolean",
+        "value_index": null,
+        "value_i64": "1",
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 19,
+        "name_idx": 42,
+        "value_off": 1094,
+        "value_end_off": 1099,
+        "value_kind": "float",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": "NaN"
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 20,
+        "name_idx": 43,
+        "value_off": 1100,
+        "value_end_off": 1109,
+        "value_kind": "double",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": "NaN"
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 21,
+        "name_idx": 44,
+        "value_off": 1110,
+        "value_end_off": 1113,
+        "value_kind": "float",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": "Infinity"
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 22,
+        "name_idx": 46,
+        "value_off": 1114,
+        "value_end_off": 1117,
+        "value_kind": "double",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": "Infinity"
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1012,
+        "depth": 0,
+        "ordinal": 23,
+        "name_idx": 47,
+        "value_off": 1118,
+        "value_end_off": 1120,
+        "value_kind": "float",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": -0.0
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "depth": 0,
+        "ordinal": 0,
+        "name_idx": 45,
+        "value_off": 1124,
+        "value_end_off": 1132,
+        "value_kind": "array",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": null,
+        "value_off": 1126,
+        "value_end_off": 1128,
+        "value_kind": "string",
+        "value_index": 16,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "depth": 1,
+        "ordinal": 1,
+        "name_idx": null,
+        "value_off": 1128,
+        "value_end_off": 1130,
+        "value_kind": "string",
+        "value_index": 14,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1120,
+        "depth": 1,
+        "ordinal": 2,
+        "name_idx": null,
+        "value_off": 1130,
+        "value_end_off": 1132,
+        "value_kind": "string",
+        "value_index": 2,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 0,
+        "ordinal": 0,
+        "name_idx": 45,
+        "value_off": 1136,
+        "value_end_off": 1152,
+        "value_kind": "array",
+        "value_index": null,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 0,
+        "name_idx": null,
+        "value_off": 1138,
+        "value_end_off": 1140,
+        "value_kind": "string",
+        "value_index": 0,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 1,
+        "name_idx": null,
+        "value_off": 1140,
+        "value_end_off": 1142,
+        "value_kind": "string",
+        "value_index": 16,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 2,
+        "name_idx": null,
+        "value_off": 1142,
+        "value_end_off": 1144,
+        "value_kind": "string",
+        "value_index": 14,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 3,
+        "name_idx": null,
+        "value_off": 1144,
+        "value_end_off": 1146,
+        "value_kind": "string",
+        "value_index": 3,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 4,
+        "name_idx": null,
+        "value_off": 1146,
+        "value_end_off": 1148,
+        "value_kind": "string",
+        "value_index": 16,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 5,
+        "name_idx": null,
+        "value_off": 1148,
+        "value_end_off": 1150,
+        "value_kind": "string",
+        "value_index": 14,
+        "value_i64": null,
+        "value_f64": null
+      },
+      {
+        "file_id": 0,
+        "annotation_off": 1132,
+        "depth": 1,
+        "ordinal": 6,
+        "name_idx": null,
+        "value_off": 1150,
+        "value_end_off": 1152,
+        "value_kind": "string",
+        "value_index": 2,
+        "value_i64": null,
+        "value_f64": null
+      }
+    ],
+    "signatures": {
+      "class": "<T:Ljava/lang/Object;>Ljava/lang/Object;",
+      "field:0": "Ljava/util/List<Ljava/lang/String;>;",
+      "field:1": "Ljava/util/List<Ljava/lang/String;>;",
+      "method:0": "(Ljava/util/List<Ljava/lang/String;>;I)Ljava/util/List<Ljava/lang/String;>;"
+    },
+    "trees": {
+      "1000": {
+        "type_idx": 1,
+        "visibility": 2,
+        "values": [
+          {
+            "kind": "array",
+            "depth": 0,
+            "ordinal": 0,
+            "name_idx": 45,
+            "offset": 1004,
+            "arg": 0,
+            "children": [
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 0,
+                "name_idx": null,
+                "offset": 1006,
+                "arg": 0,
+                "raw_payload_hex": "01",
+                "index": 1,
+                "end_offset": 1008
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 1,
+                "name_idx": null,
+                "offset": 1008,
+                "arg": 0,
+                "raw_payload_hex": "0d",
+                "index": 13,
+                "end_offset": 1010
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 2,
+                "name_idx": null,
+                "offset": 1010,
+                "arg": 0,
+                "raw_payload_hex": "04",
+                "index": 4,
+                "end_offset": 1012
+              }
+            ],
+            "end_offset": 1012
+          }
+        ]
+      },
+      "1012": {
+        "type_idx": 5,
+        "visibility": 1,
+        "values": [
+          {
+            "kind": "byte",
+            "depth": 0,
+            "ordinal": 0,
+            "name_idx": 18,
+            "offset": 1016,
+            "arg": 0,
+            "raw_payload_hex": "80",
+            "integer": "-128",
+            "end_offset": 1018
+          },
+          {
+            "kind": "short",
+            "depth": 0,
+            "ordinal": 1,
+            "name_idx": 19,
+            "offset": 1019,
+            "arg": 1,
+            "raw_payload_hex": "0080",
+            "integer": "-32768",
+            "end_offset": 1022
+          },
+          {
+            "kind": "char",
+            "depth": 0,
+            "ordinal": 2,
+            "name_idx": 20,
+            "offset": 1023,
+            "arg": 1,
+            "raw_payload_hex": "ffff",
+            "integer": "65535",
+            "end_offset": 1026
+          },
+          {
+            "kind": "int",
+            "depth": 0,
+            "ordinal": 3,
+            "name_idx": 21,
+            "offset": 1027,
+            "arg": 3,
+            "raw_payload_hex": "00000080",
+            "integer": "-2147483648",
+            "end_offset": 1032
+          },
+          {
+            "kind": "long",
+            "depth": 0,
+            "ordinal": 4,
+            "name_idx": 22,
+            "offset": 1033,
+            "arg": 7,
+            "raw_payload_hex": "0000000000000080",
+            "integer": "-9223372036854775808",
+            "end_offset": 1042
+          },
+          {
+            "kind": "float",
+            "depth": 0,
+            "ordinal": 5,
+            "name_idx": 25,
+            "offset": 1043,
+            "arg": 1,
+            "raw_payload_hex": "803f",
+            "bits": "3f800000",
+            "float_wire": 1.0,
+            "end_offset": 1046
+          },
+          {
+            "kind": "double",
+            "depth": 0,
+            "ordinal": 6,
+            "name_idx": 26,
+            "offset": 1047,
+            "arg": 1,
+            "raw_payload_hex": "f03f",
+            "bits": "3ff0000000000000",
+            "float_wire": 1.0,
+            "end_offset": 1050
+          },
+          {
+            "kind": "string",
+            "depth": 0,
+            "ordinal": 7,
+            "name_idx": 27,
+            "offset": 1051,
+            "arg": 0,
+            "raw_payload_hex": "1c",
+            "index": 28,
+            "end_offset": 1053
+          },
+          {
+            "kind": "type",
+            "depth": 0,
+            "ordinal": 8,
+            "name_idx": 29,
+            "offset": 1054,
+            "arg": 0,
+            "raw_payload_hex": "07",
+            "index": 7,
+            "end_offset": 1056
+          },
+          {
+            "kind": "field",
+            "depth": 0,
+            "ordinal": 9,
+            "name_idx": 30,
+            "offset": 1057,
+            "arg": 0,
+            "raw_payload_hex": "00",
+            "index": 0,
+            "end_offset": 1059
+          },
+          {
+            "kind": "method",
+            "depth": 0,
+            "ordinal": 10,
+            "name_idx": 31,
+            "offset": 1060,
+            "arg": 0,
+            "raw_payload_hex": "00",
+            "index": 0,
+            "end_offset": 1062
+          },
+          {
+            "kind": "enum",
+            "depth": 0,
+            "ordinal": 11,
+            "name_idx": 32,
+            "offset": 1063,
+            "arg": 0,
+            "raw_payload_hex": "02",
+            "index": 2,
+            "end_offset": 1065
+          },
+          {
+            "kind": "method_type",
+            "depth": 0,
+            "ordinal": 12,
+            "name_idx": 35,
+            "offset": 1066,
+            "arg": 0,
+            "raw_payload_hex": "00",
+            "index": 0,
+            "end_offset": 1068
+          },
+          {
+            "kind": "method_handle",
+            "depth": 0,
+            "ordinal": 13,
+            "name_idx": 36,
+            "offset": 1069,
+            "arg": 0,
+            "raw_payload_hex": "00",
+            "index": 0,
+            "end_offset": 1071
+          },
+          {
+            "kind": "array",
+            "depth": 0,
+            "ordinal": 14,
+            "name_idx": 37,
+            "offset": 1072,
+            "arg": 0,
+            "children": [
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 0,
+                "name_idx": null,
+                "offset": 1074,
+                "arg": 0,
+                "raw_payload_hex": "30",
+                "index": 48,
+                "end_offset": 1076
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 1,
+                "name_idx": null,
+                "offset": 1076,
+                "arg": 0,
+                "raw_payload_hex": "11",
+                "index": 17,
+                "end_offset": 1078
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 2,
+                "name_idx": null,
+                "offset": 1078,
+                "arg": 0,
+                "raw_payload_hex": "30",
+                "index": 48,
+                "end_offset": 1080
+              }
+            ],
+            "end_offset": 1080
+          },
+          {
+            "kind": "annotation",
+            "depth": 0,
+            "ordinal": 15,
+            "name_idx": 38,
+            "offset": 1081,
+            "arg": 0,
+            "index": 4,
+            "children": [
+              {
+                "kind": "int",
+                "depth": 1,
+                "ordinal": 0,
+                "name_idx": 45,
+                "offset": 1085,
+                "arg": 0,
+                "raw_payload_hex": "07",
+                "integer": "7",
+                "end_offset": 1087
+              }
+            ],
+            "end_offset": 1087
+          },
+          {
+            "kind": "null",
+            "depth": 0,
+            "ordinal": 16,
+            "name_idx": 39,
+            "offset": 1088,
+            "arg": 0,
+            "end_offset": 1089
+          },
+          {
+            "kind": "boolean",
+            "depth": 0,
+            "ordinal": 17,
+            "name_idx": 40,
+            "offset": 1090,
+            "arg": 0,
+            "integer": "0",
+            "end_offset": 1091
+          },
+          {
+            "kind": "boolean",
+            "depth": 0,
+            "ordinal": 18,
+            "name_idx": 41,
+            "offset": 1092,
+            "arg": 1,
+            "integer": "1",
+            "end_offset": 1093
+          },
+          {
+            "kind": "float",
+            "depth": 0,
+            "ordinal": 19,
+            "name_idx": 42,
+            "offset": 1094,
+            "arg": 3,
+            "raw_payload_hex": "3412c07f",
+            "bits": "7fc01234",
+            "float_wire": "NaN",
+            "end_offset": 1099
+          },
+          {
+            "kind": "double",
+            "depth": 0,
+            "ordinal": 20,
+            "name_idx": 43,
+            "offset": 1100,
+            "arg": 7,
+            "raw_payload_hex": "341200000000f87f",
+            "bits": "7ff8000000001234",
+            "float_wire": "NaN",
+            "end_offset": 1109
+          },
+          {
+            "kind": "float",
+            "depth": 0,
+            "ordinal": 21,
+            "name_idx": 44,
+            "offset": 1110,
+            "arg": 1,
+            "raw_payload_hex": "807f",
+            "bits": "7f800000",
+            "float_wire": "Infinity",
+            "end_offset": 1113
+          },
+          {
+            "kind": "double",
+            "depth": 0,
+            "ordinal": 22,
+            "name_idx": 46,
+            "offset": 1114,
+            "arg": 1,
+            "raw_payload_hex": "f07f",
+            "bits": "7ff0000000000000",
+            "float_wire": "Infinity",
+            "end_offset": 1117
+          },
+          {
+            "kind": "float",
+            "depth": 0,
+            "ordinal": 23,
+            "name_idx": 47,
+            "offset": 1118,
+            "arg": 0,
+            "raw_payload_hex": "80",
+            "bits": "80000000",
+            "float_wire": -0.0,
+            "end_offset": 1120
+          }
+        ]
+      },
+      "1120": {
+        "type_idx": 1,
+        "visibility": 2,
+        "values": [
+          {
+            "kind": "array",
+            "depth": 0,
+            "ordinal": 0,
+            "name_idx": 45,
+            "offset": 1124,
+            "arg": 0,
+            "children": [
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 0,
+                "name_idx": null,
+                "offset": 1126,
+                "arg": 0,
+                "raw_payload_hex": "10",
+                "index": 16,
+                "end_offset": 1128
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 1,
+                "name_idx": null,
+                "offset": 1128,
+                "arg": 0,
+                "raw_payload_hex": "0e",
+                "index": 14,
+                "end_offset": 1130
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 2,
+                "name_idx": null,
+                "offset": 1130,
+                "arg": 0,
+                "raw_payload_hex": "02",
+                "index": 2,
+                "end_offset": 1132
+              }
+            ],
+            "end_offset": 1132
+          }
+        ]
+      },
+      "1132": {
+        "type_idx": 1,
+        "visibility": 2,
+        "values": [
+          {
+            "kind": "array",
+            "depth": 0,
+            "ordinal": 0,
+            "name_idx": 45,
+            "offset": 1136,
+            "arg": 0,
+            "children": [
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 0,
+                "name_idx": null,
+                "offset": 1138,
+                "arg": 0,
+                "raw_payload_hex": "00",
+                "index": 0,
+                "end_offset": 1140
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 1,
+                "name_idx": null,
+                "offset": 1140,
+                "arg": 0,
+                "raw_payload_hex": "10",
+                "index": 16,
+                "end_offset": 1142
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 2,
+                "name_idx": null,
+                "offset": 1142,
+                "arg": 0,
+                "raw_payload_hex": "0e",
+                "index": 14,
+                "end_offset": 1144
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 3,
+                "name_idx": null,
+                "offset": 1144,
+                "arg": 0,
+                "raw_payload_hex": "03",
+                "index": 3,
+                "end_offset": 1146
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 4,
+                "name_idx": null,
+                "offset": 1146,
+                "arg": 0,
+                "raw_payload_hex": "10",
+                "index": 16,
+                "end_offset": 1148
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 5,
+                "name_idx": null,
+                "offset": 1148,
+                "arg": 0,
+                "raw_payload_hex": "0e",
+                "index": 14,
+                "end_offset": 1150
+              },
+              {
+                "kind": "string",
+                "depth": 1,
+                "ordinal": 6,
+                "name_idx": null,
+                "offset": 1150,
+                "arg": 0,
+                "raw_payload_hex": "02",
+                "index": 2,
+                "end_offset": 1152
+              }
+            ],
+            "end_offset": 1152
+          }
+        ]
+      }
+    }
+  },
+  "component_checks": [
+    {
+      "id": "standalone-null",
+      "status": "passed",
+      "kind": "null"
+    },
+    {
+      "id": "null-invalid-arg",
+      "status": "passed",
+      "rejection": "invalid_value_arg"
+    },
+    {
+      "id": "float-invalid-width",
+      "status": "passed",
+      "rejection": "invalid_value_arg"
+    },
+    {
+      "id": "truncated-long",
+      "status": "passed",
+      "rejection": "truncated"
+    },
+    {
+      "id": "deep-array",
+      "status": "passed",
+      "rejection": "depth_budget"
+    },
+    {
+      "id": "node-budget",
+      "status": "passed",
+      "rejection": "node_budget"
+    },
+    {
+      "id": "array-count-budget",
+      "status": "passed",
+      "rejection": "node_budget"
+    },
+    {
+      "id": "array-count-uleb-overflow",
+      "status": "passed",
+      "rejection": "uleb_overflow"
+    }
+  ],
+  "independence": "Python scalar reference with handwritten expected.json; no Rust parser or fixture generator imports; Python struct/hashlib/zlib common primitives only",
+  "qualification": "oracle/fixture preparation only, not MDD-022 production task completion"
+}

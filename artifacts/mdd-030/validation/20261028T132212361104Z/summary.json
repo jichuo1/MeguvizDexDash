@@ -1,0 +1,45 @@
+{
+  "schema_version": "mdd.typed-query-validation.v1",
+  "source_stable": true,
+  "commands": [
+    {
+      "name": "compiler",
+      "exit_code": 0
+    },
+    {
+      "name": "small-table-oracle",
+      "exit_code": 0
+    },
+    {
+      "name": "like-oracle",
+      "exit_code": 0
+    },
+    {
+      "name": "codec-oracle",
+      "exit_code": 0
+    },
+    {
+      "name": "check",
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "exit_code": 0
+    },
+    {
+      "name": "test",
+      "exit_code": 0
+    },
+    {
+      "name": "format",
+      "exit_code": 0
+    }
+  ],
+  "binaries": {
+    "target/debug/deps/mdd_query-b4cbff6f2345f366.exe": "c9ec3e2733ee3714682386d084bb06c7204560ab8dcf63f2edaaf505f95c7a69"
+  },
+  "profiles_admitted": false,
+  "private_inputs": false,
+  "formal_performance_runs": 0,
+  "scope": "MDD030 local typed query component, not SQL or M4 terminal/transport qualification"
+}

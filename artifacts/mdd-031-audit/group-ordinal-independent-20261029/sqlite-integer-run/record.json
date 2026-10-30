@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/group-ordinal-independent-20261029/sqlite_integer_boundaries.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:43:31.408531+00:00",
+  "finished_utc": "2026-10-29T01:43:31.489696+00:00",
+  "elapsed_seconds": 0.07800000000042928,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 82,
+    "sha256": "605c4239959dc39f39ac5f5de9229a4da76b8ab7d9e4a537b5cd82ad2b5d3d8b"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,1 @@
+{"status": "passed-readback-only", "sqlite_comparisons": 57, "candidate_cases": 72, "controls": 15, "reference_a0_value_equal": true, "reference_a0_dto_equal": false, "profile_admitted": false, "scope": "SQLite recomputed in memory; no new A0/A1 run, synthetic provider errors injected"}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "result_sha256": "0fca420d1f7a487d252139796de4991bf02cae0b3e6d681073f80337e6183ff1",
+  "readback_source_sha256": "1d51ee87e41b79f50c461d4906f3a4d9450ea5efade74864d5150c46916b511d",
+  "generations": 2,
+  "a0_rows_each": 2,
+  "negative_controls": 10,
+  "task_complete_proven": false,
+  "scope": "actual DEX rewrite, raw method evidence and A0 ranges; no ART or full profile qualification"
+}

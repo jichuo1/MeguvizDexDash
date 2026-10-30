@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "tests/fixtures/class_source_boundary/readback.py",
+    "artifacts/mdd-026/class-source-audit/20261028T174234924728Z"
+  ],
+  "started_utc": "2026-10-28T17:43:56.710472+00:00",
+  "finished_utc": "2026-10-28T17:43:56.712679+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "bc0e1d60fe0d44a0c06920fbacd30ac87c13db27628ee58dd704ac34d4755652",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

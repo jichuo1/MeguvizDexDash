@@ -1,0 +1,169 @@
+{
+  "schema_version": "mdd.reference-fixtures.v1",
+  "generator": "tests/fixtures/references/generate.py",
+  "files": [
+    {
+      "path": "tests/fixtures/references/generated/classic-035.dex",
+      "bytes": 660,
+      "sha256": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/shared-code-035.dex",
+      "bytes": 692,
+      "sha256": "22eb2d4020f172334a99f5c75538af5f2b3e80673adb11803b368cc68aaec0ab",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/orphan-code-035.dex",
+      "bytes": 688,
+      "sha256": "be046c1bc2b7392257e174b5bac47c6cc9a141e8f4c9a9e839a1d7c5c01ba92f",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/poly-custom-038.dex",
+      "bytes": 1116,
+      "sha256": "25bc5a03641d31d87212a9a292d798e64c563e2666d03f579e7fc894ac8ee425",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/handles-039.dex",
+      "bytes": 700,
+      "sha256": "1ef9feee89649371933005100ef2cc2878a581f9459233dcc1810881a9824c27",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/nonscalar-string-035.dex",
+      "bytes": 672,
+      "sha256": "d2bc2a79ed9d2304a3ffeb9bc0c762fccc5460019a280ab923901b84ddd9510a",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/ordinary-unrelated-bad-annotation.dex",
+      "bytes": 760,
+      "sha256": "05bdd53bfc54760a1fb41425f492b4c5eaadcaf3b1ca82e2a5ea9998d950b3d7",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "reject_unrelated_annotation",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/poly-custom-unrelated-bad-annotation.dex",
+      "bytes": 1212,
+      "sha256": "4f0ab7a6cfe9f1053f079344331e6da5bccb435b2f7754b4d2edc8b8571fbdd0",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "reject_unrelated_annotation",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/defined-field-035.dex",
+      "bytes": 684,
+      "sha256": "fbf81250c61964b9312688ab4e6f47e09a904978a7c5aa77bebe2ec330921bd8",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/type-names-035.dex",
+      "bytes": 680,
+      "sha256": "9d4d2cfebd4ac275fe508004cd7efd29b307c855671e716da6e02955ab93774f",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/jumbo-string-035.dex",
+      "bytes": 664,
+      "sha256": "f7a587b896028ec950b78b747e87d6f7cda956f65e415a1b188f071d7e0e12c1",
+      "reference_build_expected": "complete",
+      "format_sdk_expected": "accept",
+      "reason": null,
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-reference-index.dex",
+      "bytes": 660,
+      "sha256": "a08ae1ba17e56fabfde47b331dae64bc5de7715ececd74f552e0c663e421919f",
+      "reference_build_expected": "invalid",
+      "format_sdk_expected": "reject",
+      "reason": "invalid_code_operand",
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-invoke-argument-count.dex",
+      "bytes": 660,
+      "sha256": "422b7b00d0d239b15488831df89b51d153192263c74d9e50c652a77d1b95f857",
+      "reference_build_expected": "invalid",
+      "format_sdk_expected": "observe_format",
+      "reason": "invoke_argument_words",
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-caller-ins-size.dex",
+      "bytes": 660,
+      "sha256": "c2bdff173412f339da67dfa30d21569049cc452a7d900d042559ef703f1a48c3",
+      "reference_build_expected": "invalid",
+      "format_sdk_expected": "observe_format",
+      "reason": "caller_ins_words",
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-body-interior-pointer.dex",
+      "bytes": 660,
+      "sha256": "be7015677a88b8b70ed4547b9d1579d7ee7cdb75c1ce100371ee67578d947020",
+      "reference_build_expected": "invalid",
+      "format_sdk_expected": "reject",
+      "reason": "body_not_physical_start",
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-custom-prefix.dex",
+      "bytes": 1116,
+      "sha256": "2a13dbc8af3f9ab1cf780a3e80d0335f387b8e049ad7638f0abf447734278240",
+      "reference_build_expected": "invalid",
+      "format_sdk_expected": "reject",
+      "reason": "custom_prefix",
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-custom-argument-count.dex",
+      "bytes": 1116,
+      "sha256": "b5a3502e53e9b85eed66148dd8351faf4f232aa0ce9cb0f19d2edf8d21d33649",
+      "reference_build_expected": "invalid",
+      "format_sdk_expected": "observe_format",
+      "reason": "custom_argument_words",
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    },
+    {
+      "path": "tests/fixtures/references/generated/bad-poly-proto-index.dex",
+      "bytes": 1116,
+      "sha256": "f93919716280127f987a6becea290ebd10db0c3da5407cf1029e163d06c98276",
+      "reference_build_expected": "invalid",
+      "format_sdk_expected": "reject",
+      "reason": "poly_proto_index",
+      "claim": "Controlled independent structural DEX; reference binding and global SDK format scope are separate; no installation or full ART type-flow claim"
+    }
+  ],
+  "source": "hand-authored instruction words and independent Python stdlib DEX writer; not production parser"
+}

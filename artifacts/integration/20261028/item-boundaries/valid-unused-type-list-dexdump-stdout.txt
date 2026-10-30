@@ -1,0 +1,25 @@
+Processing 'D:\MeguvisDexDash\artifacts\integration\20261028\item-boundaries\valid-unused-type-list.dex'...
+Opened 'D:\MeguvisDexDash\artifacts\integration\20261028\item-boundaries\valid-unused-type-list.dex', DEX version '035'
+DEX file header:
+magic               : 'dex\n035\0'
+checksum            : 39e0143b
+signature           : 55ed...f1f5
+file_size           : 232
+header_size         : 112
+link_size           : 0
+link_off            : 0 (0x000000)
+string_ids_size     : 1
+string_ids_off      : 112 (0x000070)
+type_ids_size       : 1
+type_ids_off        : 116 (0x000074)
+proto_ids_size      : 1
+proto_ids_off       : 120 (0x000078)
+field_ids_size      : 0
+field_ids_off       : 0 (0x000000)
+method_ids_size     : 0
+method_ids_off      : 0 (0x000000)
+class_defs_size     : 0
+class_defs_off      : 0 (0x000000)
+data_size           : 100
+data_off            : 132 (0x000084)
+

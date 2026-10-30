@@ -1,0 +1,22 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "-p",
+    "mdd-facts",
+    "-j",
+    "2",
+    "indexes::tests::exhaustive_candidate_probe_for_independent_code_unit_oracle",
+    "--",
+    "--exact",
+    "--nocapture",
+    "--test-threads=1"
+  ],
+  "started_utc": "2026-10-28T14:13:29.001695+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "8dcd2956a7e9d7f983d7186874243483bc04422898d50debfab746aeb36dc0de",
+  "stderr_sha256": "5745d6232945eb1d1e301ff0802529ec8c6d790a6a9f02c2b48531aca860414e",
+  "lock_before_sha256": "19323721f4102af40d3f4c79684ac35a6b04ae186e2dc77dea720c849714e9b9",
+  "lock_after_sha256": "19323721f4102af40d3f4c79684ac35a6b04ae186e2dc77dea720c849714e9b9"
+}

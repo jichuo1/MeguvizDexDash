@@ -1,0 +1,103 @@
+{
+  "schema_version": "mdd.static-baseline-readback.v1",
+  "task": "MDD-005",
+  "captured_utc": "2026-10-28T16:30:02.614056+00:00",
+  "status": "four_complete_static_qualifications_two_equal_pairs",
+  "runs": [
+    {
+      "variant": "A0",
+      "sample": "9161100",
+      "input_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "engine_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+      "reference_source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "receipt_sha256": "9ef6886dc4cad4ee7a65bf8528d6e6f0d70d627c219ae3ef8a2468a5af59e383",
+      "supervisor_sha256": "2a326ad9b098b109836cc9826e98b538ec01785c22cd73423f033a4284204994",
+      "certificate_sha256": "a54cffaf0f324ebf86daa7e8f46ff2256892d8ebba6b38b4bea6c73319d73217",
+      "complete_evidence_sha256": "66fb6f640531ae77dbcbe4f0ab09350fb315121d8a9a39d49a081e84461d8f85",
+      "business_exit_code": 1,
+      "feature_count": 27,
+      "evidence_group_count": 20,
+      "zero_fallback": true,
+      "complete_output": true,
+      "job_tree_empty_verified": true,
+      "raw_local_directory": "artifacts/local/baseline-runs/qualification-20261029-a0-9161100"
+    },
+    {
+      "variant": "A1",
+      "sample": "9161100",
+      "input_sha256": "41efb1c9acb07badab5296953fb3da1def6925e2b34662120ca96df9d17bbfb2",
+      "engine_sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6",
+      "reference_source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "receipt_sha256": "913b417c4b946786bda537e8f3a9b6becebf364b4773b1809c1575f4b633fe23",
+      "supervisor_sha256": "af0455c7e9ca312e96f2ca290bbe1ac8249971ee5175a6a93caa57e48e78d7b2",
+      "certificate_sha256": "15b9efa9049cc89338c008f295ce58baf8a778ad957303669176114d667e1582",
+      "complete_evidence_sha256": "66fb6f640531ae77dbcbe4f0ab09350fb315121d8a9a39d49a081e84461d8f85",
+      "business_exit_code": 1,
+      "feature_count": 27,
+      "evidence_group_count": 20,
+      "zero_fallback": true,
+      "complete_output": true,
+      "job_tree_empty_verified": true,
+      "raw_local_directory": "artifacts/local/baseline-runs/qualification-20261029-a1-9161100"
+    },
+    {
+      "variant": "A0",
+      "sample": "9170100",
+      "input_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "engine_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+      "reference_source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "receipt_sha256": "51f851e33d23dedd0b696a24a0a7938964e41c8b89de05ca38587873568b61d8",
+      "supervisor_sha256": "48699cb0184a22be9aca85653ed48fa57e7babe9eb3b18e67991d7dca54ee6c6",
+      "certificate_sha256": "00929b7e144bdcc5efd4b35da24fe43ee28f4d79c7fa6b27f8edd9cf35723d3a",
+      "complete_evidence_sha256": "81751b97a9d5b4d1c22bc762ff127ab2fe48cba317e0022c54d67473b56ee90f",
+      "business_exit_code": 1,
+      "feature_count": 27,
+      "evidence_group_count": 20,
+      "zero_fallback": true,
+      "complete_output": true,
+      "job_tree_empty_verified": true,
+      "raw_local_directory": "artifacts/local/baseline-runs/qualification-20261029-a0-9170100"
+    },
+    {
+      "variant": "A1",
+      "sample": "9170100",
+      "input_sha256": "f0f880e841d017db335b3919e6d4792961f2e08aa9993da661b626d52cfcb955",
+      "engine_sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6",
+      "reference_source_commit": "8782f43d537c442905123e35af325c412caa5188",
+      "receipt_sha256": "6e828f0babb7e3582e0f31012e3f1e257100d0001e4188d6077c2cfb29fa3840",
+      "supervisor_sha256": "8ecba9c472efcdd51a8b1ebb199e9c0a8c59109222a4d40f05e0cfbb3bd157d1",
+      "certificate_sha256": "d84002f606f91333f679d96d728850f5f266b0332f09130b01840dbc21e86d2b",
+      "complete_evidence_sha256": "81751b97a9d5b4d1c22bc762ff127ab2fe48cba317e0022c54d67473b56ee90f",
+      "business_exit_code": 1,
+      "feature_count": 27,
+      "evidence_group_count": 20,
+      "zero_fallback": true,
+      "complete_output": true,
+      "job_tree_empty_verified": true,
+      "raw_local_directory": "artifacts/local/baseline-runs/qualification-20261029-a1-9170100"
+    }
+  ],
+  "comparisons": [
+    {
+      "sample": "9161100",
+      "all_20_groups_equal": true,
+      "local_comparison_sha256": "88b52ad632c4b3ea84fbf62681088cb7f4578a219acf3e269c18b9ce1cd4ad49"
+    },
+    {
+      "sample": "9170100",
+      "all_20_groups_equal": true,
+      "local_comparison_sha256": "88b52ad632c4b3ea84fbf62681088cb7f4578a219acf3e269c18b9ce1cd4ad49"
+    }
+  ],
+  "scope": "A0/A1 complete fixed HostLab static consumer only; private raw outputs stay local",
+  "resource_window": "project agents paused; OS and unrelated applications were not isolated",
+  "performance_qualified": false,
+  "formal_performance_runs": 0,
+  "not_qualified": [
+    "A2 full transport",
+    "MeguvizDexDash substitution",
+    "formal paired performance and MDD-082",
+    "device or runtime behavior"
+  ],
+  "driver_sha256": "4a92aa71e40f46a00ecc89d47190ebab20cfb36d427e337535d4681c7530bb23"
+}

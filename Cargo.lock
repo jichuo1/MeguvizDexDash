@@ -170,6 +170,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "log"
+version = "0.4.34"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f9f8bd3e56ce4dfc153cf470fffbfa98c7620958b312ca5c3a4b8d5181fd13c6"
+
+[[package]]
 name = "mdd-build-probe"
 version = "0.1.0-dev"
 dependencies = [
@@ -211,6 +217,7 @@ dependencies = [
  "mdd-types",
  "serde",
  "serde_json",
+ "sha2",
 ]
 
 [[package]]
@@ -218,9 +225,24 @@ name = "mdd-input"
 version = "0.1.0-dev"
 dependencies = [
  "mdd-types",
+ "quick-xml",
  "serde",
  "serde_json",
  "zip",
+]
+
+[[package]]
+name = "mdd-query"
+version = "0.1.0-dev"
+dependencies = [
+ "mdd-dex",
+ "mdd-facts",
+ "mdd-input",
+ "mdd-session",
+ "mdd-types",
+ "rusqlite",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -230,6 +252,23 @@ dependencies = [
  "mdd-input",
  "mdd-types",
  "serde",
+]
+
+[[package]]
+name = "mdd-sql"
+version = "0.1.0-dev"
+dependencies = [
+ "log",
+ "mdd-dex",
+ "mdd-facts",
+ "mdd-input",
+ "mdd-query",
+ "mdd-session",
+ "mdd-types",
+ "rusqlite",
+ "serde",
+ "serde_json",
+ "sqlparser",
 ]
 
 [[package]]
@@ -271,6 +310,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "quick-xml"
+version = "0.42.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "41b1177fdf999d2321d3fb46ff47159d9c1fb9ad66a4879f8c50a0b504615e9b"
+dependencies = [
+ "memchr",
 ]
 
 [[package]]
@@ -377,6 +425,15 @@ name = "smallvec"
 version = "1.16.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f9395f0f0eee849a9b707b2f06bb92a6a422090e2123bb2ef8e87a0e61892a8e"
+
+[[package]]
+name = "sqlparser"
+version = "0.63.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3679862809bd1f92e563cf6fd820e28f39135303668001c10331d5027183e8b4"
+dependencies = [
+ "log",
+]
 
 [[package]]
 name = "syn"

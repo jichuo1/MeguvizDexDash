@@ -1,0 +1,3529 @@
+{
+  "schema_version": "mdd.required-fact-column-preflight.v1",
+  "task": "MDD-026",
+  "basis": "complete frozen 17-relation schema; current read-only leaf API review and tiny differential",
+  "relation_count": 17,
+  "column_count": 156,
+  "relations": [
+    {
+      "name": "dex_files",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "explicit snapshot-local ordered DEX catalog ID; no production assigner in current leaf API",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "caller catalog/provenance mapping remains separate from validated DEX facts"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "string_pool_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "explicit compatibility catalog ID for native StringPoolIdentity; physical pool sharing must not merge occurrence facts",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "caller catalog/provenance mapping remains separate from validated DEX facts"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "source_path",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "Snapshot source occurrence path/provenance; UTF8 compatibility encoding requires explicit lossless policy",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "caller catalog/provenance mapping remains separate from validated DEX facts"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "entry_name",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "ArchiveInventory MemberIdentity raw_name/name_utf8; raw DEX scope uses explicit entry policy",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "caller catalog/provenance mapping remains separate from validated DEX facts"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "byte_len",
+          "data_type": "UInt64",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.bytes().len() for this logical standard DEX",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 5,
+          "name": "dex_version",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().version",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 6,
+          "name": "checksum",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().declared_checksum (verified Adler32)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 7,
+          "name": "signature_hex",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().declared_signature_sha1 (verified SHA1)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 8,
+          "name": "file_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().file_size (standard DEX checked u32 projection)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 9,
+          "name": "header_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().header_range.byte_length",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 10,
+          "name": "endian_tag",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original little-endian header word at byte40",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 11,
+          "name": "link_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original header word at byte44 / link_range length or zero",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 12,
+          "name": "link_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original header word at byte48 / link_range offset or zero",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 13,
+          "name": "map_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original header word at byte52 / map_list physical item start",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 14,
+          "name": "string_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().tables[string_ids].count",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 15,
+          "name": "string_ids_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original string_ids header offset / corresponding table range",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 16,
+          "name": "type_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().tables[type_ids].count",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 17,
+          "name": "type_ids_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original type_ids header offset / corresponding table range",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 18,
+          "name": "proto_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().tables[proto_ids].count",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 19,
+          "name": "proto_ids_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original proto_ids header offset / corresponding table range",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 20,
+          "name": "field_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().tables[field_ids].count",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 21,
+          "name": "field_ids_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original field_ids header offset / corresponding table range",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 22,
+          "name": "method_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().tables[method_ids].count",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 23,
+          "name": "method_ids_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original method_ids header offset / corresponding table range",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 24,
+          "name": "class_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().tables[class_defs].count",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 25,
+          "name": "class_defs_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "validated original class_defs header offset / corresponding table range",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 26,
+          "name": "data_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().data_range.byte_length",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 27,
+          "name": "data_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.header().data_range.byte_offset",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        }
+      ]
+    },
+    {
+      "name": "strings",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "string_pool_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "MetadataFacts.string_pool().string_pool_id with occurrence-scoped entity identity",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 1,
+          "name": "string_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "StringFact.data.string_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 2,
+          "name": "value",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "DexText.utf16_units + raw_mutf8; strict_utf8() only if scalar",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "legal isolated UTF16 surrogates remain exact raw facts; plain UTF8 projection must fail without replacement"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "types",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "explicit per-occurrence catalog ID",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 1,
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "TypeFact.data.type_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 2,
+          "name": "descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "TypeFact.data.descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 3,
+          "name": "java_name",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "exact descriptor/TypeShape atoms; production types.java_name formatter not exposed by MetadataFacts",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-020/metadata-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        }
+      ]
+    },
+    {
+      "name": "methods",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "explicit snapshot-local catalog ID",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 1,
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[].method_idx; reference IDs remain present without a definition",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 2,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[].class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 3,
+          "name": "class_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[].class_descriptor; array owner references allowed",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 4,
+          "name": "proto_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[].proto_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 5,
+          "name": "name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[].method_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 6,
+          "name": "descriptor",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[].descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 7,
+          "name": "return_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[].return_descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 8,
+          "name": "param_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "length(method_references[].parameter_descriptors)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 9,
+          "name": "param_descriptors",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "exact native parameter_descriptors vector; compatibility Utf8 serialization UNBUILT",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "native ordered parameter_descriptors vector is exact; compatibility UTF8 text serialization is separately unqualified"
+          ]
+        },
+        {
+          "ordinal": 10,
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "lookup unique method_definition, else genuine NULL for reference-only member",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "reference-only method has NULL definition facts; native/abstract is an actual definition, not reference-only"
+          ]
+        },
+        {
+          "ordinal": 11,
+          "name": "opcode_count",
+          "data_type": "UInt32",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "DefinitionFacts MethodBody binding + CodeItem.instructions(opcode/width/ordinal) + payload/raw insns ranges",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "DefinitionFacts column gate is intentionally narrow INCOMPLETE_FACTS; CodeFacts native instruction atoms are available and independently checked. Full legacy Methods relation assembly is separate032, not an extra026 prerequisite; insns_size is not opcode_count"
+          ]
+        },
+        {
+          "ordinal": 12,
+          "name": "opcode_hex",
+          "data_type": "Utf8View",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "DefinitionFacts MethodBody binding + CodeItem.instructions(opcode/width/ordinal) + payload/raw insns ranges",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "DefinitionFacts column gate is intentionally narrow INCOMPLETE_FACTS; CodeFacts native instruction atoms are available and independently checked. Full legacy Methods relation assembly is separate032, not an extra026 prerequisite; insns_size is not opcode_count"
+          ]
+        },
+        {
+          "ordinal": 13,
+          "name": "method_kind",
+          "data_type": "Utf8",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "lookup unique method_definition.kind, else genuine NULL for reference-only member",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "reference-only method has NULL definition facts; native/abstract is an actual definition, not reference-only"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "classes",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "explicit snapshot-local catalog ID supplied by caller, not a physical/semantic ID",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 1,
+          "name": "class_def_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "definitions.classes[].class_def_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 2,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "definitions.classes[].class_idx (type_idx)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 3,
+          "name": "descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "definitions.classes[].descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 4,
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "definitions.classes[].access_flags",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 5,
+          "name": "superclass_descriptor",
+          "data_type": "Utf8",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "definitions.classes[].superclass_descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 6,
+          "name": "interface_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "count(definitions.interfaces where same class_def_idx)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 7,
+          "name": "source_file",
+          "data_type": "Utf8",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "definitions.classes[].source_file_idx + lossless source_file DexText; no lossy UTF-8 conversion",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "nullable source_file is lossless DexText; non-scalar text must not use lossy UTF8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_interfaces",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "explicit snapshot-local catalog ID",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 1,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "interfaces[].class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 2,
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "interfaces[].ordinal, encoded declaration order",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 3,
+          "name": "interface_type_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "interfaces[].interface_type_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 4,
+          "name": "interface_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "interfaces[].interface_descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        }
+      ]
+    },
+    {
+      "name": "class_fields",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "explicit snapshot-local catalog ID",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 1,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "field_definitions[].class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 2,
+          "name": "class_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "field_references[field_idx].class_descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 3,
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "field_definitions[].field_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 4,
+          "name": "field_name",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "field_references[field_idx].field_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 5,
+          "name": "field_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "field_references[field_idx].descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 6,
+          "name": "kind",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "field_definitions[].kind (static/instance)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 7,
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "field_definitions[].access_flags",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        }
+      ]
+    },
+    {
+      "name": "class_methods",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "explicit snapshot-local catalog ID",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 1,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_definitions[].class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 2,
+          "name": "class_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[method_idx].class_descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 3,
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_definitions[].method_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 4,
+          "name": "method_name",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[method_idx].method_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 5,
+          "name": "method_descriptor",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_references[method_idx].descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 6,
+          "name": "kind",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_definitions[].kind (direct/virtual)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        },
+        {
+          "ordinal": 7,
+          "name": "access_flags",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure"
+          ],
+          "native_atoms": "method_definitions[].access_flags",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-021/definition-conformance.json",
+            "artifacts/mdd-021/reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": []
+        }
+      ]
+    },
+    {
+      "name": "code_items",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "explicit per-occurrence catalog ID",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "DefinitionFacts actual method definition reference ID; shared body expands once per method owner",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "code_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "MethodBody::Present.code_byte_offset bound to CodeFacts physical start",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "registers_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "CodeItem.registers_size",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "ins_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "CodeItem.ins_size",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "name": "outs_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "CodeItem.outs_size",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 6,
+          "name": "tries_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "CodeItem.tries.len()",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 7,
+          "name": "debug_info_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "CodeItem.debug_info_byte_offset, absent encoded offset0 projects as0",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 8,
+          "name": "insns_size",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "CodeItem.insns_size_code_units (not instruction count)",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 9,
+          "name": "insns_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "CodeItem.insns_range.byte_offset",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 10,
+          "name": "tries_off",
+          "data_type": "UInt32",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "validated insns end plus u16 alignment padding iff tries nonempty; otherwise NULL",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        },
+        {
+          "ordinal": 11,
+          "name": "handlers_off",
+          "data_type": "UInt32",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout"
+          ],
+          "native_atoms": "validated tries_off + tries_size*8 iff catch list exists; otherwise NULL",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "unassembled_production_relation",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-023/instruction-conformance.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "CodeFacts is physical-item scoped; production method-owned row projection must bind DefinitionFacts and preserve shared-body multiplicity, not use physical ordinal as method ID"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "annotation_directory_entries",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_directory_entries row projection column file_id",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_directory_entries row projection column class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "annotations_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_directory_entries row projection column annotations_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "entry_kind",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_directory_entries row projection column entry_kind",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "entry_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_directory_entries row projection column entry_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_directory_entries row projection column annotation_set_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 6,
+          "name": "annotation_set_ref_list_off",
+          "data_type": "UInt32",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_directory_entries row projection column annotation_set_ref_list_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "annotation_set_entries",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_set_entries row projection column file_id",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "annotation_set_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_set_entries row projection column annotation_set_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_set_entries row projection column ordinal",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_set_entries row projection column annotation_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "annotations",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotations row projection column file_id",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotations row projection column annotation_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "visibility",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotations row projection column visibility",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotations row projection column type_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "element_count",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotations row projection column element_count",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "annotation_elements",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column file_id",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "annotation_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column annotation_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "depth",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column depth",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "ordinal",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column ordinal",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "name_idx",
+          "data_type": "UInt32",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column name_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "name": "value_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column value_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 6,
+          "name": "value_end_off",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column value_end_off",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 7,
+          "name": "value_kind",
+          "data_type": "Utf8",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column value_kind",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 8,
+          "name": "value_index",
+          "data_type": "UInt32",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column value_index",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 9,
+          "name": "value_i64",
+          "data_type": "Int64",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column value_i64",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown"
+          ]
+        },
+        {
+          "ordinal": 10,
+          "name": "value_f64",
+          "data_type": "Float64",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "annotations"
+          ],
+          "native_atoms": "AnnotationFacts explicit annotation_elements row projection column value_f64",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-022/annotation-conformance.json",
+            "artifacts/mdd-022/probes/oracle-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "encoded annotation rows complete independently of prototype parameter-position coverage; only an explicitly requested position/absence scope is blocked by Unknown",
+            "declared Float64 JSON uses finite numbers or NaN/Infinity/-Infinity spellings; original IEEE bits/width live on native EncodedValue, not the display projection"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "method_strings",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_strings row projection column method",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_strings row projection column method_class",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_strings row projection column method_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "value",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_strings row projection column value",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch",
+            "legal non-scalar UTF16 raw sites complete; plain UTF8 row API returns UNSUPPORTED_QUERY without A0 replacement"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_strings row projection column file_id",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_strings row projection column class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 6,
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_strings row projection column method_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 7,
+          "name": "string_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_strings row projection column string_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "method_calls",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column method",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column method_class",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column method_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "callee",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column callee",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "callee_class",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column callee_class",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "name": "callee_name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column callee_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 6,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column file_id",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 7,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 8,
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column method_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 9,
+          "name": "callee_method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_calls row projection column callee_method_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "method_field_accesses",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column method",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column method_class",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column method_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "field",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column field",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "field_class",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column field_class",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "name": "field_name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column field_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 6,
+          "name": "field_type",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column field_type",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 7,
+          "name": "using_type",
+          "data_type": "Utf8",
+          "nullable": true,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column using_type",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 8,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column file_id",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 9,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 10,
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column method_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 11,
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_field_accesses row projection column field_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "method_used_types",
+      "required_by_hostlab": true,
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column method",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 1,
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column method_class",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column method_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "name": "type_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column type_descriptor",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "name": "type_name",
+          "data_type": "Utf8View",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column type_name",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column file_id",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 6,
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column class_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 7,
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column method_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        },
+        {
+          "ordinal": 8,
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false,
+          "required_layers": [
+            "inventory",
+            "structure",
+            "code_layout",
+            "references"
+          ],
+          "native_atoms": "ReferenceFacts explicit method_used_types row projection column type_idx",
+          "native_fact_availability": "available_in_validated_declared_scope",
+          "production_projection": "production_row_api_available",
+          "compatibility_profile_admitted": false,
+          "evidence": [
+            "artifacts/mdd-024/reference-conformance.json",
+            "artifacts/mdd-024/small-reference-comparison.json",
+            "artifacts/mdd-026/facts-differential.json"
+          ],
+          "boundaries": [
+            "requires complete encoded-reference method scope; keeps per-site multiplicity and unresolved external targets; does not infer runtime dispatch"
+          ]
+        }
+      ]
+    }
+  ],
+  "identities": [
+    {
+      "path": "conformance/manifests/relations.json",
+      "bytes": 60791,
+      "sha256": "f416926d6da3467b5cfea625978c2e4faac08c914cf2930d2c64878c261bb82d"
+    },
+    {
+      "path": "conformance/relations/definitions.json",
+      "bytes": 13849,
+      "sha256": "15b7c1aaad0a4ee4b1b124d34c832c50af286a84c1abe3d5c67b45a3b7dbd267"
+    },
+    {
+      "path": "conformance/relations/annotation-and-signature.json",
+      "bytes": 9790,
+      "sha256": "8b1ec28889e7baa6f64e4ef1eb1d214bb8b4832a6ea4890f7509e11146d301c3"
+    },
+    {
+      "path": "conformance/relations/reference-multiplicity.json",
+      "bytes": 9679,
+      "sha256": "42b3118be22452fcb906a238c8720c46fc9603b494df044af5eef4220c6ef496"
+    },
+    {
+      "path": "conformance/facts/native_probe.rs",
+      "bytes": 8869,
+      "sha256": "1009199e0bf7016fa91cd0ebd2dc54690765c86a63587553cf88d3cc04ede1e6"
+    },
+    {
+      "path": "conformance/facts/run_probe.py",
+      "bytes": 4620,
+      "sha256": "aa9f61d82263ee2ebe125fd2a7fa80e82f4872bc847f6efe2d6fc70f387e1b92"
+    },
+    {
+      "path": "conformance/facts/verify.py",
+      "bytes": 14208,
+      "sha256": "a5467dc9ce003e71832d2653ee882e89a8c1fae236b38fc48caddf8d1f76b867"
+    }
+  ],
+  "global_gates": {
+    "lazy_state_and_retry": "implementation delegated; not qualified by this matrix",
+    "scope_required_layers_signer": "implementation delegated; not qualified by this matrix",
+    "production_catalog_assignment": "not provided by conformance probe",
+    "G1_parser_and_sanitizers": "independent parser gate; not inferred from facts differential",
+    "G2_query_equivalence": "requires later QueryIR/SQL execution, not inferred from tiny relation equality"
+  },
+  "native_vs_compatibility": "Native atoms and compatibility relation assembly are separate axes; no compatibility formatter is imposed as an extra MDD026 prerequisite. Unknown columns or genuinely absent native atoms cannot pass.",
+  "not_task_completion": true
+}

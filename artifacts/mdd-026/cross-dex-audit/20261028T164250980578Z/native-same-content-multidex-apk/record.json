@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\cross-dex-audit\\20261028T164250980578Z\\cross_dex_identity_probe.exe",
+    "apk",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\cross-dex-audit\\20261028T164250980578Z\\synthetic-same-content.apk"
+  ],
+  "started_utc": "2026-10-28T16:42:56.243553+00:00",
+  "finished_utc": "2026-10-28T16:42:56.331001+00:00",
+  "elapsed_seconds": 0.09400000000005093,
+  "exit_code": 0,
+  "stdout_sha256": "10e3cfdfac6329f1e364e3015e918932e856c0e6a659bc189a8a47620ebf90c2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

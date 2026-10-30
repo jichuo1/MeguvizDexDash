@@ -1,0 +1,274 @@
+{
+  "schema_version": "mdd.typed-ir-case-manifest.v1",
+  "ir_version": "mdd.typed-query.v1",
+  "text_semantics": "mdd-text-v1",
+  "production_profile_admitted": false,
+  "relations_native": [
+    "strings",
+    "types",
+    "prototypes",
+    "classes",
+    "class_interfaces",
+    "fields",
+    "methods",
+    "field_definitions",
+    "method_definitions"
+  ],
+  "scope": "typed relational component; no SQL dialect or M4 transport qualification",
+  "cases": [
+    {
+      "id": "scan-bag",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "empty-scan",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "eq-null-is-unknown",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "is-null",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "duplicate-exact-filter",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "raw-empty-is-not-null",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "raw-nul-is-not-empty",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "prefix-preserves-nul",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "like-one-includes-nul",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "like-one-is-one-utf16-unit",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "like-many-plus-one",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "false-or-unknown-not-selected",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "not-unknown-stays-unknown",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "set-duplicates-do-not-multiply-rows",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "join-entity-keeps-dex-and-multiplicity",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "left-join-null-never-equals-null",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "empty-left-join",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "global-aggregate-bag",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "global-aggregate-empty-still-one-row",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "group-null-once-and-preserve-duplicates",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "utf16-total-order",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "descending-keeps-null-policy",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "ordered-limit-is-relation-operator",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "zero-limit",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "duplicate-display-names",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "lossless-integer-and-null-codec",
+      "expected": "complete_rows",
+      "error": null
+    },
+    {
+      "id": "eq-has-no-implicit-cast",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "COMPARISON_TYPE_MISMATCH",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "raw-bytes-requires-explicit-predicate",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "USE_RAW_BYTES_EQ",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "bad-column-ordinal",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "COLUMN_ORDINAL",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "foreign-entity-even-empty-input",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "ENTITY_OUTSIDE_SNAPSHOT",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "unbuilt-empty-layer-is-not-empty-success",
+      "expected": "error",
+      "error": {
+        "code": "INCOMPLETE_FACTS",
+        "reason": "references",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "limit-addition-overflow",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "LIMIT_RANGE_OVERFLOW",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "stable-requires-total-order",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "TOTAL_ORDER_REQUIRED",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "partial-order-not-total",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "TOTAL_ORDER_REQUIRED",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "numeric-sum-typechecked",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "SUM_NUMERIC_TYPE",
+        "stage": "prepare"
+      }
+    },
+    {
+      "id": "sum-overflow-is-error",
+      "expected": "error",
+      "error": {
+        "code": "INVALID_ARGUMENT",
+        "reason": "SUM_OVERFLOW",
+        "stage": "execute"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tests/fixtures/query/cases.json",
+      "sha256": "aa5b16f4b105a336c6a4c7763c2eced57d64d51620b64c4a81b2c4e9af56babf"
+    },
+    {
+      "path": "tests/fixtures/query/like-cases.json",
+      "sha256": "7969ee7ad529c51dd9ba87891d6ad1c689c600a587549cd75ffbfb9021dc50ba"
+    },
+    {
+      "path": "tests/fixtures/query/codec-cases.json",
+      "sha256": "460148f1c790fb8784450d750e4ce7d8e6fbc73f8f736e1e4005ff004efe2e26"
+    }
+  ],
+  "independent_oracles": [
+    "tests/fixtures/query/build_cases.py",
+    "tests/fixtures/query/like_oracle.py",
+    "tests/fixtures/query/codec_oracle.py"
+  ],
+  "like_escape": "20 hand/Python native UTF16 cases; explicit tail escape invalid; SQL compatibility not admitted",
+  "codec": "322 stdlib canonical Base64 positives; 12 canonical rejects; large integer strings/UTF16/NULL exact Rust checks",
+  "raw_code": "actual duplicate-source synthetic DEX, same Blob Arc, absent vs empty, checked byte ranges",
+  "required_layers": "derived from provider schema and expressions, checked even for zero inputs/Limit0",
+  "checkpoints": [
+    "scan_row",
+    "operator_next",
+    "expression",
+    "like_cell",
+    "join_match",
+    "aggregate_value",
+    "sort_compare",
+    "buffer_admission",
+    "output_row"
+  ]
+}

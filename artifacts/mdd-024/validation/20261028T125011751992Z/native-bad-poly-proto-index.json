@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\target\\debug\\examples\\reference_summary.exe",
+    "tests/fixtures/references/generated/bad-poly-proto-index.dex",
+    "f93919716280127f987a6becea290ebd10db0c3da5407cf1029e163d06c98276",
+    "--relations"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"error\":{\"code\":\"INVALID_INPUT\",\"details\":{\"byte_length\":\"0\",\"byte_offset\":\"864\",\"code_item_byte_offset\":\"796\",\"content_id\":\"sha256:f93919716280127f987a6becea290ebd10db0c3da5407cf1029e163d06c98276\",\"debug_info_byte_offset\":\"0\",\"dex_occurrence_id\":\"snapshot-97fd12f4501c199e33af6e5b28eca0fa939b66f4f7f40f96eaceb0f9993d73f9:source:0:raw:dex:header:0\",\"facts_coverage\":\"partial\",\"facts_layer\":\"code_layout\",\"input_coverage\":\"partial\",\"local_index\":65535,\"member_id\":\"snapshot-97fd12f4501c199e33af6e5b28eca0fa939b66f4f7f40f96eaceb0f9993d73f9:source:0:raw\",\"reason\":\"INSTRUCTION_REFERENCE_OUT_OF_RANGE\",\"reference_kind\":\"Prototype\",\"snapshot_id\":\"snapshot-97fd12f4501c199e33af6e5b28eca0fa939b66f4f7f40f96eaceb0f9993d73f9\",\"source_binding\":\"snapshot_member_lease\",\"table_count\":3},\"message\":\"INSTRUCTION_REFERENCE_OUT_OF_RANGE\",\"retryable\":false,\"stage\":\"dex.code_layout\"},\"full_audit_complete\":false,\"operation_status\":\"error\"}\n",
+  "stderr": ""
+}

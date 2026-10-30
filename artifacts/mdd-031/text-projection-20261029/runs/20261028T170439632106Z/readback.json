@@ -1,0 +1,37 @@
+{
+  "schema_version": "mdd.sql.text-projection-readback.v1",
+  "status": "passed",
+  "fixture_sha256": "4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+  "readback_sha256": "2cd42f4cee27ca5ab97646e07691be77981b79d6372eec529697ce75344801c8",
+  "source_identity_count": 78,
+  "all_saved_command_hashes_verified": true,
+  "native_probe_binary_verified_if_present": true,
+  "dialects": 3,
+  "source_and_parameter_vectors_per_dialect": 7,
+  "legacy": {
+    "A0": {
+      "complete_hex_rows": 7,
+      "complete_display_rows": 7,
+      "nul_display": "\\u{0}",
+      "isolated_surrogate_display": "U+FFFD",
+      "cast_text_hex_keeps_raw_mutf8": true
+    },
+    "A1": {
+      "complete_hex_rows": 7,
+      "complete_display_rows": 7,
+      "nul_display": "\\u{0}",
+      "isolated_surrogate_display": "U+FFFD",
+      "cast_text_hex_keeps_raw_mutf8": true
+    }
+  },
+  "negative_controls_rejected": [
+    "wrong_raw",
+    "wrong_utf16",
+    "missing_row"
+  ],
+  "limits": [
+    "Small synthetic corpus, no HostLab or performance qualification.",
+    "Legacy CLI display replaces unpaired surrogates and escapes NUL; its byte-preserving hex is a separate observation.",
+    "Native unpaired-surrogate output is not valid standard UTF-8; raw MUTF8 is kept in a separate typed value."
+  ]
+}

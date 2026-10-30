@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "source_identity_59_unchanged": true,
+    "build4_admission": true,
+    "build4_process": true,
+    "build4_logs": true,
+    "probe4_admission": true,
+    "probe4_process": true,
+    "probe4_logs": true,
+    "seven_distinct_scenarios": true,
+    "profile_not_admitted": true,
+    "success_independent_large_bytes": true,
+    "sibling_reduce_independent_large_bytes": true,
+    "large_bytes_success_delivery": true,
+    "large_bytes_success_wire_count": true,
+    "large_bytes_sibling_reduce_delivery": true,
+    "large_bytes_sibling_reduce_wire_count": true,
+    "all_values_success_delivery": true,
+    "all_values_success_wire_count": true,
+    "all_types_and_exact_values": true,
+    "low_output_no_false_completion": true,
+    "low_workspace_no_false_completion": true,
+    "cancel_count_no_false_completion": true,
+    "sibling_grow_no_false_completion": true,
+    "low_output_partial_length": true,
+    "sibling_grow_only_sibling_charge": true,
+    "binary_present": true
+  },
+  "source_drift": [],
+  "binary_sha256": "61b801d74f433b1bfaefa0b7d8460ce124dc5673f1baae5620ac516480da82b5",
+  "scope": "synthetic in-process query-bound executor and queue; consumer re-encoding reference only; no real worker/transport, complete profile, RSS, or performance qualification"
+}

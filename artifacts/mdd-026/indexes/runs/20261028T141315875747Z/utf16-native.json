@@ -1,0 +1,3457 @@
+{
+  "columns": [
+    {
+      "assembled_projection": false,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "string_pool_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "source_path",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "entry_name",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "byte_len",
+      "data_type": "UInt64",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "dex_version",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "checksum",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "signature_hex",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "file_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "header_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "endian_tag",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "link_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "link_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "map_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "string_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "string_ids_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "type_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "type_ids_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "proto_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "proto_ids_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "field_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "field_ids_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "method_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "method_ids_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "class_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "class_defs_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "data_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "data_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "dex_files"
+    },
+    {
+      "assembled_projection": false,
+      "column": "string_pool_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "strings"
+    },
+    {
+      "assembled_projection": false,
+      "column": "string_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "strings"
+    },
+    {
+      "assembled_projection": false,
+      "column": "value",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "strings"
+    },
+    {
+      "assembled_projection": false,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "types"
+    },
+    {
+      "assembled_projection": false,
+      "column": "type_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "types"
+    },
+    {
+      "assembled_projection": false,
+      "column": "descriptor",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "types"
+    },
+    {
+      "assembled_projection": false,
+      "column": "java_name",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "types"
+    },
+    {
+      "assembled_projection": false,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "method_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "class_descriptor",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "proto_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "name",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "descriptor",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "return_descriptor",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "param_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "param_descriptors",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "access_flags",
+      "data_type": "UInt32",
+      "nullable": true,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "opcode_count",
+      "data_type": "UInt32",
+      "nullable": true,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "opcode_hex",
+      "data_type": "Utf8View",
+      "nullable": true,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "method_kind",
+      "data_type": "Utf8",
+      "nullable": true,
+      "relation": "methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "classes"
+    },
+    {
+      "assembled_projection": false,
+      "column": "class_def_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "classes"
+    },
+    {
+      "assembled_projection": false,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "classes"
+    },
+    {
+      "assembled_projection": false,
+      "column": "descriptor",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "classes"
+    },
+    {
+      "assembled_projection": false,
+      "column": "access_flags",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "classes"
+    },
+    {
+      "assembled_projection": false,
+      "column": "superclass_descriptor",
+      "data_type": "Utf8",
+      "nullable": true,
+      "relation": "classes"
+    },
+    {
+      "assembled_projection": false,
+      "column": "interface_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "classes"
+    },
+    {
+      "assembled_projection": false,
+      "column": "source_file",
+      "data_type": "Utf8",
+      "nullable": true,
+      "relation": "classes"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_interfaces"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_interfaces"
+    },
+    {
+      "assembled_projection": true,
+      "column": "ordinal",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_interfaces"
+    },
+    {
+      "assembled_projection": true,
+      "column": "interface_type_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_interfaces"
+    },
+    {
+      "assembled_projection": true,
+      "column": "interface_descriptor",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_interfaces"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_fields"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_fields"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_descriptor",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_fields"
+    },
+    {
+      "assembled_projection": true,
+      "column": "field_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_fields"
+    },
+    {
+      "assembled_projection": true,
+      "column": "field_name",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_fields"
+    },
+    {
+      "assembled_projection": true,
+      "column": "field_descriptor",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_fields"
+    },
+    {
+      "assembled_projection": true,
+      "column": "kind",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_fields"
+    },
+    {
+      "assembled_projection": true,
+      "column": "access_flags",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_fields"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_methods"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_methods"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_descriptor",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_methods"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_methods"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_name",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_methods"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_descriptor",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_methods"
+    },
+    {
+      "assembled_projection": true,
+      "column": "kind",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "class_methods"
+    },
+    {
+      "assembled_projection": true,
+      "column": "access_flags",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "class_methods"
+    },
+    {
+      "assembled_projection": false,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "method_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "code_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "registers_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "ins_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "outs_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "tries_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "debug_info_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "insns_size",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "insns_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "tries_off",
+      "data_type": "UInt32",
+      "nullable": true,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": false,
+      "column": "handlers_off",
+      "data_type": "UInt32",
+      "nullable": true,
+      "relation": "code_items"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_directory_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_directory_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "annotations_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_directory_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "entry_kind",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "annotation_directory_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "entry_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_directory_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "annotation_set_off",
+      "data_type": "UInt32",
+      "nullable": true,
+      "relation": "annotation_directory_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "annotation_set_ref_list_off",
+      "data_type": "UInt32",
+      "nullable": true,
+      "relation": "annotation_directory_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_set_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "annotation_set_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_set_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "ordinal",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_set_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "annotation_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_set_entries"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotations"
+    },
+    {
+      "assembled_projection": true,
+      "column": "annotation_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotations"
+    },
+    {
+      "assembled_projection": true,
+      "column": "visibility",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotations"
+    },
+    {
+      "assembled_projection": true,
+      "column": "type_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotations"
+    },
+    {
+      "assembled_projection": true,
+      "column": "element_count",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotations"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "annotation_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "depth",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "ordinal",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "name_idx",
+      "data_type": "UInt32",
+      "nullable": true,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "value_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "value_end_off",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "value_kind",
+      "data_type": "Utf8",
+      "nullable": false,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "value_index",
+      "data_type": "UInt32",
+      "nullable": true,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "value_i64",
+      "data_type": "Int64",
+      "nullable": true,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "value_f64",
+      "data_type": "Float64",
+      "nullable": true,
+      "relation": "annotation_elements"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_strings"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_class",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_strings"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_name",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_strings"
+    },
+    {
+      "assembled_projection": true,
+      "column": "value",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_strings"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_strings"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_strings"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_strings"
+    },
+    {
+      "assembled_projection": true,
+      "column": "string_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_strings"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_class",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_name",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "callee",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "callee_class",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "callee_name",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "callee_method_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_calls"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_class",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_name",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "field",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "field_class",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "field_name",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "field_type",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "using_type",
+      "data_type": "Utf8",
+      "nullable": true,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "field_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_field_accesses"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_used_types"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_class",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_used_types"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_name",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_used_types"
+    },
+    {
+      "assembled_projection": true,
+      "column": "type_descriptor",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_used_types"
+    },
+    {
+      "assembled_projection": true,
+      "column": "type_name",
+      "data_type": "Utf8View",
+      "nullable": false,
+      "relation": "method_used_types"
+    },
+    {
+      "assembled_projection": true,
+      "column": "file_id",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_used_types"
+    },
+    {
+      "assembled_projection": true,
+      "column": "class_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_used_types"
+    },
+    {
+      "assembled_projection": true,
+      "column": "method_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_used_types"
+    },
+    {
+      "assembled_projection": true,
+      "column": "type_idx",
+      "data_type": "UInt32",
+      "nullable": false,
+      "relation": "method_used_types"
+    }
+  ],
+  "rows": [
+    {
+      "candidates": 2,
+      "kind": "equal",
+      "locals": [
+        0,
+        0
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": []
+    },
+    {
+      "candidates": 14,
+      "kind": "prefix",
+      "locals": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": []
+    },
+    {
+      "candidates": 14,
+      "kind": "contains",
+      "locals": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": []
+    },
+    {
+      "candidates": 2,
+      "kind": "equal",
+      "locals": [
+        1,
+        1
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "prefix",
+      "locals": [
+        1,
+        1
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [
+        1,
+        1
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        0,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "equal",
+      "locals": [
+        2,
+        2
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "prefix",
+      "locals": [
+        2,
+        2
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [
+        2,
+        2
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "equal",
+      "locals": [
+        3,
+        3
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "prefix",
+      "locals": [
+        3,
+        3
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [
+        3,
+        3
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        20013,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "equal",
+      "locals": [
+        4,
+        4
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "prefix",
+      "locals": [
+        4,
+        4
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [
+        4,
+        4
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55296,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "prefix",
+      "locals": [
+        5,
+        5
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [
+        5,
+        5
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "equal",
+      "locals": [
+        5,
+        5
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        55357,
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "prefix",
+      "locals": [
+        5,
+        5
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        55357,
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [
+        5,
+        5
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        55357,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        55357,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [
+        5,
+        5
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56832,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "equal",
+      "locals": [
+        6,
+        6
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "prefix",
+      "locals": [
+        6,
+        6
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [
+        6,
+        6
+      ],
+      "occurrences": [
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+        "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+      ],
+      "pattern": [
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        0
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        65
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        20013
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        55296
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        55357
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        56832
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        56320
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        65535
+      ]
+    },
+    {
+      "candidates": 2,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        56320,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        0
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        65
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        20013
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        55296
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        55357
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        56832
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        56320
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "equal",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "prefix",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        65535
+      ]
+    },
+    {
+      "candidates": 0,
+      "kind": "contains",
+      "locals": [],
+      "occurrences": [],
+      "pattern": [
+        65535,
+        65535
+      ]
+    }
+  ],
+  "scope_id": "sha256:2de9f2caa311a5027f76f27edb0fb8dab14b57b7e4b23704e1a0a285e0a44f7e",
+  "selected_dex_occurrences": [
+    "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:0:raw:dex:header:0",
+    "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318:source:1:raw:dex:header:0"
+  ],
+  "snapshot_id": "snapshot-1b7d25cb2ac35518e87836c1d2545647fcae2125287c6857bd940ab2966b4318",
+  "source_content_ids": [
+    "sha256:4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35",
+    "sha256:4deab5f75b23c118b170005d89a6ebc0d18d894383280253e70de0507d260f35"
+  ]
+}

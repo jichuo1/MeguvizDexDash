@@ -1,0 +1,12 @@
+[workspace]
+[package]
+name="mdd-independent-q03-probe"
+version="0.0.0"
+edition="2024"
+[[bin]]
+name="mdd-null-aggregate-independent"
+path="src/main.rs"
+[dependencies]
+mdd-sql={path="../../../crates/mdd-sql"}
+mdd-types={path="../../../crates/mdd-types"}
+serde_json="=1.0.151"

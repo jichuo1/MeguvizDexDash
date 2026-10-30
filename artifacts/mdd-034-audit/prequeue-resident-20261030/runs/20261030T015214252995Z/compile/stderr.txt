@@ -1,0 +1,60 @@
+warning: fields `global`, `worker`, and `session_budget` are never read
+  --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:71:69
+   |
+70 | struct Fixture { _lifecycle: Lifecycle, session: SessionHandle, source: Source, prepared: PreparedQuery,
+   |        ------- fields in this struct
+71 |                  cancel: QueryCancellation, runtime: RuntimeBudget, global: BudgetPool, worker: BudgetPool, session_budget: BudgetPo...
+   |                                                                     ^^^^^^              ^^^^^^              ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `pools` is never used
+   --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:112:4
+    |
+112 | fn pools(f: &Fixture) -> [&BudgetPool; 4] { [&f.global, &f.worker, &f.session_budget, f.runtime.pool()] }
+    |    ^^^^^
+
+warning: function `all_usage` is never used
+   --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:113:4
+    |
+113 | fn all_usage(f: &Fixture, resource: Resource, expected: u64) -> Result<(), String> {
+    |    ^^^^^^^^^
+
+warning: function `complete_two_rows` is never used
+   --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:117:4
+    |
+117 | fn complete_two_rows(large: bool) -> Result<Json, String> {
+    |    ^^^^^^^^^^^^^^^^^
+
+warning: function `quota_case` is never used
+   --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:156:4
+    |
+156 | fn quota_case(resource: Resource, limit: u64, expected_wire: u64) -> Result<Json, String> {
+    |    ^^^^^^^^^^
+
+warning: function `cancelled_held_packet` is never used
+   --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:217:4
+    |
+217 | fn cancelled_held_packet() -> Result<Json, String> {
+    |    ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `missing_end` is never used
+   --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:235:4
+    |
+235 | fn missing_end() -> Result<Json, String> {
+    |    ^^^^^^^^^^^
+
+warning: function `overflow` is never used
+   --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:246:4
+    |
+246 | fn overflow() -> Result<Json, String> {
+    |    ^^^^^^^^
+
+warning: function `observed` is never used
+   --> D:\MeguvisDexDash\artifacts\mdd-034-audit\prequeue-resident-20261030\probe.rs:257:4
+    |
+257 | fn observed(case: Json) -> Json {
+    |    ^^^^^^^^
+
+warning: 9 warnings emitted
+

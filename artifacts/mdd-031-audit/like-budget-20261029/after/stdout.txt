@@ -1,0 +1,8 @@
+
+running 3 tests
+test dialects::functions::like_budget_tests::trailing_escape_preserves_existing_error_when_budget_sufficient ... ok
+test dialects::functions::like_budget_tests::cancelled_empty_like_is_not_a_success ... ok
+test dialects::functions::like_budget_tests::empty_input_does_not_skip_long_pattern_step_budget ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 23 filtered out; finished in 0.00s
+

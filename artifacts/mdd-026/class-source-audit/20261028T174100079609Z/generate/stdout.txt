@@ -1,0 +1,1 @@
+{"fixtures": 5, "valid": 4, "invalid_source_index": 1}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\delivery-boundary-independent-20261029-target\\debug\\mdd-delivery-boundary-independent.exe"
+  ],
+  "started_utc": "2026-10-29T05:20:20.658147+00:00",
+  "finished_utc": "2026-10-29T05:20:20.905707+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "198674d21650a08bac6bbf203254496a7b4a1639a7a6862ba06bf293ecf27482",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "0de0f3d9d68a2f769dd802ef8bca517c04cd34017a33b4e370efed50f257efdb",
+  "scope": "independent synthetic validation; not performance qualification"
+}

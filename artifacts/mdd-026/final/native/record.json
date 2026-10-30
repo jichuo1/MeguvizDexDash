@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-O",
+    "conformance/facts/run_probe.py"
+  ],
+  "started_utc": "2026-10-28T13:06:22.370758+00:00",
+  "finished_utc": "2026-10-28T13:06:25.940648+00:00",
+  "elapsed_seconds": 3.577999999994063,
+  "exit_code": 0,
+  "measurement_scope": "small conformance development only; not performance",
+  "stdout_sha256": "894590cf70113a5da2e86a345467307ae56e6ce6463b86311e88f930dbd8136f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

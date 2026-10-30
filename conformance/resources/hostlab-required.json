@@ -1,0 +1,27 @@
+{
+  "schema_version": "mdd.resources-hostlab-required.v1",
+  "task": "MDD-025",
+  "scope": "Immutable raw resource member evidence and required Manifest facts; no complete resource-tool or ARSC qualification",
+  "manifest": {
+    "api": "mdd_input::manifest::parse_manifest(Arc<[u8]>, ManifestLimits)",
+    "formats": ["Android binary XML", "strict UTF-8 XML 1.0 with optional UTF-8 BOM"],
+    "owner": "ManifestDocument holds and returns the same immutable member Arc; caller binds snapshot/member identity via ResourceByteEvidence",
+    "ranges": "absolute original member bytes; start node range is its start tag/chunk, not rendered XML or subtree",
+    "facts": ["ordered expanded element names and parents", "ordered attributes and resource map IDs", "namespace declarations and lexical scope", "prefix provenance and explicit ambiguity", "rawValue absence versus empty string", "compiled type and exact u32 rawbits", "resource UTF-8/UTF-16 pools and style spans", "line numbers and text events", "package/version/uses-sdk facts", "ordered repeated permission uses and declarations", "application nodes and five component kinds"],
+    "typed_values": ["undefined/empty NULL", "unresolved ordinary/dynamic resource and attribute references", "string", "float rawbits including NaN", "dimension/fraction rawbits/radix/unit", "signed integer", "hex integer", "boolean with original bits", "colors", "unknown type retained without invented interpretation"],
+    "text_rules": ["independent resource codec, not DEX MUTF-8", "invalid UTF-8 rejected", "AXML UTF-16 isolated surrogates retained as code units with text=null", "structural XML names require valid scalar XML names", "DTD/external entities forbidden", "only predefined and numeric XML references", "no lossy replacement"],
+    "budgets": ["input bytes before parsing", "pool/text strings", "decoded and copied UTF-16 units before allocation", "nodes", "depth", "total attributes", "events", "namespace work"],
+    "errors": {"malformed": "INVALID_INPUT", "budget": "QUOTA_EXCEEDED", "unknown_axml_chunk_or_xml_version": "UNSUPPORTED_CAPABILITY with no successful document"},
+    "explicit_limits": ["resource IDs remain unresolved; no ARSC/config/overlay guesses", "no inferred Android exported/enabled defaults or component-name normalization", "multiple uses-sdk declarations retain all node IDs and mark convenience SDK projection ambiguous", "no generic XML rendering or display paging claim", "unknown AXML chunk fails the document rather than returning an empty or partial success"]
+  },
+  "evidence": {
+    "hand_vectors": "tests/fixtures/manifest/manifest.json",
+    "independent_encoder_and_elementtree": "tests/fixtures/manifest/check.py",
+    "fixed_aosp_and_aapt2_identity": "artifacts/mdd-025/preflight/reference/manifest.json",
+    "aapt2_complete_vectors": "artifacts/mdd-025/manifest/small-aapt-summary.json",
+    "public_complete_tree": "artifacts/mdd-025/manifest/public-full-tree-comparison.json",
+    "fixed_A0_all_summary_fields_and_pages": "artifacts/mdd-025/manifest/a0-summary-comparison.json",
+    "native_snapshot_binding_example": "crates/mdd-facts/examples/manifest_summary.rs"
+  },
+  "not_qualified": ["MDD-042 native MCP request/response and display paging", "MDD-072 resources.arsc/config/overlay and full twelve-tool resource surface", "private HostLab corpus replacement", "performance", "Linux native execution pending root CI"]
+}

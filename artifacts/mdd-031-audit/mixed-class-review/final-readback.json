@@ -1,0 +1,8 @@
+{
+  "run_utc": "2026-10-28T17:36:48.599388+00:00",
+  "exit_code": 0,
+  "stdout": "{\"status\": \"pass\", \"candidate_binary_sha256\": \"124b3c352398557f97e867e00127409cbbe9a2b678dd041428a630eae0801f3a\", \"scope_cases\": 24, \"in_cases\": 12, \"reference_engines\": [\"A0\", \"A1\"], \"candidate_in_sha256\": \"1555a370b8a7a415be16e31b2722c2fe2ef9b0a09936ad13bd97444384dbba44\", \"candidate_scope_sha256\": \"fd23b83ab888081e8b0be1d4bc3e3448d31cee69c71549c5ba9e9d2f1970d343\", \"profiles_admitted\": false, \"scope\": \"known guarded subset only; mixed affinity and derived comparisons remain unsupported\"}\n",
+  "stderr": "",
+  "verifier_sha256": "67894ed41eb8a7a78ea6a4ce1eb0b79a37f0e84b3aaf5be091a8621fbe7722f1",
+  "profiles_admitted": false
+}

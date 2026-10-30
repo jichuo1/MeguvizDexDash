@@ -1,0 +1,60 @@
+{
+  "schema_version": "mdd.owned-try-fixtures.v1",
+  "files": [
+    {
+      "path": "generated/owned-try-even.dex",
+      "bytes": 404,
+      "sha256": "2ae4c21db0f1051e2ffa39d6ef0df2caa46ac11a1cb0d86e38d13243a950d8d5",
+      "expected": "valid_structural_fixture",
+      "hand_layout": {
+        "code_off": 236,
+        "tries_off": 260,
+        "handlers_off": 268,
+        "insns_off": 252,
+        "insns_size_code_units": 4,
+        "try_start_pc": 1,
+        "try_code_units": 1,
+        "handler_target_pc": 2,
+        "method_idx": 0,
+        "odd_padding": false
+      }
+    },
+    {
+      "path": "generated/owned-try-odd.dex",
+      "bytes": 408,
+      "sha256": "088fd267e9c9e791d437c70a1d727883699fdb30b05685a1aae3b27f83a340f2",
+      "expected": "valid_structural_fixture",
+      "hand_layout": {
+        "code_off": 236,
+        "tries_off": 264,
+        "handlers_off": 272,
+        "insns_off": 252,
+        "insns_size_code_units": 5,
+        "try_start_pc": 1,
+        "try_code_units": 1,
+        "handler_target_pc": 2,
+        "method_idx": 0,
+        "odd_padding": true
+      }
+    },
+    {
+      "path": "generated/owned-try-bad-handler.dex",
+      "bytes": 408,
+      "sha256": "7af41ab95d36ac79a49e37d0fc6c6278f0cf3b71a37975a50f109f15022993db",
+      "expected": "invalid_handler",
+      "hand_layout": {
+        "code_off": 236,
+        "tries_off": 264,
+        "handlers_off": 272,
+        "insns_off": 252,
+        "insns_size_code_units": 5,
+        "try_start_pc": 1,
+        "try_code_units": 1,
+        "handler_target_pc": 127,
+        "method_idx": 0,
+        "odd_padding": true
+      }
+    }
+  ],
+  "scope": "synthetic DEX; no device install or full ART verification"
+}

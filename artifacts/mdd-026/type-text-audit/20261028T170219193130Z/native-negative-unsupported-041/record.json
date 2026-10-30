@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\type-text-audit\\20261028T170219193130Z\\type_text_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\generated\\unsupported-041.dex"
+  ],
+  "started_utc": "2026-10-28T17:02:31.782439+00:00",
+  "finished_utc": "2026-10-28T17:02:32.439656+00:00",
+  "elapsed_seconds": 0.6559999999999491,
+  "exit_code": 1,
+  "stdout_sha256": "3634b969400807dd7763524ee319af65b3d5e191a9c9ef8c91b8b242914dfe39",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "bounded negative conformance"
+}

@@ -1,0 +1,7 @@
+
+running 2 tests
+test crates\mdd-facts\src\metadata.rs - metadata::MetadataFacts (line 82) - compile fail ... ok
+test crates\mdd-facts\src\code.rs - code::CodeFacts (line 249) - compile fail ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+

@@ -1,0 +1,12 @@
+{
+  "archive_inputs": [
+    0
+  ],
+  "dataset_id": "dataset-1",
+  "has_dex": true,
+  "input_bytes": 10885562,
+  "inputs": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\inputs\\NewPipe_v0.28.6.apk"
+  ],
+  "prepare_ms": 118.6954
+}

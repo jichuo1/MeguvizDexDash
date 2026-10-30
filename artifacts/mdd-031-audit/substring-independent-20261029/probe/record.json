@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\substring-independent-20261029-target\\debug\\mdd-substring-independent.exe"
+  ],
+  "started_utc": "2026-10-29T04:30:07.601505+00:00",
+  "finished_utc": "2026-10-29T04:30:09.486774+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "6bff0346cff35ea7bb0cf45940237dfe4044145b0e9e979eb4f3ce5c0c1d31ea",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "supervisor_sha256": "6187ea3039bc6423abf1fc0e99f8a7ec1dc4e306571e873628634415e76c9e54",
+  "scope": "independent synthetic validation; not performance qualification"
+}

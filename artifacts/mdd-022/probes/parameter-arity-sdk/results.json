@@ -1,0 +1,94 @@
+{
+  "sdk_sha256": "f870af85191214f8f59d78e6a27748f00e724bbcce362115347014419969bcce",
+  "A0_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "records": [
+    {
+      "case": "annotations-038.dex",
+      "reader": "sdk",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : d75b0cf1\nsignature           : 1e16...725d\nfile_size           : 1452\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1024\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "input_sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360"
+    },
+    {
+      "case": "annotations-038.dex",
+      "reader": "A0",
+      "argv": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "query",
+        "-i",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex",
+        "-s",
+        "SELECT * FROM annotation_set_refs ORDER BY ordinal"
+      ],
+      "exit_code": 0,
+      "stdout": "+---------+-----------------------------+---------+--------------------+\n| file_id | annotation_set_ref_list_off | ordinal | annotation_set_off |\n+---------+-----------------------------+---------+--------------------+\n| 0       | 1188                        | 0       | 1180               |\n| 0       | 1188                        | 1       | NULL               |\n+---------+-----------------------------+---------+--------------------+\n",
+      "stderr": "",
+      "input_sha256": "65380a8b23601e17339379be211e417d8b4c8383b686b6d173f800656b985360"
+    },
+    {
+      "case": "bad-parameter-arity.dex",
+      "reader": "sdk",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-arity.dex"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-arity.dex'...\nOpened 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-arity.dex', DEX version '038'\nDEX file header:\nmagic               : 'dex\\n038\\0'\nchecksum            : 459c0bf0\nsignature           : 660d...223f\nfile_size           : 1452\nheader_size         : 112\nlink_size           : 0\nlink_off            : 0 (0x000000)\nstring_ids_size     : 49\nstring_ids_off      : 112 (0x000070)\ntype_ids_size       : 9\ntype_ids_off        : 308 (0x000134)\nproto_ids_size      : 1\nproto_ids_off       : 344 (0x000158)\nfield_ids_size      : 3\nfield_ids_off       : 356 (0x000164)\nmethod_ids_size     : 2\nmethod_ids_off      : 380 (0x00017c)\nclass_defs_size     : 1\nclass_defs_off      : 396 (0x00018c)\ndata_size           : 1024\ndata_off            : 428 (0x0001ac)\n\nClass #0            -\n  Class descriptor  : 'Lfixture/A;'\n  Access flags      : 0x0001 (PUBLIC)\n  Superclass        : 'Ljava/lang/Object;'\n  Interfaces        -\n  Static fields     -\n    #0              : (in Lfixture/A;)\n      name          : 'f'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n    #1              : (in Lfixture/A;)\n      name          : 'f2'\n      type          : 'Ljava/util/List;'\n      access        : 0x0009 (PUBLIC STATIC)\n  Instance fields   -\n  Direct methods    -\n    #0              : (in Lfixture/A;)\n      name          : 'm'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n    #1              : (in Lfixture/A;)\n      name          : 'm2'\n      type          : '(Ljava/util/List;I)Ljava/util/List;'\n      access        : 0x0109 (PUBLIC STATIC NATIVE)\n      code          : (none)\n  Virtual methods   -\n  source_file_idx   : -1 (unknown)\n\nMethod handle #0:\n  type        : invoke-static\n  target      : Lfixture/A; m\n  target_type : (Ljava/util/List;I)Ljava/util/List;\n",
+      "stderr": "",
+      "input_sha256": "dac87eb4842227104f1a7b3f215eb1fdc452422273c54020de89e88939ceea4f"
+    },
+    {
+      "case": "bad-parameter-arity.dex",
+      "reader": "A0",
+      "argv": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "query",
+        "-i",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-arity.dex",
+        "-s",
+        "SELECT * FROM annotation_set_refs ORDER BY ordinal"
+      ],
+      "exit_code": 0,
+      "stdout": "+---------+-----------------------------+---------+--------------------+\n| file_id | annotation_set_ref_list_off | ordinal | annotation_set_off |\n+---------+-----------------------------+---------+--------------------+\n| 0       | 1188                        | 0       | 1180               |\n+---------+-----------------------------+---------+--------------------+\n",
+      "stderr": "",
+      "input_sha256": "dac87eb4842227104f1a7b3f215eb1fdc452422273c54020de89e88939ceea4f"
+    },
+    {
+      "case": "bad-parameter-count.dex",
+      "reader": "sdk",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-count.dex"
+      ],
+      "exit_code": 1,
+      "stdout": "Processing 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-count.dex'...\n",
+      "stderr": "10-28 18:20:06.632 45408 30592 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-count.dex': Section overlap or out-of-order map: 4b4, 4b0\n",
+      "input_sha256": "19b0576495255e34828c35a813836c27be30bdcb5bb69816ff4567e2f3ba85f6"
+    },
+    {
+      "case": "bad-parameter-count.dex",
+      "reader": "A0",
+      "argv": [
+        "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+        "query",
+        "-i",
+        "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\bad-parameter-count.dex",
+        "-s",
+        "SELECT * FROM annotation_set_refs ORDER BY ordinal"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Error: SQL statement 1 failed\n\nCaused by:\n    0: query_failed at execute_sql: native cache query failed\n    1: failed to read native cache table annotation_set_refs: annotation_set_ref_list entries exceeds dex file bounds\n",
+      "input_sha256": "19b0576495255e34828c35a813836c27be30bdcb5bb69816ff4567e2f3ba85f6"
+    }
+  ],
+  "scope": "format/compatibility probes only; not installability or runtime annotations"
+}

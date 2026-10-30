@@ -1,0 +1,88 @@
+{
+  "schema_version": "mdd.typed-query-conformance.v1",
+  "recorded_utc": "2026-10-28T13:23:37.895307+00:00",
+  "component_status": "root-reviewed-windows-and-linux-checkpoint-scope-passed",
+  "task_status_owner": "root",
+  "validation_summary": "artifacts/mdd-030/validation/20261028T132212361104Z/summary.json",
+  "source_stable": true,
+  "ir_version": "mdd.typed-query.v1",
+  "text_semantics": "mdd-text-v1",
+  "actual_tests": {
+    "rust_units": 7,
+    "compile_fail_docs": 2,
+    "small_table_cases": 36,
+    "manual_positive_rows_both_modes": 26,
+    "negative_stage_reason_cases": 10,
+    "like_hand_python_cases": 20,
+    "base64_stdlib_positive_cases": 322,
+    "base64_canonical_negative_cases": 12
+  },
+  "acceptance": [
+    {
+      "criterion": "no business templates or classifications",
+      "satisfied_in_component": true,
+      "evidence": "typed operators and 9 generic native relations; source hashes below"
+    },
+    {
+      "criterion": "empty NULL duplicates multi-source stable-order types",
+      "satisfied_in_component": true,
+      "evidence": "36 hand cases + genuine duplicate-input NativeCatalog + empty-body/empty-right/grouped-empty boundaries"
+    },
+    {
+      "criterion": "independent small-table oracle and streaming/materialized reference agree",
+      "satisfied_in_component": true,
+      "evidence": "artifacts/mdd-030/validation/20261028T132212361104Z/test/record.json",
+      "independence_limit": "Rust paths share exact primitive values/aggregate arithmetic; Python manual oracle/standard-library codec are separate implementations"
+    },
+    {
+      "criterion": "plans record facts/candidates and controllable checkpoints",
+      "satisfied_in_component": true,
+      "evidence": "NodePlan schema/required layers/candidate metadata; real cancellation/quota tests; full prepare rejects zero-input invalid entities and unbuilt layers"
+    }
+  ],
+  "base64_reject_scope": [
+    "length not divisible by 4",
+    "invalid or URL alphabet",
+    "whitespace/newline",
+    "invalid/interior/extra padding",
+    "data after padded block",
+    "nonzero unused bits; AB== and AAB="
+  ],
+  "like_escape_scope": "native UTF16 tokens/helper only; NUL and isolated surrogates preserved; explicit single-unit escape; trailing escape error; no SQL dialect admission",
+  "raw_code_scope": "same snapshot/occurrence/physical member/content and Arc lease, checked relative byte range, known abstract/native None vs present empty Bytes",
+  "missing_or_not_claimed": [
+    "SQL dialect and HostLab17 compatibility remain MDD031/032",
+    "M4 terminal/envelope/cursor/budget lifecycle remain MDD034 and later",
+    "buffer admission is conservative logical work accounting, not measured RSS or hard allocator limit",
+    "no private APK, formal performance, full ART or admitted product profile"
+  ],
+  "profiles_admitted": false,
+  "formal_performance_runs": 0,
+  "private_inputs": false,
+  "source_hashes": {
+    "crates/mdd-query/src/executor.rs": "7ed67c5a35d768151c0fd703207c2bb796d42d104729f989ad757917752904e4",
+    "crates/mdd-query/src/executor/facts.rs": "65ea2bb668b6c3e0e95d101dcd1f65e9ee797b43c308b1879b96f8481335108e",
+    "crates/mdd-query/src/executor/tests.rs": "91ff743a7b0b87c2bccbf883a1de4c1158d6570ace7b18b0f16c8ec4a093fbe7",
+    "crates/mdd-query/src/ir/mod.rs": "a4fe8a1a66d70684b868eeb61a77e56aecc10377ded6acd517b3c59407cfe46f",
+    "crates/mdd-query/src/operators/mod.rs": "031db339ae8caeacf82b3876bac9723d9d8c0bd5acc934ed12e3a1d5922812d1",
+    "tests/fixtures/query/build_cases.py": "88eeb2ee9b1a78b75ea1e045b832c7c20aba9dd892c180439a5bf0f1e6b5a0ef",
+    "tests/fixtures/query/cases.json": "aa5b16f4b105a336c6a4c7763c2eced57d64d51620b64c4a81b2c4e9af56babf",
+    "tests/fixtures/query/codec-cases.json": "460148f1c790fb8784450d750e4ce7d8e6fbc73f8f736e1e4005ff004efe2e26",
+    "tests/fixtures/query/codec_oracle.py": "65220b21afabc2843bfc537e9c76a986768d273426cbc609eaef3623afa0582e",
+    "tests/fixtures/query/like-cases.json": "7969ee7ad529c51dd9ba87891d6ad1c689c600a587549cd75ffbfb9021dc50ba",
+    "tests/fixtures/query/like_oracle.py": "c09afdef90b73cdc8114e469a9b49b7e96be11ae28c558951983e2cacd1e489e",
+    "tests/fixtures/query/README.md": "5f3c06c268ee27bbc967080d312cfee89fbdac5bbcec19ebbe183b0dcbee36b4",
+    "conformance/query/typed-ir-cases.json": "b13160f20799b96879c03c71e50901be90f3d6224c5a4ecea0e003b397bf42a0"
+  },
+  "binaries": {
+    "target/debug/deps/mdd_query-b4cbff6f2345f366.exe": "c9ec3e2733ee3714682386d084bb06c7204560ab8dcf63f2edaaf505f95c7a69"
+  },
+  "rollback": "root reverts explicit new module/fixture/conformance files and internal workspace wiring; preserve all failed command records and unrelated work",
+  "root_review": "artifacts/mdd-030/root-review/record.json",
+  "native_ci": {
+    "head_sha": "e56db3e9380a60b117e9e65ec5ab3f76ffb61361",
+    "run_id": 40696463963,
+    "readback": "artifacts/integration/20261028/ci-e56db3e.json",
+    "per_platform_workspace_tests": 108
+  }
+}

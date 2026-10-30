@@ -1,0 +1,9 @@
+
+running 4 tests
+test runtime_tests::length_legacy_cancelled_after_scan_starts_stays_failed ... ok
+test runtime_tests::length_legacy_scan_respects_session_step_budget ... ok
+test runtime_tests::length_native_constant_time_length_keeps_step_budget ... ok
+test runtime_tests::length_preserves_code_unit_and_legacy_scalar_semantics ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 42 filtered out; finished in 0.58s
+

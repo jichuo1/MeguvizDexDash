@@ -1,0 +1,15 @@
+{
+  "captured_utc": "2026-10-29T06:28:40.221731+00:00",
+  "base_commit": "3c334c5d365126268dd0d5488ab33c4d2dd23173",
+  "snapshot_sources": 94,
+  "snapshot_before_sha256": "da2886cf3422c08c093c3ec69d13393070ec161456d85ed7f1352739aef354a9",
+  "probe_files_sha256": {
+    "Cargo.toml": "9f93a0239acfc70b14fa357b2b3cc78db70abe428e6557093558e30e1042b3a3",
+    "Cargo.lock": "bc6e6fe6e23e867ce73d5b4917c446f18b41d38d83f41b819ca384e078a1ea73",
+    "src/main.rs": "1c125542dcf85f8d814d34618debf713feb55d759fd8d9e76c4ec78b7b8bba60",
+    "run_bounded.py": "2125d5ea144dfa09168a42b2ebc1b49f6ac16154bebccc0f387c6d2e9a1a334a"
+  },
+  "external_packages": 33,
+  "all_external_subset_of_snapshot": true,
+  "current_ir_equals_snapshot": true
+}

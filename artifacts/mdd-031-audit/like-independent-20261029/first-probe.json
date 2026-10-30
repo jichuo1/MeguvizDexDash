@@ -1,0 +1,9 @@
+{
+  "status": "probe_parameter_format_failed_before_like",
+  "source_sha256": "3032cec3703186b835096be6748fea662046f47c7fbb4f8c3a58ca5587f15a14",
+  "binary_sha256": "1f71e55241cbee2ddd96717f424e1c305d0926fe72b66e9790e14a855a71ab95",
+  "stdout_sha256": "a79e4276dd67e4dfd985165d02c0e8e4755cb6eeac422427e6ceb189ba9238d4",
+  "case_count": 27,
+  "expected_error": "ONLY_POSITIONAL_BARE_PARAMETERS_SUPPORTED",
+  "profile_admitted": false
+}

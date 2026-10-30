@@ -1,0 +1,112 @@
+{
+  "schema_version": "mdd.hostlab-baseline-preflight.v1",
+  "status": "ready_for_qualification_window",
+  "formal_performance_ready": false,
+  "facts": {
+    "private_input_parsed": false,
+    "formal_measurement": false,
+    "platform": "Windows-11-10.0.26300-SP0",
+    "reference_commit": "8782f43d537c442905123e35af325c412caa5188",
+    "feature_names": [
+      "block_update",
+      "player_default_quality",
+      "comment_free_copy",
+      "description_free_copy",
+      "home_top_bar",
+      "mine_entry",
+      "mine_vip",
+      "dynamic_tabs",
+      "full_number",
+      "player_portrait",
+      "player_status_bar",
+      "home_recommend",
+      "video_relate",
+      "home_tabs",
+      "mine_components",
+      "story_purify",
+      "splash_ads",
+      "bottom_bar",
+      "teenagers_mode",
+      "comment_filter",
+      "comment_purify",
+      "comment_topology",
+      "comment_section",
+      "paused_ad",
+      "home_banner",
+      "merchandise",
+      "game_promotion"
+    ],
+    "feature_count": 27,
+    "evidence_keys": [
+      "class_records",
+      "discoveries",
+      "families",
+      "features",
+      "gates",
+      "home_probe_sha256",
+      "invoke_edges",
+      "limitations",
+      "page_path_matrix",
+      "protocol_definitions",
+      "protocol_paths",
+      "protocol_twins",
+      "resource_fingerprints",
+      "rule_sha256",
+      "rule_version",
+      "sample",
+      "scope",
+      "unclassified_protocol_callers",
+      "unknown_families",
+      "unregistered_protocols"
+    ],
+    "tool_hashes": {
+      "analyze.py": "74bf9cadd27e34a40668b80df3fe7757261bc614a509531c9990c1f0e24e9bf7",
+      "hostlab.py": "f23608ce4a74b6ab77debd062b79ca95c0039aca812b75bf6c8e1656ed525733",
+      "process_control.py": "3e67bb896016fb5e774e4cc0197caa11120ec41c87854920ba26083b165f40c6",
+      "runner_resources.py": "14d39ba517d603aa21a553eaa5305e893174449904024e5f8944ace553af23ab",
+      "remote_job.py": "8932c53d256e21bff2e4864243c3a075ab0173723830a233fccba4a1d1ec16b6",
+      "priority_analysis.py": "2b6e6a0700c233dafe1b4353bd77c1c156fcabd483c262ff9ee8ca92cb4a5793",
+      "surface_workers.py": "b1750fee943843b76e8ff71e54a589ec04c0cbccded30d642cc1e2c233ac8323",
+      "audit_common.py": "d9357a30aff2abe5185d1574191a90980053c2799b35a1988508bcc7c5bb2d47",
+      "native_audit.py": "74b7511df3b1419833f3d43ccad26e9a65af355de835ff0fd755ff21f456976e",
+      "native_cli.py": "04882d4648866272afb020f12cf5ffd7ac8deb6f89261948fa219b13d4b46e77",
+      "native_session.py": "66f2c941d59abb699b3cb10cb1d8ae4af34ad34127532609dfc3ac8c49371974",
+      "native_graph.py": "8be49a978cf68fa6e762a2d53794f368ca63d4984989b35b8541c563258195fa",
+      "native_rules.py": "2e3567b33a2ca7a719c92b34c7d3cf1d84fbdd7b958420c1ae043f51bd25d944",
+      "native_surface.py": "74cb88bfee7926279d42d025b46a9c76e53da95301f34bcbd2593f531436ff45",
+      "analysis/audit_catalog.json": "6e2eb4a984d7edcf3298cca3d57e4aaf66fc54ace55551dcda2d70a753a1d8d8",
+      "analysis/dex_reader.py": "cdadd66b6f5dc1a356851478654079177fbdd7e593835e6c8afdb5244625ada5",
+      "analysis/home_frame_audit.py": "4ac4dfe6edb1c3d054eb0b03848b9256b223a6641888df07b30da71aff32b0fc",
+      "analysis/obfuscated_owner_drift.py": "9a7094b6a06f777589c7417d7c4c453a1dd5d8ce60ef7e20ba355c8f7e919fee",
+      "analysis/run_intake.py": "c73b6345408293573010154815d7275994d9773139096b0c3a954ab640e81f1a",
+      "analysis/HostCompatibilityAudit.java": "856e65a53fc9db86a452766d5c68da8003f1f6af95ff71e1a0b95fd7a4bba41d",
+      "analysis/SingleClassDump.java": "bf80e8c9f6cc62b8babf05fc7c3aa63db6261abb9120b043c25db880403c8329"
+    },
+    "sdk_tools": {
+      "aapt": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\aapt.exe",
+      "apksigner": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\apksigner.bat"
+    },
+    "sdk_tool_hashes": {
+      "aapt": "6db043508eb38cbc9ac01f41526415eab33d827c32573a1bc41849cf3e704006",
+      "apksigner": "549dd0028b0314a5112d6b56e2de7800e713f297da4508b513a735546e52ce38"
+    },
+    "java": "C:\\Program Files\\Microsoft\\jdk-17.0.20.101-hotspot\\bin\\java.exe",
+    "java_sha256": "6db7759259dc79800c5c6014f0ec68961a1fe69c36bb9b2a15a42c3b0c413f6a",
+    "mcp_version": "2.2.0",
+    "A0": {
+      "version_stdout": "dexsql 0.1.0",
+      "sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448"
+    },
+    "A1": {
+      "version_stdout": "dexsql 0.1.1",
+      "sha256": "602105c98232120c14d6124fb33574f2f95f12e50e51d25b8834f893925f28d6"
+    },
+    "windows_job_smoke": "passed; suspended assignment, timeout and descendant cleanup",
+    "input_identity_basis": "root full-SHA receipts + unchanged stat; each actual run must fully rehash before/after"
+  },
+  "blockers": [
+    "root exclusive CPU/memory/time window not yet granted",
+    "full private A0/A1 results and 20-group equality certificate not yet executed",
+    "A2 compact MCP transport candidate not admitted for the full audit consumer"
+  ]
+}

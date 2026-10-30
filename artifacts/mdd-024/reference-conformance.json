@@ -1,0 +1,942 @@
+{
+  "schema_version": "mdd.reference-conformance.v1",
+  "task_id": "MDD-024",
+  "run_id": "20261028T125011751992Z",
+  "success": true,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "machine": "AMD64",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "commands": [
+    {
+      "label": "generate-1",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/generate-1.json",
+      "exit_code": 0
+    },
+    {
+      "label": "generate-2",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/generate-2.json",
+      "exit_code": 0
+    },
+    {
+      "label": "oracle",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/oracle.json",
+      "exit_code": 0
+    },
+    {
+      "label": "oracle-optimized",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/oracle-optimized.json",
+      "exit_code": 0
+    },
+    {
+      "label": "A0-tiny-comparison",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/A0-tiny-comparison.json",
+      "exit_code": 0
+    },
+    {
+      "label": "reference-tests",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/reference-tests.json",
+      "exit_code": 0
+    },
+    {
+      "label": "annotation-regression",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/annotation-regression.json",
+      "exit_code": 0
+    },
+    {
+      "label": "instruction-regression",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/instruction-regression.json",
+      "exit_code": 0
+    },
+    {
+      "label": "fact-doc-tests",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/fact-doc-tests.json",
+      "exit_code": 0
+    },
+    {
+      "label": "clippy",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/clippy.json",
+      "exit_code": 0
+    },
+    {
+      "label": "format",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/format.json",
+      "exit_code": 0
+    },
+    {
+      "label": "build-consumer",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/build-consumer.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-classic-035",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-classic-035.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-shared-code-035",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-shared-code-035.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-orphan-code-035",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-orphan-code-035.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-poly-custom-038",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-poly-custom-038.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-handles-039",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-handles-039.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-nonscalar-string-035",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-nonscalar-string-035.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-ordinary-unrelated-bad-annotation",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-ordinary-unrelated-bad-annotation.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-poly-custom-unrelated-bad-annotation",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-poly-custom-unrelated-bad-annotation.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-defined-field-035",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-defined-field-035.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-type-names-035",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-type-names-035.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-jumbo-string-035",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-jumbo-string-035.json",
+      "exit_code": 0
+    },
+    {
+      "label": "native-bad-reference-index",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-bad-reference-index.json",
+      "exit_code": 1
+    },
+    {
+      "label": "native-bad-invoke-argument-count",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-bad-invoke-argument-count.json",
+      "exit_code": 1
+    },
+    {
+      "label": "native-bad-caller-ins-size",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-bad-caller-ins-size.json",
+      "exit_code": 1
+    },
+    {
+      "label": "native-bad-body-interior-pointer",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-bad-body-interior-pointer.json",
+      "exit_code": 1
+    },
+    {
+      "label": "native-bad-custom-prefix",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-bad-custom-prefix.json",
+      "exit_code": 1
+    },
+    {
+      "label": "native-bad-custom-argument-count",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-bad-custom-argument-count.json",
+      "exit_code": 1
+    },
+    {
+      "label": "native-bad-poly-proto-index",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/native-bad-poly-proto-index.json",
+      "exit_code": 1
+    },
+    {
+      "label": "public-newpipe",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/public-newpipe.json",
+      "exit_code": 0
+    },
+    {
+      "label": "toolchain",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/toolchain.json",
+      "exit_code": 0
+    },
+    {
+      "label": "checkout",
+      "path": "artifacts/mdd-024/validation/20261028T125011751992Z/checkout.json",
+      "exit_code": 0
+    }
+  ],
+  "targeted_reference_tests": 9,
+  "fixtures": 18,
+  "native_valid_scopes": 11,
+  "native_invalid_inputs": 7,
+  "fixture_generation_reproducible": true,
+  "fixture_sha256": {
+    "bad-body-interior-pointer.dex": "be7015677a88b8b70ed4547b9d1579d7ee7cdb75c1ce100371ee67578d947020",
+    "bad-caller-ins-size.dex": "c2bdff173412f339da67dfa30d21569049cc452a7d900d042559ef703f1a48c3",
+    "bad-custom-argument-count.dex": "b5a3502e53e9b85eed66148dd8351faf4f232aa0ce9cb0f19d2edf8d21d33649",
+    "bad-custom-prefix.dex": "2a13dbc8af3f9ab1cf780a3e80d0335f387b8e049ad7638f0abf447734278240",
+    "bad-invoke-argument-count.dex": "422b7b00d0d239b15488831df89b51d153192263c74d9e50c652a77d1b95f857",
+    "bad-poly-proto-index.dex": "f93919716280127f987a6becea290ebd10db0c3da5407cf1029e163d06c98276",
+    "bad-reference-index.dex": "a08ae1ba17e56fabfde47b331dae64bc5de7715ececd74f552e0c663e421919f",
+    "classic-035.dex": "076dcc64b96b8369327e7ee6e5c05c864ef3bde26c746b6318ee12c52c654dc8",
+    "defined-field-035.dex": "fbf81250c61964b9312688ab4e6f47e09a904978a7c5aa77bebe2ec330921bd8",
+    "handles-039.dex": "1ef9feee89649371933005100ef2cc2878a581f9459233dcc1810881a9824c27",
+    "jumbo-string-035.dex": "f7a587b896028ec950b78b747e87d6f7cda956f65e415a1b188f071d7e0e12c1",
+    "nonscalar-string-035.dex": "d2bc2a79ed9d2304a3ffeb9bc0c762fccc5460019a280ab923901b84ddd9510a",
+    "ordinary-unrelated-bad-annotation.dex": "05bdd53bfc54760a1fb41425f492b4c5eaadcaf3b1ca82e2a5ea9998d950b3d7",
+    "orphan-code-035.dex": "be046c1bc2b7392257e174b5bac47c6cc9a141e8f4c9a9e839a1d7c5c01ba92f",
+    "poly-custom-038.dex": "25bc5a03641d31d87212a9a292d798e64c563e2666d03f579e7fc894ac8ee425",
+    "poly-custom-unrelated-bad-annotation.dex": "4f0ab7a6cfe9f1053f079344331e6da5bccb435b2f7754b4d2edc8b8571fbdd0",
+    "shared-code-035.dex": "22eb2d4020f172334a99f5c75538af5f2b3e80673adb11803b368cc68aaec0ab",
+    "type-names-035.dex": "9d4d2cfebd4ac275fe508004cd7efd29b307c855671e716da6e02955ab93774f"
+  },
+  "handwritten_expected_sha256": "9234b91ae0113ea474b22768dd6cf7294afbd9a6045aa22bfc5c9dc88e789eb3",
+  "native_full_relation_comparisons": [
+    {
+      "case": "classic-035",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "f52aff10d3c0597219c9d4783d7cafbf45af7f0753685283769a96f6c206c557"
+    },
+    {
+      "case": "classic-035",
+      "relation": "method_calls",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "case": "classic-035",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "case": "classic-035",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "case": "shared-code-035",
+      "relation": "method_strings",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "ec17194ca41f8a8615061697cae3c333b0831744f4bc0c718002e3a2b15a1876"
+    },
+    {
+      "case": "shared-code-035",
+      "relation": "method_calls",
+      "rows": 8,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "fe9ff10170df7c54c20d3b0d2c4fe0df81a1e659481e0eddaced78c08c09737c"
+    },
+    {
+      "case": "shared-code-035",
+      "relation": "method_field_accesses",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "85511c819bf24a0b6697623e8f648fa96933a0b5bb345cb919bdbd3a26adf3a1"
+    },
+    {
+      "case": "shared-code-035",
+      "relation": "method_used_types",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "0109ac582d83aadda50c16058d434cbe7ce85deda7ec754f94e0aab305d2da56"
+    },
+    {
+      "case": "orphan-code-035",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "f52aff10d3c0597219c9d4783d7cafbf45af7f0753685283769a96f6c206c557"
+    },
+    {
+      "case": "orphan-code-035",
+      "relation": "method_calls",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "case": "orphan-code-035",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "case": "orphan-code-035",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "case": "poly-custom-038",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "d9975ef7e95aeeff8533830407f087bc394497198cd5821c0da8f6ef769a964f"
+    },
+    {
+      "case": "poly-custom-038",
+      "relation": "method_calls",
+      "rows": 6,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "3a7bf96c9c69cce0bb3676c0019e78738908b5904d90fa59413706d4cc135194"
+    },
+    {
+      "case": "poly-custom-038",
+      "relation": "method_field_accesses",
+      "rows": 3,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "f65a830e47d3ac2c0aba18ab66297c056f5c46e338ba250a4f3da984e5212c19"
+    },
+    {
+      "case": "poly-custom-038",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "24eca82f973d104323238ec8a547f35aa769df7878384b102b79f5cdafdfce40"
+    },
+    {
+      "case": "handles-039",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "f52aff10d3c0597219c9d4783d7cafbf45af7f0753685283769a96f6c206c557"
+    },
+    {
+      "case": "handles-039",
+      "relation": "method_calls",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "case": "handles-039",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "case": "handles-039",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "case": "nonscalar-string-035",
+      "relation": "method_calls",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "case": "nonscalar-string-035",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "case": "nonscalar-string-035",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "case": "ordinary-unrelated-bad-annotation",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "01bd1a2a27efe3d1fc0d6ddbfb5b927923f7bc0d838d7fbb7935447d33068820"
+    },
+    {
+      "case": "ordinary-unrelated-bad-annotation",
+      "relation": "method_calls",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "case": "ordinary-unrelated-bad-annotation",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "case": "ordinary-unrelated-bad-annotation",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "24eca82f973d104323238ec8a547f35aa769df7878384b102b79f5cdafdfce40"
+    },
+    {
+      "case": "poly-custom-unrelated-bad-annotation",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "345ed6dfa67cabe84bf61878cde81458263f82ca8e55447342418d6975e492c5"
+    },
+    {
+      "case": "poly-custom-unrelated-bad-annotation",
+      "relation": "method_calls",
+      "rows": 6,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "3a7bf96c9c69cce0bb3676c0019e78738908b5904d90fa59413706d4cc135194"
+    },
+    {
+      "case": "poly-custom-unrelated-bad-annotation",
+      "relation": "method_field_accesses",
+      "rows": 3,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "f65a830e47d3ac2c0aba18ab66297c056f5c46e338ba250a4f3da984e5212c19"
+    },
+    {
+      "case": "poly-custom-unrelated-bad-annotation",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "eb2768e49637ef8e26d6ac06314d87b4d58ac830f87e076b299405bc76be6c34"
+    },
+    {
+      "case": "defined-field-035",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "01bd1a2a27efe3d1fc0d6ddbfb5b927923f7bc0d838d7fbb7935447d33068820"
+    },
+    {
+      "case": "defined-field-035",
+      "relation": "method_calls",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "case": "defined-field-035",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "1bb2d66a9e60f67037e86b62e88acf70a524be13c566d0f67279b6b2b0cdfc4f"
+    },
+    {
+      "case": "defined-field-035",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    },
+    {
+      "case": "type-names-035",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "01bd1a2a27efe3d1fc0d6ddbfb5b927923f7bc0d838d7fbb7935447d33068820"
+    },
+    {
+      "case": "type-names-035",
+      "relation": "method_calls",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "case": "type-names-035",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "case": "type-names-035",
+      "relation": "method_used_types",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "407ff1e16da712377a8d156321cb7d6d6c16da488873725af66ae135c4dece2a"
+    },
+    {
+      "case": "jumbo-string-035",
+      "relation": "method_strings",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "f52aff10d3c0597219c9d4783d7cafbf45af7f0753685283769a96f6c206c557"
+    },
+    {
+      "case": "jumbo-string-035",
+      "relation": "method_calls",
+      "rows": 4,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "bca8559870bbb3e2502cd189259f26df0b4fe023db2723fee8f088c142737aae"
+    },
+    {
+      "case": "jumbo-string-035",
+      "relation": "method_field_accesses",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "4a10c17c3bb431dfad15ec6105ae74d9c500b8dc72c4e5c69df565d41c491faa"
+    },
+    {
+      "case": "jumbo-string-035",
+      "relation": "method_used_types",
+      "rows": 2,
+      "full_schema_checked": true,
+      "equal_multiset": true,
+      "sha256": "032bb7ffc308dd39a46068020fd225b96e643a8d02a68fd2fee9e58f77262a5a"
+    }
+  ],
+  "native_outcomes": [
+    {
+      "case": "classic-035",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 10,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "shared-code-035",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 20,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "orphan-code-035",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 10,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "poly-custom-038",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 17,
+      "dynamic_calls": 2,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "handles-039",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 13,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "nonscalar-string-035",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 10,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": false
+    },
+    {
+      "case": "ordinary-unrelated-bad-annotation",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 10,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "poly-custom-unrelated-bad-annotation",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 17,
+      "dynamic_calls": 2,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "defined-field-035",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 10,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "type-names-035",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 12,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "jumbo-string-035",
+      "outcome": "complete requested encoded reference scope",
+      "sites": 10,
+      "dynamic_calls": 0,
+      "plain_scalar_projection": true
+    },
+    {
+      "case": "bad-reference-index",
+      "outcome": "InvalidInput",
+      "reason": "INSTRUCTION_REFERENCE_OUT_OF_RANGE",
+      "source_error": {
+        "code": "INVALID_INPUT",
+        "details": {
+          "byte_length": "0",
+          "byte_offset": "460",
+          "code_item_byte_offset": "420",
+          "content_id": "sha256:a08ae1ba17e56fabfde47b331dae64bc5de7715ececd74f552e0c663e421919f",
+          "debug_info_byte_offset": "0",
+          "dex_occurrence_id": "snapshot-a9b2c821037015e67cefd19720c11cc930a5be8b0db5cd0923062904bb3c6634:source:0:raw:dex:header:0",
+          "facts_coverage": "partial",
+          "facts_layer": "code_layout",
+          "input_coverage": "partial",
+          "local_index": 65535,
+          "member_id": "snapshot-a9b2c821037015e67cefd19720c11cc930a5be8b0db5cd0923062904bb3c6634:source:0:raw",
+          "reason": "INSTRUCTION_REFERENCE_OUT_OF_RANGE",
+          "reference_kind": "Method",
+          "snapshot_id": "snapshot-a9b2c821037015e67cefd19720c11cc930a5be8b0db5cd0923062904bb3c6634",
+          "source_binding": "snapshot_member_lease",
+          "table_count": 4
+        },
+        "message": "INSTRUCTION_REFERENCE_OUT_OF_RANGE",
+        "retryable": false,
+        "stage": "dex.code_layout"
+      }
+    },
+    {
+      "case": "bad-invoke-argument-count",
+      "outcome": "InvalidInput",
+      "reason": "INVOKE_WORD_COUNT_EXCEEDS_OUTS",
+      "source_error": {
+        "code": "INVALID_INPUT",
+        "details": {
+          "byte_length": "6",
+          "byte_offset": "460",
+          "code_item_byte_offset": "420",
+          "content_id": "sha256:422b7b00d0d239b15488831df89b51d153192263c74d9e50c652a77d1b95f857",
+          "debug_info_byte_offset": "0",
+          "dex_occurrence_id": "snapshot-95cfdda64e78e675617c29a555d0f2ddc8f1b06b37b27463503a91d8f3bfffcf:source:0:raw:dex:header:0",
+          "facts_coverage": "partial",
+          "facts_layer": "code_layout",
+          "input_coverage": "partial",
+          "member_id": "snapshot-95cfdda64e78e675617c29a555d0f2ddc8f1b06b37b27463503a91d8f3bfffcf:source:0:raw",
+          "reason": "INVOKE_WORD_COUNT_EXCEEDS_OUTS",
+          "snapshot_id": "snapshot-95cfdda64e78e675617c29a555d0f2ddc8f1b06b37b27463503a91d8f3bfffcf",
+          "source_binding": "snapshot_member_lease"
+        },
+        "message": "INVOKE_WORD_COUNT_EXCEEDS_OUTS",
+        "retryable": false,
+        "stage": "dex.code_layout"
+      }
+    },
+    {
+      "case": "bad-caller-ins-size",
+      "outcome": "InvalidInput",
+      "reason": "CALLER_INS_SIZE_MISMATCH",
+      "source_error": {
+        "code": "INVALID_INPUT",
+        "details": {
+          "byte_length": "2",
+          "byte_offset": "422",
+          "content_id": "sha256:c2bdff173412f339da67dfa30d21569049cc452a7d900d042559ef703f1a48c3",
+          "dex_occurrence_id": "snapshot-2956c110afd8248458bec8dee5980f9b1d0d26a159a9cccb30a565ab0d455c3e:source:0:raw:dex:header:0",
+          "encoded_words": 1,
+          "expected_words": 0,
+          "member_id": "snapshot-2956c110afd8248458bec8dee5980f9b1d0d26a159a9cccb30a565ab0d455c3e:source:0:raw",
+          "method_idx": 0,
+          "reason": "CALLER_INS_SIZE_MISMATCH",
+          "snapshot_id": "snapshot-2956c110afd8248458bec8dee5980f9b1d0d26a159a9cccb30a565ab0d455c3e"
+        },
+        "message": "CALLER_INS_SIZE_MISMATCH",
+        "retryable": false,
+        "stage": "facts.references"
+      }
+    },
+    {
+      "case": "bad-body-interior-pointer",
+      "outcome": "InvalidInput",
+      "reason": "METHOD_BODY_NOT_CODE_ITEM_START",
+      "source_error": {
+        "code": "INVALID_INPUT",
+        "details": {
+          "byte_offset": "424",
+          "content_id": "sha256:be7015677a88b8b70ed4547b9d1579d7ee7cdb75c1ce100371ee67578d947020",
+          "dex_occurrence_id": "snapshot-ef82804c86745b9fdee9096fb6de15eaac4e470112ada7d3ff2cf41de51c2bfc:source:0:raw:dex:header:0",
+          "member_id": "snapshot-ef82804c86745b9fdee9096fb6de15eaac4e470112ada7d3ff2cf41de51c2bfc:source:0:raw",
+          "method_idx": 0,
+          "reason": "METHOD_BODY_NOT_CODE_ITEM_START",
+          "snapshot_id": "snapshot-ef82804c86745b9fdee9096fb6de15eaac4e470112ada7d3ff2cf41de51c2bfc"
+        },
+        "message": "METHOD_BODY_NOT_CODE_ITEM_START",
+        "retryable": false,
+        "stage": "facts.references"
+      }
+    },
+    {
+      "case": "bad-custom-prefix",
+      "outcome": "InvalidInput",
+      "reason": "CALL_SITE_ENCODED_PREFIX",
+      "source_error": {
+        "code": "INVALID_INPUT",
+        "details": {
+          "byte_length": "2",
+          "byte_offset": "787",
+          "content_id": "sha256:2a13dbc8af3f9ab1cf780a3e80d0335f387b8e049ad7638f0abf447734278240",
+          "dex_occurrence_id": "snapshot-9e4818983e908b263632e2365576504d2bf23297024111033882f04d4285a87e:source:0:raw:dex:header:0",
+          "expected": "method_handle",
+          "facts_coverage": "unknown",
+          "input_coverage": "partial",
+          "member_id": "snapshot-9e4818983e908b263632e2365576504d2bf23297024111033882f04d4285a87e:source:0:raw",
+          "position": "0",
+          "reason": "CALL_SITE_ENCODED_PREFIX",
+          "snapshot_id": "snapshot-9e4818983e908b263632e2365576504d2bf23297024111033882f04d4285a87e",
+          "source_binding": "caller_snapshot_required"
+        },
+        "message": "CALL_SITE_ENCODED_PREFIX",
+        "retryable": false,
+        "stage": "dex.annotations"
+      }
+    },
+    {
+      "case": "bad-custom-argument-count",
+      "outcome": "InvalidInput",
+      "reason": "INVOKE_ARGUMENT_WORD_MISMATCH",
+      "source_error": {
+        "code": "INVALID_INPUT",
+        "details": {
+          "byte_length": "6",
+          "byte_offset": "880",
+          "code_unit_pc": 34,
+          "content_id": "sha256:b5a3502e53e9b85eed66148dd8351faf4f232aa0ce9cb0f19d2edf8d21d33649",
+          "dex_occurrence_id": "snapshot-72c634343040b980a3da69a409230399600001b71d8cbcf09a342ef41a0c6eb1:source:0:raw:dex:header:0",
+          "encoded_words": 1,
+          "expected_words": 0,
+          "member_id": "snapshot-72c634343040b980a3da69a409230399600001b71d8cbcf09a342ef41a0c6eb1:source:0:raw",
+          "method_idx": 0,
+          "reason": "INVOKE_ARGUMENT_WORD_MISMATCH",
+          "snapshot_id": "snapshot-72c634343040b980a3da69a409230399600001b71d8cbcf09a342ef41a0c6eb1"
+        },
+        "message": "INVOKE_ARGUMENT_WORD_MISMATCH",
+        "retryable": false,
+        "stage": "facts.references"
+      }
+    },
+    {
+      "case": "bad-poly-proto-index",
+      "outcome": "InvalidInput",
+      "reason": "INSTRUCTION_REFERENCE_OUT_OF_RANGE",
+      "source_error": {
+        "code": "INVALID_INPUT",
+        "details": {
+          "byte_length": "0",
+          "byte_offset": "864",
+          "code_item_byte_offset": "796",
+          "content_id": "sha256:f93919716280127f987a6becea290ebd10db0c3da5407cf1029e163d06c98276",
+          "debug_info_byte_offset": "0",
+          "dex_occurrence_id": "snapshot-97fd12f4501c199e33af6e5b28eca0fa939b66f4f7f40f96eaceb0f9993d73f9:source:0:raw:dex:header:0",
+          "facts_coverage": "partial",
+          "facts_layer": "code_layout",
+          "input_coverage": "partial",
+          "local_index": 65535,
+          "member_id": "snapshot-97fd12f4501c199e33af6e5b28eca0fa939b66f4f7f40f96eaceb0f9993d73f9:source:0:raw",
+          "reason": "INSTRUCTION_REFERENCE_OUT_OF_RANGE",
+          "reference_kind": "Prototype",
+          "snapshot_id": "snapshot-97fd12f4501c199e33af6e5b28eca0fa939b66f4f7f40f96eaceb0f9993d73f9",
+          "source_binding": "snapshot_member_lease",
+          "table_count": 3
+        },
+        "message": "INSTRUCTION_REFERENCE_OUT_OF_RANGE",
+        "retryable": false,
+        "stage": "dex.code_layout"
+      }
+    }
+  ],
+  "A0_complete_tiny_comparisons": 43,
+  "intentional_A0_differences": [
+    {
+      "fixture": "tests/fixtures/references/generated/nonscalar-string-035.dex",
+      "relation": "method_strings",
+      "native_expected": "raw UTF16 sites complete; plain UTF8 projection UnsupportedQuery",
+      "A0_observed": "U+FFFD replacement",
+      "profile_admitted": false
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-reference-index.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "invalid_code_operand",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 0,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-invoke-argument-count.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "fixture subset",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 1,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-caller-ins-size.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "caller_ins_words",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 0,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-body-interior-pointer.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "body_not_physical_start",
+      "A0_open_error": true,
+      "A0_successful_query_count": 0,
+      "SDK_exit_code": 1,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-custom-prefix.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "custom_prefix",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 1,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-custom-argument-count.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "custom_argument_words",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 0,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    },
+    {
+      "fixture": "tests/fixtures/references/generated/bad-poly-proto-index.dex",
+      "native_expected": "InvalidInput",
+      "independent_reason": "poly_proto_index",
+      "A0_open_error": false,
+      "A0_successful_query_count": 4,
+      "SDK_exit_code": 0,
+      "scope": "A0/SDK do not validate every requested binding/operand invariant; their success or missing row is not a native golden."
+    }
+  ],
+  "A0_reference_record": "artifacts/mdd-024/reference-observations-20261028T122655200847Z.json",
+  "source_sha256": {
+    "crates/mdd-facts/src/references.rs": "498cd6461be399c6571b640d418a9d161527ea5b3190fcb8252bb49f66d2c861",
+    "crates/mdd-facts/examples/reference_summary.rs": "ef65ba9c404a66919cb25eaf0f17e623027b621ed80dd5e12dd22b9a5be1c7a4",
+    "crates/mdd-dex/src/annotations.rs": "59599c8eca5d765dcde214657cdb36359e1b55a2f60e48936fe45e036a4b470d",
+    "crates/mdd-facts/src/code.rs": "515bd515a8c2fa9a341882363e18579dca67d768ef3477c8aba2048c765f5c07",
+    "crates/mdd-dex/src/instructions/mod.rs": "b2188ce78fb2846a1aa954483c4e71894c97ac3cf010b13cbeb8f01d0ce28456",
+    "crates/mdd-dex/src/instructions/decode.rs": "d339978b8d59fbfc563117e610f26af9b09dc12ed174c3e28170a3916eaa1970",
+    "conformance/relations/reference-multiplicity.json": "42b3118be22452fcb906a238c8720c46fc9603b494df044af5eef4220c6ef496",
+    "Cargo.lock": "dbf8169031c0d4be29a902fc251dffb67c0d262b78defe1c6709a1ef29511145",
+    "rust-toolchain.toml": "b2c19d86958ed6810741488db5cd352856f303c53bcf0ea774e72f94ee4d201e",
+    "tests/fixtures/references/generate.py": "bb5cb523306020b3ca3f36d93cc5aaab88eca1097bb38008e045a70b776b6d94",
+    "tests/fixtures/references/oracle.py": "25c4edf6442ac9013c8f51244d00d190e37ca29dcf1e0bd78e0f99e491b4d1b1",
+    "tests/fixtures/references/expected.json": "9234b91ae0113ea474b22768dd6cf7294afbd9a6045aa22bfc5c9dc88e789eb3",
+    "artifacts/mdd-024/reproduce.py": "f864b96b81008b6f22cb5c3771b2abcb8c9ab1733aafd2ff162c351dc7858972"
+  },
+  "consumer_binary": {
+    "path": "target/debug/examples/reference_summary.exe",
+    "sha256": "f1dd7ef2124e4304c8694a6e60df326e0f5e8d0fa42fd836ec4da1077f52de8f",
+    "bytes": 3111936
+  },
+  "checkout": "47fd4326c0de2d5ba35c357e6433cbe5f362a4ba",
+  "toolchain": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1\n",
+  "public_input": {
+    "path": "artifacts/local/inputs/NewPipe_v0.28.6.apk",
+    "sha256": "e56ef6280b700696172797f94513ffd3f9aae9349945a2f06e235ec24446be58",
+    "bytes": 10885562,
+    "summary": "artifacts/mdd-024/validation/20261028T125011751992Z/public-summary.json"
+  },
+  "acceptance": [
+    {
+      "ordinal": 1,
+      "status": "done",
+      "evidence": "Per-operand caller/PC/ordinal/kind sites retain repeated strings/callees; shared physical code expands once per genuine definition and is budgeted. Duplicate code projection entries and unowned code do not manufacture callers."
+    },
+    {
+      "ordinal": 2,
+      "status": "done",
+      "evidence": "Every target/site ID binds snapshot and DEX occurrence. Code+definition source identity must match. Same local indices in distinct occurrences remain separate; cross-source local target joins reject. Complete definition-world construction proves every selected input inventory/fact membership."
+    },
+    {
+      "ordinal": 3,
+      "status": "done",
+      "evidence": "External/no exact definition, one-in-scope, ambiguous, unbuilt and provided-only searches are distinct. Complete selected-input absence is only exact encoded declaration absence, never runtime linkage/dispatch. Healthy custom calls keep dynamic targets unknown; corrupt bootstrap/index/word metadata is InvalidInput."
+    },
+    {
+      "ordinal": 4,
+      "status": "done",
+      "evidence": "Every source site carries checked instruction/operand byte ranges and code-unit PC. Jumbo and poly second-proto ranges compared with independent handwritten scalar oracle. Target and definition indexes equal separate scalar scans and manual fixture expectations; 43 complete A0 tiny relation comparisons plus intentional lossy/error differences retained."
+    }
+  ],
+  "scope": "exact encoded references in declared method bodies of each bound occurrence; definition search explicitly provided-only or complete selected-input scope",
+  "budget_scope": "Reference variable facts/index storage, per-caller expanded code units, projection structs/text and candidate counts; counters are not measured RSS or a performance trial.",
+  "not_claimed": [
+    "runtime call graph or resolved dynamic targets",
+    "inheritance/member-linkage/runtime classpath resolution",
+    "full DEX/ART type-flow validation",
+    "lossy UTF8 projection compatibility for legal non-scalar strings",
+    "success on unrelated unrequested annotation layer",
+    "HostLab/SQL profile qualification",
+    "private large sample parsing",
+    "performance benefit or formal release qualification",
+    "native Linux acceptance of current changes"
+  ],
+  "retained_failures": "artifacts/mdd-024/initial-check-failures.json",
+  "rollback": "Scope-revert reference module/export/example and narrow helper increment; earlier metadata/definition/code/annotation paths remain independently testable. Retain all immutable observations and failed runs; no backend default was switched."
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": "mdd.budget-terminal-conformance.v1",
+  "task": "MDD-034",
+  "created_utc": "2026-10-28T15:44:07.849545+00:00",
+  "status": "passed-scoped-budget-cancel-terminal-mechanisms",
+  "checkout_head": "e56db3e9380a60b117e9e65ec5ab3f76ffb61361",
+  "source_identity_observed_at_readback": true,
+  "sources": [
+    {
+      "path": "crates/mdd-query/src/budget.rs",
+      "bytes": 30630,
+      "sha256": "1d326b08ee510706e7fd6553fe8e334c19073715d686e82e15d4bd1ecb83a1fe"
+    },
+    {
+      "path": "crates/mdd-query/src/budget/imports.rs",
+      "bytes": 12522,
+      "sha256": "1049c6d8794c4a9b1b7bdb9e817a0e1dddc21a4774c685989939f122ff8da091"
+    },
+    {
+      "path": "crates/mdd-query/src/budget/imports/tests.rs",
+      "bytes": 11452,
+      "sha256": "1aad1ff8b6f2e7dfdf073ac65b1c88add775cff4797155479e826a236ec8d845"
+    },
+    {
+      "path": "crates/mdd-query/src/budget/tests.rs",
+      "bytes": 9685,
+      "sha256": "b4d3077dac497583c81d43265788a4ba682f8c90865884f1bb51d2fec88364af"
+    },
+    {
+      "path": "crates/mdd-query/src/executor.rs",
+      "bytes": 46719,
+      "sha256": "1ea01b08270a12e7e9333ff6a8bc03a2d633bf078ed4dea0f7a980a1c78f9794"
+    },
+    {
+      "path": "crates/mdd-query/src/executor/runtime_tests.rs",
+      "bytes": 13983,
+      "sha256": "473c4cb58b4fd3483307c79dc0b5c629678575046059d2d55d9832cb8ce70f35"
+    },
+    {
+      "path": "crates/mdd-session/src/cancellation.rs",
+      "bytes": 10074,
+      "sha256": "0f1eca8b549cde1b3e4b49df7988418896a4639da8e7b3dad26730fbdb519c52"
+    },
+    {
+      "path": "crates/mdd-session/src/lib.rs",
+      "bytes": 42705,
+      "sha256": "96c0d1aff2cca943fc4c628fe8d8be22a436ef0d45f77f1adf8f39307e27e9b3"
+    },
+    {
+      "path": "crates/mdd-types/src/result.rs",
+      "bytes": 23124,
+      "sha256": "04b3d677019d29b10833985a107b3d09b448246c508a7e0fec14e7d793485d67"
+    },
+    {
+      "path": "crates/mdd-types/src/lib.rs",
+      "bytes": 11547,
+      "sha256": "12b8b0bdd6d2eb549548880e2730c0837902bf6dc31a5508489f4d87a158437c"
+    },
+    {
+      "path": "crates/mdd-input/src/archive/mod.rs",
+      "bytes": 17553,
+      "sha256": "8b950285850f05925d18e4876f176cb64583879bd24309a3b5bb97a31c339428"
+    },
+    {
+      "path": "conformance/runtime/src/main.rs",
+      "bytes": 7120,
+      "sha256": "17aef29e10bb3c64291b5977d7bc72317834de646955a6e4c8ae9b70093b433d"
+    },
+    {
+      "path": "conformance/runtime/run_probe.py",
+      "bytes": 2085,
+      "sha256": "7b426e48692f3f7e71e8cbe6c3d62084d698b996c7dd65f630c266fe4eed8668"
+    },
+    {
+      "path": "conformance/runtime/Cargo.lock",
+      "bytes": 10165,
+      "sha256": "6e13522c9cbff4c2af85a116dda2269a53a6051e448936bc1fc74563009ce781"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 11593,
+      "sha256": "c1f415ca947a52700948cf6a6bea3acc18100a99d53c1e38d301693d80a8e19e"
+    },
+    {
+      "path": "crates/mdd-query/Cargo.toml",
+      "bytes": 408,
+      "sha256": "eb0e0c3d083ae0f3257a44519d9ffd1fa59bab82a332c1e20a16a7efb840d51d"
+    }
+  ],
+  "binary": {
+    "path": "conformance/runtime/target/debug/mdd-runtime-conformance.exe",
+    "bytes": 2779648,
+    "sha256": "dd59fbd7c0471427baa714be204ff638a3a01c04696dbd9ab0d6be7ca9d50c8c"
+  },
+  "validation": {
+    "query_tests": 27,
+    "session_tests": 10,
+    "types_tests": 7,
+    "compile_fail_docs": 2,
+    "strict_clippy": "passed all targets for the three affected packages",
+    "sqlite_version": "3.53.2",
+    "two_live_connections": true,
+    "actual_owned_worker_deadline_ms": 250,
+    "unfinished_queries_failed": 2,
+    "process_tree_isolated": false
+  },
+  "evidence": [
+    {
+      "path": "artifacts/mdd-034/root-final-units/record.json",
+      "bytes": 760,
+      "sha256": "b8ee8cbf492e4a8bc80953359708a542456f8c03dee5ee79cc0c70d485c6902b"
+    },
+    {
+      "path": "artifacts/mdd-034/root-final-clippy/record.json",
+      "bytes": 769,
+      "sha256": "cbc0d5ce78d030a0685f9920ca837d975058e6585b764f25247f4273bc629ad9"
+    },
+    {
+      "path": "artifacts/mdd-034/root-final-runtime-build/record.json",
+      "bytes": 721,
+      "sha256": "1aff949c831e2c2338cc350a6dc6237384b3cc7e0a9d06dea327e75a2d06a685"
+    },
+    {
+      "path": "artifacts/mdd-034/root-final-sqlite/record.json",
+      "bytes": 713,
+      "sha256": "7c593b62a592fcc384f207df702f914ba647cc8c8e9a9aabf75f60a42462f43e"
+    },
+    {
+      "path": "artifacts/mdd-034/root-final-supervisor/record.json",
+      "bytes": 718,
+      "sha256": "c3aa6038246c9b5d42fb2ade6d02d38c6ffb58595214bb8e4ab205cc5a18080d"
+    }
+  ],
+  "mechanisms": [
+    "nineteen named resource dimensions; hierarchy only tightens limits",
+    "atomic parent reservations, absolute deadlines, bounded owner/ticket metadata",
+    "real allocation identity and retained owner charge once; descendants admit per object",
+    "capture and selected expansion admitted before allocation, native error codes retained",
+    "pending sends own memory; dequeue payload keeps its lease; producer EOF is not success",
+    "actual query/session/worker/manifest/epoch/plan/schema binding before one execution claim",
+    "partial rows followed by explicit error terminal; protocol faults stay failed",
+    "coverage, computation and delivery independently recorded",
+    "only three permitted fallback codes under explicit equivalence; never qualifying fallback"
+  ],
+  "explicit_limits": [
+    "byte reservations are logical/conservative declared allocation bounds, not OS RSS",
+    "borrowed shared objects use per-object admission, not a query aggregate resident claim",
+    "owner/ticket metadata cap is 10000 for one budget tree lifetime",
+    "legacy low-level reader APIs keep their own limits; use imports adapters for pooled operations",
+    "trusted fact builders must honor supplied limits and declared workspace/ready upper bounds",
+    "direct child deadline/reap demonstrated; process tree isolation remains false",
+    "SQLite probe is connection-level; SQL bridge session runtime integration qualified separately",
+    "public worker/MCP/FFI enforcement and cross-process consumption await later task gates",
+    "current-source Linux execution pending immutable feature-branch CI"
+  ],
+  "profiles_admitted": false,
+  "private_inputs": false,
+  "formal_performance_runs": 0,
+  "retained_failures": [
+    "artifacts/mdd-034/root-counter-before-fix/record.json",
+    "artifacts/mdd-034/root-four-boundaries/record.json",
+    "artifacts/mdd-034/root-first-integrated-check/record.json",
+    "artifacts/mdd-034/subagent-interruption.json"
+  ],
+  "rollback": "Scoped revert on review branch, keeping original handoff and failures; no default backend or deployment switched."
+}

@@ -1,0 +1,686 @@
+{
+  "variant": "A0",
+  "engine_path": "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+  "engine_sha256": "f354ebcf715de9a66ef8ebe08b2b36807ab58e25cd5a1c0812e497fc1fcfc448",
+  "engine_bytes": 21365760,
+  "command": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "mcp",
+    "--timeout-ms",
+    "1500",
+    "--max-datasets",
+    "1"
+  ],
+  "cases": [
+    {
+      "id": "column_in",
+      "dataset_id": "dataset-1",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-1",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.6904
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-1\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.6904}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-1",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.6904
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT string_idx IN ('0') AS v FROM strings WHERE string_idx=0",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-1",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=2"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "int64",
+                        "value": "1"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT string_idx IN ('0') AS v FROM strings WHERE string_idx=0",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-1\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=2\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"int64\",\"value\":\"1\"}]],\"sql\":\"SELECT string_idx IN ('0') AS v FROM strings WHERE string_idx=0\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-1",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=2"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "int64",
+                          "value": "1"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT string_idx IN ('0') AS v FROM strings WHERE string_idx=0",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-1"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-1\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-1"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "column_not_in",
+      "dataset_id": "dataset-2",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-2",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.5267
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-2\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.5267}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-2",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.5267
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT string_idx NOT IN ('0') AS v FROM strings WHERE string_idx=0",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-2",
+              "diagnostics": [
+                {
+                  "code": "sql_static_optimizer_rewrite",
+                  "message": "sql_static_optimizer rewrites=2"
+                }
+              ],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "int64",
+                        "value": "0"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT string_idx NOT IN ('0') AS v FROM strings WHERE string_idx=0",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-2\",\"diagnostics\":[{\"code\":\"sql_static_optimizer_rewrite\",\"message\":\"sql_static_optimizer rewrites=2\"}],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"int64\",\"value\":\"0\"}]],\"sql\":\"SELECT string_idx NOT IN ('0') AS v FROM strings WHERE string_idx=0\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-2",
+                "diagnostics": [
+                  {
+                    "code": "sql_static_optimizer_rewrite",
+                    "message": "sql_static_optimizer rewrites=2"
+                  }
+                ],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "int64",
+                          "value": "0"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT string_idx NOT IN ('0') AS v FROM strings WHERE string_idx=0",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-2"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-2\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-2"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "cast_in",
+      "dataset_id": "dataset-3",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-3",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.6481
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-3\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.6481}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-3",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.6481
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT CAST('01' AS INTEGER) IN ('1') AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-3",
+              "diagnostics": [],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "uint64",
+                        "value": "1"
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT CAST('01' AS INTEGER) IN ('1') AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-3\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"uint64\",\"value\":\"1\"}]],\"sql\":\"SELECT CAST('01' AS INTEGER) IN ('1') AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-3",
+                "diagnostics": [],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "uint64",
+                          "value": "1"
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT CAST('01' AS INTEGER) IN ('1') AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-3"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-3\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-3"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    },
+    {
+      "id": "literal_null",
+      "dataset_id": "dataset-4",
+      "open": {
+        "is_error": false,
+        "body": {
+          "archive_inputs": [],
+          "dataset_id": "dataset-4",
+          "has_dex": true,
+          "input_bytes": 660,
+          "inputs": [
+            "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+          ],
+          "prepare_ms": 1.5106
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"archive_inputs\":[],\"dataset_id\":\"dataset-4\",\"has_dex\":true,\"input_bytes\":660,\"inputs\":[\"D:\\\\MeguvisDexDash\\\\tests\\\\fixtures\\\\references\\\\generated\\\\classic-035.dex\"],\"prepare_ms\":1.5106}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "archive_inputs": [],
+            "dataset_id": "dataset-4",
+            "has_dex": true,
+            "input_bytes": 660,
+            "inputs": [
+              "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\classic-035.dex"
+            ],
+            "prepare_ms": 1.5106
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      },
+      "statements": [
+        {
+          "ordinal": 0,
+          "sql": "SELECT 0 IN ('0',NULL) AS v",
+          "response": {
+            "is_error": false,
+            "body": {
+              "dataset_id": "dataset-4",
+              "diagnostics": [],
+              "statements": [
+                {
+                  "columns": [
+                    {
+                      "data_type": "sqlite_dynamic",
+                      "name": "v",
+                      "nullable": true
+                    }
+                  ],
+                  "kind": "query",
+                  "next_offset": null,
+                  "offset": 0,
+                  "rows": [
+                    [
+                      {
+                        "type": "null",
+                        "value": null
+                      }
+                    ]
+                  ],
+                  "sql": "SELECT 0 IN ('0',NULL) AS v",
+                  "statement_index": 0,
+                  "total_rows": 1,
+                  "truncated": false
+                }
+              ]
+            },
+            "mcp_result": {
+              "_meta": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"dataset_id\":\"dataset-4\",\"diagnostics\":[],\"statements\":[{\"columns\":[{\"data_type\":\"sqlite_dynamic\",\"name\":\"v\",\"nullable\":true}],\"kind\":\"query\",\"next_offset\":null,\"offset\":0,\"rows\":[[{\"type\":\"null\",\"value\":null}]],\"sql\":\"SELECT 0 IN ('0',NULL) AS v\",\"statement_index\":0,\"total_rows\":1,\"truncated\":false}]}",
+                  "annotations": null,
+                  "_meta": null
+                }
+              ],
+              "structuredContent": {
+                "dataset_id": "dataset-4",
+                "diagnostics": [],
+                "statements": [
+                  {
+                    "columns": [
+                      {
+                        "data_type": "sqlite_dynamic",
+                        "name": "v",
+                        "nullable": true
+                      }
+                    ],
+                    "kind": "query",
+                    "next_offset": null,
+                    "offset": 0,
+                    "rows": [
+                      [
+                        {
+                          "type": "null",
+                          "value": null
+                        }
+                      ]
+                    ],
+                    "sql": "SELECT 0 IN ('0',NULL) AS v",
+                    "statement_index": 0,
+                    "total_rows": 1,
+                    "truncated": false
+                  }
+                ]
+              },
+              "isError": false,
+              "resultType": "complete"
+            }
+          }
+        }
+      ],
+      "close": {
+        "is_error": false,
+        "body": {
+          "closed": true,
+          "dataset_id": "dataset-4"
+        },
+        "mcp_result": {
+          "_meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"closed\":true,\"dataset_id\":\"dataset-4\"}",
+              "annotations": null,
+              "_meta": null
+            }
+          ],
+          "structuredContent": {
+            "closed": true,
+            "dataset_id": "dataset-4"
+          },
+          "isError": false,
+          "resultType": "complete"
+        }
+      }
+    }
+  ],
+  "active_dataset_after_all_cases": {
+    "is_error": false,
+    "body": {
+      "admitted_requests": 0,
+      "datasets": [],
+      "limits": {
+        "max_datasets": 1,
+        "max_dex_bytes": 1073741824,
+        "max_input_bytes": 1073741824,
+        "max_output_bytes": 131072,
+        "max_pending": 16,
+        "max_resource_bytes": 67108864,
+        "max_total_input_bytes": 2147483648,
+        "timeout_ms": 1500
+      },
+      "running_requests": 0,
+      "usage": {
+        "datasets": 0,
+        "input_bytes": 0
+      }
+    },
+    "mcp_result": {
+      "_meta": null,
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"admitted_requests\":0,\"datasets\":[],\"limits\":{\"max_datasets\":1,\"max_dex_bytes\":1073741824,\"max_input_bytes\":1073741824,\"max_output_bytes\":131072,\"max_pending\":16,\"max_resource_bytes\":67108864,\"max_total_input_bytes\":2147483648,\"timeout_ms\":1500},\"running_requests\":0,\"usage\":{\"datasets\":0,\"input_bytes\":0}}",
+          "annotations": null,
+          "_meta": null
+        }
+      ],
+      "structuredContent": {
+        "admitted_requests": 0,
+        "datasets": [],
+        "limits": {
+          "max_datasets": 1,
+          "max_dex_bytes": 1073741824,
+          "max_input_bytes": 1073741824,
+          "max_output_bytes": 131072,
+          "max_pending": 16,
+          "max_resource_bytes": 67108864,
+          "max_total_input_bytes": 2147483648,
+          "timeout_ms": 1500
+        },
+        "running_requests": 0,
+        "usage": {
+          "datasets": 0,
+          "input_bytes": 0
+        }
+      },
+      "isError": false,
+      "resultType": "complete"
+    }
+  },
+  "server_info": {
+    "name": "dexsql",
+    "title": null,
+    "version": "0.1.0",
+    "description": null,
+    "websiteUrl": null,
+    "icons": null
+  },
+  "client_context_exited": true,
+  "transcript_sha256": "fdf5c3a9cb093d7127d91ee45597f4e88df16c5c7046d24361c6201eab8a0404"
+}

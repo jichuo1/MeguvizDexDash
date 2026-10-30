@@ -1,0 +1,29 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "cargo",
+    "test",
+    "--workspace",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--",
+    "--test-threads",
+    "1"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:57:40.398165+00:00",
+  "finished_utc": "2026-10-29T01:58:00.315066+00:00",
+  "elapsed_seconds": 19.92199999999957,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 18644,
+    "sha256": "826a8ce564fb4697e01cb4d4590cf7415b532649293bd005b2e5b1b5f2a95d53"
+  },
+  "stderr": {
+    "bytes": 1239,
+    "sha256": "8cb3960dff802089198b267b54dea1f179defb29ab69303234708da3f9eb5415"
+  }
+}

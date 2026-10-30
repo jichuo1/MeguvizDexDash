@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\references\\generated\\poly-custom-038.dex",
+    "--sql",
+    "SELECT CASE WHEN \"byte_len\" IS NULL THEN 'N' ELSE hex(CAST(\"byte_len\" AS TEXT)) END AS \"byte_len\",CASE WHEN \"dex_version\" IS NULL THEN 'N' ELSE hex(CAST(\"dex_version\" AS TEXT)) END AS \"dex_version\",CASE WHEN \"checksum\" IS NULL THEN 'N' ELSE hex(CAST(\"checksum\" AS TEXT)) END AS \"checksum\",CASE WHEN \"signature_hex\" IS NULL THEN 'N' ELSE hex(CAST(\"signature_hex\" AS TEXT)) END AS \"signature_hex\",CASE WHEN \"file_size\" IS NULL THEN 'N' ELSE hex(CAST(\"file_size\" AS TEXT)) END AS \"file_size\",CASE WHEN \"header_size\" IS NULL THEN 'N' ELSE hex(CAST(\"header_size\" AS TEXT)) END AS \"header_size\",CASE WHEN \"endian_tag\" IS NULL THEN 'N' ELSE hex(CAST(\"endian_tag\" AS TEXT)) END AS \"endian_tag\",CASE WHEN \"link_size\" IS NULL THEN 'N' ELSE hex(CAST(\"link_size\" AS TEXT)) END AS \"link_size\",CASE WHEN \"link_off\" IS NULL THEN 'N' ELSE hex(CAST(\"link_off\" AS TEXT)) END AS \"link_off\",CASE WHEN \"map_off\" IS NULL THEN 'N' ELSE hex(CAST(\"map_off\" AS TEXT)) END AS \"map_off\",CASE WHEN \"string_count\" IS NULL THEN 'N' ELSE hex(CAST(\"string_count\" AS TEXT)) END AS \"string_count\",CASE WHEN \"string_ids_off\" IS NULL THEN 'N' ELSE hex(CAST(\"string_ids_off\" AS TEXT)) END AS \"string_ids_off\",CASE WHEN \"type_count\" IS NULL THEN 'N' ELSE hex(CAST(\"type_count\" AS TEXT)) END AS \"type_count\",CASE WHEN \"type_ids_off\" IS NULL THEN 'N' ELSE hex(CAST(\"type_ids_off\" AS TEXT)) END AS \"type_ids_off\",CASE WHEN \"proto_count\" IS NULL THEN 'N' ELSE hex(CAST(\"proto_count\" AS TEXT)) END AS \"proto_count\",CASE WHEN \"proto_ids_off\" IS NULL THEN 'N' ELSE hex(CAST(\"proto_ids_off\" AS TEXT)) END AS \"proto_ids_off\",CASE WHEN \"field_count\" IS NULL THEN 'N' ELSE hex(CAST(\"field_count\" AS TEXT)) END AS \"field_count\",CASE WHEN \"field_ids_off\" IS NULL THEN 'N' ELSE hex(CAST(\"field_ids_off\" AS TEXT)) END AS \"field_ids_off\",CASE WHEN \"method_count\" IS NULL THEN 'N' ELSE hex(CAST(\"method_count\" AS TEXT)) END AS \"method_count\",CASE WHEN \"method_ids_off\" IS NULL THEN 'N' ELSE hex(CAST(\"method_ids_off\" AS TEXT)) END AS \"method_ids_off\",CASE WHEN \"class_count\" IS NULL THEN 'N' ELSE hex(CAST(\"class_count\" AS TEXT)) END AS \"class_count\",CASE WHEN \"class_defs_off\" IS NULL THEN 'N' ELSE hex(CAST(\"class_defs_off\" AS TEXT)) END AS \"class_defs_off\",CASE WHEN \"data_size\" IS NULL THEN 'N' ELSE hex(CAST(\"data_size\" AS TEXT)) END AS \"data_size\",CASE WHEN \"data_off\" IS NULL THEN 'N' ELSE hex(CAST(\"data_off\" AS TEXT)) END AS \"data_off\" FROM dex_files"
+  ],
+  "started_utc": "2026-10-28T16:37:33.759386+00:00",
+  "finished_utc": "2026-10-28T16:37:33.826379+00:00",
+  "elapsed_seconds": 0.07799999999997453,
+  "exit_code": 0,
+  "stdout_sha256": "8163f7eac50b28b34c95a4638c67f2dc98bda6bca0b869f919ce368611cfedc4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

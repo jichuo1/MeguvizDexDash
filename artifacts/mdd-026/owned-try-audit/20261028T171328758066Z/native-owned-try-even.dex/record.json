@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\mdd-026\\owned-try-audit\\20261028T171328758066Z\\owned_try_probe.exe",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\owned_try\\generated\\owned-try-even.dex"
+  ],
+  "started_utc": "2026-10-28T17:13:30.284843+00:00",
+  "finished_utc": "2026-10-28T17:13:31.099644+00:00",
+  "elapsed_seconds": 0.8119999999998981,
+  "exit_code": 0,
+  "stdout_sha256": "4ab06708a33162c4df68d49e1a7fa4438a221cda7772fa4f7c5c120d25ffd5a3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

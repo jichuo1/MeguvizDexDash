@@ -1,0 +1,2446 @@
+{
+  "kind": "AOSP-ancestry-derived-format-vectors",
+  "vectors": [
+    {
+      "opcode": 0,
+      "format": "10x",
+      "mnemonic": "nop",
+      "words": [
+        0,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 1,
+      "format": "12x",
+      "mnemonic": "move",
+      "words": [
+        1,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 2,
+      "format": "22x",
+      "mnemonic": "move/from16",
+      "words": [
+        2,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 3,
+      "format": "32x",
+      "mnemonic": "move/16",
+      "words": [
+        3,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 4,
+      "format": "12x",
+      "mnemonic": "move-wide",
+      "words": [
+        4,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 5,
+      "format": "22x",
+      "mnemonic": "move-wide/from16",
+      "words": [
+        5,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 6,
+      "format": "32x",
+      "mnemonic": "move-wide/16",
+      "words": [
+        6,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 7,
+      "format": "12x",
+      "mnemonic": "move-object",
+      "words": [
+        7,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 8,
+      "format": "22x",
+      "mnemonic": "move-object/from16",
+      "words": [
+        8,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 9,
+      "format": "32x",
+      "mnemonic": "move-object/16",
+      "words": [
+        9,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 10,
+      "format": "11x",
+      "mnemonic": "move-result",
+      "words": [
+        10,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 11,
+      "format": "11x",
+      "mnemonic": "move-result-wide",
+      "words": [
+        11,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 12,
+      "format": "11x",
+      "mnemonic": "move-result-object",
+      "words": [
+        12,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 13,
+      "format": "11x",
+      "mnemonic": "move-exception",
+      "words": [
+        13,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 14,
+      "format": "10x",
+      "mnemonic": "return-void",
+      "words": [
+        14,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 15,
+      "format": "11x",
+      "mnemonic": "return",
+      "words": [
+        15,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 16,
+      "format": "11x",
+      "mnemonic": "return-wide",
+      "words": [
+        16,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 17,
+      "format": "11x",
+      "mnemonic": "return-object",
+      "words": [
+        17,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 18,
+      "format": "11n",
+      "mnemonic": "const/4",
+      "words": [
+        18,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 19,
+      "format": "21s",
+      "mnemonic": "const/16",
+      "words": [
+        19,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 20,
+      "format": "31i",
+      "mnemonic": "const",
+      "words": [
+        20,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 21,
+      "format": "21h",
+      "mnemonic": "const/high16",
+      "words": [
+        21,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 22,
+      "format": "21s",
+      "mnemonic": "const-wide/16",
+      "words": [
+        22,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 23,
+      "format": "31i",
+      "mnemonic": "const-wide/32",
+      "words": [
+        23,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 24,
+      "format": "51l",
+      "mnemonic": "const-wide",
+      "words": [
+        24,
+        0,
+        0,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 5
+    },
+    {
+      "opcode": 25,
+      "format": "21h",
+      "mnemonic": "const-wide/high16",
+      "words": [
+        25,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 26,
+      "format": "21c",
+      "mnemonic": "const-string",
+      "words": [
+        26,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 27,
+      "format": "31c",
+      "mnemonic": "const-string/jumbo",
+      "words": [
+        27,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 28,
+      "format": "21c",
+      "mnemonic": "const-class",
+      "words": [
+        28,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 29,
+      "format": "11x",
+      "mnemonic": "monitor-enter",
+      "words": [
+        29,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 30,
+      "format": "11x",
+      "mnemonic": "monitor-exit",
+      "words": [
+        30,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 31,
+      "format": "21c",
+      "mnemonic": "check-cast",
+      "words": [
+        31,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 32,
+      "format": "22c",
+      "mnemonic": "instance-of",
+      "words": [
+        32,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 33,
+      "format": "12x",
+      "mnemonic": "array-length",
+      "words": [
+        33,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 34,
+      "format": "21c",
+      "mnemonic": "new-instance",
+      "words": [
+        34,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 35,
+      "format": "22c",
+      "mnemonic": "new-array",
+      "words": [
+        35,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 36,
+      "format": "35c",
+      "mnemonic": "filled-new-array",
+      "words": [
+        4132,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 37,
+      "format": "3rc",
+      "mnemonic": "filled-new-array/range",
+      "words": [
+        293,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 38,
+      "format": "31t",
+      "mnemonic": "fill-array-data",
+      "words": [
+        38,
+        4,
+        0,
+        14,
+        768,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 39,
+      "format": "11x",
+      "mnemonic": "throw",
+      "words": [
+        39,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 40,
+      "format": "10t",
+      "mnemonic": "goto",
+      "words": [
+        296,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 41,
+      "format": "20t",
+      "mnemonic": "goto/16",
+      "words": [
+        41,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 42,
+      "format": "30t",
+      "mnemonic": "goto/32",
+      "words": [
+        42,
+        3,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 43,
+      "format": "31t",
+      "mnemonic": "packed-switch",
+      "words": [
+        43,
+        4,
+        0,
+        14,
+        256,
+        1,
+        0,
+        0,
+        3,
+        0
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 44,
+      "format": "31t",
+      "mnemonic": "sparse-switch",
+      "words": [
+        44,
+        4,
+        0,
+        14,
+        512,
+        1,
+        0,
+        0,
+        3,
+        0
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 45,
+      "format": "23x",
+      "mnemonic": "cmpl-float",
+      "words": [
+        45,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 46,
+      "format": "23x",
+      "mnemonic": "cmpg-float",
+      "words": [
+        46,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 47,
+      "format": "23x",
+      "mnemonic": "cmpl-double",
+      "words": [
+        47,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 48,
+      "format": "23x",
+      "mnemonic": "cmpg-double",
+      "words": [
+        48,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 49,
+      "format": "23x",
+      "mnemonic": "cmp-long",
+      "words": [
+        49,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 50,
+      "format": "22t",
+      "mnemonic": "if-eq",
+      "words": [
+        50,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 51,
+      "format": "22t",
+      "mnemonic": "if-ne",
+      "words": [
+        51,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 52,
+      "format": "22t",
+      "mnemonic": "if-lt",
+      "words": [
+        52,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 53,
+      "format": "22t",
+      "mnemonic": "if-ge",
+      "words": [
+        53,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 54,
+      "format": "22t",
+      "mnemonic": "if-gt",
+      "words": [
+        54,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 55,
+      "format": "22t",
+      "mnemonic": "if-le",
+      "words": [
+        55,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 56,
+      "format": "21t",
+      "mnemonic": "if-eqz",
+      "words": [
+        56,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 57,
+      "format": "21t",
+      "mnemonic": "if-nez",
+      "words": [
+        57,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 58,
+      "format": "21t",
+      "mnemonic": "if-ltz",
+      "words": [
+        58,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 59,
+      "format": "21t",
+      "mnemonic": "if-gez",
+      "words": [
+        59,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 60,
+      "format": "21t",
+      "mnemonic": "if-gtz",
+      "words": [
+        60,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 61,
+      "format": "21t",
+      "mnemonic": "if-lez",
+      "words": [
+        61,
+        2,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 68,
+      "format": "23x",
+      "mnemonic": "aget",
+      "words": [
+        68,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 69,
+      "format": "23x",
+      "mnemonic": "aget-wide",
+      "words": [
+        69,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 70,
+      "format": "23x",
+      "mnemonic": "aget-object",
+      "words": [
+        70,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 71,
+      "format": "23x",
+      "mnemonic": "aget-boolean",
+      "words": [
+        71,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 72,
+      "format": "23x",
+      "mnemonic": "aget-byte",
+      "words": [
+        72,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 73,
+      "format": "23x",
+      "mnemonic": "aget-char",
+      "words": [
+        73,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 74,
+      "format": "23x",
+      "mnemonic": "aget-short",
+      "words": [
+        74,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 75,
+      "format": "23x",
+      "mnemonic": "aput",
+      "words": [
+        75,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 76,
+      "format": "23x",
+      "mnemonic": "aput-wide",
+      "words": [
+        76,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 77,
+      "format": "23x",
+      "mnemonic": "aput-object",
+      "words": [
+        77,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 78,
+      "format": "23x",
+      "mnemonic": "aput-boolean",
+      "words": [
+        78,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 79,
+      "format": "23x",
+      "mnemonic": "aput-byte",
+      "words": [
+        79,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 80,
+      "format": "23x",
+      "mnemonic": "aput-char",
+      "words": [
+        80,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 81,
+      "format": "23x",
+      "mnemonic": "aput-short",
+      "words": [
+        81,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 82,
+      "format": "22c",
+      "mnemonic": "iget",
+      "words": [
+        82,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 83,
+      "format": "22c",
+      "mnemonic": "iget-wide",
+      "words": [
+        83,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 84,
+      "format": "22c",
+      "mnemonic": "iget-object",
+      "words": [
+        84,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 85,
+      "format": "22c",
+      "mnemonic": "iget-boolean",
+      "words": [
+        85,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 86,
+      "format": "22c",
+      "mnemonic": "iget-byte",
+      "words": [
+        86,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 87,
+      "format": "22c",
+      "mnemonic": "iget-char",
+      "words": [
+        87,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 88,
+      "format": "22c",
+      "mnemonic": "iget-short",
+      "words": [
+        88,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 89,
+      "format": "22c",
+      "mnemonic": "iput",
+      "words": [
+        89,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 90,
+      "format": "22c",
+      "mnemonic": "iput-wide",
+      "words": [
+        90,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 91,
+      "format": "22c",
+      "mnemonic": "iput-object",
+      "words": [
+        91,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 92,
+      "format": "22c",
+      "mnemonic": "iput-boolean",
+      "words": [
+        92,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 93,
+      "format": "22c",
+      "mnemonic": "iput-byte",
+      "words": [
+        93,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 94,
+      "format": "22c",
+      "mnemonic": "iput-char",
+      "words": [
+        94,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 95,
+      "format": "22c",
+      "mnemonic": "iput-short",
+      "words": [
+        95,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 96,
+      "format": "21c",
+      "mnemonic": "sget",
+      "words": [
+        96,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 97,
+      "format": "21c",
+      "mnemonic": "sget-wide",
+      "words": [
+        97,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 98,
+      "format": "21c",
+      "mnemonic": "sget-object",
+      "words": [
+        98,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 99,
+      "format": "21c",
+      "mnemonic": "sget-boolean",
+      "words": [
+        99,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 100,
+      "format": "21c",
+      "mnemonic": "sget-byte",
+      "words": [
+        100,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 101,
+      "format": "21c",
+      "mnemonic": "sget-char",
+      "words": [
+        101,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 102,
+      "format": "21c",
+      "mnemonic": "sget-short",
+      "words": [
+        102,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 103,
+      "format": "21c",
+      "mnemonic": "sput",
+      "words": [
+        103,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 104,
+      "format": "21c",
+      "mnemonic": "sput-wide",
+      "words": [
+        104,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 105,
+      "format": "21c",
+      "mnemonic": "sput-object",
+      "words": [
+        105,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 106,
+      "format": "21c",
+      "mnemonic": "sput-boolean",
+      "words": [
+        106,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 107,
+      "format": "21c",
+      "mnemonic": "sput-byte",
+      "words": [
+        107,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 108,
+      "format": "21c",
+      "mnemonic": "sput-char",
+      "words": [
+        108,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 109,
+      "format": "21c",
+      "mnemonic": "sput-short",
+      "words": [
+        109,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 110,
+      "format": "35c",
+      "mnemonic": "invoke-virtual",
+      "words": [
+        4206,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 111,
+      "format": "35c",
+      "mnemonic": "invoke-super",
+      "words": [
+        4207,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 112,
+      "format": "35c",
+      "mnemonic": "invoke-direct",
+      "words": [
+        4208,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 113,
+      "format": "35c",
+      "mnemonic": "invoke-static",
+      "words": [
+        4209,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 114,
+      "format": "35c",
+      "mnemonic": "invoke-interface",
+      "words": [
+        4210,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 116,
+      "format": "3rc",
+      "mnemonic": "invoke-virtual/range",
+      "words": [
+        372,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 117,
+      "format": "3rc",
+      "mnemonic": "invoke-super/range",
+      "words": [
+        373,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 118,
+      "format": "3rc",
+      "mnemonic": "invoke-direct/range",
+      "words": [
+        374,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 119,
+      "format": "3rc",
+      "mnemonic": "invoke-static/range",
+      "words": [
+        375,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 120,
+      "format": "3rc",
+      "mnemonic": "invoke-interface/range",
+      "words": [
+        376,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 123,
+      "format": "12x",
+      "mnemonic": "neg-int",
+      "words": [
+        123,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 124,
+      "format": "12x",
+      "mnemonic": "not-int",
+      "words": [
+        124,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 125,
+      "format": "12x",
+      "mnemonic": "neg-long",
+      "words": [
+        125,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 126,
+      "format": "12x",
+      "mnemonic": "not-long",
+      "words": [
+        126,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 127,
+      "format": "12x",
+      "mnemonic": "neg-float",
+      "words": [
+        127,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 128,
+      "format": "12x",
+      "mnemonic": "neg-double",
+      "words": [
+        128,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 129,
+      "format": "12x",
+      "mnemonic": "int-to-long",
+      "words": [
+        129,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 130,
+      "format": "12x",
+      "mnemonic": "int-to-float",
+      "words": [
+        130,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 131,
+      "format": "12x",
+      "mnemonic": "int-to-double",
+      "words": [
+        131,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 132,
+      "format": "12x",
+      "mnemonic": "long-to-int",
+      "words": [
+        132,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 133,
+      "format": "12x",
+      "mnemonic": "long-to-float",
+      "words": [
+        133,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 134,
+      "format": "12x",
+      "mnemonic": "long-to-double",
+      "words": [
+        134,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 135,
+      "format": "12x",
+      "mnemonic": "float-to-int",
+      "words": [
+        135,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 136,
+      "format": "12x",
+      "mnemonic": "float-to-long",
+      "words": [
+        136,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 137,
+      "format": "12x",
+      "mnemonic": "float-to-double",
+      "words": [
+        137,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 138,
+      "format": "12x",
+      "mnemonic": "double-to-int",
+      "words": [
+        138,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 139,
+      "format": "12x",
+      "mnemonic": "double-to-long",
+      "words": [
+        139,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 140,
+      "format": "12x",
+      "mnemonic": "double-to-float",
+      "words": [
+        140,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 141,
+      "format": "12x",
+      "mnemonic": "int-to-byte",
+      "words": [
+        141,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 142,
+      "format": "12x",
+      "mnemonic": "int-to-char",
+      "words": [
+        142,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 143,
+      "format": "12x",
+      "mnemonic": "int-to-short",
+      "words": [
+        143,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 144,
+      "format": "23x",
+      "mnemonic": "add-int",
+      "words": [
+        144,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 145,
+      "format": "23x",
+      "mnemonic": "sub-int",
+      "words": [
+        145,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 146,
+      "format": "23x",
+      "mnemonic": "mul-int",
+      "words": [
+        146,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 147,
+      "format": "23x",
+      "mnemonic": "div-int",
+      "words": [
+        147,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 148,
+      "format": "23x",
+      "mnemonic": "rem-int",
+      "words": [
+        148,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 149,
+      "format": "23x",
+      "mnemonic": "and-int",
+      "words": [
+        149,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 150,
+      "format": "23x",
+      "mnemonic": "or-int",
+      "words": [
+        150,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 151,
+      "format": "23x",
+      "mnemonic": "xor-int",
+      "words": [
+        151,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 152,
+      "format": "23x",
+      "mnemonic": "shl-int",
+      "words": [
+        152,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 153,
+      "format": "23x",
+      "mnemonic": "shr-int",
+      "words": [
+        153,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 154,
+      "format": "23x",
+      "mnemonic": "ushr-int",
+      "words": [
+        154,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 155,
+      "format": "23x",
+      "mnemonic": "add-long",
+      "words": [
+        155,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 156,
+      "format": "23x",
+      "mnemonic": "sub-long",
+      "words": [
+        156,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 157,
+      "format": "23x",
+      "mnemonic": "mul-long",
+      "words": [
+        157,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 158,
+      "format": "23x",
+      "mnemonic": "div-long",
+      "words": [
+        158,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 159,
+      "format": "23x",
+      "mnemonic": "rem-long",
+      "words": [
+        159,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 160,
+      "format": "23x",
+      "mnemonic": "and-long",
+      "words": [
+        160,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 161,
+      "format": "23x",
+      "mnemonic": "or-long",
+      "words": [
+        161,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 162,
+      "format": "23x",
+      "mnemonic": "xor-long",
+      "words": [
+        162,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 163,
+      "format": "23x",
+      "mnemonic": "shl-long",
+      "words": [
+        163,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 164,
+      "format": "23x",
+      "mnemonic": "shr-long",
+      "words": [
+        164,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 165,
+      "format": "23x",
+      "mnemonic": "ushr-long",
+      "words": [
+        165,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 166,
+      "format": "23x",
+      "mnemonic": "add-float",
+      "words": [
+        166,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 167,
+      "format": "23x",
+      "mnemonic": "sub-float",
+      "words": [
+        167,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 168,
+      "format": "23x",
+      "mnemonic": "mul-float",
+      "words": [
+        168,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 169,
+      "format": "23x",
+      "mnemonic": "div-float",
+      "words": [
+        169,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 170,
+      "format": "23x",
+      "mnemonic": "rem-float",
+      "words": [
+        170,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 171,
+      "format": "23x",
+      "mnemonic": "add-double",
+      "words": [
+        171,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 172,
+      "format": "23x",
+      "mnemonic": "sub-double",
+      "words": [
+        172,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 173,
+      "format": "23x",
+      "mnemonic": "mul-double",
+      "words": [
+        173,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 174,
+      "format": "23x",
+      "mnemonic": "div-double",
+      "words": [
+        174,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 175,
+      "format": "23x",
+      "mnemonic": "rem-double",
+      "words": [
+        175,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 176,
+      "format": "12x",
+      "mnemonic": "add-int/2addr",
+      "words": [
+        176,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 177,
+      "format": "12x",
+      "mnemonic": "sub-int/2addr",
+      "words": [
+        177,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 178,
+      "format": "12x",
+      "mnemonic": "mul-int/2addr",
+      "words": [
+        178,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 179,
+      "format": "12x",
+      "mnemonic": "div-int/2addr",
+      "words": [
+        179,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 180,
+      "format": "12x",
+      "mnemonic": "rem-int/2addr",
+      "words": [
+        180,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 181,
+      "format": "12x",
+      "mnemonic": "and-int/2addr",
+      "words": [
+        181,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 182,
+      "format": "12x",
+      "mnemonic": "or-int/2addr",
+      "words": [
+        182,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 183,
+      "format": "12x",
+      "mnemonic": "xor-int/2addr",
+      "words": [
+        183,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 184,
+      "format": "12x",
+      "mnemonic": "shl-int/2addr",
+      "words": [
+        184,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 185,
+      "format": "12x",
+      "mnemonic": "shr-int/2addr",
+      "words": [
+        185,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 186,
+      "format": "12x",
+      "mnemonic": "ushr-int/2addr",
+      "words": [
+        186,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 187,
+      "format": "12x",
+      "mnemonic": "add-long/2addr",
+      "words": [
+        187,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 188,
+      "format": "12x",
+      "mnemonic": "sub-long/2addr",
+      "words": [
+        188,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 189,
+      "format": "12x",
+      "mnemonic": "mul-long/2addr",
+      "words": [
+        189,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 190,
+      "format": "12x",
+      "mnemonic": "div-long/2addr",
+      "words": [
+        190,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 191,
+      "format": "12x",
+      "mnemonic": "rem-long/2addr",
+      "words": [
+        191,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 192,
+      "format": "12x",
+      "mnemonic": "and-long/2addr",
+      "words": [
+        192,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 193,
+      "format": "12x",
+      "mnemonic": "or-long/2addr",
+      "words": [
+        193,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 194,
+      "format": "12x",
+      "mnemonic": "xor-long/2addr",
+      "words": [
+        194,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 195,
+      "format": "12x",
+      "mnemonic": "shl-long/2addr",
+      "words": [
+        195,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 196,
+      "format": "12x",
+      "mnemonic": "shr-long/2addr",
+      "words": [
+        196,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 197,
+      "format": "12x",
+      "mnemonic": "ushr-long/2addr",
+      "words": [
+        197,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 198,
+      "format": "12x",
+      "mnemonic": "add-float/2addr",
+      "words": [
+        198,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 199,
+      "format": "12x",
+      "mnemonic": "sub-float/2addr",
+      "words": [
+        199,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 200,
+      "format": "12x",
+      "mnemonic": "mul-float/2addr",
+      "words": [
+        200,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 201,
+      "format": "12x",
+      "mnemonic": "div-float/2addr",
+      "words": [
+        201,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 202,
+      "format": "12x",
+      "mnemonic": "rem-float/2addr",
+      "words": [
+        202,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 203,
+      "format": "12x",
+      "mnemonic": "add-double/2addr",
+      "words": [
+        203,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 204,
+      "format": "12x",
+      "mnemonic": "sub-double/2addr",
+      "words": [
+        204,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 205,
+      "format": "12x",
+      "mnemonic": "mul-double/2addr",
+      "words": [
+        205,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 206,
+      "format": "12x",
+      "mnemonic": "div-double/2addr",
+      "words": [
+        206,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 207,
+      "format": "12x",
+      "mnemonic": "rem-double/2addr",
+      "words": [
+        207,
+        14
+      ],
+      "expected_first_width": 1
+    },
+    {
+      "opcode": 208,
+      "format": "22s",
+      "mnemonic": "add-int/lit16",
+      "words": [
+        208,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 209,
+      "format": "22s",
+      "mnemonic": "rsub-int",
+      "words": [
+        209,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 210,
+      "format": "22s",
+      "mnemonic": "mul-int/lit16",
+      "words": [
+        210,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 211,
+      "format": "22s",
+      "mnemonic": "div-int/lit16",
+      "words": [
+        211,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 212,
+      "format": "22s",
+      "mnemonic": "rem-int/lit16",
+      "words": [
+        212,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 213,
+      "format": "22s",
+      "mnemonic": "and-int/lit16",
+      "words": [
+        213,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 214,
+      "format": "22s",
+      "mnemonic": "or-int/lit16",
+      "words": [
+        214,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 215,
+      "format": "22s",
+      "mnemonic": "xor-int/lit16",
+      "words": [
+        215,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 216,
+      "format": "22b",
+      "mnemonic": "add-int/lit8",
+      "words": [
+        216,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 217,
+      "format": "22b",
+      "mnemonic": "rsub-int/lit8",
+      "words": [
+        217,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 218,
+      "format": "22b",
+      "mnemonic": "mul-int/lit8",
+      "words": [
+        218,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 219,
+      "format": "22b",
+      "mnemonic": "div-int/lit8",
+      "words": [
+        219,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 220,
+      "format": "22b",
+      "mnemonic": "rem-int/lit8",
+      "words": [
+        220,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 221,
+      "format": "22b",
+      "mnemonic": "and-int/lit8",
+      "words": [
+        221,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 222,
+      "format": "22b",
+      "mnemonic": "or-int/lit8",
+      "words": [
+        222,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 223,
+      "format": "22b",
+      "mnemonic": "xor-int/lit8",
+      "words": [
+        223,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 224,
+      "format": "22b",
+      "mnemonic": "shl-int/lit8",
+      "words": [
+        224,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 225,
+      "format": "22b",
+      "mnemonic": "shr-int/lit8",
+      "words": [
+        225,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 226,
+      "format": "22b",
+      "mnemonic": "ushr-int/lit8",
+      "words": [
+        226,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 250,
+      "format": "45cc",
+      "mnemonic": "invoke-polymorphic",
+      "words": [
+        4346,
+        0,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 4
+    },
+    {
+      "opcode": 251,
+      "format": "4rcc",
+      "mnemonic": "invoke-polymorphic/range",
+      "words": [
+        507,
+        0,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 4
+    },
+    {
+      "opcode": 252,
+      "format": "35c",
+      "mnemonic": "invoke-custom",
+      "words": [
+        4348,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 253,
+      "format": "3rc",
+      "mnemonic": "invoke-custom/range",
+      "words": [
+        509,
+        0,
+        0,
+        14
+      ],
+      "expected_first_width": 3
+    },
+    {
+      "opcode": 254,
+      "format": "21c",
+      "mnemonic": "const-method-handle",
+      "words": [
+        254,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    },
+    {
+      "opcode": 255,
+      "format": "21c",
+      "mnemonic": "const-method-type",
+      "words": [
+        255,
+        0,
+        14
+      ],
+      "expected_first_width": 2
+    }
+  ]
+}

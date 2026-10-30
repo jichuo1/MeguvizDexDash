@@ -1,0 +1,966 @@
+{
+  "binary_sha256": "124b3c352398557f97e867e00127409cbbe9a2b678dd041428a630eae0801f3a",
+  "driver_sha256": "7e667559c6a0202991c5cb39798d4b7de6efc65dad3fd592f99560dfe75259d7",
+  "sqlite_version": "3.53.1",
+  "cases": [
+    {
+      "dialect": "010",
+      "case": "derived_in",
+      "sql": "SELECT d.string_idx IN (1) AS v FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "010",
+      "case": "derived_not_in",
+      "sql": "SELECT d.string_idx NOT IN (1) AS v FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "010",
+      "case": "cte_in",
+      "sql": "WITH d AS (SELECT CAST('1' AS TEXT) AS string_idx) SELECT d.string_idx IN (1) AS v FROM d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "010",
+      "case": "same_type",
+      "sql": "SELECT string_idx IN (0) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 12,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-d862eb29f1e13a4e9ee7abbd843e577c3a787b7181831060fb6c31374cbaac51",
+            "snapshot_id": "snapshot-e3ee820d91831cd81518fceb8a67b80d6a6bf69530739fd9ddbf6b1020c0a077"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "010",
+      "case": "same_type_not_in",
+      "sql": "SELECT string_idx NOT IN (1) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 12,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-11671f3b3cd591bec9120d55574e152e3c877e82d5a17c75c4bd8fd35eda6459",
+            "snapshot_id": "snapshot-f9f08637d20257b0f77c5bb87696bdca7900b31f40f6c72320b8ce05bfbe373a"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "010",
+      "case": "null_match",
+      "sql": "SELECT string_idx IN (NULL,0) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 14,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-30af1e08cb27f181ef7b9a61f16420fd10ee3e05e7ffb3c913f8c3051e86056e",
+            "snapshot_id": "snapshot-7c28748a4bf73f5ab046ee28c08d4362986f1642ad90c8cd948dfa3b9a191620"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "010",
+      "case": "null_no_match",
+      "sql": "SELECT string_idx IN (NULL,1) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 14,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-f732ca9af89b77c26e1b075563fa32a0ea01e7aa33c9c4507721eace28111c95",
+            "snapshot_id": "snapshot-4323050eb8371c53ed4759e6d1af0933c8f180921be53682331e0f3cba8d9c08"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql010",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "010",
+      "case": "unknown_column",
+      "sql": "SELECT missing IN (0) AS v FROM native_strings",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "no such column: missing in SELECT missing IN (0) AS v FROM native_strings at offset 7",
+          "retryable": false,
+          "stage": "sql.sqlite"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "error",
+        "message": "no such column: missing"
+      }
+    },
+    {
+      "dialect": "011",
+      "case": "derived_in",
+      "sql": "SELECT d.string_idx IN (1) AS v FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "011",
+      "case": "derived_not_in",
+      "sql": "SELECT d.string_idx NOT IN (1) AS v FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "011",
+      "case": "cte_in",
+      "sql": "WITH d AS (SELECT CAST('1' AS TEXT) AS string_idx) SELECT d.string_idx IN (1) AS v FROM d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "011",
+      "case": "same_type",
+      "sql": "SELECT string_idx IN (0) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 12,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-52d818ae42bfeed71e310d71a8c05f362c63000d1bcf705323f99e32b9bab817",
+            "snapshot_id": "snapshot-e086256894fa7de582b00d7565adabacb0d83ca263b8ef7453d3082fce526eda"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "011",
+      "case": "same_type_not_in",
+      "sql": "SELECT string_idx NOT IN (1) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 12,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-e07abaf06726c6a36e17fac13fae70c854b63e9ec74bb143f3b461bb0c918868",
+            "snapshot_id": "snapshot-8481da1c6bc4afc3df5799edfc14d7139c2fb8cd6b9e2dd62e0349c92ad4e1bd"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "011",
+      "case": "null_match",
+      "sql": "SELECT string_idx IN (NULL,0) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 14,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-93130046c031c1269c26075693320cbdebcfd355b98fd86f66f153bd75238cc4",
+            "snapshot_id": "snapshot-9e4aa84bea5581381602ce0a00ebeefd5bcdaa9fb51f7c0fbb53869547249ecd"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "011",
+      "case": "null_no_match",
+      "sql": "SELECT string_idx IN (NULL,1) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 14,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-6fadb51ea6bc3fecf717b8d4314e57104059a27ec1e58a528a9363722f4fb541",
+            "snapshot_id": "snapshot-7fdb412a19a8cca05f0d4bb5746333f6f37a1d157d613b9f089e71e6fa63a3b0"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "dex_sql011",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "011",
+      "case": "unknown_column",
+      "sql": "SELECT missing IN (0) AS v FROM native_strings",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "no such column: missing in SELECT missing IN (0) AS v FROM native_strings at offset 7",
+          "retryable": false,
+          "stage": "sql.sqlite"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "error",
+        "message": "no such column: missing"
+      }
+    },
+    {
+      "dialect": "native",
+      "case": "derived_in",
+      "sql": "SELECT d.string_idx IN (1) AS v FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "native",
+      "case": "derived_not_in",
+      "sql": "SELECT d.string_idx NOT IN (1) AS v FROM (SELECT CAST('1' AS TEXT) AS string_idx) d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "native",
+      "case": "cte_in",
+      "sql": "WITH d AS (SELECT CAST('1' AS TEXT) AS string_idx) SELECT d.string_idx IN (1) AS v FROM d",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "UNSUPPORTED_QUERY",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "SQLite accepts this read-only syntax but the AST adapter does not yet implement it",
+          "retryable": false,
+          "stage": "sql.ast"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "native",
+      "case": "same_type",
+      "sql": "SELECT string_idx IN (0) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 12,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-847cf366ec163a7f919afe61ac9b7b6152d53e4b7bfe79e65c4a193071416958",
+            "snapshot_id": "snapshot-71e90a35da84e9840f6a6096a06ad143d215b9c8049b8f131933efc2289ead61"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "native_v1",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "native",
+      "case": "same_type_not_in",
+      "sql": "SELECT string_idx NOT IN (1) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 12,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-3b67fc29074c0e41da1ae261c24bffadcf0874e5dc1c427bbf151e3b9a7d62ca",
+            "snapshot_id": "snapshot-56231abff9dcf7be027c36585b99ecd2de4b6bbd80deb226d9cdf74a9ba54b9d"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "native_v1",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "native",
+      "case": "null_match",
+      "sql": "SELECT string_idx IN (NULL,0) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 14,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-4929a533b2ec0a9392b21870c2137740f80f26f150f1365b8abf3cdba93ddca6",
+            "snapshot_id": "snapshot-1f0c5c7c850faec5e65a36cd4ee0a43781b4876443e9c15440f96fec421b9233"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "native_v1",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "i64",
+                "value": "1"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "native",
+      "case": "null_no_match",
+      "sql": "SELECT string_idx IN (NULL,1) AS v FROM native_strings WHERE string_idx=0",
+      "candidate_exit": 0,
+      "candidate": {
+        "full_audit_complete": false,
+        "operation_status": "ok",
+        "result": {
+          "ast_nodes": 14,
+          "binding": {
+            "catalog_epoch": "0",
+            "provider_identity": "sql-metadata-provider-bfb4cb527f78b70f5734462bfae0f5df03a0a8bc300bf915119e3922d5346ed3",
+            "snapshot_id": "snapshot-9af7109c42a544120c8cd6bb9378eb8e1a09907e6997740651d1b590b1294769"
+          },
+          "calculation_complete": true,
+          "columns": [
+            "v"
+          ],
+          "dialect": "native_v1",
+          "execution_binding": null,
+          "optimizer": {
+            "in_pushdown": false,
+            "limit_offset_pushdown": false,
+            "omit": false,
+            "order_by_consumed": false
+          },
+          "profiles_admitted": [],
+          "required_layers": [
+            "metadata"
+          ],
+          "required_relations": [
+            "native_strings"
+          ],
+          "rows": [
+            [
+              {
+                "type": "null"
+              }
+            ]
+          ],
+          "sqlite_version": "3.53.2"
+        }
+      },
+      "sqlite": {
+        "status": "ok",
+        "rows": [
+          [
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "dialect": "native",
+      "case": "unknown_column",
+      "sql": "SELECT missing IN (0) AS v FROM native_strings",
+      "candidate_exit": 1,
+      "candidate": {
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "details": {
+            "ast_error": "IN_LEFT_AFFINITY_NOT_IMPLEMENTED"
+          },
+          "message": "no such column: missing in SELECT missing IN (0) AS v FROM native_strings at offset 7",
+          "retryable": false,
+          "stage": "sql.sqlite"
+        },
+        "full_audit_complete": false,
+        "operation_status": "error"
+      },
+      "sqlite": {
+        "status": "error",
+        "message": "no such column: missing"
+      }
+    }
+  ],
+  "profiles_admitted": false,
+  "scope": "derived table and CTE over synthetic metadata, not full dialect qualification"
+}

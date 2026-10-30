@@ -1,0 +1,1 @@
+10-28 17:31:06.219 40560 43356 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\MeguvisDexDash\tests\fixtures\definitions\generated\orphan-method-delta.dex': out-of-order direct method indexes 8 and 7

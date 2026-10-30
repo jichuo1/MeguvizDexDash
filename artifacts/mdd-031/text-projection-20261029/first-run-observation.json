@@ -1,0 +1,9 @@
+{
+  "schema_version": "mdd.manual-tool-observation.v1",
+  "stage": "comparison driver",
+  "exit_code": 1,
+  "error": "TypeError: 'NoneType' object is not subscriptable",
+  "cause": "serde_json::json! interprets the token null as a literal instead of the intended local variable; the actual SQL result was computed but omitted by the probe",
+  "source_and_raw_failure_hashes": "not captured at this first run; build, compile and native stdout/stderr are preserved in sibling directories",
+  "scope": "probe defect, not evidence of SQL engine failure"
+}

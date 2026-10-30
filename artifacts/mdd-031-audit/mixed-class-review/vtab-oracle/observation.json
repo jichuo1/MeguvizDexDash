@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "stdout": "{\"sqlite_version\":\"3.53.2\",\"tables\":{\"ordinary\":{\"rows\":[[\"1\",\"integer\",1,1],[\"1\",\"integer\",1,1]],\"sql\":\"SELECT quote(v),typeof(v),v='1',v=1 FROM ordinary ORDER BY rowid\"},\"virtual\":{\"rows\":[[\"'01'\",\"text\",1,1],[\"'1'\",\"text\",1,1]],\"sql\":\"SELECT quote(v),typeof(v),v='1',v=1 FROM test_numeric ORDER BY rowid\"}}}\n",
+  "stderr": "",
+  "binary_sha256": "3f7888bc42718949e6978d1eab446d562e0ced36a8f4141039d30497862f8f3f",
+  "source_sha256": "e1e8b042ee38ce0f523a25e76b10597d9f4dbea39725bb8eef5a1d53203c861c",
+  "probe_lock_sha256": "adae228ec99a6ef4c358c16e5184288c8bb0f0fedd6a7133b3f58c543cf79c33",
+  "root_lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "scope": "SQLite 3.53.2 numeric virtual-table returning text deliberately, compared with ordinary numeric column"
+}

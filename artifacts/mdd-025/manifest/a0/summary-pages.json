@@ -1,0 +1,339 @@
+[
+  {
+    "application": {
+      "android:allowBackup": "true",
+      "android:appComponentFactory": "androidx.core.app.CoreComponentFactory",
+      "android:banner": "@7f100002",
+      "android:extractNativeLibs": "true",
+      "android:icon": "@7f100000",
+      "android:label": "@7f120038",
+      "android:localeConfig": "@7f150000",
+      "android:logo": "@7f100000",
+      "android:name": "org.schabi.newpipe.App",
+      "android:resizeableActivity": "true",
+      "android:theme": "@7f130195"
+    },
+    "component_counts": {
+      "activity": 12,
+      "provider": 3,
+      "receiver": 10,
+      "service": 12
+    },
+    "dataset_id": "dataset-1",
+    "input_index": 0,
+    "manifest": {
+      "android:compileSdkVersion": "36",
+      "android:compileSdkVersionCodename": "16",
+      "android:installLocation": "auto",
+      "android:versionCode": "1011",
+      "android:versionName": "0.28.6",
+      "package": "org.schabi.newpipe",
+      "platformBuildVersionCode": "36",
+      "platformBuildVersionName": "16"
+    },
+    "next_offset": 2,
+    "offset": 0,
+    "permissions": [
+      {
+        "attributes": {
+          "android:name": "android.permission.INTERNET"
+        },
+        "kind": "uses-permission"
+      },
+      {
+        "attributes": {
+          "android:name": "android.permission.WAKE_LOCK"
+        },
+        "kind": "uses-permission"
+      }
+    ],
+    "target_sdk": 35,
+    "total_rows": 12,
+    "truncated": true,
+    "uses_sdk": {
+      "android:minSdkVersion": "21",
+      "android:targetSdkVersion": "35"
+    }
+  },
+  {
+    "application": {
+      "android:allowBackup": "true",
+      "android:appComponentFactory": "androidx.core.app.CoreComponentFactory",
+      "android:banner": "@7f100002",
+      "android:extractNativeLibs": "true",
+      "android:icon": "@7f100000",
+      "android:label": "@7f120038",
+      "android:localeConfig": "@7f150000",
+      "android:logo": "@7f100000",
+      "android:name": "org.schabi.newpipe.App",
+      "android:resizeableActivity": "true",
+      "android:theme": "@7f130195"
+    },
+    "component_counts": {
+      "activity": 12,
+      "provider": 3,
+      "receiver": 10,
+      "service": 12
+    },
+    "dataset_id": "dataset-1",
+    "input_index": 0,
+    "manifest": {
+      "android:compileSdkVersion": "36",
+      "android:compileSdkVersionCodename": "16",
+      "android:installLocation": "auto",
+      "android:versionCode": "1011",
+      "android:versionName": "0.28.6",
+      "package": "org.schabi.newpipe",
+      "platformBuildVersionCode": "36",
+      "platformBuildVersionName": "16"
+    },
+    "next_offset": 4,
+    "offset": 2,
+    "permissions": [
+      {
+        "attributes": {
+          "android:name": "android.permission.ACCESS_NETWORK_STATE"
+        },
+        "kind": "uses-permission"
+      },
+      {
+        "attributes": {
+          "android:name": "android.permission.WRITE_EXTERNAL_STORAGE"
+        },
+        "kind": "uses-permission"
+      }
+    ],
+    "target_sdk": 35,
+    "total_rows": 12,
+    "truncated": true,
+    "uses_sdk": {
+      "android:minSdkVersion": "21",
+      "android:targetSdkVersion": "35"
+    }
+  },
+  {
+    "application": {
+      "android:allowBackup": "true",
+      "android:appComponentFactory": "androidx.core.app.CoreComponentFactory",
+      "android:banner": "@7f100002",
+      "android:extractNativeLibs": "true",
+      "android:icon": "@7f100000",
+      "android:label": "@7f120038",
+      "android:localeConfig": "@7f150000",
+      "android:logo": "@7f100000",
+      "android:name": "org.schabi.newpipe.App",
+      "android:resizeableActivity": "true",
+      "android:theme": "@7f130195"
+    },
+    "component_counts": {
+      "activity": 12,
+      "provider": 3,
+      "receiver": 10,
+      "service": 12
+    },
+    "dataset_id": "dataset-1",
+    "input_index": 0,
+    "manifest": {
+      "android:compileSdkVersion": "36",
+      "android:compileSdkVersionCodename": "16",
+      "android:installLocation": "auto",
+      "android:versionCode": "1011",
+      "android:versionName": "0.28.6",
+      "package": "org.schabi.newpipe",
+      "platformBuildVersionCode": "36",
+      "platformBuildVersionName": "16"
+    },
+    "next_offset": 6,
+    "offset": 4,
+    "permissions": [
+      {
+        "attributes": {
+          "android:name": "android.permission.SYSTEM_ALERT_WINDOW"
+        },
+        "kind": "uses-permission"
+      },
+      {
+        "attributes": {
+          "android:name": "android.permission.FOREGROUND_SERVICE"
+        },
+        "kind": "uses-permission"
+      }
+    ],
+    "target_sdk": 35,
+    "total_rows": 12,
+    "truncated": true,
+    "uses_sdk": {
+      "android:minSdkVersion": "21",
+      "android:targetSdkVersion": "35"
+    }
+  },
+  {
+    "application": {
+      "android:allowBackup": "true",
+      "android:appComponentFactory": "androidx.core.app.CoreComponentFactory",
+      "android:banner": "@7f100002",
+      "android:extractNativeLibs": "true",
+      "android:icon": "@7f100000",
+      "android:label": "@7f120038",
+      "android:localeConfig": "@7f150000",
+      "android:logo": "@7f100000",
+      "android:name": "org.schabi.newpipe.App",
+      "android:resizeableActivity": "true",
+      "android:theme": "@7f130195"
+    },
+    "component_counts": {
+      "activity": 12,
+      "provider": 3,
+      "receiver": 10,
+      "service": 12
+    },
+    "dataset_id": "dataset-1",
+    "input_index": 0,
+    "manifest": {
+      "android:compileSdkVersion": "36",
+      "android:compileSdkVersionCodename": "16",
+      "android:installLocation": "auto",
+      "android:versionCode": "1011",
+      "android:versionName": "0.28.6",
+      "package": "org.schabi.newpipe",
+      "platformBuildVersionCode": "36",
+      "platformBuildVersionName": "16"
+    },
+    "next_offset": 8,
+    "offset": 6,
+    "permissions": [
+      {
+        "attributes": {
+          "android:name": "android.permission.FOREGROUND_SERVICE_DATA_SYNC"
+        },
+        "kind": "uses-permission"
+      },
+      {
+        "attributes": {
+          "android:name": "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+        },
+        "kind": "uses-permission"
+      }
+    ],
+    "target_sdk": 35,
+    "total_rows": 12,
+    "truncated": true,
+    "uses_sdk": {
+      "android:minSdkVersion": "21",
+      "android:targetSdkVersion": "35"
+    }
+  },
+  {
+    "application": {
+      "android:allowBackup": "true",
+      "android:appComponentFactory": "androidx.core.app.CoreComponentFactory",
+      "android:banner": "@7f100002",
+      "android:extractNativeLibs": "true",
+      "android:icon": "@7f100000",
+      "android:label": "@7f120038",
+      "android:localeConfig": "@7f150000",
+      "android:logo": "@7f100000",
+      "android:name": "org.schabi.newpipe.App",
+      "android:resizeableActivity": "true",
+      "android:theme": "@7f130195"
+    },
+    "component_counts": {
+      "activity": 12,
+      "provider": 3,
+      "receiver": 10,
+      "service": 12
+    },
+    "dataset_id": "dataset-1",
+    "input_index": 0,
+    "manifest": {
+      "android:compileSdkVersion": "36",
+      "android:compileSdkVersionCodename": "16",
+      "android:installLocation": "auto",
+      "android:versionCode": "1011",
+      "android:versionName": "0.28.6",
+      "package": "org.schabi.newpipe",
+      "platformBuildVersionCode": "36",
+      "platformBuildVersionName": "16"
+    },
+    "next_offset": 10,
+    "offset": 8,
+    "permissions": [
+      {
+        "attributes": {
+          "android:name": "android.permission.POST_NOTIFICATIONS"
+        },
+        "kind": "uses-permission"
+      },
+      {
+        "attributes": {
+          "android:name": "android.permission.RECEIVE_BOOT_COMPLETED"
+        },
+        "kind": "uses-permission"
+      }
+    ],
+    "target_sdk": 35,
+    "total_rows": 12,
+    "truncated": true,
+    "uses_sdk": {
+      "android:minSdkVersion": "21",
+      "android:targetSdkVersion": "35"
+    }
+  },
+  {
+    "application": {
+      "android:allowBackup": "true",
+      "android:appComponentFactory": "androidx.core.app.CoreComponentFactory",
+      "android:banner": "@7f100002",
+      "android:extractNativeLibs": "true",
+      "android:icon": "@7f100000",
+      "android:label": "@7f120038",
+      "android:localeConfig": "@7f150000",
+      "android:logo": "@7f100000",
+      "android:name": "org.schabi.newpipe.App",
+      "android:resizeableActivity": "true",
+      "android:theme": "@7f130195"
+    },
+    "component_counts": {
+      "activity": 12,
+      "provider": 3,
+      "receiver": 10,
+      "service": 12
+    },
+    "dataset_id": "dataset-1",
+    "input_index": 0,
+    "manifest": {
+      "android:compileSdkVersion": "36",
+      "android:compileSdkVersionCodename": "16",
+      "android:installLocation": "auto",
+      "android:versionCode": "1011",
+      "android:versionName": "0.28.6",
+      "package": "org.schabi.newpipe",
+      "platformBuildVersionCode": "36",
+      "platformBuildVersionName": "16"
+    },
+    "next_offset": null,
+    "offset": 10,
+    "permissions": [
+      {
+        "attributes": {
+          "android:name": "org.schabi.newpipe.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+          "android:protectionLevel": "signature"
+        },
+        "kind": "permission"
+      },
+      {
+        "attributes": {
+          "android:name": "org.schabi.newpipe.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        },
+        "kind": "uses-permission"
+      }
+    ],
+    "target_sdk": 35,
+    "total_rows": 12,
+    "truncated": false,
+    "uses_sdk": {
+      "android:minSdkVersion": "21",
+      "android:targetSdkVersion": "35"
+    }
+  }
+]

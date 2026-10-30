@@ -1,0 +1,7 @@
+{
+  "captured_utc": "2026-10-30T01:46:05.408757+00:00",
+  "available_physical_bytes": "9017929728",
+  "minimum_bytes": "3221225472",
+  "admitted": true,
+  "scope": "existing 3 GiB independent Row admission unchanged; not performance"
+}

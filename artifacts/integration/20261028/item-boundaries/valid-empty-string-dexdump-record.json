@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+    "-f",
+    "D:\\MeguvisDexDash\\artifacts\\integration\\20261028\\item-boundaries\\valid-empty-string.dex"
+  ],
+  "exit_code": 0,
+  "input_sha256": "f7585c9ec58de21583b71cbdd971086ca015f733555c1b2b239d6f2ed9e4b3f4",
+  "stdout_bytes": 892,
+  "stderr_bytes": 0
+}

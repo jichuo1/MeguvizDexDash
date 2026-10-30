@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\artifacts\\local\\baseline-venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/hostlab-consumer-contract-20261029/probe.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:10:57.004339+00:00",
+  "finished_utc": "2026-10-29T06:10:57.305088+00:00",
+  "elapsed_seconds": 0.2970000000022992,
+  "exit_code": 1,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "bytes": 670,
+    "sha256": "c3e1ccc98dfc47cac5d50db018ff711bfe772bb1a733a0ffbab79142092eb480"
+  }
+}

@@ -1,0 +1,1 @@
+{"status": "passed-readback-only", "sqlite_cases": 6, "old_reference_cases": 54, "observed_dto_type_differences": 30, "reference_timeouts_before_queries": 2, "reference_engines_started": 0, "dto_equivalent": false, "profile_admitted": false}

@@ -1,0 +1,13 @@
+{
+  "captured_utc": "2026-10-29T06:32:33.534119+00:00",
+  "snapshot_sources": 94,
+  "all_snapshot_equal": true,
+  "all_probe_files_equal": true,
+  "source_before_sha256": "2f5572b85fc5e565ea91ea46ec8630c2aba0370c6f2ff196feaf4f88693e994f",
+  "binary_sha256": "7e34e694c4cda5df97e7f9899fd9f8ac1c80bafedbfdd81b850135c8a24d71db",
+  "serde_json_writer_and_value_source_sha256": {
+    "ser.rs": "f2b8cc0b97e30c49dbc58698fa22c14a7d56ea616cdb57b067835a59af49a75f",
+    "value/ser.rs": "11f2b7daa1eba826d4086d5497f73729478dd7647bff77deccde5e47b0f126f2"
+  },
+  "small_probe_runner_sha256": "67892a24dfdda68b400da794216b568d702bace41cde684d0b3cfa10f0f7da14"
+}

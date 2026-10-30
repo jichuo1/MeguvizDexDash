@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "D:\\Bilibili_Innocent_Lab\\tools\\hostlab\\vendor\\dexsql\\0.1.0\\dexsql-windows-amd64.exe",
+    "--threads",
+    "1",
+    "query",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex",
+    "--input",
+    "D:\\MeguvisDexDash\\tests\\fixtures\\annotations\\generated\\annotations-038.dex",
+    "--sql",
+    "SELECT CASE WHEN \"file_id\" IS NULL THEN 'N' ELSE hex(CAST(\"file_id\" AS TEXT)) END AS \"file_id\",CASE WHEN \"annotation_off\" IS NULL THEN 'N' ELSE hex(CAST(\"annotation_off\" AS TEXT)) END AS \"annotation_off\",CASE WHEN \"depth\" IS NULL THEN 'N' ELSE hex(CAST(\"depth\" AS TEXT)) END AS \"depth\",CASE WHEN \"ordinal\" IS NULL THEN 'N' ELSE hex(CAST(\"ordinal\" AS TEXT)) END AS \"ordinal\",CASE WHEN \"name_idx\" IS NULL THEN 'N' ELSE hex(CAST(\"name_idx\" AS TEXT)) END AS \"name_idx\",CASE WHEN \"value_off\" IS NULL THEN 'N' ELSE hex(CAST(\"value_off\" AS TEXT)) END AS \"value_off\",CASE WHEN \"value_end_off\" IS NULL THEN 'N' ELSE hex(CAST(\"value_end_off\" AS TEXT)) END AS \"value_end_off\",CASE WHEN \"value_kind\" IS NULL THEN 'N' ELSE hex(CAST(\"value_kind\" AS TEXT)) END AS \"value_kind\",CASE WHEN \"value_index\" IS NULL THEN 'N' ELSE hex(CAST(\"value_index\" AS TEXT)) END AS \"value_index\",CASE WHEN \"value_i64\" IS NULL THEN 'N' ELSE hex(CAST(\"value_i64\" AS TEXT)) END AS \"value_i64\",CASE WHEN \"value_f64\" IS NULL THEN 'N' ELSE hex(CAST(\"value_f64\" AS TEXT)) END AS \"value_f64\" FROM annotation_elements ORDER BY file_id,annotation_off,value_off,depth,ordinal"
+  ],
+  "started_utc": "2026-10-28T16:52:30.591065+00:00",
+  "finished_utc": "2026-10-28T16:52:31.937225+00:00",
+  "elapsed_seconds": 1.344000000000051,
+  "exit_code": 0,
+  "stdout_sha256": "3fb7a3d6cd7bd668c95dfe27af3097481596900499159c595b558fdee2517d40",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "tiny development conformance; not performance"
+}

@@ -1,0 +1,14 @@
+    Checking mdd-session v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-session)
+warning: field `execution_claimed` is never read
+   --> crates\mdd-session\src\lib.rs:141:5
+    |
+130 | struct QueryEntry {
+    |        ---------- field in this struct
+...
+141 |     execution_claimed: bool,
+    |     ^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `mdd-session` (lib) generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.51s

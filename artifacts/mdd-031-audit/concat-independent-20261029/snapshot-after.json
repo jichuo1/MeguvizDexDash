@@ -1,0 +1,10 @@
+{
+  "captured_utc": "2026-10-29T06:18:57.327466+00:00",
+  "all_snapshot_files_equal": true,
+  "all_probe_files_equal": true,
+  "snapshot_file_count": 94,
+  "probe_file_count": 4,
+  "snapshot_before_sha256": "da2886cf3422c08c093c3ec69d13393070ec161456d85ed7f1352739aef354a9",
+  "probe_before_sha256": "ea438ab5dd86275a4baa7e3a1fc77f0f1d2d436f0d013b45ff6d2084a2a10cbf",
+  "binary_sha256": "1f5fc65831917582509886febc848dee24d5a457d18714b0a3cfe0028b6b1bb4"
+}

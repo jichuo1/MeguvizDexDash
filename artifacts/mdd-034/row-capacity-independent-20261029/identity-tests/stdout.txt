@@ -1,0 +1,1 @@
+{"negative_controls_rejected": 5, "actual_current_identity_admitted": true, "actual_current_identity_reason": null, "worker_started": false, "scope": "identity admission only; no row probe"}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "mdd.evidence-correction.v1",
+  "affected_file": "q03-readback-python3504.json",
+  "correction": "The copied file is an unchanged copy of the independent SQLite 3.53.1 qualification, despite its mistaken filename. The verifier is read-only and the original qualification was never overwritten.",
+  "sqlite_3504_run": "A separate python -O invocation printed a successful SQLite 3.50.4 readback to the tool result; that console output was not captured in the copied file.",
+  "qualification_scope": "synthetic Q03 partial schema; no profile admitted"
+}

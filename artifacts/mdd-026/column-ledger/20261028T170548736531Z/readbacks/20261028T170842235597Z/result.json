@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "result_sha256": "27cc3f75944e424cc701ecd3467ab69bfa2472148f508d08dfff190f088c276a",
+  "readback_source_sha256": "bce63ace3b19fa1355de4b7179cfd89f00cfcbff651f960c7ea7f070591cf402",
+  "recomputed_result": "artifacts/mdd-026/column-ledger/20261028T170842393647Z/column-ledger.json",
+  "recomputed_sha256": "e1106049d4af85af508bfd48d7da624e04f785241f396bb1fd0611e488735aab",
+  "compiler_stdout_sha256": "ab8b27894b070414198521dfd6f96db97b333c3b9224c7cfc8ab5908a039d7ae",
+  "compiler_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "relations": 17,
+  "columns": 156,
+  "task_complete_proven": false,
+  "scope": "evidence inventory recomputation, not fact/profile qualification"
+}

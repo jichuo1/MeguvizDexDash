@@ -1,0 +1,7 @@
+{
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tests/fixtures/definitions/check.py"
+  ],
+  "exit_code": 0
+}

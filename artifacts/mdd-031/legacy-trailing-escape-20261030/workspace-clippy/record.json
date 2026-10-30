@@ -1,0 +1,29 @@
+{
+  "command": [
+    "cargo",
+    "clippy",
+    "--workspace",
+    "--all-targets",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "started_utc": "2026-10-30T02:07:40.129305+00:00",
+  "finished_utc": "2026-10-30T02:07:46.543294+00:00",
+  "elapsed_seconds": 6.42200000000048,
+  "exit_code": 0,
+  "timed_out": false,
+  "source_sha256": {
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "crates/mdd-sql/src/bridge.rs": "0bf34bcf158c6405575f6a12008dd858855a4b4aeca1860660d375963e60b27b",
+    "crates/mdd-sql/src/dialects/functions.rs": "1c8918be5bcde6f2ac1f2178c3d73dc5f05362c60515ba3df0e266fe0bd0e257"
+  },
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "17bd903e8fc75452807dc91278095ac2d8d350b5be1915d80d484b619c3df4a2",
+  "scope": "local Windows development check; no full dialect or performance qualification"
+}

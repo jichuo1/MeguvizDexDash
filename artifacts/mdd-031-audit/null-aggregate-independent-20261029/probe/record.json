@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\like-independent-20261029-target\\debug\\mdd-null-aggregate-independent.exe"
+  ],
+  "started_utc": "2026-10-29T01:31:27.033120+00:00",
+  "finished_utc": "2026-10-29T01:31:28.114446+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_seconds": 30,
+  "stdout_sha256": "7fddbdb63599b0ba7f8791da283cf28b5daa1c3f54237ed3b745f74832414e03",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "job_status": "completed",
+  "tree_empty_verified": true,
+  "supervisor_sha256": "f2838bf4f6a50f516207b57df500474be6d7d7365c9963d1c521665178e41109",
+  "scope": "local independent test, no formal performance"
+}

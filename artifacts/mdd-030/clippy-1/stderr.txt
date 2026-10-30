@@ -1,0 +1,85 @@
+    Checking mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+    Checking mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+    Checking mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+    Checking mdd-facts v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-facts)
+    Checking mdd-query v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-query)
+error: unneeded unit expression
+   --> crates\mdd-query\src\executor\facts.rs:445:21
+    |
+445 |                     ()
+    |                     ^^ help: remove the final `()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unused_unit
+    = note: `-D clippy::unused-unit` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::unused_unit)]`
+
+error: unneeded unit expression
+   --> crates\mdd-query\src\executor\facts.rs:453:21
+    |
+453 |                     ()
+    |                     ^^ help: remove the final `()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unused_unit
+
+error: this `if` statement can be collapsed
+   --> crates\mdd-query\src\executor\facts.rs:168:13
+    |
+168 | /             if let Some(definitions) = &occurrence.definitions {
+169 | |                 if !same(metadata.source(), definitions.metadata().source())
+170 | |                     || !Arc::ptr_eq(&metadata.lease(), &definitions.metadata().lease())
+171 | |                     || definitions.definition_coverage() != Completeness::Complete
+...   |
+175 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+168 ~             if let Some(definitions) = &occurrence.definitions
+169 ~                 && (!same(metadata.source(), definitions.metadata().source())
+170 |                     || !Arc::ptr_eq(&metadata.lease(), &definitions.metadata().lease())
+171 ~                     || definitions.definition_coverage() != Completeness::Complete)
+172 |                 {
+173 |                     return Err(invalid("NATIVE_DEFINITION_SOURCE_OR_COVERAGE"));
+174 ~                 }
+    |
+
+error: this `if` statement can be collapsed
+   --> crates\mdd-query\src\executor\facts.rs:176:13
+    |
+176 | /             if let Some(code) = &occurrence.code {
+177 | |                 if !same(metadata.source(), code.source())
+178 | |                     || !Arc::ptr_eq(&metadata.lease(), &code.lease())
+179 | |                     || code.code_layout_coverage() != Completeness::Complete
+...   |
+184 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+help: collapse nested if block
+    |
+176 ~             if let Some(code) = &occurrence.code
+177 ~                 && (!same(metadata.source(), code.source())
+178 |                     || !Arc::ptr_eq(&metadata.lease(), &code.lease())
+179 |                     || code.code_layout_coverage() != Completeness::Complete
+180 ~                     || code.scope() != "complete-declared-code-map-v1")
+181 |                 {
+182 |                     return Err(invalid("NATIVE_CODE_SOURCE_OR_COMPLETE_MAP_REQUIRED"));
+183 ~                 }
+    |
+
+error: using `chunks_exact` with a constant chunk size
+  --> crates\mdd-query\src\ir\mod.rs:67:47
+   |
+67 |         for (index, block) in text.as_bytes().chunks_exact(4).enumerate() {
+   |                                               ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<4>().0.iter()`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+   = note: `-D clippy::chunks-exact-to-as-chunks` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::chunks_exact_to_as_chunks)]`
+
+error: could not compile `mdd-query` (lib) due to 5 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `mdd-query` (lib test) due to 5 previous errors

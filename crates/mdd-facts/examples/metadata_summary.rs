@@ -63,31 +63,31 @@ fn run() -> MddResult<serde_json::Value> {
     for index in 0..inventory.selected_dexes().len() {
         let facts = MetadataFacts::build(&snapshot, &inventory, index, StringLimits::default())?;
         dexes.push(DexSummary {
-            dex_occurrence_id: facts.source.dex_occurrence_id,
-            content_id: facts.source.content_id,
-            version: facts.header.version,
-            strings: facts.strings.len(),
+            dex_occurrence_id: facts.source().dex_occurrence_id.clone(),
+            content_id: facts.source().content_id.clone(),
+            version: facts.header().version.clone(),
+            strings: facts.strings().len(),
             utf16_code_units: facts
-                .strings
+                .strings()
                 .iter()
                 .map(|item| item.data.text.utf16_units.len() as u64)
                 .sum(),
             strings_without_scalar_utf8: facts
-                .strings
+                .strings()
                 .iter()
                 .filter(|item| item.data.text.strict_utf8().is_err())
                 .count(),
-            types: facts.types.len(),
-            prototypes: facts.prototypes.len(),
+            types: facts.types().len(),
+            prototypes: facts.prototypes().len(),
             parameter_references: facts
-                .prototypes
+                .prototypes()
                 .iter()
                 .map(|item| item.data.parameter_type_indices.len() as u64)
                 .sum(),
-            completed_layers: facts.completed_layers,
-            unbuilt_layers: facts.unbuilt_layers,
-            signature_verified: facts.header.signature_verified,
-            full_dex_validation_complete: facts.header.full_dex_validation_complete,
+            completed_layers: facts.completed_layers().to_vec(),
+            unbuilt_layers: facts.unbuilt_layers().to_vec(),
+            signature_verified: facts.header().signature_verified,
+            full_dex_validation_complete: facts.header().full_dex_validation_complete,
         });
     }
     Ok(serde_json::json!({

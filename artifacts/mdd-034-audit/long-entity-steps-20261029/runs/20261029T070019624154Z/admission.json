@@ -1,0 +1,65 @@
+{
+  "schema_version": "mdd.long-entity-steps-admission.v1",
+  "created_utc": "2026-10-29T07:00:19.624154+00:00",
+  "status": "blocked_by_resource_window",
+  "minimum_available_bytes": "3221225472",
+  "sources_before": {
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "crates/mdd-query/src/budget.rs": "e6e7538bea071f57a470f3eee417a996d2747981ed9c6ede98c0ddb326994c79",
+    "crates/mdd-query/src/executor.rs": "f34d93aa93f32ae47bd3c6a5b8c9059c412f6490739a83c7d7f8c6a20a1fe33e",
+    "crates/mdd-query/src/ir/mod.rs": "a4fe8a1a66d70684b868eeb61a77e56aecc10377ded6acd517b3c59407cfe46f",
+    "crates/mdd-query/src/executor/runtime_tests.rs": "5045d67972fb053731010b46174621b3f18c719c4b00cba181ff8fe2d3bf5d1e",
+    "artifacts/mdd-034-audit/long-entity-steps-20261029/probe.rs": "9ec0948bca71736f7d4d2dc7f2bccfd60546aac7cd7b36a0324a0997e92d539c"
+  },
+  "build_started": true,
+  "compile_started": false,
+  "probe_started": false,
+  "profile_admitted": false,
+  "task_complete_proven": false,
+  "scope": "synthetic provider; read-only evidence on current source, no private input or performance claim",
+  "memory_build": {
+    "available_bytes": "3267973120",
+    "required_bytes": "3221225472"
+  },
+  "build": {
+    "schema_version": "mdd.windows-job-run.v1",
+    "command_argv": [
+      "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+      "build",
+      "-p",
+      "mdd-query",
+      "--lib",
+      "--locked",
+      "--offline",
+      "--jobs",
+      "1",
+      "--message-format=json"
+    ],
+    "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+    "limits": {
+      "memory_commit_bytes": "2147483648",
+      "affinity_mask": "15",
+      "max_processes": 16,
+      "timeout_seconds": 180,
+      "max_log_bytes": 8388608
+    },
+    "assigned_before_resume": true,
+    "tree_empty_verified": true,
+    "status": "completed",
+    "job_name": "mdd-baseline-065e092f29db4d68895ee7766e4ad906",
+    "process_id": 43828,
+    "reason": null,
+    "exit_code": 0,
+    "cpu_user_seconds": 0.28125,
+    "cpu_kernel_seconds": 0.484375,
+    "total_processes": 6,
+    "peak_job_commit_bytes": "26226688",
+    "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+    "wall_seconds": 2.0614438000011432
+  },
+  "memory_compile": {
+    "available_bytes": "3193159680",
+    "required_bytes": "3221225472"
+  },
+  "blocked_stage": "compile"
+}

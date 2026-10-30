@@ -1,0 +1,5 @@
+{
+  "reason": "probe sources differ from the completed build",
+  "worker_started": false,
+  "scope": "source and binary identity admission"
+}

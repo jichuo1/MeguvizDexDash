@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "safe.directory=D:/MeguvisDexDash",
+    "rev-parse",
+    "HEAD"
+  ],
+  "exit_code": 0,
+  "stdout": "47fd4326c0de2d5ba35c357e6433cbe5f362a4ba\n",
+  "stderr": ""
+}

@@ -1,0 +1,275 @@
+{
+  "schema_version": "mdd.reference-multiplicity.v1",
+  "task_id": "MDD-024",
+  "frozen_relation_source_sha256": "f416926d6da3467b5cfea625978c2e4faac08c914cf2930d2c64878c261bb82d",
+  "relations": [
+    {
+      "name": "method_strings",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "value",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "string_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/references.rs",
+      "implementation_scope": "complete encoded operands in all defined method bodies of one bound DEX occurrence",
+      "admitted": false
+    },
+    {
+      "name": "method_calls",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "callee",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "callee_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "callee_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "callee_method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/references.rs",
+      "implementation_scope": "complete encoded operands in all defined method bodies of one bound DEX occurrence",
+      "admitted": false
+    },
+    {
+      "name": "method_field_accesses",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "field",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "field_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "field_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "field_type",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "using_type",
+          "data_type": "Utf8",
+          "nullable": true
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "field_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/references.rs",
+      "implementation_scope": "complete encoded operands in all defined method bodies of one bound DEX occurrence",
+      "admitted": false
+    },
+    {
+      "name": "method_used_types",
+      "columns": [
+        {
+          "name": "method",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_class",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "method_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "type_descriptor",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "type_name",
+          "data_type": "Utf8View",
+          "nullable": false
+        },
+        {
+          "name": "file_id",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "class_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "method_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        },
+        {
+          "name": "type_idx",
+          "data_type": "UInt32",
+          "nullable": false
+        }
+      ],
+      "required_by_hostlab": true,
+      "qualification": "reference_schema_only",
+      "implementation": "crates/mdd-facts/src/references.rs",
+      "implementation_scope": "complete encoded operands in all defined method bodies of one bound DEX occurrence",
+      "admitted": false
+    }
+  ],
+  "profile_admitted": false,
+  "site_identity": [
+    "snapshot_id",
+    "dex_occurrence_id",
+    "caller MethodDefinition local method_idx",
+    "code_unit_pc",
+    "operand_ordinal",
+    "operand_kind"
+  ],
+  "ranges": "Each instruction and operand range comes from the single validated code decoder. Raw operand bytes are checked against its typed local index. Jumbo uses4 bytes, poly second prototype uses2 at instruction byte+6.",
+  "multiplicity": "One site per encoded operand per genuine caller definition; repeated literals/callees and shared physical bodies retain all caller/site rows. Duplicate code projection entries and unowned code do not manufacture callers.",
+  "source_scope": "Code and definitions must match snapshot, DEX occurrence, member and content identity. Native target queries reject foreign local-ID joins. Dataset file_id is supplied by the snapshot catalog, never treated as a persistent physical identity.",
+  "completion": "A genuine missing projected body creates Partial reference coverage; default full relation projection fails IncompleteFacts. A nonphysical method-body pointer is InvalidInput even with an empty code projection. Zero matches prove absence only within a complete declared encoded-operand scope.",
+  "dynamic_calls": "Ordinary/range/poly/custom remain distinct. Poly retains encoded MethodRef and extra Prototype separately. Custom healthy metadata has unknown dynamic runtime target; encoded bootstrap is not substituted as ordinary callee. Invalid prefix/index/word metadata is an error. Handle constants retain typed targets without fabricating method calls or field accesses.",
+  "definition_search": "Provided-only/unbuilt/complete-selected-input worlds are distinct. The complete constructor checks every captured source inventory and every selected DEX fact. Search is exact encoded owner/name/type/prototype declaration lookup; no inheritance, runtime linkage, dispatch or full classpath proof. Missing in provided scope is not proven absent. Duplicate definitions from different occurrences stay ambiguous.",
+  "indexes": "Target postings and definition candidate indexes are compared to separate scalar scans plus a handwritten byte oracle. No DISTINCT/set reduction is used for required row multiplicity.",
+  "text": "Raw String targets resolve through the same occurrence/pool. Legal non-scalar UTF16 remains in facts; plain Utf8View projection returns explicit UnsupportedQuery rather than U+FFFD. A0 replacement behavior is a known unadmitted compatibility difference.",
+  "budgets": "Caller/code-unit expansion, sites, reference/index storage, projection structs/text, result candidates and helper metadata are bounded. Counters are logical costs, not measured RSS or performance evidence.",
+  "scope_exclusions": [
+    "full DEX/ART type-flow validity",
+    "unrequested annotation/resource validation",
+    "inheritance/runtime member resolution",
+    "runtime dispatch targets",
+    "HostLab/SQL profiles",
+    "performance qualification"
+  ],
+  "evidence": [
+    "tests/fixtures/references/expected.json",
+    "tests/fixtures/references/oracle-results.json",
+    "artifacts/mdd-024/small-reference-comparison.json",
+    "artifacts/mdd-024/reference-conformance.json",
+    "artifacts/mdd-024/initial-check-failures.json"
+  ]
+}

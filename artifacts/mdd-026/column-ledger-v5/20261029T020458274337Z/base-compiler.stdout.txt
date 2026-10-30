@@ -1,0 +1,1 @@
+{"path": "artifacts/mdd-026/column-ledger-v4/20261029T020458358341Z", "relations": 17, "columns": 156, "call_columns": 10, "class_identity_columns": 4, "task_complete_proven": false}

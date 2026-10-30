@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-dex",
+    "-p",
+    "mdd-facts",
+    "annotations::"
+  ],
+  "exit_code": 0,
+  "stdout": "\nrunning 5 tests\ntest annotations::tests::embedded_value_components_enforce_progress_depth_and_nodes ... ok\ntest annotations::tests::parameter_lists_preserve_encoded_slots_without_inventing_nulls ... ok\ntest annotations::tests::full_physical_annotations_preserve_types_bits_and_local_positions ... ok\ntest annotations::tests::depth_nodes_and_bytes_fail_closed ... ok\ntest annotations::tests::every_physical_fixture_matches_independent_sdk_classification ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 37 filtered out; finished in 0.01s\n\n\nrunning 4 tests\ntest annotations::tests::short_parameter_lists_have_explicit_unknown_prototype_coverage ... ok\ntest annotations::tests::same_snapshot_duplicate_occurrences_keep_distinct_annotation_refs ... ok\ntest annotations::tests::signature_parts_keep_array_order_pool_and_owner_source ... ok\ntest annotations::tests::six_full_relations_equal_independent_oracle_and_reference ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s\n\n",
+  "stderr": "   Compiling mdd-dex v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-dex)\n   Compiling mdd-facts v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-facts)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.24s\n     Running unittests src\\lib.rs (target\\debug\\deps\\mdd_dex-9a3bd310c7bdcff1.exe)\n     Running unittests src\\lib.rs (target\\debug\\deps\\mdd_facts-69f32e0169a7ad12.exe)\n"
+}

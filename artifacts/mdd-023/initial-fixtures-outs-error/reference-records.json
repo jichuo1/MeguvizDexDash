@@ -1,0 +1,96 @@
+{
+  "record_kind": "observed_reference_validation_not_benchmark",
+  "binary_sha256": "f870af85191214f8f59d78e6a27748f00e724bbcce362115347014419969bcce",
+  "oracle_provenance": "Android SDK build-tools37.0.0 AOSP dexdump; implementation ancestry AOSP/libdexfile, distinct from handwritten Rust reader",
+  "records": [
+    {
+      "input": "all-debug-opcodes.dex",
+      "input_sha256": "e7850fee36471ba1e04de20a38d3777a6ce1034774348541e8c948467a1270e3",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\all-debug-opcodes.dex"
+      ],
+      "exit_code": 1,
+      "stderr": "10-28 16:55:16.603 30884 45388 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\all-debug-opcodes.dex': outs_size (8d) > registers_size (1d)\r\n"
+    },
+    {
+      "input": "bad-reserved-opcode.dex",
+      "input_sha256": "7226c34b78bf7bea728f8cddd76c81146fe9e26bcebfd2ddcde1595980cc254f",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\bad-reserved-opcode.dex"
+      ],
+      "exit_code": 1,
+      "stderr": "10-28 16:55:16.623 37632 37928 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\bad-reserved-opcode.dex': outs_size (8d) > registers_size (1d)\r\n"
+    },
+    {
+      "input": "bad-truncated-wide.dex",
+      "input_sha256": "5c0353d8ab76d7a393e4f0f0e57e81babf59dab52b4f70985be87538fab27b19",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\bad-truncated-wide.dex"
+      ],
+      "exit_code": 1,
+      "stderr": "10-28 16:55:16.643 50172 23056 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\bad-truncated-wide.dex': outs_size (8d) > registers_size (2d)\r\n"
+    },
+    {
+      "input": "fill-array.dex",
+      "input_sha256": "d0cb3d880b0914e5867f989cc302a9d325626f367e1b066737f0e2cb958869af",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\fill-array.dex"
+      ],
+      "exit_code": 1,
+      "stderr": "10-28 16:55:16.664 20052 28320 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\fill-array.dex': outs_size (8d) > registers_size (1d)\r\n"
+    },
+    {
+      "input": "packed-switch.dex",
+      "input_sha256": "48340299e6aeb4f77900f677e4239748194bd465cf20fbc2a8f908ebb1ae24c4",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\packed-switch.dex"
+      ],
+      "exit_code": 1,
+      "stderr": "10-28 16:55:16.683 36912  1064 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\packed-switch.dex': outs_size (8d) > registers_size (1d)\r\n"
+    },
+    {
+      "input": "sparse-switch.dex",
+      "input_sha256": "642284da56a1aad4e5126d31b5046d63ce40ff02f064a8f86eb05ea7f3045c3c",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\sparse-switch.dex"
+      ],
+      "exit_code": 1,
+      "stderr": "10-28 16:55:16.717 37468 46568 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\sparse-switch.dex': outs_size (8d) > registers_size (1d)\r\n"
+    },
+    {
+      "input": "try-catch-all.dex",
+      "input_sha256": "7e40d63fe307174c2d28579b465b6856afa338ccb037e0609e39974236b5da14",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\try-catch-all.dex"
+      ],
+      "exit_code": 1,
+      "stderr": "10-28 16:55:16.749 40532 48144 E dexdump.exe: dexdump.cc:2037 Failure to verify dex file 'D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\try-catch-all.dex': outs_size (8d) > registers_size (1d)\r\n"
+    },
+    {
+      "input": "unreferenced-two-code.dex",
+      "input_sha256": "0e91b25b75fb54e843624258c0163f9a98eb1c05210d12b459f9bd41a22e71ef",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\build-tools\\37.0.0\\dexdump.exe",
+        "-f",
+        "D:\\MeguvisDexDash\\artifacts\\mdd-023\\initial-fixtures-outs-error\\unreferenced-two-code.dex"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "discovery": "Independent review found generator default outs8 invalid for positive fixtures with registers1; parser strict check was added rather than weakened; these initial bytes are retained."
+}

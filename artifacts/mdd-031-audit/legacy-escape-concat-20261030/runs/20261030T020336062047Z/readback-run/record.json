@@ -1,0 +1,14 @@
+{
+  "command": [
+    "D:\\MeguvisDexDash\\.venv\\Scripts\\python.exe",
+    "-O",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-031-audit\\legacy-escape-concat-20261030\\readback.py",
+    "20261030T020336062047Z"
+  ],
+  "started_utc": "2026-10-30T02:04:27.503526+00:00",
+  "finished_utc": "2026-10-30T02:04:27.623479+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "9ec6cbfb4515fae077cf721b686d15901207aa6c93ad081b78a78a7698cb12fc",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "synthetic fixed legacy CLI; no profile qualification"
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/substr-differential/verify.py"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"status\": \"pass\", \"engines\": [\"A0\", \"A1\"], \"cases_per_engine\": 8, \"binary_sha256\": \"8c0d9e5b47ab887f0c8322a30ad12404cc55bcd58f7a7524ed274eb026292e56\", \"reference_observations_sha256\": {\"A0\": \"38aeacdfdf034d75e51062a23df65e20ac57fd3b6631091f18c7ead06eaf4d78\", \"A1\": \"4bcf79257ddf1ecc8f721e93dbb6f22eff4cbf8b71c5c7fa3084d59cd8f06f50\"}, \"profiles_admitted\": false, \"scope\": \"16 literal-only cases; no full corpus, input coverage, or performance qualification\"}\n",
+  "stderr": "",
+  "driver_sha256": "fe4e56b0d47d209eed95263ebdc9ac6bdac8cc61e48eda598ba527512fbb409b",
+  "verifier_sha256": "d57e99d7631e596bd8379bd669ffa1d60ab3c95898d19679d7f5323822077657",
+  "probe_lock_sha256": "121b91b524831200462716eeb129ef29447cb3662def641c8f7417da1e19b5ab",
+  "root_lock_sha256": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+  "source_generation_note": "Independent binary was built before later SQL edits; binary identity is the tested artifact.",
+  "profiles_admitted": false
+}

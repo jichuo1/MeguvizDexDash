@@ -1,0 +1,61 @@
+Start an MCP server over stdin/stdout
+
+Usage: dexsql-windows-amd64.exe mcp [OPTIONS]
+
+Options:
+      --timeout-ms <TIMEOUT_MS>
+          Maximum duration of an MCP operation, including queue time [default: 60000]
+      --max-datasets <MAX_DATASETS>
+          Maximum number of open or opening datasets [default: 4]
+      --max-pending <MAX_PENDING>
+          Maximum number of admitted heavy requests, including the running request [default: 16]
+      --max-input-bytes <MAX_INPUT_BYTES>
+          Maximum total source-file bytes in one dataset [default: 1073741824]
+      --max-dex-bytes <MAX_DEX_BYTES>
+          Maximum uncompressed DEX bytes in one dataset, checked before APK decompression [default: 1073741824]
+      --max-total-input-bytes <MAX_TOTAL_INPUT_BYTES>
+          Maximum total source-file bytes across open, opening and still-running datasets [default: 2147483648]
+      --max-output-bytes <MAX_OUTPUT_BYTES>
+          Maximum serialized data-tool result bytes, including text/structured copies [default: 131072]
+      --max-resource-bytes <MAX_RESOURCE_BYTES>
+          Maximum uncompressed APK resource entry bytes [default: 67108864]
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+
+Global options:
+  -t, --threads <N>    Worker threads; 0 = auto (defaults to available logical CPUs)
+      --trusted-input  Trust input validity and cache freshness; see 'dexsql --help'
+
+Examples:
+  dexsql mcp
+  dexsql --threads 4 mcp
+
+Client setup:
+  Configure the MCP client to launch the dexsql executable with args ["mcp"].
+  The client communicates over stdio; stdout is reserved for MCP messages
+  and diagnostics go to stderr. The server runs until the client disconnects.
+
+Tools:
+  open_dataset    Load DEX/APK files and return a dataset ID
+  list_datasets   List loaded datasets
+  close_dataset   Release a loaded dataset
+  list_tables     List built-in tables
+  describe_table  Show a table's columns and types
+  query           Run SQL against a loaded dataset
+  decode          Page method summaries, smali and branch/catch context
+  get_manifest    Read Manifest summaries or decoded XML
+  get_manifest_components  Inspect component/entry-point configuration
+  list_resource_files      List APK resource and asset entries
+  read_resource   Read decoded XML, text or binary resource pages
+  query_resources Query Android resource IDs, names and configuration variants
+
+Documentation resources:
+  resources/list  List all embedded English documentation
+  resources/read  Read a page using its listed URI
+
+Inputs are opened through open_dataset; this command takes no --input.
+Resource parsing is available through MCP tools. Use next_offset to continue large results.
+Running timeout/cancellation terminates and closes the affected dataset; reopen it to continue.
+Use prepare-cache and query-cache for persistent disk caches.

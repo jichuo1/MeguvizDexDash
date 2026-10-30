@@ -1,4 +1,6 @@
 //! Owned lifecycle registry. This crate does not execute queries or admit profiles.
+pub mod cancellation;
+
 use mdd_input::snapshot::Snapshot;
 use mdd_types::{DecimalU64, ErrorCode, MddError, MddResult, opaque_id};
 use serde::Serialize;
@@ -136,6 +138,7 @@ struct QueryEntry {
     reserved_threads: usize,
     buffered_bytes: u64,
     delivery_abandoned: bool,
+    execution_claimed: bool,
 }
 struct CursorEntry {
     token: Token,
@@ -522,6 +525,7 @@ impl Lifecycle {
                 reserved_threads: 0,
                 buffered_bytes: 0,
                 delivery_abandoned: false,
+                execution_claimed: false,
             },
         );
         Ok(QueryHandle(token))
@@ -670,6 +674,13 @@ impl Lifecycle {
                 "an unconsumed cursor was closed or released",
             ));
         }
+        if state.query(query)?.buffered_bytes != 0 {
+            return Err(MddError::new(
+                ErrorCode::InvalidCursor,
+                "lifecycle",
+                "unconsumed buffered output remains",
+            ));
+        }
         if state
             .cursors
             .values()
@@ -684,7 +695,6 @@ impl Lifecycle {
         let entry = state.queries.get_mut(query.id()).unwrap();
         entry.status.delivery_complete = true;
         entry.status.phase = QueryPhase::Completed;
-        entry.buffered_bytes = 0;
         Ok(())
     }
 
@@ -1044,6 +1054,24 @@ mod tests {
             QueryPhase::Prepared
         );
         assert!(runtime.finish_delivery(&old).is_err());
+    }
+
+    #[test]
+    fn buffered_output_must_be_released_before_delivery_completion() {
+        let (runtime, _, session) = runtime(ResourceLimits::default());
+        let query = prepare(&runtime, &session);
+        runtime.start_query(&session, &query, 1).unwrap();
+        runtime.reserve_buffered_bytes(&query, 16).unwrap();
+        runtime.complete_execution(&query).unwrap();
+
+        assert!(runtime.finish_delivery(&query).is_err());
+        let pending = runtime.query_status(&query).unwrap();
+        assert!(pending.execution_complete);
+        assert!(!pending.delivery_complete);
+        assert_eq!(pending.phase, QueryPhase::Active);
+        runtime.release_buffered_bytes(&query, 16).unwrap();
+        runtime.finish_delivery(&query).unwrap();
+        assert!(runtime.query_status(&query).unwrap().delivery_complete);
     }
 
     #[test]

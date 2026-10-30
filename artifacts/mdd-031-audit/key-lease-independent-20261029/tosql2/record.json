@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "test",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "-p",
+    "mdd-sql",
+    "dialects::functions::like_budget_tests::key_lease_survives_actual_rusqlite_to_sql_callback",
+    "--",
+    "--exact",
+    "--nocapture"
+  ],
+  "started_utc": "2026-10-29T05:36:45.925202+00:00",
+  "finished_utc": "2026-10-29T05:36:46.392497+00:00",
+  "exit_code": 0,
+  "job_status": "completed",
+  "timed_out": false,
+  "tree_empty_verified": true,
+  "stdout_sha256": "23983bb7cd68d4b24bf95ae05ebd1bde598310d69a75d6f81a1b32be4df34482",
+  "stderr_sha256": "35f45e29268a83d8455eb30a187d05dadd94c2679807e0f6d8a49d8109c09f42",
+  "supervisor_sha256": "1b71247825e12eff7a1f5ec3bd971b6d9e1b7a2afb0397e2eafab580bc5a4f7c",
+  "scope": "independent synthetic validation; not performance qualification"
+}

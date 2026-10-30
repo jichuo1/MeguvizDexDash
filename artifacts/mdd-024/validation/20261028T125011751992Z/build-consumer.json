@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--locked",
+    "--offline",
+    "-p",
+    "mdd-facts",
+    "--example",
+    "reference_summary"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "   Compiling mdd-facts v0.1.0-dev (D:\\MeguvisDexDash\\crates\\mdd-facts)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.83s\n"
+}

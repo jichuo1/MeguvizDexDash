@@ -78,21 +78,52 @@ pub struct PrototypeFact {
 }
 
 #[derive(Clone, Serialize)]
+/// Validated metadata is read-only outside the facts crate.
+/// ```compile_fail
+/// fn alter(mut facts: mdd_facts::MetadataFacts) { facts.strings.clear(); }
+/// ```
 pub struct MetadataFacts {
-    pub source: MetadataSource,
-    pub header: DexHeader,
-    pub string_pool: StringPoolIdentity,
-    pub strings: Vec<StringFact>,
-    pub types: Vec<TypeFact>,
-    pub prototypes: Vec<PrototypeFact>,
-    pub metadata_coverage: Completeness,
-    pub completed_layers: Vec<String>,
-    pub unbuilt_layers: Vec<String>,
+    pub(crate) source: MetadataSource,
+    pub(crate) header: DexHeader,
+    pub(crate) string_pool: StringPoolIdentity,
+    pub(crate) strings: Vec<StringFact>,
+    pub(crate) types: Vec<TypeFact>,
+    pub(crate) prototypes: Vec<PrototypeFact>,
+    pub(crate) metadata_coverage: Completeness,
+    pub(crate) completed_layers: Vec<String>,
+    pub(crate) unbuilt_layers: Vec<String>,
     #[serde(skip)]
     blob: MemberBlob,
 }
 
 impl MetadataFacts {
+    pub fn source(&self) -> &MetadataSource {
+        &self.source
+    }
+    pub fn header(&self) -> &DexHeader {
+        &self.header
+    }
+    pub fn string_pool(&self) -> &StringPoolIdentity {
+        &self.string_pool
+    }
+    pub fn strings(&self) -> &[StringFact] {
+        &self.strings
+    }
+    pub fn types(&self) -> &[TypeFact] {
+        &self.types
+    }
+    pub fn prototypes(&self) -> &[PrototypeFact] {
+        &self.prototypes
+    }
+    pub fn metadata_coverage(&self) -> Completeness {
+        self.metadata_coverage
+    }
+    pub fn completed_layers(&self) -> &[String] {
+        &self.completed_layers
+    }
+    pub fn unbuilt_layers(&self) -> &[String] {
+        &self.unbuilt_layers
+    }
     pub fn build(
         snapshot: &Snapshot,
         inventory: &ArchiveInventory,

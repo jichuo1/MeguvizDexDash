@@ -4,6 +4,7 @@ use serde::Serialize;
 use std::{collections::BTreeSet, io::Read, sync::Arc};
 
 mod central;
+mod zip64;
 
 #[derive(Clone, Copy, Debug, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -18,6 +19,13 @@ pub struct InventoryPolicy {
     pub dex_selection: DexSelection,
     pub reject_duplicate_selected_names: bool,
     pub require_dex: bool,
+}
+
+impl InventoryPolicy {
+    /// Reuse the inventory selector when admitting expansion before allocation.
+    pub fn selects(&self, raw_name: &[u8]) -> bool {
+        selected_name(raw_name, self.dex_selection)
+    }
 }
 
 impl Default for InventoryPolicy {
@@ -182,12 +190,8 @@ impl ArchiveInventory {
                 });
             }
             InputKind::Apk => {
-                (entries, directory_start) = central::scan(
-                    source.bytes(),
-                    limits.max_members,
-                    limits.max_directory_bytes,
-                )
-                .map_err(context)?;
+                (entries, directory_start) =
+                    central::scan(source.bytes(), &limits).map_err(context)?;
                 for entry in &entries {
                     total = total.checked_add(entry.size).ok_or_else(|| {
                         context(MddError::new(
@@ -471,3 +475,5 @@ impl ArchiveInventory {
 
 #[cfg(test)]
 mod tests;
+#[cfg(test)]
+mod zip64_tests;

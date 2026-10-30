@@ -1,0 +1,35 @@
+name: Bounded Rust parser safety
+on:
+  push:
+    branches: ['codex/**']
+    paths: ['crates/mdd-dex/**', 'crates/mdd-input/**', 'crates/mdd-types/**', 'fuzz/**', 'conformance/sanitizers/**', '.github/workflows/parser-safety.yml']
+  pull_request:
+    paths: ['crates/mdd-dex/**', 'crates/mdd-input/**', 'crates/mdd-types/**', 'fuzz/**', 'conformance/sanitizers/**', '.github/workflows/parser-safety.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux-asan-fuzz:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CARGO_BUILD_JOBS: '2'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12.10'
+      - name: Verify fixed official test tools and synthetic seeds
+        run: python conformance/sanitizers/run_ci.py --verify-only
+      - name: Install separate fixed test compiler and fuzzer
+        run: |
+          rustup toolchain install nightly-2026-10-28 --profile minimal --component rust-src
+          cargo +nightly-2026-10-28 install cargo-fuzz --version 0.13.2 --locked
+      - name: Run finite ASan and six fuzz targets
+        run: python conformance/sanitizers/run_ci.py --output artifacts/conformance/parser-safety/ci --seconds 15
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: parser-safety-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/conformance/parser-safety/ci/
+          if-no-files-found: error

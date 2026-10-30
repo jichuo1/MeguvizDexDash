@@ -1,0 +1,22 @@
+[workspace]
+[package]
+name = "mdd-delivery-confirmation-independent"
+version = "0.0.0"
+edition = "2024"
+[dependencies]
+mdd-types = { path = "../../../crates/mdd-types" }
+mdd-input = { path = "../../../crates/mdd-input" }
+mdd-dex = { path = "../../../crates/mdd-dex" }
+mdd-facts = { path = "../../../crates/mdd-facts" }
+mdd-session = { path = "../../../crates/mdd-session" }
+mdd-query = { path = "../../../crates/mdd-query" }
+serde_json = "=1.0.151"
+serde = "=1.0.229"
+
+[[bin]]
+name = "delivery-probe"
+path = "src/main.rs"
+
+[[bin]]
+name = "forge-receipt"
+path = "src/forge.rs"

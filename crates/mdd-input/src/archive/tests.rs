@@ -357,7 +357,7 @@ fn budgets_corrupt_ranges_crc_and_unsupported_formats_fail_closed() {
             .err()
             .unwrap()
             .code,
-        ErrorCode::UnsupportedCapability
+        ErrorCode::InvalidInput
     );
     let mut bytes = one_resource();
     let end = bytes.len() - 22;
@@ -474,11 +474,8 @@ fn raw_member_names_and_malformed_declared_sizes_are_not_normalized() {
     bytes[22..26].copy_from_slice(&1u32.to_le_bytes());
     bytes[central + 24..central + 28].copy_from_slice(&1u32.to_le_bytes());
     let source = capture(temporary(&bytes), InputKind::Apk);
-    let result =
-        ArchiveInventory::build(&source.sources()[0], policy, ArchiveLimits::default()).unwrap();
     assert_eq!(
-        result
-            .read_member(&result.manifest().members[0].member_id)
+        ArchiveInventory::build(&source.sources()[0], policy, ArchiveLimits::default())
             .err()
             .unwrap()
             .code,

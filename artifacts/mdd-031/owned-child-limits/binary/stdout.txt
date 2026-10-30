@@ -1,0 +1,1 @@
+{"error":{"code":"QUOTA_EXCEEDED","details":{},"message":"SQL_FLAT_OPERATOR_BUDGET","retryable":false,"stage":"sql"},"input_sql_bytes":20008,"operation_status":"expected_error","process_survived":true,"profile_admitted":false}

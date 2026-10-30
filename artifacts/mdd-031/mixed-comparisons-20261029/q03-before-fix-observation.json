@@ -1,0 +1,8 @@
+{
+  "schema_version": "mdd.manual-tool-observation.v1",
+  "test": "join_tests::q03_join_resolves_qualified_source_and_preserves_duplicate_rows",
+  "exit_code": 1,
+  "observed": "UNSUPPORTED_QUERY: IN_LEFT_AFFINITY_NOT_IMPLEMENTED",
+  "basis": "tool-returned test output; raw process output was not separately saved",
+  "scope": "synthetic Q03 representative, not complete HostLab qualification"
+}

@@ -1,0 +1,271 @@
+{
+  "schema_version": "mdd.sql.dto-origin-observation.v1",
+  "status": "observed-no-general-rule",
+  "source_sha256": {
+    "host_batch": "8f40845d1328cae8a06dd29830c5e636d962da3cc72194e16904f6fb23030a64",
+    "host_paging": "91adddc501e80e8ceeaa7f55ca6f6b12bd715502589f80e7cd4d7da2e5201cb1",
+    "candidate_stdout": "8770d4b62eed0c1a142ee606478e1118fcfc60282994a4c9c29580583aa8a7dc",
+    "reference_summary": "44ec1719a3501d4a771e5764a7ae30f040ceac083e198679c08f956a0198c802",
+    "analyzer": "5b0b251081efecbec5c7a45544578ad703378fc4b3c886145879f5365851a65b"
+  },
+  "examples": [
+    {
+      "engine": "A0",
+      "id": "empty",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "uint64",
+        "value": "0"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "0"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A0",
+      "id": "prefix",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "uint64",
+        "value": "12"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "12"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A0",
+      "id": "negative_decimal",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "int64",
+        "value": "-5"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "-5"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A0",
+      "id": "max",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "uint64",
+        "value": "9223372036854775807"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "9223372036854775807"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A0",
+      "id": "null",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "null",
+        "value": null
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "null"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A0",
+      "id": "string_0",
+      "kind": "dex",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "int64",
+        "value": "0"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "0"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A1",
+      "id": "empty",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "uint64",
+        "value": "0"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "0"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A1",
+      "id": "prefix",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "uint64",
+        "value": "12"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "12"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A1",
+      "id": "negative_decimal",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "int64",
+        "value": "-5"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "-5"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A1",
+      "id": "max",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "uint64",
+        "value": "9223372036854775807"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "9223372036854775807"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A1",
+      "id": "null",
+      "kind": "literals",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "null",
+        "value": null
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "null"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    },
+    {
+      "engine": "A1",
+      "id": "string_0",
+      "kind": "dex",
+      "reference_column": {
+        "data_type": "sqlite_dynamic",
+        "name": "v",
+        "nullable": true
+      },
+      "reference_cell": {
+        "type": "int64",
+        "value": "0"
+      },
+      "candidate_column_name": "v",
+      "candidate_cell": {
+        "type": "i64",
+        "value": "0"
+      },
+      "extracted_cell_values_equal": true,
+      "complete_envelope_equal": false
+    }
+  ],
+  "known_candidate_dto_type_differences": 30,
+  "profiles_admitted": false,
+  "findings": [
+    "Old column schema reports sqlite_dynamic for both literal and source cases, yet their zero cell tags differ.",
+    "Fixed HostLab batch extracts cell values while retaining the complete typed_result; paging verifies the extracted values against that result.",
+    "The value-only extraction does not prove full DTO, pagination, profile or B0 equivalence.",
+    "No optimizer or serializer causal rule can be established from these observations alone."
+  ]
+}

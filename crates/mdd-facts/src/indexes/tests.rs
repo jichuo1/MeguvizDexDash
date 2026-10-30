@@ -1,0 +1,794 @@
+use super::*;
+use crate::coverage::{ColumnDomain, ColumnRequirement, CoverageLedger, InputNeed};
+use crate::{
+    MetadataFacts,
+    annotations::AnnotationFacts,
+    code::CodeFacts,
+    definitions::DefinitionFacts,
+    raw_fingerprints::{FingerprintLimits, RawCodeEvidence},
+    references::{ReferenceFacts, ReferenceLimits},
+};
+use mdd_dex::{
+    annotations::AnnotationLimits, definitions::DefinitionLimits, instructions::CodeLimits,
+    strings::StringLimits,
+};
+use mdd_input::{
+    archive::{ArchiveInventory, ArchiveLimits, InventoryPolicy},
+    snapshot::{CaptureLimits, InputKind, InputSpec, Snapshot},
+};
+use mdd_types::Completeness;
+use std::path::PathBuf;
+
+struct Data {
+    snapshot: Snapshot,
+    inventories: Vec<ArchiveInventory>,
+    definitions: Vec<DefinitionFacts>,
+    codes: Vec<CodeFacts>,
+}
+fn setup(relative: &str, copies: usize) -> Data {
+    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("../../tests/fixtures")
+        .join(relative);
+    let inputs = (0..copies)
+        .map(|_| InputSpec {
+            path: path.clone(),
+            kind: InputKind::RawDex,
+            expected_sha256: None,
+        })
+        .collect::<Vec<_>>();
+    let snapshot = Snapshot::capture(&inputs, CaptureLimits::default()).unwrap();
+    let inventories = snapshot
+        .sources()
+        .iter()
+        .map(|source| {
+            ArchiveInventory::build(source, InventoryPolicy::default(), ArchiveLimits::default())
+                .unwrap()
+        })
+        .collect::<Vec<_>>();
+    let definitions = inventories
+        .iter()
+        .map(|inventory| {
+            DefinitionFacts::build(
+                MetadataFacts::build(&snapshot, inventory, 0, StringLimits::default()).unwrap(),
+                DefinitionLimits::default(),
+            )
+            .unwrap()
+        })
+        .collect();
+    let codes = inventories
+        .iter()
+        .map(|inventory| {
+            CodeFacts::build_all_code_items(&snapshot, inventory, 0, CodeLimits::default()).unwrap()
+        })
+        .collect();
+    Data {
+        snapshot,
+        inventories,
+        definitions,
+        codes,
+    }
+}
+fn scope(data: &Data) -> SelectedScope {
+    SelectedScope::from_inventories(&data.snapshot, &data.inventories.iter().collect::<Vec<_>>())
+        .unwrap()
+}
+fn column(
+    scope: &SelectedScope,
+    relation: &str,
+    name: &str,
+    domain: ColumnDomain,
+) -> CoverageRequest {
+    let mut request = CoverageRequest::for_scope(scope, &[]);
+    request.required_columns.push(ColumnRequirement {
+        relation: relation.into(),
+        column: name.into(),
+        domain,
+    });
+    request
+}
+fn error(code: ErrorCode, tag: &str) -> MddError {
+    MddError::new(code, "facts.test", tag).detail("test_marker", tag)
+}
+
+#[test]
+fn utf16_raw_candidates_match_scalar_and_hand_oracle_without_occurrence_dedup() {
+    let data = setup("generated/strings-mutf8-035.dex", 2);
+    let views = data
+        .definitions
+        .iter()
+        .map(|d| {
+            FactView::unbuilt(&d.metadata().source().dex_occurrence_id).with_metadata(d.metadata())
+        })
+        .collect::<Vec<_>>();
+    let index = SnapshotFactIndex::new(scope(&data), &views, IndexLimits::default()).unwrap();
+    // Hand oracle: this fixture's ordered string pool is [], NUL, A, 中, high,
+    // paired surrogate, low. Prefix/contains operate on code units, not UTF-8.
+    let cases = [
+        (Utf16Predicate::Any, vec![0, 1, 2, 3, 4, 5, 6]),
+        (Utf16Predicate::Equal(vec![0]), vec![1]),
+        (Utf16Predicate::Equal(vec![0xd800]), vec![4]),
+        (Utf16Predicate::Prefix(vec![0xd83d]), vec![5]),
+        (Utf16Predicate::Contains(vec![0xde00]), vec![5]),
+        (Utf16Predicate::Contains(vec![0xd83d, 0xdc00]), vec![]),
+        (Utf16Predicate::Prefix(vec![]), vec![0, 1, 2, 3, 4, 5, 6]),
+        (Utf16Predicate::Contains(vec![]), vec![0, 1, 2, 3, 4, 5, 6]),
+    ];
+    for (predicate, expected) in cases {
+        let indexed = index.strings_indexed(&predicate).unwrap();
+        let scalar = index.strings_scalar(&predicate).unwrap();
+        assert_eq!(indexed.entities, scalar.entities);
+        assert_eq!(
+            indexed
+                .entities
+                .iter()
+                .map(|e| e.local_index)
+                .collect::<Vec<_>>(),
+            expected.repeat(2)
+        );
+        if indexed.entities.len() >= 2 {
+            assert_ne!(
+                indexed.entities[0].dex_occurrence_id,
+                indexed.entities[indexed.entities.len() / 2].dex_occurrence_id
+            );
+        }
+        assert_eq!(indexed.coverage.facts, Completeness::Complete);
+        assert!(!indexed.coverage.profile_admitted);
+    }
+    let residual = index
+        .strings_indexed(&Utf16Predicate::Contains(vec![0xd83d, 0xdc00]))
+        .unwrap();
+    assert_eq!(residual.candidate_count, 2);
+    assert_eq!(residual.exact_match_count, 0);
+    assert!(residual.absence_proven_within_selected_scope);
+    assert_eq!(
+        index
+            .strings_raw_mutf8(&[0xc0, 0x80])
+            .unwrap()
+            .entities
+            .iter()
+            .map(|e| e.local_index)
+            .collect::<Vec<_>>(),
+        [1, 1]
+    );
+    assert!(index.strings_raw_mutf8(&[0]).unwrap().entities.is_empty());
+    assert_eq!(index.audits().unwrap()[0].attempts.len(), 1);
+}
+
+#[test]
+fn definitions_owners_and_encoded_reference_symbols_preserve_distinct_sites() {
+    let data = setup("references/generated/defined-field-035.dex", 2);
+    let refs = data
+        .definitions
+        .iter()
+        .zip(&data.codes)
+        .map(|(d, c)| {
+            ReferenceFacts::build(d.clone(), c.clone(), ReferenceLimits::default()).unwrap()
+        })
+        .collect::<Vec<_>>();
+    let views = refs
+        .iter()
+        .map(|r| FactView::unbuilt(&r.source().dex_occurrence_id).with_references(r))
+        .collect::<Vec<_>>();
+    let index = SnapshotFactIndex::new(scope(&data), &views, IndexLimits::default()).unwrap();
+    for kind in [
+        DefinitionKind::Class,
+        DefinitionKind::Field,
+        DefinitionKind::Method,
+    ] {
+        for predicate in [
+            Utf16Predicate::Any,
+            Utf16Predicate::Equal("caller".encode_utf16().collect()),
+            Utf16Predicate::Prefix(vec![b't' as u16]),
+            Utf16Predicate::Contains(vec![b'a' as u16]),
+        ] {
+            assert_eq!(
+                index.definition_names(kind, &predicate).unwrap().entities,
+                index
+                    .definition_names_scalar(kind, &predicate)
+                    .unwrap()
+                    .entities
+            );
+        }
+    }
+    let classes = index
+        .definition_names(DefinitionKind::Class, &Utf16Predicate::Any)
+        .unwrap();
+    assert_eq!(
+        classes
+            .entities
+            .iter()
+            .map(|e| e.local_index)
+            .collect::<Vec<_>>(),
+        [0, 0]
+    );
+    assert_ne!(data.definitions[0].definitions().classes[0].class_idx, 0);
+    for owner in &classes.entities {
+        for (kind, expected_count) in [(DefinitionKind::Field, 1), (DefinitionKind::Method, 3)] {
+            let members = index
+                .owner_members(owner, kind, &Utf16Predicate::Any)
+                .unwrap();
+            assert_eq!(members.entities.len(), expected_count);
+            assert!(
+                members
+                    .entities
+                    .iter()
+                    .all(|e| e.dex_occurrence_id == owner.dex_occurrence_id)
+            );
+        }
+        let mut wrong = owner.clone();
+        wrong.kind = EntityKind::Type;
+        assert_eq!(
+            index
+                .owner_members(&wrong, DefinitionKind::Method, &Utf16Predicate::Any)
+                .unwrap_err()
+                .code,
+            ErrorCode::InvalidArgument
+        );
+    }
+    for r in &refs {
+        for site in r.sites() {
+            let target = r
+                .target_id(site.target_kind, site.target_local_index)
+                .unwrap();
+            assert_eq!(
+                index.references_local(&target).unwrap(),
+                r.find_target_scalar(&target).unwrap()
+            );
+        }
+    }
+    let target = data.definitions[0]
+        .definitions()
+        .method_references
+        .iter()
+        .find(|m| m.method_name == "target")
+        .unwrap();
+    let symbol = MethodSymbol {
+        owner: target.class_descriptor.clone(),
+        name: target.method_name.clone(),
+        prototype: data.definitions[0].metadata().prototypes()[target.proto_idx as usize]
+            .data
+            .descriptor
+            .clone(),
+    };
+    let found = index.references_to_method_symbol(&symbol).unwrap();
+    let expected = refs
+        .iter()
+        .flat_map(|r| {
+            r.find_target_scalar(&r.target_id(TargetKind::Method, target.method_idx).unwrap())
+                .unwrap()
+                .sites
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(found.sites, expected);
+    assert_eq!(found.sites.len(), 2); // Hand oracle: target once per occurrence.
+    assert_eq!(
+        found.sites,
+        index
+            .references_to_method_symbol_scalar(&symbol)
+            .unwrap()
+            .sites
+    );
+    let external = data.definitions[0]
+        .definitions()
+        .method_references
+        .iter()
+        .find(|m| m.method_name == "external")
+        .unwrap();
+    let external_symbol = MethodSymbol {
+        owner: external.class_descriptor.clone(),
+        name: external.method_name.clone(),
+        prototype: "()V".into(),
+    };
+    assert_eq!(
+        index
+            .references_to_method_symbol(&external_symbol)
+            .unwrap()
+            .sites
+            .len(),
+        6
+    ); // Three distinct operands per occurrence.
+    let mut foreign = refs[0]
+        .target_id(TargetKind::Method, target.method_idx)
+        .unwrap();
+    foreign.snapshot_id = "foreign".into();
+    assert_eq!(
+        index.references_local(&foreign).unwrap_err().code,
+        ErrorCode::InvalidArgument
+    );
+}
+
+#[test]
+fn explicit_subset_negative_proof_and_foreign_generation_are_bounded() {
+    let data = setup("generated/strings-mutf8-035.dex", 2);
+    let selected =
+        SelectedScope::from_inventories(&data.snapshot, &[&data.inventories[0]]).unwrap();
+    let metadata = data.definitions[0].metadata();
+    let view = FactView::unbuilt(&metadata.source().dex_occurrence_id).with_metadata(metadata);
+    let index = SnapshotFactIndex::new(
+        selected.clone(),
+        std::slice::from_ref(&view),
+        IndexLimits::default(),
+    )
+    .unwrap();
+    let missing = index
+        .strings_indexed(&Utf16Predicate::Equal(vec![0x1234]))
+        .unwrap();
+    assert!(missing.absence_proven_within_selected_scope);
+    assert!(!missing.covers_all_captured_sources);
+    assert!(!missing.coverage.covers_all_captured_sources);
+    assert_eq!(missing.coverage.selected_dex_occurrences.len(), 1);
+    assert_eq!(
+        missing.coverage.scope_content_key,
+        selected.scope_content_key()
+    );
+    let foreign = setup("generated/strings-mutf8-035.dex", 1);
+    let foreign_view =
+        FactView::unbuilt(view.occurrence()).with_metadata(foreign.definitions[0].metadata());
+    assert_eq!(
+        SnapshotFactIndex::new(selected, &[foreign_view], IndexLimits::default())
+            .err()
+            .unwrap()
+            .code,
+        ErrorCode::InvalidArgument
+    );
+    let empty = SnapshotFactIndex::new(scope(&data), &[], IndexLimits::default()).unwrap();
+    assert_eq!(
+        empty
+            .strings_indexed(&Utf16Predicate::Equal(vec![0x1234]))
+            .unwrap_err()
+            .code,
+        ErrorCode::IncompleteFacts
+    );
+    // A validated header declaring zero definitions does not replace a required producer.
+    assert_eq!(
+        index
+            .definition_names(DefinitionKind::Class, &Utf16Predicate::Any)
+            .unwrap_err()
+            .code,
+        ErrorCode::IncompleteFacts
+    );
+}
+
+#[test]
+fn coverage_retains_late_genuine_errors_and_rejects_terminal_overwrite() {
+    let data = setup("generated/strings-mutf8-035.dex", 1);
+    let selected = scope(&data);
+    let occurrence = &selected.dexes()[0].dex_occurrence_id;
+    let mut ledger = CoverageLedger::new(selected.clone(), &[]).unwrap();
+    ledger
+        .record_failure(
+            occurrence,
+            FactLayer::AllMethodBodies,
+            error(ErrorCode::InvalidInput, "bad-body"),
+        )
+        .unwrap();
+    let request = column(
+        &selected,
+        "methods",
+        "opcode_count",
+        ColumnDomain::NativeAtoms,
+    );
+    let report = ledger.evaluate(&request).unwrap();
+    assert_eq!(report.facts, Completeness::Partial);
+    assert_eq!(
+        report.require_complete().unwrap_err().code,
+        ErrorCode::InvalidInput
+    );
+    assert_eq!(
+        report.require_complete().unwrap_err().details["test_marker"],
+        "bad-body"
+    );
+    ledger
+        .record_input_failure(error(ErrorCode::UnsupportedCapability, "fallback-input"))
+        .unwrap();
+    assert_eq!(
+        ledger
+            .evaluate(&request)
+            .unwrap()
+            .require_complete()
+            .unwrap_err()
+            .code,
+        ErrorCode::InvalidInput
+    );
+    assert_eq!(
+        ledger
+            .record_failure(
+                occurrence,
+                FactLayer::AllMethodBodies,
+                error(ErrorCode::UnsupportedQuery, "overwrite")
+            )
+            .unwrap_err()
+            .code,
+        ErrorCode::InvalidArgument
+    );
+    assert_eq!(
+        ledger
+            .record_input_failure(error(ErrorCode::InvalidInput, "overwrite-input"))
+            .unwrap_err()
+            .code,
+        ErrorCode::InvalidArgument
+    );
+    assert_eq!(
+        ledger
+            .evaluate(&request)
+            .unwrap()
+            .require_complete()
+            .unwrap_err()
+            .details["test_marker"],
+        "bad-body"
+    );
+    let mut deps = CoverageLedger::new(selected.clone(), &[]).unwrap();
+    deps.record_failure(
+        occurrence,
+        FactLayer::Metadata,
+        error(ErrorCode::UnsupportedQuery, "first"),
+    )
+    .unwrap();
+    deps.record_failure(
+        occurrence,
+        FactLayer::CodeProjection,
+        error(ErrorCode::InvalidInput, "later-dependency"),
+    )
+    .unwrap();
+    assert_eq!(
+        deps.evaluate(&CoverageRequest::for_scope(
+            &selected,
+            &[FactLayer::References]
+        ))
+        .unwrap()
+        .require_complete()
+        .unwrap_err()
+        .code,
+        ErrorCode::InvalidInput
+    );
+    let pending = SelectedScope::pending(&data.snapshot);
+    let mut ledger = CoverageLedger::new(pending.clone(), &[]).unwrap();
+    let r = ledger
+        .evaluate(&CoverageRequest::for_scope(
+            &pending,
+            &[FactLayer::Metadata],
+        ))
+        .unwrap();
+    assert_eq!(r.facts, Completeness::Unknown);
+    assert_eq!(r.input, Completeness::Unknown);
+    ledger
+        .record_input_failure(error(ErrorCode::InvalidInput, "broken-empty-roster"))
+        .unwrap();
+    let mut request = CoverageRequest::for_scope(&pending, &[]);
+    request.input = InputNeed::CapturedBytes;
+    assert_eq!(
+        ledger
+            .evaluate(&request)
+            .unwrap()
+            .require_complete()
+            .unwrap_err()
+            .code,
+        ErrorCode::InvalidInput
+    );
+}
+
+#[test]
+fn fine_coverage_parameter_positions_projection_bodies_source_and_resource() {
+    let data = setup("annotations/generated/bad-parameter-arity.dex", 1);
+    let annotations =
+        AnnotationFacts::build(data.definitions[0].clone(), AnnotationLimits::default()).unwrap();
+    let selected = scope(&data);
+    let view = FactView::unbuilt(&annotations.source().dex_occurrence_id)
+        .with_annotations(&annotations)
+        .with_code(&data.codes[0]);
+    let ledger = CoverageLedger::new(selected.clone(), &[view]).unwrap();
+    ledger
+        .evaluate(&CoverageRequest::for_scope(
+            &selected,
+            &[FactLayer::Annotations],
+        ))
+        .unwrap()
+        .require_complete()
+        .unwrap();
+    let r = ledger
+        .evaluate(&CoverageRequest::for_scope(
+            &selected,
+            &[FactLayer::PrototypeParameterPositions],
+        ))
+        .unwrap();
+    assert_eq!(r.facts, Completeness::Unknown);
+    assert_eq!(
+        r.require_complete().unwrap_err().code,
+        ErrorCode::IncompleteFacts
+    );
+    let native = column(
+        &selected,
+        "methods",
+        "param_descriptors",
+        ColumnDomain::NativeAtoms,
+    );
+    ledger
+        .evaluate(&native)
+        .unwrap()
+        .require_complete()
+        .unwrap();
+    let frozen = column(
+        &selected,
+        "methods",
+        "param_descriptors",
+        ColumnDomain::FrozenProjection,
+    );
+    let r = ledger.evaluate(&frozen).unwrap();
+    assert_eq!(r.facts, Completeness::Unknown);
+    assert!(
+        r.issues
+            .iter()
+            .any(|issue| issue.column.as_deref() == Some("methods.param_descriptors"))
+    );
+    let mut missing = CoverageRequest::for_scope(&selected, &[]);
+    missing
+        .required_resource_members
+        .push("unbuilt-member".into());
+    assert_eq!(
+        ledger.evaluate(&missing).unwrap().facts,
+        Completeness::Unknown
+    );
+    assert_eq!(
+        ledger
+            .evaluate(&CoverageRequest::for_scope(
+                &selected,
+                &[FactLayer::SourcePositions]
+            ))
+            .unwrap()
+            .facts,
+        Completeness::Unknown
+    );
+    let unknown = column(
+        &selected,
+        "methods",
+        "invented_column",
+        ColumnDomain::NativeAtoms,
+    );
+    assert_eq!(
+        ledger.evaluate(&unknown).unwrap().facts,
+        Completeness::Unknown
+    );
+    let data = setup("references/generated/classic-035.dex", 1);
+    let projected = CodeFacts::build_offsets(
+        &data.snapshot,
+        &data.inventories[0],
+        0,
+        &[],
+        CodeLimits::default(),
+    )
+    .unwrap();
+    let selected = scope(&data);
+    let view = FactView::unbuilt(&data.definitions[0].metadata().source().dex_occurrence_id)
+        .with_definitions(&data.definitions[0])
+        .with_code(&projected);
+    let ledger = CoverageLedger::new(selected.clone(), &[view]).unwrap();
+    ledger
+        .evaluate(&CoverageRequest::for_scope(
+            &selected,
+            &[FactLayer::CodeProjection],
+        ))
+        .unwrap()
+        .require_complete()
+        .unwrap();
+    for layer in [FactLayer::AllPhysicalCode, FactLayer::AllMethodBodies] {
+        assert_eq!(
+            ledger
+                .evaluate(&CoverageRequest::for_scope(&selected, &[layer]))
+                .unwrap()
+                .facts,
+            Completeness::Partial
+        );
+    }
+    let refs = ReferenceFacts::build(
+        data.definitions[0].clone(),
+        data.codes[0].clone(),
+        ReferenceLimits::default(),
+    )
+    .unwrap();
+    let raw = RawCodeEvidence::build(
+        &data.definitions[0],
+        &data.codes[0],
+        FingerprintLimits::default(),
+    )
+    .unwrap();
+    let view = FactView::unbuilt(&refs.source().dex_occurrence_id)
+        .with_references(&refs)
+        .with_raw_code(&raw);
+    let mut ledger = CoverageLedger::new(selected.clone(), &[view]).unwrap();
+    ledger
+        .record_failure(
+            &refs.source().dex_occurrence_id,
+            FactLayer::Annotations,
+            error(ErrorCode::InvalidInput, "unrelated-annotation"),
+        )
+        .unwrap();
+    ledger
+        .evaluate(&CoverageRequest::for_scope(
+            &selected,
+            &[
+                FactLayer::References,
+                FactLayer::AllMethodBodies,
+                FactLayer::RawCode,
+            ],
+        ))
+        .unwrap()
+        .require_complete()
+        .unwrap();
+    assert_eq!(
+        ledger
+            .evaluate(&CoverageRequest::for_scope(
+                &selected,
+                &[FactLayer::Annotations]
+            ))
+            .unwrap()
+            .require_complete()
+            .unwrap_err()
+            .code,
+        ErrorCode::InvalidInput
+    );
+}
+
+#[test]
+fn index_quota_deadline_and_unbuilt_failures_never_publish_ready_or_zero() {
+    let data = setup("generated/strings-mutf8-035.dex", 1);
+    let view = FactView::unbuilt(&data.definitions[0].metadata().source().dex_occurrence_id)
+        .with_metadata(data.definitions[0].metadata());
+    for (limits, expected) in [
+        (
+            IndexLimits {
+                max_entries: 0,
+                ..IndexLimits::default()
+            },
+            ErrorCode::QuotaExceeded,
+        ),
+        (
+            IndexLimits {
+                max_index_bytes: 0,
+                ..IndexLimits::default()
+            },
+            ErrorCode::QuotaExceeded,
+        ),
+        (
+            IndexLimits {
+                build_duration: Some(Duration::ZERO),
+                ..IndexLimits::default()
+            },
+            ErrorCode::DeadlineExceeded,
+        ),
+    ] {
+        let index =
+            SnapshotFactIndex::new(scope(&data), std::slice::from_ref(&view), limits).unwrap();
+        assert_eq!(
+            index
+                .strings_indexed(&Utf16Predicate::Any)
+                .unwrap_err()
+                .code,
+            expected
+        );
+        assert_eq!(
+            index
+                .strings_indexed(&Utf16Predicate::Equal(vec![]))
+                .unwrap_err()
+                .code,
+            expected
+        );
+        assert_eq!(index.audits().unwrap()[0].phase, lazy::IndexPhase::Failed);
+        assert_eq!(index.retry_string_index().unwrap_err().code, expected);
+        assert_eq!(index.audits().unwrap()[0].attempts.len(), 2);
+    }
+    for limits in [
+        IndexLimits {
+            max_result_entries: 0,
+            ..IndexLimits::default()
+        },
+        IndexLimits {
+            max_result_bytes: 0,
+            ..IndexLimits::default()
+        },
+    ] {
+        let index =
+            SnapshotFactIndex::new(scope(&data), std::slice::from_ref(&view), limits).unwrap();
+        for result in [
+            index.strings_indexed(&Utf16Predicate::Any),
+            index.strings_scalar(&Utf16Predicate::Any),
+            index.strings_raw_mutf8(&[]),
+        ] {
+            assert_eq!(result.unwrap_err().code, ErrorCode::QuotaExceeded);
+        }
+    }
+    assert_eq!(column_specs().len(), 156);
+    assert_eq!(
+        column_specs()
+            .iter()
+            .filter(|c| !c.assembled_projection)
+            .count(),
+        69
+    );
+}
+
+#[test]
+fn exhaustive_candidate_probe_for_independent_code_unit_oracle() {
+    let data = setup("generated/strings-mutf8-035.dex", 2);
+    let views = data
+        .definitions
+        .iter()
+        .map(|d| {
+            FactView::unbuilt(&d.metadata().source().dex_occurrence_id).with_metadata(d.metadata())
+        })
+        .collect::<Vec<_>>();
+    let index = SnapshotFactIndex::new(scope(&data), &views, IndexLimits::default()).unwrap();
+    let alphabet = [0, 65, 0x4e2d, 0xd800, 0xd83d, 0xde00, 0xdc00, 0xffff];
+    let mut patterns = vec![vec![]];
+    for left in alphabet {
+        patterns.push(vec![left]);
+        for right in alphabet {
+            patterns.push(vec![left, right]);
+        }
+    }
+    let mut rows = Vec::new();
+    for pattern in patterns {
+        for (kind, predicate) in [
+            ("equal", Utf16Predicate::Equal(pattern.clone())),
+            ("prefix", Utf16Predicate::Prefix(pattern.clone())),
+            ("contains", Utf16Predicate::Contains(pattern.clone())),
+        ] {
+            let indexed = index.strings_indexed(&predicate).unwrap();
+            let scalar = index.strings_scalar(&predicate).unwrap();
+            assert_eq!(indexed.entities, scalar.entities);
+            rows.push(serde_json::json!({"kind":kind,"pattern":pattern,"locals":indexed.entities.iter().map(|e|e.local_index).collect::<Vec<_>>(),"candidates":indexed.candidate_count,"occurrences":indexed.entities.iter().map(|e|e.dex_occurrence_id.clone()).collect::<Vec<_>>()}));
+        }
+    }
+    println!("INDEX_ORACLE_JSON={}",serde_json::to_string(&serde_json::json!({"rows":rows,"snapshot_id":index.scope().snapshot_id(),"scope_id":index.scope().scope_id(),"selected_dex_occurrences":index.scope().dexes().iter().map(|d|d.dex_occurrence_id.clone()).collect::<Vec<_>>(),"source_content_ids":data.definitions.iter().map(|d|d.metadata().source().content_id.clone()).collect::<Vec<_>>(),"columns":column_specs()})).unwrap());
+}
+
+#[test]
+fn scalar_reference_scan_is_independent_of_lazy_candidate_failure() {
+    let data = setup("references/generated/classic-035.dex", 1);
+    let refs = ReferenceFacts::build(
+        data.definitions[0].clone(),
+        data.codes[0].clone(),
+        ReferenceLimits::default(),
+    )
+    .unwrap();
+    let view = FactView::unbuilt(&refs.source().dex_occurrence_id).with_references(&refs);
+    let index = SnapshotFactIndex::new(
+        scope(&data),
+        &[view],
+        IndexLimits {
+            max_entries: 0,
+            ..IndexLimits::default()
+        },
+    )
+    .unwrap();
+    let symbol = MethodSymbol {
+        owner: "Lfixture/External;".into(),
+        name: "external".into(),
+        prototype: "()V".into(),
+    };
+    assert_eq!(
+        index
+            .references_to_method_symbol_scalar(&symbol)
+            .unwrap()
+            .sites
+            .len(),
+        3
+    );
+    assert_eq!(index.audits().unwrap()[2].phase, lazy::IndexPhase::Unbuilt);
+    assert_eq!(
+        index.references_to_method_symbol(&symbol).unwrap_err().code,
+        ErrorCode::QuotaExceeded
+    );
+    assert_eq!(
+        index
+            .references_to_method_symbol_scalar(&symbol)
+            .unwrap()
+            .sites
+            .len(),
+        3
+    );
+    assert_eq!(index.audits().unwrap()[2].phase, lazy::IndexPhase::Failed);
+    assert_eq!(
+        index.retry_reference_symbol_index().unwrap_err().code,
+        ErrorCode::QuotaExceeded
+    );
+}

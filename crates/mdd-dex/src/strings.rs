@@ -226,26 +226,61 @@ pub fn read_string_pool(
         ));
     }
     let section = header.map.iter().position(|item| item.type_code == 0x2002);
-    if table.count == 0 {
+    if section.is_none() && table.count == 0 {
         return Ok(Vec::new());
     }
     let section_index = section.ok_or_else(|| failure("MISSING_STRING_DATA", 56, 8))?;
+    let physical_count = header.map[section_index].count;
+    if physical_count > limits.max_strings {
+        return Err(quota(
+            "STRING_COUNT_BUDGET",
+            header.map[section_index].byte_offset.0,
+            u64::from(physical_count),
+        ));
+    }
     let section_start = header.map[section_index].byte_offset.0;
     let section_end = header.map.get(section_index + 1).map_or(
         header.data_range.byte_offset.0 + header.data_range.byte_length.0,
         |item| item.byte_offset.0,
     );
-    let mut result: Vec<DexString> = Vec::new();
-    result
+    let mut references = Vec::new();
+    references
         .try_reserve_exact(table.count as usize)
         .map_err(|_| quota("STRING_POOL_ALLOCATION_BUDGET", 56, 8))?;
-    let mut total_units = 0u64;
-    let mut physical_ranges = Vec::new();
     for string_idx in 0..table.count {
         let at = table.range.byte_offset.0 + u64::from(string_idx) * 4;
         let offset = u64::from(reader.u32(at)?);
         if offset < section_start || offset >= section_end {
             return Err(failure("STRING_OUTSIDE_SECTION", offset, 1));
+        }
+        references.push((offset, string_idx));
+    }
+    references.sort_unstable();
+    if references.windows(2).any(|pair| pair[0].0 == pair[1].0) {
+        return Err(failure(
+            "DUPLICATE_STRING_DATA_REFERENCE",
+            table.range.byte_offset.0,
+            table.range.byte_length.0,
+        ));
+    }
+    let mut result: Vec<DexString> = Vec::new();
+    result
+        .try_reserve_exact(table.count as usize)
+        .map_err(|_| quota("STRING_POOL_ALLOCATION_BUDGET", 56, 8))?;
+    let mut total_units = 0u64;
+    let mut physical_offset = section_start;
+    let mut next_reference = 0usize;
+    for physical_ordinal in 0..physical_count {
+        let offset = physical_offset;
+        if references
+            .get(next_reference)
+            .is_some_and(|reference| reference.0 < offset)
+        {
+            return Err(failure(
+                "STRING_OFFSET_NOT_ITEM_START",
+                references[next_reference].0,
+                1,
+            ));
         }
         let (declared, prefix) = read_uleb128(bytes, offset, section_end)?;
         total_units = total_units
@@ -261,30 +296,41 @@ pub fn read_string_pool(
             declared,
             limits.max_string_bytes,
         )
-        .map_err(|error| error.detail("string_idx", u64::from(string_idx)))?;
-        if result
-            .last()
-            .is_some_and(|previous| previous.text.utf16_units >= text.utf16_units)
+        .map_err(|error| {
+            error.detail("physical_string_data_ordinal", u64::from(physical_ordinal))
+        })?;
+        if let Some((_, string_idx)) = references
+            .get(next_reference)
+            .filter(|reference| reference.0 == offset)
         {
-            return Err(failure("STRING_IDS_NOT_STRICT_UTF16_ORDER", at, 4));
+            result.push(DexString {
+                string_idx: *string_idx,
+                data_range: DexRange {
+                    byte_offset: DecimalU64(offset),
+                    byte_length: DecimalU64(next - offset),
+                },
+                text,
+            });
+            next_reference += 1;
         }
-        physical_ranges.push((offset, next));
-        result.push(DexString {
-            string_idx,
-            data_range: DexRange {
-                byte_offset: DecimalU64(offset),
-                byte_length: DecimalU64(next - offset),
-            },
-            text,
-        });
+        physical_offset = next;
     }
-    physical_ranges.sort_unstable();
-    if physical_ranges.windows(2).any(|pair| pair[0].1 > pair[1].0) {
+    if next_reference != references.len() {
         return Err(failure(
-            "OVERLAPPING_STRING_DATA",
-            section_start,
-            section_end - section_start,
+            "STRING_OFFSET_NOT_ITEM_START",
+            references[next_reference].0,
+            1,
         ));
+    }
+    result.sort_unstable_by_key(|string| string.string_idx);
+    for pair in result.windows(2) {
+        if pair[0].text.utf16_units >= pair[1].text.utf16_units {
+            return Err(failure(
+                "STRING_IDS_NOT_STRICT_UTF16_ORDER",
+                table.range.byte_offset.0 + u64::from(pair[1].string_idx) * 4,
+                4,
+            ));
+        }
     }
     Ok(result)
 }
@@ -294,6 +340,27 @@ mod tests {
     use super::*;
     use crate::validate_header;
     use serde_json::Value;
+
+    #[test]
+    fn physical_string_item_starts_allow_orphans_and_reject_interior_offsets() {
+        for data in [
+            include_bytes!("../../../artifacts/integration/20261028/item-boundaries/valid-empty-string.dex").as_slice(),
+            include_bytes!("../../../artifacts/integration/20261028/item-boundaries/valid-orphan-string-data.dex").as_slice(),
+        ] {
+            let header = validate_header(data).unwrap();
+            let pool = read_string_pool(data, &header, StringLimits::default()).unwrap();
+            assert_eq!(pool.len(), 1);
+            assert!(pool[0].text.utf16_units.is_empty());
+            assert_eq!(pool[0].data_range.byte_offset.0, 116);
+        }
+        let data = include_bytes!(
+            "../../../artifacts/integration/20261028/item-boundaries/bad-interior-string.dex"
+        );
+        let header = validate_header(data).unwrap();
+        let error = read_string_pool(data, &header, StringLimits::default()).unwrap_err();
+        assert_eq!(error.details["reason"], "STRING_OFFSET_NOT_ITEM_START");
+        assert_eq!(error.details["byte_offset"], "117");
+    }
 
     fn bytes(hex: &str) -> Vec<u8> {
         hex.as_bytes()

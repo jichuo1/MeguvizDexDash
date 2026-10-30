@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-031-audit/multi-minmax-independent-20261029/sqlite_binary_columns.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T01:54:29.252994+00:00",
+  "finished_utc": "2026-10-29T01:54:29.333403+00:00",
+  "elapsed_seconds": 0.07800000000042928,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 86,
+    "sha256": "016b3b6a8f04d02c228b3ce567a1d4229720f2d74ff95020b32078829f54fe27"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

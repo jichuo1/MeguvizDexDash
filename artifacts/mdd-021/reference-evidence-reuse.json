@@ -1,0 +1,9 @@
+{
+  "reason": "final typed baseline facts exactly equal the earlier A0 comparison input; fixture bytes unchanged",
+  "equal_typed_facts": true,
+  "reference_comparison": "artifacts/mdd-021/reference-comparison.json",
+  "final_facts": "artifacts/mdd-021/final-orphan-validation/observed-rust-definitions.json",
+  "canonical_facts_sha256": "26ce52c239b6669147ccb50d067ddd087b82b58f69c62f0be6611550f19f5cf8",
+  "fixture_sha256": "4e8f9e8deedf44c8793e10d99f2614e0bed705dcac617c0d74137e7b2bd459cc",
+  "scope": "reuse finite correctness comparison only; no performance conclusion"
+}

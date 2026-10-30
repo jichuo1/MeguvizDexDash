@@ -1,0 +1,19 @@
+
+running 2 tests
+test tests::checksum_rejection_and_repaired_internal_path_are_distinct ... ok
+test tests::narrow_seeds_reach_code_and_encoded_values ... FAILED
+
+failures:
+
+---- tests::narrow_seeds_reach_code_and_encoded_values stdout ----
+
+thread 'tests::narrow_seeds_reach_code_and_encoded_values' (8224) panicked at src\lib.rs:410:9:
+assertion failed: run("encoded_values", values).value_nodes > 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    tests::narrow_seeds_reach_code_and_encoded_values
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

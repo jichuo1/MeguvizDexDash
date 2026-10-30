@@ -1,0 +1,29 @@
+{
+  "schema_version": "mdd.windows-job-run.v1",
+  "command_argv": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\baseline-venv\\Scripts\\python.exe",
+    "-c",
+    "import win32job,win32api,os;j=win32job.OpenJobObject(win32job.JOB_OBJECT_QUERY,False,os.environ['MDD_BASELINE_JOB_NAME']);inside=win32job.IsProcessInJob(win32api.GetCurrentProcess(),j);d=win32job.QueryInformationJobObject(j,win32job.JobObjectExtendedLimitInformation);j.Close();flags=d['BasicLimitInformation']['LimitFlags'];ok=inside and d['JobMemoryLimit']==536870912 and flags & win32job.JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;print('child actual Job limits verified',ok);exit(0 if ok else 4)"
+  ],
+  "measurement_scope": "supervised development run; not automatically a qualified speed sample",
+  "limits": {
+    "memory_commit_bytes": "536870912",
+    "affinity_mask": "1",
+    "max_processes": 16,
+    "timeout_seconds": 10,
+    "max_log_bytes": 16777216
+  },
+  "assigned_before_resume": true,
+  "tree_empty_verified": true,
+  "status": "completed",
+  "job_name": "mdd-baseline-26379fbce2e841cd8152d5856a6d0685",
+  "process_id": 53028,
+  "reason": null,
+  "exit_code": 0,
+  "cpu_user_seconds": 0.015625,
+  "cpu_kernel_seconds": 0.03125,
+  "total_processes": 3,
+  "peak_job_commit_bytes": "8593408",
+  "resource_scope": "all processes in the owned Job; peak commit is not RSS/PSS",
+  "wall_seconds": 0.20402520000061486
+}

@@ -1,0 +1,37 @@
+   Compiling typenum v1.20.1
+   Compiling cfg-if v1.0.5
+   Compiling const-oid v0.10.2
+   Compiling memchr v2.8.3
+   Compiling cpufeatures v0.3.1
+   Compiling itoa v1.0.18
+   Compiling zlib-rs v0.6.8
+   Compiling hashbrown v0.17.1
+   Compiling equivalent v1.0.2
+   Compiling typed-path v0.12.3
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling getrandom v0.4.3
+   Compiling crc32fast v1.5.2
+   Compiling quick-xml v0.42.0
+   Compiling indexmap v2.14.2
+   Compiling hybrid-array v0.4.15
+   Compiling block-buffer v0.12.1
+   Compiling crypto-common v0.2.2
+   Compiling digest v0.11.3
+   Compiling serde_json v1.0.151
+   Compiling serde v1.0.229
+   Compiling sha2 v0.11.0
+   Compiling sha1 v0.11.0
+   Compiling flate2 v1.1.10
+   Compiling mdd-types v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-types)
+   Compiling zip v8.6.0
+   Compiling mdd-dex v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-dex)
+   Compiling mdd-input v0.1.0-dev (D:\MeguvisDexDash\crates\mdd-input)
+   Compiling mdd-parser-fuzz v0.0.0 (D:\MeguvisDexDash\fuzz)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 9.31s
+     Running `fuzz\target\debug\mutation-smoke.exe fuzz/corpus 64`
+
+thread 'main' (57832) panicked at src\lib.rs:233:10:
+capture exact owned file: MddError { code: InvalidInput, stage: "capture", message: "input magic does not match declared kind", retryable: false, details: {"input_ordinal": String("0")} }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: process didn't exit successfully: `fuzz\target\debug\mutation-smoke.exe fuzz/corpus 64` (exit code: 101)
