@@ -102,7 +102,9 @@ MDD-034 已重新打开：独立真实组合反例中，executor向有界队列�
 
 消费者确认候选现以绑定队列逐包ack和显式End换取对应收据，再取得最终envelope；零行也需End，旧受信回调限制为测试私有入口。独立真实会话16场景、20次并发（完成先胜2、取消先胜18）、伪造收据及旧入口编译负例通过；未释放生命周期缓冲另有真实红绿修复。证据 artifacts/mdd-034-audit/delivery-confirmation-independent-20261029/final-20261029/verify-run/record.json。Windows工作区232项测试、严格Clippy通过；生产worker/IPC、完整分页和各兼容profile尚未验证，MDD-034保持in_progress。
 
-后续队列行将wire字节与Row持有容量分别做checked逻辑计量：稀疏数组低额度红绿与UTF-16、bytes、Entity内部容量、四级额度和取消持有测试通过；与拼接计步组合的Windows工作区241项测试、严格Clippy通过。独立探针首次运行因低内存阻断；第二轮探针实际失败，输出未标识具体quota case，不能推断产品通过或失败；修正测试前置阈值检查并重新构建后，第三次准入时可用1,506,959,360字节低于预设3,221,225,472，worker未启动。记录 artifacts/mdd-034/row-capacity-independent-20261029/；独立Row结果仍为blocked。provider入队前分配、完整临时JSON、消费者克隆、allocator/RSS及生产传输仍未覆盖；计数式编码原型尚在验证。
+后续队列行将wire字节与Row持有容量分别做checked逻辑计量：稀疏数组低额度红绿与UTF-16、bytes、Entity内部容量、四级额度和取消持有测试通过；与拼接计步组合的Windows工作区241项测试、严格Clippy通过。独立探针在保留两次低内存准入阻断及两次测试预期失败后，按原3GiB门槛重建并完成8个限定场景；相同wire的紧凑/稀疏行分别按各自容量计费，工作区、输出与队列quota发生阶段分别核对，证据 artifacts/mdd-034/row-capacity-independent-20261029/readback-1/record.json。provider入队前分配、消费者克隆、allocator/RSS及生产传输仍未覆盖；流式计数候选尚待最终独立验收。
+
+流式JSON候选对固定serde_json writer进行逐块Bytes编码和精确计数，成功后原子charge；真实低额度单线程红绿的最大单次分配申请由699108降至632字节，原始quota维度与截断终态保留。Windows工作区247项测试与严格Clippy通过。独立探针首次构建达180秒超时、树空；重试准入内存低于原3GiB而未启动，见 artifacts/mdd-034-audit/streaming-json-independent-20261029/readback-blocked.py，最终二进制与独立队列矩阵not_run。provider预分配、部分值的临时对象、其他serializer、allocator/RSS与传输未覆盖。静态审查另发现长Entity字符串的serde内部扫描和计数前累计驻留可能存在预算检查空窗，尚待真实反例，不将其写成已修复。
 
 MDD-031 SQL桥仍进行中：受限虚表、会话预算绑定、U64真值、USING和子串路径有本机测试；独立真值18例及固定A0/A1子串16例通过，合成Q15结果与SQLite一致。真实完整corpus、legacy适配及生产工作区内存绑定尚未验收。检查点862b3dd的 Windows 离线测试161项、0失败/跳过，工作区严格Clippy通过，命令记录在 artifacts/integration/20261029/workspace-tests/ 与 workspace-clippy/。
 

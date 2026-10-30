@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-29T06:37:47.868041+00:00",
+  "scope": "actual pre-change source and non-test red2 library readback; no product qualification",
+  "sha256": {
+    "crates/mdd-query/src/budget.rs": "e6ca2679eeba08f144fbf9c4a082a9594656d772d809ab914f66ff093d70b766",
+    "crates/mdd-query/src/executor.rs": "70a822365b41d7ad1edf926aea609437c0e13df9d1d8ff0b556cfd83b59f37ca",
+    "crates/mdd-query/src/ir/mod.rs": "a4fe8a1a66d70684b868eeb61a77e56aecc10377ded6acd517b3c59407cfe46f",
+    "Cargo.lock": "fcf51a7765c73af5e97f4aefd238fa0020c6c303ab42c20d48fbc55d8a56c089",
+    "artifacts/mdd-034/streaming-json-20261029/probe.rs": "d5383992b96bc2614962491c81caf49a85859229e38c044a7077b758d1ef63bc",
+    "artifacts/mdd-034/streaming-json-20261029/probe-first-red.rs": "9ae823f7a80d9a3a9b7ca353fee5e4b54cae82fadf6aa69d1d00374fcde6a702",
+    "target/debug/libmdd_query.rlib": "7b2ac634e1fa04bbb2fd9d5dc42f2bcea853ad2535d0fe80d0df888f46b3fbf0"
+  }
+}

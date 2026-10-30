@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-034/streaming-json-20261029/qualify.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:46:36.324704+00:00",
+  "finished_utc": "2026-10-29T06:46:36.469523+00:00",
+  "elapsed_seconds": 0.14099999999962165,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 95,
+    "sha256": "73207008b96b0f194ffa988b93a028dd38b124b1d5258d54815bae205871a15c"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

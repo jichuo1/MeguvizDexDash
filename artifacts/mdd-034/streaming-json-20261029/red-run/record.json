@@ -1,0 +1,20 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    "D:\\MeguvisDexDash\\artifacts\\local\\streaming-json-20261029\\red-probe.exe"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:36:08.873072+00:00",
+  "finished_utc": "2026-10-29T06:36:09.068938+00:00",
+  "elapsed_seconds": 0.18700000000171713,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 3334,
+    "sha256": "8c0a4e0dab01a19b9a437e39fc4a12bd9a9f5889ddb74546d6db9a383d302ec8"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

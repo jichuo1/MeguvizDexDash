@@ -3,8 +3,15 @@ use crate::budget::{BoundedSender, QueueDeliveryReceipt, Resource, RuntimeBudget
 use crate::ir::*;
 use crate::operators::{self, Truth};
 use mdd_types::{DecimalU64, ErrorCode, MddError, MddResult};
-use serde::Serialize;
-use std::collections::{BTreeMap, BTreeSet};
+use serde::{
+    Serialize, Serializer,
+    ser::{SerializeSeq, SerializeStruct},
+};
+use std::{
+    collections::{BTreeMap, BTreeSet},
+    fmt,
+    io::{self, Write},
+};
 
 pub mod facts;
 #[cfg(test)]
@@ -666,6 +673,137 @@ fn queued_row_resident_bytes(row: &Row) -> MddResult<u64> {
         total = add(total, inner)?;
     }
     Ok(total)
+}
+
+// Only the fixed serde_json writer path is qualified here. Other serializers may choose
+// to allocate when they implement `collect_str`; the public Value serializer is unchanged.
+struct StreamingBase64<'a>(&'a [u8]);
+impl fmt::Display for StreamingBase64<'_> {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        const ALPHABET: &[u8; 64] =
+            b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        for block in self.0.chunks(3) {
+            let bits = (u32::from(block[0]) << 16)
+                | (u32::from(*block.get(1).unwrap_or(&0)) << 8)
+                | u32::from(*block.get(2).unwrap_or(&0));
+            let quad = [
+                ALPHABET[((bits >> 18) & 63) as usize],
+                ALPHABET[((bits >> 12) & 63) as usize],
+                if block.len() > 1 {
+                    ALPHABET[((bits >> 6) & 63) as usize]
+                } else {
+                    b'='
+                },
+                if block.len() > 2 {
+                    ALPHABET[(bits & 63) as usize]
+                } else {
+                    b'='
+                },
+            ];
+            formatter.write_str(std::str::from_utf8(&quad).map_err(|_| fmt::Error)?)?;
+        }
+        Ok(())
+    }
+}
+struct StreamingBytes<'a>(&'a [u8]);
+impl Serialize for StreamingBytes<'_> {
+    fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        serializer.collect_str(&StreamingBase64(self.0))
+    }
+}
+struct StreamingValue<'a>(&'a Value);
+impl Serialize for StreamingValue<'_> {
+    fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        match self.0 {
+            Value::Bytes(bytes) => {
+                let mut value = serializer.serialize_struct("Value", 2)?;
+                value.serialize_field("type", "bytes")?;
+                value.serialize_field("value", &StreamingBytes(&bytes.0))?;
+                value.end()
+            }
+            value => value.serialize(serializer),
+        }
+    }
+}
+struct StreamingRow<'a>(&'a [Value]);
+impl Serialize for StreamingRow<'_> {
+    fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        let mut sequence = serializer.serialize_seq(Some(self.0.len()))?;
+        for value in self.0 {
+            sequence.serialize_element(&StreamingValue(value))?;
+        }
+        sequence.end()
+    }
+}
+
+struct RowCountWriter<'a, 'control> {
+    control: &'a mut Control<'control>,
+    runtime: &'a RuntimeBudget,
+    count: u64,
+    observed_cap: u64,
+    failure: Option<MddError>,
+}
+impl Write for RowCountWriter<'_, '_> {
+    fn write(&mut self, bytes: &[u8]) -> io::Result<usize> {
+        let attempt = (|| {
+            self.control.step("json_count", 1)?;
+            let amount = u64::try_from(bytes.len()).map_err(|_| quota("OUTPUT_SIZE_OVERFLOW"))?;
+            let next = self
+                .count
+                .checked_add(amount)
+                .ok_or_else(|| quota("OUTPUT_SIZE_OVERFLOW"))?;
+            if next > self.observed_cap {
+                // `remaining` is only a snapshot. A concurrent Admission may release its
+                // reservation, so recheck under the budget lock before reporting quota.
+                self.runtime
+                    .pool()
+                    .check_cumulative(Resource::OutputBytes, next)
+                    .map_err(|error| {
+                        error
+                            .detail("encoded_prefix_bytes", self.count.to_string())
+                            .detail("attempted_prefix_bytes", next.to_string())
+                            .detail("encoded_length_exact", false)
+                    })?;
+                self.observed_cap = next;
+            }
+            self.count = next;
+            Ok::<(), MddError>(())
+        })();
+        if let Err(error) = attempt {
+            self.failure = Some(error);
+            return Err(io::Error::other("bounded JSON count stopped"));
+        }
+        Ok(bytes.len())
+    }
+    fn flush(&mut self) -> io::Result<()> {
+        Ok(())
+    }
+}
+
+fn count_serialized<T: Serialize>(
+    value: &T,
+    control: &mut Control<'_>,
+    runtime: &RuntimeBudget,
+) -> MddResult<u64> {
+    let cap = runtime.pool().remaining(Resource::OutputBytes)?;
+    let mut writer = RowCountWriter {
+        control,
+        runtime,
+        count: 0,
+        observed_cap: cap,
+        failure: None,
+    };
+    let result = serde_json::to_writer(&mut writer, value);
+    if let Some(error) = writer.failure.take() {
+        return Err(error);
+    }
+    result
+        .map_err(|error| invalid("ROW_ENCODING").detail("serializer_error", error.to_string()))?;
+    Ok(writer.count)
+}
+
+fn count_wire_row(row: &Row, control: &mut Control<'_>, runtime: &RuntimeBudget) -> MddResult<u64> {
+    count_serialized(&StreamingRow(row), control, runtime)
 }
 impl Cursor<'_> {
     fn next(
@@ -1498,11 +1636,30 @@ pub fn execute_into(
                     .detail("budget", "output_rows")
                     .detail("limit", control.limits.max_output_rows.to_string()));
             }
-            let resident_bytes = queued_row_resident_bytes(&row)?;
-            let encoded = serde_json::to_vec(&row).map_err(|_| invalid("ROW_ENCODING"))?;
-            let wire_bytes =
-                u64::try_from(encoded.len()).map_err(|_| quota("OUTPUT_SIZE_OVERFLOW"))?;
-            drop(encoded);
+            let resident_bytes = match queued_row_resident_bytes(&row) {
+                Ok(value) => value,
+                Err(error) => {
+                    dropped = true;
+                    return Err(error);
+                }
+            };
+            if let Err(error) = runtime.checkpoint() {
+                dropped = true;
+                return Err(error);
+            }
+            for resource in [Resource::QueryWorkspaceBytes, Resource::ResidentBytes] {
+                if let Err(error) = runtime.pool().check_individual(resource, resident_bytes) {
+                    dropped = true;
+                    return Err(error);
+                }
+            }
+            let wire_bytes = match count_wire_row(&row, control, &runtime) {
+                Ok(value) => value,
+                Err(error) => {
+                    dropped = true;
+                    return Err(error);
+                }
+            };
             if let Err(error) = runtime.charge(Resource::OutputBytes, wire_bytes) {
                 dropped = true;
                 return Err(error);

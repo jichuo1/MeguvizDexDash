@@ -9,7 +9,7 @@ use mdd_query::{
 use mdd_session::{cancellation::QueryCancellation, Lifecycle, ResourceLimits, SessionHandle};
 use mdd_types::{result::{ResultIdentity, TerminalBuilder}, Completeness, Coverage, DecimalU64, ErrorCode, MddError, MddResult};
 use serde_json::{json, Value as Json};
-use std::{collections::BTreeSet, path::PathBuf, sync::Arc};
+use std::{collections::{BTreeMap, BTreeSet}, path::PathBuf, sync::{Arc, Mutex}};
 
 fn ensure(value: bool, message: &str) -> Result<(), String> {
     if value { Ok(()) } else { Err(message.to_owned()) }
@@ -165,10 +165,19 @@ fn quota_case(resource: Resource, limit: u64, expected_wire: u64) -> Result<Json
                             _ => false }, "quota test limit does not constrain selected resource")?;
     drop(observed_row);
     let (sender, mut receiver) = unwrap(bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2))?;
+    let phases = Arc::new(Mutex::new(BTreeMap::<String, u64>::new()));
+    let captured = Arc::clone(&phases);
+    let mut control = Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()).with_hook(move |checkpoint| {
+        let mut counts = captured.lock().map_err(|_| MddError::new(ErrorCode::InternalFault, "probe", "phase lock poisoned"))?;
+        let count = counts.entry(checkpoint.phase.to_owned()).or_default();
+        *count = count.checked_add(1).ok_or_else(|| MddError::new(ErrorCode::InternalFault, "probe", "phase count overflow"))?;
+        Ok(())
+    });
     let mut pending = unwrap(execute_into(&f.prepared, &f.source, ExecutionMode::Streaming,
-        &mut Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()), terminal(&f)?, &sender))?;
+        &mut control, terminal(&f)?, &sender))?;
     let QueueEvent::End(end) = unwrap(receiver.receive())? else { return Err(format!("{resource:?} quota produced data; limit={limit}")) };
-    ensure(end.as_ref().is_err_and(|e| e.code==ErrorCode::QuotaExceeded), "quota terminal missing")?;
+    let error = match end { Err(error) if error.code==ErrorCode::QuotaExceeded => error,
+                            _ => return Err(format!("{resource:?} quota terminal missing")) };
     let mut receipt = unwrap(receiver.into_delivery_receipt())?;
     let envelope = unwrap(receipt.finish(&mut pending))?;
     ensure(envelope.error.as_ref().is_some_and(|e| e.code==ErrorCode::QuotaExceeded), "quota envelope missing")?;
@@ -176,10 +185,34 @@ fn quota_case(resource: Resource, limit: u64, expected_wire: u64) -> Result<Json
     all_usage(&f, Resource::QueryWorkspaceBytes, 0)?;
     all_usage(&f, Resource::QueueBytes, 0)?;
     let output = used(f.runtime.pool(), Resource::OutputBytes)?;
-    if resource == Resource::OutputBytes { ensure(output == 0, "failed output charge changed accounting")?; }
-    else { ensure(output == expected_wire, "calculated output bytes not recorded before admission failure")?; }
-    Ok(json!({"case":format!("quota_{resource:?}"),"limit":limit,"end":"QUOTA_EXCEEDED",
-        "delivery_complete":false,"workspace_after":0,"queue_bytes_after":0,"output_bytes":output}))
+    let phase_counts = phases.lock().map_err(|_| "phase lock poisoned".to_owned())?.clone();
+    let json_steps = phase_counts.get("json_count").copied().unwrap_or(0);
+    let output_steps = phase_counts.get("output_row").copied().unwrap_or(0);
+    let observation = json!({"event":"quota_observed","resource":format!("{resource:?}"),"limit":limit,
+        "row_resident_capacity_bytes":observed_resident,"full_wire_bytes_independent":observed_wire,
+        "terminal_error":&error,"json_count_steps":json_steps,"output_row_steps":output_steps,
+        "query_steps":used(f.runtime.pool(), Resource::QuerySteps)?,"query_work_bytes":used(f.runtime.pool(), Resource::QueryWorkBytes)?,
+        "output_bytes_charged":output,"workspace_after":0,"queue_bytes_after":0,
+        "delivery_complete":false,"envelope_complete":envelope.is_complete_result()});
+    eprintln!("{observation}");
+    match resource {
+        Resource::QueryWorkspaceBytes => {
+            ensure(output==0 && json_steps==0 && output_steps==0,
+                   "workspace quota did not fail before JSON count/output charge")?;
+        }
+        Resource::OutputBytes => {
+            ensure(output==0 && json_steps>0 && output_steps==0,
+                   "output quota did not stop during JSON count before output charge")?;
+            ensure(error.details.get("encoded_length_exact")==Some(&json!(false)),
+                   "partial encoded count falsely marked exact")?;
+        }
+        Resource::QueueBytes => {
+            ensure(output==expected_wire && json_steps>0 && output_steps>0,
+                   "queue quota did not occur after full count/output charge")?;
+        }
+        _ => return Err("unexpected quota resource".into()),
+    }
+    Ok(observation)
 }
 fn cancelled_held_packet() -> Result<Json, String> {
     let f = fixture(BudgetLimits::default(), 1, true)?;
@@ -221,15 +254,19 @@ fn overflow() -> Result<Json, String> {
     Ok(json!({"case":"budget_counter_overflow","error":"QUOTA_EXCEEDED","original_retained_until_drop":true,"after_drop":0,
         "row_capacity_overflow":"not safely materializable; checked arithmetic reviewed statically"}))
 }
+fn observed(case: Json) -> Json {
+    eprintln!("{}", json!({"event":"case_completed", "observation":&case}));
+    case
+}
 fn main() {
     let result: Result<Json, String> = (|| {
         let sample = fixture(BudgetLimits::default(), 1, true)?;
         let wire = unwrap(serde_json::to_vec(&sample.source.row()))?.len() as u64;
-        let compact = complete_two_rows(false)?;
-        let sparse = complete_two_rows(true)?;
-        let cases = vec![compact, sparse, quota_case(Resource::QueryWorkspaceBytes, 1024, wire)?,
-                         quota_case(Resource::QueueBytes, wire-1, wire)?, quota_case(Resource::OutputBytes, wire-1, wire)?,
-                         cancelled_held_packet()?, missing_end()?, overflow()?];
+        let compact = observed(complete_two_rows(false)?);
+        let sparse = observed(complete_two_rows(true)?);
+        let cases = vec![compact, sparse, observed(quota_case(Resource::QueryWorkspaceBytes, 1024, wire)?),
+                         observed(quota_case(Resource::QueueBytes, wire-1, wire)?), observed(quota_case(Resource::OutputBytes, wire-1, wire)?),
+                         observed(cancelled_held_packet()?), observed(missing_end()?), observed(overflow()?)];
         Ok(json!({"status":"passed-scoped","cases":cases,"profile_admitted":false,
             "limitations":["provider constructed rows before admission", "serde temporary and caller clones not charged",
                            "logical capacities exclude allocator overhead and RSS", "no SQL or worker/transport profile qualification"]}))

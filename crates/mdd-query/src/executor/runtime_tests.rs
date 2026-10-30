@@ -327,6 +327,301 @@ fn queue_accounts_owned_row_capacity_separately_from_wire_length() {
     assert!(!f.cancel.status().unwrap().delivery_complete);
 }
 
+#[test]
+fn streaming_row_json_matches_fixed_serde_json_for_all_value_shapes() {
+    let f = setup(BudgetLimits::default());
+    let mut control = Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone());
+    let entity = mdd_facts::EntityRef {
+        snapshot_id: "snap\"\n雪".into(),
+        dex_occurrence_id: "dex\\\0😀".into(),
+        kind: mdd_facts::EntityKind::MethodDefinition,
+        local_index: 42,
+    };
+    let mut rows = vec![
+        vec![],
+        vec![
+            Value::Null,
+            Value::Bool(false),
+            Value::Bool(true),
+            Value::I64(Signed64(i64::MIN)),
+            Value::I64(Signed64(i64::MAX)),
+            Value::U64(DecimalU64(u64::MAX)),
+            Value::Utf16(vec![0, 0xd800, 0xdc00, 0xffff]),
+            Value::Entity(entity),
+        ],
+    ];
+    for n in [0usize, 1, 2, 3, 4, 5, 63, 64, 65, 4095, 4096, 4097, 65536] {
+        rows.push(vec![Value::Bytes(Bytes(
+            (0..n).map(|i| (i.wrapping_mul(37) % 256) as u8).collect(),
+        ))]);
+    }
+    for row in rows {
+        let baseline = serde_json::to_vec(&row).unwrap();
+        let streamed = serde_json::to_vec(&StreamingRow(&row)).unwrap();
+        assert_eq!(streamed, baseline);
+        assert_eq!(
+            count_wire_row(&row, &mut control, &f.runtime).unwrap(),
+            baseline.len() as u64
+        );
+    }
+}
+
+#[test]
+fn json_count_preserves_real_error_and_checked_overflow() {
+    struct Broken;
+    impl Serialize for Broken {
+        fn serialize<S: Serializer>(&self, _: S) -> Result<S::Ok, S::Error> {
+            Err(<S::Error as serde::ser::Error>::custom(
+                "actual serializer failure",
+            ))
+        }
+    }
+    let f = setup(BudgetLimits::default());
+    let mut control = Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone());
+    let error = count_serialized(&Broken, &mut control, &f.runtime).unwrap_err();
+    assert_eq!(error.code, ErrorCode::InvalidArgument);
+    assert_eq!(error.details["reason"], "ROW_ENCODING");
+    assert!(
+        error.details["serializer_error"]
+            .as_str()
+            .unwrap()
+            .contains("actual serializer failure")
+    );
+    let mut writer = RowCountWriter {
+        control: &mut control,
+        runtime: &f.runtime,
+        count: u64::MAX,
+        observed_cap: u64::MAX,
+        failure: None,
+    };
+    assert!(writer.write_all(b"x").is_err());
+    let error = writer.failure.take().unwrap();
+    assert_eq!(error.code, ErrorCode::QuotaExceeded);
+    assert_eq!(error.details["reason"], "OUTPUT_SIZE_OVERFLOW");
+}
+
+#[test]
+fn json_count_rechecks_released_parent_budget_and_final_charge_is_atomic() {
+    let f = setup(BudgetLimits::default().with(Resource::OutputBytes, 256));
+    let admission = f.session_budget.admit(Resource::OutputBytes, 256).unwrap();
+    assert_eq!(
+        f.runtime.pool().remaining(Resource::OutputBytes).unwrap(),
+        0
+    );
+    admission.commit(0).unwrap();
+    let mut control = Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone());
+    let row = vec![Value::Bool(true)];
+    let mut writer = RowCountWriter {
+        control: &mut control,
+        runtime: &f.runtime,
+        count: 0,
+        observed_cap: 0,
+        failure: None,
+    };
+    serde_json::to_writer(&mut writer, &StreamingRow(&row)).unwrap();
+    assert_eq!(writer.count, serde_json::to_vec(&row).unwrap().len() as u64);
+    let exact = writer.count;
+    drop(writer);
+    // A different query can spend the shared budget after counting; the final charge must
+    // recheck the current ancestor state rather than relying on the earlier snapshot.
+    f.session_budget.charge(Resource::OutputBytes, 256).unwrap();
+    let error = f.runtime.charge(Resource::OutputBytes, exact).unwrap_err();
+    assert_eq!(error.code, ErrorCode::QuotaExceeded);
+    assert_eq!(error.details["budget"], "output_bytes");
+}
+
+#[test]
+fn json_count_cancel_preserves_terminal_and_no_output_charge() {
+    let f = setup_with_schema(
+        BudgetLimits::default(),
+        DataType::Bytes,
+        vec![vec![Value::Bytes(Bytes(vec![42; 256]))]],
+    );
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let mut hits = 0;
+    let mut control = Control::new(ExecutionLimits::default())
+        .with_runtime(f.runtime.clone())
+        .with_hook(move |point| {
+            if point.phase == "json_count" {
+                hits += 1;
+            }
+            if hits == 3 {
+                return Err(MddError::new(
+                    ErrorCode::Cancelled,
+                    "test.json",
+                    "cancel during counting",
+                ));
+            }
+            Ok(())
+        });
+    let mut pending = execute_into(
+        &f.prepared,
+        &f.source,
+        ExecutionMode::Streaming,
+        &mut control,
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    let QueueEvent::End(end) = receiver.receive().unwrap() else {
+        panic!("cancelled count returned data")
+    };
+    let error = end.unwrap_err();
+    assert_eq!(error.code, ErrorCode::Cancelled);
+    assert_eq!(error.stage, "test.json");
+    let mut receipt = receiver.into_delivery_receipt().unwrap();
+    let result = receipt.finish(&mut pending).unwrap();
+    assert_eq!(result.operation_status, OperationStatus::Cancelled);
+    assert!(result.response.truncated);
+    assert_eq!(
+        f.runtime
+            .pool()
+            .usage()
+            .unwrap()
+            .used
+            .get(&Resource::OutputBytes)
+            .map_or(0, |v| v.0),
+        0
+    );
+    assert!(!f.cancel.status().unwrap().delivery_complete);
+}
+
+#[test]
+fn low_output_fails_on_observed_prefix_and_exact_limit_delivers() {
+    let row = vec![Value::Bytes(Bytes(vec![0x5a; 256]))];
+    let f = setup_with_schema(
+        BudgetLimits::default().with(Resource::OutputBytes, 64),
+        DataType::Bytes,
+        vec![row],
+    );
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let mut pending = execute_into(
+        &f.prepared,
+        &f.source,
+        ExecutionMode::Streaming,
+        &mut Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()),
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    let QueueEvent::End(end) = receiver.receive().unwrap() else {
+        panic!("over-budget output delivered a row")
+    };
+    let error = end.unwrap_err();
+    assert_eq!(error.code, ErrorCode::QuotaExceeded);
+    assert_eq!(error.details["budget"], "output_bytes");
+    assert_eq!(error.details["encoded_length_exact"], false);
+    assert!(
+        error.details["attempted_prefix_bytes"]
+            .as_str()
+            .unwrap()
+            .parse::<u64>()
+            .unwrap()
+            > 64
+    );
+    let mut receipt = receiver.into_delivery_receipt().unwrap();
+    let end = receipt.finish(&mut pending).unwrap();
+    assert!(end.response.truncated);
+    assert_eq!(end.error.unwrap().code, ErrorCode::QuotaExceeded);
+    assert_eq!(
+        f.runtime
+            .pool()
+            .usage()
+            .unwrap()
+            .used
+            .get(&Resource::OutputBytes)
+            .map_or(0, |v| v.0),
+        0
+    );
+
+    let row = vec![Value::Bytes(Bytes(vec![1, 2, 3]))];
+    let exact = serde_json::to_vec(&row).unwrap().len() as u64;
+    let f = setup_with_schema(
+        BudgetLimits::default().with(Resource::OutputBytes, exact),
+        DataType::Bytes,
+        vec![row.clone()],
+    );
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let mut pending = execute_into(
+        &f.prepared,
+        &f.source,
+        ExecutionMode::Streaming,
+        &mut Control::new(ExecutionLimits::default()).with_runtime(f.runtime.clone()),
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    let QueueEvent::Data(packet) = receiver.receive().unwrap() else {
+        panic!("exact limit lost row")
+    };
+    assert_eq!(packet.payload(), &row);
+    packet.acknowledge().unwrap();
+    assert!(matches!(
+        receiver.receive().unwrap(),
+        QueueEvent::End(Ok(()))
+    ));
+    let mut receipt = receiver.into_delivery_receipt().unwrap();
+    assert!(receipt.finish(&mut pending).unwrap().is_complete_result());
+    assert_eq!(
+        f.runtime
+            .pool()
+            .usage()
+            .unwrap()
+            .used
+            .get(&Resource::OutputBytes)
+            .unwrap()
+            .0,
+        exact
+    );
+}
+
+#[test]
+fn oversized_owned_row_is_rejected_before_json_counting() {
+    let f = setup_with_schema(
+        BudgetLimits::default().with(Resource::QueryWorkspaceBytes, 8192),
+        DataType::Bytes,
+        vec![],
+    );
+    let source = SparseInner {
+        source: &f.source,
+        kind: SparseInnerKind::Bytes,
+        capacity: 10_000,
+    };
+    let (sender, mut receiver) =
+        bounded_channel(f.runtime.pool().clone(), Some(f.cancel.clone()), 2).unwrap();
+    let calls = Arc::new(std::sync::atomic::AtomicUsize::new(0));
+    let seen = Arc::clone(&calls);
+    let mut control = Control::new(ExecutionLimits::default())
+        .with_runtime(f.runtime.clone())
+        .with_hook(move |point| {
+            if point.phase == "json_count" {
+                seen.fetch_add(1, std::sync::atomic::Ordering::SeqCst);
+            }
+            Ok(())
+        });
+    let mut pending = execute_into(
+        &f.prepared,
+        &source,
+        ExecutionMode::Streaming,
+        &mut control,
+        terminal(&f),
+        &sender,
+    )
+    .unwrap();
+    let QueueEvent::End(end) = receiver.receive().unwrap() else {
+        panic!("oversized row delivered")
+    };
+    let error = end.unwrap_err();
+    assert_eq!(error.code, ErrorCode::QuotaExceeded);
+    assert_eq!(error.details["budget"], "query_workspace_bytes");
+    assert_eq!(calls.load(std::sync::atomic::Ordering::SeqCst), 0);
+    let mut receipt = receiver.into_delivery_receipt().unwrap();
+    assert!(receipt.finish(&mut pending).unwrap().response.truncated);
+}
+
 #[derive(Clone, Copy)]
 enum SparseInnerKind {
     Utf16,

@@ -1,0 +1,14 @@
+{
+  "schema_version": "mdd.raw-occurrence-preflight.v1",
+  "created_utc": "2026-10-29T06:56:54.250719+00:00",
+  "decision": "blocked_by_resource_window",
+  "available_physical_bytes": "858247168",
+  "minimum_available_bytes": "3221225472",
+  "input_parsed": false,
+  "build_started": false,
+  "probe_started": false,
+  "private_input_used": false,
+  "task_complete_proven": false,
+  "profile_admitted": false,
+  "scope": "read-only Windows physical memory admission observation; no test/performance claim"
+}

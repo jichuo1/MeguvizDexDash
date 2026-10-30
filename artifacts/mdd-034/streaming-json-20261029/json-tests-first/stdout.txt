@@ -1,0 +1,8 @@
+
+running 3 tests
+test executor::runtime_tests::json_count_cancel_preserves_terminal_and_no_output_charge ... ok
+test executor::runtime_tests::json_count_preserves_real_error_and_checked_overflow ... ok
+test executor::runtime_tests::json_count_rechecks_released_parent_budget_and_final_charge_is_atomic ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 47 filtered out; finished in 0.00s
+

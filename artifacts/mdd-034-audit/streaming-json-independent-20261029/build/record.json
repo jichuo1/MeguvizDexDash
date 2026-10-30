@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.cargo\\bin\\cargo.EXE",
+    "build",
+    "--locked",
+    "--offline",
+    "--jobs",
+    "1",
+    "--manifest-path",
+    "D:\\MeguvisDexDash\\artifacts\\mdd-034-audit\\streaming-json-independent-20261029\\Cargo.toml"
+  ],
+  "started_utc": "2026-10-29T06:50:43.289630+00:00",
+  "finished_utc": "2026-10-29T06:53:43.703136+00:00",
+  "exit_code": 124,
+  "timed_out": true,
+  "tree_empty_verified": true,
+  "job_status": "failed",
+  "admission_sha256": "1073b94827929954981debd0c8075979732aeff06d32b71827e175a8e582805b",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "a78d896b76a396e4b3efc0f658ff266663d97f863047929e3e2a9b82d8db898f",
+  "supervisor_sha256": "f919de010b462448d77e7fbb95eb6c99f4d35bb328b33de975de57b8a4230727",
+  "scope": "independent static development check; no performance qualification"
+}

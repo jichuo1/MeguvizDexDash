@@ -1,0 +1,22 @@
+{
+  "schema_version": "mdd.command-record.v1",
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-O",
+    "artifacts/mdd-034-audit/json-count-prototype-20261029/verify.py"
+  ],
+  "cwd": "D:\\MeguvisDexDash",
+  "started_utc": "2026-10-29T06:33:07.712643+00:00",
+  "finished_utc": "2026-10-29T06:33:07.852641+00:00",
+  "elapsed_seconds": 0.125,
+  "exit_code": 0,
+  "measurement_scope": "development validation, not performance qualification",
+  "stdout": {
+    "bytes": 1158,
+    "sha256": "0340e44adadc69496dc73813c218f401b7483a0e7b3e22219d95336a390b7f13"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

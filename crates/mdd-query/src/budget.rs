@@ -392,6 +392,30 @@ impl BudgetPool {
             .min()
             .unwrap_or(0))
     }
+    /// Check one cumulative charge against all current ancestors without committing it.
+    /// A subsequent charge still rechecks atomically because siblings may change usage.
+    pub(crate) fn check_cumulative(&self, resource: Resource, amount: u64) -> MddResult<()> {
+        self.checkpoint()?;
+        if resource.resident() || resource == Resource::MemberUncompressedBytes {
+            return Err(invalid("resource requires reservation or per-member check"));
+        }
+        let state = self.lock()?;
+        for owner in Self::ancestors(&state, &self.owner) {
+            let node = &state.nodes[&owner];
+            let limit = node.limits.limit(resource);
+            let value = node
+                .used
+                .get(&resource)
+                .copied()
+                .unwrap_or(0)
+                .checked_add(amount)
+                .ok_or_else(|| exceeded(resource, limit, "overflow", &owner))?;
+            if value > limit {
+                return Err(exceeded(resource, limit, value, &owner));
+            }
+        }
+        Ok(())
+    }
     pub fn accepts_owner(&self, owner: &BudgetPool) -> MddResult<bool> {
         if !Arc::ptr_eq(&self.state, &owner.state) {
             return Ok(false);
